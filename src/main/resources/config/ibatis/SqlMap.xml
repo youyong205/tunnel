@@ -4,44 +4,5 @@
 	<settings cacheModelsEnabled="true" enhancementEnabled="false"
 		lazyLoadingEnabled="false" maxRequests="3000" maxSessions="3000"
 		maxTransactions="3000" useStatementNamespaces="false"/>
-		
-	<sqlMap resource="config/ibatis/News.xml"/>
-	<sqlMap resource="config/ibatis/Category.xml"/>
-	<sqlMap resource="config/ibatis/NewsCategory.xml"/>
-	<sqlMap resource="config/ibatis/SmallCategory.xml"/>
-	<sqlMap resource="config/ibatis/Image.xml"/>
-	
-	<sqlMap resource="config/ibatis/Media.xml"/>
-	<sqlMap resource="config/ibatis/Player.xml"/>
-	<sqlMap resource="config/ibatis/Adwords.xml"/>
-	
-	<sqlMap resource="config/ibatis/ProductCategory.xml"/>
-	<sqlMap resource="config/ibatis/Product.xml"/>
-	<sqlMap resource="config/ibatis/ProductImage.xml"/>
-	<sqlMap resource="config/ibatis/ProductOrder.xml"/>
-	<sqlMap resource="config/ibatis/CourtOrder.xml"/>
-	<sqlMap resource="config/ibatis/Team.xml"/>
-	<sqlMap resource="config/ibatis/TeamMemberImage.xml"/>
-	<sqlMap resource="config/ibatis/TeamNews.xml"/>
-	<sqlMap resource="config/ibatis/UserMessage.xml"/>
-	
-	<sqlMap resource="config/ibatis/Court.xml"/>
-	<sqlMap resource="config/ibatis/CourtImage.xml"/>
-	<sqlMap resource="config/ibatis/CourtRaider.xml"/>
-	<sqlMap resource="config/ibatis/CourtComments.xml"/>
-	<sqlMap resource="config/ibatis/NewsComments.xml"/>
-	
-	<sqlMap resource="config/ibatis/ImageSpecial.xml"/>
-	<sqlMap resource="config/ibatis/ImageSpecialDetail.xml"/>
-	<sqlMap resource="config/ibatis/MatchService.xml"/>
-	<sqlMap resource="config/ibatis/SpecialNews.xml"/>
-	<sqlMap resource="config/ibatis/LearnClub.xml"/>
-	<sqlMap resource="config/ibatis/DrivingRange.xml"/>
-	
-	<sqlMap resource="config/ibatis/TravelHotel.xml"/>
-	<sqlMap resource="config/ibatis/TravelHotelImage.xml"/>
-	<sqlMap resource="config/ibatis/Travel.xml"/>
-	<sqlMap resource="config/ibatis/TravelPlan.xml"/>
-	<sqlMap resource="config/ibatis/TravelLog.xml"/>
-	<sqlMap resource="config/ibatis/TravelCourt.xml"/>
+		<sqlMap resource="config/ibatis/User.xml"/>
 </sqlMapConfig>

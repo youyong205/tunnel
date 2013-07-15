@@ -1,0 +1,86 @@
+body {
+	font-family: arial, helvetica, sans-serif;
+	font-size: small;
+	background: white;
+	color: black;
+	margin: 4px;
+	padding: 0;
+}
+
+.space{
+	margin-left:6px;	
+}
+
+.title {
+	font-weight: normal;
+	background: white;
+	color: #08c;
+	text-align:center;
+}
+
+.even{
+	background-color:#f9f9f9;
+}
+
+th {
+	background: white;
+	color: #08c;
+	font: normal "TArial", "Helvetica", "sans-serif";
+	text-align: center;
+}
+
+.select {
+	width: 160px;
+}
+
+.red {
+	color: red;
+}
+
+input,select,textarea,.uneditable-input {
+	width: auto;
+}
+
+select{
+	height:auto;
+}
+.left {
+	text-align: right;
+	padding-right: 15px;
+	color: #08c;
+}
+
+.nav-list  li  a{
+	padding:0px 15px;
+}
+
+.nav li  +.nav-header{
+	margin-top:2px;
+}
+.nav-header{
+	padding:0px 3px;
+}
+.well{
+	padding:10px 10px 10px 19px;
+}
+.row-fluid .span2 {
+	width: 10%;
+}
+.row-fluid .span10 {
+	width: 87%;
+}
+
+label{
+	display:inline;
+	padding-left:10px;
+}
+
+.error{
+	color:red;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+	margin-bottom:0px;
+}
+strong{
+	font-size:15px;
+}

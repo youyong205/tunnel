@@ -21,10 +21,10 @@ public class TestServer {
 
 	@Before
 	public void before() throws Exception {
-		server = new Server(2281);
+		server = new Server(2282);
 		WebAppContext context = new WebAppContext();
 
-		context.setContextPath("/g");
+		context.setContextPath("/t");
 		context.setDescriptor("src/main/webapp/WEB-INF/web.xml");
 		context.setResourceBase("src/main/webapp");
 		server.setHandler(context);
@@ -32,11 +32,11 @@ public class TestServer {
 	}
 	
 	public static void main(String args[]) throws Exception{
-		Server server = new Server(2281);
+		Server server = new Server(2282);
 		WebAppContext context = new WebAppContext();
 
 		System.setProperty("devMode", "true");
-		context.setContextPath("/g");
+		context.setContextPath("/t");
 		context.setDescriptor("src/main/webapp/WEB-INF/web.xml");
 		context.setResourceBase("src/main/webapp");
 		server.setHandler(context);
