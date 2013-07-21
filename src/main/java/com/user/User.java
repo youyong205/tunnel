@@ -80,4 +80,10 @@ public class User {
 		m_modifyDate = modifyDate;
 	}
 
+	@Override
+   public String toString() {
+	   return "User [m_id=" + m_id + ", m_userName=" + m_userName + ", m_password=" + m_password + ", m_realName="
+	         + m_realName + ", m_role=" + m_role + "]";
+   }
+
 }

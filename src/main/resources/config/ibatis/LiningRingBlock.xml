@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="liningRingBlock" type="com.liningRing.LiningRingBlock" />
+	<sql id="liningRingBlock.columns">
+		id,liningRingId,blockIndex,angle,color,des,creationDate,modifyDate
+	</sql>
+	<select id="liningRingBlock.queryByLiningRingId" parameterClass="int" resultClass="liningRingBlock">
+		select
+		<include refid="liningRingBlock.columns" />
+		from liningRingBlock where liningRingId=#liningRingId# order by blockIndex
+	</select>
+	<insert id="liningRingBlock.insert" parameterClass="liningRingBlock">
+		insert into liningRingBlock (<include refid="liningRingBlock.columns"/>) values
+		(#id#,#liningRingId#,#blockIndex#,#angle#,#color#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<delete id="liningRingBlock.deleteByLiningRingId" parameterClass="int">
+		delete from liningRingBlock
+		where
+		liningRingId=#liningRingId#
+	</delete>
+</sqlMap>

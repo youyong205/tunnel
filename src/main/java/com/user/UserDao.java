@@ -29,8 +29,12 @@ public class UserDao {
 		return m_baseDao.queryForList("user.queryLimitedUsers", parameters);
 	}
 
-	public User findByName(String name) {
-		return (User) m_baseDao.queryForObject("user.findByName", name);
+	public User findByNamePassword(String userName,String password) {
+		Map<String,String> pars = new HashMap<String,String>();
+		
+		pars.put("userName", userName);
+		pars.put("password", password);
+		return (User) m_baseDao.queryForObject("user.findByName", pars);
 	}
 
 	public User findByPK(int id) {

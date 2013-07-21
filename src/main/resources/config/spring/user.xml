@@ -15,5 +15,13 @@
 		<property name="userService">
 			<ref bean="userService" />
 		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+	</bean>
+	<bean id="loginAction" class="com.login.LoginAction" scope="prototype">
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
 	</bean>
 </beans>  

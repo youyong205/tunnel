@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.Constrants;
 import com.PagedAction;
+import com.log.Log;
 
 public class UserAction extends PagedAction {
 
-	private static final long serialVersionUID = 2801256599554299998L;
+   private static final long serialVersionUID = 4901652667413788534L;
 
 	private Logger m_logger = Logger.getLogger(UserAction.class);
 
@@ -17,7 +19,7 @@ public class UserAction extends PagedAction {
 	private int m_userId;
 
 	private UserService m_userService;
-
+	
 	private User m_user = new User();
 
 	public User getUser() {
@@ -39,11 +41,18 @@ public class UserAction extends PagedAction {
 	public void setUserService(UserService userService) {
 		m_userService = userService;
 	}
+	
+	public String userAdd(){
+		return SUCCESS;
+	}
 
 	public String userAddSubmit() {
 		try {
 			int id = m_userService.insertUser(m_user);
 			if (id > 0) {
+				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_add, m_user);
+				
+				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
 				return ERROR;
@@ -58,6 +67,9 @@ public class UserAction extends PagedAction {
 		try {
 			int count = m_userService.deleteUser(m_userId);
 			if (count > 0) {
+				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_delete, m_userId);
+				
+				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
 				return ERROR;
@@ -70,10 +82,8 @@ public class UserAction extends PagedAction {
 
 	public String userList() {
 		try {
-			int totalSize = m_userService.queryAllSize();
-			if (totalSize > 0) {
-				m_totalPages = (int) Math.floor(totalSize * 1.0 / SIZE);
-			}
+			m_totalSize = m_userService.queryAllSize();
+			m_totalPages = computeTotalPages(m_totalSize);
 			int start = (m_index - 1) * SIZE;
 			if (start < 0) {
 				start = 0;
@@ -104,6 +114,9 @@ public class UserAction extends PagedAction {
 		try {
 			int count = m_userService.updateUser(m_user);
 			if (count > 0) {
+				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_update, m_user);
+				
+				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
 				return ERROR;

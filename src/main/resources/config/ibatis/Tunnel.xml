@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="tunnel" type="com.tunnel.Tunnel" />
+
+	<sql id="tunnel.columns">
+		id,name,des,creationDate
+	</sql>
+	<select id="tunnel.queryAllTunnels" resultClass="tunnel">
+		select
+		<include refid="tunnel.columns" />
+		from tunnel
+	</select>
+	<select id="tunnel.queryAllSize" resultClass="int">
+		select count(*) from tunnel
+	</select>
+	<select id="tunnel.queryLimitedTunnels" resultClass="tunnel">
+		select
+		<include refid="tunnel.columns" />
+		from tunnel limit #start#,#size#
+	</select>
+	<select id="tunnel.findByName" resultClass="tunnel" parameterClass="String">
+		select
+		<include refid="tunnel.columns" />
+		from tunnel where name=#name#
+	</select>
+	<select id="tunnel.findById" resultClass="tunnel" parameterClass="int">
+		select
+		<include refid="tunnel.columns" />
+		from tunnel where id=#id#
+	</select>
+	<insert id="tunnel.insert" parameterClass="tunnel">
+		insert into tunnel (<include refid="tunnel.columns" />) values
+		(#id#,#name#,#des#,now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="tunnel.update" parameterClass="tunnel">
+		update tunnel set
+		name=#name#,des=#des#
+		where id=#id#
+	</update>
+	<delete id="tunnel.delete" parameterClass="int">
+		delete from tunnel
+		where
+		id=#id#
+	</delete>
+</sqlMap>

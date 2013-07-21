@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="tunnelSectionDao" class="com.tunnelSection.TunnelSectionDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="tunnelSectionService" class="com.tunnelSection.TunnelSectionServiceImpl">
+		<property name="tunnelSectionDao">
+			<ref bean="tunnelSectionDao" />
+		</property>
+	</bean>
+	<bean id="tunnelSectionAction" class="com.tunnelSection.TunnelSectionAction" scope="prototype">
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+	</bean>
+</beans>  

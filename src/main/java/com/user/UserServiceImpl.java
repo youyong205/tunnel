@@ -33,9 +33,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findByName(String name) {
+	public User findByNamePassword(String name,String password) {
 		try {
-			return m_userDao.findByName(name);
+			return m_userDao.findByNamePassword(name,password);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return null;

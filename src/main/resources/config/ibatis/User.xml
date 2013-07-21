@@ -19,10 +19,10 @@
 		<include refid="user.columns" />
 		from user limit #start#,#size#
 	</select>
-	<select id="user.findByName" resultClass="user" parameterClass="String">
+	<select id="user.findByName" resultClass="user" >
 		select
 		<include refid="user.columns" />
-		from user where userName=#userName#
+		from user where userName=#userName# and password=#password#
 	</select>
 	<select id="user.findById" resultClass="user" parameterClass="int">
 		select

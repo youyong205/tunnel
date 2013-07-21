@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="liningRing" extends="default">
+		<action name="liningRingList" class="liningRingAction" method="liningRingList">
+			<result name="success">admin/liningRing/LiningRingList.jsp</result>
+		</action>
+		<action name="liningRingAdd" class="liningRingAction" method="liningRingAdd">
+			<result name="success">admin/liningRing/LiningRingAdd.jsp</result>
+		</action>
+		<action name="liningRingAddSubmit" class="liningRingAction" method="liningRingAddSubmit">
+			<result name="success" type="redirect">liningRingList.action?index=${index}</result>
+		</action>
+		<action name="liningRingUpdate" class="liningRingAction" method="liningRingUpdate" >
+			<result name="success">admin/liningRing/LiningRingUpdate.jsp</result>
+		</action>
+		<action name="liningRingUpdateSubmit" class="liningRingAction" method="liningRingUpdateSubmit">
+			<result name="success" type="redirect">liningRingList.action?index=${index}</result>
+		</action>
+		<action name="liningRingDelete" class="liningRingAction" method="liningRingDelete">
+			<result name="success" type="redirect">liningRingList.action?index=${index}</result>
+		</action>
+	</package>	
+</struts>

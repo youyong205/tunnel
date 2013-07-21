@@ -8,7 +8,7 @@ public interface UserService {
 
 	public List<User> queryLimitedUsers(int start, int size);
 
-	public User findByName(String name);
+	public User findByNamePassword(String name,String password);
 
 	public User findByPK(int id);
 

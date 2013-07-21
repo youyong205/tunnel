@@ -5,10 +5,12 @@
 <head>
 <title>软土盾构隧道后台管理系统</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet" user="screen">
+<link rel="stylesheet" type='text/css' href="css/bootstrap.min.css" >
 <link rel='stylesheet' type='text/css' href='css/admin.css' />
-<script src="js/jquery-1.7.1.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#userList').addClass('active');
@@ -26,14 +28,14 @@
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10"> 
-			<table class="table table-striped table-bordered table-condensed">
+			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
 					<th width="20%">用户名</th>
 					<th width="25%">真实姓名</th>
 					<th width="25%">密码</th>
 					<th width="15%">角色</th>
-					<th width="10%">操作<a class="space btn btn-small btn-primary" href="userAdd.do" >新增</a></th>
+					<th width="10%">操作<a class="space btn btn-small btn-success" href="userAdd.do?index=<s:property value="index"/>" >新增</a></th>
 				</tr></thead><tbody>
 				<s:iterator value="users" status="vs">
 					<tr>
@@ -46,14 +48,14 @@
 						<s:elseif test="${role ==2 }">数据录入员</s:elseif>
 						<s:elseif test="${role ==3 }">管理员</s:elseif>
 					</td>
-					<td><a class="btn btn-small btn-primary" href="userUpdate.do?userId=<s:property value="id"/>">编辑</a>
-						<a class="delete btn  btn-small btn-danger" href="userDelete.do?userId=<s:property value="id"/>">删除</a></td>
+					<td><a class="btn btn-small btn-primary" href="userUpdate.do?userId=<s:property value="id"/>&index=<s:property value="index"/>">编辑</a>
+						<a class="delete btn  btn-small btn-danger" href="userDelete.do?userId=<s:property value="id"/>&index=<s:property value="index"/>">删除</a></td>
 					</tr>
 				</s:iterator></tbody>
 			</table>
 			<div class="pagination text-center">
 			  <ul>
-			  	<li><a href="#">共${totalPages}页</a></li>
+			  	<li><a href="#">共${totalSize}记录，${totalPages}页</a></li>
 			    <li><a href="?index=1">首页</a></li>
 				    <s:iterator id="item" value="pageIndexs" >
 				    	<s:if test="${item == index }">

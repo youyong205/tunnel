@@ -30,7 +30,7 @@
 		<property name="maxAdministrativeTaskTime" value="5" />
 		<property name="preferredTestQuery" value="SELECT 1;set names utf8;" />
 	</bean>
-   <bean id="baseDao" class="com.tunnel.BaseDao">
+   <bean id="baseDao" class="com.BaseDao">
 		<property name="dataSource">
 			<ref bean="dataSource" />
 		</property>

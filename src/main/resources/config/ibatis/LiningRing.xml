@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="liningRing" type="com.liningRing.LiningRing" />
+	<sql id="liningRing.columns">
+		id,name,type,pipeShape,pipeNumber,pipeThickness,pipeWidth,
+		wedgeNumber,des,creationDate,modifyDate
+	</sql>
+	<select id="liningRing.queryAllLiningRings" resultClass="liningRing">
+		select
+		<include refid="liningRing.columns" />
+		from liningRing
+	</select>
+	<select id="liningRing.queryAllSize" resultClass="int">
+		select count(*) from liningRing
+	</select>
+	<select id="liningRing.queryLimitedLiningRings" resultClass="liningRing">
+		select
+		<include refid="liningRing.columns" />
+		from liningRing limit #start#,#size#
+	</select>
+	<select id="liningRing.findByName" resultClass="liningRing" parameterClass="String">
+		select
+		<include refid="liningRing.columns" />
+		from liningRing where name=#name#
+	</select>
+	<select id="liningRing.findById" resultClass="liningRing" parameterClass="int">
+		select
+		<include refid="liningRing.columns" />
+		from liningRing where id=#id#
+	</select>
+	<insert id="liningRing.insert" parameterClass="liningRing">
+		insert into liningRing (<include refid="liningRing.columns" />) values
+		(#id#,#name#,#type#,#pipeShape#,#pipeNumber#,#pipeThickness#,#pipeWidth#,
+		#wedgeNumber#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="liningRing.update" parameterClass="liningRing">
+		update liningRing set
+		name=#name#,type=#type#,pipeShape=#pipeShape#,pipeNumber=#pipeNumber#,
+		pipeThickness=#pipeThickness#,pipeWidth=#pipeWidth#,
+		wedgeNumber=#wedgeNumber#,des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="liningRing.delete" parameterClass="int">
+		delete from liningRing
+		where
+		id=#id#
+	</delete>
+</sqlMap>

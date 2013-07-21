@@ -5,35 +5,17 @@
 <head>
 <title>软土盾构隧道后台管理系统</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet" user="screen">
+<link rel="stylesheet" type='text/css' href="css/bootstrap.min.css" >
 <link rel='stylesheet' type='text/css' href='css/admin.css' />
-<script src="js/jquery-1.7.1.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#userList').addClass("active");
-	$("#form").validate({
-		rules : {
-			"user.userName" : {
-				required : true
-			},"user.password" : {
-				required : true
-			},"user.realName" : {
-				required : true
-			}
-		},
-		messages : {
-			"user.userName" : {
-				required : "请输入用户名"
-			},"user.password" : {
-				required : "请输入密码"
-			},"user.realName" : {
-				required : "请输入真实姓名"
-			}
-		}
-
-	});
+	$("#form").validate();
 });
 </script>
 </head>
@@ -49,19 +31,22 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">新增用户信息</h4></th>
+						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">用户名</strong></td>
-						<td><input type="text" size="60" name="user.userName" /></td>
+						<td>
+							<input type="text" size="60" name="user.userName"  required/>
+						</td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">密码</strong></td>
-						<td><input type="text" size="60" name="user.password" /></td>
+						<td><input type="text" size="60" name="user.password" required/></td>
 					</tr>
 					
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">真实姓名</strong></td>
-						<td><input type="text" size="60" name="user.realName" /></td>
+						<td><input type="text" size="60" name="user.realName" required/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success text-right">用户角色</strong></td>
@@ -75,7 +60,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align:center;">
-							<button  class="btn btn-small btn-primary"  type="submit" >提交</button>
+							<button  class="btn btn-small btn-primary"  type="submit" >提交</button></td>
 					</tr>
 					</table>
 			</form>

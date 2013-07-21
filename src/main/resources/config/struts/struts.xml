@@ -17,7 +17,13 @@
 	<constant name="struts.action.extension" value="do,action" />
 
 	<include file="config/struts/struts-user.xml"></include>
-	<package name="tunnel" extends="struts-default">
+	<include file="config/struts/struts-log.xml"></include>
+	<include file="config/struts/struts-login.xml"></include>
+	<include file="config/struts/struts-liningRing.xml"></include>
+	<include file="config/struts/struts-tunnel.xml"></include>
+	<include file="config/struts/struts-tunnelSection.xml"></include>
+	
+	<package name="default" extends="struts-default">
 		<!-- <interceptors> <interceptor name="loginInterceptor" class="com.golf.tools.UserInterceptor"> 
 			</interceptor> <interceptor-stack name="myDefaultStack"> <interceptor-ref 
 			name="loginInterceptor"></interceptor-ref> <interceptor-ref name="defaultStack"></interceptor-ref> 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="tunnelSection" type="com.tunnelSection.TunnelSection" />
+
+	<sql id="tunnelSection.columns">
+		id,tunnelId,name,type,des,creationDate,modifyDate
+	</sql>
+	<select id="tunnelSection.queryAllSize" resultClass="int">
+		select count(*) from tunnelSection
+	</select>
+	<select id="tunnelSection.queryLimitedTunnelSections" resultClass="tunnelSection">
+		select
+		<include refid="tunnelSection.columns" />
+		from tunnelSection limit #start#,#size#
+	</select>
+	<select id="tunnelSection.querySizeByTunnelId" resultClass="int" parameterClass="int">
+		select count(*) from tunnelSection where tunnelId=#tunnelId#
+	</select>
+	<select id="tunnelSection.queryLimitedTunnelSectionsByTunnelId" resultClass="tunnelSection">
+		select
+		<include refid="tunnelSection.columns" />
+		from tunnelSection where tunnelId=#tunnelId#  limit #start#,#size#
+	</select>
+	<select id="tunnelSection.findByName" resultClass="tunnelSection" parameterClass="String">
+		select
+		<include refid="tunnelSection.columns" />
+		from tunnelSection where name=#name#
+	</select>
+	<select id="tunnelSection.findById" resultClass="tunnelSection" parameterClass="int">
+		select
+		<include refid="tunnelSection.columns" />
+		from tunnelSection where id=#id#
+	</select>
+	<insert id="tunnelSection.insert" parameterClass="tunnelSection">
+		insert into tunnelSection (<include refid="tunnelSection.columns" />) values
+		(#id#,#tunnelId#,#name#,#type#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="tunnelSection.update" parameterClass="tunnelSection">
+		update tunnelSection set
+		name=#name#,des=#des#,type=#type#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="tunnelSection.delete" parameterClass="int">
+		delete from tunnelSection
+		where
+		id=#id#
+	</delete>
+</sqlMap>
