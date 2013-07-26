@@ -149,4 +149,9 @@ public class DocumentAction extends PagedAction {
 	public void setName(String name) {
 		m_name = name;
 	}
+	
+	@Override
+   public String getActionModule() {
+		return Constrants.s_document_model;
+   }
 }

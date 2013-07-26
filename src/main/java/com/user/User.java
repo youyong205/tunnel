@@ -1,6 +1,9 @@
 package com.user;
 
 import java.util.Date;
+import java.util.Map;
+
+import com.resource.Resource;
 
 public class User {
 
@@ -17,6 +20,8 @@ public class User {
 	private Date m_creationDate;
 
 	private Date m_modifyDate;
+	
+	private Map<String,Resource> m_resources;
 
 	public static final int ADMIN = 1;
 
@@ -79,6 +84,14 @@ public class User {
 	public void setModifyDate(Date modifyDate) {
 		m_modifyDate = modifyDate;
 	}
+	
+	public Map<String, Resource> getResources() {
+   	return m_resources;
+   }
+
+	public void setResources(Map<String, Resource> resources) {
+   	m_resources = resources;
+   }
 
 	@Override
    public String toString() {

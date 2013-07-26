@@ -163,4 +163,10 @@ public class LiningRingAction extends PagedAction {
 		m_liningRingBlockService = liningRingBlockService;
 	}
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_liningRing_model;
+   }
+
+
 }

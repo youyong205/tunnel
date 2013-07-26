@@ -46,9 +46,15 @@ $(document).ready(function() {
 							<td width="20%" style="text-align:right;"><strong class="text-success text-right">模块权限</strong></td>
 							<td width="10%" style="text-align:right;"><strong class="text-success text-right"><s:property value="key"/></strong></td>
 							<td width="75%">
-								<s:checkboxlist list="value.resources"
-									listKey="id" listValue="name" name="resourceIdSelect"  value="resourceIdSelect" theme="simple">
-								</s:checkboxlist>
+								<s:iterator value="value.resources">
+									<s:if test="checked == true">
+										<input type="checkbox" name="resourceIdSelect" checked value='<s:property value="id"/>' id="<s:property value="key"/>_<s:property value="name"/>"/>
+									</s:if>
+									<s:else>
+										<input type="checkbox" name="resourceIdSelect" value='<s:property value="id"/>' id="<s:property value="key"/>_<s:property value="name"/>"/>
+									</s:else>
+										<label for="<s:property value="key"/>_<s:property value="name"/>"><s:property value="name"/></label>
+								</s:iterator>
 							</td>
 						</tr>
 					</s:iterator>

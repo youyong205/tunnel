@@ -16,6 +16,9 @@
 		<action name="liningRingUpdate" class="liningRingAction" method="liningRingUpdate" >
 			<result name="success">admin/liningRing/LiningRingUpdate.jsp</result>
 		</action>
+		<action name="liningRingDetail" class="liningRingAction" method="liningRingUpdate" >
+			<result name="success">admin/liningRing/LiningRingDetail.jsp</result>
+		</action>
 		<action name="liningRingUpdateSubmit" class="liningRingAction" method="liningRingUpdateSubmit">
 			<result name="success" type="redirect">liningRingList.action?index=${index}</result>
 		</action>

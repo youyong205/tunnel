@@ -16,6 +16,9 @@
 		<action name="tunnelUpdate" class="tunnelAction" method="tunnelUpdate" >
 			<result name="success">admin/tunnel/TunnelUpdate.jsp</result>
 		</action>
+		<action name="tunnelDetail" class="tunnelAction" method="tunnelUpdate" >
+			<result name="success">admin/tunnel/TunnelDetail.jsp</result>
+		</action>
 		<action name="tunnelUpdateSubmit" class="tunnelAction" method="tunnelUpdateSubmit">
 			<result name="success" type="redirect">tunnelList.action?index=${index}</result>
 		</action>

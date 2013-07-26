@@ -16,6 +16,9 @@
 		<action name="buriedSectionUpdate" class="buriedSectionAction" method="buriedSectionUpdate" >
 			<result name="success">admin/buriedSection/BuriedSectionUpdate.jsp</result>
 		</action>
+		<action name="buriedSectionDetail" class="buriedSectionAction" method="buriedSectionUpdate" >
+			<result name="success">admin/buriedSection/BuriedSectionDetail.jsp</result>
+		</action>
 		<action name="buriedSectionUpdateSubmit" class="buriedSectionAction" method="buriedSectionUpdateSubmit">
 			<result name="success" type="redirect">buriedSectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
 		</action>

@@ -16,6 +16,9 @@
 		<action name="resourceUpdate" class="resourceAction" method="resourceUpdate" >
 			<result name="success">admin/resource/ResourceUpdate.jsp</result>
 		</action>
+		<action name="resourceDetail" class="resourceAction" method="resourceUpdate" >
+			<result name="success">admin/resource/ResourceDetail.jsp</result>
+		</action>
 		<action name="resourceUpdateSubmit" class="resourceAction" method="resourceUpdateSubmit">
 			<result name="success" type="redirect">resourceList.action?index=${index}</result>
 		</action>

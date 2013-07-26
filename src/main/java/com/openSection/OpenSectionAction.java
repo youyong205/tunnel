@@ -203,4 +203,8 @@ public class OpenSectionAction extends FileUploadAction {
 		m_tunnelId = tunnelId;
 	}
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_openSection_model;
+   }
 }

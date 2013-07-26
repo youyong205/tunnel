@@ -5,7 +5,7 @@ import java.io.File;
 import com.document.DocumentService;
 import com.document.UploadFile;
 
-public class FileUploadAction extends PagedAction {
+public abstract class FileUploadAction extends PagedAction {
 
 	private static final long serialVersionUID = -628529076216846486L;
 

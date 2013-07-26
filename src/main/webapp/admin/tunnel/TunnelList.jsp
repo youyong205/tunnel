@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="s" uri="/WEB-INF/tld/struts-tags.tld"%>
+<%@ taglib prefix="t" uri="/WEB-INF/tld/struts-privilege.tld"%>
 
 <!DOCTYPE html><html>
 <head>
@@ -33,15 +34,28 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="85%">名称</th>
-					<th width="10%">操作<a class="space btn btn-small btn-success" href="tunnelAdd.do?index=<s:property value="index"/>" >新增</a></th>
+					<th width="80%">名称</th>
+					<th width="15%">操作
+					<t:privilege res="隧道模块:新增">
+						<a class="space btn btn-small btn-info" href="tunnelAdd.do?index=<s:property value="index"/>" >新增</a>
+					</t:privilege>
+					</th>
 				</tr></thead><tbody>
 				<s:iterator value="tunnels" status="vs">
 					<tr>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:property value="name" /></td>
-					<td><a class="btn btn-small btn-primary" href="tunnelUpdate.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>">编辑</a>
-						<a class="delete btn  btn-small btn-danger" href="tunnelDelete.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>">删除</a></td>
+					<td>
+					<t:privilege res="隧道模块:详情">
+						<a class="btn btn-small btn-success" href="tunnelDetail.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>">详情</a>
+					</t:privilege>
+					<t:privilege res="隧道模块:编辑">
+						<a class="btn btn-small btn-primary" href="tunnelUpdate.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>">编辑</a>
+					</t:privilege>
+					<t:privilege res="隧道模块:删除">
+						<a class="delete btn  btn-small btn-danger" href="tunnelDelete.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>">删除</a>
+					</t:privilege>
+					</td>
 					</tr>
 				</s:iterator></tbody>
 			</table>

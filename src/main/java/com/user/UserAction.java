@@ -179,4 +179,9 @@ public class UserAction extends PagedAction {
    	return m_roleIdSelect;
    }
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_user_model;
+   }
+
 }

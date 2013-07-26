@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
@@ -58,13 +59,13 @@ public class RoleAction extends PagedAction {
 			String module = res.getModule();
 			ModuleResources moduleResources = findOrCreateModuleResources(module);
 
-			List<Resource> moduleResource = moduleResources.getResources();
+			Map<Integer, Resource> moduleResource = moduleResources.getResourcesMap();
 
 			if (moduleResource == null) {
-				moduleResource = new ArrayList<Resource>();
+				moduleResource = new HashMap<Integer, Resource>();
 				moduleResources.setResources(moduleResource);
 			}
-			moduleResource.add(res);
+			moduleResource.put(res.getId(), res);
 		}
 	}
 
@@ -166,9 +167,23 @@ public class RoleAction extends PagedAction {
 
 	private void buildModuleSelectedResources(List<RoleResource> selectedResources) {
 		m_resourceIdSelect = new Integer[selectedResources.size()];
-		for (int i = 0; i < selectedResources.size(); i++) {
-			m_resourceIdSelect[i] = selectedResources.get(i).getResourceId();
 
+		Map<Integer, RoleResource> selectedResourcesMap = new HashMap<Integer, RoleResource>();
+		for (RoleResource roleResource : selectedResources) {
+			selectedResourcesMap.put(roleResource.getResourceId(), roleResource);
+		}
+
+		for (Entry<String, ModuleResources> entry : m_moduleResources.entrySet()) {
+			ModuleResources value = entry.getValue();
+			List<Resource> res = value.getResources();
+
+			for (Resource temp : res) {
+				int id = temp.getId();
+				
+				if(selectedResourcesMap.containsKey(id)){
+					temp.setChecked(true);
+				}
+			}
 		}
 	}
 
@@ -218,18 +233,27 @@ public class RoleAction extends PagedAction {
 	public void setResourceService(ResourceService resourceService) {
 		m_resourceService = resourceService;
 	}
+	
+	@Override
+   public String getActionModule() {
+		return Constrants.s_role_model;
+   }
 
 	public static class ModuleResources {
 
-		private List<Resource> m_resources;
+		private Map<Integer, Resource> m_resources;
 
 		private String m_module;
 
 		public List<Resource> getResources() {
+			return new ArrayList<Resource>(m_resources.values());
+		}
+
+		public Map<Integer, Resource> getResourcesMap() {
 			return m_resources;
 		}
 
-		public void setResources(List<Resource> resources) {
+		public void setResources(Map<Integer, Resource> resources) {
 			m_resources = resources;
 		}
 

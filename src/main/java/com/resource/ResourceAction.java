@@ -21,7 +21,7 @@ public class ResourceAction extends PagedAction {
 	private ResourceService m_resourceService;
 	
 	private Resource m_resource = new Resource();
-
+	
 	public Resource getResource() {
 		return m_resource;
 	}
@@ -127,4 +127,9 @@ public class ResourceAction extends PagedAction {
 		}
 	}
 
+
+	@Override
+   public String getActionModule() {
+		return Constrants.s_resource_model;
+   }
 }

@@ -32,7 +32,7 @@
 		</selectKey>
 	</insert>
 	<update id="resource.update" parameterClass="resource">
-		update resource set
+		update resource set module=#module#,
 		name=#name#,des=#des#,modifyDate=now()
 		where id=#id#
 	</update>

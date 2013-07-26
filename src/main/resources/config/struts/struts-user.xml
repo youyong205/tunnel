@@ -16,6 +16,9 @@
 		<action name="userUpdate" class="userAction" method="userUpdate" >
 			<result name="success">admin/user/UserUpdate.jsp</result>
 		</action>
+		<action name="userDetail" class="userAction" method="userUpdate" >
+			<result name="success">admin/user/UserDetail.jsp</result>
+		</action>
 		<action name="userUpdateSubmit" class="userAction" method="userUpdateSubmit">
 			<result name="success" type="redirect">userList.action?index=${index}</result>
 		</action>

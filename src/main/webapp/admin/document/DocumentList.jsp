@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="s" uri="/WEB-INF/tld/struts-tags.tld"%>
+<%@ taglib prefix="t" uri="/WEB-INF/tld/struts-privilege.tld"%>
 
 <!DOCTYPE html><html>
 <head>
@@ -50,11 +51,17 @@
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:property value="module" /></td>
 					<td>
-						<a href="documentDownload.do?documentId=<s:property value="id"/>"><s:property value="name" /></a></td>
+						<s:property value="name" />
 					</td>
 					<td><s:date name="creationDate" format="yyyy/MM/dd HH:mm" /></td>
-					<td><a class="btn btn-small btn-primary" href="documentUpdate.do?documentId=<s:property value="id"/>">详情</a>
-					<a class="btn btn-small btn-primary" href="documentDownload.do?documentId=<s:property value="id"/>">下载</a></td>
+					<td>
+						<t:privilege res="工程文档模块:详情">
+							<a class="btn btn-small btn-primary" href="documentUpdate.do?documentId=<s:property value="id"/>">详情</a>
+						</t:privilege>
+						<t:privilege res="工程文档模块:下载">
+							<a class="btn btn-small btn-primary" href="documentDownload.do?documentId=<s:property value="id"/>">下载</a>
+						</t:privilege>
+					</td>
 					</tr>
 				</s:iterator></tbody>
 			</table>

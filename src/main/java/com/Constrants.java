@@ -2,7 +2,7 @@ package com;
 
 public class Constrants {
 
-	public static final int s_page_size = 4;
+	public static final int s_page_size = 20;
 
 	public static final int s_half_size = 3;
 
@@ -32,10 +32,14 @@ public class Constrants {
 
 	public static String s_buriedSection_model = "暗埋段模块";
 
-	public static String s_openSection_model = "敞开段";
+	public static String s_openSection_model = "敞开段模块";
 
 	public static String s_role_model = "角色模块";
 
 	public static String s_resource_model = "资源模块";
+
+	public static String s_document_model = "工程文档模块";
+
+	public static String s_log_module = "日志模块";
 
 }

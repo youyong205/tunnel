@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.Constrants;
 import com.PagedAction;
 import com.user.UserService;
 
@@ -113,5 +114,11 @@ public class LogAction extends PagedAction {
 	public void setOperation(String operation) {
 		m_operation = operation;
 	}
+
+	@Override
+   public String getActionModule() {
+		return Constrants.s_log_module;
+   }
+
 
 }

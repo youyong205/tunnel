@@ -16,6 +16,9 @@
 		<action name="workingWellUpdate" class="workingWellAction" method="workingWellUpdate" >
 			<result name="success">admin/workingWell/WorkingWellUpdate.jsp</result>
 		</action>
+		<action name="workingWellDetail" class="workingWellAction" method="workingWellUpdate" >
+			<result name="success">admin/workingWell/WorkingWellDetail.jsp</result>
+		</action>
 		<action name="workingWellUpdateSubmit" class="workingWellAction" method="workingWellUpdateSubmit">
 			<result name="success" type="redirect">workingWellList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
 		</action>

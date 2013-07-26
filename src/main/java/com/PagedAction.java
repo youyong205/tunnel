@@ -12,7 +12,7 @@ import com.log.LogService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.user.User;
 
-public class PagedAction extends ActionSupport implements SessionAware {
+public abstract class PagedAction extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = -5988620023728972001L;
 
@@ -29,8 +29,10 @@ public class PagedAction extends ActionSupport implements SessionAware {
 	protected Map<String, Object> m_session;
 
 	private List<String> m_modules = new ArrayList<String>(Arrays.asList(Constrants.s_user_model,
-	      Constrants.s_liningRing_model, Constrants.s_tunnel_model, Constrants.s_tunnelSection_model,
-	      Constrants.s_contactChannel_model));
+	      Constrants.s_role_model, Constrants.s_resource_model, Constrants.s_log_module, Constrants.s_document_model,
+	      Constrants.s_tunnel_model, Constrants.s_liningRing_model, Constrants.s_tunnelSection_model,
+	      Constrants.s_contactChannel_model, Constrants.s_buriedSection_model, Constrants.s_workingWell_model,
+	      Constrants.s_openSection_model));
 
 	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Constrants.s_contactChannel_model));
 
@@ -118,5 +120,7 @@ public class PagedAction extends ActionSupport implements SessionAware {
 	public List<String> getDocumentModules() {
 		return m_documentModules;
 	}
+
+	public abstract String getActionModule();
 
 }

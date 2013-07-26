@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="s" uri="/WEB-INF/tld/struts-tags.tld"%>
+<%@ taglib prefix="t" uri="/WEB-INF/tld/struts-privilege.tld"%>
 
 <!DOCTYPE html><html>
 <head>
@@ -42,9 +43,13 @@
 					<th width="5%">序号</th>
 					<th width="25%">隧道名称</th>
 					<th width="20%">联络通道编号</th>
-					<th width="20%">联络通道类型</th>
+					<th width="15%">联络通道类型</th>
 					<th width="20%">设计制作文档</th>
-					<th width="10%">操作<a class="space btn btn-small btn-success" href="contactChannelAdd.do?index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>" >新增</a></th>
+					<th width="15%">操作
+					<t:privilege res="联络通道模块:新增">
+						<a class="space btn btn-small btn-info" href="contactChannelAdd.do?index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>" >新增</a>
+					</t:privilege>
+					</th>
 				</tr></thead><tbody>
 				<s:iterator value="contactChannels" status="vs">
 					<tr>
@@ -55,8 +60,17 @@
 					<td>
 						<a href="documentDownload.do?documentId=<s:property value="document.id"/>"><s:property value="document.name"/></a>
 					</td>
-					<td><a class="btn btn-small btn-primary" href="contactChannelUpdate.do?contactChannelId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">编辑</a>
-						<a class="delete btn  btn-small btn-danger" href="contactChannelDelete.do?contactChannelId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">删除</a></td>
+					<td>
+						<t:privilege res="联络通道模块:详情">
+						<a class="btn btn-small btn-success" href="contactChannelDetail.do?contactChannelId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">详情</a>
+						</t:privilege>
+						<t:privilege res="联络通道模块:编辑">
+						<a class="btn btn-small btn-primary" href="contactChannelUpdate.do?contactChannelId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">编辑</a>
+						</t:privilege>
+						<t:privilege res="联络通道模块:删除">
+						<a class="delete btn  btn-small btn-danger" href="contactChannelDelete.do?contactChannelId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">删除</a>
+						</t:privilege>
+						</td>
 					</tr>
 				</s:iterator></tbody>
 			</table>

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="s" uri="/WEB-INF/tld/struts-tags.tld"%>
+<%@ taglib prefix="t" uri="/WEB-INF/tld/struts-privilege.tld"%>
 
 <!DOCTYPE html><html>
 <head>
@@ -33,8 +34,12 @@
 					<th width="5%">序号</th>
 					<th width="25%">用户名</th>
 					<th width="30%">真实姓名</th>
-					<th width="30%">密码</th>
-					<th width="10%">操作<a class="space btn btn-small btn-success" href="userAdd.do?index=<s:property value="index"/>" >新增</a></th>
+					<th width="25%">密码</th>
+					<th width="15%">操作
+						<t:privilege res="用户模块:新增">
+							<a class="space btn btn-small btn-info" href="userAdd.do?index=<s:property value="index"/>" >新增</a>
+						</t:privilege>
+					</th>
 				</tr></thead><tbody>
 				<s:iterator value="users" status="vs">
 					<tr>
@@ -42,8 +47,17 @@
 					<td><s:property value="userName" /></td>
 					<td><s:property value="realName" /></td>
 					<td><s:property value="password" /></td>
-					<td><a class="btn btn-small btn-primary" href="userUpdate.do?userId=<s:property value="id"/>&index=<s:property value="index"/>">编辑</a>
-						<a class="delete btn  btn-small btn-danger" href="userDelete.do?userId=<s:property value="id"/>&index=<s:property value="index"/>">删除</a></td>
+					<td>
+						<t:privilege res="用户模块:详情">
+							<a class="btn btn-small btn-success" href="userDetail.do?userId=<s:property value="id"/>&index=<s:property value="index"/>">详情</a>
+						</t:privilege>
+						<t:privilege res="用户模块:编辑">
+							<a class="btn btn-small btn-primary" href="userUpdate.do?userId=<s:property value="id"/>&index=<s:property value="index"/>">编辑</a>
+						</t:privilege>
+						<t:privilege res="用户模块:删除">
+							<a class="delete btn  btn-small btn-danger" href="userDelete.do?userId=<s:property value="id"/>&index=<s:property value="index"/>">删除</a>
+						</t:privilege>
+						</td>
 					</tr>
 				</s:iterator></tbody>
 			</table>

@@ -26,5 +26,11 @@
 		<property name="userService">
 			<ref bean="userService" />
 		</property>
+		<property name="roleService">
+			<ref bean="roleService" />
+		</property>
+		<property name="resourceService">
+			<ref bean="resourceService" />
+		</property>
 	</bean>
 </beans>  

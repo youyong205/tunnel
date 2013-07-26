@@ -126,5 +126,10 @@ public class TunnelAction extends PagedAction {
 			return ERROR;
 		}
 	}
+	
+	@Override
+   public String getActionModule() {
+		return Constrants.s_tunnel_model;
+   }
 
 }

@@ -201,5 +201,10 @@ public class WorkingWellAction extends FileUploadAction {
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
+	
+	@Override
+   public String getActionModule() {
+		return Constrants.s_workingWell_model;
+   }
 
 }

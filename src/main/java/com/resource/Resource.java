@@ -15,6 +15,8 @@ public class Resource {
 	private Date m_creationDate;
 	
 	private Date m_modifyDate;
+	
+	private boolean m_checked;
 
 	public int getId() {
    	return m_id;
@@ -62,6 +64,14 @@ public class Resource {
 
 	public void setModifyDate(Date modifyDate) {
    	m_modifyDate = modifyDate;
+   }
+
+	public boolean isChecked() {
+   	return m_checked;
+   }
+
+	public void setChecked(boolean checked) {
+   	m_checked = checked;
    }
 	
 }

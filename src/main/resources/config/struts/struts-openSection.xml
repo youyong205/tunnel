@@ -16,6 +16,9 @@
 		<action name="openSectionUpdate" class="openSectionAction" method="openSectionUpdate" >
 			<result name="success">admin/openSection/OpenSectionUpdate.jsp</result>
 		</action>
+		<action name="openSectionDetail" class="openSectionAction" method="openSectionUpdate" >
+			<result name="success">admin/openSection/OpenSectionDetail.jsp</result>
+		</action>
 		<action name="openSectionUpdateSubmit" class="openSectionAction" method="openSectionUpdateSubmit">
 			<result name="success" type="redirect">openSectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
 		</action>

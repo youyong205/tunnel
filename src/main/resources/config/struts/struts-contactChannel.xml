@@ -16,6 +16,9 @@
 		<action name="contactChannelUpdate" class="contactChannelAction" method="contactChannelUpdate" >
 			<result name="success">admin/contactChannel/ContactChannelUpdate.jsp</result>
 		</action>
+		<action name="contactChannelDetail" class="contactChannelAction" method="contactChannelUpdate" >
+			<result name="success">admin/contactChannel/ContactChannelDetail.jsp</result>
+		</action>
 		<action name="contactChannelUpdateSubmit" class="contactChannelAction" method="contactChannelUpdateSubmit">
 			<result name="success" type="redirect">contactChannelList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
 		</action>

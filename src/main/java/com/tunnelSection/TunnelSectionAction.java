@@ -178,4 +178,9 @@ public class TunnelSectionAction extends PagedAction {
    	m_tunnelId = tunnelId;
    }
 	
+	@Override
+   public String getActionModule() {
+		return Constrants.s_tunnelSection_model;
+   }
+	
 }

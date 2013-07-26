@@ -112,3 +112,6 @@ label.valid {
 	width: 16px;
 	height: 16px;
 }
+.btn-small{
+	padding:0px 10px;
+}
