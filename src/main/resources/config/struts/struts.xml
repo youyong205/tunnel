@@ -16,12 +16,21 @@
 	<constant name="struts.multipart.maxSize" value="4048000"></constant>
 	<constant name="struts.action.extension" value="do,action" />
 
-	<include file="config/struts/struts-user.xml"></include>
 	<include file="config/struts/struts-log.xml"></include>
+	<include file="config/struts/struts-document.xml"></include>
+	<include file="config/struts/struts-user.xml"></include>
+	<include file="config/struts/struts-role.xml"></include>
+	<include file="config/struts/struts-resource.xml"></include>
 	<include file="config/struts/struts-login.xml"></include>
+	
 	<include file="config/struts/struts-liningRing.xml"></include>
 	<include file="config/struts/struts-tunnel.xml"></include>
 	<include file="config/struts/struts-tunnelSection.xml"></include>
+	
+	<include file="config/struts/struts-contactChannel.xml"></include>
+	<include file="config/struts/struts-workingWell.xml"></include>
+	<include file="config/struts/struts-buriedSection.xml"></include>
+	<include file="config/struts/struts-openSection.xml"></include>
 	
 	<package name="default" extends="struts-default">
 		<!-- <interceptors> <interceptor name="loginInterceptor" class="com.golf.tools.UserInterceptor"> 

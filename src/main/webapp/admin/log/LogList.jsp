@@ -18,8 +18,6 @@
 		});
 		var operation = '<s:property  value="operation"/>';
 		$('#operation').val(operation);
-		var module = '<s:property  value="module"/>';
-		$('#module').val(module);
 	});
 </script>
 </head>
@@ -32,10 +30,10 @@
       <%@include file="./../Menu.jsp"%>
       <div class="span10"> 
       		<form class="text-right form-inline margin-buttom" action="logSearch.do" method="post">
-			  模块<select name="module" id="module">
-			  	 <option value="">ALL</option>
-			  	 <option value="用户信息">用户信息</option>
-			  </select>
+			  模块
+			  	 <s:select name="module" id="module"
+						list="modules"  value="module" theme="simple" >
+				 </s:select>
 			  类型<select name="operation" id="operation">
 			  	 <option value="">ALL</option>
 			  	 <option value="新增">新增</option>
@@ -60,7 +58,7 @@
 					<td><s:property value="operation" /></td>
 					<td><s:date name="creationDate" format="yyyy/MM/dd HH:mm" /></td>
 					<td><a href="userUpdate.do?userId=<s:property value="userId"/>"><s:property value="user.realName"/></a></td>
-					<td><a class="btn btn-small btn-primary" href="logUpdate.do?logId=<s:property value="id"/>">详情</a>
+					<td><a class="btn btn-small btn-primary" href="logUpdate.do?logId=<s:property value="id"/>">详情</a></td>
 					</tr>
 				</s:iterator></tbody>
 			</table>

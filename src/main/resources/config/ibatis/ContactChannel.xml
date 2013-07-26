@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="contactChannel" type="com.contactChannel.ContactChannel" />
+	<sql id="contactChannel.columns">
+		id,tunnelId,documentId,name,type,upLine,downLine,upCenter,downCenter,
+		soilOrder,des,creationDate,modifyDate
+	</sql>
+	<select id="contactChannel.queryAllSize" resultClass="int">
+		select count(*) from contactChannel
+	</select>
+	<select id="contactChannel.queryLimitedContactChannels" resultClass="contactChannel">
+		select
+		<include refid="contactChannel.columns" />
+		from contactChannel limit #start#,#size#
+	</select>
+	<select id="contactChannel.querySizeByTunnelId" resultClass="int" parameterClass="int">
+		select count(*) from contactChannel where tunnelId=#tunnelId#
+	</select>
+	<select id="contactChannel.queryLimitedContactChannelsByTunnelId" resultClass="contactChannel">
+		select
+		<include refid="contactChannel.columns" />
+		from contactChannel where tunnelId=#tunnelId#  limit #start#,#size#
+	</select>
+	<select id="contactChannel.findByName" resultClass="contactChannel" parameterClass="String">
+		select
+		<include refid="contactChannel.columns" />
+		from contactChannel where name=#name#
+	</select>
+	<select id="contactChannel.findById" resultClass="contactChannel" parameterClass="int">
+		select
+		<include refid="contactChannel.columns" />
+		from contactChannel where id=#id#
+	</select>
+	<insert id="contactChannel.insert" parameterClass="contactChannel">
+		insert into contactChannel (<include refid="contactChannel.columns" />) values
+		(#id#,#tunnelId#,#documentId#,#name#,#type#,#upLine#,#downLine#,#upCenter#,#downCenter#,
+		#soilOrder#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="contactChannel.update" parameterClass="contactChannel">
+		update contactChannel set tunnelId=#tunnelId#,documentId=#documentId#,
+		name=#name#,type=#type#,upLine=#upLine#,downLine=#downLine#,
+		upCenter=#upCenter#,downCenter=#downCenter#,
+		soilOrder=#soilOrder#,des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="contactChannel.delete" parameterClass="int">
+		delete from contactChannel
+		where
+		id=#id#
+	</delete>
+</sqlMap>

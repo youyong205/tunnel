@@ -35,20 +35,14 @@ public class LogServiceImpl implements LogService {
 	@Override
 	public int insertLog(Log log) {
 		try {
+			String detail = log.getDetail();
+			if (detail.length() > 1024) {
+				log.setDetail(detail.substring(0, 1000) + "...");
+			}
 			return m_logDao.insertLog(log);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Log> queryAllLogs() {
-		try {
-			return m_logDao.queryAllLogs();
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return new ArrayList<Log>();
 		}
 	}
 
@@ -77,7 +71,7 @@ public class LogServiceImpl implements LogService {
 	@Override
 	public List<Log> queryLimitedLogs(String module, String operation, int start, int size) {
 		if (StringUtils.isEmpty(module) && StringUtils.isEmpty(operation)) {
-			return m_logDao.queryAllLogs();
+			return m_logDao.queryLimitedLogs(start, size);
 		} else {
 			return m_logDao.queryLimitedLogsByModuleOperation(module, operation, start, size);
 		}

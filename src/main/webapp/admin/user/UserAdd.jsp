@@ -8,8 +8,9 @@
 <link rel="stylesheet" type='text/css' href="css/bootstrap.min.css" >
 <link rel='stylesheet' type='text/css' href='css/admin.css' />
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 
 <script type="text/javascript">
@@ -36,26 +37,24 @@ $(document).ready(function() {
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">用户名</strong></td>
 						<td>
-							<input type="text" size="60" name="user.userName"  required/>
+							<input type="text" size="60" name="user.userName"  class="{required:true,maxlength:64}"/>
 						</td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">密码</strong></td>
-						<td><input type="text" size="60" name="user.password" required/></td>
+						<td><input type="text" size="60" name="user.password"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">真实姓名</strong></td>
-						<td><input type="text" size="60" name="user.realName" required/></td>
+						<td><input type="text" size="60" name="user.realName"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success text-right">用户角色</strong></td>
 						<td>
-							<select name="user.role">
-								<option value="1">普通用户</option>
-								<option value="2">数据录入员</option>
-								<option value="3">管理员</option>
-							</select>
+							<s:checkboxlist list="roles"
+								listKey="id" listValue="name" name="roleIdSelect" theme="simple">
+							</s:checkboxlist>
 						</td>
 					</tr>
 					<tr>

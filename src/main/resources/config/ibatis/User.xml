@@ -2,9 +2,13 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap>
 	<typeAlias alias="user" type="com.user.User" />
+	<typeAlias alias="userRole" type="com.user.UserRole" />
 
 	<sql id="user.columns">
 		id,userName,password,realName,role,creationDate,modifyDate
+	</sql>
+	<sql id="userRole.columns">
+		userId,roleId,creationDate
 	</sql>
 	<select id="user.queryAllUsers" resultClass="user">
 		select
@@ -45,5 +49,19 @@
 		delete from user
 		where
 		id=#id#
+	</delete>
+	<select id="userRole.queryUserRoles" resultClass="userRole" parameterClass="int">
+		select
+		<include refid="userRole.columns" />
+		from userRole where userId=#userId#
+	</select>
+	<insert id="userRole.insert" parameterClass="userRole">
+		insert into userRole (<include refid="userRole.columns" />) values
+		(#userId#,#roleId#,now())
+	</insert>
+	<delete id="userRole.deleteByUserId" parameterClass="int">
+		delete from userRole
+		where
+		userId=#userId#
 	</delete>
 </sqlMap>

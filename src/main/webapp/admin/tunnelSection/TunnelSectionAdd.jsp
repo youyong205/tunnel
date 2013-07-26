@@ -32,6 +32,8 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">新增盾构段信息</h4></th>
+						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
@@ -43,15 +45,15 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段编号</strong></td>
-						<td><input type="text" size="60" name="tunnelSection.name" required/></td>
+						<td><input type="text" size="60" name="tunnelSection.name" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段类型</strong></td>
-						<td><input type="text" size="60" name="tunnelSection.type" required/></td>
+						<td><input type="text" size="60" name="tunnelSection.type" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段简介</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="tunnelSection.des"></textarea></td>
+						<td><textarea type="text" rows="5" cols="80"  name="tunnelSection.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align:center;">

@@ -15,7 +15,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#userList').addClass("active");
-	$('#user_role').val("<s:property value="user.role"/>");
 	$("#form").validate();
 });
 </script>
@@ -37,25 +36,23 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">用户名</strong></td>
-						<td><input type="text" size="60" name="user.userName" value="<s:property value="user.userName"/>" required/></td>
+						<td><input type="text" size="60" name="user.userName" value="<s:property value="user.userName"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">密码</strong></td>
-						<td><input type="text" size="60" name="user.password"  value="<s:property value="user.password"/>" required/></td>
+						<td><input type="text" size="60" name="user.password"  value="<s:property value="user.password"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">真实姓名</strong></td>
-						<td><input type="text" size="60" name="user.realName"  value="<s:property value="user.realName"/>" required/></td>
+						<td><input type="text" size="60" name="user.realName"  value="<s:property value="user.realName"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success text-right">用户角色</strong></td>
 						<td>
-							<select id="user_role" id="user.role" name="user.role">
-								<option value="1">普通用户</option>
-								<option value="2">数据录入员</option>
-								<option value="3">管理员</option>
-							</select>
+							<s:checkboxlist list="roles"
+								listKey="id" listValue="name" name="roleIdSelect" value="roleIdSelect" theme="simple">
+							</s:checkboxlist>
 						</td>
 					</tr>
 					<tr>

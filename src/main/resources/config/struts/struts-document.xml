@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="document" extends="default">
+		<action name="documentList" class="documentAction" method="documentList">
+			<result name="success">admin/document/DocumentList.jsp</result>
+		</action>
+		<action name="documentUpdate" class="documentAction" method="documentUpdate" >
+			<result name="success">admin/document/DocumentUpdate.jsp</result>
+		</action>
+		<action name="documentDownload" class="documentAction" method="documentDownload">  
+            <result name="success" type="stream">  
+                <param name="contentType">${contextType}</param>  
+                <param name="inputName">inputStream</param>  
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>  
+                <param name="bufferSize">4096</param>  
+            </result>  
+        </action>  
+	</package>	
+</struts>

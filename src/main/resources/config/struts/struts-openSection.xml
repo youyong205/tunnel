@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="openSection" extends="default">
+		<action name="openSectionList" class="openSectionAction" method="openSectionList">
+			<result name="success">admin/openSection/OpenSectionList.jsp</result>
+		</action>
+		<action name="openSectionAdd" class="openSectionAction" method="openSectionAdd">
+			<result name="success">admin/openSection/OpenSectionAdd.jsp</result>
+		</action>
+		<action name="openSectionAddSubmit" class="openSectionAction" method="openSectionAddSubmit">
+			<result name="success" type="redirect">openSectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="openSectionUpdate" class="openSectionAction" method="openSectionUpdate" >
+			<result name="success">admin/openSection/OpenSectionUpdate.jsp</result>
+		</action>
+		<action name="openSectionUpdateSubmit" class="openSectionAction" method="openSectionUpdateSubmit">
+			<result name="success" type="redirect">openSectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="openSectionDelete" class="openSectionAction" method="openSectionDelete">
+			<result name="success" type="redirect">openSectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+	</package>	
+</struts>

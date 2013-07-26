@@ -8,11 +8,11 @@
 <link rel="stylesheet" type='text/css' href="css/bootstrap.min.css" >
 <link rel='stylesheet' type='text/css' href='css/admin.css' />
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.validate.min.js"/>
-<script type="text/javascript" src="js/bootstrap.min.js"/>
-<script type="text/javascript" src="js/jquery.metadata.js"/>
-<script type="text/javascript" src="js/validate.js"/>
-<script type="text/javascript" src="js/liningRing.js"/>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.metadata.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="js/liningRing.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -37,9 +37,9 @@ $(document).ready(function() {
 					</tr></thead><tbody>
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">衬砌环名称</strong></td>
-						<td width="35%"><input type="text" size="30" name="liningRing.name" required/></td>
+						<td width="35%"><input type="text" size="30" name="liningRing.name" class="{required:true,maxlength:64}"/></td>
 						<td width="10%" style="text-align:right;"><strong class="text-success">衬砌环类型</strong></td>
-						<td width="40%"><input type="text" size="30" name="liningRing.type" required/></td>
+						<td width="40%"><input type="text" size="30" name="liningRing.type" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">管片形式</strong></td>
@@ -57,7 +57,7 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">楔形量</strong></td>
 						<td><input type="text" size="30" name="liningRing.wedgeNumber" class="{required:true,digits:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">描述</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="liningRing.des"></textarea></td>
+						<td><textarea type="text" rows="5" cols="60"  name="liningRing.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					</tbody>
 					</table>
@@ -75,7 +75,7 @@ $(document).ready(function() {
 							<td width="5%"style="text-align:right;"><strong class="text-success">颜色</strong></td>
 							<td width="20%"><input type="text" size="10" name="blocks[0].color" required/></td>
 							<td width="5%" style="text-align:right;"><strong class="text-success">描述</strong></td>
-							<td width="15%"><textarea type="text" rows="3" cols="40"  name="blocks[0].des"></textarea></td>
+							<td width="15%"><textarea type="text" rows="3" cols="40"  name="blocks[0].des" class="{maxlength:512}"></textarea></td>
 							<td width="5%"><a href="javascript:removeBlock('block0')" class="btn btn-small btn-danger">删除</a></td>
 						</tr></tbody>
 					</table>
@@ -90,7 +90,7 @@ $(document).ready(function() {
 					<td width="5%"  style="text-align:right;"><strong class="text-success">颜色</strong></td>
 					<td width="20%" ><input type="text" size="10" name="blocks[0].color" required/></td>
 					<td width="5%"  style="text-align:right;"><strong class="text-success">描述</strong></td>
-					<td width="15%" ><textarea type="text" rows="3" cols="40"  name="blocks[0].des"></textarea></td>
+					<td width="15%" ><textarea type="text" rows="3" cols="40"  name="blocks[0].des" class="{maxlength:512}"></textarea></td>
 					<td width="5%" ><a href="javascript:removeBlock('block0')" class="btn btn-small btn-danger">删除</a></td>
 				</tr>
 			</table>

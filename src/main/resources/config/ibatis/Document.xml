@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="document" type="com.document.Document" />
+
+	<sql id="document.columns">
+		id,module,name,type,path,absolutePath,des,creationDate,modifyDate
+	</sql>
+	<select id="document.querySizeByModuleName" resultClass="int">
+		select
+		count(*) from document 
+		<dynamic prepend="WHERE">
+            <isPropertyAvailable prepend="AND" property="module" >
+                 module=#module#
+            </isPropertyAvailable>
+            <isPropertyAvailable prepend="AND" property="name" >
+				name like '%$name$%'
+            </isPropertyAvailable>
+   		</dynamic>
+	</select>
+	<select id="document.queryLimitedDocumentsByModuleName" resultClass="document">
+		select
+		<include refid="document.columns" />
+		from document 
+		<dynamic prepend="WHERE">
+            <isPropertyAvailable prepend="AND" property="module" >
+                module=#module#
+            </isPropertyAvailable>
+            <isPropertyAvailable prepend="AND" property="name" >
+				name like '%$name$%'
+            </isPropertyAvailable>
+   		</dynamic>
+   		order by id
+		desc limit #start#,#size#
+	</select>
+	<select id="document.findById" resultClass="document" parameterClass="int">
+		select
+		<include refid="document.columns" />
+		from document where id=#id#
+	</select>
+	<insert id="document.insert" parameterClass="document">
+		insert into document (
+		<include refid="document.columns" />
+		) values
+		(#id#,#module#,#name#,#type#,#path#,#absolutePath#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+		<update id="document.update" parameterClass="document">
+		update document set
+		module=#module#,name=#name#,type=#type#,absolutePath=#absolutePath#,path=#path#,des=#des#,
+		modifyDate = now()
+		where id=#id#
+	</update>
+	<delete id="tdocument.delete" parameterClass="int">
+		delete from document
+		where
+		id=#id#
+	</delete>
+</sqlMap>

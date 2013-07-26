@@ -34,14 +34,14 @@
 				 <thead><tr>
 					<th width="5%">序号</th>
 					<th width="85%">名称</th>
-					<th width="10%">操作<a class="space btn btn-small btn-success" href="tunnelAdd.do" >新增</a></th>
+					<th width="10%">操作<a class="space btn btn-small btn-success" href="tunnelAdd.do?index=<s:property value="index"/>" >新增</a></th>
 				</tr></thead><tbody>
 				<s:iterator value="tunnels" status="vs">
 					<tr>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:property value="name" /></td>
-					<td><a class="btn btn-small btn-primary" href="tunnelUpdate.do?tunnelId=<s:property value="id"/>">编辑</a>
-						<a class="delete btn  btn-small btn-danger" href="tunnelDelete.do?tunnelId=<s:property value="id"/>">删除</a></td>
+					<td><a class="btn btn-small btn-primary" href="tunnelUpdate.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>">编辑</a>
+						<a class="delete btn  btn-small btn-danger" href="tunnelDelete.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>">删除</a></td>
 					</tr>
 				</s:iterator></tbody>
 			</table>

@@ -37,13 +37,13 @@ $(document).ready(function() {
 					</tr></thread><tbody>
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">衬砌环名称</strong></td>
-						<td width="35%"><input type="text" size="30" name="liningRing.name" required value="<s:property value="liningRing.name"/>"/></td>
+						<td width="35%"><input type="text" size="30" name="liningRing.name" class="{required:true,maxlength:64}" value="<s:property value="liningRing.name"/>"/></td>
 						<td width="15%" style="text-align:right;"><strong class="text-success">衬砌环类型</strong></td>
-						<td width="35%"><input type="text" size="30" name="liningRing.type" required value="<s:property value="liningRing.type"/>"/></td>
+						<td width="35%"><input type="text" size="30" name="liningRing.type" class="{required:true,maxlength:64}" value="<s:property value="liningRing.type"/>"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">管片形式</strong></td>
-						<td><input type="text" size="30" name="liningRing.pipeShape" required value="<s:property value="liningRing.pipeShape"/>"/></td>
+						<td><input type="text" size="30" name="liningRing.pipeShape" class="{required:true,maxlength:64}" value="<s:property value="liningRing.pipeShape"/>"/></td>
 						<td style="text-align:right;"><strong class="text-success">管片数量</strong></td>
 						<td><input type="text" size="30" name="liningRing.pipeNumber"  class="{required:true,digits:true}" value="<s:property value="liningRing.pipeNumber"/>"/></td>
 					</tr>
@@ -57,7 +57,7 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">楔形量</strong></td>
 						<td><input type="text" size="30" name="liningRing.wedgeNumber" class="{required:true,digits:true}"  value="<s:property value="liningRing.wedgeNumber"/>"/></td>
 						<td style="text-align:right;"><strong class="text-success">描述</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="liningRing.des"><s:property value="liningRing.des"/></textarea></td>
+						<td><textarea type="text" rows="5" cols="60"  name="liningRing.des" class="{maxlength:512}"><s:property value="liningRing.des"/></textarea></td>
 					</tr>
 						</tbody>
 				</table>
@@ -76,7 +76,7 @@ $(document).ready(function() {
 							<td width="5%"  style="text-align:right;"><strong class="text-success">颜色</strong></td>
 							<td width="20%" ><input type="text" size="10" name="blocks[${vs.index}].color" value='<s:property value="color"/>' required/></td>
 							<td width="5%"  style="text-align:right;"><strong class="text-success">描述</strong></td>
-							<td width="15%" ><textarea type="text" rows="3" cols="40"  name="blocks[${vs.index}].des"><s:property value="des"/></textarea></td>
+							<td width="15%" ><textarea type="text" rows="3" cols="40"  name="blocks[${vs.index}].des" class="{maxlength:512}"><s:property value="des"/></textarea></td>
 							<td width="5%" ><a href="javascript:removeBlock('block${vs.index}')" class="btn btn-small btn-danger">删除</a></td>
 						</tr>
 						</s:iterator>

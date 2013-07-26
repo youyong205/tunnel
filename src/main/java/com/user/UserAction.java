@@ -7,10 +7,12 @@ import org.apache.log4j.Logger;
 import com.Constrants;
 import com.PagedAction;
 import com.log.Log;
+import com.role.Role;
+import com.role.RoleService;
 
 public class UserAction extends PagedAction {
 
-   private static final long serialVersionUID = 4901652667413788534L;
+	private static final long serialVersionUID = 4901652667413788534L;
 
 	private Logger m_logger = Logger.getLogger(UserAction.class);
 
@@ -19,8 +21,14 @@ public class UserAction extends PagedAction {
 	private int m_userId;
 
 	private UserService m_userService;
-	
+
+	private RoleService m_roleService;
+
 	private User m_user = new User();
+
+	private Integer[] m_roleIdSelect;
+
+	private List<Role> m_roles;
 
 	public User getUser() {
 		return m_user;
@@ -41,17 +49,28 @@ public class UserAction extends PagedAction {
 	public void setUserService(UserService userService) {
 		m_userService = userService;
 	}
-	
-	public String userAdd(){
+
+	public String userAdd() {
+		m_roles = m_roleService.queryLimitedRoles(0, Integer.MAX_VALUE);
 		return SUCCESS;
 	}
 
 	public String userAddSubmit() {
 		try {
 			int id = m_userService.insertUser(m_user);
+
+			for (Integer temp : m_roleIdSelect) {
+				if (temp > 0) {
+					UserRole userRole = new UserRole();
+
+					userRole.setRoleId(temp);
+					userRole.setUserId(id);
+					m_userService.insertUserRoles(userRole);
+				}
+			}
 			if (id > 0) {
 				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_add, m_user);
-				
+
 				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
@@ -68,7 +87,7 @@ public class UserAction extends PagedAction {
 			int count = m_userService.deleteUser(m_userId);
 			if (count > 0) {
 				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_delete, m_userId);
-				
+
 				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
@@ -99,6 +118,13 @@ public class UserAction extends PagedAction {
 	public String userUpdate() {
 		try {
 			m_user = m_userService.findByPK(m_userId);
+			m_roles = m_roleService.queryLimitedRoles(0, Integer.MAX_VALUE);
+			List<UserRole> roles = m_userService.queryUserRoles(m_userId);
+			
+			m_roleIdSelect = new Integer[roles.size()];
+			for (int i = 0; i < roles.size(); i++) {
+				m_roleIdSelect[i] = roles.get(i).getRoleId();
+			}
 			if (m_user != null) {
 				return SUCCESS;
 			} else {
@@ -113,9 +139,19 @@ public class UserAction extends PagedAction {
 	public String userUpdateSubmit() {
 		try {
 			int count = m_userService.updateUser(m_user);
+			m_userService.deleteUserRoles(m_user.getId());
+			for (Integer temp : m_roleIdSelect) {
+				if (temp > 0) {
+					UserRole userRole = new UserRole();
+
+					userRole.setRoleId(temp);
+					userRole.setUserId(m_user.getId());
+					m_userService.insertUserRoles(userRole);
+				}
+			}
 			if (count > 0) {
 				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_update, m_user);
-				
+
 				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
@@ -126,5 +162,21 @@ public class UserAction extends PagedAction {
 			return ERROR;
 		}
 	}
+
+	public List<Role> getRoles() {
+		return m_roles;
+	}
+
+	public void setRoleService(RoleService roleService) {
+		m_roleService = roleService;
+	}
+
+	public void setRoleIdSelect(Integer[] roleIdSelect) {
+		m_roleIdSelect = roleIdSelect;
+	}
+
+	public Integer[] getRoleIdSelect() {
+   	return m_roleIdSelect;
+   }
 
 }

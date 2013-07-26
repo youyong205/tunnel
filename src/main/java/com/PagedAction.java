@@ -1,6 +1,7 @@
 package com;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class PagedAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = -5988620023728972001L;
 
 	protected int m_totalPages;
-	
+
 	protected int m_totalSize;
 
 	protected int m_index = 1;
@@ -26,7 +27,13 @@ public class PagedAction extends ActionSupport implements SessionAware {
 	protected LogService m_logService;
 
 	protected Map<String, Object> m_session;
-	
+
+	private List<String> m_modules = new ArrayList<String>(Arrays.asList(Constrants.s_user_model,
+	      Constrants.s_liningRing_model, Constrants.s_tunnel_model, Constrants.s_tunnelSection_model,
+	      Constrants.s_contactChannel_model));
+
+	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Constrants.s_contactChannel_model));
+
 	public int computeTotalPages(int totalSize) {
 		return (int) Math.ceil(totalSize * 1.0 / SIZE);
 	}
@@ -101,7 +108,15 @@ public class PagedAction extends ActionSupport implements SessionAware {
 	}
 
 	public int getTotalSize() {
-   	return m_totalSize;
-   }
-	
+		return m_totalSize;
+	}
+
+	public List<String> getModules() {
+		return m_modules;
+	}
+
+	public List<String> getDocumentModules() {
+		return m_documentModules;
+	}
+
 }

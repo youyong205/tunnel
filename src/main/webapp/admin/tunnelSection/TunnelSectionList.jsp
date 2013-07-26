@@ -40,10 +40,10 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="35%">隧道</th>
-					<th width="30%">编号</th>
-					<th width="20%">类型</th>
-					<th width="10%">操作<a class="space btn btn-small btn-success" href="tunnelSectionAdd.do" >新增</a></th>
+					<th width="35%">隧道名称</th>
+					<th width="30%">盾构段编号</th>
+					<th width="20%">盾构段类型</th>
+					<th width="10%">操作<a class="space btn btn-small btn-success" href="tunnelSectionAdd.do?index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>" >新增</a></th>
 				</tr></thead><tbody>
 				<s:iterator value="tunnelSections" status="vs">
 					<tr>
@@ -51,8 +51,8 @@
 					<td><s:property value="tunnel.name" /></td>
 					<td><s:property value="name" /></td>
 					<td><s:property value="type" /></td>
-					<td><a class="btn btn-small btn-primary" href="tunnelSectionUpdate.do?tunnelSectionId=<s:property value="id"/>">编辑</a>
-						<a class="delete btn  btn-small btn-danger" href="tunnelSectionDelete.do?tunnelSectionId=<s:property value="id"/>">删除</a></td>
+					<td><a class="btn btn-small btn-primary" href="tunnelSectionUpdate.do?tunnelSectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">编辑</a>
+						<a class="delete btn  btn-small btn-danger" href="tunnelSectionDelete.do?tunnelSectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">删除</a></td>
 					</tr>
 				</s:iterator></tbody>
 			</table>

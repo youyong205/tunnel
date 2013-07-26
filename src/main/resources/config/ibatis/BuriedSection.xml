@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="buriedSection" type="com.buriedSection.BuriedSection" />
+	<sql id="buriedSection.columns">
+		id,tunnelId,documentId,name,type,startPosition,endPosition,
+		envelope,startFloor,endFloor,linedWallThickness,floorThickness,roofThickness,startHeadroom,endHeadroom,
+		des,creationDate,modifyDate
+	</sql>
+	<select id="buriedSection.queryAllSize" resultClass="int">
+		select count(*) from buriedSection
+	</select>
+	<select id="buriedSection.queryLimitedBuriedSections" resultClass="buriedSection">
+		select
+		<include refid="buriedSection.columns" />
+		from buriedSection limit #start#,#size#
+	</select>
+	<select id="buriedSection.querySizeByTunnelId" resultClass="int" parameterClass="int">
+		select count(*) from buriedSection where tunnelId=#tunnelId#
+	</select>
+	<select id="buriedSection.queryLimitedBuriedSectionsByTunnelId" resultClass="buriedSection">
+		select
+		<include refid="buriedSection.columns" />
+		from buriedSection where tunnelId=#tunnelId#  limit #start#,#size#
+	</select>
+	<select id="buriedSection.findByName" resultClass="buriedSection" parameterClass="String">
+		select
+		<include refid="buriedSection.columns" />
+		from buriedSection where name=#name#
+	</select>
+	<select id="buriedSection.findById" resultClass="buriedSection" parameterClass="int">
+		select
+		<include refid="buriedSection.columns" />
+		from buriedSection where id=#id#
+	</select>
+	<insert id="buriedSection.insert" parameterClass="buriedSection">
+		insert into buriedSection (<include refid="buriedSection.columns" />) values
+		(#id#,#tunnelId#,#documentId#,#name#,#type#,#startPosition#,#endPosition#,
+		#envelope#,#startFloor#,#endFloor#,#linedWallThickness#,#floorThickness#,#roofThickness#,
+		#startHeadroom#,#endHeadroom#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="buriedSection.update" parameterClass="buriedSection">
+		update buriedSection set tunnelId=#tunnelId#,documentId=#documentId#,
+		name=#name#,type=#type#,startPosition=#startPosition#,endPosition=#endPosition#,
+		envelope=#envelope#,startFloor=#startFloor#,endFloor=#endFloor#,linedWallThickness=#linedWallThickness#,
+		floorThickness=#floorThickness#,roofThickness=#roofThickness#,startHeadroom=#startHeadroom#,endHeadroom=#endHeadroom#,
+		des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="buriedSection.delete" parameterClass="int">
+		delete from buriedSection
+		where
+		id=#id#
+	</delete>
+</sqlMap>

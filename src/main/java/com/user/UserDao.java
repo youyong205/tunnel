@@ -29,9 +29,9 @@ public class UserDao {
 		return m_baseDao.queryForList("user.queryLimitedUsers", parameters);
 	}
 
-	public User findByNamePassword(String userName,String password) {
-		Map<String,String> pars = new HashMap<String,String>();
-		
+	public User findByNamePassword(String userName, String password) {
+		Map<String, String> pars = new HashMap<String, String>();
+
 		pars.put("userName", userName);
 		pars.put("password", password);
 		return (User) m_baseDao.queryForObject("user.findByName", pars);
@@ -54,7 +54,20 @@ public class UserDao {
 	}
 
 	public int queryAllSize() {
-		return (Integer)m_baseDao.queryForObject("user.queryAllSize",null);
-   }
+		return (Integer) m_baseDao.queryForObject("user.queryAllSize", null);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public List queryUserRoles(int userId) {
+		return m_baseDao.queryForList("userRole.queryUserRoles", userId);
+	}
+
+	public int deleteUserRoles(int userId) {
+		return m_baseDao.delete("userRole.deleteByUserId", userId);
+	}
+
+	public void insertUserRoles(UserRole userRole) {
+		m_baseDao.insert("userRole.insert", userRole);
+	}
 
 }

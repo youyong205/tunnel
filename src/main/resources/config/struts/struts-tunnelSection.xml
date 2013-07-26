@@ -11,16 +11,16 @@
 			<result name="success">admin/tunnelSection/TunnelSectionAdd.jsp</result>
 		</action>
 		<action name="tunnelSectionAddSubmit" class="tunnelSectionAction" method="tunnelSectionAddSubmit">
-			<result name="success" type="redirect">tunnelSectionList.action</result>
+			<result name="success" type="redirect">tunnelSectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
 		</action>
 		<action name="tunnelSectionUpdate" class="tunnelSectionAction" method="tunnelSectionUpdate" >
 			<result name="success">admin/tunnelSection/TunnelSectionUpdate.jsp</result>
 		</action>
 		<action name="tunnelSectionUpdateSubmit" class="tunnelSectionAction" method="tunnelSectionUpdateSubmit">
-			<result name="success" type="redirect">tunnelSectionList.action</result>
+			<result name="success" type="redirect">tunnelSectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
 		</action>
 		<action name="tunnelSectionDelete" class="tunnelSectionAction" method="tunnelSectionDelete">
-			<result name="success" type="redirect">tunnelSectionList.action</result>
+			<result name="success" type="redirect">tunnelSectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
 		</action>
 	</package>	
 </struts>

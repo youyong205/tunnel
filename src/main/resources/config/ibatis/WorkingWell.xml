@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="workingWell" type="com.workingWell.WorkingWell" />
+	<sql id="workingWell.columns">
+		id,tunnelId,documentId,name,type,startPosition,endPosition,eleationOne,eleationTwo,
+		eleationThree,eleationFour,eleationMezzanine,des,creationDate,modifyDate
+	</sql>
+	<select id="workingWell.queryAllSize" resultClass="int">
+		select count(*) from workingWell
+	</select>
+	<select id="workingWell.queryLimitedWorkingWells" resultClass="workingWell">
+		select
+		<include refid="workingWell.columns" />
+		from workingWell limit #start#,#size#
+	</select>
+	<select id="workingWell.querySizeByTunnelId" resultClass="int" parameterClass="int">
+		select count(*) from workingWell where tunnelId=#tunnelId#
+	</select>
+	<select id="workingWell.queryLimitedWorkingWellsByTunnelId" resultClass="workingWell">
+		select
+		<include refid="workingWell.columns" />
+		from workingWell where tunnelId=#tunnelId#  limit #start#,#size#
+	</select>
+	<select id="workingWell.findByName" resultClass="workingWell" parameterClass="String">
+		select
+		<include refid="workingWell.columns" />
+		from workingWell where name=#name#
+	</select>
+	<select id="workingWell.findById" resultClass="workingWell" parameterClass="int">
+		select
+		<include refid="workingWell.columns" />
+		from workingWell where id=#id#
+	</select>
+	<insert id="workingWell.insert" parameterClass="workingWell">
+		insert into workingWell (<include refid="workingWell.columns" />) values
+		(#id#,#tunnelId#,#documentId#,#name#,#type#,#startPosition#,#endPosition#,#eleationOne#,
+		#eleationTwo#,#eleationThree#,#eleationFour#,#eleationMezzanine#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="workingWell.update" parameterClass="workingWell">
+		update workingWell set tunnelId=#tunnelId#,documentId=#documentId#,
+		name=#name#,type=#type#,startPosition=#startPosition#,endPosition=#endPosition#,eleationOne=#eleationOne#,
+		eleationTwo=#eleationTwo#,eleationThree=#eleationThree#,eleationFour=#eleationFour#,eleationMezzanine=#eleationMezzanine#
+		,des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="workingWell.delete" parameterClass="int">
+		delete from workingWell
+		where
+		id=#id#
+	</delete>
+</sqlMap>

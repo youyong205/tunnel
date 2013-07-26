@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="contactChannel" extends="default">
+		<action name="contactChannelList" class="contactChannelAction" method="contactChannelList">
+			<result name="success">admin/contactChannel/ContactChannelList.jsp</result>
+		</action>
+		<action name="contactChannelAdd" class="contactChannelAction" method="contactChannelAdd">
+			<result name="success">admin/contactChannel/ContactChannelAdd.jsp</result>
+		</action>
+		<action name="contactChannelAddSubmit" class="contactChannelAction" method="contactChannelAddSubmit">
+			<result name="success" type="redirect">contactChannelList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="contactChannelUpdate" class="contactChannelAction" method="contactChannelUpdate" >
+			<result name="success">admin/contactChannel/ContactChannelUpdate.jsp</result>
+		</action>
+		<action name="contactChannelUpdateSubmit" class="contactChannelAction" method="contactChannelUpdateSubmit">
+			<result name="success" type="redirect">contactChannelList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="contactChannelDelete" class="contactChannelAction" method="contactChannelDelete">
+			<result name="success" type="redirect">contactChannelList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+	</package>	
+</struts>

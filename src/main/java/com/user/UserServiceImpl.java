@@ -96,4 +96,34 @@ public class UserServiceImpl implements UserService {
 		}
    }
 
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<UserRole> queryUserRoles(int userId) {
+		try {
+			return m_userDao.queryUserRoles(userId);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+		}
+		return new ArrayList<UserRole>();
+   }
+
+	@Override
+   public int deleteUserRoles(int userId) {
+		try {
+			return m_userDao.deleteUserRoles(userId);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
+		}
+   }
+
+	@Override
+   public void insertUserRoles(UserRole userRole) {
+		try {
+			 m_userDao.insertUserRoles(userRole);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+		}
+   }
+
 }

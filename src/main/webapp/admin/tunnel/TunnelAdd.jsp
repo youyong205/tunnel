@@ -32,14 +32,15 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">新增隧道信息</h4></th>
+						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">名称</strong></td>
-						<td><input type="text" size="60" name="tunnel.name" required/></td>
+						<td><input type="text" size="60" name="tunnel.name" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">简介</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des"></textarea></td>
+						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align:center;">

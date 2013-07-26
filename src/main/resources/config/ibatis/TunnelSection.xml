@@ -40,7 +40,7 @@
 		</selectKey>
 	</insert>
 	<update id="tunnelSection.update" parameterClass="tunnelSection">
-		update tunnelSection set
+		update tunnelSection set tunnelId=#tunnelId#,
 		name=#name#,des=#des#,type=#type#,modifyDate=now()
 		where id=#id#
 	</update>

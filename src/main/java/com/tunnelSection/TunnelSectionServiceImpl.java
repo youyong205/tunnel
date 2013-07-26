@@ -1,10 +1,7 @@
 package com.tunnelSection;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
@@ -14,24 +11,10 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 
 	private Logger m_logger = Logger.getLogger(TunnelSectionServiceImpl.class);
 
-	private static final int SIZE = 100;
-
-	private Map<Integer, TunnelSection> m_tunnelSections = new LinkedHashMap<Integer, TunnelSection>(SIZE) {
-
-		private static final long serialVersionUID = 1L;
-
-		@Override
-		protected boolean removeEldestEntry(Entry<Integer, TunnelSection> eldest) {
-			return size() > SIZE;
-		}
-	};
-
 	@Override
 	public int deleteTunnelSection(int id) {
 		try {
 			int result = m_tunnelSectionDao.deleteTunnelSection(id);
-
-			m_tunnelSections.remove(id);
 			return result;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
@@ -51,28 +34,19 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 
 	@Override
 	public TunnelSection findByPK(int id) {
-		TunnelSection tunnelSection = m_tunnelSections.get(id);
-		if (tunnelSection == null) {
-			try {
-				tunnelSection = m_tunnelSectionDao.findByPK(id);
+		try {
+			return m_tunnelSectionDao.findByPK(id);
 
-				if (tunnelSection != null) {
-					m_tunnelSections.put(id, tunnelSection);
-				}
-			} catch (Exception e) {
-				m_logger.error(e.getMessage(), e);
-			}
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
 		}
-		return tunnelSection;
 	}
 
 	@Override
 	public int insertTunnelSection(TunnelSection tunnelSection) {
 		try {
-			int result = m_tunnelSectionDao.insertTunnelSection(tunnelSection);
-
-			m_tunnelSections.put(tunnelSection.getId(), tunnelSection);
-			return result;
+			return m_tunnelSectionDao.insertTunnelSection(tunnelSection);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
@@ -117,10 +91,7 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 	@Override
 	public int updateTunnelSection(TunnelSection tunnelSection) {
 		try {
-			int result = m_tunnelSectionDao.updateTunnelSection(tunnelSection);
-
-			m_tunnelSections.put(tunnelSection.getId(), tunnelSection);
-			return result;
+			return m_tunnelSectionDao.updateTunnelSection(tunnelSection);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
@@ -128,7 +99,7 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 	}
 
 	@SuppressWarnings("unchecked")
-   @Override
+	@Override
 	public List<TunnelSection> queryLimitedTunnelSectionsByTunnelId(int tunnelId, int start, int size) {
 		try {
 			return m_tunnelSectionDao.queryLimitedTunnelSectionsByTunnelId(tunnelId, start, size);

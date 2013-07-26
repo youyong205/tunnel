@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="buriedSectionDao" class="com.buriedSection.BuriedSectionDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="buriedSectionService" class="com.buriedSection.BuriedSectionServiceImpl">
+		<property name="buriedSectionDao">
+			<ref bean="buriedSectionDao" />
+		</property>
+	</bean>
+	<bean id="buriedSectionAction" class="com.buriedSection.BuriedSectionAction" scope="prototype">
+		<property name="buriedSectionService">
+			<ref bean="buriedSectionService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+	</bean>
+</beans>  

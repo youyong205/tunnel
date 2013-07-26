@@ -5,9 +5,18 @@
 		lazyLoadingEnabled="false" maxRequests="3000" maxSessions="3000"
 		maxTransactions="3000" useStatementNamespaces="false"/>
 		<sqlMap resource="config/ibatis/User.xml"/>
-		<sqlMap resource="config/ibatis/Tunnel.xml"/>
+		<sqlMap resource="config/ibatis/Role.xml"/>
+		<sqlMap resource="config/ibatis/Resource.xml"/>
 		<sqlMap resource="config/ibatis/Log.xml"/>
+		<sqlMap resource="config/ibatis/Document.xml"/>
+		
 		<sqlMap resource="config/ibatis/LiningRing.xml"/>
 		<sqlMap resource="config/ibatis/LiningRingBlock.xml"/>
+
+		<sqlMap resource="config/ibatis/Tunnel.xml"/>
 		<sqlMap resource="config/ibatis/TunnelSection.xml"/>
+		<sqlMap resource="config/ibatis/ContactChannel.xml"/>
+		<sqlMap resource="config/ibatis/WorkingWell.xml"/>
+		<sqlMap resource="config/ibatis/BuriedSection.xml"/>
+		<sqlMap resource="config/ibatis/OpenSection.xml"/>
 </sqlMapConfig>

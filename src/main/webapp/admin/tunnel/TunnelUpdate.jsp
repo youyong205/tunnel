@@ -33,14 +33,15 @@ $(document).ready(function() {
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">编辑隧道信息</h4></th>
 						<input type="hidden" name="tunnel.id" value="<s:property value="tunnel.id"/>" />
+						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">名称</strong></td>
-						<td><input type="text" size="60" name="tunnel.name" value="<s:property value='tunnel.name'/>" required/></td>
+						<td><input type="text" size="60" name="tunnel.name" value="<s:property value='tunnel.name'/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">简介</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des"><s:property value='tunnel.des'/></textarea></td>
+						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des"  class="{maxlength:512}"><s:property value='tunnel.des'/></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align:center;">

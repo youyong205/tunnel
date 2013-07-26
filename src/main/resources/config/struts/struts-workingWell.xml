@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="workingWell" extends="default">
+		<action name="workingWellList" class="workingWellAction" method="workingWellList">
+			<result name="success">admin/workingWell/WorkingWellList.jsp</result>
+		</action>
+		<action name="workingWellAdd" class="workingWellAction" method="workingWellAdd">
+			<result name="success">admin/workingWell/WorkingWellAdd.jsp</result>
+		</action>
+		<action name="workingWellAddSubmit" class="workingWellAction" method="workingWellAddSubmit">
+			<result name="success" type="redirect">workingWellList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="workingWellUpdate" class="workingWellAction" method="workingWellUpdate" >
+			<result name="success">admin/workingWell/WorkingWellUpdate.jsp</result>
+		</action>
+		<action name="workingWellUpdateSubmit" class="workingWellAction" method="workingWellUpdateSubmit">
+			<result name="success" type="redirect">workingWellList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="workingWellDelete" class="workingWellAction" method="workingWellDelete">
+			<result name="success" type="redirect">workingWellList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+	</package>	
+</struts>

@@ -14,8 +14,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#tunnelList').addClass("active");
-	$('#tunnel_role').val("<s:property value="tunnel.role"/>");
+	$('#tunnelSectionList').addClass("active");
 	$("#form").validate();
 });
 </script>
@@ -28,26 +27,33 @@ $(document).ready(function() {
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
-			<form action="tunnelUpdateSubmit.do" id="form" method="post">
+			<form action="tunnelSectionUpdateSubmit.do" id="form" method="post">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='2'><h4 class="text-info text-center">新增盾构段信息</h4></th>
+						<th colspan='2'><h4 class="text-info text-center">编辑盾构段信息</h4></th>
+						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input type="hidden" name="tunnelSection.id" value="<s:property value="tunnelSection.id"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
-						<td><s:property value="tunnelSection.tunnel.name"/></td>
+						<td>
+							<s:select name="tunnelSection.tunnelId" id="tunnelSectionId"
+									list="tunnels" listKey="id" listValue="name"  value="tunnelSection.tunnelId" theme="simple" >
+							</s:select>
+						</td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段编号</strong></td>
-						<td><input type="text" size="60" name="tunnelSection.name" value="<s:property value="tunnelSection.name"/>" required/></td>
+						<td><input type="text" size="60" name="tunnelSection.name" value="<s:property value="tunnelSection.name"/>" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段类型</strong></td>
-						<td><input type="text" size="60" name="tunnelSection.type" value="<s:property value="tunnelSection.type"/>" required/></td>
+						<td><input type="text" size="60" name="tunnelSection.type" value="<s:property value="tunnelSection.type"/>" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段简介</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="tunnelSection.des"><s:property value="tunnelSection.des"/></textarea></td>
+						<td><textarea type="text" rows="5" cols="80"  name="tunnelSection.des" class="{maxlength:512}"><s:property value="tunnelSection.des"/></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align:center;">

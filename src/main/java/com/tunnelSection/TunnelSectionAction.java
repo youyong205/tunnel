@@ -127,6 +127,7 @@ public class TunnelSectionAction extends PagedAction {
 
 	public String tunnelSectionUpdate() {
 		try {
+			m_tunnels = m_tunnelService.queryAllTunnels();
 			m_tunnelSection = m_tunnelSectionService.findByPK(m_tunnelSectionId);
 			if (m_tunnelSection != null) {
 				m_tunnelSection.setTunnel(m_tunnelService.findByPK(m_tunnelSection.getTunnelId()));
@@ -165,6 +166,10 @@ public class TunnelSectionAction extends PagedAction {
 		return m_tunnels;
 	}
 
+	public int getTunnelIndexId(){
+		return m_tunnelId;
+	}
+	
 	public int getTunnelId() {
    	return m_tunnelId;
    }
