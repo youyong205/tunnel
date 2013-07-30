@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="inspectionDao" class="com.inspection.InspectionDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="inspectionService" class="com.inspection.InspectionServiceImpl">
+		<property name="inspectionDao">
+			<ref bean="inspectionDao" />
+		</property>
+	</bean>
+	<bean id="contactChannelInspectionAction" class="com.contactChannel.ContactChannelInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="contactChannelService">
+			<ref bean="contactChannelService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+	</bean>
+	<bean id="buriedSectionInspectionAction" class="com.buriedSection.BuriedSectionInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="buriedSectionService">
+			<ref bean="buriedSectionService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+	</bean>
+	<bean id="openSectionInspectionAction" class="com.openSection.OpenSectionInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="openSectionService">
+			<ref bean="openSectionService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+	</bean>
+	<bean id="workingWellInspectionAction" class="com.workingWell.WorkingWellInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="workingWellService">
+			<ref bean="workingWellService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+	</bean>
+</beans>  

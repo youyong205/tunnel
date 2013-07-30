@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="curing" extends="default">
+		<action name="contactChannelCuringList" class="contactChannelCuringAction" method="curingList">
+			<result name="success">admin/contactChannelCuring/ContactChannelCuringList.jsp</result>
+		</action>
+		<action name="contactChannelCuringAdd"  class="contactChannelCuringAction" method="curingAdd">
+			<result name="success">admin/contactChannelCuring/ContactChannelCuringAdd.jsp</result>
+		</action>
+		<action name="contactChannelCuringAddSubmit" class="contactChannelCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">contactChannelCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="contactChannelCuringUpdate" class="contactChannelCuringAction" method="curingUpdate" >
+			<result name="success">admin/contactChannelCuring/ContactChannelCuringUpdate.jsp</result>
+		</action>
+		<action name="contactChannelCuringDetail" class="contactChannelCuringAction" method="curingUpdate" >
+			<result name="success">admin/contactChannelCuring/ContactChannelCuringDetail.jsp</result>
+		</action>
+		<action name="contactChannelCuringUpdateSubmit" class="contactChannelCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">contactChannelCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="contactChannelCuringDelete" class="contactChannelCuringAction" method="curingDelete">
+			<result name="success" type="redirect">contactChannelCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		
+		
+		<action name="workingWellCuringList" class="workingWellCuringAction" method="curingList">
+			<result name="success">admin/workingWellCuring/WorkingWellCuringList.jsp</result>
+		</action>
+		<action name="workingWellCuringAdd"  class="workingWellCuringAction" method="curingAdd">
+			<result name="success">admin/workingWellCuring/WorkingWellCuringAdd.jsp</result>
+		</action>
+		<action name="workingWellCuringAddSubmit" class="workingWellCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">workingWellCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="workingWellCuringUpdate" class="workingWellCuringAction" method="curingUpdate" >
+			<result name="success">admin/workingWellCuring/WorkingWellCuringUpdate.jsp</result>
+		</action>
+		<action name="workingWellCuringDetail" class="workingWellCuringAction" method="curingUpdate" >
+			<result name="success">admin/workingWellCuring/WorkingWellCuringDetail.jsp</result>
+		</action>
+		<action name="workingWellCuringUpdateSubmit" class="workingWellCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">workingWellCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="workingWellCuringDelete" class="workingWellCuringAction" method="curingDelete">
+			<result name="success" type="redirect">workingWellCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		
+		<action name="openSectionCuringList" class="openSectionCuringAction" method="curingList">
+			<result name="success">admin/openSectionCuring/OpenSectionCuringList.jsp</result>
+		</action>
+		<action name="openSectionCuringAdd"  class="openSectionCuringAction" method="curingAdd">
+			<result name="success">admin/openSectionCuring/OpenSectionCuringAdd.jsp</result>
+		</action>
+		<action name="openSectionCuringAddSubmit" class="openSectionCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">openSectionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="openSectionCuringUpdate" class="openSectionCuringAction" method="curingUpdate" >
+			<result name="success">admin/openSectionCuring/OpenSectionCuringUpdate.jsp</result>
+		</action>
+		<action name="openSectionCuringDetail" class="openSectionCuringAction" method="curingUpdate" >
+			<result name="success">admin/openSectionCuring/OpenSectionCuringDetail.jsp</result>
+		</action>
+		<action name="openSectionCuringUpdateSubmit" class="openSectionCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">openSectionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="openSectionCuringDelete" class="openSectionCuringAction" method="curingDelete">
+			<result name="success" type="redirect">openSectionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		
+		<action name="buriedSectionCuringList" class="buriedSectionCuringAction" method="curingList">
+			<result name="success">admin/buriedSectionCuring/BuriedSectionCuringList.jsp</result>
+		</action>
+		<action name="buriedSectionCuringAdd"  class="buriedSectionCuringAction" method="curingAdd">
+			<result name="success">admin/buriedSectionCuring/BuriedSectionCuringAdd.jsp</result>
+		</action>
+		<action name="buriedSectionCuringAddSubmit" class="buriedSectionCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">buriedSectionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="buriedSectionCuringUpdate" class="buriedSectionCuringAction" method="curingUpdate" >
+			<result name="success">admin/buriedSectionCuring/BuriedSectionCuringUpdate.jsp</result>
+		</action>
+		<action name="buriedSectionCuringDetail" class="buriedSectionCuringAction" method="curingUpdate" >
+			<result name="success">admin/buriedSectionCuring/BuriedSectionCuringDetail.jsp</result>
+		</action>
+		<action name="buriedSectionCuringUpdateSubmit" class="buriedSectionCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">buriedSectionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="buriedSectionCuringDelete" class="buriedSectionCuringAction" method="curingDelete">
+			<result name="success" type="redirect">buriedSectionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+	</package>	
+</struts>

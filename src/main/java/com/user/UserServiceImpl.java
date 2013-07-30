@@ -11,26 +11,25 @@ public class UserServiceImpl implements UserService {
 
 	private Logger m_logger = Logger.getLogger(UserServiceImpl.class);
 
-	@SuppressWarnings("unchecked")
-	public List<User> queryAllUsers() {
+	@Override
+	public int deleteUser(int id) {
 		try {
-			return m_userDao.queryAllUsers();
+			return m_userDao.deleteUser(id);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return new ArrayList<User>();
+			return -1;
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<User> queryLimitedUsers(int start, int size) {
+   public int deleteUserRoles(int userId) {
 		try {
-			return m_userDao.queryLimitedUsers(start, size);
+			return m_userDao.deleteUserRoles(userId);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return new ArrayList<User>();
+			return -1;
 		}
-	}
+   }
 
 	@Override
 	public User findByNamePassword(String name,String password) {
@@ -63,28 +62,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int updateUser(User user) {
+   public void insertUserRoles(UserRole userRole) {
 		try {
-			return m_userDao.updateUser(user);
+			 m_userDao.insertUserRoles(userRole);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return -1;
 		}
-	}
-
-	@Override
-	public int deleteUser(int id) {
-		try {
-			return m_userDao.deleteUser(id);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
-		}
-	}
-
-	public void setUserDao(UserDao userDao) {
-		m_userDao = userDao;
-	}
+   }
 
 	@Override
    public int queryAllSize() {
@@ -97,6 +81,27 @@ public class UserServiceImpl implements UserService {
    }
 
 	@SuppressWarnings("unchecked")
+	public List<User> queryAllUsers() {
+		try {
+			return m_userDao.queryAllUsers();
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<User>();
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> queryLimitedUsers(int start, int size) {
+		try {
+			return m_userDao.queryLimitedUsers(start, size);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<User>();
+		}
+	}
+
+	@SuppressWarnings("unchecked")
    @Override
    public List<UserRole> queryUserRoles(int userId) {
 		try {
@@ -107,23 +112,18 @@ public class UserServiceImpl implements UserService {
 		return new ArrayList<UserRole>();
    }
 
+	public void setUserDao(UserDao userDao) {
+		m_userDao = userDao;
+	}
+
 	@Override
-   public int deleteUserRoles(int userId) {
+	public int updateUser(User user) {
 		try {
-			return m_userDao.deleteUserRoles(userId);
+			return m_userDao.updateUser(user);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
 		}
-   }
-
-	@Override
-   public void insertUserRoles(UserRole userRole) {
-		try {
-			 m_userDao.insertUserRoles(userRole);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-		}
-   }
+	}
 
 }

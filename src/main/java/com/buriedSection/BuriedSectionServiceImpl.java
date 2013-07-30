@@ -53,6 +53,16 @@ public class BuriedSectionServiceImpl implements BuriedSectionService {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<BuriedSection> queryAllBuriedSections() {
+		try {
+			return m_buriedSectionDao.queryAllBuriedSections();
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<BuriedSection>();
+		}
+	}
+
 	@Override
 	public int queryAllSize() {
 		try {
@@ -64,16 +74,6 @@ public class BuriedSectionServiceImpl implements BuriedSectionService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<BuriedSection> queryAllBuriedSections() {
-		try {
-			return m_buriedSectionDao.queryAllBuriedSections();
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return new ArrayList<BuriedSection>();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<BuriedSection> queryLimitedBuriedSections(int start, int size) {
 		try {
@@ -81,20 +81,6 @@ public class BuriedSectionServiceImpl implements BuriedSectionService {
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<BuriedSection>();
-		}
-	}
-
-	public void setBuriedSectionDao(BuriedSectionDao buriedSectionDao) {
-		m_buriedSectionDao = buriedSectionDao;
-	}
-
-	@Override
-	public int updateBuriedSection(BuriedSection buriedSection) {
-		try {
-			return m_buriedSectionDao.updateBuriedSection(buriedSection);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
 		}
 	}
 
@@ -113,6 +99,20 @@ public class BuriedSectionServiceImpl implements BuriedSectionService {
 	public int querySizeByTunnelId(int tunnelId) {
 		try {
 			return m_buriedSectionDao.querySizeByTunnelId(tunnelId);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
+		}
+	}
+
+	public void setBuriedSectionDao(BuriedSectionDao buriedSectionDao) {
+		m_buriedSectionDao = buriedSectionDao;
+	}
+
+	@Override
+	public int updateBuriedSection(BuriedSection buriedSection) {
+		try {
+			return m_buriedSectionDao.updateBuriedSection(buriedSection);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;

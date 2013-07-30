@@ -13,6 +13,10 @@ public abstract class FileUploadAction extends PagedAction {
 
 	protected DocumentService m_documentService;
 
+	public void setDocumentService(DocumentService documentService) {
+		m_documentService = documentService;
+	}
+
 	public void setUpload(File file) {
 		m_uploadFile.setFile(file);
 	}
@@ -23,9 +27,5 @@ public abstract class FileUploadAction extends PagedAction {
 
 	public void setUploadFileName(String filename) {
 		m_uploadFile.setFilename(filename);
-	}
-
-	public void setDocumentService(DocumentService documentService) {
-		m_documentService = documentService;
 	}
 }

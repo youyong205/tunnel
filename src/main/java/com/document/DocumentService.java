@@ -8,7 +8,15 @@ public interface DocumentService {
 
 	public int insertDocument(String module, UploadFile file);
 
-	public int updateDocument(String module, UploadFile file,Document document);
+	/***
+	 * 
+	 * @param module
+	 *           null for all module
+	 * @param name
+	 *           null for all
+	 * @return
+	 */
+	public List<Document> queryDocumentsByModuleName(String module, String name, int start, int size);
 
 	/***
 	 * 
@@ -20,14 +28,6 @@ public interface DocumentService {
 	 */
 	public int querySizeByModuleName(String module, String name);
 
-	/***
-	 * 
-	 * @param module
-	 *           null for all module
-	 * @param name
-	 *           null for all
-	 * @return
-	 */
-	public List<Document> queryDocumentsByModuleName(String module, String name, int start, int size);
+	public int updateDocument(String module, UploadFile file,Document document);
 
 }

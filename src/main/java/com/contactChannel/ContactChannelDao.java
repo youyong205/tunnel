@@ -26,13 +26,13 @@ public class ContactChannelDao {
 		return (Integer) m_baseDao.insert("contactChannel.insert", contactChannel);
 	}
 
-	public int queryAllSize() {
-		return (Integer) m_baseDao.queryForObject("contactChannel.queryAllSize", null);
-	}
-
 	@SuppressWarnings("rawtypes")
 	public List queryAllContactChannels() {
 		return m_baseDao.queryForList("contactChannel.queryAllContactChannels");
+	}
+
+	public int queryAllSize() {
+		return (Integer) m_baseDao.queryForObject("contactChannel.queryAllSize", null);
 	}
 
 	@SuppressWarnings("rawtypes")

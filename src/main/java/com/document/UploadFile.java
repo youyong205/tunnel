@@ -15,17 +15,13 @@ public class UploadFile implements Serializable {
 
 	public File m_file;
 	
-	public File getFile() {
-   	return m_file;
-   }
-
-	public void setFile(File file) {
-   	m_file = file;
-   }
-
 	public String getContentType() {
 		return m_contentType;
 	}
+
+	public File getFile() {
+   	return m_file;
+   }
 
 	public String getFilename() {
 		return m_filename;
@@ -38,6 +34,10 @@ public class UploadFile implements Serializable {
 	public void setContentType(String contentType) {
 		this.m_contentType = contentType;
 	}
+
+	public void setFile(File file) {
+   	m_file = file;
+   }
 
 	public void setFilename(String filename) {
 		this.m_filename = filename;

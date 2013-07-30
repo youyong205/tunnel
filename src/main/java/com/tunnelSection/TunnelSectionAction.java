@@ -30,6 +30,23 @@ public class TunnelSectionAction extends PagedAction {
 
 	private TunnelSection m_tunnelSection = new TunnelSection();
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_tunnelSection_model;
+   }
+
+	public int getTunnelId() {
+   	return m_tunnelId;
+   }
+
+	public int getTunnelIndexId(){
+		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
 	public TunnelSection getTunnelSection() {
 		return m_tunnelSection;
 	}
@@ -37,6 +54,10 @@ public class TunnelSectionAction extends PagedAction {
 	public List<TunnelSection> getTunnelSections() {
 		return m_tunnelSections;
 	}
+
+	public void setTunnelId(int tunnelId) {
+   	m_tunnelId = tunnelId;
+   }
 
 	public void setTunnelSection(TunnelSection tunnelSection) {
 		m_tunnelSection = tunnelSection;
@@ -48,6 +69,10 @@ public class TunnelSectionAction extends PagedAction {
 
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
+	}
+
+	public void setTunnelService(TunnelService tunnelService) {
+		m_tunnelService = tunnelService;
 	}
 
 	public String tunnelSectionAdd() {
@@ -93,7 +118,7 @@ public class TunnelSectionAction extends PagedAction {
 			return ERROR;
 		}
 	}
-
+	
 	public String tunnelSectionList() {
 		try {
 			if (m_tunnelId == 0) {
@@ -140,7 +165,7 @@ public class TunnelSectionAction extends PagedAction {
 			return ERROR;
 		}
 	}
-
+	
 	public String tunnelSectionUpdateSubmit() {
 		try {
 			int count = m_tunnelSectionService.updateTunnelSection(m_tunnelSection);
@@ -157,30 +182,5 @@ public class TunnelSectionAction extends PagedAction {
 			return ERROR;
 		}
 	}
-
-	public void setTunnelService(TunnelService tunnelService) {
-		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public int getTunnelIndexId(){
-		return m_tunnelId;
-	}
-	
-	public int getTunnelId() {
-   	return m_tunnelId;
-   }
-
-	public void setTunnelId(int tunnelId) {
-   	m_tunnelId = tunnelId;
-   }
-	
-	@Override
-   public String getActionModule() {
-		return Constrants.s_tunnelSection_model;
-   }
 	
 }

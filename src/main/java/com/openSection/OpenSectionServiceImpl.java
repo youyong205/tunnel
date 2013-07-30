@@ -53,6 +53,16 @@ public class OpenSectionServiceImpl implements OpenSectionService {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<OpenSection> queryAllOpenSections() {
+		try {
+			return m_openSectionDao.queryAllOpenSections();
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<OpenSection>();
+		}
+	}
+
 	@Override
 	public int queryAllSize() {
 		try {
@@ -64,16 +74,6 @@ public class OpenSectionServiceImpl implements OpenSectionService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<OpenSection> queryAllOpenSections() {
-		try {
-			return m_openSectionDao.queryAllOpenSections();
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return new ArrayList<OpenSection>();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<OpenSection> queryLimitedOpenSections(int start, int size) {
 		try {
@@ -81,20 +81,6 @@ public class OpenSectionServiceImpl implements OpenSectionService {
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<OpenSection>();
-		}
-	}
-
-	public void setOpenSectionDao(OpenSectionDao openSectionDao) {
-		m_openSectionDao = openSectionDao;
-	}
-
-	@Override
-	public int updateOpenSection(OpenSection openSection) {
-		try {
-			return m_openSectionDao.updateOpenSection(openSection);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
 		}
 	}
 
@@ -113,6 +99,20 @@ public class OpenSectionServiceImpl implements OpenSectionService {
 	public int querySizeByTunnelId(int tunnelId) {
 		try {
 			return m_openSectionDao.querySizeByTunnelId(tunnelId);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
+		}
+	}
+
+	public void setOpenSectionDao(OpenSectionDao openSectionDao) {
+		m_openSectionDao = openSectionDao;
+	}
+
+	@Override
+	public int updateOpenSection(OpenSection openSection) {
+		try {
+			return m_openSectionDao.updateOpenSection(openSection);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;

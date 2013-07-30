@@ -85,6 +85,11 @@ public class DocumentAction extends PagedAction {
 		}
 	}
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_document_model;
+   }
+
 	public String getContextType() {
 		if (m_document != null) {
 			return m_document.getType();
@@ -145,13 +150,8 @@ public class DocumentAction extends PagedAction {
 	public void setModule(String module) {
 		m_module = module;
 	}
-
+	
 	public void setName(String name) {
 		m_name = name;
 	}
-	
-	@Override
-   public String getActionModule() {
-		return Constrants.s_document_model;
-   }
 }

@@ -53,6 +53,16 @@ public class ContactChannelServiceImpl implements ContactChannelService {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<ContactChannel> queryAllContactChannels() {
+		try {
+			return m_contactChannelDao.queryAllContactChannels();
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<ContactChannel>();
+		}
+	}
+
 	@Override
 	public int queryAllSize() {
 		try {
@@ -64,16 +74,6 @@ public class ContactChannelServiceImpl implements ContactChannelService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<ContactChannel> queryAllContactChannels() {
-		try {
-			return m_contactChannelDao.queryAllContactChannels();
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return new ArrayList<ContactChannel>();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<ContactChannel> queryLimitedContactChannels(int start, int size) {
 		try {
@@ -81,20 +81,6 @@ public class ContactChannelServiceImpl implements ContactChannelService {
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<ContactChannel>();
-		}
-	}
-
-	public void setContactChannelDao(ContactChannelDao contactChannelDao) {
-		m_contactChannelDao = contactChannelDao;
-	}
-
-	@Override
-	public int updateContactChannel(ContactChannel contactChannel) {
-		try {
-			return m_contactChannelDao.updateContactChannel(contactChannel);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
 		}
 	}
 
@@ -113,6 +99,20 @@ public class ContactChannelServiceImpl implements ContactChannelService {
 	public int querySizeByTunnelId(int tunnelId) {
 		try {
 			return m_contactChannelDao.querySizeByTunnelId(tunnelId);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
+		}
+	}
+
+	public void setContactChannelDao(ContactChannelDao contactChannelDao) {
+		m_contactChannelDao = contactChannelDao;
+	}
+
+	@Override
+	public int updateContactChannel(ContactChannel contactChannel) {
+		try {
+			return m_contactChannelDao.updateContactChannel(contactChannel);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;

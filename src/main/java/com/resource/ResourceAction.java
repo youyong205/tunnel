@@ -22,6 +22,11 @@ public class ResourceAction extends PagedAction {
 	
 	private Resource m_resource = new Resource();
 	
+	@Override
+   public String getActionModule() {
+		return Constrants.s_resource_model;
+   }
+
 	public Resource getResource() {
 		return m_resource;
 	}
@@ -30,18 +35,6 @@ public class ResourceAction extends PagedAction {
 		return m_resources;
 	}
 
-	public void setResource(Resource resource) {
-		m_resource = resource;
-	}
-
-	public void setResourceId(int resourceId) {
-		m_resourceId = resourceId;
-	}
-
-	public void setResourceService(ResourceService resourceService) {
-		m_resourceService = resourceService;
-	}
-	
 	public String resourceAdd(){
 		return SUCCESS;
 	}
@@ -62,7 +55,7 @@ public class ResourceAction extends PagedAction {
 			return ERROR;
 		}
 	}
-
+	
 	public String resourceDelete() {
 		try {
 			int count = m_resourceService.deleteResource(m_resourceId);
@@ -127,9 +120,16 @@ public class ResourceAction extends PagedAction {
 		}
 	}
 
+	public void setResource(Resource resource) {
+		m_resource = resource;
+	}
 
-	@Override
-   public String getActionModule() {
-		return Constrants.s_resource_model;
-   }
+	public void setResourceId(int resourceId) {
+		m_resourceId = resourceId;
+	}
+
+
+	public void setResourceService(ResourceService resourceService) {
+		m_resourceService = resourceService;
+	}
 }

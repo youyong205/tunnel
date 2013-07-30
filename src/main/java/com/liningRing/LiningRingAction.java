@@ -27,6 +27,15 @@ public class LiningRingAction extends PagedAction {
 
 	private List<LiningRingBlock> m_blocks = new ArrayList<LiningRingBlock>();
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_liningRing_model;
+   }
+
+	public List<LiningRingBlock> getBlocks() {
+		return m_blocks;
+	}
+
 	public LiningRing getLiningRing() {
 		return m_liningRing;
 	}
@@ -35,22 +44,10 @@ public class LiningRingAction extends PagedAction {
 		return m_liningRings;
 	}
 
-	public void setLiningRing(LiningRing liningRing) {
-		m_liningRing = liningRing;
-	}
-
-	public void setLiningRingId(int liningRingId) {
-		m_liningRingId = liningRingId;
-	}
-
-	public void setLiningRingService(LiningRingService liningRingService) {
-		m_liningRingService = liningRingService;
-	}
-
 	public String liningRingAdd(){
 		return SUCCESS;
 	}
-	
+
 	public String liningRingAddSubmit() {
 		try {
 			int id = m_liningRingService.insertLiningRing(m_liningRing);
@@ -75,7 +72,7 @@ public class LiningRingAction extends PagedAction {
 			return ERROR;
 		}
 	}
-
+	
 	public String liningRingDelete() {
 		try {
 			int count = m_liningRingService.deleteLiningRing(m_liningRingId);
@@ -151,22 +148,25 @@ public class LiningRingAction extends PagedAction {
 		}
 	}
 
-	public List<LiningRingBlock> getBlocks() {
-		return m_blocks;
-	}
-
 	public void setBlocks(List<LiningRingBlock> blocks) {
 		m_blocks = blocks;
+	}
+
+	public void setLiningRing(LiningRing liningRing) {
+		m_liningRing = liningRing;
 	}
 
 	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
 		m_liningRingBlockService = liningRingBlockService;
 	}
 
-	@Override
-   public String getActionModule() {
-		return Constrants.s_liningRing_model;
-   }
+	public void setLiningRingId(int liningRingId) {
+		m_liningRingId = liningRingId;
+	}
+
+	public void setLiningRingService(LiningRingService liningRingService) {
+		m_liningRingService = liningRingService;
+	}
 
 
 }

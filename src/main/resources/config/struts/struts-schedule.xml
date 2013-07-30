@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="tunnel" extends="default">
+		<action name="tunnelList" class="tunnelAction" method="tunnelList">
+			<result name="success">admin/tunnel/TunnelList.jsp</result>
+		</action>
+		<action name="tunnelAdd"  class="tunnelAction" method="tunnelAdd">
+			<result name="success">admin/tunnel/TunnelAdd.jsp</result>
+		</action>
+		<action name="tunnelAddSubmit" class="tunnelAction" method="tunnelAddSubmit">
+			<result name="success" type="redirect">tunnelList.action?index=${index}</result>
+		</action>
+		<action name="tunnelUpdate" class="tunnelAction" method="tunnelUpdate" >
+			<result name="success">admin/tunnel/TunnelUpdate.jsp</result>
+		</action>
+		<action name="tunnelDetail" class="tunnelAction" method="tunnelUpdate" >
+			<result name="success">admin/tunnel/TunnelDetail.jsp</result>
+		</action>
+		<action name="tunnelUpdateSubmit" class="tunnelAction" method="tunnelUpdateSubmit">
+			<result name="success" type="redirect">tunnelList.action?index=${index}</result>
+		</action>
+		<action name="tunnelDelete" class="tunnelAction" method="tunnelDelete">
+			<result name="success" type="redirect">tunnelList.action?index=${index}</result>
+		</action>
+	</package>	
+</struts>

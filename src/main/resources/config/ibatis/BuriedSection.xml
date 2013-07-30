@@ -3,7 +3,7 @@
 <sqlMap>
 	<typeAlias alias="buriedSection" type="com.buriedSection.BuriedSection" />
 	<sql id="buriedSection.columns">
-		id,tunnelId,documentId,name,type,startPosition,endPosition,
+		id,tunnelId,documentId,scheduleId,name,type,startPosition,endPosition,
 		envelope,startFloor,endFloor,linedWallThickness,floorThickness,roofThickness,startHeadroom,endHeadroom,
 		des,creationDate,modifyDate
 	</sql>
@@ -35,7 +35,7 @@
 	</select>
 	<insert id="buriedSection.insert" parameterClass="buriedSection">
 		insert into buriedSection (<include refid="buriedSection.columns" />) values
-		(#id#,#tunnelId#,#documentId#,#name#,#type#,#startPosition#,#endPosition#,
+		(#id#,#tunnelId#,#documentId#,#scheduleId#,#name#,#type#,#startPosition#,#endPosition#,
 		#envelope#,#startFloor#,#endFloor#,#linedWallThickness#,#floorThickness#,#roofThickness#,
 		#startHeadroom#,#endHeadroom#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">

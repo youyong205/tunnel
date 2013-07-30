@@ -26,6 +26,11 @@ public class LogAction extends PagedAction {
 
 	private String m_operation;
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_log_module;
+   }
+
 	public Log getLog() {
 		return m_log;
 	}
@@ -34,31 +39,12 @@ public class LogAction extends PagedAction {
 		return m_logs;
 	}
 
-	public void setLog(Log log) {
-		m_log = log;
+	public String getModule() {
+		return m_module;
 	}
 
-	public void setLogId(int logId) {
-		m_logId = logId;
-	}
-
-	public String logSearch() {
-		try {
-			m_totalSize = m_logService.querySize(m_module, m_operation);
-			m_totalPages = computeTotalPages(m_totalSize);
-			int start = (m_index - 1) * SIZE;
-			if (start < 0) {
-				start = 0;
-			}
-			m_logs = m_logService.queryLimitedLogs(m_module, m_operation, start, SIZE);
-			for (Log log : m_logs) {
-				log.setUser(m_userService.findByPK(log.getUserId()));
-			}
-			return SUCCESS;
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return ERROR;
-		}
+	public String getOperation() {
+		return m_operation;
 	}
 
 	public String logList() {
@@ -70,6 +56,25 @@ public class LogAction extends PagedAction {
 				start = 0;
 			}
 			m_logs = m_logService.queryLimitedLogs(start, SIZE);
+			for (Log log : m_logs) {
+				log.setUser(m_userService.findByPK(log.getUserId()));
+			}
+			return SUCCESS;
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return ERROR;
+		}
+	}
+
+	public String logSearch() {
+		try {
+			m_totalSize = m_logService.querySize(m_module, m_operation);
+			m_totalPages = computeTotalPages(m_totalSize);
+			int start = (m_index - 1) * SIZE;
+			if (start < 0) {
+				start = 0;
+			}
+			m_logs = m_logService.queryLimitedLogs(m_module, m_operation, start, SIZE);
 			for (Log log : m_logs) {
 				log.setUser(m_userService.findByPK(log.getUserId()));
 			}
@@ -95,30 +100,25 @@ public class LogAction extends PagedAction {
 		}
 	}
 
-	public void setUserService(UserService userService) {
-		m_userService = userService;
+	public void setLog(Log log) {
+		m_log = log;
 	}
 
-	public String getModule() {
-		return m_module;
+	public void setLogId(int logId) {
+		m_logId = logId;
 	}
 
 	public void setModule(String module) {
 		m_module = module;
 	}
 
-	public String getOperation() {
-		return m_operation;
-	}
-
 	public void setOperation(String operation) {
 		m_operation = operation;
 	}
 
-	@Override
-   public String getActionModule() {
-		return Constrants.s_log_module;
-   }
+	public void setUserService(UserService userService) {
+		m_userService = userService;
+	}
 
 
 }

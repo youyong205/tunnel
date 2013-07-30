@@ -10,23 +10,12 @@ public class UserDao {
 
 	private BaseDao m_baseDao;
 
-	public void setBaseDao(BaseDao baseDao) {
-		m_baseDao = baseDao;
+	public int deleteUser(int id) {
+		return m_baseDao.delete("user.delete", id);
 	}
 
-	@SuppressWarnings("rawtypes")
-	public List queryAllUsers() {
-		return m_baseDao.queryForList("user.queryAllUsers");
-	}
-
-	@SuppressWarnings("rawtypes")
-	public List queryLimitedUsers(int start, int size) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("start", start);
-		parameters.put("size", size);
-
-		return m_baseDao.queryForList("user.queryLimitedUsers", parameters);
+	public int deleteUserRoles(int userId) {
+		return m_baseDao.delete("userRole.deleteByUserId", userId);
 	}
 
 	public User findByNamePassword(String userName, String password) {
@@ -45,12 +34,8 @@ public class UserDao {
 		return (Integer) m_baseDao.insert("user.insert", user);
 	}
 
-	public int updateUser(User user) {
-		return m_baseDao.update("user.update", user);
-	}
-
-	public int deleteUser(int id) {
-		return m_baseDao.delete("user.delete", id);
+	public void insertUserRoles(UserRole userRole) {
+		m_baseDao.insert("userRole.insert", userRole);
 	}
 
 	public int queryAllSize() {
@@ -58,16 +43,31 @@ public class UserDao {
 	}
 
 	@SuppressWarnings("rawtypes")
+	public List queryAllUsers() {
+		return m_baseDao.queryForList("user.queryAllUsers");
+	}
+
+	@SuppressWarnings("rawtypes")
+	public List queryLimitedUsers(int start, int size) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("start", start);
+		parameters.put("size", size);
+
+		return m_baseDao.queryForList("user.queryLimitedUsers", parameters);
+	}
+
+	@SuppressWarnings("rawtypes")
 	public List queryUserRoles(int userId) {
 		return m_baseDao.queryForList("userRole.queryUserRoles", userId);
 	}
 
-	public int deleteUserRoles(int userId) {
-		return m_baseDao.delete("userRole.deleteByUserId", userId);
+	public void setBaseDao(BaseDao baseDao) {
+		m_baseDao = baseDao;
 	}
 
-	public void insertUserRoles(UserRole userRole) {
-		m_baseDao.insert("userRole.insert", userRole);
+	public int updateUser(User user) {
+		return m_baseDao.update("user.update", user);
 	}
 
 }

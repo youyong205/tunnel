@@ -78,8 +78,11 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">工作井简介</strong></td>
 						<td><textarea type="text" rows="5" cols="40"  name="workingWell.des" class="{maxlength:512}"></textarea></td>
 					</tr>
+				</table>
+				 <%@include file="./../schedule/ScheduleAdd.jsp"%>
+				<table   class="table table-striped table-bordered table-condensed">
 					<tr>
-						<td colspan="4" style="text-align:center;">
+						<td  style="text-align:center;">
 							<button  class="btn btn-small btn-primary"  type="submit" >提交</button></td>
 					</tr>
 				</table>

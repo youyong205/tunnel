@@ -40,6 +40,17 @@ public class LiningRingServiceImpl implements LiningRingService {
 	}
 
 	@Override
+   public LiningRing findByName(String name) {
+		try {
+			return m_liningRingDao.findByName(name);
+			
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+   }
+
+	@Override
 	public LiningRing findByPK(int id) {
 		LiningRing liningRing = m_liningRings.get(id);
 		if (liningRing == null) {
@@ -69,16 +80,6 @@ public class LiningRingServiceImpl implements LiningRingService {
 		}
 	}
 
-	@Override
-	public int queryAllSize() {
-		try {
-			return m_liningRingDao.queryAllSize();
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
-		}
-	}
-
 	@SuppressWarnings("unchecked")
 	public List<LiningRing> queryAllLiningRings() {
 		try {
@@ -86,6 +87,16 @@ public class LiningRingServiceImpl implements LiningRingService {
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<LiningRing>();
+		}
+	}
+
+	@Override
+	public int queryAllSize() {
+		try {
+			return m_liningRingDao.queryAllSize();
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
 		}
 	}
 
@@ -116,16 +127,5 @@ public class LiningRingServiceImpl implements LiningRingService {
 			return -1;
 		}
 	}
-
-	@Override
-   public LiningRing findByName(String name) {
-		try {
-			return m_liningRingDao.findByName(name);
-			
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-   }
 
 }

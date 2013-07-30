@@ -84,20 +84,6 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 		}
 	}
 
-	public void setTunnelSectionDao(TunnelSectionDao tunnelSectionDao) {
-		m_tunnelSectionDao = tunnelSectionDao;
-	}
-
-	@Override
-	public int updateTunnelSection(TunnelSection tunnelSection) {
-		try {
-			return m_tunnelSectionDao.updateTunnelSection(tunnelSection);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
-		}
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<TunnelSection> queryLimitedTunnelSectionsByTunnelId(int tunnelId, int start, int size) {
@@ -113,6 +99,20 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 	public int querySizeByTunnelId(int tunnelId) {
 		try {
 			return m_tunnelSectionDao.querySizeByTunnelId(tunnelId);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
+		}
+	}
+
+	public void setTunnelSectionDao(TunnelSectionDao tunnelSectionDao) {
+		m_tunnelSectionDao = tunnelSectionDao;
+	}
+
+	@Override
+	public int updateTunnelSection(TunnelSection tunnelSection) {
+		try {
+			return m_tunnelSectionDao.updateTunnelSection(tunnelSection);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;

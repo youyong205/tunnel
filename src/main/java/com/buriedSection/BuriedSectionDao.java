@@ -26,13 +26,13 @@ public class BuriedSectionDao {
 		return (Integer) m_baseDao.insert("buriedSection.insert", buriedSection);
 	}
 
-	public int queryAllSize() {
-		return (Integer) m_baseDao.queryForObject("buriedSection.queryAllSize", null);
-	}
-
 	@SuppressWarnings("rawtypes")
 	public List queryAllBuriedSections() {
 		return m_baseDao.queryForList("buriedSection.queryAllBuriedSections");
+	}
+
+	public int queryAllSize() {
+		return (Integer) m_baseDao.queryForObject("buriedSection.queryAllSize", null);
 	}
 
 	@SuppressWarnings("rawtypes")

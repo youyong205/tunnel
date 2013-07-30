@@ -3,7 +3,7 @@
 <sqlMap>
 	<typeAlias alias="openSection" type="com.openSection.OpenSection" />
 	<sql id="openSection.columns">
-		id,tunnelId,documentId,name,type,startPosition,endPosition,envelope,startFloor,
+		id,tunnelId,documentId,scheduleId,name,type,startPosition,endPosition,envelope,startFloor,
 		endFloor,startRoadDome,endRoadDome,crestPileBottom,platformPileBottom,des,creationDate,modifyDate
 	</sql>
 	<select id="openSection.queryAllSize" resultClass="int">
@@ -34,7 +34,7 @@
 	</select>
 	<insert id="openSection.insert" parameterClass="openSection">
 		insert into openSection (<include refid="openSection.columns" />) values
-		(#id#,#tunnelId#,#documentId#,#name#,#type#,#startPosition#,#endPosition#,#envelope#,#startFloor#,
+		(#id#,#tunnelId#,#documentId#,#scheduleId#,#name#,#type#,#startPosition#,#endPosition#,#envelope#,#startFloor#,
 		#endFloor#,#startRoadDome#,#endRoadDome#,#crestPileBottom#,#platformPileBottom#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>

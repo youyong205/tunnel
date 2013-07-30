@@ -14,6 +14,10 @@
 		<sqlMap resource="config/ibatis/LiningRingBlock.xml"/>
 
 		<sqlMap resource="config/ibatis/Tunnel.xml"/>
+		<sqlMap resource="config/ibatis/Schedule.xml"/>
+		<sqlMap resource="config/ibatis/Inspection.xml"/>
+		<sqlMap resource="config/ibatis/Curing.xml"/>
+		<sqlMap resource="config/ibatis/ConstructionUnit.xml"/>
 		<sqlMap resource="config/ibatis/TunnelSection.xml"/>
 		<sqlMap resource="config/ibatis/ContactChannel.xml"/>
 		<sqlMap resource="config/ibatis/WorkingWell.xml"/>

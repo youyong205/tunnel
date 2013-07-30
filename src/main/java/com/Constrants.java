@@ -2,10 +2,6 @@ package com;
 
 public class Constrants {
 
-	public static final int s_page_size = 20;
-
-	public static final int s_half_size = 3;
-
 	public static final String s_user_model = "用户模块";
 
 	public static final String s_tunnel_model = "隧道模块";
@@ -15,7 +11,10 @@ public class Constrants {
 	public static String s_tunnelSection_model = "盾构段模块";
 
 	public static String s_contactChannel_model = "联络通道模块";
-
+	
+	public static String s_contactChannel_inspection_model = "联络通道质量检测模块";
+	public static String s_contactChannel_curing_model="联络通道养护记录模块";
+	
 	public static String s_workingWell_model = "工作井模块";
 
 	public static final String s_operation_add = "新增";
@@ -33,6 +32,7 @@ public class Constrants {
 	public static String s_buriedSection_model = "暗埋段模块";
 
 	public static String s_openSection_model = "敞开段模块";
+	public static String s_openSection_inspection_model="敞开段质量检测模块";
 
 	public static String s_role_model = "角色模块";
 
@@ -41,5 +41,22 @@ public class Constrants {
 	public static String s_document_model = "工程文档模块";
 
 	public static String s_log_module = "日志模块";
+
+	public static String s_constructionUnit_model="施工单位模块";
+
+	public static String s_schedule_model="施工进度";
+
+	public static String s_buriedSection_curing_model="暗埋段养护记录模块";
+
+	public static String s_buriedSection_inspection_model="暗埋段质量检测模块";
+
+	public static String s_workingWell_inspection_model="工作井质量检测模块";
+
+	public static String s_workingWell_curing_model="工作井养护记录模块";
+
+	public static String s_openSection_curing_model="敞开段养护记录模块";
+
+
+
 
 }

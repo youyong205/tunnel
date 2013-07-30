@@ -14,9 +14,9 @@ public interface WorkingWellService {
 
 	public int queryAllSize();
 
-	public List<WorkingWell> queryLimitedWorkingWellsByTunnelId(int tunnelId,int start, int size);
-
 	public List<WorkingWell> queryLimitedWorkingWells(int start, int size);
+
+	public List<WorkingWell> queryLimitedWorkingWellsByTunnelId(int tunnelId,int start, int size);
 
 	public int querySizeByTunnelId(int tunnelId);
 

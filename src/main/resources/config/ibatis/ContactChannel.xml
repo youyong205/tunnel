@@ -3,7 +3,7 @@
 <sqlMap>
 	<typeAlias alias="contactChannel" type="com.contactChannel.ContactChannel" />
 	<sql id="contactChannel.columns">
-		id,tunnelId,documentId,name,type,upLine,downLine,upCenter,downCenter,
+		id,tunnelId,documentId,scheduleId,name,type,upLine,downLine,upCenter,downCenter,
 		soilOrder,des,creationDate,modifyDate
 	</sql>
 	<select id="contactChannel.queryAllSize" resultClass="int">
@@ -34,7 +34,7 @@
 	</select>
 	<insert id="contactChannel.insert" parameterClass="contactChannel">
 		insert into contactChannel (<include refid="contactChannel.columns" />) values
-		(#id#,#tunnelId#,#documentId#,#name#,#type#,#upLine#,#downLine#,#upCenter#,#downCenter#,
+		(#id#,#tunnelId#,#documentId#,#scheduleId#,#name#,#type#,#upLine#,#downLine#,#upCenter#,#downCenter#,
 		#soilOrder#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>

@@ -34,26 +34,6 @@ public class RoleAction extends PagedAction {
 
 	private Map<String, ModuleResources> m_moduleResources = new HashMap<String, ModuleResources>();
 
-	public Role getRole() {
-		return m_role;
-	}
-
-	public List<Role> getRoles() {
-		return m_roles;
-	}
-
-	public void setRole(Role role) {
-		m_role = role;
-	}
-
-	public void setRoleId(int roleId) {
-		m_roleId = roleId;
-	}
-
-	public void setRoleService(RoleService roleService) {
-		m_roleService = roleService;
-	}
-
 	private void buildModuleResources(List<Resource> resources) {
 		for (Resource res : resources) {
 			String module = res.getModule();
@@ -69,6 +49,28 @@ public class RoleAction extends PagedAction {
 		}
 	}
 
+	private void buildModuleSelectedResources(List<RoleResource> selectedResources) {
+		m_resourceIdSelect = new Integer[selectedResources.size()];
+
+		Map<Integer, RoleResource> selectedResourcesMap = new HashMap<Integer, RoleResource>();
+		for (RoleResource roleResource : selectedResources) {
+			selectedResourcesMap.put(roleResource.getResourceId(), roleResource);
+		}
+
+		for (Entry<String, ModuleResources> entry : m_moduleResources.entrySet()) {
+			ModuleResources value = entry.getValue();
+			List<Resource> res = value.getResources();
+
+			for (Resource temp : res) {
+				int id = temp.getId();
+				
+				if(selectedResourcesMap.containsKey(id)){
+					temp.setChecked(true);
+				}
+			}
+		}
+	}
+
 	private ModuleResources findOrCreateModuleResources(String module) {
 		ModuleResources moduleResources = m_moduleResources.get(module);
 
@@ -78,6 +80,31 @@ public class RoleAction extends PagedAction {
 			m_moduleResources.put(module, moduleResources);
 		}
 		return moduleResources;
+	}
+
+	@Override
+   public String getActionModule() {
+		return Constrants.s_role_model;
+   }
+
+	public Map<String, ModuleResources> getModuleResources() {
+		return m_moduleResources;
+	}
+
+	public Integer[] getResourceIdSelect() {
+		return m_resourceIdSelect;
+	}
+
+	public ResourceService getResourceService() {
+		return m_resourceService;
+	}
+
+	public Role getRole() {
+		return m_role;
+	}
+
+	public List<Role> getRoles() {
+		return m_roles;
 	}
 
 	public String roleAdd() {
@@ -165,28 +192,6 @@ public class RoleAction extends PagedAction {
 		}
 	}
 
-	private void buildModuleSelectedResources(List<RoleResource> selectedResources) {
-		m_resourceIdSelect = new Integer[selectedResources.size()];
-
-		Map<Integer, RoleResource> selectedResourcesMap = new HashMap<Integer, RoleResource>();
-		for (RoleResource roleResource : selectedResources) {
-			selectedResourcesMap.put(roleResource.getResourceId(), roleResource);
-		}
-
-		for (Entry<String, ModuleResources> entry : m_moduleResources.entrySet()) {
-			ModuleResources value = entry.getValue();
-			List<Resource> res = value.getResources();
-
-			for (Resource temp : res) {
-				int id = temp.getId();
-				
-				if(selectedResourcesMap.containsKey(id)){
-					temp.setChecked(true);
-				}
-			}
-		}
-	}
-
 	public String roleUpdateSubmit() {
 		try {
 			int count = m_roleService.updateRole(m_role);
@@ -214,36 +219,35 @@ public class RoleAction extends PagedAction {
 		}
 	}
 
-	public Integer[] getResourceIdSelect() {
-		return m_resourceIdSelect;
-	}
-
 	public void setResourceIdSelect(Integer[] resourceIdSelect) {
 		m_resourceIdSelect = resourceIdSelect;
-	}
-
-	public ResourceService getResourceService() {
-		return m_resourceService;
-	}
-
-	public Map<String, ModuleResources> getModuleResources() {
-		return m_moduleResources;
 	}
 
 	public void setResourceService(ResourceService resourceService) {
 		m_resourceService = resourceService;
 	}
+
+	public void setRole(Role role) {
+		m_role = role;
+	}
+
+	public void setRoleId(int roleId) {
+		m_roleId = roleId;
+	}
 	
-	@Override
-   public String getActionModule() {
-		return Constrants.s_role_model;
-   }
+	public void setRoleService(RoleService roleService) {
+		m_roleService = roleService;
+	}
 
 	public static class ModuleResources {
 
 		private Map<Integer, Resource> m_resources;
 
 		private String m_module;
+
+		public String getModule() {
+			return m_module;
+		}
 
 		public List<Resource> getResources() {
 			return new ArrayList<Resource>(m_resources.values());
@@ -253,16 +257,12 @@ public class RoleAction extends PagedAction {
 			return m_resources;
 		}
 
-		public void setResources(Map<Integer, Resource> resources) {
-			m_resources = resources;
-		}
-
-		public String getModule() {
-			return m_module;
-		}
-
 		public void setModule(String module) {
 			m_module = module;
+		}
+
+		public void setResources(Map<Integer, Resource> resources) {
+			m_resources = resources;
 		}
 	}
 

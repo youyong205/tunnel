@@ -5,13 +5,14 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.Constrants;
-import com.FileUploadAction;
+import com.ScheduledAction;
 import com.document.Document;
 import com.log.Log;
+import com.schedule.Schedule;
 import com.tunnel.Tunnel;
 import com.tunnel.TunnelService;
 
-public class ContactChannelAction extends FileUploadAction {
+public class ContactChannelAction extends ScheduledAction {
 
 	private static final long serialVersionUID = 2802256599554299998L;
 
@@ -31,29 +32,10 @@ public class ContactChannelAction extends FileUploadAction {
 
 	private ContactChannel m_contactChannel = new ContactChannel();
 
-	public ContactChannel getContactChannel() {
-		return m_contactChannel;
-	}
-
-	public List<ContactChannel> getContactChannels() {
-		return m_contactChannels;
-	}
-
-	public void setContactChannel(ContactChannel contactChannel) {
-		m_contactChannel = contactChannel;
-	}
-
-	public void setContactChannelId(int contactChannelId) {
-		m_contactChannelId = contactChannelId;
-	}
-
-	public void setContactChannelService(ContactChannelService contactChannelService) {
-		m_contactChannelService = contactChannelService;
-	}
-
 	public String contactChannelAdd() {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			return SUCCESS;
 		} catch (Exception e) {
 			m_logger.error(e);
@@ -67,6 +49,9 @@ public class ContactChannelAction extends FileUploadAction {
 			if (m_uploadFile.getFile() != null) {
 				documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
 			}
+			m_schedule.setType(getActionModule());
+			int scheduleId = m_scheduleService.insertSchedule(m_schedule);
+			m_contactChannel.setScheduleId(scheduleId);
 			m_contactChannel.setDocumentId(documentId);
 			int id = m_contactChannelService.insertContactChannel(m_contactChannel);
 			if (id > 0) {
@@ -103,27 +88,26 @@ public class ContactChannelAction extends FileUploadAction {
 	public String contactChannelList() {
 		try {
 			if (m_tunnelId == 0) {
-				m_tunnels = m_tunnelService.queryAllTunnels();
-				m_totalSize = m_contactChannelService.queryAllSize();
-				m_totalPages = computeTotalPages(m_totalSize);
-				int start = (m_index - 1) * SIZE;
-				if (start < 0) {
-					start = 0;
-				}
-				m_contactChannels = m_contactChannelService.queryLimitedContactChannels(start, SIZE);
-			} else {
-				m_tunnels = m_tunnelService.queryAllTunnels();
-				m_totalSize = m_contactChannelService.querySizeByTunnelId(m_tunnelId);
-				m_totalPages = computeTotalPages(m_totalSize);
-				int start = (m_index - 1) * SIZE;
-				if (start < 0) {
-					start = 0;
-				}
-				m_contactChannels = m_contactChannelService.queryLimitedContactChannelsByTunnelId(m_tunnelId, start, SIZE);
+				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 			}
+			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_totalSize = m_contactChannelService.querySizeByTunnelId(m_tunnelId);
+			m_totalPages = computeTotalPages(m_totalSize);
+			int start = (m_index - 1) * SIZE;
+			if (start < 0) {
+				start = 0;
+			}
+			m_contactChannels = m_contactChannelService.queryLimitedContactChannelsByTunnelId(m_tunnelId, start, SIZE);
 			for (ContactChannel channel : m_contactChannels) {
 				channel.setTunnel(m_tunnelService.findByPK(channel.getTunnelId()));
-
+				int scheduleId = channel.getScheduleId();
+				if (scheduleId > 0) {
+					Schedule schedule = m_scheduleService.findByPK(scheduleId);
+					if (schedule != null) {
+						channel.setSchedule(schedule);
+						schedule.setConstructionUnit(m_constructionUnitService.findByPK(schedule.getConstructionUnitId()));
+					}
+				}
 				if (channel.getDocumentId() > 0) {
 					channel.setDocument(m_documentService.findByPK(channel.getDocumentId()));
 				}
@@ -138,7 +122,9 @@ public class ContactChannelAction extends FileUploadAction {
 	public String contactChannelUpdate() {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			m_contactChannel = m_contactChannelService.findByPK(m_contactChannelId);
+			m_schedule = m_scheduleService.findByPK(m_contactChannel.getScheduleId());
 			if (m_contactChannel != null) {
 				m_contactChannel.setTunnel(m_tunnelService.findByPK(m_contactChannel.getTunnelId()));
 
@@ -159,15 +145,16 @@ public class ContactChannelAction extends FileUploadAction {
 		try {
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_contactChannel.getDocumentId();
-				
-				if(documentId>0){
+
+				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
 					m_documentService.updateDocument(Constrants.s_contactChannel_model, m_uploadFile, document);
-				}else{
+				} else {
 					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
 					m_contactChannel.setDocumentId(documentId);
 				}
 			}
+			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_contactChannelService.updateContactChannel(m_contactChannel);
 			if (count > 0) {
 				Log log = createLog(Constrants.s_contactChannel_model, Constrants.s_operation_update, m_contactChannel);
@@ -183,29 +170,49 @@ public class ContactChannelAction extends FileUploadAction {
 		}
 	}
 
-	public void setTunnelService(TunnelService tunnelService) {
-		m_tunnelService = tunnelService;
+	@Override
+	public String getActionModule() {
+		return Constrants.s_contactChannel_model;
 	}
 
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
+	public ContactChannel getContactChannel() {
+		return m_contactChannel;
 	}
 
-	public int getTunnelIndexId() {
-		return m_tunnelId;
+	public List<ContactChannel> getContactChannels() {
+		return m_contactChannels;
 	}
 
 	public int getTunnelId() {
 		return m_tunnelId;
 	}
 
+	public int getTunnelIndexId() {
+		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
+	public void setContactChannel(ContactChannel contactChannel) {
+		m_contactChannel = contactChannel;
+	}
+
+	public void setContactChannelId(int contactChannelId) {
+		m_contactChannelId = contactChannelId;
+	}
+
+	public void setContactChannelService(ContactChannelService contactChannelService) {
+		m_contactChannelService = contactChannelService;
+	}
+
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
-	
-	@Override
-   public String getActionModule() {
-		return Constrants.s_contactChannel_model;
-   }
+
+	public void setTunnelService(TunnelService tunnelService) {
+		m_tunnelService = tunnelService;
+	}
 
 }

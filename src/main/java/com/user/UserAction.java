@@ -30,12 +30,33 @@ public class UserAction extends PagedAction {
 
 	private List<Role> m_roles;
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_user_model;
+   }
+
+	public Integer[] getRoleIdSelect() {
+   	return m_roleIdSelect;
+   }
+
+	public List<Role> getRoles() {
+		return m_roles;
+	}
+
 	public User getUser() {
 		return m_user;
 	}
 
 	public List<User> getUsers() {
 		return m_users;
+	}
+
+	public void setRoleIdSelect(Integer[] roleIdSelect) {
+		m_roleIdSelect = roleIdSelect;
+	}
+
+	public void setRoleService(RoleService roleService) {
+		m_roleService = roleService;
 	}
 
 	public void setUser(User user) {
@@ -162,26 +183,5 @@ public class UserAction extends PagedAction {
 			return ERROR;
 		}
 	}
-
-	public List<Role> getRoles() {
-		return m_roles;
-	}
-
-	public void setRoleService(RoleService roleService) {
-		m_roleService = roleService;
-	}
-
-	public void setRoleIdSelect(Integer[] roleIdSelect) {
-		m_roleIdSelect = roleIdSelect;
-	}
-
-	public Integer[] getRoleIdSelect() {
-   	return m_roleIdSelect;
-   }
-
-	@Override
-   public String getActionModule() {
-		return Constrants.s_user_model;
-   }
 
 }

@@ -34,6 +34,11 @@ public class LoginAction extends PagedAction {
 
 	private static final String USER = "user";
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_user_model;
+   }
+
 	public String login() {
 		User user = m_userService.findByNamePassword(m_userName, m_password);
 
@@ -72,29 +77,24 @@ public class LoginAction extends PagedAction {
 		return SUCCESS;
 	}
 
-	public void setUserName(String userName) {
-		m_userName = userName;
-	}
-
 	public void setPassword(String password) {
 		m_password = password;
 	}
 
-	public void setUserService(UserService userService) {
-		m_userService = userService;
-	}
-
-	@Override
-   public String getActionModule() {
-		return Constrants.s_user_model;
+	public void setResourceService(ResourceService resourceService) {
+   	m_resourceService = resourceService;
    }
 
 	public void setRoleService(RoleService roleService) {
    	m_roleService = roleService;
    }
 
-	public void setResourceService(ResourceService resourceService) {
-   	m_resourceService = resourceService;
-   }
+	public void setUserName(String userName) {
+		m_userName = userName;
+	}
+
+	public void setUserService(UserService userService) {
+		m_userService = userService;
+	}
 	
 }

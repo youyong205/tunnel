@@ -10,9 +10,25 @@ public class TunnelDao {
 
 	private BaseDao m_baseDao;
 
-	public void setBaseDao(BaseDao baseDao) {
-		m_baseDao = baseDao;
+	public int deleteTunnel(int id) {
+		return m_baseDao.delete("tunnel.delete", id);
 	}
+
+	public Tunnel findByName(String name) {
+		return (Tunnel) m_baseDao.queryForObject("tunnel.findByName", name);
+	}
+
+	public Tunnel findByPK(int id) {
+		return (Tunnel) m_baseDao.queryForObject("tunnel.findById", id);
+	}
+
+	public int insertTunnel(Tunnel tunnel) {
+		return (Integer) m_baseDao.insert("tunnel.insert", tunnel);
+	}
+
+	public int queryAllSize() {
+		return (Integer)m_baseDao.queryForObject("tunnel.queryAllSize",null);
+   }
 
 	@SuppressWarnings("rawtypes")
 	public List queryAllTunnels() {
@@ -29,28 +45,12 @@ public class TunnelDao {
 		return m_baseDao.queryForList("tunnel.queryLimitedTunnels", parameters);
 	}
 
-	public Tunnel findByName(String name) {
-		return (Tunnel) m_baseDao.queryForObject("tunnel.findByName", name);
-	}
-
-	public Tunnel findByPK(int id) {
-		return (Tunnel) m_baseDao.queryForObject("tunnel.findById", id);
-	}
-
-	public int insertTunnel(Tunnel tunnel) {
-		return (Integer) m_baseDao.insert("tunnel.insert", tunnel);
+	public void setBaseDao(BaseDao baseDao) {
+		m_baseDao = baseDao;
 	}
 
 	public int updateTunnel(Tunnel tunnel) {
 		return m_baseDao.update("tunnel.update", tunnel);
 	}
-
-	public int deleteTunnel(int id) {
-		return m_baseDao.delete("tunnel.delete", id);
-	}
-
-	public int queryAllSize() {
-		return (Integer)m_baseDao.queryForObject("tunnel.queryAllSize",null);
-   }
 
 }

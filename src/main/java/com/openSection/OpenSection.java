@@ -3,6 +3,7 @@ package com.openSection;
 import java.util.Date;
 
 import com.document.Document;
+import com.schedule.Schedule;
 import com.tunnel.Tunnel;
 
 public class OpenSection {
@@ -19,6 +20,26 @@ public class OpenSection {
 	private int m_documentId;
 
 	private Document m_document;
+
+	public void setSchedule(Schedule schedule) {
+		m_schedule = schedule;
+	}
+
+	private int m_scheduleId;
+
+	private Schedule m_schedule;
+
+	public int getScheduleId() {
+		return m_scheduleId;
+	}
+
+	public void setScheduleId(int scheduleId) {
+		m_scheduleId = scheduleId;
+	}
+
+	public Schedule getSchedule() {
+		return m_schedule;
+	}
 
 	private double m_startPosition;
 
@@ -44,156 +65,156 @@ public class OpenSection {
 
 	private Date m_modifyDate;
 
-	public int getId() {
-		return m_id;
-	}
-
-	public void setId(int id) {
-		m_id = id;
-	}
-
-	public String getName() {
-		return m_name;
-	}
-
-	public void setName(String name) {
-		m_name = name;
-	}
-
-	public String getType() {
-		return m_type;
-	}
-
-	public void setType(String type) {
-		m_type = type;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public void setTunnelId(int tunnelId) {
-		m_tunnelId = tunnelId;
-	}
-
-	public Tunnel getTunnel() {
-		return m_tunnel;
-	}
-
-	public void setTunnel(Tunnel tunnel) {
-		m_tunnel = tunnel;
-	}
-
-	public int getDocumentId() {
-		return m_documentId;
-	}
-
-	public void setDocumentId(int documentId) {
-		m_documentId = documentId;
-	}
-
-	public Document getDocument() {
-		return m_document;
-	}
-
-	public void setDocument(Document document) {
-		m_document = document;
-	}
-
-	public String getEnvelope() {
-		return m_envelope;
-	}
-
-	public void setEnvelope(String envelope) {
-		m_envelope = envelope;
-	}
-
-	public double getStartFloor() {
-		return m_startFloor;
-	}
-
-	public void setStartFloor(double startFloor) {
-		m_startFloor = startFloor;
-	}
-
-	public double getEndFloor() {
-		return m_endFloor;
-	}
-
-	public void setEndFloor(double endFloor) {
-		m_endFloor = endFloor;
-	}
-
-	public double getStartRoadDome() {
-		return m_startRoadDome;
-	}
-
-	public void setStartRoadDome(double startRoadDome) {
-		m_startRoadDome = startRoadDome;
-	}
-
-	public double getEndRoadDome() {
-		return m_endRoadDome;
-	}
-
-	public void setEndRoadDome(double endRoadDome) {
-		m_endRoadDome = endRoadDome;
+	public Date getCreationDate() {
+		return m_creationDate;
 	}
 
 	public double getCrestPileBottom() {
 		return m_crestPileBottom;
 	}
 
-	public void setCrestPileBottom(double crestPileBottom) {
-		m_crestPileBottom = crestPileBottom;
-	}
-
-	public double getPlatformPileBottom() {
-		return m_platformPileBottom;
-	}
-
-	public void setPlatformPileBottom(double platformPileBottom) {
-		m_platformPileBottom = platformPileBottom;
-	}
-
 	public String getDes() {
 		return m_des;
 	}
 
-	public void setDes(String des) {
-		m_des = des;
+	public Document getDocument() {
+		return m_document;
 	}
 
-	public Date getCreationDate() {
-		return m_creationDate;
+	public int getDocumentId() {
+		return m_documentId;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		m_creationDate = creationDate;
-	}
-
-	public Date getModifyDate() {
-		return m_modifyDate;
-	}
-
-	public void setModifyDate(Date modifyDate) {
-		m_modifyDate = modifyDate;
-	}
-
-	public double getStartPosition() {
-		return m_startPosition;
-	}
-
-	public void setStartPosition(double startPosition) {
-		m_startPosition = startPosition;
+	public double getEndFloor() {
+		return m_endFloor;
 	}
 
 	public double getEndPosition() {
 		return m_endPosition;
 	}
 
+	public double getEndRoadDome() {
+		return m_endRoadDome;
+	}
+
+	public String getEnvelope() {
+		return m_envelope;
+	}
+
+	public int getId() {
+		return m_id;
+	}
+
+	public Date getModifyDate() {
+		return m_modifyDate;
+	}
+
+	public String getName() {
+		return m_name;
+	}
+
+	public double getPlatformPileBottom() {
+		return m_platformPileBottom;
+	}
+
+	public double getStartFloor() {
+		return m_startFloor;
+	}
+
+	public double getStartPosition() {
+		return m_startPosition;
+	}
+
+	public double getStartRoadDome() {
+		return m_startRoadDome;
+	}
+
+	public Tunnel getTunnel() {
+		return m_tunnel;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public String getType() {
+		return m_type;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		m_creationDate = creationDate;
+	}
+
+	public void setCrestPileBottom(double crestPileBottom) {
+		m_crestPileBottom = crestPileBottom;
+	}
+
+	public void setDes(String des) {
+		m_des = des;
+	}
+
+	public void setDocument(Document document) {
+		m_document = document;
+	}
+
+	public void setDocumentId(int documentId) {
+		m_documentId = documentId;
+	}
+
+	public void setEndFloor(double endFloor) {
+		m_endFloor = endFloor;
+	}
+
 	public void setEndPosition(double endPosition) {
 		m_endPosition = endPosition;
+	}
+
+	public void setEndRoadDome(double endRoadDome) {
+		m_endRoadDome = endRoadDome;
+	}
+
+	public void setEnvelope(String envelope) {
+		m_envelope = envelope;
+	}
+
+	public void setId(int id) {
+		m_id = id;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		m_modifyDate = modifyDate;
+	}
+
+	public void setName(String name) {
+		m_name = name;
+	}
+
+	public void setPlatformPileBottom(double platformPileBottom) {
+		m_platformPileBottom = platformPileBottom;
+	}
+
+	public void setStartFloor(double startFloor) {
+		m_startFloor = startFloor;
+	}
+
+	public void setStartPosition(double startPosition) {
+		m_startPosition = startPosition;
+	}
+
+	public void setStartRoadDome(double startRoadDome) {
+		m_startRoadDome = startRoadDome;
+	}
+
+	public void setTunnel(Tunnel tunnel) {
+		m_tunnel = tunnel;
+	}
+
+	public void setTunnelId(int tunnelId) {
+		m_tunnelId = tunnelId;
+	}
+
+	public void setType(String type) {
+		m_type = type;
 	}
 
 	@Override

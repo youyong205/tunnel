@@ -11,24 +11,23 @@ public class RoleServiceImpl implements RoleService {
 
 	private Logger m_logger = Logger.getLogger(RoleServiceImpl.class);
 
-	@SuppressWarnings("unchecked")
-	public List<Role> queryAllRoles() {
+	@Override
+	public int deleteRole(int id) {
 		try {
-			return m_roleDao.queryAllRoles();
+			return m_roleDao.deleteRole(id);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return new ArrayList<Role>();
+			return -1;
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Role> queryLimitedRoles(int start, int size) {
+	public int deleteRoleResources(int roleId) {
 		try {
-			return m_roleDao.queryLimitedRoles(start, size);
+			return m_roleDao.deleteRoleResources(roleId);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return new ArrayList<Role>();
+			return -1;
 		}
 	}
 
@@ -53,27 +52,22 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public int updateRole(Role role) {
+	public void insertRoleResources(RoleResource roleResource) {
 		try {
-			return m_roleDao.updateRole(role);
+			m_roleDao.insertRoleResources(roleResource);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return -1;
 		}
 	}
 
-	@Override
-	public int deleteRole(int id) {
+	@SuppressWarnings("unchecked")
+	public List<Role> queryAllRoles() {
 		try {
-			return m_roleDao.deleteRole(id);
+			return m_roleDao.queryAllRoles();
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return -1;
+			return new ArrayList<Role>();
 		}
-	}
-
-	public void setRoleDao(RoleDao roleDao) {
-		m_roleDao = roleDao;
 	}
 
 	@Override
@@ -83,6 +77,17 @@ public class RoleServiceImpl implements RoleService {
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Role> queryLimitedRoles(int start, int size) {
+		try {
+			return m_roleDao.queryLimitedRoles(start, size);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<Role>();
 		}
 	}
 
@@ -97,19 +102,14 @@ public class RoleServiceImpl implements RoleService {
 		}
 	}
 
-	@Override
-	public void insertRoleResources(RoleResource roleResource) {
-		try {
-			m_roleDao.insertRoleResources(roleResource);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-		}
+	public void setRoleDao(RoleDao roleDao) {
+		m_roleDao = roleDao;
 	}
 
 	@Override
-	public int deleteRoleResources(int roleId) {
+	public int updateRole(Role role) {
 		try {
-			return m_roleDao.deleteRoleResources(roleId);
+			return m_roleDao.updateRole(role);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;

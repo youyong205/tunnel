@@ -21,77 +21,77 @@ public class Document {
 
 	private Date m_modifyDate;
 
-	public int getId() {
-		return m_id;
-	}
-
-	public void setId(int id) {
-		m_id = id;
-	}
-
-	public String getModule() {
-		return m_module;
-	}
-
-	public void setModule(String module) {
-		m_module = module;
-	}
-
-	public String getName() {
-		return m_name;
-	}
-
-	public void setName(String name) {
-		m_name = name;
-	}
-
-	public String getType() {
-		return m_type;
-	}
-
-	public void setType(String type) {
-		m_type = type;
-	}
-
-	public String getPath() {
-		return m_path;
-	}
-
-	public void setPath(String path) {
-		m_path = path;
-	}
+	public String getAbsolutePath() {
+   	return m_absolutePath;
+   }
 
 	public Date getCreationDate() {
 		return m_creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		m_creationDate = creationDate;
-	}
-
-	public Date getModifyDate() {
-		return m_modifyDate;
-	}
-
-	public void setModifyDate(Date modifyDate) {
-		m_modifyDate = modifyDate;
 	}
 
 	public String getDes() {
    	return m_des;
    }
 
-	public void setDes(String des) {
-   	m_des = des;
-   }
+	public int getId() {
+		return m_id;
+	}
 
-	public String getAbsolutePath() {
-   	return m_absolutePath;
-   }
+	public Date getModifyDate() {
+		return m_modifyDate;
+	}
+
+	public String getModule() {
+		return m_module;
+	}
+
+	public String getName() {
+		return m_name;
+	}
+
+	public String getPath() {
+		return m_path;
+	}
+
+	public String getType() {
+		return m_type;
+	}
 
 	public void setAbsolutePath(String absolutePath) {
    	m_absolutePath = absolutePath;
    }
+
+	public void setCreationDate(Date creationDate) {
+		m_creationDate = creationDate;
+	}
+
+	public void setDes(String des) {
+   	m_des = des;
+   }
+
+	public void setId(int id) {
+		m_id = id;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		m_modifyDate = modifyDate;
+	}
+
+	public void setModule(String module) {
+		m_module = module;
+	}
+
+	public void setName(String name) {
+		m_name = name;
+	}
+
+	public void setPath(String path) {
+		m_path = path;
+	}
+
+	public void setType(String type) {
+		m_type = type;
+	}
 
 	@Override
    public String toString() {

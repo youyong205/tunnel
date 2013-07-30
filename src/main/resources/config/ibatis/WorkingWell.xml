@@ -3,7 +3,7 @@
 <sqlMap>
 	<typeAlias alias="workingWell" type="com.workingWell.WorkingWell" />
 	<sql id="workingWell.columns">
-		id,tunnelId,documentId,name,type,startPosition,endPosition,eleationOne,eleationTwo,
+		id,tunnelId,documentId,scheduleId,name,type,startPosition,endPosition,eleationOne,eleationTwo,
 		eleationThree,eleationFour,eleationMezzanine,des,creationDate,modifyDate
 	</sql>
 	<select id="workingWell.queryAllSize" resultClass="int">
@@ -34,7 +34,7 @@
 	</select>
 	<insert id="workingWell.insert" parameterClass="workingWell">
 		insert into workingWell (<include refid="workingWell.columns" />) values
-		(#id#,#tunnelId#,#documentId#,#name#,#type#,#startPosition#,#endPosition#,#eleationOne#,
+		(#id#,#tunnelId#,#documentId#,#scheduleId#,#name#,#type#,#startPosition#,#endPosition#,#eleationOne#,
 		#eleationTwo#,#eleationThree#,#eleationFour#,#eleationMezzanine#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>

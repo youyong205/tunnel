@@ -14,9 +14,9 @@ public interface ContactChannelService {
 
 	public int queryAllSize();
 
-	public List<ContactChannel> queryLimitedContactChannelsByTunnelId(int tunnelId,int start, int size);
-
 	public List<ContactChannel> queryLimitedContactChannels(int start, int size);
+
+	public List<ContactChannel> queryLimitedContactChannelsByTunnelId(int tunnelId,int start, int size);
 
 	public int querySizeByTunnelId(int tunnelId);
 

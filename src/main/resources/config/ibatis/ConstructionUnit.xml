@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="constructionUnit" type="com.constructionUnit.ConstructionUnit" />
+	<sql id="constructionUnit.columns">
+		id,name,type,address,workers,phone,des,creationDate,modifyDate
+	</sql>
+	<select id="constructionUnit.queryAllConstructionUnits" resultClass="constructionUnit">
+		select
+		<include refid="constructionUnit.columns" />
+		from constructionUnit
+	</select>
+	<select id="constructionUnit.queryAllSize" resultClass="int">
+		select count(*) from constructionUnit
+	</select>
+	<select id="constructionUnit.queryLimitedConstructionUnits" resultClass="constructionUnit">
+		select
+		<include refid="constructionUnit.columns" />
+		from constructionUnit limit #start#,#size#
+	</select>
+	<select id="constructionUnit.findByName" resultClass="constructionUnit" parameterClass="String">
+		select
+		<include refid="constructionUnit.columns" />
+		from constructionUnit where name=#name#
+	</select>
+	<select id="constructionUnit.findById" resultClass="constructionUnit" parameterClass="int">
+		select
+		<include refid="constructionUnit.columns" />
+		from constructionUnit where id=#id#
+	</select>
+	<insert id="constructionUnit.insert" parameterClass="constructionUnit">
+		insert into constructionUnit (<include refid="constructionUnit.columns" />) values
+		(#id#,#name#,#type#,#address#,#workers#,#phone#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="constructionUnit.update" parameterClass="constructionUnit">
+		update constructionUnit set
+		name=#name#,des=#des#,type=#type#,address=#address#,workers=#workers#,
+		phone=#phone#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="constructionUnit.delete" parameterClass="int">
+		delete from constructionUnit
+		where
+		id=#id#
+	</delete>
+</sqlMap>

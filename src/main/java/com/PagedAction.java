@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.log.Log;
 import com.log.LogService;
@@ -22,17 +23,25 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	protected int m_index = 1;
 
-	protected static final int SIZE = Constrants.s_page_size;
+	protected static final int SIZE = 20;
 
+	public static final int s_half_size = 3;
+
+	@Autowired
 	protected LogService m_logService;
 
 	protected Map<String, Object> m_session;
 
 	private List<String> m_modules = new ArrayList<String>(Arrays.asList(Constrants.s_user_model,
 	      Constrants.s_role_model, Constrants.s_resource_model, Constrants.s_log_module, Constrants.s_document_model,
-	      Constrants.s_tunnel_model, Constrants.s_liningRing_model, Constrants.s_tunnelSection_model,
-	      Constrants.s_contactChannel_model, Constrants.s_buriedSection_model, Constrants.s_workingWell_model,
-	      Constrants.s_openSection_model));
+	      Constrants.s_tunnel_model, Constrants.s_constructionUnit_model, Constrants.s_liningRing_model,
+	      Constrants.s_tunnelSection_model, 
+	      
+	      Constrants.s_contactChannel_model,Constrants.s_contactChannel_inspection_model,Constrants.s_contactChannel_curing_model, //
+	      Constrants.s_buriedSection_model, Constrants.s_buriedSection_inspection_model,Constrants.s_buriedSection_curing_model, //
+	      Constrants.s_openSection_model, Constrants.s_openSection_inspection_model,Constrants.s_openSection_curing_model, //
+	      Constrants.s_workingWell_model, Constrants.s_workingWell_inspection_model,Constrants.s_workingWell_curing_model //
+	      ));
 
 	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Constrants.s_contactChannel_model));
 
@@ -67,25 +76,31 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 		}
 	}
 
-	public void setLogService(LogService logService) {
-		m_logService = logService;
+	public abstract String getActionModule();
+
+	public List<String> getDocumentModules() {
+		return m_documentModules;
 	}
 
 	public int getIndex() {
 		return m_index;
 	}
 
+	public List<String> getModules() {
+		return m_modules;
+	}
+
 	public List<Integer> getPageIndexs() {
 		List<Integer> indexs = new ArrayList<Integer>();
-		int start = m_index - Constrants.s_half_size - 1;
-		int end = m_index + Constrants.s_half_size;
+		int start = m_index - s_half_size - 1;
+		int end = m_index + s_half_size;
 
 		if (start < 1) {
 			start = 1;
-			end = 2 + 2 * Constrants.s_half_size;
+			end = 2 + 2 * s_half_size;
 		} else if (end > m_totalPages) {
 			end = m_totalPages;
-			start = m_totalPages - Constrants.s_half_size * 2 - 1;
+			start = m_totalPages - s_half_size * 2 - 1;
 		}
 
 		for (; start <= end; start++) {
@@ -100,27 +115,21 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 		return m_totalPages;
 	}
 
+	public int getTotalSize() {
+		return m_totalSize;
+	}
+
 	public void setIndex(int index) {
 		m_index = index;
+	}
+
+	public void setLogService(LogService logService) {
+		m_logService = logService;
 	}
 
 	@Override
 	public void setSession(Map<String, Object> session) {
 		m_session = session;
 	}
-
-	public int getTotalSize() {
-		return m_totalSize;
-	}
-
-	public List<String> getModules() {
-		return m_modules;
-	}
-
-	public List<String> getDocumentModules() {
-		return m_documentModules;
-	}
-
-	public abstract String getActionModule();
 
 }

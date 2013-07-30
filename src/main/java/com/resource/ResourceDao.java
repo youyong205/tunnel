@@ -10,23 +10,8 @@ public class ResourceDao {
 
 	private BaseDao m_baseDao;
 
-	public void setBaseDao(BaseDao baseDao) {
-		m_baseDao = baseDao;
-	}
-
-	@SuppressWarnings("rawtypes")
-	public List queryAllResources() {
-		return m_baseDao.queryForList("resource.queryAllResources");
-	}
-
-	@SuppressWarnings("rawtypes")
-	public List queryLimitedResources(int start, int size) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("start", start);
-		parameters.put("size", size);
-
-		return m_baseDao.queryForList("resource.queryLimitedResources", parameters);
+	public int deleteResource(int id) {
+		return m_baseDao.delete("resource.delete", id);
 	}
 
 	public Resource findByNamePassword(String resourceName,String password) {
@@ -45,16 +30,31 @@ public class ResourceDao {
 		return (Integer) m_baseDao.insert("resource.insert", resource);
 	}
 
-	public int updateResource(Resource resource) {
-		return m_baseDao.update("resource.update", resource);
-	}
-
-	public int deleteResource(int id) {
-		return m_baseDao.delete("resource.delete", id);
+	@SuppressWarnings("rawtypes")
+	public List queryAllResources() {
+		return m_baseDao.queryForList("resource.queryAllResources");
 	}
 
 	public int queryAllSize() {
 		return (Integer)m_baseDao.queryForObject("resource.queryAllSize",null);
    }
+
+	@SuppressWarnings("rawtypes")
+	public List queryLimitedResources(int start, int size) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("start", start);
+		parameters.put("size", size);
+
+		return m_baseDao.queryForList("resource.queryLimitedResources", parameters);
+	}
+
+	public void setBaseDao(BaseDao baseDao) {
+		m_baseDao = baseDao;
+	}
+
+	public int updateResource(Resource resource) {
+		return m_baseDao.update("resource.update", resource);
+	}
 
 }

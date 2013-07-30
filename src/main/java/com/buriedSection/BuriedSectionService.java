@@ -14,9 +14,9 @@ public interface BuriedSectionService {
 
 	public int queryAllSize();
 
-	public List<BuriedSection> queryLimitedBuriedSectionsByTunnelId(int tunnelId,int start, int size);
-
 	public List<BuriedSection> queryLimitedBuriedSections(int start, int size);
+
+	public List<BuriedSection> queryLimitedBuriedSectionsByTunnelId(int tunnelId,int start, int size);
 
 	public int querySizeByTunnelId(int tunnelId);
 

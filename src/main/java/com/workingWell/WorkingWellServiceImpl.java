@@ -84,20 +84,6 @@ public class WorkingWellServiceImpl implements WorkingWellService {
 		}
 	}
 
-	public void setWorkingWellDao(WorkingWellDao workingWellDao) {
-		m_workingWellDao = workingWellDao;
-	}
-
-	@Override
-	public int updateWorkingWell(WorkingWell workingWell) {
-		try {
-			return m_workingWellDao.updateWorkingWell(workingWell);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
-		}
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<WorkingWell> queryLimitedWorkingWellsByTunnelId(int tunnelId, int start, int size) {
@@ -113,6 +99,20 @@ public class WorkingWellServiceImpl implements WorkingWellService {
 	public int querySizeByTunnelId(int tunnelId) {
 		try {
 			return m_workingWellDao.querySizeByTunnelId(tunnelId);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
+		}
+	}
+
+	public void setWorkingWellDao(WorkingWellDao workingWellDao) {
+		m_workingWellDao = workingWellDao;
+	}
+
+	@Override
+	public int updateWorkingWell(WorkingWell workingWell) {
+		try {
+			return m_workingWellDao.updateWorkingWell(workingWell);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;

@@ -22,6 +22,11 @@ public class TunnelAction extends PagedAction {
 
 	private Tunnel m_tunnel = new Tunnel();
 
+	@Override
+   public String getActionModule() {
+		return Constrants.s_tunnel_model;
+   }
+
 	public Tunnel getTunnel() {
 		return m_tunnel;
 	}
@@ -41,11 +46,11 @@ public class TunnelAction extends PagedAction {
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
-
+	
 	public String tunnelAdd(){
 		return SUCCESS;
 	}
-	
+
 	public String tunnelAddSubmit() {
 		try {
 			int id = m_tunnelService.insertTunnel(m_tunnel);
@@ -109,7 +114,7 @@ public class TunnelAction extends PagedAction {
 			return ERROR;
 		}
 	}
-
+	
 	public String tunnelUpdateSubmit() {
 		try {
 			int count = m_tunnelService.updateTunnel(m_tunnel);
@@ -126,10 +131,5 @@ public class TunnelAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
-	@Override
-   public String getActionModule() {
-		return Constrants.s_tunnel_model;
-   }
 
 }

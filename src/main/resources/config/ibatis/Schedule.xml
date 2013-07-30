@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="schedule" type="com.schedule.Schedule" />
+
+	<sql id="schedule.columns">
+		id,constructionUnitId,type,startTime,endTime,des,creationDate,modifyDate
+	</sql>
+	<select id="schedule.queryAllSchedules" resultClass="schedule">
+		select
+		<include refid="schedule.columns" />
+		from schedule
+	</select>
+	<select id="schedule.queryAllSize" resultClass="int">
+		select count(*) from schedule
+	</select>
+	<select id="schedule.queryLimitedSchedules" resultClass="schedule">
+		select
+		<include refid="schedule.columns" />
+		from schedule order by id desc limit #start#,#size#
+	</select>
+	<select id="schedule.findByName" resultClass="schedule" parameterClass="String">
+		select
+		<include refid="schedule.columns" />
+		from schedule where name=#name#
+	</select>
+	<select id="schedule.findById" resultClass="schedule" parameterClass="int">
+		select
+		<include refid="schedule.columns" />
+		from schedule where id=#id#
+	</select>
+	<insert id="schedule.insert" parameterClass="schedule">
+		insert into schedule (<include refid="schedule.columns" />) values
+		(#id#,#constructionUnitId#,#type#,#startTime#,#endTime#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="schedule.update" parameterClass="schedule">
+		update schedule set
+		constructionUnitId=#constructionUnitId#,type=#type#,
+		startTime=#startTime#,endTime=#endTime#,des=#des#
+		where id=#id#
+	</update>
+	<delete id="schedule.delete" parameterClass="int">
+		delete from schedule
+		where
+		id=#id#
+	</delete>
+</sqlMap>

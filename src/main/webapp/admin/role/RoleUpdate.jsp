@@ -31,21 +31,20 @@ $(document).ready(function() {
 			<form action="roleUpdateSubmit.do" id="form" method="post">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='3'><h4 class="text-info text-center">编辑角色信息</h4></th>
+						<th colspan='2'><h4 class="text-info text-center">编辑角色信息</h4></th>
 						<input type="hidden" name="role.id" value="<s:property value="role.id"/>"/>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">用户名</strong></td>
-						<td colspan='2'>
+						<td>
 							<input type="text" size="60" name="role.name" value="<s:property value="role.name"/>"  class="{required:true,maxlength:64}"/>
 						</td>
 					</tr>
 					<s:iterator value="moduleResources" status="vs">
 						<tr >
-							<td width="20%" style="text-align:right;"><strong class="text-success text-right">模块权限</strong></td>
-							<td width="10%" style="text-align:right;"><strong class="text-success text-right"><s:property value="key"/></strong></td>
-							<td width="75%">
+							<td style="text-align:right;"><strong class="text-success text-right"><s:property value="key"/></strong></td>
+							<td>
 								<s:iterator value="value.resources">
 									<s:if test="checked == true">
 										<input type="checkbox" name="resourceIdSelect" checked value='<s:property value="id"/>' id="<s:property value="key"/>_<s:property value="name"/>"/>
@@ -60,11 +59,11 @@ $(document).ready(function() {
 					</s:iterator>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
-						<td colspan='2'><textarea type="text" rows="5" cols="80"  name="role.des" class="{maxlength:512}"><s:property value="role.name"/></textarea></td>
+						<td><textarea type="text" rows="5" cols="80"  name="role.des" class="{maxlength:512}"><s:property value="role.name"/></textarea></td>
 						
 					</tr>
 					<tr>
-						<td colspan="3" style="text-align:center;">
+						<td colspan='2'style="text-align:center;">
 							<button  class="btn btn-small btn-primary" type="submit" >提交</button></td>
 					</tr>
 					</table>

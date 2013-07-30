@@ -11,24 +11,13 @@ public class ResourceServiceImpl implements ResourceService {
 
 	private Logger m_logger = Logger.getLogger(ResourceServiceImpl.class);
 
-	@SuppressWarnings("unchecked")
-	public List<Resource> queryAllResources() {
-		try {
-			return m_resourceDao.queryAllResources();
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return new ArrayList<Resource>();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Resource> queryLimitedResources(int start, int size) {
+	public int deleteResource(int id) {
 		try {
-			return m_resourceDao.queryLimitedResources(start, size);
+			return m_resourceDao.deleteResource(id);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return new ArrayList<Resource>();
+			return -1;
 		}
 	}
 
@@ -52,28 +41,14 @@ public class ResourceServiceImpl implements ResourceService {
 		}
 	}
 
-	@Override
-	public int updateResource(Resource resource) {
+	@SuppressWarnings("unchecked")
+	public List<Resource> queryAllResources() {
 		try {
-			return m_resourceDao.updateResource(resource);
+			return m_resourceDao.queryAllResources();
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
-			return -1;
+			return new ArrayList<Resource>();
 		}
-	}
-
-	@Override
-	public int deleteResource(int id) {
-		try {
-			return m_resourceDao.deleteResource(id);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
-		}
-	}
-
-	public void setResourceDao(ResourceDao resourceDao) {
-		m_resourceDao = resourceDao;
 	}
 
 	@Override
@@ -85,5 +60,30 @@ public class ResourceServiceImpl implements ResourceService {
 			return -1;
 		}
    }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Resource> queryLimitedResources(int start, int size) {
+		try {
+			return m_resourceDao.queryLimitedResources(start, size);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<Resource>();
+		}
+	}
+
+	public void setResourceDao(ResourceDao resourceDao) {
+		m_resourceDao = resourceDao;
+	}
+
+	@Override
+	public int updateResource(Resource resource) {
+		try {
+			return m_resourceDao.updateResource(resource);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
+		}
+	}
 
 }

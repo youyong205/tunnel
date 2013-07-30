@@ -5,13 +5,14 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.Constrants;
-import com.FileUploadAction;
+import com.ScheduledAction;
 import com.document.Document;
 import com.log.Log;
+import com.schedule.Schedule;
 import com.tunnel.Tunnel;
 import com.tunnel.TunnelService;
 
-public class WorkingWellAction extends FileUploadAction {
+public class WorkingWellAction extends ScheduledAction {
 
 	private static final long serialVersionUID = 2802256599554299998L;
 
@@ -31,12 +32,37 @@ public class WorkingWellAction extends FileUploadAction {
 
 	private WorkingWell m_workingWell = new WorkingWell();
 
+	@Override
+	public String getActionModule() {
+		return Constrants.s_workingWell_model;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public int getTunnelIndexId() {
+		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
 	public WorkingWell getWorkingWell() {
 		return m_workingWell;
 	}
 
 	public List<WorkingWell> getWorkingWells() {
 		return m_workingWells;
+	}
+
+	public void setTunnelId(int tunnelId) {
+		m_tunnelId = tunnelId;
+	}
+
+	public void setTunnelService(TunnelService tunnelService) {
+		m_tunnelService = tunnelService;
 	}
 
 	public void setWorkingWell(WorkingWell workingWell) {
@@ -54,6 +80,7 @@ public class WorkingWellAction extends FileUploadAction {
 	public String workingWellAdd() {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			return SUCCESS;
 		} catch (Exception e) {
 			m_logger.error(e);
@@ -67,6 +94,10 @@ public class WorkingWellAction extends FileUploadAction {
 			if (m_uploadFile.getFile() != null) {
 				documentId = m_documentService.insertDocument(Constrants.s_workingWell_model, m_uploadFile);
 			}
+			m_schedule.setType(getActionModule());
+			int scheduleId = m_scheduleService.insertSchedule(m_schedule);
+			m_workingWell.setScheduleId(scheduleId);
+
 			m_workingWell.setDocumentId(documentId);
 			int id = m_workingWellService.insertWorkingWell(m_workingWell);
 			if (id > 0) {
@@ -103,29 +134,27 @@ public class WorkingWellAction extends FileUploadAction {
 	public String workingWellList() {
 		try {
 			if (m_tunnelId == 0) {
-				m_tunnels = m_tunnelService.queryAllTunnels();
-				m_totalSize = m_workingWellService.queryAllSize();
-				m_totalPages = computeTotalPages(m_totalSize);
-				int start = (m_index - 1) * SIZE;
-				if (start < 0) {
-					start = 0;
-				}
-				m_workingWells = m_workingWellService.queryLimitedWorkingWells(start, SIZE);
-			} else {
-				m_tunnels = m_tunnelService.queryAllTunnels();
-				m_totalSize = m_workingWellService.querySizeByTunnelId(m_tunnelId);
-				m_totalPages = computeTotalPages(m_totalSize);
-				int start = (m_index - 1) * SIZE;
-				if (start < 0) {
-					start = 0;
-				}
-				m_workingWells = m_workingWellService.queryLimitedWorkingWellsByTunnelId(m_tunnelId, start, SIZE);
+				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 			}
+			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_totalSize = m_workingWellService.querySizeByTunnelId(m_tunnelId);
+			m_totalPages = computeTotalPages(m_totalSize);
+			int start = (m_index - 1) * SIZE;
+			if (start < 0) {
+				start = 0;
+			}
+			m_workingWells = m_workingWellService.queryLimitedWorkingWellsByTunnelId(m_tunnelId, start, SIZE);
 			for (WorkingWell channel : m_workingWells) {
 				channel.setTunnel(m_tunnelService.findByPK(channel.getTunnelId()));
 
 				if (channel.getDocumentId() > 0) {
 					channel.setDocument(m_documentService.findByPK(channel.getDocumentId()));
+				}
+				int scheduleId = channel.getScheduleId();
+				Schedule schedule = m_scheduleService.findByPK(scheduleId);
+				if (schedule != null) {
+					channel.setSchedule(schedule);
+					schedule.setConstructionUnit(m_constructionUnitService.findByPK(schedule.getConstructionUnitId()));
 				}
 			}
 			return SUCCESS;
@@ -139,6 +168,9 @@ public class WorkingWellAction extends FileUploadAction {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
 			m_workingWell = m_workingWellService.findByPK(m_workingWellId);
+			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
+			m_schedule = m_scheduleService.findByPK(m_workingWell.getScheduleId());
+
 			if (m_workingWell != null) {
 				m_workingWell.setTunnel(m_tunnelService.findByPK(m_workingWell.getTunnelId()));
 
@@ -159,14 +191,15 @@ public class WorkingWellAction extends FileUploadAction {
 		try {
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_workingWell.getDocumentId();
-				if(documentId>0){
+				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
 					m_documentService.updateDocument(Constrants.s_contactChannel_model, m_uploadFile, document);
-				}else{
+				} else {
 					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
 					m_workingWell.setDocumentId(documentId);
 				}
 			}
+			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_workingWellService.updateWorkingWell(m_workingWell);
 			if (count > 0) {
 				Log log = createLog(Constrants.s_workingWell_model, Constrants.s_operation_update, m_workingWell);
@@ -181,30 +214,5 @@ public class WorkingWellAction extends FileUploadAction {
 			return ERROR;
 		}
 	}
-
-	public void setTunnelService(TunnelService tunnelService) {
-		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public int getTunnelIndexId() {
-		return m_tunnelId;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public void setTunnelId(int tunnelId) {
-		m_tunnelId = tunnelId;
-	}
-	
-	@Override
-   public String getActionModule() {
-		return Constrants.s_workingWell_model;
-   }
 
 }

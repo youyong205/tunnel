@@ -10,12 +10,12 @@ public class RoleResource {
    	return m_resourceId;
    }
 
-	public void setResourceId(int resourceId) {
-   	m_resourceId = resourceId;
-   }
-
 	public int getRoleId() {
    	return m_roleId;
+   }
+
+	public void setResourceId(int resourceId) {
+   	m_resourceId = resourceId;
    }
 
 	public void setRoleId(int roleId) {

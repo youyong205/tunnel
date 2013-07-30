@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="curing" type="com.curing.Curing" />
+
+	<sql id="curing.columns">
+		id,tunnelId,type,componentId,constructionUnitId,documentId,time,
+		position,action,des,creationDate,modifyDate
+	</sql>
+	<select id="curing.queryCuringSizeByType" resultClass="int">
+		select count(*) from curing where tunnelId=#tunnelId# and  type=#type#
+	</select>
+	<select id="curing.queryLimitedCuringsByType" resultClass="curing">
+		select
+		<include refid="curing.columns" />
+		from curing
+		 where tunnelId=#tunnelId# and type=#type# order by id desc limit #start#,#size#
+	</select>
+	<select id="curing.findById" resultClass="curing" parameterClass="int">
+		select
+		<include refid="curing.columns" />
+		from curing where id=#id#
+	</select>
+	<insert id="curing.insert" parameterClass="curing">
+		insert into curing (<include refid="curing.columns" />) values
+		(#id#,#tunnelId#,#type#,#componentId#,#constructionUnitId#,#documentId#,#time#,
+		#position#,#action#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="curing.update" parameterClass="curing">
+		update curing set
+		type=#type#,componentId=#componentId#,constructionUnitId=#constructionUnitId#,
+		documentId=#documentId#,time=#time#,
+		position=#position#,action=#action#,des=#des#
+		where id=#id#
+	</update>
+	<delete id="curing.delete" parameterClass="int">
+		delete from curing
+		where
+		id=#id#
+	</delete>
+</sqlMap>

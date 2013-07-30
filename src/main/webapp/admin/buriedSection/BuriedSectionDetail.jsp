@@ -93,6 +93,7 @@ $(document).ready(function() {
 						<td><textarea type="text" rows="5" cols="40"  readonly  name="buriedSection.des" class="{maxlength:512}"><s:property value="buriedSection.des"/> </textarea></td>
 					</tr>
 				</table>
+				<%@include file="./../schedule/ScheduleDetail.jsp"%>
       </div>
     </div>
     <%@include file="./../Foot.jsp"%>

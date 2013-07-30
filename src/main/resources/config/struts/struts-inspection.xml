@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="inspection" extends="default">
+		<action name="contactChannelInspectionList" class="contactChannelInspectionAction" method="inspectionList">
+			<result name="success">admin/contactChannelInspection/ContactChannelInspectionList.jsp</result>
+		</action>
+		<action name="contactChannelInspectionAdd"  class="contactChannelInspectionAction" method="inspectionAdd">
+			<result name="success">admin/contactChannelInspection/ContactChannelInspectionAdd.jsp</result>
+		</action>
+		<action name="contactChannelInspectionAddSubmit" class="contactChannelInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">contactChannelInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="contactChannelInspectionUpdate" class="contactChannelInspectionAction" method="inspectionUpdate" >
+			<result name="success">admin/contactChannelInspection/ContactChannelInspectionUpdate.jsp</result>
+		</action>
+		<action name="contactChannelInspectionDetail" class="contactChannelInspectionAction" method="inspectionUpdate" >
+			<result name="success">admin/contactChannelInspection/ContactChannelInspectionDetail.jsp</result>
+		</action>
+		<action name="contactChannelInspectionUpdateSubmit" class="contactChannelInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">contactChannelInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="contactChannelInspectionDelete" class="contactChannelInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">contactChannelInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		
+		
+		<action name="workingWellInspectionList" class="workingWellInspectionAction" method="inspectionList">
+			<result name="success">admin/workingWellInspection/WorkingWellInspectionList.jsp</result>
+		</action>
+		<action name="workingWellInspectionAdd"  class="workingWellInspectionAction" method="inspectionAdd">
+			<result name="success">admin/workingWellInspection/WorkingWellInspectionAdd.jsp</result>
+		</action>
+		<action name="workingWellInspectionAddSubmit" class="workingWellInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">workingWellInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="workingWellInspectionUpdate" class="workingWellInspectionAction" method="inspectionUpdate" >
+			<result name="success">admin/workingWellInspection/WorkingWellInspectionUpdate.jsp</result>
+		</action>
+		<action name="workingWellInspectionDetail" class="workingWellInspectionAction" method="inspectionUpdate" >
+			<result name="success">admin/workingWellInspection/WorkingWellInspectionDetail.jsp</result>
+		</action>
+		<action name="workingWellInspectionUpdateSubmit" class="workingWellInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">workingWellInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="workingWellInspectionDelete" class="workingWellInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">workingWellInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		
+		<action name="openSectionInspectionList" class="openSectionInspectionAction" method="inspectionList">
+			<result name="success">admin/openSectionInspection/OpenSectionInspectionList.jsp</result>
+		</action>
+		<action name="openSectionInspectionAdd"  class="openSectionInspectionAction" method="inspectionAdd">
+			<result name="success">admin/openSectionInspection/OpenSectionInspectionAdd.jsp</result>
+		</action>
+		<action name="openSectionInspectionAddSubmit" class="openSectionInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">openSectionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="openSectionInspectionUpdate" class="openSectionInspectionAction" method="inspectionUpdate" >
+			<result name="success">admin/openSectionInspection/OpenSectionInspectionUpdate.jsp</result>
+		</action>
+		<action name="openSectionInspectionDetail" class="openSectionInspectionAction" method="inspectionUpdate" >
+			<result name="success">admin/openSectionInspection/OpenSectionInspectionDetail.jsp</result>
+		</action>
+		<action name="openSectionInspectionUpdateSubmit" class="openSectionInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">openSectionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="openSectionInspectionDelete" class="openSectionInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">openSectionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		
+		<action name="buriedSectionInspectionList" class="buriedSectionInspectionAction" method="inspectionList">
+			<result name="success">admin/buriedSectionInspection/BuriedSectionInspectionList.jsp</result>
+		</action>
+		<action name="buriedSectionInspectionAdd"  class="buriedSectionInspectionAction" method="inspectionAdd">
+			<result name="success">admin/buriedSectionInspection/BuriedSectionInspectionAdd.jsp</result>
+		</action>
+		<action name="buriedSectionInspectionAddSubmit" class="buriedSectionInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">buriedSectionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="buriedSectionInspectionUpdate" class="buriedSectionInspectionAction" method="inspectionUpdate" >
+			<result name="success">admin/buriedSectionInspection/BuriedSectionInspectionUpdate.jsp</result>
+		</action>
+		<action name="buriedSectionInspectionDetail" class="buriedSectionInspectionAction" method="inspectionUpdate" >
+			<result name="success">admin/buriedSectionInspection/BuriedSectionInspectionDetail.jsp</result>
+		</action>
+		<action name="buriedSectionInspectionUpdateSubmit" class="buriedSectionInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">buriedSectionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="buriedSectionInspectionDelete" class="buriedSectionInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">buriedSectionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+	</package>	
+</struts>

@@ -34,17 +34,19 @@
       		<form class="text-right form-inline margin-buttom" action="workingWellList.do" method="post">
 			  隧道
 			  <s:select name="tunnelId" id="tunnelId"
-					list="tunnels" listKey="id" listValue="name" headerKey="0" headerValue="_ALL" value="tunnelId" theme="simple" >
+					list="tunnels" listKey="id" listValue="name"  value="tunnelId" theme="simple" >
 			  </s:select>
 			  <button type="submit" class="btn btn-success btn-small">查询</button>
 			</form>
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="25%">隧道名称</th>
-					<th width="20%">工作井编号</th>
-					<th width="15%">工作井类型</th>
-					<th width="20%">设计制作文档</th>
+					<th width="15%">隧道名称</th>
+					<th width="15%">工作井编号</th>
+					<th width="10%">工作井类型</th>
+					<th width="15%">施工开始时间</th>
+					<th width="15%">施工结束时间</th>
+					<th width="10%">设计制作文档</th>
 					<th width="15%">操作
 					<t:privilege res="工作井模块:新增">
 						<a class="space btn btn-small btn-info" href="workingWellAdd.do?index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>" >新增</a>
@@ -57,6 +59,8 @@
 					<td><s:property value="tunnel.name" /></td>
 					<td><s:property value="name" /></td>
 					<td><s:property value="type" /></td>
+					<td><s:property value="schedule.startTimeStr" /></td>
+					<td><s:property value="schedule.endTimeStr" /></td>
 					<td>
 						<a href="documentDownload.do?documentId=<s:property value="document.id"/>"><s:property value="document.name"/></a>
 					</td>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="curingDao" class="com.curing.CuringDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="curingService" class="com.curing.CuringServiceImpl">
+		<property name="curingDao">
+			<ref bean="curingDao" />
+		</property>
+	</bean>
+		<bean id="contactChannelCuringAction" class="com.contactChannel.ContactChannelCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="contactChannelService">
+			<ref bean="contactChannelService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	<bean id="buriedSectionCuringAction" class="com.buriedSection.BuriedSectionCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="buriedSectionService">
+			<ref bean="buriedSectionService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	<bean id="openSectionCuringAction" class="com.openSection.OpenSectionCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="openSectionService">
+			<ref bean="openSectionService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	<bean id="workingWellCuringAction" class="com.workingWell.WorkingWellCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="workingWellService">
+			<ref bean="workingWellService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+</beans>  

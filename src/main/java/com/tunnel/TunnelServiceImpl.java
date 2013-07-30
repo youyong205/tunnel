@@ -30,7 +30,7 @@ public class TunnelServiceImpl implements TunnelService {
 	public int deleteTunnel(int id) {
 		try {
 			int result = m_tunnelDao.deleteTunnel(id);
-		
+
 			m_tunnels.remove(id);
 			return result;
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class TunnelServiceImpl implements TunnelService {
 	public int insertTunnel(Tunnel tunnel) {
 		try {
 			int result = m_tunnelDao.insertTunnel(tunnel);
-			
+
 			m_tunnels.put(tunnel.getId(), tunnel);
 			return result;
 		} catch (Exception e) {
@@ -92,11 +92,29 @@ public class TunnelServiceImpl implements TunnelService {
 	@SuppressWarnings("unchecked")
 	public List<Tunnel> queryAllTunnels() {
 		try {
-			return m_tunnelDao.queryAllTunnels();
+			List<Tunnel> tunnels = m_tunnelDao.queryAllTunnels();
+
+			for (Tunnel tunnel : tunnels) {
+				m_tunnels.put(tunnel.getId(), tunnel);
+			}
+			return tunnels;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Tunnel>();
 		}
+	}
+
+	@Override
+	public int queryDefaultTunnelId() {
+		for (Entry<Integer, Tunnel> entry : m_tunnels.entrySet()) {
+			return entry.getValue().getId();
+		}
+		queryAllTunnels();
+
+		for (Entry<Integer, Tunnel> entry : m_tunnels.entrySet()) {
+			return entry.getValue().getId();
+		}
+		return 0;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -118,7 +136,7 @@ public class TunnelServiceImpl implements TunnelService {
 	public int updateTunnel(Tunnel tunnel) {
 		try {
 			int result = m_tunnelDao.updateTunnel(tunnel);
-			
+
 			m_tunnels.put(tunnel.getId(), tunnel);
 			return result;
 		} catch (Exception e) {

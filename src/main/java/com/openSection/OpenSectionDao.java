@@ -26,13 +26,13 @@ public class OpenSectionDao {
 		return (Integer) m_baseDao.insert("openSection.insert", openSection);
 	}
 
-	public int queryAllSize() {
-		return (Integer) m_baseDao.queryForObject("openSection.queryAllSize", null);
-	}
-
 	@SuppressWarnings("rawtypes")
 	public List queryAllOpenSections() {
 		return m_baseDao.queryForList("openSection.queryAllOpenSections");
+	}
+
+	public int queryAllSize() {
+		return (Integer) m_baseDao.queryForObject("openSection.queryAllSize", null);
 	}
 
 	@SuppressWarnings("rawtypes")

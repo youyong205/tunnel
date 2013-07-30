@@ -74,6 +74,8 @@ $(document).ready(function() {
 						<td><textarea type="text" rows="5" cols="40" name="contactChannel.des" readonly class="{maxlength:512}"><s:property value="contactChannel.des"/></textarea></td>
 					</tr>
 				</table>
+				<%@include file="./../schedule/ScheduleDetail.jsp"%>
+				
       </div>
     </div>
     <%@include file="./../Foot.jsp"%>

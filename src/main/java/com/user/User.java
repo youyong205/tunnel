@@ -29,69 +29,69 @@ public class User {
 
 	public static final int ORDINARY = 3;
 
-	public int getId() {
-		return m_id;
-	}
-
-	public void setId(int id) {
-		m_id = id;
-	}
-
-	public String getUserName() {
-		return m_userName;
-	}
-
-	public void setUserName(String userName) {
-		m_userName = userName;
-	}
-
-	public String getPassword() {
-		return m_password;
-	}
-
-	public void setPassword(String password) {
-		m_password = password;
-	}
-
-	public String getRealName() {
-		return m_realName;
-	}
-
-	public void setRealName(String realName) {
-		m_realName = realName;
-	}
-
-	public int getRole() {
-		return m_role;
-	}
-
-	public void setRole(int role) {
-		m_role = role;
-	}
-
 	public Date getCreationDate() {
 		return m_creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		m_creationDate = creationDate;
+	public int getId() {
+		return m_id;
 	}
 
 	public Date getModifyDate() {
 		return m_modifyDate;
 	}
 
-	public void setModifyDate(Date modifyDate) {
-		m_modifyDate = modifyDate;
+	public String getPassword() {
+		return m_password;
 	}
-	
+
+	public String getRealName() {
+		return m_realName;
+	}
+
 	public Map<String, Resource> getResources() {
    	return m_resources;
    }
 
+	public int getRole() {
+		return m_role;
+	}
+
+	public String getUserName() {
+		return m_userName;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		m_creationDate = creationDate;
+	}
+
+	public void setId(int id) {
+		m_id = id;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		m_modifyDate = modifyDate;
+	}
+
+	public void setPassword(String password) {
+		m_password = password;
+	}
+
+	public void setRealName(String realName) {
+		m_realName = realName;
+	}
+
 	public void setResources(Map<String, Resource> resources) {
    	m_resources = resources;
    }
+	
+	public void setRole(int role) {
+		m_role = role;
+	}
+
+	public void setUserName(String userName) {
+		m_userName = userName;
+	}
 
 	@Override
    public String toString() {

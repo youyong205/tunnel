@@ -34,8 +34,24 @@ public class TunnelSection {
    	return m_id;
    }
 
+	public Date getModifyDate() {
+   	return m_modifyDate;
+   }
+
 	public String getName() {
    	return m_name;
+   }
+
+	public Tunnel getTunnel() {
+   	return m_tunnel;
+   }
+
+	public int getTunnelId() {
+   	return m_tunnelId;
+   }
+
+	public String getType() {
+   	return m_type;
    }
 
 	public void setCreationDate(Date creationDate) {
@@ -50,40 +66,24 @@ public class TunnelSection {
    	m_id = id;
    }
 
+	public void setModifyDate(Date modifyDate) {
+   	m_modifyDate = modifyDate;
+   }
+
 	public void setName(String name) {
    	m_name = name;
    }
 
-	public String getType() {
-   	return m_type;
-   }
-
-	public void setType(String type) {
-   	m_type = type;
-   }
-
-	public int getTunnelId() {
-   	return m_tunnelId;
+	public void setTunnel(Tunnel tunnel) {
+   	m_tunnel = tunnel;
    }
 
 	public void setTunnelId(int tunnelId) {
    	m_tunnelId = tunnelId;
    }
 
-	public Date getModifyDate() {
-   	return m_modifyDate;
-   }
-
-	public void setModifyDate(Date modifyDate) {
-   	m_modifyDate = modifyDate;
-   }
-
-	public Tunnel getTunnel() {
-   	return m_tunnel;
-   }
-
-	public void setTunnel(Tunnel tunnel) {
-   	m_tunnel = tunnel;
+	public void setType(String type) {
+   	m_type = type;
    }
 
 	@Override

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="constructionUnit" extends="default">
+		<action name="constructionUnitList" class="constructionUnitAction" method="constructionUnitList">
+			<result name="success">admin/constructionUnit/ConstructionUnitList.jsp</result>
+		</action>
+		<action name="constructionUnitAdd"  class="constructionUnitAction" method="constructionUnitAdd">
+			<result name="success">admin/constructionUnit/ConstructionUnitAdd.jsp</result>
+		</action>
+		<action name="constructionUnitAddSubmit" class="constructionUnitAction" method="constructionUnitAddSubmit">
+			<result name="success" type="redirect">constructionUnitList.action?index=${index}</result>
+		</action>
+		<action name="constructionUnitUpdate" class="constructionUnitAction" method="constructionUnitUpdate" >
+			<result name="success">admin/constructionUnit/ConstructionUnitUpdate.jsp</result>
+		</action>
+		<action name="constructionUnitDetail" class="constructionUnitAction" method="constructionUnitUpdate" >
+			<result name="success">admin/constructionUnit/ConstructionUnitDetail.jsp</result>
+		</action>
+		<action name="constructionUnitUpdateSubmit" class="constructionUnitAction" method="constructionUnitUpdateSubmit">
+			<result name="success" type="redirect">constructionUnitList.action?index=${index}</result>
+		</action>
+		<action name="constructionUnitDelete" class="constructionUnitAction" method="constructionUnitDelete">
+			<result name="success" type="redirect">constructionUnitList.action?index=${index}</result>
+		</action>
+	</package>	
+</struts>

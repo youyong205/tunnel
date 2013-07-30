@@ -14,9 +14,9 @@ public interface OpenSectionService {
 
 	public int queryAllSize();
 
-	public List<OpenSection> queryLimitedOpenSectionsByTunnelId(int tunnelId,int start, int size);
-
 	public List<OpenSection> queryLimitedOpenSections(int start, int size);
+
+	public List<OpenSection> queryLimitedOpenSectionsByTunnelId(int tunnelId,int start, int size);
 
 	public int querySizeByTunnelId(int tunnelId);
 

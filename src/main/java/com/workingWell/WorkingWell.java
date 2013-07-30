@@ -3,6 +3,7 @@ package com.workingWell;
 import java.util.Date;
 
 import com.document.Document;
+import com.schedule.Schedule;
 import com.tunnel.Tunnel;
 
 public class WorkingWell {
@@ -19,6 +20,10 @@ public class WorkingWell {
 	private int m_documentId;
 
 	private Document m_document;
+	
+	private int m_scheduleId;
+	
+	private Schedule m_schedule;
 
 	private double m_startPosition;
 
@@ -40,142 +45,158 @@ public class WorkingWell {
 
 	private Date m_modifyDate;
 
-	public int getId() {
-		return m_id;
-	}
-
-	public void setId(int id) {
-		m_id = id;
-	}
-
-	public String getName() {
-		return m_name;
-	}
-
-	public void setName(String name) {
-		m_name = name;
-	}
-
-	public String getType() {
-		return m_type;
-	}
-
-	public void setType(String type) {
-		m_type = type;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public void setTunnelId(int tunnelId) {
-		m_tunnelId = tunnelId;
-	}
-
-	public Tunnel getTunnel() {
-		return m_tunnel;
-	}
-
-	public void setTunnel(Tunnel tunnel) {
-		m_tunnel = tunnel;
-	}
-
-	public int getDocumentId() {
-		return m_documentId;
-	}
-
-	public void setDocumentId(int documentId) {
-		m_documentId = documentId;
-	}
-
-	public Document getDocument() {
-		return m_document;
-	}
-
-	public void setDocument(Document document) {
-		m_document = document;
-	}
-
-
-	public double getEleationOne() {
-		return m_eleationOne;
-	}
-
-	public void setEleationOne(double eleationOne) {
-		m_eleationOne = eleationOne;
-	}
-
-	public double getEleationTwo() {
-		return m_eleationTwo;
-	}
-
-	public void setEleationTwo(double eleationTwo) {
-		m_eleationTwo = eleationTwo;
-	}
-
-	public double getEleationThree() {
-		return m_eleationThree;
-	}
-
-	public void setEleationThree(double eleationThree) {
-		m_eleationThree = eleationThree;
-	}
-
-	public double getEleationFour() {
-		return m_eleationFour;
-	}
-
-	public void setEleationFour(double eleationFour) {
-		m_eleationFour = eleationFour;
-	}
-
-	public double getEleationMezzanine() {
-		return m_eleationMezzanine;
-	}
-
-	public void setEleationMezzanine(double eleationMezzanine) {
-		m_eleationMezzanine = eleationMezzanine;
+	public Date getCreationDate() {
+		return m_creationDate;
 	}
 
 	public String getDes() {
 		return m_des;
 	}
 
-	public void setDes(String des) {
-		m_des = des;
+	public Document getDocument() {
+		return m_document;
 	}
 
-	public Date getCreationDate() {
-		return m_creationDate;
+	public int getDocumentId() {
+		return m_documentId;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		m_creationDate = creationDate;
+	public double getEleationFour() {
+		return m_eleationFour;
+	}
+
+	public double getEleationMezzanine() {
+		return m_eleationMezzanine;
+	}
+
+	public double getEleationOne() {
+		return m_eleationOne;
+	}
+
+	public double getEleationThree() {
+		return m_eleationThree;
+	}
+
+	public double getEleationTwo() {
+		return m_eleationTwo;
+	}
+
+	public double getEndPosition() {
+   	return m_endPosition;
+   }
+
+	public int getId() {
+		return m_id;
 	}
 
 	public Date getModifyDate() {
 		return m_modifyDate;
 	}
 
+	public String getName() {
+		return m_name;
+	}
+
+	public Schedule getSchedule() {
+   	return m_schedule;
+   }
+
+	public int getScheduleId() {
+   	return m_scheduleId;
+   }
+
+	public double getStartPosition() {
+   	return m_startPosition;
+   }
+
+	public Tunnel getTunnel() {
+		return m_tunnel;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+
+	public String getType() {
+		return m_type;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		m_creationDate = creationDate;
+	}
+
+	public void setDes(String des) {
+		m_des = des;
+	}
+
+	public void setDocument(Document document) {
+		m_document = document;
+	}
+
+	public void setDocumentId(int documentId) {
+		m_documentId = documentId;
+	}
+
+	public void setEleationFour(double eleationFour) {
+		m_eleationFour = eleationFour;
+	}
+
+	public void setEleationMezzanine(double eleationMezzanine) {
+		m_eleationMezzanine = eleationMezzanine;
+	}
+
+	public void setEleationOne(double eleationOne) {
+		m_eleationOne = eleationOne;
+	}
+
+	public void setEleationThree(double eleationThree) {
+		m_eleationThree = eleationThree;
+	}
+
+	public void setEleationTwo(double eleationTwo) {
+		m_eleationTwo = eleationTwo;
+	}
+
+	public void setEndPosition(double endPosition) {
+   	m_endPosition = endPosition;
+   }
+
+	public void setId(int id) {
+		m_id = id;
+	}
+
 	public void setModifyDate(Date modifyDate) {
 		m_modifyDate = modifyDate;
 	}
 
-	public double getStartPosition() {
-   	return m_startPosition;
+	public void setName(String name) {
+		m_name = name;
+	}
+
+	public void setSchedule(Schedule schedule) {
+   	m_schedule = schedule;
+   }
+
+	public void setScheduleId(int scheduleId) {
+   	m_scheduleId = scheduleId;
    }
 
 	public void setStartPosition(double startPosition) {
    	m_startPosition = startPosition;
    }
 
-	public double getEndPosition() {
-   	return m_endPosition;
-   }
+	public void setTunnel(Tunnel tunnel) {
+		m_tunnel = tunnel;
+	}
 
-	public void setEndPosition(double endPosition) {
-   	m_endPosition = endPosition;
-   }
+	public void setTunnelId(int tunnelId) {
+		m_tunnelId = tunnelId;
+	}
+
+	public void setType(String type) {
+		m_type = type;
+	}
 
 	@Override
    public String toString() {

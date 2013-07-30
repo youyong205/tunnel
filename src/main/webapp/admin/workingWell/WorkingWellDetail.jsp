@@ -85,6 +85,7 @@ $(document).ready(function() {
 						<td><textarea type="text" rows="5" cols="40"  readonly name="workingWell.des" class="{maxlength:512}"><s:property value="workingWell.des"/></textarea></td>
 					</tr>
 				</table>
+				<%@include file="./../schedule/ScheduleDetail.jsp"%>
 			</form>
       </div>
     </div>
