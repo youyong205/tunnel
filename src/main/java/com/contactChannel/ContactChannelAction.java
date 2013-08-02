@@ -70,6 +70,9 @@ public class ContactChannelAction extends ScheduledAction {
 
 	public String contactChannelDelete() {
 		try {
+			m_contactChannel = m_contactChannelService.findByPK(m_contactChannelId);
+			m_scheduleService.deleteSchedule(m_contactChannel.getScheduleId());
+			m_documentService.deleteDocument(m_contactChannel.getDocumentId());
 			int count = m_contactChannelService.deleteContactChannel(m_contactChannelId);
 			if (count > 0) {
 				Log log = createLog(Constrants.s_contactChannel_model, Constrants.s_operation_delete, m_contactChannelId);

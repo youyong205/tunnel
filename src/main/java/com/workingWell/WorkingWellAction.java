@@ -116,6 +116,9 @@ public class WorkingWellAction extends ScheduledAction {
 
 	public String workingWellDelete() {
 		try {
+			m_workingWell = m_workingWellService.findByPK(m_workingWellId);
+			m_scheduleService.deleteSchedule(m_workingWell.getScheduleId());
+			m_documentService.deleteDocument(m_workingWell.getDocumentId());
 			int count = m_workingWellService.deleteWorkingWell(m_workingWellId);
 			if (count > 0) {
 				Log log = createLog(Constrants.s_workingWell_model, Constrants.s_operation_delete, m_workingWellId);

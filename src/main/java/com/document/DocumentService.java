@@ -29,5 +29,7 @@ public interface DocumentService {
 	public int querySizeByModuleName(String module, String name);
 
 	public int updateDocument(String module, UploadFile file,Document document);
+	
+	public int deleteDocument(int id);
 
 }

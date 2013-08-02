@@ -39,7 +39,7 @@
 	<update id="schedule.update" parameterClass="schedule">
 		update schedule set
 		constructionUnitId=#constructionUnitId#,type=#type#,
-		startTime=#startTime#,endTime=#endTime#,des=#des#
+		startTime=#startTime#,endTime=#endTime#,des=#des#,modifyDate=now()
 		where id=#id#
 	</update>
 	<delete id="schedule.delete" parameterClass="int">

@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#openSectionInspectionList').addClass('active');
+		$('#openSectionList').addClass('active');
 		$(".delete").bind("click", function() {
 			return confirm("确定要删除此分类吗(不可恢复)？");
 		});
@@ -31,14 +31,25 @@
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10"> 
-			<form class="text-right form-inline margin-buttom" action="openSectionInspectionList.do" method="post">
+			<div class="row-fluid"><div class="span6">
+		      		<t:privilege res="敞开段模块:详情">
+					<a href="openSectionList.do" class="btn btn-small  btn-primary btn-info ">基本信息</a>
+	    	  		</t:privilege>
+	    	  		<t:privilege res="敞开段质量检测模块:详情">
+	    	  		<a href="openSectionInspectionList.do" class="btn btn-small btn-primary btn-success">质量检查</a>
+					</t:privilege>
+					<t:privilege res="敞开段养护记录模块:详情">
+	      			<a href="openSectionCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+      				</t:privilege>
+      			</div>
+      			<div class="span6"><form class="text-right form-inline margin-buttom" action="openSectionInspectionList.do" method="post">
 			  隧道
 			  <s:select name="tunnelId" id="tunnelId"
 					list="tunnels" listKey="id" listValue="name" value="tunnelId" theme="simple" >
 			  </s:select>
 			  <input type="hidden" name="process" value="true"/>
 			  <button type="submit" class="btn btn-success btn-small">查询</button>
-			</form>
+			</form></div></div>
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>

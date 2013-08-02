@@ -34,7 +34,7 @@
       		<form class="text-right form-inline margin-buttom" action="tunnelSectionList.do" method="post">
 			  隧道
 			  <s:select name="tunnelId" id="tunnelId"
-					list="tunnels" listKey="id" listValue="name" headerKey="0" headerValue="_ALL" value="tunnelId" theme="simple" >
+					list="tunnels" listKey="id" listValue="name" value="tunnelId" theme="simple" >
 			</s:select>
 			  <button type="submit" class="btn btn-success btn-small">查询</button>
 			</form>

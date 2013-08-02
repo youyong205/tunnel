@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="rectangleComponent" extends="default">
+		<action name="rectangleComponentList" class="rectangleComponentAction" method="rectangleComponentList">
+			<result name="success">admin/rectangleComponent/RectangleComponentList.jsp</result>
+		</action>
+		<action name="rectangleComponentAdd"  class="rectangleComponentAction" method="rectangleComponentAdd">
+			<result name="success">admin/rectangleComponent/RectangleComponentAdd.jsp</result>
+		</action>
+		<action name="rectangleComponentAddSubmit" class="rectangleComponentAction" method="rectangleComponentAddSubmit">
+			<result name="success" type="redirect">rectangleComponentList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="rectangleComponentUpdate" class="rectangleComponentAction" method="rectangleComponentUpdate" >
+			<result name="success">admin/rectangleComponent/RectangleComponentUpdate.jsp</result>
+		</action>
+		<action name="rectangleComponentDetail" class="rectangleComponentAction" method="rectangleComponentUpdate" >
+			<result name="success">admin/rectangleComponent/RectangleComponentDetail.jsp</result>
+		</action>
+		<action name="rectangleComponentUpdateSubmit" class="rectangleComponentAction" method="rectangleComponentUpdateSubmit">
+			<result name="success" type="redirect">rectangleComponentList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="rectangleComponentDelete" class="rectangleComponentAction" method="rectangleComponentDelete">
+			<result name="success" type="redirect">rectangleComponentList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>	
+</struts>

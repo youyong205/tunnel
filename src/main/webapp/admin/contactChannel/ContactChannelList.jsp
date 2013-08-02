@@ -31,13 +31,27 @@
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
-      		<form class="text-right form-inline margin-buttom" action="contactChannelList.do" method="post">
-			  隧道
-			  <s:select name="tunnelId" id="tunnelId"
-					list="tunnels" listKey="id" listValue="name" value="tunnelId" theme="simple" >
-			  </s:select>
-			  <button type="submit" class="btn btn-success btn-small">查询</button>
-			</form>
+      		<div class="row-fluid">
+			    <div class="span6">
+		      		<t:privilege res="联络通道模块:详情">
+					<a href="contactChannelList.do" class="btn btn-small  btn-primary btn-success">基本信息</a>
+	    	  		</t:privilege>
+	    	  		<t:privilege res="联络通道质量检测模块:详情">
+	    	  		<a href="contactChannelInspectionList.do" class="btn btn-small btn-primary btn-info">质量检查</a>
+					</t:privilege>
+					<t:privilege res="联络通道养护记录模块:详情">
+	      			<a href="contactChannelCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+      				</t:privilege>
+      			</div>
+      			<div class="span6">
+		      		<form class="text-right form-inline margin-buttom" action="contactChannelList.do" method="post">
+					  隧道
+					  <s:select name="tunnelId" id="tunnelId"
+							list="tunnels" listKey="id" listValue="name" value="tunnelId" theme="simple" >
+					  </s:select>
+					  <button type="submit" class="btn btn-success btn-small">查询</button>
+					</form>
+      			</div></div>
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>

@@ -10,9 +10,10 @@ public interface InspectionService {
 
 	public int insertInspection(Inspection inspection);
 
-	public int queryInspectionSizeByType(int tunnelId,String type);
+	public int queryInspectionSizeByType(int tunnelId, int tunnelSectionId, String type);
 
-	public List<Inspection> queryLimitedInspectionsByType(int tunnelId,String type, int start, int size);
+	public List<Inspection> queryLimitedInspectionsByType(int tunnelId, int tunnelSectionId, String type, int start,
+	      int size);
 
 	public int updateInspection(Inspection inspection);
 

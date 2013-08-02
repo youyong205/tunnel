@@ -4,40 +4,73 @@
 	<typeAlias alias="inspection" type="com.inspection.Inspection" />
 
 	<sql id="inspection.columns">
-		id,tunnelId,type,componentId,constructionUnitId,time,description,
+		id,tunnelId,tunnelSectionId,type,componentId,constructionUnitId,time,description,
 		action,actionTime,des,creationDate,modifyDate
 	</sql>
 	<select id="inspection.queryInspectionSizeByType" resultClass="int">
-		select count(*) from inspection where tunnelId=#tunnelId# and  type=#type#
+		select count(*) from inspection
+		<dynamic prepend="WHERE">
+			<isGreaterThan prepend="AND" property="tunnelId"
+				compareValue="0">
+				tunnelId=#tunnelId#
+			</isGreaterThan>
+			<isGreaterThan prepend="AND" property="tunnelSectionId"
+				compareValue="0">
+				tunnelSectionId=#tunnelSectionId#
+			</isGreaterThan>
+			<isPropertyAvailable prepend="AND" property="type">
+				type=#type#
+			</isPropertyAvailable>
+		</dynamic>
 	</select>
-	<select id="inspection.queryLimitedInspectionsByType" resultClass="inspection">
+	<select id="inspection.queryLimitedInspectionsByType"
+		resultClass="inspection">
 		select
 		<include refid="inspection.columns" />
 		from inspection
-		 where tunnelId=#tunnelId# and type=#type# order by id desc limit #start#,#size#
+		<dynamic prepend="WHERE">
+			<isGreaterThan prepend="AND" property="tunnelId"
+				compareValue="0">
+				tunnelId=#tunnelId#
+			</isGreaterThan>
+			<isGreaterThan prepend="AND" property="tunnelSectionId"
+				compareValue="0">
+				tunnelSectionId=#tunnelSectionId#
+			</isGreaterThan>
+			<isPropertyAvailable prepend="AND" property="type">
+				type=#type#
+			</isPropertyAvailable>
+		</dynamic>
+		order by id desc limit #start#,#size#
 	</select>
-	<select id="inspection.findById" resultClass="inspection" parameterClass="int">
+	<select id="inspection.findById" resultClass="inspection"
+		parameterClass="int">
 		select
 		<include refid="inspection.columns" />
 		from inspection where id=#id#
 	</select>
 	<insert id="inspection.insert" parameterClass="inspection">
-		insert into inspection (<include refid="inspection.columns" />) values
-		(#id#,#tunnelId#,#type#,#componentId#,#constructionUnitId#,#time#,#description#,
+		insert into inspection (
+		<include refid="inspection.columns" />
+		) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#type#,#componentId#,#constructionUnitId#,#time#,#description#,
 		#action#,#actionTime#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
 	</insert>
 	<update id="inspection.update" parameterClass="inspection">
-		update inspection set
+		update inspection
+		set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,
 		type=#type#,componentId=#componentId#,constructionUnitId=#constructionUnitId#,
 		time=#time#,description=#description#,
-		action=#action#,actionTime=#actionTime#,des=#des#
+		action=#action#,actionTime=#actionTime#,des=#des#,modifyDate=now()
 		where id=#id#
 	</update>
 	<delete id="inspection.delete" parameterClass="int">
-		delete from inspection
+		delete from
+		inspection
 		where
 		id=#id#
 	</delete>

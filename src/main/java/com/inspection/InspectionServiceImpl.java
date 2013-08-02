@@ -32,7 +32,7 @@ public class InspectionServiceImpl implements InspectionService {
 	public int deleteInspection(int id) {
 		try {
 			int result = m_inspectionDao.deleteInspection(id);
-		
+
 			m_inspections.remove(id);
 			return result;
 		} catch (Exception e) {
@@ -62,7 +62,7 @@ public class InspectionServiceImpl implements InspectionService {
 	public int insertInspection(Inspection inspection) {
 		try {
 			int result = m_inspectionDao.insertInspection(inspection);
-			
+
 			m_inspections.put(inspection.getId(), inspection);
 			return result;
 		} catch (Exception e) {
@@ -72,9 +72,9 @@ public class InspectionServiceImpl implements InspectionService {
 	}
 
 	@Override
-	public int queryInspectionSizeByType(int tunnelId,String type) {
+	public int queryInspectionSizeByType(int tunnelId, int tunnelSectionId, String type) {
 		try {
-			return m_inspectionDao.queryInspectionSizeByType(tunnelId,type);
+			return m_inspectionDao.queryInspectionSizeByType(tunnelId, tunnelSectionId, type);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
@@ -83,9 +83,10 @@ public class InspectionServiceImpl implements InspectionService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Inspection> queryLimitedInspectionsByType(int tunnelId,String type,int start, int size) {
+	public List<Inspection> queryLimitedInspectionsByType(int tunnelId, int tunnelSectionId, String type, int start,
+	      int size) {
 		try {
-			return m_inspectionDao.queryLimitedInspectionsByType(tunnelId,type,start, size);
+			return m_inspectionDao.queryLimitedInspectionsByType(tunnelId, tunnelSectionId, type, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Inspection>();
@@ -100,7 +101,7 @@ public class InspectionServiceImpl implements InspectionService {
 	public int updateInspection(Inspection inspection) {
 		try {
 			int result = m_inspectionDao.updateInspection(inspection);
-			
+
 			m_inspections.put(inspection.getId(), inspection);
 			return result;
 		} catch (Exception e) {

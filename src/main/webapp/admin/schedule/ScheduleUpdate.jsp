@@ -5,14 +5,16 @@
 	<tr>	
 		<th colspan='4'><h4 class="text-info text-center">施工进度信息</h4></th>
 		<input type="hidden" name="schedule.id" value="<s:property value="schedule.id"/>" />
-		<input type="hidden" name="schedule.type" value="<s:property value="schedule.type"/>" />
 	</tr>
 	<tr>
 		<td style="text-align:right;"><strong class="text-success">选择施工单位</strong></td>
-		<td colspan='3'>
-			 <s:select name="schedule.constructionUnitId" id="id"
+		<td>
+			 <s:select name="schedule.constructionUnitId" 
 					list="constructionUnits" listKey="id" listValue="name" value="schedule.constructionUnitId"  theme="simple" >
 			</s:select>
+		</td>
+		<td style="text-align:right;"><strong class="text-success">进度类型</strong></td>
+		<td><input type="text" name="schedule.type"  value="<s:property value="schedule.type"/>"  class="{required:true}"/>
 		</td>
 	</tr>
 	<tr>
@@ -23,7 +25,7 @@
                data-format="yyyy-MM-dd hh:mm" type="text"></input> <span class="add-on"> <i
                data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
             </span>
-         </div>
+         </div></td>
 		<td width="10%"style="text-align:right;"><strong class="text-success">施工完成时间</strong></td>
 		<td><div id="datetimepicker2" class="input-append date">
             <input name="schedule.endTimeStr"    value="<s:property value="schedule.endTimeStr"/>" class="{required:true,date:true}"

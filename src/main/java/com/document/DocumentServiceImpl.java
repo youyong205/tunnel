@@ -133,4 +133,14 @@ public class DocumentServiceImpl implements DocumentService {
 		}
 		return 0;
    }
+
+	@Override
+   public int deleteDocument(int id) {
+		try {
+			return m_documentDao.deleteDocument(id);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return -1;
+		}
+   }
 }

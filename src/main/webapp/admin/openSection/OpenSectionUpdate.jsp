@@ -27,7 +27,9 @@ $(document).ready(function() {
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
-				<table  class="table table-striped table-bordered table-condensed">
+			<form action="openSectionUpdateSubmit.do" id="form" method="post"
+			enctype="multipart/form-data">
+			<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='4'><h4 class="text-info text-center">编辑敞开段信息</h4></th>
 						<input type="hidden" name="openSection.id" value="<s:property value="openSection.id"/>"/>
@@ -96,7 +98,7 @@ $(document).ready(function() {
 							<button  class="btn btn-small btn-primary"  type="submit" >提交</button></td>
 					</tr>
 				</table>
-				<%@include file="./../schedule/ScheduleDetail.jsp"%>
+			</form>
       </div>
     </div>
     <%@include file="./../Foot.jsp"%>

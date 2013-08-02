@@ -95,6 +95,9 @@ public class OpenSectionAction extends ScheduledAction {
 
 	public String openSectionDelete() {
 		try {
+			m_openSection = m_openSectionService.findByPK(m_openSectionId);
+			m_scheduleService.deleteSchedule(m_openSection.getScheduleId());
+			m_documentService.deleteDocument(m_openSection.getDocumentId());
 			int count = m_openSectionService.deleteOpenSection(m_openSectionId);
 			if (count > 0) {
 				Log log = createLog(Constrants.s_openSection_model, Constrants.s_operation_delete, m_openSectionId);

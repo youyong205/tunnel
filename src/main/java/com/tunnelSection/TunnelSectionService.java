@@ -12,10 +12,6 @@ public interface TunnelSectionService {
 	
 	public int insertTunnelSection(TunnelSection tunnelSection);
 
-	public int queryAllSize();
-
-	public List<TunnelSection> queryLimitedTunnelSections(int start, int size);
-
 	public List<TunnelSection> queryLimitedTunnelSectionsByTunnelId(int tunnelId,int start, int size);
 
 	public int querySizeByTunnelId(int tunnelId);

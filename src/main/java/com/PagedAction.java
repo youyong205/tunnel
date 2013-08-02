@@ -23,7 +23,7 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	protected int m_index = 1;
 
-	protected static final int SIZE = 20;
+	protected static final int SIZE = 1;
 
 	public static final int s_half_size = 3;
 
@@ -40,8 +40,8 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	      Constrants.s_contactChannel_model,Constrants.s_contactChannel_inspection_model,Constrants.s_contactChannel_curing_model, //
 	      Constrants.s_buriedSection_model, Constrants.s_buriedSection_inspection_model,Constrants.s_buriedSection_curing_model, //
 	      Constrants.s_openSection_model, Constrants.s_openSection_inspection_model,Constrants.s_openSection_curing_model, //
-	      Constrants.s_workingWell_model, Constrants.s_workingWell_inspection_model,Constrants.s_workingWell_curing_model //
-	      ));
+	      Constrants.s_workingWell_model, Constrants.s_workingWell_inspection_model,Constrants.s_workingWell_curing_model, //
+	      Constrants.s_rectangleComponent_model,Constrants.s_rectangleComponent_inspection_model ));
 
 	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Constrants.s_contactChannel_model));
 

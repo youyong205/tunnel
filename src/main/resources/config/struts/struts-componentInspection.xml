@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="componentInspection" extends="default">
+		<action name="rectangleComponentInspectionList" class="rectangleComponentInspectionAction"
+			method="inspectionList">
+			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionList.jsp
+			</result>
+		</action>
+		<action name="rectangleComponentInspectionAdd" class="rectangleComponentInspectionAction"
+			method="inspectionAdd">
+			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionAdd.jsp
+			</result>
+		</action>
+		<action name="rectangleComponentInspectionAddSubmit" class="rectangleComponentInspectionAction"
+			method="inspectionAddSubmit">
+			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}
+			</result>
+		</action>
+		<action name="rectangleComponentInspectionUpdate" class="rectangleComponentInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionUpdate.jsp
+			</result>
+		</action>
+		<action name="rectangleComponentInspectionDetail" class="rectangleComponentInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionDetail.jsp
+			</result>
+		</action>
+		<action name="rectangleComponentInspectionUpdateSubmit" class="rectangleComponentInspectionAction"
+			method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}
+			</result>
+		</action>
+		<action name="rectangleComponentInspectionDelete" class="rectangleComponentInspectionAction"
+			method="inspectionDelete">
+			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}
+			</result>
+		</action>
+	</package>
+</struts>	

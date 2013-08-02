@@ -12,6 +12,8 @@ import com.constructionUnit.ConstructionUnitService;
 import com.log.Log;
 import com.tunnel.Tunnel;
 import com.tunnel.TunnelService;
+import com.tunnelSection.TunnelSection;
+import com.tunnelSection.TunnelSectionService;
 
 public abstract class InspectionAction extends PagedAction {
 
@@ -35,15 +37,22 @@ public abstract class InspectionAction extends PagedAction {
 
 	protected List<Tunnel> m_tunnels;
 
+	protected List<TunnelSection> m_tunnelSections;
+
 	@Autowired
 	protected TunnelService m_tunnelService;
+	
+	@Autowired
+	protected TunnelSectionService m_tunnelSectionService;
 
 	protected int m_tunnelId;
+
+	protected int m_tunnelSectionId;
 
 	protected Inspection m_inspection = new Inspection();
 
 	public abstract String getActionModule();
-	
+
 	public abstract String getComponentNameById(int id);
 
 	public List<ConstructionUnit> getConstructionUnits() {
@@ -118,13 +127,14 @@ public abstract class InspectionAction extends PagedAction {
 	public String inspectionList() {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_totalSize = m_inspectionService.queryInspectionSizeByType(m_tunnelId, getModule());
+			m_totalSize = m_inspectionService.queryInspectionSizeByType(m_tunnelId, m_tunnelSectionId, getModule());
 			m_totalPages = computeTotalPages(m_totalSize);
 			int start = (m_index - 1) * SIZE;
 			if (start < 0) {
 				start = 0;
 			}
-			m_inspections = m_inspectionService.queryLimitedInspectionsByType(m_tunnelId, getModule(), start, SIZE);
+			m_inspections = m_inspectionService.queryLimitedInspectionsByType(m_tunnelId, m_tunnelSectionId, getModule(),
+			      start, SIZE);
 
 			for (Inspection inspection : m_inspections) {
 				inspection.setComponentName(getComponentNameById(inspection.getComponentId()));
@@ -201,6 +211,22 @@ public abstract class InspectionAction extends PagedAction {
 	protected void validateTunnelId() {
 		m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public void setTunnelSectionId(int tunnelSectionId) {
+		m_tunnelSectionId = tunnelSectionId;
+	}
+
+	public List<TunnelSection> getTunnelSections() {
+   	return m_tunnelSections;
+   }
+
+	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
+   	m_tunnelSectionService = tunnelSectionService;
+   }
 
 	public static class Item {
 

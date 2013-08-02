@@ -31,15 +31,15 @@ public class TunnelSectionAction extends PagedAction {
 	private TunnelSection m_tunnelSection = new TunnelSection();
 
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Constrants.s_tunnelSection_model;
-   }
+	}
 
 	public int getTunnelId() {
-   	return m_tunnelId;
-   }
+		return m_tunnelId;
+	}
 
-	public int getTunnelIndexId(){
+	public int getTunnelIndexId() {
 		return m_tunnelId;
 	}
 
@@ -56,8 +56,8 @@ public class TunnelSectionAction extends PagedAction {
 	}
 
 	public void setTunnelId(int tunnelId) {
-   	m_tunnelId = tunnelId;
-   }
+		m_tunnelId = tunnelId;
+	}
 
 	public void setTunnelSection(TunnelSection tunnelSection) {
 		m_tunnelSection = tunnelSection;
@@ -118,28 +118,25 @@ public class TunnelSectionAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
+
+	public String queryAllTunnelSections() {
+		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		return SUCCESS;
+	}
+
 	public String tunnelSectionList() {
 		try {
 			if (m_tunnelId == 0) {
-				m_tunnels = m_tunnelService.queryAllTunnels();
-				m_totalSize = m_tunnelSectionService.queryAllSize();
-				m_totalPages = computeTotalPages(m_totalSize);
-				int start = (m_index - 1) * SIZE;
-				if (start < 0) {
-					start = 0;
-				}
-				m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSections(start, SIZE);
-			} else {
-				m_tunnels = m_tunnelService.queryAllTunnels();
-				m_totalSize = m_tunnelSectionService.querySizeByTunnelId(m_tunnelId);
-				m_totalPages = computeTotalPages(m_totalSize);
-				int start = (m_index - 1) * SIZE;
-				if (start < 0) {
-					start = 0;
-				}
-				m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, start, SIZE);
+				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 			}
+			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_totalSize = m_tunnelSectionService.querySizeByTunnelId(m_tunnelId);
+			m_totalPages = computeTotalPages(m_totalSize);
+			int start = (m_index - 1) * SIZE;
+			if (start < 0) {
+				start = 0;
+			}
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, start, SIZE);
 			for (TunnelSection section : m_tunnelSections) {
 				section.setTunnel(m_tunnelService.findByPK(section.getTunnelId()));
 			}
@@ -165,7 +162,7 @@ public class TunnelSectionAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String tunnelSectionUpdateSubmit() {
 		try {
 			int count = m_tunnelSectionService.updateTunnelSection(m_tunnelSection);
@@ -182,5 +179,5 @@ public class TunnelSectionAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
+
 }

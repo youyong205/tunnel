@@ -71,6 +71,9 @@ public class BuriedSectionAction extends ScheduledAction {
 
 	public String buriedSectionDelete() {
 		try {
+			m_buriedSection = m_buriedSectionService.findByPK(m_buriedSectionId);
+			m_scheduleService.deleteSchedule(m_buriedSection.getScheduleId());
+			m_documentService.deleteDocument(m_buriedSection.getDocumentId());
 			int count = m_buriedSectionService.deleteBuriedSection(m_buriedSectionId);
 			if (count > 0) {
 				Log log = createLog(Constrants.s_buriedSection_model, Constrants.s_operation_delete, m_buriedSectionId);

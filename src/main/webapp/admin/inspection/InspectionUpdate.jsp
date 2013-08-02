@@ -5,7 +5,7 @@
 		<input type="hidden" name="inspection.id" value="<s:property value="inspection.id"/>" />
 		<input type="hidden" name="index" value="<s:property value="index"/>"/>
 		<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
-		<input type="hidden" name="inspection.tunnelId" value="<s:property value="tunnel.id"/>"/>
+		<input type="hidden" name="inspection.tunnelId" value="<s:property value="inspection.tunnelId"/>"/>
 		<input type="hidden" name="inspection.type" value="<s:property value="module"/>"/>
 	</tr>
 	<tr>

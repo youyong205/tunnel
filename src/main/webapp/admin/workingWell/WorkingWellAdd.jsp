@@ -79,7 +79,7 @@ $(document).ready(function() {
 						<td><textarea type="text" rows="5" cols="40"  name="workingWell.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 				</table>
-				 <%@include file="./../schedule/ScheduleAdd.jsp"%>
+				<%@include file="./../schedule/ScheduleAdd.jsp"%>
 				<table   class="table table-striped table-bordered table-condensed">
 					<tr>
 						<td  style="text-align:center;">

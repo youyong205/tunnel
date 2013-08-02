@@ -23,4 +23,6 @@
 		<sqlMap resource="config/ibatis/WorkingWell.xml"/>
 		<sqlMap resource="config/ibatis/BuriedSection.xml"/>
 		<sqlMap resource="config/ibatis/OpenSection.xml"/>
+
+		<sqlMap resource="config/ibatis/RectangleComponent.xml"/>
 </sqlMapConfig>

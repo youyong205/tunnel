@@ -53,7 +53,6 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 		}
 	}
 
-	@Override
 	public int queryAllSize() {
 		try {
 			return m_tunnelSectionDao.queryAllSize();
@@ -74,7 +73,6 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<TunnelSection> queryLimitedTunnelSections(int start, int size) {
 		try {
 			return m_tunnelSectionDao.queryLimitedTunnelSections(start, size);
