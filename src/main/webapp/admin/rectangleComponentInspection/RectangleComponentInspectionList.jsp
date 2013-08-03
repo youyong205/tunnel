@@ -41,7 +41,7 @@
 	    	  		<a href="rectangleComponentInspectionList.do" class="btn btn-small btn-primary btn-success">质量检查</a>
 					</t:privilege>
 					<t:privilege res="口型构件养护记录模块:详情">
-	      			<a href="" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      			<a href="rectangleComponentCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span8">
@@ -65,12 +65,12 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="20%">联络通道名称</th>
+					<th width="20%">口型构件名称</th>
 					<th width="10%">检测时间</th>
 					<th width="50%">质量描述</th>
 					<th width="15%">操作
-					<t:privilege res="联络通道质量检测模块:新增">
-						<a class="space btn btn-small btn-info" href="rectangleComponentInspectionAdd.do?index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>" >新增</a>
+					<t:privilege res="口型构件质量检测模块:新增">
+						<a class="space btn btn-small btn-info" href="rectangleComponentInspectionAdd.do?index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>">新增</a>
 					</t:privilege>
 					</th>
 				</tr></thead><tbody>
@@ -83,14 +83,14 @@
 					</td>
 					<td><s:property value="description" /></td>
 					<td>
-					<t:privilege res="联络通道质量检测模块:详情">
-						<a class="btn btn-small btn-success" href="rectangleComponentInspectionDetail.do?inspectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>">详情</a>
+					<t:privilege res="口型构件质量检测模块:详情">
+						<a class="btn btn-small btn-success" href="rectangleComponentInspectionDetail.do?inspectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>">详情</a>
 					</t:privilege>
-					<t:privilege res="联络通道质量检测模块:编辑">
-						<a class="btn btn-small btn-primary" href="rectangleComponentInspectionUpdate.do?inspectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>">编辑</a>
+					<t:privilege res="口型构件质量检测模块:编辑">
+						<a class="btn btn-small btn-primary" href="rectangleComponentInspectionUpdate.do?inspectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>">编辑</a>
 					</t:privilege>
-					<t:privilege res="联络通道质量检测模块:删除">
-						<a class="delete btn  btn-small btn-danger" href="rectangleComponentInspectionDelete.do?inspectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>">删除</a>
+					<t:privilege res="口型构件质量检测模块:删除">
+						<a class="delete btn  btn-small btn-danger" href="rectangleComponentInspectionDelete.do?inspectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>">删除</a>
 					</t:privilege>
 					</td>
 					</tr>

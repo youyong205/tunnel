@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="flueSheetDao" class="com.flueSheet.FlueSheetDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="flueSheetService" class="com.flueSheet.FlueSheetServiceImpl">
+		<property name="flueSheetDao">
+			<ref bean="flueSheetDao" />
+		</property>
+	</bean>
+	<bean id="flueSheetAction" class="com.flueSheet.FlueSheetAction" scope="prototype">
+		<property name="flueSheetService">
+			<ref bean="flueSheetService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="scheduleService">
+			<ref bean="scheduleService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+	</bean>
+</beans>  

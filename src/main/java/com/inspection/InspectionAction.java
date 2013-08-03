@@ -212,6 +212,10 @@ public abstract class InspectionAction extends PagedAction {
 		m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 	}
 
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public int getTunnelSectionId() {
 		return m_tunnelSectionId;
 	}

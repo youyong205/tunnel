@@ -23,7 +23,7 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	protected int m_index = 1;
 
-	protected static final int SIZE = 1;
+	protected static final int SIZE = 5;
 
 	public static final int s_half_size = 3;
 
@@ -41,7 +41,11 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	      Constrants.s_buriedSection_model, Constrants.s_buriedSection_inspection_model,Constrants.s_buriedSection_curing_model, //
 	      Constrants.s_openSection_model, Constrants.s_openSection_inspection_model,Constrants.s_openSection_curing_model, //
 	      Constrants.s_workingWell_model, Constrants.s_workingWell_inspection_model,Constrants.s_workingWell_curing_model, //
-	      Constrants.s_rectangleComponent_model,Constrants.s_rectangleComponent_inspection_model ));
+	      Constrants.s_rectangleComponent_model,Constrants.s_rectangleComponent_inspection_model,Constrants.s_rectangleComponent_curing_model , //
+	      Constrants.s_plank_model,Constrants.s_plank_inspection_model,Constrants.s_plank_curing_model , //
+	      Constrants.s_bracket_model,Constrants.s_bracket_inspection_model,Constrants.s_bracket_curing_model , //
+	      Constrants.s_saddleWeight_model,Constrants.s_saddleWeight_inspection_model,Constrants.s_saddleWeight_curing_model, //
+	      Constrants.s_flueSheet_model,Constrants.s_flueSheet_inspection_model,Constrants.s_flueSheet_curing_model ));
 
 	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Constrants.s_contactChannel_model));
 

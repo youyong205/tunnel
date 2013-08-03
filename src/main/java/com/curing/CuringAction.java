@@ -13,6 +13,8 @@ import com.document.Document;
 import com.log.Log;
 import com.tunnel.Tunnel;
 import com.tunnel.TunnelService;
+import com.tunnelSection.TunnelSection;
+import com.tunnelSection.TunnelSectionService;
 
 public abstract class CuringAction extends FileUploadAction {
 
@@ -36,10 +38,17 @@ public abstract class CuringAction extends FileUploadAction {
 
 	protected List<Tunnel> m_tunnels;
 
+	protected List<TunnelSection> m_tunnelSections;
+
 	@Autowired
 	protected TunnelService m_tunnelService;
 
+	@Autowired
+	protected TunnelSectionService m_tunnelSectionService;
+
 	protected int m_tunnelId;
+
+	protected int m_tunnelSectionId;
 
 	protected Curing m_curing = new Curing();
 
@@ -52,11 +61,11 @@ public abstract class CuringAction extends FileUploadAction {
 
 	public String curingAddSubmit() {
 		try {
-			int id = m_curingService.insertCuring(m_curing);
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_documentService.insertDocument(Constrants.s_contactChannel_curing_model, m_uploadFile);
 				m_curing.setDocumentId(documentId);
 			}
+			int id = m_curingService.insertCuring(m_curing);
 			if (id > 0) {
 				Log log = createLog(getActionModule(), Constrants.s_operation_add, m_curing);
 
@@ -91,16 +100,20 @@ public abstract class CuringAction extends FileUploadAction {
 	public String curingList() {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_totalSize = m_curingService.queryCuringSizeByType(m_tunnelId, getModule());
+			m_totalSize = m_curingService.queryCuringSizeByType(m_tunnelId, m_tunnelSectionId,getModule());
 			m_totalPages = computeTotalPages(m_totalSize);
 			int start = (m_index - 1) * SIZE;
 			if (start < 0) {
 				start = 0;
 			}
-			m_curings = m_curingService.queryLimitedCuringsByType(m_tunnelId, getModule(), start, SIZE);
+			m_curings = m_curingService.queryLimitedCuringsByType(m_tunnelId, m_tunnelSectionId, getModule(), start, SIZE);
 
 			for (Curing curing : m_curings) {
 				curing.setComponentName(getComponentNameById(curing.getComponentId()));
+				int documentId = curing.getDocumentId();
+				if (documentId > 0) {
+					curing.setDocument(m_documentService.findByPK(documentId));
+				}
 			}
 			return SUCCESS;
 		} catch (Exception e) {
@@ -133,16 +146,17 @@ public abstract class CuringAction extends FileUploadAction {
 
 	public String curingUpdateSubmit() {
 		try {
-			int count = m_curingService.updateCuring(m_curing);
 			int documentId = m_curing.getDocumentId();
-			if (documentId > 0) {
-				Document document = m_documentService.findByPK(documentId);
-				m_documentService.updateDocument(Constrants.s_contactChannel_curing_model, m_uploadFile, document);
-			} else {
-				documentId = m_documentService.insertDocument(Constrants.s_contactChannel_curing_model, m_uploadFile);
-				m_curing.setDocumentId(documentId);
+			if (m_uploadFile.getFile() != null) {
+				if (documentId > 0) {
+					Document document = m_documentService.findByPK(documentId);
+					m_documentService.updateDocument(Constrants.s_contactChannel_curing_model, m_uploadFile, document);
+				} else {
+					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_curing_model, m_uploadFile);
+					m_curing.setDocumentId(documentId);
+				}
 			}
-
+			int count = m_curingService.updateCuring(m_curing);
 			if (count > 0) {
 				Log log = createLog(getActionModule(), Constrants.s_operation_update, m_curing);
 
@@ -200,6 +214,7 @@ public abstract class CuringAction extends FileUploadAction {
 	public void setCuringId(int curingId) {
 		m_curingId = curingId;
 	}
+
 	public void setCuringService(CuringService curingService) {
 		m_curingService = curingService;
 	}
@@ -218,6 +233,26 @@ public abstract class CuringAction extends FileUploadAction {
 
 	protected void validateTunnelId() {
 		m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public void setTunnelSectionId(int tunnelSectionId) {
+		m_tunnelSectionId = tunnelSectionId;
+	}
+
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
+	}
+
+	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
+		m_tunnelSectionService = tunnelSectionService;
 	}
 
 	public static class Item {

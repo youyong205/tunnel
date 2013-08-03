@@ -12,7 +12,6 @@
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/tunnel.js"></script>
-<script type="text/javascript" src="js/tunnel.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -20,7 +19,7 @@ $(document).ready(function() {
 	$('#rectangleComponent_role').val("<s:property value="rectangleComponent.role"/>");
 	$("#form").validate();
 	var type='<s:property value="rectangleComponent.lineType"/>';
-	lineType.val(type);
+	$('#lineType').val(type);
 });
 </script>
 </head>
@@ -35,10 +34,11 @@ $(document).ready(function() {
 			<form action="rectangleComponentUpdateSubmit.do" id="form" method="post"  enctype="multipart/form-data">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='4'><h4 class="text-info text-center">编辑口型构建信息</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">编辑口型构件信息</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
+						<input type="hidden" name="rectangleComponent.documentId" value="<s:property value="rectangleComponent.documentId"/>"/>
 						<input type="hidden" name="rectangleComponent.id" value="<s:property value="rectangleComponent.id"/>" />
 					</tr>
 					<tr>
@@ -61,7 +61,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
 						<td ><input type="text" size="40" name="rectangleComponent.name" value="<s:property value="rectangleComponent.name"/>"  class="{required:true,maxlength:64}"/></td>
-						<td style="text-align:right;"><strong class="text-success">口型构建类型</strong></td>
+						<td style="text-align:right;"><strong class="text-success">口型构件类型</strong></td>
 						<td ><input type="text" size="40" name="rectangleComponent.type"  value="<s:property value="rectangleComponent.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
@@ -90,7 +90,7 @@ $(document).ready(function() {
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>
-						<td style="text-align:right;"><strong class="text-success">口型构建简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="rectangleComponent.des" class="{maxlength:512}"><s:property value="rectangleComponent.des"/></textarea></td>
 					</tr>
 					</table>

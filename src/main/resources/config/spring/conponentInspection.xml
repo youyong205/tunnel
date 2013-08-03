@@ -21,4 +21,64 @@
 			<ref bean="tunnelSectionService" />
 		</property>
 	</bean>
+	<bean id="bracketInspectionAction" class="com.bracket.BracketInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="bracketService">
+			<ref bean="bracketService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
+	<bean id="saddleWeightInspectionAction" class="com.saddleWeight.SaddleWeightInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="saddleWeightService">
+			<ref bean="saddleWeightService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
+	<bean id="flueSheetInspectionAction" class="com.flueSheet.FlueSheetInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="flueSheetService">
+			<ref bean="flueSheetService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
 </beans>  

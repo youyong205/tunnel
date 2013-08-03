@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.document.Document;
 import com.tunnel.Tunnel;
+import com.tunnelSection.TunnelSection;
 
 public class Curing {
 
@@ -21,6 +22,10 @@ public class Curing {
 
 	private Tunnel m_tunnel;
 
+	private int m_tunnelSectionId;
+	
+	private TunnelSection m_tunnelSection;
+	
 	private int m_documentId;
 
 	private Document m_document;
@@ -156,6 +161,22 @@ public class Curing {
 	public void setType(String type) {
 		m_type = type;
 	}
+
+	public int getTunnelSectionId() {
+   	return m_tunnelSectionId;
+   }
+
+	public void setTunnelSectionId(int tunnelSectionId) {
+   	m_tunnelSectionId = tunnelSectionId;
+   }
+
+	public TunnelSection getTunnelSection() {
+   	return m_tunnelSection;
+   }
+
+	public void setTunnelSection(TunnelSection tunnelSection) {
+   	m_tunnelSection = tunnelSection;
+   }
 
 	@Override
 	public String toString() {

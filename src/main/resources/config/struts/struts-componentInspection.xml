@@ -4,40 +4,114 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="componentInspection" extends="default">
-		<action name="rectangleComponentInspectionList" class="rectangleComponentInspectionAction"
-			method="inspectionList">
-			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionList.jsp
-			</result>
+		<action name="rectangleComponentInspectionList" class="rectangleComponentInspectionAction" method="inspectionList">
+			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionList.jsp </result>
 		</action>
-		<action name="rectangleComponentInspectionAdd" class="rectangleComponentInspectionAction"
-			method="inspectionAdd">
-			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionAdd.jsp
-			</result>
+		<action name="rectangleComponentInspectionAdd" class="rectangleComponentInspectionAction" method="inspectionAdd">
+			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionAdd.jsp </result>
 		</action>
-		<action name="rectangleComponentInspectionAddSubmit" class="rectangleComponentInspectionAction"
-			method="inspectionAddSubmit">
-			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}
-			</result>
+		<action name="rectangleComponentInspectionAddSubmit" class="rectangleComponentInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
 		</action>
-		<action name="rectangleComponentInspectionUpdate" class="rectangleComponentInspectionAction"
-			method="inspectionUpdate">
-			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionUpdate.jsp
-			</result>
+		<action name="rectangleComponentInspectionUpdate" class="rectangleComponentInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionUpdate.jsp</result>
 		</action>
-		<action name="rectangleComponentInspectionDetail" class="rectangleComponentInspectionAction"
-			method="inspectionUpdate">
-			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionDetail.jsp
-			</result>
+		<action name="rectangleComponentInspectionDetail" class="rectangleComponentInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/rectangleComponentInspection/RectangleComponentInspectionDetail.jsp</result>
 		</action>
-		<action name="rectangleComponentInspectionUpdateSubmit" class="rectangleComponentInspectionAction"
-			method="inspectionUpdateSubmit">
-			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}
-			</result>
+		<action name="rectangleComponentInspectionUpdateSubmit" class="rectangleComponentInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
 		</action>
-		<action name="rectangleComponentInspectionDelete" class="rectangleComponentInspectionAction"
-			method="inspectionDelete">
-			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}
-			</result>
+		<action name="rectangleComponentInspectionDelete" class="rectangleComponentInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">rectangleComponentInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+
+		<action name="plankInspectionList" class="plankInspectionAction" method="inspectionList">
+			<result name="success">admin/plankInspection/PlankInspectionList.jsp </result>
+		</action>
+		<action name="plankInspectionAdd" class="plankInspectionAction" method="inspectionAdd">
+			<result name="success">admin/plankInspection/PlankInspectionAdd.jsp </result>
+		</action>
+		<action name="plankInspectionAddSubmit" class="plankInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">plankInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="plankInspectionUpdate" class="plankInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/plankInspection/PlankInspectionUpdate.jsp</result>
+		</action>
+		<action name="plankInspectionDetail" class="plankInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/plankInspection/PlankInspectionDetail.jsp</result>
+		</action>
+		<action name="plankInspectionUpdateSubmit" class="plankInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">plankInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="plankInspectionDelete" class="plankInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">plankInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+
+		<action name="bracketInspectionList" class="bracketInspectionAction" method="inspectionList">
+			<result name="success">admin/bracketInspection/BracketInspectionList.jsp </result>
+		</action>
+		<action name="bracketInspectionAdd" class="bracketInspectionAction" method="inspectionAdd">
+			<result name="success">admin/bracketInspection/BracketInspectionAdd.jsp </result>
+		</action>
+		<action name="bracketInspectionAddSubmit" class="bracketInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">bracketInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="bracketInspectionUpdate" class="bracketInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/bracketInspection/BracketInspectionUpdate.jsp</result>
+		</action>
+		<action name="bracketInspectionDetail" class="bracketInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/bracketInspection/BracketInspectionDetail.jsp</result>
+		</action>
+		<action name="bracketInspectionUpdateSubmit" class="bracketInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">bracketInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="bracketInspectionDelete" class="bracketInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">bracketInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+
+		<action name="saddleWeightInspectionList" class="saddleWeightInspectionAction" method="inspectionList">
+			<result name="success">admin/saddleWeightInspection/SaddleWeightInspectionList.jsp </result>
+		</action>
+		<action name="saddleWeightInspectionAdd" class="saddleWeightInspectionAction" method="inspectionAdd">
+			<result name="success">admin/saddleWeightInspection/SaddleWeightInspectionAdd.jsp </result>
+		</action>
+		<action name="saddleWeightInspectionAddSubmit" class="saddleWeightInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">saddleWeightInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="saddleWeightInspectionUpdate" class="saddleWeightInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/saddleWeightInspection/SaddleWeightInspectionUpdate.jsp</result>
+		</action>
+		<action name="saddleWeightInspectionDetail" class="saddleWeightInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/saddleWeightInspection/SaddleWeightInspectionDetail.jsp</result>
+		</action>
+		<action name="saddleWeightInspectionUpdateSubmit" class="saddleWeightInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">saddleWeightInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="saddleWeightInspectionDelete" class="saddleWeightInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">saddleWeightInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+
+		<action name="flueSheetInspectionList" class="flueSheetInspectionAction" method="inspectionList">
+			<result name="success">admin/flueSheetInspection/FlueSheetInspectionList.jsp </result>
+		</action>
+		<action name="flueSheetInspectionAdd" class="flueSheetInspectionAction" method="inspectionAdd">
+			<result name="success">admin/flueSheetInspection/FlueSheetInspectionAdd.jsp </result>
+		</action>
+		<action name="flueSheetInspectionAddSubmit" class="flueSheetInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">flueSheetInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="flueSheetInspectionUpdate" class="flueSheetInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/flueSheetInspection/FlueSheetInspectionUpdate.jsp</result>
+		</action>
+		<action name="flueSheetInspectionDetail" class="flueSheetInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/flueSheetInspection/FlueSheetInspectionDetail.jsp</result>
+		</action>
+		<action name="flueSheetInspectionUpdateSubmit" class="flueSheetInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">flueSheetInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="flueSheetInspectionDelete" class="flueSheetInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">flueSheetInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
 		</action>
 	</package>
 </struts>	

@@ -41,7 +41,7 @@
 	    	  		<a href="rectangleComponentInspectionList.do" class="btn btn-small btn-primary btn-info">质量检查</a>
 					</t:privilege>
 					<t:privilege res="口型构件养护记录模块:详情">
-	      			<a href="" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      			<a href="rectangleComponentCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span8">

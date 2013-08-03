@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="flueSheet" extends="default">
+		<action name="flueSheetList" class="flueSheetAction" method="flueSheetList">
+			<result name="success">admin/flueSheet/FlueSheetList.jsp</result>
+		</action>
+		<action name="flueSheetAdd"  class="flueSheetAction" method="flueSheetAdd">
+			<result name="success">admin/flueSheet/FlueSheetAdd.jsp</result>
+		</action>
+		<action name="flueSheetAddSubmit" class="flueSheetAction" method="flueSheetAddSubmit">
+			<result name="success" type="redirect">flueSheetList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="flueSheetUpdate" class="flueSheetAction" method="flueSheetUpdate" >
+			<result name="success">admin/flueSheet/FlueSheetUpdate.jsp</result>
+		</action>
+		<action name="flueSheetDetail" class="flueSheetAction" method="flueSheetUpdate" >
+			<result name="success">admin/flueSheet/FlueSheetDetail.jsp</result>
+		</action>
+		<action name="flueSheetUpdateSubmit" class="flueSheetAction" method="flueSheetUpdateSubmit">
+			<result name="success" type="redirect">flueSheetList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="flueSheetDelete" class="flueSheetAction" method="flueSheetDelete">
+			<result name="success" type="redirect">flueSheetList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>	
+</struts>

@@ -4,17 +4,43 @@
 	<typeAlias alias="curing" type="com.curing.Curing" />
 
 	<sql id="curing.columns">
-		id,tunnelId,type,componentId,constructionUnitId,documentId,time,
+		id,tunnelId,tunnelSectionId,type,componentId,constructionUnitId,documentId,time,
 		position,action,des,creationDate,modifyDate
 	</sql>
 	<select id="curing.queryCuringSizeByType" resultClass="int">
-		select count(*) from curing where tunnelId=#tunnelId# and  type=#type#
+		select count(*) from curing
+		<dynamic prepend="WHERE">
+			<isGreaterThan prepend="AND" property="tunnelId"
+				compareValue="0">
+				tunnelId=#tunnelId#
+			</isGreaterThan>
+			<isGreaterThan prepend="AND" property="tunnelSectionId"
+				compareValue="0">
+				tunnelSectionId=#tunnelSectionId#
+			</isGreaterThan>
+			<isPropertyAvailable prepend="AND" property="type">
+				type=#type#
+			</isPropertyAvailable>
+		</dynamic>
 	</select>
 	<select id="curing.queryLimitedCuringsByType" resultClass="curing">
 		select
 		<include refid="curing.columns" />
 		from curing
-		 where tunnelId=#tunnelId# and type=#type# order by id desc limit #start#,#size#
+	    <dynamic prepend="WHERE">
+			<isGreaterThan prepend="AND" property="tunnelId"
+				compareValue="0">
+				tunnelId=#tunnelId#
+			</isGreaterThan>
+			<isGreaterThan prepend="AND" property="tunnelSectionId"
+				compareValue="0">
+				tunnelSectionId=#tunnelSectionId#
+			</isGreaterThan>
+			<isPropertyAvailable prepend="AND" property="type">
+				type=#type#
+			</isPropertyAvailable>
+		</dynamic>
+	    order by id desc limit #start#,#size#
 	</select>
 	<select id="curing.findById" resultClass="curing" parameterClass="int">
 		select
@@ -23,7 +49,7 @@
 	</select>
 	<insert id="curing.insert" parameterClass="curing">
 		insert into curing (<include refid="curing.columns" />) values
-		(#id#,#tunnelId#,#type#,#componentId#,#constructionUnitId#,#documentId#,#time#,
+		(#id#,#tunnelId#,#tunnelSectionId#,#type#,#componentId#,#constructionUnitId#,#documentId#,#time#,
 		#position#,#action#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
@@ -31,6 +57,7 @@
 	</insert>
 	<update id="curing.update" parameterClass="curing">
 		update curing set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,
 		type=#type#,componentId=#componentId#,constructionUnitId=#constructionUnitId#,
 		documentId=#documentId#,time=#time#,
 		position=#position#,action=#action#,des=#des#

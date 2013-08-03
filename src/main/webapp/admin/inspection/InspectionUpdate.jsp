@@ -47,10 +47,10 @@
 	</tr>
 	<tr>
 		<td style="text-align:right;"><strong class="text-success">备注</strong></td>
-		<td><textarea type="text" rows="5" cols="50" name="inspection.des" class="{maxlength:512}"><s:property value="inspection.des"/></textarea></td>
+		<td  colspan='3'><textarea type="text" rows="5" cols="50" name="inspection.des" class="{maxlength:512}"><s:property value="inspection.des"/></textarea></td>
 	</tr>
 	<tr>
-		<td colspan="2" style="text-align:center;">
+		<td colspan="4" style="text-align:center;">
 			<button  class="btn btn-small btn-primary"  type="submit" >提交</button></td>
 	</tr>
 	</table>

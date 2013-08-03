@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="rectangleComponentCuringAction" class="com.rectangleComponent.RectangleComponentCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="rectangleComponentService">
+			<ref bean="rectangleComponentService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	<bean id="bracketCuringAction" class="com.bracket.BracketCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="bracketService">
+			<ref bean="bracketService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	<bean id="saddleWeightCuringAction" class="com.saddleWeight.SaddleWeightCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="saddleWeightService">
+			<ref bean="saddleWeightService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	<bean id="flueSheetCuringAction" class="com.flueSheet.FlueSheetCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="flueSheetService">
+			<ref bean="flueSheetService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+</beans>  

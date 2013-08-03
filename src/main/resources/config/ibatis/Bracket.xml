@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="bracket" type="com.bracket.Bracket" />
+	<sql id="bracket.columns">
+		id,tunnelId,tunnelSectionId,documentId,scheduleId,name,
+		type,lineType,startPosition,endPosition,concreteStrength,reinforcementStrength,
+		des,creationDate,modifyDate
+	</sql>
+	<select id="bracket.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from bracket
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="bracket.queryLimitedBrackets" resultClass="bracket">
+		select
+		<include refid="bracket.columns" />
+		from bracket
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
+	</select>
+	<select id="bracket.findByName" resultClass="bracket" parameterClass="String">
+		select
+		<include refid="bracket.columns" />
+		from bracket where name=#name#
+	</select>
+	<select id="bracket.findById" resultClass="bracket" parameterClass="int">
+		select
+		<include refid="bracket.columns" />
+		from bracket where id=#id#
+	</select>
+	<insert id="bracket.insert" parameterClass="bracket">
+		insert into bracket (<include refid="bracket.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#documentId#,#scheduleId#,#name#,
+		#type#,#lineType#,#startPosition#,#endPosition#,
+		#concreteStrength#,#reinforcementStrength#,
+		#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="bracket.update" parameterClass="bracket">
+		update bracket set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,documentId=#documentId#,name=#name#,
+		type=#type#,lineType=#lineType#,startPosition=#startPosition#,endPosition=#endPosition#,
+		concreteStrength=#concreteStrength#,reinforcementStrength=#reinforcementStrength#,
+		des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="bracket.delete" parameterClass="int">
+		delete from bracket
+		where
+		id=#id#
+	</delete>
+</sqlMap>

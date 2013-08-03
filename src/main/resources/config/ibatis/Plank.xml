@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="plank" type="com.plank.Plank" />
+	<sql id="plank.columns">
+		id,tunnelId,tunnelSectionId,documentId,scheduleId,name,
+		type,lineType,startPosition,endPosition,concreteStrength,reinforcementStrength,
+		designPath,designLongitudinal,length,des,creationDate,modifyDate
+	</sql>
+	<select id="plank.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from plank
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="plank.queryLimitedPlanks" resultClass="plank">
+		select
+		<include refid="plank.columns" />
+		from plank
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
+	</select>
+	<select id="plank.findByName" resultClass="plank" parameterClass="String">
+		select
+		<include refid="plank.columns" />
+		from plank where name=#name#
+	</select>
+	<select id="plank.findById" resultClass="plank" parameterClass="int">
+		select
+		<include refid="plank.columns" />
+		from plank where id=#id#
+	</select>
+	<insert id="plank.insert" parameterClass="plank">
+		insert into plank (<include refid="plank.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#documentId#,#scheduleId#,#name#,
+		#type#,#lineType#,#startPosition#,#endPosition#,
+		#concreteStrength#,#reinforcementStrength#,
+		#designPath#,#designLongitudinal#,#length#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="plank.update" parameterClass="plank">
+		update plank set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,documentId=#documentId#,name=#name#,
+		type=#type#,lineType=#lineType#,startPosition=#startPosition#,endPosition=#endPosition#,
+		concreteStrength=#concreteStrength#,reinforcementStrength=#reinforcementStrength#,
+		designPath=#designPath#,designLongitudinal=#designLongitudinal#,length=#length#,
+		des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="plank.delete" parameterClass="int">
+		delete from plank
+		where
+		id=#id#
+	</delete>
+</sqlMap>

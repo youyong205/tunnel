@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="saddleWeight" type="com.saddleWeight.SaddleWeight" />
+	<sql id="saddleWeight.columns">
+		id,tunnelId,tunnelSectionId,documentId,scheduleId,name,
+		type,lineType,startPosition,endPosition,concreteStrength,reinforcementStrength,
+		des,creationDate,modifyDate
+	</sql>
+	<select id="saddleWeight.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from saddleWeight
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="saddleWeight.queryLimitedSaddleWeights" resultClass="saddleWeight">
+		select
+		<include refid="saddleWeight.columns" />
+		from saddleWeight
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
+	</select>
+	<select id="saddleWeight.findByName" resultClass="saddleWeight" parameterClass="String">
+		select
+		<include refid="saddleWeight.columns" />
+		from saddleWeight where name=#name#
+	</select>
+	<select id="saddleWeight.findById" resultClass="saddleWeight" parameterClass="int">
+		select
+		<include refid="saddleWeight.columns" />
+		from saddleWeight where id=#id#
+	</select>
+	<insert id="saddleWeight.insert" parameterClass="saddleWeight">
+		insert into saddleWeight (<include refid="saddleWeight.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#documentId#,#scheduleId#,#name#,
+		#type#,#lineType#,#startPosition#,#endPosition#,
+		#concreteStrength#,#reinforcementStrength#,
+		#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="saddleWeight.update" parameterClass="saddleWeight">
+		update saddleWeight set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,documentId=#documentId#,name=#name#,
+		type=#type#,lineType=#lineType#,startPosition=#startPosition#,endPosition=#endPosition#,
+		concreteStrength=#concreteStrength#,reinforcementStrength=#reinforcementStrength#,
+		des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="saddleWeight.delete" parameterClass="int">
+		delete from saddleWeight
+		where
+		id=#id#
+	</delete>
+</sqlMap>

@@ -127,29 +127,6 @@ CREATE TABLE `tunnelSectionConstruction`(
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='盾构段衬砌环信息';
 
-CREATE TABLE `plank`(
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
-  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
-  `documentId` int(11) NOT NULL COMMENT '设计文档ID',
-  `name` varchar(64) NOT NULL  COMMENT '车道板编号名称',
-  `type` varchar(64) NOT NULL  COMMENT '类型',
-  `startPosition` double NOT NULL COMMENT '开始里程(m)',
-  `endPosition` double NOT NULL COMMENT '结束里程(m)',
-  `concreteStrength` varchar(64) NOT NULL  COMMENT '混凝土强度',
-  `reinforcementStrength` varchar(64) NOT NULL  COMMENT '钢筋强度',
-  `designPath` varchar(64) NOT NULL  COMMENT '设计路中',
-  `designLongitudinal` varchar(64) NOT NULL  COMMENT '设计纵坡',
-  `length` double NOT NULL COMMENT '车道板长度',
-  `time` datetime NOT NULL COMMENT '施工时间',
-  `state` varchar(512) NOT NULL  COMMENT '数据状态',
-  `lineNumber` varchar(64) NOT NULL  COMMENT '线路序号',
-  `des` varchar(1024) COMMENT '车道板描述',
-  `creationDate` datetime NOT NULL COMMENT '创建时间',
-  `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车道板基本信息';
-
 CREATE TABLE `rectangleComponent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
@@ -167,6 +144,28 @@ CREATE TABLE `rectangleComponent` (
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='口型构件基本信息';
 
+CREATE TABLE `plank`(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `documentId` int(11) NOT NULL COMMENT '设计文档ID',
+  `scheduleId` int(11) NOT NULL COMMENT '进度ID',
+  `name` varchar(64) NOT NULL  COMMENT '车道板编号名称',
+  `type` varchar(64) NOT NULL  COMMENT '类型',
+  `lineType` varchar(64) NOT NULL  COMMENT '线路类型',
+  `startPosition` double NOT NULL COMMENT '开始里程(m)',
+  `endPosition` double NOT NULL COMMENT '结束里程(m)',
+  `concreteStrength` varchar(64) NOT NULL  COMMENT '混凝土强度',
+  `reinforcementStrength` varchar(64) NOT NULL  COMMENT '钢筋强度',
+  `designPath` varchar(64) NOT NULL  COMMENT '设计路中',
+  `designLongitudinal` varchar(64) NOT NULL  COMMENT '设计纵坡',
+  `length` varchar(64) NOT NULL COMMENT '车道板长度',
+  `des` varchar(1024) COMMENT '车道板描述',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车道板基本信息';
+
 CREATE TABLE `bracket` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
@@ -180,7 +179,7 @@ CREATE TABLE `bracket` (
   `endPosition` double NOT NULL COMMENT '结束里程(m)',
   `concreteStrength` varchar(64) NOT NULL  COMMENT '混凝土强度',
   `reinforcementStrength` varchar(64) NOT NULL  COMMENT '钢筋强度',
-  `des` varchar(1024) COMMENT '口型构建描述',
+  `des` varchar(1024) COMMENT '牛腿描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
@@ -199,7 +198,7 @@ CREATE TABLE `saddleWeight` (
   `endPosition` double NOT NULL COMMENT '结束里程(m)',
   `concreteStrength` varchar(64) NOT NULL  COMMENT '混凝土强度',
   `reinforcementStrength` varchar(64) NOT NULL  COMMENT '钢筋强度',
-  `des` varchar(1024) COMMENT '口型构建描述',
+  `des` varchar(1024) COMMENT '压重块描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
@@ -213,6 +212,7 @@ CREATE TABLE `flueSheet` (
   `scheduleId` int(11) NOT NULL COMMENT '进度ID',
   `name` varchar(64) NOT NULL  COMMENT '编号名称',
   `type` varchar(64) NOT NULL  COMMENT '烟道板类型',
+  `lineType` varchar(64) NOT NULL  COMMENT '线路类型',
   `startPosition` double NOT NULL COMMENT '开始里程(m)',
   `endPosition` double NOT NULL COMMENT '结束里程(m)',
   `concreteStrength` varchar(64) NOT NULL  COMMENT '混凝土强度',

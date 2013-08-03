@@ -28,7 +28,7 @@ public class WorkingWellInspectionAction extends InspectionAction {
 		if (channel != null) {
 			return channel.getName();
 		} else {
-			return "Default";
+			return Constrants.s_deleted;
 		}
 	}
 

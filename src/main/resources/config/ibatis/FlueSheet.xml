@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="flueSheet" type="com.flueSheet.FlueSheet" />
+	<sql id="flueSheet.columns">
+		id,tunnelId,tunnelSectionId,documentId,scheduleId,name,
+		type,lineType,startPosition,endPosition,concreteStrength,reinforcementStrength,
+		des,creationDate,modifyDate
+	</sql>
+	<select id="flueSheet.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from flueSheet
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="flueSheet.queryLimitedFlueSheets" resultClass="flueSheet">
+		select
+		<include refid="flueSheet.columns" />
+		from flueSheet
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
+	</select>
+	<select id="flueSheet.findByName" resultClass="flueSheet" parameterClass="String">
+		select
+		<include refid="flueSheet.columns" />
+		from flueSheet where name=#name#
+	</select>
+	<select id="flueSheet.findById" resultClass="flueSheet" parameterClass="int">
+		select
+		<include refid="flueSheet.columns" />
+		from flueSheet where id=#id#
+	</select>
+	<insert id="flueSheet.insert" parameterClass="flueSheet">
+		insert into flueSheet (<include refid="flueSheet.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#documentId#,#scheduleId#,#name#,
+		#type#,#lineType#,#startPosition#,#endPosition#,
+		#concreteStrength#,#reinforcementStrength#,
+		#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="flueSheet.update" parameterClass="flueSheet">
+		update flueSheet set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,documentId=#documentId#,name=#name#,
+		type=#type#,lineType=#lineType#,startPosition=#startPosition#,endPosition=#endPosition#,
+		concreteStrength=#concreteStrength#,reinforcementStrength=#reinforcementStrength#,
+		des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="flueSheet.delete" parameterClass="int">
+		delete from flueSheet
+		where
+		id=#id#
+	</delete>
+</sqlMap>

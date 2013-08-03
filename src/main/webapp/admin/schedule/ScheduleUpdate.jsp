@@ -14,21 +14,20 @@
 			</s:select>
 		</td>
 		<td style="text-align:right;"><strong class="text-success">进度类型</strong></td>
-		<td><input type="text" name="schedule.type"  value="<s:property value="schedule.type"/>"  class="{required:true}"/>
+		<td><input type="text" name="schedule.type"  value='<s:property value="schedule.type"/>'  class="{required:true}"/>
 		</td>
 	</tr>
 	<tr>
 		<td width="20%" style="text-align:right;"><strong class="text-success">施工开始时间</strong></td>
 		<td width="30%">
 		<div id="datetimepicker1" class="input-append date">
-            <input name="schedule.startTimeStr"  value="<s:property value="schedule.startTimeStr"/>"  class="{required:true,date:true}"
-               data-format="yyyy-MM-dd hh:mm" type="text"></input> <span class="add-on"> <i
-               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
+            <input name="schedule.startTimeStr"  value="<s:property value='schedule.startTimeStr'/>"  class="{required:true,date:true}"
+               data-format="yyyy-MM-dd hh:mm" type="text"></input> <span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
             </span>
          </div></td>
 		<td width="10%"style="text-align:right;"><strong class="text-success">施工完成时间</strong></td>
 		<td><div id="datetimepicker2" class="input-append date">
-            <input name="schedule.endTimeStr"    value="<s:property value="schedule.endTimeStr"/>" class="{required:true,date:true}"
+            <input name="schedule.endTimeStr"    value="<s:property value='schedule.endTimeStr'/>" class="{required:true,date:true}"
                data-format="yyyy-MM-dd hh:mm" type="text"></input> <span class="add-on"> <i
                data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
             </span>

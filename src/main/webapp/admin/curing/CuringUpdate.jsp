@@ -6,11 +6,12 @@
 		<input type="hidden" name="index" value="<s:property value="index"/>"/>
 		<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 		<input type="hidden" name="curing.tunnelId" value="<s:property value="tunnel.id"/>"/>
+		<input type="hidden" name="curing.documentId" value="<s:property value="curing.documentId"/>"/>
 		<input type="hidden" name="curing.type" value="<s:property value="module"/>"/>
 	</tr>
 	<tr>
 		<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-		<td><s:select name="curing.componentId" id="id"
+		<td><s:select name="curing.componentId" id="componentId"
 				list="items" listKey="id" listValue="name"  value="curing.componentId" theme="simple" >
 		</s:select></td>
 		

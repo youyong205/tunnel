@@ -17,6 +17,7 @@
       <div class="span10">
         <h2 class="text-center"><img src="img/error404.png"></h2>
         <s:property value="exception.message"/>
+         <s:property value="exceptionStack"/>
       </div>
     </div>
     <%@include file="./Foot.jsp"%>

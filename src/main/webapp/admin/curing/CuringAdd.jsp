@@ -9,7 +9,7 @@
 </tr>
 <tr>
 	<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-	<td><s:select name="curing.componentId" id="id"
+	<td><s:select name="curing.componentId" id="componentId"
 			list="items" listKey="id" listValue="name"  theme="simple" >
 	</s:select></td>
 	
@@ -23,7 +23,7 @@
 <tr>
 	<td width="15%" style="text-align:right;"><strong class="text-success">养护时间</strong></td>
 	<td width="35%">
-	<div id="datetimepicker1" class="input-append date">
+		<div id="datetimepicker1" class="input-append date">
            <input name="curing.time"  placeholder="检测时间"  class="{required:true,date:true}"
               data-format="yyyy-MM-dd" type="text"></input> <span class="add-on"> <i
               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
@@ -32,6 +32,7 @@
        <td  width="15%" style="text-align:right;"><strong class="text-success">位置描述</strong></td>
 	   <td  width="35%">
            <input name="curing.position" class="{required:true}"  type="text"></input> 
+       </td>
        </tr>
 <tr>
 	<td style="text-align:right;"><strong class="text-success">上传养护资料<br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
@@ -44,7 +45,7 @@
 	<td colspan='3'><textarea type="text" rows="5" cols="50" name="curing.des" class="{maxlength:512}"></textarea></td>
 </tr>
 <tr>
-	<td colspan="2" style="text-align:center;">
+	<td colspan="4" style="text-align:center;">
 		<button  class="btn btn-small btn-primary"  type="submit" >提交</button></td>
 </tr>
 </table>

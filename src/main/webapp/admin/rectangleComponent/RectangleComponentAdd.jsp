@@ -32,7 +32,7 @@ $(document).ready(function() {
 			<form action="rectangleComponentAddSubmit.do" id="form" method="post" enctype="multipart/form-data">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='4'><h4 class="text-info text-center">新增口型构建信息</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">新增口型构件信息</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
@@ -55,7 +55,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
 						<td><input type="text" size="40" name="rectangleComponent.name" class="{required:true,maxlength:64}"/></td>
-						<td style="text-align:right;"><strong class="text-success">口型构建类型</strong></td>
+						<td style="text-align:right;"><strong class="text-success">口型构件类型</strong></td>
 						<td><input type="text" size="40" name="rectangleComponent.type" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
@@ -78,7 +78,7 @@ $(document).ready(function() {
 						<span class='text-error'>多个文档请打zip包</span>
 						</br><span class='text-error'>总大小不超过40M</span></strong></td>
 						<td ><input type="file" name="upload" class="{required:true}"></td>
-						<td style="text-align:right;"><strong class="text-success">口型构建简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="rectangleComponent.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					</table>

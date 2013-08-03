@@ -7,8 +7,8 @@
 		<version>0.4.2</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>glof</artifactId>
-	<name>glof</name>
+	<artifactId>tunnel</artifactId>
+	<name>tunnel</name>
 	<packaging>war</packaging>
 	<dependencies>
 		<dependency>
@@ -17,14 +17,9 @@
 			<version>1.6</version>
 		</dependency>
 		<dependency>
-			<groupId>com.ckeditor</groupId>
-			<artifactId>ckeditor-java-core</artifactId>
-			<version>3.5.3</version>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-core</artifactId>
-			<version>2.3.15.1</version>
+			<version>2.3.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
@@ -133,7 +128,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>golf</finalName>
+		<finalName>tunnel</finalName>
 		<resources>
 			<resource>
 				<directory>${basedir}/src/main/resources</directory>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="saddleWeightDao" class="com.saddleWeight.SaddleWeightDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="saddleWeightService" class="com.saddleWeight.SaddleWeightServiceImpl">
+		<property name="saddleWeightDao">
+			<ref bean="saddleWeightDao" />
+		</property>
+	</bean>
+	<bean id="saddleWeightAction" class="com.saddleWeight.SaddleWeightAction" scope="prototype">
+		<property name="saddleWeightService">
+			<ref bean="saddleWeightService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="scheduleService">
+			<ref bean="scheduleService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+	</bean>
+</beans>  

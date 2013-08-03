@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="saddleWeight" extends="default">
+		<action name="saddleWeightList" class="saddleWeightAction" method="saddleWeightList">
+			<result name="success">admin/saddleWeight/SaddleWeightList.jsp</result>
+		</action>
+		<action name="saddleWeightAdd"  class="saddleWeightAction" method="saddleWeightAdd">
+			<result name="success">admin/saddleWeight/SaddleWeightAdd.jsp</result>
+		</action>
+		<action name="saddleWeightAddSubmit" class="saddleWeightAction" method="saddleWeightAddSubmit">
+			<result name="success" type="redirect">saddleWeightList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="saddleWeightUpdate" class="saddleWeightAction" method="saddleWeightUpdate" >
+			<result name="success">admin/saddleWeight/SaddleWeightUpdate.jsp</result>
+		</action>
+		<action name="saddleWeightDetail" class="saddleWeightAction" method="saddleWeightUpdate" >
+			<result name="success">admin/saddleWeight/SaddleWeightDetail.jsp</result>
+		</action>
+		<action name="saddleWeightUpdateSubmit" class="saddleWeightAction" method="saddleWeightUpdateSubmit">
+			<result name="success" type="redirect">saddleWeightList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="saddleWeightDelete" class="saddleWeightAction" method="saddleWeightDelete">
+			<result name="success" type="redirect">saddleWeightList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>	
+</struts>

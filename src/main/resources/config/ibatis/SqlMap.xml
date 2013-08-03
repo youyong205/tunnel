@@ -25,4 +25,8 @@
 		<sqlMap resource="config/ibatis/OpenSection.xml"/>
 
 		<sqlMap resource="config/ibatis/RectangleComponent.xml"/>
+		<sqlMap resource="config/ibatis/Plank.xml"/>
+		<sqlMap resource="config/ibatis/Bracket.xml"/>
+		<sqlMap resource="config/ibatis/SaddleWeight.xml"/>
+		<sqlMap resource="config/ibatis/FlueSheet.xml"/>
 </sqlMapConfig>

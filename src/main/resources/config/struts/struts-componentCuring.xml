@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="componentCuring" extends="default">
+		<action name="rectangleComponentCuringList" class="rectangleComponentCuringAction" method="curingList">
+			<result name="success">admin/rectangleComponentCuring/RectangleComponentCuringList.jsp </result>
+		</action>
+		<action name="rectangleComponentCuringAdd" class="rectangleComponentCuringAction" method="curingAdd">
+			<result name="success">admin/rectangleComponentCuring/RectangleComponentCuringAdd.jsp </result>
+		</action>
+		<action name="rectangleComponentCuringAddSubmit" class="rectangleComponentCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">rectangleComponentCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="rectangleComponentCuringUpdate" class="rectangleComponentCuringAction" method="curingUpdate">
+			<result name="success">admin/rectangleComponentCuring/RectangleComponentCuringUpdate.jsp</result>
+		</action>
+		<action name="rectangleComponentCuringDetail" class="rectangleComponentCuringAction" method="curingUpdate">
+			<result name="success">admin/rectangleComponentCuring/RectangleComponentCuringDetail.jsp</result>
+		</action>
+		<action name="rectangleComponentCuringUpdateSubmit" class="rectangleComponentCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">rectangleComponentCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="rectangleComponentCuringDelete" class="rectangleComponentCuringAction" method="curingDelete">
+			<result name="success" type="redirect">rectangleComponentCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+
+		<action name="plankCuringList" class="plankCuringAction" method="curingList">
+			<result name="success">admin/plankCuring/PlankCuringList.jsp </result>
+		</action>
+		<action name="plankCuringAdd" class="plankCuringAction" method="curingAdd">
+			<result name="success">admin/plankCuring/PlankCuringAdd.jsp </result>
+		</action>
+		<action name="plankCuringAddSubmit" class="plankCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">plankCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="plankCuringUpdate" class="plankCuringAction" method="curingUpdate">
+			<result name="success">admin/plankCuring/PlankCuringUpdate.jsp</result>
+		</action>
+		<action name="plankCuringDetail" class="plankCuringAction" method="curingUpdate">
+			<result name="success">admin/plankCuring/PlankCuringDetail.jsp</result>
+		</action>
+		<action name="plankCuringUpdateSubmit" class="plankCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">plankCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="plankCuringDelete" class="plankCuringAction" method="curingDelete">
+			<result name="success" type="redirect">plankCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+
+		<action name="bracketCuringList" class="bracketCuringAction" method="curingList">
+			<result name="success">admin/bracketCuring/BracketCuringList.jsp </result>
+		</action>
+		<action name="bracketCuringAdd" class="bracketCuringAction" method="curingAdd">
+			<result name="success">admin/bracketCuring/BracketCuringAdd.jsp </result>
+		</action>
+		<action name="bracketCuringAddSubmit" class="bracketCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">bracketCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="bracketCuringUpdate" class="bracketCuringAction" method="curingUpdate">
+			<result name="success">admin/bracketCuring/BracketCuringUpdate.jsp</result>
+		</action>
+		<action name="bracketCuringDetail" class="bracketCuringAction" method="curingUpdate">
+			<result name="success">admin/bracketCuring/BracketCuringDetail.jsp</result>
+		</action>
+		<action name="bracketCuringUpdateSubmit" class="bracketCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">bracketCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="bracketCuringDelete" class="bracketCuringAction" method="curingDelete">
+			<result name="success" type="redirect">bracketCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+
+		<action name="saddleWeightCuringList" class="saddleWeightCuringAction" method="curingList">
+			<result name="success">admin/saddleWeightCuring/SaddleWeightCuringList.jsp </result>
+		</action>
+		<action name="saddleWeightCuringAdd" class="saddleWeightCuringAction" method="curingAdd">
+			<result name="success">admin/saddleWeightCuring/SaddleWeightCuringAdd.jsp </result>
+		</action>
+		<action name="saddleWeightCuringAddSubmit" class="saddleWeightCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">saddleWeightCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="saddleWeightCuringUpdate" class="saddleWeightCuringAction" method="curingUpdate">
+			<result name="success">admin/saddleWeightCuring/SaddleWeightCuringUpdate.jsp</result>
+		</action>
+		<action name="saddleWeightCuringDetail" class="saddleWeightCuringAction" method="curingUpdate">
+			<result name="success">admin/saddleWeightCuring/SaddleWeightCuringDetail.jsp</result>
+		</action>
+		<action name="saddleWeightCuringUpdateSubmit" class="saddleWeightCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">saddleWeightCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="saddleWeightCuringDelete" class="saddleWeightCuringAction" method="curingDelete">
+			<result name="success" type="redirect">saddleWeightCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+
+		<action name="flueSheetCuringList" class="flueSheetCuringAction" method="curingList">
+			<result name="success">admin/flueSheetCuring/FlueSheetCuringList.jsp </result>
+		</action>
+		<action name="flueSheetCuringAdd" class="flueSheetCuringAction" method="curingAdd">
+			<result name="success">admin/flueSheetCuring/FlueSheetCuringAdd.jsp </result>
+		</action>
+		<action name="flueSheetCuringAddSubmit" class="flueSheetCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">flueSheetCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="flueSheetCuringUpdate" class="flueSheetCuringAction" method="curingUpdate">
+			<result name="success">admin/flueSheetCuring/FlueSheetCuringUpdate.jsp</result>
+		</action>
+		<action name="flueSheetCuringDetail" class="flueSheetCuringAction" method="curingUpdate">
+			<result name="success">admin/flueSheetCuring/FlueSheetCuringDetail.jsp</result>
+		</action>
+		<action name="flueSheetCuringUpdateSubmit" class="flueSheetCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">flueSheetCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="flueSheetCuringDelete" class="flueSheetCuringAction" method="curingDelete">
+			<result name="success" type="redirect">flueSheetCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>
+</struts>	

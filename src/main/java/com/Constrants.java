@@ -60,6 +60,34 @@ public class Constrants {
 
 	public static String s_rectangleComponent_model = "口型构件模块";
 
-	public static String s_rectangleComponent_inspection_model="口型构件质量检测模块";
+	public static String s_rectangleComponent_inspection_model = "口型构件质量检测模块";
+
+	public static String s_rectangleComponent_curing_model = "口型构件养护记录模块";
+
+	public static String s_plank_model = "车道板模块";
+
+	public static String s_plank_inspection_model = "车道板质量检测模块";
+
+	public static String s_plank_curing_model = "车道板养护记录模块";
+
+	public static String s_bracket_model = "牛腿模块";
+
+	public static String s_bracket_inspection_model = "牛腿质量检测模块";
+
+	public static String s_bracket_curing_model = "牛腿养护记录模块";
+
+	public static String s_saddleWeight_model = "压重块模块";
+
+	public static String s_saddleWeight_inspection_model = "压重块质量检测模块";
+
+	public static String s_saddleWeight_curing_model = "压重块养护记录模块";
+
+	public static String s_flueSheet_model = "烟道板模块";
+
+	public static String s_flueSheet_inspection_model = "烟道板质量检测模块";
+
+	public static String s_flueSheet_curing_model = "烟道板养护记录模块";
+
+	public static String s_deleted = "已经被删除";
 
 }

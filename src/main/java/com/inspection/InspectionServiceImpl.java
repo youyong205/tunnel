@@ -1,10 +1,7 @@
 package com.inspection;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,24 +13,11 @@ public class InspectionServiceImpl implements InspectionService {
 
 	private Logger m_logger = Logger.getLogger(InspectionServiceImpl.class);
 
-	private static final int SIZE = 100;
-
-	private Map<Integer, Inspection> m_inspections = new LinkedHashMap<Integer, Inspection>(SIZE) {
-
-		private static final long serialVersionUID = 1L;
-
-		@Override
-		protected boolean removeEldestEntry(Entry<Integer, Inspection> eldest) {
-			return size() > SIZE;
-		}
-	};
 
 	@Override
 	public int deleteInspection(int id) {
 		try {
 			int result = m_inspectionDao.deleteInspection(id);
-
-			m_inspections.remove(id);
 			return result;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
@@ -43,27 +27,20 @@ public class InspectionServiceImpl implements InspectionService {
 
 	@Override
 	public Inspection findByPK(int id) {
-		Inspection inspection = m_inspections.get(id);
-		if (inspection == null) {
 			try {
-				inspection = m_inspectionDao.findByPK(id);
+				Inspection inspection = m_inspectionDao.findByPK(id);
 
-				if (inspection != null) {
-					m_inspections.put(id, inspection);
-				}
+				return inspection;
 			} catch (Exception e) {
 				m_logger.error(e.getMessage(), e);
 			}
-		}
-		return inspection;
+		return null;
 	}
 
 	@Override
 	public int insertInspection(Inspection inspection) {
 		try {
 			int result = m_inspectionDao.insertInspection(inspection);
-
-			m_inspections.put(inspection.getId(), inspection);
 			return result;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
@@ -101,8 +78,6 @@ public class InspectionServiceImpl implements InspectionService {
 	public int updateInspection(Inspection inspection) {
 		try {
 			int result = m_inspectionDao.updateInspection(inspection);
-
-			m_inspections.put(inspection.getId(), inspection);
 			return result;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);

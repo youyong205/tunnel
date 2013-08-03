@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="false" />
 	<constant name="struts.objectFactory"
 		value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
 	<constant name="struts.custom.i18n.resources" value="resource.messageResource"></constant>
@@ -37,7 +37,12 @@
 	<include file="config/struts/struts-openSection.xml"></include>
 	
 	<include file="config/struts/struts-componentInspection.xml"></include>
+	<include file="config/struts/struts-componentCuring.xml"></include>
 	<include file="config/struts/struts-rectangleComponent.xml"></include>
+	<include file="config/struts/struts-plank.xml"></include>
+	<include file="config/struts/struts-bracket.xml"></include>
+	<include file="config/struts/struts-saddleWeight.xml"></include>
+	<include file="config/struts/struts-flueSheet.xml"></include>
 	
 	<package name="default" extends="struts-default">
 		<!-- <interceptors> <interceptor name="loginInterceptor" class="com.golf.tools.UserInterceptor"> 
@@ -54,9 +59,5 @@
 			<result name="error">admin/SystemError.jsp</result>
 			<result name="exception">admin/SystemError.jsp</result>
 		</global-results>
-		<global-exception-mappings>
-			<exception-mapping result="exception" exception="java.lang.Exception">
-			</exception-mapping>
-		</global-exception-mappings>
 	</package>
 </struts>

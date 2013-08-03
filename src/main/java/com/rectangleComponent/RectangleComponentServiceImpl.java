@@ -37,7 +37,6 @@ public class RectangleComponentServiceImpl implements RectangleComponentService 
 	public RectangleComponent findByPK(int id) {
 		try {
 			return m_rectangleComponentDao.findByPK(id);
-
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 		}

@@ -25,26 +25,28 @@ public class CuringDao {
 		return (Integer) m_baseDao.insert("curing.insert", curing);
 	}
 
-	public int queryCuringSizeByType(int tunnelId,String type) {
+	public int queryCuringSizeByType(int tunnelId, int tunnelSectionId, String type) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("type", type);
-		parameters.put("tunnelId",tunnelId);
-		
-		return (Integer)m_baseDao.queryForObject("curing.queryCuringSizeByType",parameters);
-   }
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+
+		return (Integer) m_baseDao.queryForObject("curing.queryCuringSizeByType", parameters);
+	}
 
 	@SuppressWarnings("rawtypes")
-   public List queryLimitedCuringsByType(int tunnelId,String type, int start, int size) {
+	public List queryLimitedCuringsByType(int tunnelId, int tunnelSectionId, String type, int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("start", start);
 		parameters.put("size", size);
 		parameters.put("type", type);
-		parameters.put("tunnelId",tunnelId);
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
 
 		return m_baseDao.queryForList("curing.queryLimitedCuringsByType", parameters);
-   }
+	}
 
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;

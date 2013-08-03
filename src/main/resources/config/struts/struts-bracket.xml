@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bracket" extends="default">
+		<action name="bracketList" class="bracketAction" method="bracketList">
+			<result name="success">admin/bracket/BracketList.jsp</result>
+		</action>
+		<action name="bracketAdd"  class="bracketAction" method="bracketAdd">
+			<result name="success">admin/bracket/BracketAdd.jsp</result>
+		</action>
+		<action name="bracketAddSubmit" class="bracketAction" method="bracketAddSubmit">
+			<result name="success" type="redirect">bracketList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="bracketUpdate" class="bracketAction" method="bracketUpdate" >
+			<result name="success">admin/bracket/BracketUpdate.jsp</result>
+		</action>
+		<action name="bracketDetail" class="bracketAction" method="bracketUpdate" >
+			<result name="success">admin/bracket/BracketDetail.jsp</result>
+		</action>
+		<action name="bracketUpdateSubmit" class="bracketAction" method="bracketUpdateSubmit">
+			<result name="success" type="redirect">bracketList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="bracketDelete" class="bracketAction" method="bracketDelete">
+			<result name="success" type="redirect">bracketList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>	
+</struts>

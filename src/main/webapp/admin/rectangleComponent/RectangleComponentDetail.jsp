@@ -11,12 +11,15 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="js/tunnel.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#rectangleComponentList').addClass("active");
 	$('#rectangleComponent_role').val("<s:property value="rectangleComponent.role"/>");
 	$("#form").validate();
+	var type='<s:property value="rectangleComponent.lineType"/>';
+	$('#lineType').val(type);
 });
 </script>
 </head>
@@ -28,22 +31,68 @@ $(document).ready(function() {
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
-			<form action="rectangleComponentUpdateSubmit.do" id="form" method="post">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='2'><h4 class="text-info text-center">隧道信息</h4></th>
-						<input type="hidden" name="rectangleComponent.id" value="<s:property value="rectangleComponent.id"/>" />
+						<th colspan='4'><h4 class="text-info text-center">口型构件信息详情</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
+						<input type="hidden" name="rectangleComponent.documentId" value="<s:property value="rectangleComponent.documentId"/>"/>
+						<input type="hidden" name="rectangleComponent.id" value="<s:property value="rectangleComponent.id"/>" />
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">名称</strong></td>
-						<td><input type="text" size="60" name="rectangleComponent.name" readonly value="<s:property value='rectangleComponent.name'/>"  class="{required:true,maxlength:64}"/></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="35%">
+							<s:select name="rectangleComponent.tunnelId" id="tunnelId"
+								onchange="tunnelChanged()" 
+								list="tunnels" listKey="id" listValue="name" 
+								value="rectangleComponent.tunnelId" theme="simple" >
+							</s:select>
+						</td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="40%">
+							<s:select name="rectangleComponent.tunnelSectionId" id="tunnelSectionId"
+								list="tunnelSections" listKey="id" listValue="name"
+								value="rectangleComponent.tunnelSectionId" theme="simple" >
+							</s:select>
+						</td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">简介</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="rectangleComponent.des" readonly class="{maxlength:512}"><s:property value='rectangleComponent.des'/></textarea></td>
+						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
+						<td ><input type="text" size="40" name="rectangleComponent.name" value="<s:property value="rectangleComponent.name"/>"  class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">口型构件类型</strong></td>
+						<td ><input type="text" size="40" name="rectangleComponent.type"  value="<s:property value="rectangleComponent.type"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
+						<td colspan='3'>
+							<select name="rectangleComponent.lineType" id="lineType">
+								<option value="上行">上行</option>
+								<option value="下行">下行</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">开始里程(m)</strong></td>
+						<td><input type="text" name="rectangleComponent.startPosition" readonly value="<s:property value="rectangleComponent.startPosition"/>" class="{required:true,number:true}"/></td>
+						<td style="text-align:right;"><strong class="text-success">结束里程(m)</strong></td>
+						<td><input type="text" name="rectangleComponent.endPosition" readonly value="<s:property value="rectangleComponent.endPosition"/>"  class="{required:true,number:true}"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
+							<span class='text-error'>多个文档请打zip包</span>
+							</br><span class='text-error'>总大小不超过40M</span></strong>
+						</td>
+						<td>
+							<s:if test="rectangleComponent.documentId>0">
+								已经上传附件:&nbsp;<span class='text-error'><s:property value="rectangleComponent.document.name"/></span></br>
+							</s:if>
+						</td>
+						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
+						<td><textarea type="text" rows="5" cols="60" readonly name="rectangleComponent.des" class="{maxlength:512}"><s:property value="rectangleComponent.des"/></textarea></td>
 					</tr>
 					</table>
+					<%@include file="./../schedule/ScheduleDetail.jsp"%>
 			</form>
       </div>
     </div>

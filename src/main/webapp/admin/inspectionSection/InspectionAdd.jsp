@@ -7,12 +7,9 @@
 				质量检测信息
 			</h4></th>
 		<input type="hidden" name="index" value="<s:property value="index"/>" />
-		<input type="hidden" name="tunnelId"
-			value="<s:property value="tunnelId"/>" />
-		<input type="hidden" name="tunnelSectionId"
-			value="<s:property value="tunnelSectionId"/>" />
-		<input type="hidden" name="inspection.type"
-			value="<s:property value="module"/>" />
+		<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>" />
+		<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>" />
+		<input type="hidden" name="inspection.type"	value="<s:property value="module"/>" />
 	</tr>
 	<tr>
 		<td style="text-align: right;"><strong class="text-success">选择隧道</strong></td>
@@ -28,7 +25,6 @@
 				value="tunnelSectionId" theme="simple">
 			</s:select></td>
 	</tr>
-
 	<tr>
 		<td style="text-align: right;"><strong class="text-success">名称编号</strong></td>
 		<td><s:select name="inspection.componentId" id="componentId"
@@ -73,7 +69,7 @@
 	</tr>
 	<tr>
 		<td style="text-align: right;"><strong class="text-success">备注</strong></td>
-		<td><textarea type="text" rows="5" cols="50"
+		<td colspan='3'><textarea type="text" rows="5" cols="50"
 				name="inspection.des" class="{maxlength:512}"></textarea></td>
 	</tr>
 	<tr>

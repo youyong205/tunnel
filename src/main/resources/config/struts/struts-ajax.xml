@@ -10,5 +10,17 @@
 		<action name="queryAllRectangleComponents" class="rectangleComponentAction" method="queryAllRectangleComponents">
 			<result type="json"></result>
 		</action>
+		<action name="queryAllSaddleWeights" class="saddleWeightAction" method="queryAllSaddleWeights">
+			<result type="json"></result>
+		</action>
+		<action name="queryAllBrackets" class="bracketAction" method="queryAllBrackets">
+			<result type="json"></result>
+		</action>
+		<action name="queryAllFlueSheets" class="flueSheetAction" method="queryAllFlueSheets">
+			<result type="json"></result>
+		</action>
+		<action name="queryAllPlanks" class="plankAction" method="queryAllPlanks">
+			<result type="json"></result>
+		</action>
 	</package>
 </struts>
