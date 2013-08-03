@@ -24,6 +24,29 @@
 			<ref bean="documentService" />
 		</property>
 	</bean>
+	<bean id="plankCuringAction" class="com.plank.PlankCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="plankService">
+			<ref bean="plankService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
 	<bean id="bracketCuringAction" class="com.bracket.BracketCuringAction" scope="prototype">
 		<property name="curingService">
 			<ref bean="curingService" />

@@ -21,6 +21,26 @@
 			<ref bean="tunnelSectionService" />
 		</property>
 	</bean>
+	<bean id="plankInspectionAction" class="com.plank.PlankInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="plankService">
+			<ref bean="plankService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
 	<bean id="bracketInspectionAction" class="com.bracket.BracketInspectionAction" scope="prototype">
 		<property name="inspectionService">
 			<ref bean="inspectionService" />

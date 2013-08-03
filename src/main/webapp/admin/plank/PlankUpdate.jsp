@@ -65,8 +65,16 @@ $(document).ready(function() {
 						<td ><input type="text" size="40" name="plank.type"  value="<s:property value="plank.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">设计路中</strong></td>
+						<td><input type="text" size="40" name="plank.designPath"  value="<s:property value="plank.designPath"/>"  class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">设计纵坡</strong></td>
+						<td><input type="text" size="40" name="plank.designLongitudinal"  value="<s:property value="plank.designLongitudinal"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">车道板长度</strong></td>
+						<td><input type="text" size="40" name="plank.length"  value="<s:property value="plank.length"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
-						<td colspan='3'>
+						<td>
 							<select name="plank.lineType" id="lineType">
 								<option value="上行">上行</option>
 								<option value="下行">下行</option>
