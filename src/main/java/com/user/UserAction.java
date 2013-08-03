@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.log.Log;
 import com.role.Role;
@@ -32,7 +34,7 @@ public class UserAction extends PagedAction {
 
 	@Override
    public String getActionModule() {
-		return Constrants.s_user_model;
+		return Modules.s_user_model;
    }
 
 	public Integer[] getRoleIdSelect() {
@@ -77,6 +79,10 @@ public class UserAction extends PagedAction {
 	}
 
 	public String userAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_user_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int id = m_userService.insertUser(m_user);
 
@@ -90,7 +96,7 @@ public class UserAction extends PagedAction {
 				}
 			}
 			if (id > 0) {
-				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_add, m_user);
+				Log log = createLog(Modules.s_user_model, Operation.s_operation_add, m_user);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -104,10 +110,14 @@ public class UserAction extends PagedAction {
 	}
 
 	public String userDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_user_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_userService.deleteUser(m_userId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_delete, m_userId);
+				Log log = createLog(Modules.s_user_model, Operation.s_operation_delete, m_userId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -121,6 +131,10 @@ public class UserAction extends PagedAction {
 	}
 
 	public String userList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_user_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_totalSize = m_userService.queryAllSize();
 			m_totalPages = computeTotalPages(m_totalSize);
@@ -158,6 +172,10 @@ public class UserAction extends PagedAction {
 	}
 
 	public String userUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_user_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_userService.updateUser(m_user);
 			m_userService.deleteUserRoles(m_user.getId());
@@ -171,7 +189,7 @@ public class UserAction extends PagedAction {
 				}
 			}
 			if (count > 0) {
-				Log log = createLog(Constrants.s_user_model, Constrants.s_operation_update, m_user);
+				Log log = createLog(Modules.s_user_model, Operation.s_operation_update, m_user);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

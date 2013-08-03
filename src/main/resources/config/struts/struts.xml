@@ -53,11 +53,13 @@
 			<result name="success">admin/SystemSuccess.jsp</result>
 			<result name="sql">admin/SystemError.jsp</result>
 			<result name="root">admin/SystemError.jsp</result>
-			<result name="relogin">admin/Login.jsp</result>
-			<result name="login">admin/Login.jsp</result>
+			<result name="relogin">admin/login/home.jsp</result>
+			<result name="login">admin/login/home.jsp</result>
 			<result name="input">admin/SystemError.jsp</result>
 			<result name="error">admin/SystemError.jsp</result>
 			<result name="exception">admin/SystemError.jsp</result>
+			<result name="exception">admin/SystemError.jsp</result>
+			<result name="noAuth">admin/login/noauth.jsp</result>
 		</global-results>
 	</package>
 </struts>

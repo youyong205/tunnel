@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.log.Log;
 
@@ -24,7 +26,7 @@ public class TunnelAction extends PagedAction {
 
 	@Override
    public String getActionModule() {
-		return Constrants.s_tunnel_model;
+		return Modules.s_tunnel_model;
    }
 
 	public Tunnel getTunnel() {
@@ -52,10 +54,14 @@ public class TunnelAction extends PagedAction {
 	}
 
 	public String tunnelAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_tunnel_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int id = m_tunnelService.insertTunnel(m_tunnel);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_tunnel_model, Constrants.s_operation_add, m_tunnel);
+				Log log = createLog(Modules.s_tunnel_model, Operation.s_operation_add, m_tunnel);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -69,10 +75,14 @@ public class TunnelAction extends PagedAction {
 	}
 
 	public String tunnelDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_tunnel_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_tunnelService.deleteTunnel(m_tunnelId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_tunnel_model, Constrants.s_operation_delete, m_tunnelId);
+				Log log = createLog(Modules.s_tunnel_model, Operation.s_operation_delete, m_tunnelId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -86,6 +96,10 @@ public class TunnelAction extends PagedAction {
 	}
 
 	public String tunnelList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_tunnel_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_totalSize = m_tunnelService.queryAllSize();
 			m_totalPages = computeTotalPages(m_totalSize);
@@ -116,10 +130,14 @@ public class TunnelAction extends PagedAction {
 	}
 	
 	public String tunnelUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_tunnel_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_tunnelService.updateTunnel(m_tunnel);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_tunnel_model, Constrants.s_operation_update, m_tunnel);
+				Log log = createLog(Modules.s_tunnel_model, Operation.s_operation_update, m_tunnel);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

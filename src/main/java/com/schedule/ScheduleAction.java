@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.log.Log;
 
@@ -24,7 +25,7 @@ public class ScheduleAction extends PagedAction {
 
 	@Override
    public String getActionModule() {
-		return Constrants.s_schedule_model;
+		return Modules.s_schedule_model;
    }
 
 	public Schedule getSchedule() {
@@ -43,7 +44,7 @@ public class ScheduleAction extends PagedAction {
 		try {
 			int id = m_scheduleService.insertSchedule(m_schedule);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_schedule_model, Constrants.s_operation_add, m_schedule);
+				Log log = createLog(Modules.s_schedule_model, Operation.s_operation_add, m_schedule);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -60,7 +61,7 @@ public class ScheduleAction extends PagedAction {
 		try {
 			int count = m_scheduleService.deleteSchedule(m_scheduleId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_schedule_model, Constrants.s_operation_delete, m_scheduleId);
+				Log log = createLog(Modules.s_schedule_model, Operation.s_operation_delete, m_scheduleId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -107,7 +108,7 @@ public class ScheduleAction extends PagedAction {
 		try {
 			int count = m_scheduleService.updateSchedule(m_schedule);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_schedule_model, Constrants.s_operation_update, m_schedule);
+				Log log = createLog(Modules.s_schedule_model, Operation.s_operation_update, m_schedule);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

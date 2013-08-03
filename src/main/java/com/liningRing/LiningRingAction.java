@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.log.Log;
 
@@ -29,7 +31,7 @@ public class LiningRingAction extends PagedAction {
 
 	@Override
    public String getActionModule() {
-		return Constrants.s_liningRing_model;
+		return Modules.s_liningRing_model;
    }
 
 	public List<LiningRingBlock> getBlocks() {
@@ -49,6 +51,10 @@ public class LiningRingAction extends PagedAction {
 	}
 
 	public String liningRingAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRing_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int id = m_liningRingService.insertLiningRing(m_liningRing);
 			m_liningRingBlockService.deleteLiningRingBlock(id);
@@ -60,7 +66,7 @@ public class LiningRingAction extends PagedAction {
 				}
 			}
 			if (id > 0) {
-				Log log = createLog(Constrants.s_liningRing_model, Constrants.s_operation_add, m_liningRing);
+				Log log = createLog(Modules.s_liningRing_model, Operation.s_operation_add, m_liningRing);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -74,11 +80,15 @@ public class LiningRingAction extends PagedAction {
 	}
 	
 	public String liningRingDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRing_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_liningRingService.deleteLiningRing(m_liningRingId);
 			m_liningRingBlockService.deleteLiningRingBlock(m_liningRingId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_liningRing_model, Constrants.s_operation_delete, m_liningRingId);
+				Log log = createLog(Modules.s_liningRing_model, Operation.s_operation_delete, m_liningRingId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -92,6 +102,11 @@ public class LiningRingAction extends PagedAction {
 	}
 
 	public String liningRingList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRing_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			m_totalSize = m_liningRingService.queryAllSize();
 			m_totalPages = computeTotalPages(m_totalSize);
@@ -123,6 +138,11 @@ public class LiningRingAction extends PagedAction {
 	}
 
 	public String liningRingUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRing_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			int count = m_liningRingService.updateLiningRing(m_liningRing);
 			int id = m_liningRing.getId();
@@ -135,7 +155,7 @@ public class LiningRingAction extends PagedAction {
 				}
 			}
 			if (count > 0) {
-				Log log = createLog(Constrants.s_liningRing_model, Constrants.s_operation_update, m_liningRing);
+				Log log = createLog(Modules.s_liningRing_model, Operation.s_operation_update, m_liningRing);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

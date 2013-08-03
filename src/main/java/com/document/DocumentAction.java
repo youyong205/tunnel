@@ -12,7 +12,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
-import com.Constrants;
+import com.Modules;
 import com.PagedAction;
 
 public class DocumentAction extends PagedAction {
@@ -34,6 +34,11 @@ public class DocumentAction extends PagedAction {
 	private String m_name;
 
 	private InputStream m_inputStream;
+
+	public static String s_file = "默认文件名";
+
+	public static String s_context_type = "text/plain";
+
 
 	public String documentDownload() {
 		m_document = m_documentService.findByPK(m_documentId);
@@ -87,14 +92,14 @@ public class DocumentAction extends PagedAction {
 
 	@Override
    public String getActionModule() {
-		return Constrants.s_document_model;
+		return Modules.s_document_model;
    }
 
 	public String getContextType() {
 		if (m_document != null) {
 			return m_document.getType();
 		}
-		return Constrants.s_context_type;
+		return s_context_type;
 	}
 
 	public Document getDocument() {
@@ -120,7 +125,7 @@ public class DocumentAction extends PagedAction {
 			}
 			return name;
 		}
-		return Constrants.s_file;
+		return s_file;
 	}
 
 	public InputStream getInputStream() throws Exception {

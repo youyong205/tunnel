@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.ScheduledAction;
 import com.document.Document;
 import com.log.Log;
@@ -42,7 +44,7 @@ public class FlueSheetAction extends ScheduledAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_flueSheet_model;
+		return Modules.s_flueSheet_model;
 	}
 
 	public FlueSheet getFlueSheet() {
@@ -77,9 +79,14 @@ public class FlueSheetAction extends ScheduledAction {
 	}
 
 	public String flueSheetAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_flueSheet_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			if (m_uploadFile.getFile() != null) {
-				int documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
+				int documentId = m_documentService.insertDocument(Modules.s_flueSheet_model, m_uploadFile);
 				m_flueSheet.setDocumentId(documentId);
 			}
 			m_schedule.setType(getActionModule());
@@ -88,7 +95,7 @@ public class FlueSheetAction extends ScheduledAction {
 
 			int id = m_flueSheetService.insertFlueSheet(m_flueSheet);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_flueSheet_model, Constrants.s_operation_add, m_flueSheet);
+				Log log = createLog(Modules.s_flueSheet_model, Operation.s_operation_add, m_flueSheet);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -102,13 +109,17 @@ public class FlueSheetAction extends ScheduledAction {
 	}
 
 	public String flueSheetDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_flueSheet_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_flueSheet = m_flueSheetService.findByPK(m_flueSheetId);
 			m_documentService.deleteDocument(m_flueSheet.getDocumentId());
 			m_scheduleService.deleteSchedule(m_flueSheet.getScheduleId());
 			int count = m_flueSheetService.deleteFlueSheet(m_flueSheetId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_flueSheet_model, Constrants.s_operation_delete,
+				Log log = createLog(Modules.s_flueSheet_model, Operation.s_operation_delete,
 				      m_flueSheetId);
 
 				m_logService.insertLog(log);
@@ -130,6 +141,10 @@ public class FlueSheetAction extends ScheduledAction {
 	}
 
 	public String flueSheetList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_flueSheet_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_tunnelId == 0) {
 				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
@@ -192,21 +207,26 @@ public class FlueSheetAction extends ScheduledAction {
 	}
 
 	public String flueSheetUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_flueSheet_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_flueSheet.getDocumentId();
 				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
-					m_documentService.updateDocument(Constrants.s_contactChannel_model, m_uploadFile, document);
+					m_documentService.updateDocument(Modules.s_flueSheet_model, m_uploadFile, document);
 				} else {
-					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
+					documentId = m_documentService.insertDocument(Modules.s_flueSheet_model, m_uploadFile);
 					m_flueSheet.setDocumentId(documentId);
 				}
 			}
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_flueSheetService.updateFlueSheet(m_flueSheet);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_flueSheet_model, Constrants.s_operation_update,
+				Log log = createLog(Modules.s_flueSheet_model, Operation.s_operation_update,
 				      m_flueSheet);
 
 				m_logService.insertLog(log);

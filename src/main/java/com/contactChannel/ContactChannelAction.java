@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.ScheduledAction;
 import com.document.Document;
 import com.log.Log;
@@ -44,10 +46,14 @@ public class ContactChannelAction extends ScheduledAction {
 	}
 
 	public String contactChannelAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_contactChannel_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int documentId = 0;
 			if (m_uploadFile.getFile() != null) {
-				documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
+				documentId = m_documentService.insertDocument(Modules.s_contactChannel_model, m_uploadFile);
 			}
 			m_schedule.setType(getActionModule());
 			int scheduleId = m_scheduleService.insertSchedule(m_schedule);
@@ -55,7 +61,7 @@ public class ContactChannelAction extends ScheduledAction {
 			m_contactChannel.setDocumentId(documentId);
 			int id = m_contactChannelService.insertContactChannel(m_contactChannel);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_contactChannel_model, Constrants.s_operation_add, m_contactChannel);
+				Log log = createLog(Modules.s_contactChannel_model, Operation.s_operation_add, m_contactChannel);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -69,13 +75,18 @@ public class ContactChannelAction extends ScheduledAction {
 	}
 
 	public String contactChannelDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_contactChannel_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			m_contactChannel = m_contactChannelService.findByPK(m_contactChannelId);
 			m_scheduleService.deleteSchedule(m_contactChannel.getScheduleId());
 			m_documentService.deleteDocument(m_contactChannel.getDocumentId());
 			int count = m_contactChannelService.deleteContactChannel(m_contactChannelId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_contactChannel_model, Constrants.s_operation_delete, m_contactChannelId);
+				Log log = createLog(Modules.s_contactChannel_model, Operation.s_operation_delete, m_contactChannelId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -89,6 +100,11 @@ public class ContactChannelAction extends ScheduledAction {
 	}
 
 	public String contactChannelList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_contactChannel_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			if (m_tunnelId == 0) {
 				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
@@ -145,22 +161,27 @@ public class ContactChannelAction extends ScheduledAction {
 	}
 
 	public String contactChannelUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_contactChannel_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_contactChannel.getDocumentId();
 
 				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
-					m_documentService.updateDocument(Constrants.s_contactChannel_model, m_uploadFile, document);
+					m_documentService.updateDocument(Modules.s_contactChannel_model, m_uploadFile, document);
 				} else {
-					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
+					documentId = m_documentService.insertDocument(Modules.s_contactChannel_model, m_uploadFile);
 					m_contactChannel.setDocumentId(documentId);
 				}
 			}
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_contactChannelService.updateContactChannel(m_contactChannel);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_contactChannel_model, Constrants.s_operation_update, m_contactChannel);
+				Log log = createLog(Modules.s_contactChannel_model, Operation.s_operation_update, m_contactChannel);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -175,7 +196,7 @@ public class ContactChannelAction extends ScheduledAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_contactChannel_model;
+		return Modules.s_contactChannel_model;
 	}
 
 	public ContactChannel getContactChannel() {

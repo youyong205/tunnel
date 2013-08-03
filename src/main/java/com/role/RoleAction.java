@@ -8,7 +8,9 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.log.Log;
 import com.resource.Resource;
@@ -84,7 +86,7 @@ public class RoleAction extends PagedAction {
 
 	@Override
    public String getActionModule() {
-		return Constrants.s_role_model;
+		return Modules.s_role_model;
    }
 
 	public Map<String, ModuleResources> getModuleResources() {
@@ -115,6 +117,10 @@ public class RoleAction extends PagedAction {
 	}
 
 	public String roleAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_role_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int id = m_roleService.insertRole(m_role);
 			for (Integer temp : m_resourceIdSelect) {
@@ -127,7 +133,7 @@ public class RoleAction extends PagedAction {
 				}
 			}
 			if (id > 0) {
-				Log log = createLog(Constrants.s_role_model, Constrants.s_operation_add, m_role);
+				Log log = createLog(Modules.s_role_model, Operation.s_operation_add, m_role);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -141,10 +147,14 @@ public class RoleAction extends PagedAction {
 	}
 
 	public String roleDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_role_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_roleService.deleteRole(m_roleId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_role_model, Constrants.s_operation_delete, m_roleId);
+				Log log = createLog(Modules.s_role_model, Operation.s_operation_delete, m_roleId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -158,6 +168,10 @@ public class RoleAction extends PagedAction {
 	}
 
 	public String roleList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_role_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_totalSize = m_roleService.queryAllSize();
 			m_totalPages = computeTotalPages(m_totalSize);
@@ -193,6 +207,10 @@ public class RoleAction extends PagedAction {
 	}
 
 	public String roleUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_role_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_roleService.updateRole(m_role);
 			m_roleService.deleteRoleResources(m_role.getId());
@@ -206,7 +224,7 @@ public class RoleAction extends PagedAction {
 				}
 			}
 			if (count > 0) {
-				Log log = createLog(Constrants.s_role_model, Constrants.s_operation_update, m_role);
+				Log log = createLog(Modules.s_role_model, Operation.s_operation_update, m_role);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

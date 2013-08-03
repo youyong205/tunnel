@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.ScheduledAction;
 import com.document.Document;
 import com.log.Log;
@@ -44,10 +46,14 @@ public class BuriedSectionAction extends ScheduledAction {
 	}
 
 	public String buriedSectionAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_buriedSection_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int documentId = 0;
 			if (m_uploadFile.getFile() != null) {
-				documentId = m_documentService.insertDocument(Constrants.s_buriedSection_model, m_uploadFile);
+				documentId = m_documentService.insertDocument(Modules.s_buriedSection_model, m_uploadFile);
 			}
 			m_buriedSection.setDocumentId(documentId);
 			m_schedule.setType(getActionModule());
@@ -56,7 +62,7 @@ public class BuriedSectionAction extends ScheduledAction {
 
 			int id = m_buriedSectionService.insertBuriedSection(m_buriedSection);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_buriedSection_model, Constrants.s_operation_add, m_buriedSection);
+				Log log = createLog(Modules.s_buriedSection_model, Operation.s_operation_add, m_buriedSection);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -70,13 +76,17 @@ public class BuriedSectionAction extends ScheduledAction {
 	}
 
 	public String buriedSectionDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_buriedSection_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_buriedSection = m_buriedSectionService.findByPK(m_buriedSectionId);
 			m_scheduleService.deleteSchedule(m_buriedSection.getScheduleId());
 			m_documentService.deleteDocument(m_buriedSection.getDocumentId());
 			int count = m_buriedSectionService.deleteBuriedSection(m_buriedSectionId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_buriedSection_model, Constrants.s_operation_delete, m_buriedSectionId);
+				Log log = createLog(Modules.s_buriedSection_model, Operation.s_operation_delete, m_buriedSectionId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -90,6 +100,10 @@ public class BuriedSectionAction extends ScheduledAction {
 	}
 
 	public String buriedSectionList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_buriedSection_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_tunnelId == 0) {
 				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
@@ -146,21 +160,25 @@ public class BuriedSectionAction extends ScheduledAction {
 	}
 
 	public String buriedSectionUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_buriedSection_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_buriedSection.getDocumentId();
 				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
-					m_documentService.updateDocument(Constrants.s_contactChannel_model, m_uploadFile, document);
+					m_documentService.updateDocument(Modules.s_buriedSection_model, m_uploadFile, document);
 				} else {
-					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
+					documentId = m_documentService.insertDocument(Modules.s_buriedSection_model, m_uploadFile);
 					m_buriedSection.setDocumentId(documentId);
 				}
 			}
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_buriedSectionService.updateBuriedSection(m_buriedSection);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_buriedSection_model, Constrants.s_operation_update, m_buriedSection);
+				Log log = createLog(Modules.s_buriedSection_model, Operation.s_operation_update, m_buriedSection);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -175,7 +193,7 @@ public class BuriedSectionAction extends ScheduledAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_buriedSection_model;
+		return Modules.s_buriedSection_model;
 	}
 
 	public BuriedSection getBuriedSection() {

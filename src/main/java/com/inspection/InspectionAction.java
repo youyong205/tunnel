@@ -5,7 +5,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.Constrants;
+import com.Authority;
+import com.Operation;
 import com.PagedAction;
 import com.constructionUnit.ConstructionUnit;
 import com.constructionUnit.ConstructionUnitService;
@@ -91,10 +92,14 @@ public abstract class InspectionAction extends PagedAction {
 	}
 
 	public String inspectionAddSubmit() {
+		Authority auth = checkAuthority(buildResource(getActionModule(), Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int id = m_inspectionService.insertInspection(m_inspection);
 			if (id > 0) {
-				Log log = createLog(getActionModule(), Constrants.s_operation_add, m_inspection);
+				Log log = createLog(getActionModule(), Operation.s_operation_add, m_inspection);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -108,10 +113,14 @@ public abstract class InspectionAction extends PagedAction {
 	}
 
 	public String inspectionDelete() {
+		Authority auth = checkAuthority(buildResource(getActionModule(), Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_inspectionService.deleteInspection(m_inspectionId);
 			if (count > 0) {
-				Log log = createLog(getActionModule(), Constrants.s_operation_delete, m_inspectionId);
+				Log log = createLog(getActionModule(), Operation.s_operation_delete, m_inspectionId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -125,6 +134,10 @@ public abstract class InspectionAction extends PagedAction {
 	}
 
 	public String inspectionList() {
+		Authority auth = checkAuthority(buildResource(getActionModule(), Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
 			m_totalSize = m_inspectionService.queryInspectionSizeByType(m_tunnelId, m_tunnelSectionId, getModule());
@@ -164,10 +177,14 @@ public abstract class InspectionAction extends PagedAction {
 	}
 
 	public String inspectionUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(getActionModule(), Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_inspectionService.updateInspection(m_inspection);
 			if (count > 0) {
-				Log log = createLog(getActionModule(), Constrants.s_operation_update, m_inspection);
+				Log log = createLog(getActionModule(), Operation.s_operation_update, m_inspection);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

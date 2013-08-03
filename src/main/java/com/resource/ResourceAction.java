@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.log.Log;
 
@@ -24,7 +26,7 @@ public class ResourceAction extends PagedAction {
 	
 	@Override
    public String getActionModule() {
-		return Constrants.s_resource_model;
+		return Modules.s_resource_model;
    }
 
 	public Resource getResource() {
@@ -40,10 +42,14 @@ public class ResourceAction extends PagedAction {
 	}
 
 	public String resourceAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_resource_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int id = m_resourceService.insertResource(m_resource);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_resource_model, Constrants.s_operation_add, m_resource);
+				Log log = createLog(Modules.s_resource_model, Operation.s_operation_add, m_resource);
 				
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -57,10 +63,14 @@ public class ResourceAction extends PagedAction {
 	}
 	
 	public String resourceDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_resource_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_resourceService.deleteResource(m_resourceId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_resource_model, Constrants.s_operation_delete, m_resourceId);
+				Log log = createLog(Modules.s_resource_model, Operation.s_operation_delete, m_resourceId);
 				
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -74,6 +84,10 @@ public class ResourceAction extends PagedAction {
 	}
 
 	public String resourceList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_resource_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_totalSize = m_resourceService.queryAllSize();
 			m_totalPages = computeTotalPages(m_totalSize);
@@ -104,10 +118,14 @@ public class ResourceAction extends PagedAction {
 	}
 
 	public String resourceUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_resource_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_resourceService.updateResource(m_resource);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_resource_model, Constrants.s_operation_update, m_resource);
+				Log log = createLog(Modules.s_resource_model, Operation.s_operation_update, m_resource);
 				
 				m_logService.insertLog(log);
 				return SUCCESS;

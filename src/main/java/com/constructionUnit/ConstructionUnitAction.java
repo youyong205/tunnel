@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.log.Log;
 
@@ -27,10 +29,14 @@ public class ConstructionUnitAction extends PagedAction {
 	}
 
 	public String constructionUnitAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_constructionUnit_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int id = m_constructionUnitService.insertConstructionUnit(m_constructionUnit);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_constructionUnit_model, Constrants.s_operation_add, m_constructionUnit);
+				Log log = createLog(Modules.s_constructionUnit_model, Operation.s_operation_add, m_constructionUnit);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -44,10 +50,14 @@ public class ConstructionUnitAction extends PagedAction {
 	}
 
 	public String constructionUnitDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_constructionUnit_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_constructionUnitService.deleteConstructionUnit(m_constructionUnitId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_constructionUnit_model, Constrants.s_operation_delete, m_constructionUnitId);
+				Log log = createLog(Modules.s_constructionUnit_model, Operation.s_operation_delete, m_constructionUnitId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -61,6 +71,10 @@ public class ConstructionUnitAction extends PagedAction {
 	}
 
 	public String constructionUnitList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_constructionUnit_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_totalSize = m_constructionUnitService.queryAllSize();
 			m_totalPages = computeTotalPages(m_totalSize);
@@ -91,10 +105,14 @@ public class ConstructionUnitAction extends PagedAction {
 	}
 
 	public String constructionUnitUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_constructionUnit_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_constructionUnitService.updateConstructionUnit(m_constructionUnit);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_constructionUnit_model, Constrants.s_operation_update, m_constructionUnit);
+				Log log = createLog(Modules.s_constructionUnit_model, Operation.s_operation_update, m_constructionUnit);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -109,7 +127,7 @@ public class ConstructionUnitAction extends PagedAction {
 	
 	@Override
    public String getActionModule() {
-		return Constrants.s_constructionUnit_model;
+		return Modules.s_constructionUnit_model;
    }
 
 	public ConstructionUnit getConstructionUnit() {

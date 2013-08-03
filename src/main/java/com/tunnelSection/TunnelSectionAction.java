@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.log.Log;
 import com.tunnel.Tunnel;
@@ -32,7 +34,7 @@ public class TunnelSectionAction extends PagedAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_tunnelSection_model;
+		return Modules.s_tunnelSection_model;
 	}
 
 	public int getTunnelId() {
@@ -86,10 +88,14 @@ public class TunnelSectionAction extends PagedAction {
 	}
 
 	public String tunnelSectionAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_tunnelSection_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int id = m_tunnelSectionService.insertTunnelSection(m_tunnelSection);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_tunnelSection_model, Constrants.s_operation_add, m_tunnelSection);
+				Log log = createLog(Modules.s_tunnelSection_model, Operation.s_operation_add, m_tunnelSection);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -103,10 +109,14 @@ public class TunnelSectionAction extends PagedAction {
 	}
 
 	public String tunnelSectionDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_tunnelSection_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_tunnelSectionService.deleteTunnelSection(m_tunnelSectionId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_tunnelSection_model, Constrants.s_operation_delete, m_tunnelSectionId);
+				Log log = createLog(Modules.s_tunnelSection_model, Operation.s_operation_delete, m_tunnelSectionId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -125,6 +135,10 @@ public class TunnelSectionAction extends PagedAction {
 	}
 
 	public String tunnelSectionList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_tunnelSection_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_tunnelId == 0) {
 				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
@@ -164,10 +178,14 @@ public class TunnelSectionAction extends PagedAction {
 	}
 
 	public String tunnelSectionUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_tunnelSection_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_tunnelSectionService.updateTunnelSection(m_tunnelSection);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_tunnelSection_model, Constrants.s_operation_update, m_tunnelSection);
+				Log log = createLog(Modules.s_tunnelSection_model, Operation.s_operation_update, m_tunnelSection);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

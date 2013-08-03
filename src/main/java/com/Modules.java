@@ -1,6 +1,6 @@
 package com;
 
-public class Constrants {
+public class Modules {
 
 	public static final String s_user_model = "用户模块";
 
@@ -17,18 +17,6 @@ public class Constrants {
 	public static String s_contactChannel_curing_model = "联络通道养护记录模块";
 
 	public static String s_workingWell_model = "工作井模块";
-
-	public static final String s_operation_add = "新增";
-
-	public static final String s_operation_update = "修改";
-
-	public static final String s_operation_delete = "删除";
-
-	public static final String s_login_error = "用户名密码输入错误";
-
-	public static String s_file = "默认文件名";
-
-	public static String s_context_type = "text/plain";
 
 	public static String s_buriedSection_model = "暗埋段模块";
 

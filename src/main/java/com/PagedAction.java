@@ -32,22 +32,27 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	protected Map<String, Object> m_session;
 
-	private List<String> m_modules = new ArrayList<String>(Arrays.asList(Constrants.s_user_model,
-	      Constrants.s_role_model, Constrants.s_resource_model, Constrants.s_log_module, Constrants.s_document_model,
-	      Constrants.s_tunnel_model, Constrants.s_constructionUnit_model, Constrants.s_liningRing_model,
-	      Constrants.s_tunnelSection_model, 
-	      
-	      Constrants.s_contactChannel_model,Constrants.s_contactChannel_inspection_model,Constrants.s_contactChannel_curing_model, //
-	      Constrants.s_buriedSection_model, Constrants.s_buriedSection_inspection_model,Constrants.s_buriedSection_curing_model, //
-	      Constrants.s_openSection_model, Constrants.s_openSection_inspection_model,Constrants.s_openSection_curing_model, //
-	      Constrants.s_workingWell_model, Constrants.s_workingWell_inspection_model,Constrants.s_workingWell_curing_model, //
-	      Constrants.s_rectangleComponent_model,Constrants.s_rectangleComponent_inspection_model,Constrants.s_rectangleComponent_curing_model , //
-	      Constrants.s_plank_model,Constrants.s_plank_inspection_model,Constrants.s_plank_curing_model , //
-	      Constrants.s_bracket_model,Constrants.s_bracket_inspection_model,Constrants.s_bracket_curing_model , //
-	      Constrants.s_saddleWeight_model,Constrants.s_saddleWeight_inspection_model,Constrants.s_saddleWeight_curing_model, //
-	      Constrants.s_flueSheet_model,Constrants.s_flueSheet_inspection_model,Constrants.s_flueSheet_curing_model ));
+	private List<String> m_modules = new ArrayList<String>(Arrays.asList(Modules.s_user_model, Modules.s_role_model,
+	      Modules.s_resource_model, Modules.s_log_module, Modules.s_document_model, Modules.s_tunnel_model,
+	      Modules.s_constructionUnit_model, Modules.s_liningRing_model, Modules.s_tunnelSection_model,
 
-	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Constrants.s_contactChannel_model));
+	      Modules.s_contactChannel_model,
+	      Modules.s_contactChannel_inspection_model,
+	      Modules.s_contactChannel_curing_model, //
+	      Modules.s_buriedSection_model, Modules.s_buriedSection_inspection_model,
+	      Modules.s_buriedSection_curing_model, //
+	      Modules.s_openSection_model, Modules.s_openSection_inspection_model,
+	      Modules.s_openSection_curing_model, //
+	      Modules.s_workingWell_model, Modules.s_workingWell_inspection_model,
+	      Modules.s_workingWell_curing_model, //
+	      Modules.s_rectangleComponent_model, Modules.s_rectangleComponent_inspection_model,
+	      Modules.s_rectangleComponent_curing_model, //
+	      Modules.s_plank_model, Modules.s_plank_inspection_model, Modules.s_plank_curing_model, //
+	      Modules.s_bracket_model, Modules.s_bracket_inspection_model, Modules.s_bracket_curing_model, //
+	      Modules.s_saddleWeight_model, Modules.s_saddleWeight_inspection_model, Modules.s_saddleWeight_curing_model, //
+	      Modules.s_flueSheet_model, Modules.s_flueSheet_inspection_model, Modules.s_flueSheet_curing_model));
+
+	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Modules.s_contactChannel_model));
 
 	public int computeTotalPages(int totalSize) {
 		return (int) Math.ceil(totalSize * 1.0 / SIZE);
@@ -64,14 +69,14 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 		log.setOperation(operation);
 		log.setDetail(content.toString());
 
-		User user = findUser();
+		User user = queryUserInfo();
 		if (user != null) {
 			log.setUserId(user.getId());
 		}
 		return log;
 	}
 
-	public User findUser() {
+	public User queryUserInfo() {
 		Object object = m_session.get("user");
 		if (object != null) {
 			return (User) object;
@@ -134,6 +139,24 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	@Override
 	public void setSession(Map<String, Object> session) {
 		m_session = session;
+	}
+
+	public String buildResource(String module, String oper) {
+		return module + ":" + oper;
+	}
+
+	public Authority checkAuthority(String resources) {
+		User user = queryUserInfo();
+
+		if (user == null) {
+			return Authority.Login;
+		} else {
+			if (!user.getResources().containsKey(resources)) {
+				return Authority.NoAuth;
+			} else {
+				return null;
+			}
+		}
 	}
 
 }

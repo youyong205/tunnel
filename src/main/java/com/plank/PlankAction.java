@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.ScheduledAction;
 import com.document.Document;
 import com.log.Log;
@@ -42,7 +44,7 @@ public class PlankAction extends ScheduledAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_plank_model;
+		return Modules.s_plank_model;
 	}
 
 	public Plank getPlank() {
@@ -77,9 +79,13 @@ public class PlankAction extends ScheduledAction {
 	}
 
 	public String plankAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_plank_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_uploadFile.getFile() != null) {
-				int documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
+				int documentId = m_documentService.insertDocument(Modules.s_plank_model, m_uploadFile);
 				m_plank.setDocumentId(documentId);
 			}
 			m_schedule.setType(getActionModule());
@@ -88,7 +94,7 @@ public class PlankAction extends ScheduledAction {
 
 			int id = m_plankService.insertPlank(m_plank);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_plank_model, Constrants.s_operation_add, m_plank);
+				Log log = createLog(Modules.s_plank_model, Operation.s_operation_add, m_plank);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -102,13 +108,17 @@ public class PlankAction extends ScheduledAction {
 	}
 
 	public String plankDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_plank_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_plank = m_plankService.findByPK(m_plankId);
 			m_documentService.deleteDocument(m_plank.getDocumentId());
 			m_scheduleService.deleteSchedule(m_plank.getScheduleId());
 			int count = m_plankService.deletePlank(m_plankId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_plank_model, Constrants.s_operation_delete,
+				Log log = createLog(Modules.s_plank_model, Operation.s_operation_delete,
 				      m_plankId);
 
 				m_logService.insertLog(log);
@@ -130,6 +140,10 @@ public class PlankAction extends ScheduledAction {
 	}
 
 	public String plankList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_plank_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_tunnelId == 0) {
 				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
@@ -192,21 +206,25 @@ public class PlankAction extends ScheduledAction {
 	}
 
 	public String plankUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_plank_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_plank.getDocumentId();
 				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
-					m_documentService.updateDocument(Constrants.s_contactChannel_model, m_uploadFile, document);
+					m_documentService.updateDocument(Modules.s_plank_model, m_uploadFile, document);
 				} else {
-					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
+					documentId = m_documentService.insertDocument(Modules.s_plank_model, m_uploadFile);
 					m_plank.setDocumentId(documentId);
 				}
 			}
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_plankService.updatePlank(m_plank);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_plank_model, Constrants.s_operation_update,
+				Log log = createLog(Modules.s_plank_model, Operation.s_operation_update,
 				      m_plank);
 
 				m_logService.insertLog(log);

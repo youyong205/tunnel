@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.Constrants;
+import com.Modules;
 import com.curing.CuringAction;
 
 public class ContactChannelCuringAction extends CuringAction {
@@ -39,7 +39,7 @@ public class ContactChannelCuringAction extends CuringAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_contactChannel_curing_model;
+		return Modules.s_contactChannel_curing_model;
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class ContactChannelCuringAction extends CuringAction {
 
 	@Override
 	public String getModule() {
-		return Constrants.s_contactChannel_model;
+		return Modules.s_contactChannel_model;
 	}
 
 	private List<Item> queryItems() {

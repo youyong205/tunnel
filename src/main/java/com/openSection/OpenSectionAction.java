@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.ScheduledAction;
 import com.document.Document;
 import com.log.Log;
@@ -34,7 +36,7 @@ public class OpenSectionAction extends ScheduledAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_openSection_model;
+		return Modules.s_openSection_model;
 	}
 
 	public OpenSection getOpenSection() {
@@ -69,10 +71,14 @@ public class OpenSectionAction extends ScheduledAction {
 	}
 
 	public String openSectionAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_openSection_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int documentId = 0;
 			if (m_uploadFile.getFile() != null) {
-				documentId = m_documentService.insertDocument(Constrants.s_openSection_model, m_uploadFile);
+				documentId = m_documentService.insertDocument(Modules.s_openSection_model, m_uploadFile);
 			}
 			m_openSection.setDocumentId(documentId);
 			m_schedule.setType(getActionModule());
@@ -80,7 +86,7 @@ public class OpenSectionAction extends ScheduledAction {
 			m_openSection.setScheduleId(scheduleId);
 			int id = m_openSectionService.insertOpenSection(m_openSection);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_openSection_model, Constrants.s_operation_add, m_openSection);
+				Log log = createLog(Modules.s_openSection_model, Operation.s_operation_add, m_openSection);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -94,13 +100,17 @@ public class OpenSectionAction extends ScheduledAction {
 	}
 
 	public String openSectionDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_openSection_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_openSection = m_openSectionService.findByPK(m_openSectionId);
 			m_scheduleService.deleteSchedule(m_openSection.getScheduleId());
 			m_documentService.deleteDocument(m_openSection.getDocumentId());
 			int count = m_openSectionService.deleteOpenSection(m_openSectionId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_openSection_model, Constrants.s_operation_delete, m_openSectionId);
+				Log log = createLog(Modules.s_openSection_model, Operation.s_operation_delete, m_openSectionId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -114,6 +124,10 @@ public class OpenSectionAction extends ScheduledAction {
 	}
 
 	public String openSectionList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_openSection_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_tunnelId == 0) {
 				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
@@ -171,22 +185,26 @@ public class OpenSectionAction extends ScheduledAction {
 	}
 
 	public String openSectionUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_openSection_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_openSection.getDocumentId();
 
 				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
-					m_documentService.updateDocument(Constrants.s_openSection_model, m_uploadFile, document);
+					m_documentService.updateDocument(Modules.s_openSection_model, m_uploadFile, document);
 				} else {
-					documentId = m_documentService.insertDocument(Constrants.s_openSection_model, m_uploadFile);
+					documentId = m_documentService.insertDocument(Modules.s_openSection_model, m_uploadFile);
 					m_openSection.setDocumentId(documentId);
 				}
 			}
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_openSectionService.updateOpenSection(m_openSection);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_openSection_model, Constrants.s_operation_update, m_openSection);
+				Log log = createLog(Modules.s_openSection_model, Operation.s_operation_update, m_openSection);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

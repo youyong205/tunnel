@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.Constrants;
+import com.Modules;
 import com.inspection.InspectionAction;
 
 public class WorkingWellInspectionAction extends InspectionAction {
@@ -19,7 +19,7 @@ public class WorkingWellInspectionAction extends InspectionAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_workingWell_inspection_model;
+		return Modules.s_workingWell_inspection_model;
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class WorkingWellInspectionAction extends InspectionAction {
 		if (channel != null) {
 			return channel.getName();
 		} else {
-			return Constrants.s_deleted;
+			return Modules.s_deleted;
 		}
 	}
 
@@ -39,7 +39,7 @@ public class WorkingWellInspectionAction extends InspectionAction {
 
 	@Override
 	public String getModule() {
-		return Constrants.s_workingWell_model;
+		return Modules.s_workingWell_model;
 	}
 
 	@Override

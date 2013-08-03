@@ -53,7 +53,7 @@
 		modifyDate = now()
 		where id=#id#
 	</update>
-	<delete id="tdocument.delete" parameterClass="int">
+	<delete id="document.delete" parameterClass="int">
 		delete from document
 		where
 		id=#id#

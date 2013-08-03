@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.PagedAction;
 import com.user.UserService;
 
@@ -28,7 +30,7 @@ public class LogAction extends PagedAction {
 
 	@Override
    public String getActionModule() {
-		return Constrants.s_log_module;
+		return Modules.s_log_module;
    }
 
 	public Log getLog() {
@@ -48,6 +50,11 @@ public class LogAction extends PagedAction {
 	}
 
 	public String logList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_log_module, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			m_totalSize = m_logService.queryAllSize();
 			m_totalPages = computeTotalPages(m_totalSize);
@@ -67,6 +74,11 @@ public class LogAction extends PagedAction {
 	}
 
 	public String logSearch() {
+		Authority auth = checkAuthority(buildResource(Modules.s_log_module, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			m_totalSize = m_logService.querySize(m_module, m_operation);
 			m_totalPages = computeTotalPages(m_totalSize);

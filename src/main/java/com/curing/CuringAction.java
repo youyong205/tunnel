@@ -5,8 +5,9 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.Constrants;
+import com.Authority;
 import com.FileUploadAction;
+import com.Operation;
 import com.constructionUnit.ConstructionUnit;
 import com.constructionUnit.ConstructionUnitService;
 import com.document.Document;
@@ -60,14 +61,18 @@ public abstract class CuringAction extends FileUploadAction {
 	}
 
 	public String curingAddSubmit() {
+		Authority auth = checkAuthority(buildResource(getActionModule(), Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_uploadFile.getFile() != null) {
-				int documentId = m_documentService.insertDocument(Constrants.s_contactChannel_curing_model, m_uploadFile);
+				int documentId = m_documentService.insertDocument(getActionModule(), m_uploadFile);
 				m_curing.setDocumentId(documentId);
 			}
 			int id = m_curingService.insertCuring(m_curing);
 			if (id > 0) {
-				Log log = createLog(getActionModule(), Constrants.s_operation_add, m_curing);
+				Log log = createLog(getActionModule(), Operation.s_operation_add, m_curing);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -81,10 +86,14 @@ public abstract class CuringAction extends FileUploadAction {
 	}
 
 	public String curingDelete() {
+		Authority auth = checkAuthority(buildResource(getActionModule(), Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int count = m_curingService.deleteCuring(m_curingId);
 			if (count > 0) {
-				Log log = createLog(getActionModule(), Constrants.s_operation_delete, m_curingId);
+				Log log = createLog(getActionModule(), Operation.s_operation_delete, m_curingId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -98,9 +107,13 @@ public abstract class CuringAction extends FileUploadAction {
 	}
 
 	public String curingList() {
+		Authority auth = checkAuthority(buildResource(getActionModule(), Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_totalSize = m_curingService.queryCuringSizeByType(m_tunnelId, m_tunnelSectionId,getModule());
+			m_totalSize = m_curingService.queryCuringSizeByType(m_tunnelId, m_tunnelSectionId, getModule());
 			m_totalPages = computeTotalPages(m_totalSize);
 			int start = (m_index - 1) * SIZE;
 			if (start < 0) {
@@ -145,20 +158,25 @@ public abstract class CuringAction extends FileUploadAction {
 	}
 
 	public String curingUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(getActionModule(), Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
+
 		try {
 			int documentId = m_curing.getDocumentId();
 			if (m_uploadFile.getFile() != null) {
 				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
-					m_documentService.updateDocument(Constrants.s_contactChannel_curing_model, m_uploadFile, document);
+					m_documentService.updateDocument(getActionModule(), m_uploadFile, document);
 				} else {
-					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_curing_model, m_uploadFile);
+					documentId = m_documentService.insertDocument(getActionModule(), m_uploadFile);
 					m_curing.setDocumentId(documentId);
 				}
 			}
 			int count = m_curingService.updateCuring(m_curing);
 			if (count > 0) {
-				Log log = createLog(getActionModule(), Constrants.s_operation_update, m_curing);
+				Log log = createLog(getActionModule(), Operation.s_operation_update, m_curing);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

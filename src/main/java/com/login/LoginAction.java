@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Modules;
 import com.PagedAction;
 import com.resource.Resource;
 import com.resource.ResourceService;
@@ -34,9 +34,11 @@ public class LoginAction extends PagedAction {
 
 	private static final String USER = "user";
 
+	public static final String s_login_error = "用户名密码输入错误";
+
 	@Override
    public String getActionModule() {
-		return Constrants.s_user_model;
+		return Modules.s_user_model;
    }
 
 	public String login() {
@@ -63,7 +65,7 @@ public class LoginAction extends PagedAction {
 			m_logger.info(String.format("User %s login", user.getRealName()));
 			return SUCCESS;
 		} else {
-			this.addActionError(Constrants.s_login_error);
+			this.addActionError(s_login_error);
 			return ERROR;
 		}
 	}

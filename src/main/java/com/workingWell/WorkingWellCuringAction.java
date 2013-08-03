@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.Constrants;
+import com.Modules;
 import com.curing.CuringAction;
 
 public class WorkingWellCuringAction extends CuringAction {
@@ -39,7 +39,7 @@ public class WorkingWellCuringAction extends CuringAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_workingWell_curing_model;
+		return Modules.s_workingWell_curing_model;
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class WorkingWellCuringAction extends CuringAction {
 
 	@Override
 	public String getModule() {
-		return Constrants.s_workingWell_model;
+		return Modules.s_workingWell_model;
 	}
 
 	private List<Item> queryItems() {

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.Constrants;
+import com.Modules;
 import com.curing.CuringAction;
 
 public class BracketCuringAction extends CuringAction {
@@ -19,7 +19,7 @@ public class BracketCuringAction extends CuringAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_bracket_curing_model;
+		return Modules.s_bracket_curing_model;
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class BracketCuringAction extends CuringAction {
 		if (bracket != null) {
 			return bracket.getName();
 		} else {
-			return Constrants.s_deleted;
+			return Modules.s_deleted;
 		}
 	}
 
@@ -39,7 +39,7 @@ public class BracketCuringAction extends CuringAction {
 
 	@Override
 	public String getModule() {
-		return Constrants.s_bracket_model;
+		return Modules.s_bracket_model;
 	}
 
 	@Override

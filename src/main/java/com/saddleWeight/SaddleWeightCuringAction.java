@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.Constrants;
+import com.Modules;
 import com.curing.CuringAction;
 
 public class SaddleWeightCuringAction extends CuringAction {
@@ -19,7 +19,7 @@ public class SaddleWeightCuringAction extends CuringAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_saddleWeight_curing_model;
+		return Modules.s_saddleWeight_curing_model;
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class SaddleWeightCuringAction extends CuringAction {
 		if (saddleWeight != null) {
 			return saddleWeight.getName();
 		} else {
-			return Constrants.s_deleted;
+			return Modules.s_deleted;
 		}
 	}
 
@@ -39,7 +39,7 @@ public class SaddleWeightCuringAction extends CuringAction {
 
 	@Override
 	public String getModule() {
-		return Constrants.s_saddleWeight_model;
+		return Modules.s_saddleWeight_model;
 	}
 
 	@Override

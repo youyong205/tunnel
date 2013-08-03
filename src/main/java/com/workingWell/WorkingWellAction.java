@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.Constrants;
+import com.Authority;
+import com.Modules;
+import com.Operation;
 import com.ScheduledAction;
 import com.document.Document;
 import com.log.Log;
@@ -34,7 +36,7 @@ public class WorkingWellAction extends ScheduledAction {
 
 	@Override
 	public String getActionModule() {
-		return Constrants.s_workingWell_model;
+		return Modules.s_workingWell_model;
 	}
 
 	public int getTunnelId() {
@@ -89,10 +91,14 @@ public class WorkingWellAction extends ScheduledAction {
 	}
 
 	public String workingWellAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_workingWell_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			int documentId = 0;
 			if (m_uploadFile.getFile() != null) {
-				documentId = m_documentService.insertDocument(Constrants.s_workingWell_model, m_uploadFile);
+				documentId = m_documentService.insertDocument(Modules.s_workingWell_model, m_uploadFile);
 			}
 			m_schedule.setType(getActionModule());
 			int scheduleId = m_scheduleService.insertSchedule(m_schedule);
@@ -101,7 +107,7 @@ public class WorkingWellAction extends ScheduledAction {
 			m_workingWell.setDocumentId(documentId);
 			int id = m_workingWellService.insertWorkingWell(m_workingWell);
 			if (id > 0) {
-				Log log = createLog(Constrants.s_workingWell_model, Constrants.s_operation_add, m_workingWell);
+				Log log = createLog(Modules.s_workingWell_model, Operation.s_operation_add, m_workingWell);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -115,13 +121,17 @@ public class WorkingWellAction extends ScheduledAction {
 	}
 
 	public String workingWellDelete() {
+		Authority auth = checkAuthority(buildResource(Modules.s_workingWell_model, Operation.s_operation_delete));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			m_workingWell = m_workingWellService.findByPK(m_workingWellId);
 			m_scheduleService.deleteSchedule(m_workingWell.getScheduleId());
 			m_documentService.deleteDocument(m_workingWell.getDocumentId());
 			int count = m_workingWellService.deleteWorkingWell(m_workingWellId);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_workingWell_model, Constrants.s_operation_delete, m_workingWellId);
+				Log log = createLog(Modules.s_workingWell_model, Operation.s_operation_delete, m_workingWellId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -135,6 +145,10 @@ public class WorkingWellAction extends ScheduledAction {
 	}
 
 	public String workingWellList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_workingWell_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_tunnelId == 0) {
 				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
@@ -191,21 +205,25 @@ public class WorkingWellAction extends ScheduledAction {
 	}
 
 	public String workingWellUpdateSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_workingWell_model, Operation.s_operation_update));
+		if (auth != null) {
+			return auth.getName();
+		}
 		try {
 			if (m_uploadFile.getFile() != null) {
 				int documentId = m_workingWell.getDocumentId();
 				if (documentId > 0) {
 					Document document = m_documentService.findByPK(documentId);
-					m_documentService.updateDocument(Constrants.s_contactChannel_model, m_uploadFile, document);
+					m_documentService.updateDocument(Modules.s_workingWell_model, m_uploadFile, document);
 				} else {
-					documentId = m_documentService.insertDocument(Constrants.s_contactChannel_model, m_uploadFile);
+					documentId = m_documentService.insertDocument(Modules.s_workingWell_model, m_uploadFile);
 					m_workingWell.setDocumentId(documentId);
 				}
 			}
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_workingWellService.updateWorkingWell(m_workingWell);
 			if (count > 0) {
-				Log log = createLog(Constrants.s_workingWell_model, Constrants.s_operation_update, m_workingWell);
+				Log log = createLog(Modules.s_workingWell_model, Operation.s_operation_update, m_workingWell);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
