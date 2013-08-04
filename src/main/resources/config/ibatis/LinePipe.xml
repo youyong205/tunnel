@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="linePipe" type="com.linePipe.LinePipe" />
+	<sql id="linePipe.columns">
+		id,tunnelId,tunnelSectionId,documentId,scheduleId,name,
+		type,lineType,stakeMileage,position,
+		des,creationDate,modifyDate
+	</sql>
+	<select id="linePipe.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from linePipe
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="linePipe.queryLimitedLinePipes" resultClass="linePipe">
+		select
+		<include refid="linePipe.columns" />
+		from linePipe
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
+	</select>
+	<select id="linePipe.findByName" resultClass="linePipe" parameterClass="String">
+		select
+		<include refid="linePipe.columns" />
+		from linePipe where name=#name#
+	</select>
+	<select id="linePipe.findById" resultClass="linePipe" parameterClass="int">
+		select
+		<include refid="linePipe.columns" />
+		from linePipe where id=#id#
+	</select>
+	<insert id="linePipe.insert" parameterClass="linePipe">
+		insert into linePipe (<include refid="linePipe.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#documentId#,#scheduleId#,#name#,
+		#type#,#lineType#,#stakeMileage#,#position#,
+		#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="linePipe.update" parameterClass="linePipe">
+		update linePipe set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,documentId=#documentId#,name=#name#,
+		type=#type#,lineType=#lineType#,
+		stakeMileage=#stakeMileage#,position=#position#,
+		des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="linePipe.delete" parameterClass="int">
+		delete from linePipe
+		where
+		id=#id#
+	</delete>
+</sqlMap>

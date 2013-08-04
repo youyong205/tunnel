@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="linePipeDao" class="com.linePipe.LinePipeDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="linePipeService" class="com.linePipe.LinePipeServiceImpl">
+		<property name="linePipeDao">
+			<ref bean="linePipeDao" />
+		</property>
+	</bean>
+	<bean id="linePipeAction" class="com.linePipe.LinePipeAction" scope="prototype">
+		<property name="linePipeService">
+			<ref bean="linePipeService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="scheduleService">
+			<ref bean="scheduleService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+	</bean>
+</beans>  

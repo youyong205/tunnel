@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="pumpingStation" type="com.pumpingStation.PumpingStation" />
+	<sql id="pumpingStation.columns">
+		id,tunnelId,tunnelSectionId,documentId,scheduleId,name,
+		type,lineType,stakeMileage,position,laneMileage,shieldMileage,absolutEelevation,
+		des,creationDate,modifyDate
+	</sql>
+	<select id="pumpingStation.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from pumpingStation
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="pumpingStation.queryLimitedPumpingStations" resultClass="pumpingStation">
+		select
+		<include refid="pumpingStation.columns" />
+		from pumpingStation
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
+	</select>
+	<select id="pumpingStation.findByName" resultClass="pumpingStation" parameterClass="String">
+		select
+		<include refid="pumpingStation.columns" />
+		from pumpingStation where name=#name#
+	</select>
+	<select id="pumpingStation.findById" resultClass="pumpingStation" parameterClass="int">
+		select
+		<include refid="pumpingStation.columns" />
+		from pumpingStation where id=#id#
+	</select>
+	<insert id="pumpingStation.insert" parameterClass="pumpingStation">
+		insert into pumpingStation (<include refid="pumpingStation.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#documentId#,#scheduleId#,#name#,
+		#type#,#lineType#,#stakeMileage#,#position#,#laneMileage#,#shieldMileage#,#absolutEelevation#,
+		#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="pumpingStation.update" parameterClass="pumpingStation">
+		update pumpingStation set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,documentId=#documentId#,name=#name#,
+		type=#type#,lineType=#lineType#,
+		stakeMileage=#stakeMileage#,position=#position#,laneMileage=#laneMileage#,
+		shieldMileage=#shieldMileage#,absolutEelevation=#absolutEelevation#,
+		des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="pumpingStation.delete" parameterClass="int">
+		delete from pumpingStation
+		where
+		id=#id#
+	</delete>
+</sqlMap>

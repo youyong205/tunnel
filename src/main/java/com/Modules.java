@@ -78,4 +78,28 @@ public class Modules {
 
 	public static String s_deleted = "已经被删除";
 
+	public static String s_pumpingStation_model = "泵房模块";
+
+	public static String s_pumpingStation_inspection_model = "泵房质量检测模块";
+
+	public static String s_pumpingStation_curing_model = "泵房养护记录模块";
+
+	public static String s_escape_model = "逃生楼梯模块";
+
+	public static String s_escape_inspection_model = "逃生楼梯质量检测模块";
+
+	public static String s_escape_curing_model = "逃生楼梯养护记录模块";
+
+	public static String s_linePipe_model = "预埋管线模块";
+
+	public static String s_linePipe_inspection_model = "预埋管线质量检测模块";
+
+	public static String s_linePipe_curing_model = "预埋管线养护记录模块";
+
+	public static String s_facility_model = "设备模块";
+
+	public static String s_facility_inspection_model = "设备质量检测模块";
+
+	public static String s_facility_curing_model = "设备养护记录模块";
+
 }

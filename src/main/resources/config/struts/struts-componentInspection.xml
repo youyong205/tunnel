@@ -113,5 +113,94 @@
 		<action name="flueSheetInspectionDelete" class="flueSheetInspectionAction" method="inspectionDelete">
 			<result name="success" type="redirect">flueSheetInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
 		</action>
+		
+				<action name="facilityInspectionList" class="facilityInspectionAction" method="inspectionList">
+			<result name="success">admin/facilityInspection/FacilityInspectionList.jsp </result>
+		</action>
+		<action name="facilityInspectionAdd" class="facilityInspectionAction" method="inspectionAdd">
+			<result name="success">admin/facilityInspection/FacilityInspectionAdd.jsp </result>
+		</action>
+		<action name="facilityInspectionAddSubmit" class="facilityInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">facilityInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="facilityInspectionUpdate" class="facilityInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/facilityInspection/FacilityInspectionUpdate.jsp</result>
+		</action>
+		<action name="facilityInspectionDetail" class="facilityInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/facilityInspection/FacilityInspectionDetail.jsp</result>
+		</action>
+		<action name="facilityInspectionUpdateSubmit" class="facilityInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">facilityInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="facilityInspectionDelete" class="facilityInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">facilityInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		
+		<action name="linePipeInspectionList" class="linePipeInspectionAction" method="inspectionList">
+			<result name="success">admin/linePipeInspection/LinePipeInspectionList.jsp </result>
+		</action>
+		<action name="linePipeInspectionAdd" class="linePipeInspectionAction" method="inspectionAdd">
+			<result name="success">admin/linePipeInspection/LinePipeInspectionAdd.jsp </result>
+		</action>
+		<action name="linePipeInspectionAddSubmit" class="linePipeInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">linePipeInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="linePipeInspectionUpdate" class="linePipeInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/linePipeInspection/LinePipeInspectionUpdate.jsp</result>
+		</action>
+		<action name="linePipeInspectionDetail" class="linePipeInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/linePipeInspection/LinePipeInspectionDetail.jsp</result>
+		</action>
+		<action name="linePipeInspectionUpdateSubmit" class="linePipeInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">linePipeInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="linePipeInspectionDelete" class="linePipeInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">linePipeInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		
+		<action name="escapeInspectionList" class="escapeInspectionAction" method="inspectionList">
+			<result name="success">admin/escapeInspection/EscapeInspectionList.jsp </result>
+		</action>
+		<action name="escapeInspectionAdd" class="escapeInspectionAction" method="inspectionAdd">
+			<result name="success">admin/escapeInspection/EscapeInspectionAdd.jsp </result>
+		</action>
+		<action name="escapeInspectionAddSubmit" class="escapeInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">escapeInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="escapeInspectionUpdate" class="escapeInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/escapeInspection/EscapeInspectionUpdate.jsp</result>
+		</action>
+		<action name="escapeInspectionDetail" class="escapeInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/escapeInspection/EscapeInspectionDetail.jsp</result>
+		</action>
+		<action name="escapeInspectionUpdateSubmit" class="escapeInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">escapeInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="escapeInspectionDelete" class="escapeInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">escapeInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		
+		<action name="pumpingStationInspectionList" class="pumpingStationInspectionAction" method="inspectionList">
+			<result name="success">admin/pumpingStationInspection/PumpingStationInspectionList.jsp </result>
+		</action>
+		<action name="pumpingStationInspectionAdd" class="pumpingStationInspectionAction" method="inspectionAdd">
+			<result name="success">admin/pumpingStationInspection/PumpingStationInspectionAdd.jsp </result>
+		</action>
+		<action name="pumpingStationInspectionAddSubmit" class="pumpingStationInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">pumpingStationInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="pumpingStationInspectionUpdate" class="pumpingStationInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/pumpingStationInspection/PumpingStationInspectionUpdate.jsp</result>
+		</action>
+		<action name="pumpingStationInspectionDetail" class="pumpingStationInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/pumpingStationInspection/PumpingStationInspectionDetail.jsp</result>
+		</action>
+		<action name="pumpingStationInspectionUpdateSubmit" class="pumpingStationInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">pumpingStationInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="pumpingStationInspectionDelete" class="pumpingStationInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">pumpingStationInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		
 	</package>
 </struts>	

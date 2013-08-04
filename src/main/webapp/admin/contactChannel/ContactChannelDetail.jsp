@@ -67,7 +67,8 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">上传设计制作设计附件</br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
 						<td>
 							<s:if test="contactChannel.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="contactChannel.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="contactChannel.document.id"/>"><s:property value="contactChannel.document.name"/></a>
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">联络通道简介</strong></td>

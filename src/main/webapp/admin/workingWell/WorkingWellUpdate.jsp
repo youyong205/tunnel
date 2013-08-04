@@ -78,7 +78,9 @@ $(document).ready(function() {
 						</strong></td>
 						<td>
 							<s:if test="workingWell.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="workingWell.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="workingWell.document.id"/>"><s:property value="workingWell.document.name"/></a>
+								</br>
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>

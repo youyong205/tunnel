@@ -2,6 +2,7 @@ package com.role;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -34,7 +35,7 @@ public class RoleAction extends PagedAction {
 
 	private Integer[] m_resourceIdSelect;
 
-	private Map<String, ModuleResources> m_moduleResources = new HashMap<String, ModuleResources>();
+	private Map<String, ModuleResources> m_moduleResources = new LinkedHashMap<String, ModuleResources>();
 
 	private void buildModuleResources(List<Resource> resources) {
 		for (Resource res : resources) {

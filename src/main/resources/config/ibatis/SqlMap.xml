@@ -29,4 +29,9 @@
 		<sqlMap resource="config/ibatis/Bracket.xml"/>
 		<sqlMap resource="config/ibatis/SaddleWeight.xml"/>
 		<sqlMap resource="config/ibatis/FlueSheet.xml"/>
+		
+		<sqlMap resource="config/ibatis/PumpingStation.xml"/>
+		<sqlMap resource="config/ibatis/Escape.xml"/>
+		<sqlMap resource="config/ibatis/LinePipe.xml"/>
+		<sqlMap resource="config/ibatis/Facility.xml"/>
 </sqlMapConfig>

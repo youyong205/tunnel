@@ -113,5 +113,93 @@
 		<action name="flueSheetCuringDelete" class="flueSheetCuringAction" method="curingDelete">
 			<result name="success" type="redirect">flueSheetCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
 		</action>
+		
+				<action name="facilityCuringList" class="facilityCuringAction" method="curingList">
+			<result name="success">admin/facilityCuring/FacilityCuringList.jsp </result>
+		</action>
+		<action name="facilityCuringAdd" class="facilityCuringAction" method="curingAdd">
+			<result name="success">admin/facilityCuring/FacilityCuringAdd.jsp </result>
+		</action>
+		<action name="facilityCuringAddSubmit" class="facilityCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">facilityCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="facilityCuringUpdate" class="facilityCuringAction" method="curingUpdate">
+			<result name="success">admin/facilityCuring/FacilityCuringUpdate.jsp</result>
+		</action>
+		<action name="facilityCuringDetail" class="facilityCuringAction" method="curingUpdate">
+			<result name="success">admin/facilityCuring/FacilityCuringDetail.jsp</result>
+		</action>
+		<action name="facilityCuringUpdateSubmit" class="facilityCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">facilityCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="facilityCuringDelete" class="facilityCuringAction" method="curingDelete">
+			<result name="success" type="redirect">facilityCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		
+		<action name="linePipeCuringList" class="linePipeCuringAction" method="curingList">
+			<result name="success">admin/linePipeCuring/LinePipeCuringList.jsp </result>
+		</action>
+		<action name="linePipeCuringAdd" class="linePipeCuringAction" method="curingAdd">
+			<result name="success">admin/linePipeCuring/LinePipeCuringAdd.jsp </result>
+		</action>
+		<action name="linePipeCuringAddSubmit" class="linePipeCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">linePipeCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="linePipeCuringUpdate" class="linePipeCuringAction" method="curingUpdate">
+			<result name="success">admin/linePipeCuring/LinePipeCuringUpdate.jsp</result>
+		</action>
+		<action name="linePipeCuringDetail" class="linePipeCuringAction" method="curingUpdate">
+			<result name="success">admin/linePipeCuring/LinePipeCuringDetail.jsp</result>
+		</action>
+		<action name="linePipeCuringUpdateSubmit" class="linePipeCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">linePipeCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="linePipeCuringDelete" class="linePipeCuringAction" method="curingDelete">
+			<result name="success" type="redirect">linePipeCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		
+		<action name="escapeCuringList" class="escapeCuringAction" method="curingList">
+			<result name="success">admin/escapeCuring/EscapeCuringList.jsp </result>
+		</action>
+		<action name="escapeCuringAdd" class="escapeCuringAction" method="curingAdd">
+			<result name="success">admin/escapeCuring/EscapeCuringAdd.jsp </result>
+		</action>
+		<action name="escapeCuringAddSubmit" class="escapeCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">escapeCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="escapeCuringUpdate" class="escapeCuringAction" method="curingUpdate">
+			<result name="success">admin/escapeCuring/EscapeCuringUpdate.jsp</result>
+		</action>
+		<action name="escapeCuringDetail" class="escapeCuringAction" method="curingUpdate">
+			<result name="success">admin/escapeCuring/EscapeCuringDetail.jsp</result>
+		</action>
+		<action name="escapeCuringUpdateSubmit" class="escapeCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">escapeCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="escapeCuringDelete" class="escapeCuringAction" method="curingDelete">
+			<result name="success" type="redirect">escapeCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		
+		<action name="pumpingStationCuringList" class="pumpingStationCuringAction" method="curingList">
+			<result name="success">admin/pumpingStationCuring/PumpingStationCuringList.jsp </result>
+		</action>
+		<action name="pumpingStationCuringAdd" class="pumpingStationCuringAction" method="curingAdd">
+			<result name="success">admin/pumpingStationCuring/PumpingStationCuringAdd.jsp </result>
+		</action>
+		<action name="pumpingStationCuringAddSubmit" class="pumpingStationCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">pumpingStationCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="pumpingStationCuringUpdate" class="pumpingStationCuringAction" method="curingUpdate">
+			<result name="success">admin/pumpingStationCuring/PumpingStationCuringUpdate.jsp</result>
+		</action>
+		<action name="pumpingStationCuringDetail" class="pumpingStationCuringAction" method="curingUpdate">
+			<result name="success">admin/pumpingStationCuring/PumpingStationCuringDetail.jsp</result>
+		</action>
+		<action name="pumpingStationCuringUpdateSubmit" class="pumpingStationCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">pumpingStationCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="pumpingStationCuringDelete" class="pumpingStationCuringAction" method="curingDelete">
+			<result name="success" type="redirect">pumpingStationCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
 	</package>
 </struts>	

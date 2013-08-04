@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="linePipe" extends="default">
+		<action name="linePipeList" class="linePipeAction" method="linePipeList">
+			<result name="success">admin/linePipe/LinePipeList.jsp</result>
+		</action>
+		<action name="linePipeAdd"  class="linePipeAction" method="linePipeAdd">
+			<result name="success">admin/linePipe/LinePipeAdd.jsp</result>
+		</action>
+		<action name="linePipeAddSubmit" class="linePipeAction" method="linePipeAddSubmit">
+			<result name="success" type="redirect">linePipeList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="linePipeUpdate" class="linePipeAction" method="linePipeUpdate" >
+			<result name="success">admin/linePipe/LinePipeUpdate.jsp</result>
+		</action>
+		<action name="linePipeDetail" class="linePipeAction" method="linePipeUpdate" >
+			<result name="success">admin/linePipe/LinePipeDetail.jsp</result>
+		</action>
+		<action name="linePipeUpdateSubmit" class="linePipeAction" method="linePipeUpdateSubmit">
+			<result name="success" type="redirect">linePipeList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="linePipeDelete" class="linePipeAction" method="linePipeDelete">
+			<result name="success" type="redirect">linePipeList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>	
+</struts>

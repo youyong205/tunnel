@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="facility" extends="default">
+		<action name="facilityList" class="facilityAction" method="facilityList">
+			<result name="success">admin/facility/FacilityList.jsp</result>
+		</action>
+		<action name="facilityAdd"  class="facilityAction" method="facilityAdd">
+			<result name="success">admin/facility/FacilityAdd.jsp</result>
+		</action>
+		<action name="facilityAddSubmit" class="facilityAction" method="facilityAddSubmit">
+			<result name="success" type="redirect">facilityList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="facilityUpdate" class="facilityAction" method="facilityUpdate" >
+			<result name="success">admin/facility/FacilityUpdate.jsp</result>
+		</action>
+		<action name="facilityDetail" class="facilityAction" method="facilityUpdate" >
+			<result name="success">admin/facility/FacilityDetail.jsp</result>
+		</action>
+		<action name="facilityUpdateSubmit" class="facilityAction" method="facilityUpdateSubmit">
+			<result name="success" type="redirect">facilityList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="facilityDelete" class="facilityAction" method="facilityDelete">
+			<result name="success" type="redirect">facilityList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>	
+</struts>

@@ -47,7 +47,7 @@
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
 	</insert>
-		<update id="document.update" parameterClass="document">
+	<update id="document.update" parameterClass="document">
 		update document set
 		module=#module#,name=#name#,type=#type#,absolutePath=#absolutePath#,path=#path#,des=#des#,
 		modifyDate = now()

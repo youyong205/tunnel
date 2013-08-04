@@ -13,10 +13,10 @@
 			<li id="bracketList"><a href="bracketList.do">牛腿</a></li>
 			<li id="saddleWeightList"><a href="saddleWeightList.do">压重块</a></li>
 			<li id="flueSheetList"><a href="flueSheetList.do">烟道板</a></li>
-			<li class="nav-header" id=""><a href="">泵房</a></li>
-			<li class="nav-header" id=""><a href="">设备</a></li>
-			<li class="nav-header" id=""><a href="">逃生楼梯</a></li>
-			<li class="nav-header" id=""><a href="">预埋管线</a></li>
+			<li class="nav-header" id="pumpingStationList"><a href="pumpingStationList.do">泵房</a></li>
+			<li class="nav-header" id="facilityList"><a href="facilityList.do">设备</a></li>
+			<li class="nav-header" id="escapeList"><a href="escapeList.do">逃生楼梯</a></li>
+			<li class="nav-header" id="linePipeList"><a href="linePipeList.do">预埋管线</a></li>
 			<li class="nav-header" id="contactChannelList"><a href="contactChannelList.do">联络通道</a></li>
 			<li class="nav-header" id="workingWellList"><a href="workingWellList.do">工作井</a></li>
 			<li class="nav-header" id="buriedSectionList"><a href="buriedSectionList.do">暗埋段</a></li>

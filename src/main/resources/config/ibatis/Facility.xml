@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="facility" type="com.facility.Facility" />
+	<sql id="facility.columns">
+		id,tunnelId,tunnelSectionId,documentId,scheduleId,name,
+		type,lineType,stakeMileage,position,liningRingId,boxNumber,width,height,constructionUnitId,
+		des,creationDate,modifyDate
+	</sql>
+	<select id="facility.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from facility
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="facility.queryLimitedFacilitys" resultClass="facility">
+		select
+		<include refid="facility.columns" />
+		from facility
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
+	</select>
+	<select id="facility.findByName" resultClass="facility" parameterClass="String">
+		select
+		<include refid="facility.columns" />
+		from facility where name=#name#
+	</select>
+	<select id="facility.findById" resultClass="facility" parameterClass="int">
+		select
+		<include refid="facility.columns" />
+		from facility where id=#id#
+	</select>
+	<insert id="facility.insert" parameterClass="facility">
+		insert into facility (<include refid="facility.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#documentId#,#scheduleId#,#name#,
+		#type#,#lineType#,#stakeMileage#,#position#,#liningRingId#,#boxNumber#,#width#,#height#,#constructionUnitId#,
+		#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="facility.update" parameterClass="facility">
+		update facility set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,documentId=#documentId#,name=#name#,
+		type=#type#,lineType=#lineType#,stakeMileage=#stakeMileage#,position=#position#,
+		liningRingId=#liningRingId#,boxNumber=#boxNumber#,width=#width#,height=#height#,constructionUnitId=#constructionUnitId#,
+		des=#des#,modifyDate=now()
+		where id=#id#
+	</update>
+	<delete id="facility.delete" parameterClass="int">
+		delete from facility
+		where
+		id=#id#
+	</delete>
+</sqlMap>

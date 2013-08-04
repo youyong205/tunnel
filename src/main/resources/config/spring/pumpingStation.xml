@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="pumpingStationDao" class="com.pumpingStation.PumpingStationDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="pumpingStationService" class="com.pumpingStation.PumpingStationServiceImpl">
+		<property name="pumpingStationDao">
+			<ref bean="pumpingStationDao" />
+		</property>
+	</bean>
+	<bean id="pumpingStationAction" class="com.pumpingStation.PumpingStationAction" scope="prototype">
+		<property name="pumpingStationService">
+			<ref bean="pumpingStationService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="scheduleService">
+			<ref bean="scheduleService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+	</bean>
+</beans>  

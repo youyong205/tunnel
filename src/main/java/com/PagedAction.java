@@ -34,25 +34,61 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	private List<String> m_modules = new ArrayList<String>(Arrays.asList(Modules.s_user_model, Modules.s_role_model,
 	      Modules.s_resource_model, Modules.s_log_module, Modules.s_document_model, Modules.s_tunnel_model,
+	      
 	      Modules.s_constructionUnit_model, Modules.s_liningRing_model, Modules.s_tunnelSection_model,
 
-	      Modules.s_contactChannel_model,
-	      Modules.s_contactChannel_inspection_model,
-	      Modules.s_contactChannel_curing_model, //
-	      Modules.s_buriedSection_model, Modules.s_buriedSection_inspection_model,
-	      Modules.s_buriedSection_curing_model, //
-	      Modules.s_openSection_model, Modules.s_openSection_inspection_model,
-	      Modules.s_openSection_curing_model, //
-	      Modules.s_workingWell_model, Modules.s_workingWell_inspection_model,
-	      Modules.s_workingWell_curing_model, //
-	      Modules.s_rectangleComponent_model, Modules.s_rectangleComponent_inspection_model,
-	      Modules.s_rectangleComponent_curing_model, //
+	      Modules.s_contactChannel_model, Modules.s_contactChannel_inspection_model, Modules.s_contactChannel_curing_model, //
+	      
+	      Modules.s_buriedSection_model, Modules.s_buriedSection_inspection_model,Modules.s_buriedSection_curing_model, //
+	     
+	      Modules.s_openSection_model, Modules.s_openSection_inspection_model, Modules.s_openSection_curing_model, //
+	      
+	      Modules.s_workingWell_model, Modules.s_workingWell_inspection_model, Modules.s_workingWell_curing_model, //
+	     
+	      Modules.s_rectangleComponent_model, Modules.s_rectangleComponent_inspection_model, Modules.s_rectangleComponent_curing_model, //
+	      
 	      Modules.s_plank_model, Modules.s_plank_inspection_model, Modules.s_plank_curing_model, //
+	      
 	      Modules.s_bracket_model, Modules.s_bracket_inspection_model, Modules.s_bracket_curing_model, //
+	      
 	      Modules.s_saddleWeight_model, Modules.s_saddleWeight_inspection_model, Modules.s_saddleWeight_curing_model, //
-	      Modules.s_flueSheet_model, Modules.s_flueSheet_inspection_model, Modules.s_flueSheet_curing_model));
+	      
+	      Modules.s_flueSheet_model, Modules.s_flueSheet_inspection_model, Modules.s_flueSheet_curing_model,//
+	      
+	      Modules.s_pumpingStation_model, Modules.s_pumpingStation_inspection_model, Modules.s_pumpingStation_curing_model, //
+	      
+	      Modules.s_escape_model, Modules.s_escape_inspection_model, Modules.s_escape_curing_model, //
+	      
+	      Modules.s_linePipe_model, Modules.s_linePipe_inspection_model, Modules.s_linePipe_curing_model, //
+	      
+	      Modules.s_facility_model, Modules.s_facility_inspection_model, Modules.s_facility_curing_model));
 
-	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Modules.s_contactChannel_model));
+	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(
+	      Modules.s_contactChannel_model,  Modules.s_contactChannel_curing_model, //
+	      
+	      Modules.s_buriedSection_model,Modules.s_buriedSection_curing_model, //
+	      
+	      Modules.s_openSection_model, Modules.s_openSection_curing_model, //
+	      
+	      Modules.s_workingWell_model,  Modules.s_workingWell_curing_model, //
+	     
+	      Modules.s_rectangleComponent_model,  Modules.s_rectangleComponent_curing_model, //
+	      
+	      Modules.s_plank_model, Modules.s_plank_curing_model, //
+	      
+	      Modules.s_bracket_model,  Modules.s_bracket_curing_model, //
+	      
+	      Modules.s_saddleWeight_model,Modules.s_saddleWeight_curing_model, //
+	      
+	      Modules.s_flueSheet_model,Modules.s_flueSheet_curing_model,//
+	      
+	      Modules.s_pumpingStation_model,  Modules.s_pumpingStation_curing_model, //
+	      
+	      Modules.s_escape_model, Modules.s_escape_curing_model, //
+	      
+	      Modules.s_linePipe_model, Modules.s_linePipe_curing_model, //
+	      
+	      Modules.s_facility_model, Modules.s_facility_curing_model));
 
 	public int computeTotalPages(int totalSize) {
 		return (int) Math.ceil(totalSize * 1.0 / SIZE);

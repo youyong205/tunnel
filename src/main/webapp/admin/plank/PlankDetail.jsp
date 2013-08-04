@@ -16,7 +16,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#plankList').addClass("active");
-	$('#plank_role').val("<s:property value="plank.role"/>");
 	$("#form").validate();
 	var type='<s:property value="plank.lineType"/>';
 	$('#lineType').val(type);
@@ -33,7 +32,7 @@ $(document).ready(function() {
       <div class="span10">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='4'><h4 class="text-info text-center">口型构件信息详情</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">编辑车道板信息</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
@@ -59,13 +58,21 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-						<td ><input type="text" size="40" name="plank.name" value="<s:property value="plank.name"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input type="text" size="40" name="plank.name"  readonly value="<s:property value="plank.name"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">车道板类型</strong></td>
-						<td ><input type="text" size="40" name="plank.type"  value="<s:property value="plank.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input type="text" size="40" name="plank.type"  readonly value="<s:property value="plank.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">设计路中</strong></td>
+						<td><input type="text" size="40" name="plank.designPath"  readonly  value="<s:property value="plank.designPath"/>"  class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">设计纵坡</strong></td>
+						<td><input type="text" size="40" name="plank.designLongitudinal"  readonly value="<s:property value="plank.designLongitudinal"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">车道板长度</strong></td>
+						<td><input type="text" size="40" name="plank.length"  readonly value="<s:property value="plank.length"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
-						<td colspan='3'>
+						<td>
 							<select name="plank.lineType" id="lineType">
 								<option value="上行">上行</option>
 								<option value="下行">下行</option>
@@ -73,10 +80,16 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">混凝土强度</strong></td>
+						<td><input type="text" size="40" name="plank.concreteStrength"  readonly value="<s:property value="plank.concreteStrength"/>"  class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">钢筋强度</strong></td>
+						<td><input type="text" size="40" name="plank.reinforcementStrength"  readonly value="<s:property value="plank.reinforcementStrength"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
 						<td style="text-align:right;"><strong class="text-success">开始里程(m)</strong></td>
-						<td><input type="text" name="plank.startPosition" readonly value="<s:property value="plank.startPosition"/>" class="{required:true,number:true}"/></td>
+						<td><input type="text" name="plank.startPosition"  readonly value="<s:property value="plank.startPosition"/>" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">结束里程(m)</strong></td>
-						<td><input type="text" name="plank.endPosition" readonly value="<s:property value="plank.endPosition"/>"  class="{required:true,number:true}"/></td>
+						<td><input type="text" name="plank.endPosition"  readonly value="<s:property value="plank.endPosition"/>"  class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
@@ -85,10 +98,11 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="plank.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="plank.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="plank.document.id"/>"><s:property value="plank.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">车道板简介</strong></td>
 						<td><textarea type="text" rows="5" cols="60" readonly name="plank.des" class="{maxlength:512}"><s:property value="plank.des"/></textarea></td>
 					</tr>
 					</table>

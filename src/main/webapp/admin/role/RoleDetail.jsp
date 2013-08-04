@@ -30,39 +30,43 @@ $(document).ready(function() {
       <div class="span10">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='3'><h4 class="text-info text-center">角色信息</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">角色信息详情</h4></th>
 						<input type="hidden" name="role.id" value="<s:property value="role.id"/>"/>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">用户名</strong></td>
-						<td colspan='2'>
+						<td colspan='3'>
 							<input type="text" size="60" name="role.name" readonly value="<s:property value="role.name"/>"  class="{required:true,maxlength:64}"/>
 						</td>
 					</tr>
 					<s:iterator value="moduleResources" status="vs">
-						<tr >
-							<td width="20%" style="text-align:right;"><strong class="text-success text-right">模块权限</strong></td>
-							<td width="10%" style="text-align:right;"><strong class="text-success text-right"><s:property value="key"/></strong></td>
-							<td width="75%">
+						<s:if test="#vs.index mod 2 ==0">
+							<tr>
+						</s:if>
+							<td style="text-align:right;"><strong class="text-success text-right"><s:property value="key"/></strong></td>
+							<td>
 								<s:iterator value="value.resources">
 									<s:if test="checked == true">
-										<input type="checkbox"  name="resourceIdSelect" checked value='<s:property value="id"/>' id="<s:property value="key"/>_<s:property value="name"/>"/>
+										<input type="checkbox" name="resourceIdSelect" readonly checked value='<s:property value="id"/>' id="<s:property value="key"/>_<s:property value="name"/>"/>
 									</s:if>
 									<s:else>
-										<input type="checkbox"  name="resourceIdSelect" value='<s:property value="id"/>' id="<s:property value="key"/>_<s:property value="name"/>"/>
+										<input type="checkbox" name="resourceIdSelect" readonly value='<s:property value="id"/>' id="<s:property value="key"/>_<s:property value="name"/>"/>
 									</s:else>
-									<label for="<s:property value="key"/>_<s:property value="name"/>"><s:property value="name"/></label>
+										<label for="<s:property value="key"/>_<s:property value="name"/>"><s:property value="name"/></label>
 								</s:iterator>
 							</td>
-						</tr>
+						<s:if test="#vs.index % 2 ==1 ||#vs.last">
+							</tr>
+						</s:if>
 					</s:iterator>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
-						<td colspan='2'><textarea type="text" rows="5" cols="80" readonly name="role.des" class="{maxlength:512}"><s:property value="role.name"/></textarea></td>
+						<td  colspan='3'><textarea type="text" rows="5" cols="80"  readonly name="role.des" class="{maxlength:512}"><s:property value="role.name"/></textarea></td>
 						
 					</tr>
 					</table>
+			</form>
       </div>
     </div>
     <%@include file="./../Foot.jsp"%>

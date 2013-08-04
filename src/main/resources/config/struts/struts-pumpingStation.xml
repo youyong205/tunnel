@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="pumpingStation" extends="default">
+		<action name="pumpingStationList" class="pumpingStationAction" method="pumpingStationList">
+			<result name="success">admin/pumpingStation/PumpingStationList.jsp</result>
+		</action>
+		<action name="pumpingStationAdd"  class="pumpingStationAction" method="pumpingStationAdd">
+			<result name="success">admin/pumpingStation/PumpingStationAdd.jsp</result>
+		</action>
+		<action name="pumpingStationAddSubmit" class="pumpingStationAction" method="pumpingStationAddSubmit">
+			<result name="success" type="redirect">pumpingStationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="pumpingStationUpdate" class="pumpingStationAction" method="pumpingStationUpdate" >
+			<result name="success">admin/pumpingStation/PumpingStationUpdate.jsp</result>
+		</action>
+		<action name="pumpingStationDetail" class="pumpingStationAction" method="pumpingStationUpdate" >
+			<result name="success">admin/pumpingStation/PumpingStationDetail.jsp</result>
+		</action>
+		<action name="pumpingStationUpdateSubmit" class="pumpingStationAction" method="pumpingStationUpdateSubmit">
+			<result name="success" type="redirect">pumpingStationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="pumpingStationDelete" class="pumpingStationAction" method="pumpingStationDelete">
+			<result name="success" type="redirect">pumpingStationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>	
+</struts>

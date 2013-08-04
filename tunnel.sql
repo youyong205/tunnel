@@ -223,6 +223,83 @@ CREATE TABLE `flueSheet` (
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='烟道板基本信息';
 
+CREATE TABLE `pumpingStation`(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `documentId` int(11) NOT NULL COMMENT '设计文档ID',
+  `scheduleId` int(11) NOT NULL COMMENT '进度ID',
+  `name` varchar(64) NOT NULL  COMMENT '编号名称',
+  `type` varchar(64) NOT NULL  COMMENT '泵房类型',
+  `lineType` varchar(64) NOT NULL  COMMENT '线路类型',
+  `stakeMileage` varchar(64) NOT NULL COMMENT '桩号里程',
+  `position`  varchar(64) NOT NULL COMMENT '位置描述',
+  `laneMileage` double NOT NULL COMMENT '车道中心线里程(m)',
+  `shieldMileage` double NOT NULL COMMENT '盾构中心线里程(m)',
+  `absolutEelevation` double NOT NULL COMMENT '+0.000对应绝对标高(m)',
+  `des` varchar(1024) COMMENT '泵房备注',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='泵房基本信息';
+
+CREATE TABLE `escape`(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `documentId` int(11) NOT NULL COMMENT '设计文档ID',
+  `scheduleId` int(11) NOT NULL COMMENT '进度ID',
+  `name` varchar(64) NOT NULL  COMMENT '编号名称',
+  `type` varchar(64) NOT NULL  COMMENT '逃生楼梯类型',
+  `lineType` varchar(64) NOT NULL  COMMENT '线路类型',
+  `stakeMileage` varchar(64) NOT NULL COMMENT '桩号里程',
+  `position`  varchar(64) NOT NULL COMMENT '位置描述',
+  `actualMileage` double NOT NULL COMMENT '实测里程(m)',
+  `des` varchar(1024) COMMENT '逃生楼梯备注',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='逃生楼梯基本信息';
+
+CREATE TABLE `linePipe`(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `documentId` int(11) NOT NULL COMMENT '设计文档ID',
+  `scheduleId` int(11) NOT NULL COMMENT '进度ID',
+  `name` varchar(64) NOT NULL  COMMENT '编号名称',
+  `type` varchar(64) NOT NULL  COMMENT '预埋管线类型',
+  `lineType` varchar(64) NOT NULL  COMMENT '线路类型',
+  `stakeMileage` varchar(64) NOT NULL COMMENT '桩号里程',
+  `position`  varchar(64) NOT NULL COMMENT '位置描述',
+  `des` varchar(1024) COMMENT '预埋管线备注',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='预埋管线基本信息';
+
+CREATE TABLE `facility`(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `documentId` int(11) NOT NULL COMMENT '设计文档ID',
+  `scheduleId` int(11) NOT NULL COMMENT '进度ID',
+  `name` varchar(64) NOT NULL  COMMENT '设备编号名称',
+  `type` varchar(64) NOT NULL  COMMENT '设备类型',
+  `lineType` varchar(64) NOT NULL  COMMENT '线路类型',
+  `stakeMileage` varchar(64) NOT NULL COMMENT '桩号里程',
+  `position`  varchar(64) NOT NULL COMMENT '位置描述',
+  `liningRingId` varchar(64) NOT NULL COMMENT '关联环号',
+  `boxNumber` varchar(64)  NOT NULL COMMENT '箱号',
+  `width` double NOT NULL COMMENT '长度',
+  `height` double NOT NULL COMMENT '高度',
+  `constructionUnitId` double NOT NULL COMMENT '管养单位ID',
+  `des` varchar(1024) COMMENT '设备备注',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='设备基本信息';
+
 CREATE TABLE `document`(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `module` varchar(64) NOT NULL COMMENT '文档模块',

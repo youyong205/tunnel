@@ -31,18 +31,20 @@ $(document).ready(function() {
 			<form action="roleUpdateSubmit.do" id="form" method="post">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='2'><h4 class="text-info text-center">编辑角色信息</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">编辑角色信息</h4></th>
 						<input type="hidden" name="role.id" value="<s:property value="role.id"/>"/>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">用户名</strong></td>
-						<td>
+						<td colspan='3'>
 							<input type="text" size="60" name="role.name" value="<s:property value="role.name"/>"  class="{required:true,maxlength:64}"/>
 						</td>
 					</tr>
 					<s:iterator value="moduleResources" status="vs">
-						<tr >
+						<s:if test="#vs.index mod 2 ==0">
+							<tr>
+						</s:if>
 							<td style="text-align:right;"><strong class="text-success text-right"><s:property value="key"/></strong></td>
 							<td>
 								<s:iterator value="value.resources">
@@ -55,15 +57,17 @@ $(document).ready(function() {
 										<label for="<s:property value="key"/>_<s:property value="name"/>"><s:property value="name"/></label>
 								</s:iterator>
 							</td>
-						</tr>
+						<s:if test="#vs.index % 2 ==1 ||#vs.last">
+							</tr>
+						</s:if>
 					</s:iterator>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="role.des" class="{maxlength:512}"><s:property value="role.name"/></textarea></td>
+						<td  colspan='3'><textarea type="text" rows="5" cols="80"  name="role.des" class="{maxlength:512}"><s:property value="role.name"/></textarea></td>
 						
 					</tr>
 					<tr>
-						<td colspan='2'style="text-align:center;">
+						<td colspan='4'style="text-align:center;">
 							<button  class="btn btn-small btn-primary" type="submit" >提交</button></td>
 					</tr>
 					</table>

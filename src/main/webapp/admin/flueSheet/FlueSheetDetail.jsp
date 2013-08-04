@@ -16,7 +16,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#flueSheetList').addClass("active");
-	$('#flueSheet_role').val("<s:property value="flueSheet.role"/>");
 	$("#form").validate();
 	var type='<s:property value="flueSheet.lineType"/>';
 	$('#lineType').val(type);
@@ -33,7 +32,7 @@ $(document).ready(function() {
       <div class="span10">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='4'><h4 class="text-info text-center">口型构件信息详情</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">烟道板信息</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
@@ -59,9 +58,9 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-						<td ><input type="text" size="40" name="flueSheet.name" value="<s:property value="flueSheet.name"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input type="text" size="40" name="flueSheet.name" readonly value="<s:property value="flueSheet.name"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">烟道板类型</strong></td>
-						<td ><input type="text" size="40" name="flueSheet.type"  value="<s:property value="flueSheet.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input type="text" size="40" name="flueSheet.type"  readonly  value="<s:property value="flueSheet.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
@@ -73,10 +72,16 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">混凝土强度</strong></td>
+						<td><input type="text" size="40" name="flueSheet.concreteStrength" readonly  value="<s:property value="flueSheet.concreteStrength"/>"  class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">钢筋强度</strong></td>
+						<td><input type="text" size="40" name="flueSheet.reinforcementStrength"  readonly  value="<s:property value="flueSheet.reinforcementStrength"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
 						<td style="text-align:right;"><strong class="text-success">开始里程(m)</strong></td>
-						<td><input type="text" name="flueSheet.startPosition" readonly value="<s:property value="flueSheet.startPosition"/>" class="{required:true,number:true}"/></td>
+						<td><input type="text" name="flueSheet.startPosition"  readonly  value="<s:property value="flueSheet.startPosition"/>" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">结束里程(m)</strong></td>
-						<td><input type="text" name="flueSheet.endPosition" readonly value="<s:property value="flueSheet.endPosition"/>"  class="{required:true,number:true}"/></td>
+						<td><input type="text" name="flueSheet.endPosition"  readonly  value="<s:property value="flueSheet.endPosition"/>"  class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
@@ -85,11 +90,12 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="flueSheet.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="flueSheet.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="flueSheet.document.id"/>"><s:property value="flueSheet.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
-						<td><textarea type="text" rows="5" cols="60" readonly name="flueSheet.des" class="{maxlength:512}"><s:property value="flueSheet.des"/></textarea></td>
+						<td style="text-align:right;"><strong class="text-success">烟道板简介</strong></td>
+						<td><textarea type="text" rows="5" cols="60"  readonly  name="flueSheet.des" class="{maxlength:512}"><s:property value="flueSheet.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>

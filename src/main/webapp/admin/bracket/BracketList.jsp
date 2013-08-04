@@ -71,9 +71,9 @@
 					<th width="20%">施工结束时间</th>
 					<th width="10%">设计制作文档</th>
 					<th width="15%">操作
-					<t:privilege res="牛腿模块:新增">
-						<a class="space btn btn-small btn-info" href="bracketAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&index=<s:property value="index"/>" >新增</a>
-					</t:privilege>
+						<t:privilege res="牛腿模块:新增">
+							<a class="space btn btn-small btn-info" href="bracketAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&index=<s:property value="index"/>" >新增</a>
+						</t:privilege>
 					</th>
 				</tr></thead><tbody>
 				<s:iterator value="brackets" status="vs">

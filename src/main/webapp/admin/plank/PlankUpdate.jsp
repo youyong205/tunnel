@@ -16,7 +16,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#plankList').addClass("active");
-	$('#plank_role').val("<s:property value="plank.role"/>");
 	$("#form").validate();
 	var type='<s:property value="plank.lineType"/>';
 	$('#lineType').val(type);
@@ -100,7 +99,9 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="plank.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="plank.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="plank.document.id"/>"><s:property value="plank.document.name"/></a>
+								</br>
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>

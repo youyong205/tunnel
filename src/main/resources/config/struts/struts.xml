@@ -44,6 +44,11 @@
 	<include file="config/struts/struts-saddleWeight.xml"></include>
 	<include file="config/struts/struts-flueSheet.xml"></include>
 	
+	<include file="config/struts/struts-pumpingStation.xml"></include>
+	<include file="config/struts/struts-escape.xml"></include>
+	<include file="config/struts/struts-linePipe.xml"></include>
+	<include file="config/struts/struts-facility.xml"></include>
+	
 	<package name="default" extends="struts-default">
 		<!-- <interceptors> <interceptor name="loginInterceptor" class="com.golf.tools.UserInterceptor"> 
 			</interceptor> <interceptor-stack name="myDefaultStack"> <interceptor-ref 

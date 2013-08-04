@@ -33,7 +33,7 @@ $(document).ready(function() {
       <div class="span10">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='4'><h4 class="text-info text-center">口型构件信息详情</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">牛腿信息详情</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
@@ -59,9 +59,9 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-						<td ><input type="text" size="40" name="bracket.name" value="<s:property value="bracket.name"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input type="text" size="40" name="bracket.name" readonly value="<s:property value="bracket.name"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">牛腿类型</strong></td>
-						<td ><input type="text" size="40" name="bracket.type"  value="<s:property value="bracket.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input type="text" size="40" name="bracket.type" readonly value="<s:property value="bracket.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
@@ -71,6 +71,12 @@ $(document).ready(function() {
 								<option value="下行">下行</option>
 							</select>
 						</td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">混凝土强度</strong></td>
+						<td><input type="text" size="40" name="bracket.concreteStrength" readonly value="<s:property value="bracket.concreteStrength"/>"  class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">钢筋强度</strong></td>
+						<td><input type="text" size="40" name="bracket.reinforcementStrength" readonly value="<s:property value="bracket.reinforcementStrength"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">开始里程(m)</strong></td>
@@ -85,14 +91,15 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="bracket.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="bracket.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="bracket.document.id"/>"><s:property value="bracket.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
-						<td><textarea type="text" rows="5" cols="60" readonly name="bracket.des" class="{maxlength:512}"><s:property value="bracket.des"/></textarea></td>
+						<td style="text-align:right;"><strong class="text-success">牛腿简介</strong></td>
+						<td><textarea type="text" rows="5" cols="60" readonly  name="bracket.des" class="{maxlength:512}"><s:property value="bracket.des"/></textarea></td>
 					</tr>
 					</table>
-					<%@include file="./../schedule/ScheduleDetail.jsp"%>
+					<%@include file="./../schedule/ScheduleUpdate.jsp"%>
 			</form>
       </div>
     </div>

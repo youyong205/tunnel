@@ -116,4 +116,99 @@
 			<ref bean="documentService" />
 		</property>
 	</bean>
+	<bean id="pumpingStationCuringAction" class="com.pumpingStation.PumpingStationCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="pumpingStationService">
+			<ref bean="pumpingStationService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	
+	<bean id="escapeCuringAction" class="com.escape.EscapeCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="escapeService">
+			<ref bean="escapeService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	
+	<bean id="linePipeCuringAction" class="com.linePipe.LinePipeCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="linePipeService">
+			<ref bean="linePipeService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
+	
+	<bean id="facilityCuringAction" class="com.facility.FacilityCuringAction" scope="prototype">
+		<property name="curingService">
+			<ref bean="curingService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="facilityService">
+			<ref bean="facilityService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+	</bean>
 </beans>  

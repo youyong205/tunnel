@@ -101,4 +101,88 @@
 			<ref bean="tunnelSectionService" />
 		</property>
 	</bean>
+	
+	<bean id="pumpingStationInspectionAction" class="com.pumpingStation.PumpingStationInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="pumpingStationService">
+			<ref bean="pumpingStationService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
+	
+	<bean id="escapeInspectionAction" class="com.escape.EscapeInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="escapeService">
+			<ref bean="escapeService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
+	
+	<bean id="linePipeInspectionAction" class="com.linePipe.LinePipeInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="linePipeService">
+			<ref bean="linePipeService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
+	
+	<bean id="facilityInspectionAction" class="com.facility.FacilityInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="facilityService">
+			<ref bean="facilityService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
 </beans>  

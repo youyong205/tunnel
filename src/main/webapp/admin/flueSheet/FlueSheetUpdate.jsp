@@ -16,7 +16,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#flueSheetList').addClass("active");
-	$('#flueSheet_role').val("<s:property value="flueSheet.role"/>");
 	$("#form").validate();
 	var type='<s:property value="flueSheet.lineType"/>';
 	$('#lineType').val(type);
@@ -92,7 +91,9 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="flueSheet.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="flueSheet.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="flueSheet.document.id"/>"><s:property value="flueSheet.document.name"/></a>
+								</br>
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>

@@ -92,7 +92,9 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="bracket.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="bracket.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="bracket.document.id"/>"><s:property value="bracket.document.name"/></a>
+								</br>
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>

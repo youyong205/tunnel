@@ -16,7 +16,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#saddleWeightList').addClass("active");
-	$('#saddleWeight_role').val("<s:property value="saddleWeight.role"/>");
 	$("#form").validate();
 	var type='<s:property value="saddleWeight.lineType"/>';
 	$('#lineType').val(type);
@@ -92,7 +91,9 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="saddleWeight.documentId>0">
-								已经上传附件:&nbsp;<span class='text-error'><s:property value="saddleWeight.document.name"/></span></br>
+								已经上传附件:&nbsp;
+								<a class='text-error' href="documentDownload.do?documentId=<s:property value="saddleWeight.document.id"/>"><s:property value="saddleWeight.document.name"/></a>
+								</br>
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>

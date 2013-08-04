@@ -22,5 +22,17 @@
 		<action name="queryAllPlanks" class="plankAction" method="queryAllPlanks">
 			<result type="json"></result>
 		</action>
+		<action name="queryAllPumpingStations" class="pumpingStationAction" method="queryAllPumpingStations">
+			<result type="json"></result>
+		</action>
+		<action name="queryAllEscapes" class="escapeAction" method="queryAllEscapes">
+			<result type="json"></result>
+		</action>
+		<action name="queryAllLinePipes" class="linePipeAction" method="queryAllLinePipes">
+			<result type="json"></result>
+		</action>
+		<action name="queryAllFacilitys" class="facilityAction" method="queryAllFacilitys">
+			<result type="json"></result>
+		</action>
 	</package>
 </struts>
