@@ -1,16 +1,22 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <table  class="table table-striped table-bordered table-condensed">
 	<tr>	
-		<th colspan='4'><h4 class="text-info text-center"><s:property value="tunnel.name"/> 编辑<s:property value="module"/>质量检测信息</h4></th>
+		<th colspan='4'><h4 class="text-info text-center">编辑<s:property value="module"/>质量检测信息</h4></th>
 		<input type="hidden" name="inspection.id" value="<s:property value="inspection.id"/>" />
 		<input type="hidden" name="index" value="<s:property value="index"/>"/>
 		<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
-		<input type="hidden" name="inspection.tunnelId" value="<s:property value="inspection.tunnelId"/>"/>
 		<input type="hidden" name="inspection.type" value="<s:property value="module"/>"/>
 	</tr>
 	<tr>
+		<td style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+		<td colspan='3'><s:select name="inspection.tunnelId" id="tunnelId" onchange="tunnelChanged()"
+				list="tunnels" listKey="id" listValue="name" value="inspection.tunnelId" theme="simple" >
+			</s:select>
+		</td>
+	</tr>
+	<tr>
 		<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-		<td><s:select name="inspection.componentId" id="id"
+		<td><s:select name="inspection.componentId" id="componentId"
 				list="items" listKey="id" listValue="name"  value="inspection.componentId" theme="simple" >
 		</s:select></td>
 		

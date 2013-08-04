@@ -35,13 +35,13 @@
       		<div class="row-fluid">
       			<div class="span4">
 		      		<t:privilege res="压重块模块:详情">
-						<a href="saddleWeightList.do" class="btn btn-small  btn-primary btn-info">基本信息</a>
+						<a href="saddleWeightList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="压重块质量检测模块:详情">
-	    	  			<a href="saddleWeightInspectionList.do" class="btn btn-small btn-primary btn-success">质量检查</a>
+	    	  			<a href="saddleWeightInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-success">质量检查</a>
 					</t:privilege>
 					<t:privilege res="压重块养护记录模块:详情">
-	      				<a href="saddleWeightCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      				<a href="saddleWeightCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span8">

@@ -35,13 +35,13 @@
       		<div class="row-fluid">
       			<div class="span4">
 		      		<t:privilege res="烟道板模块:详情">
-						<a href="flueSheetList.do" class="btn btn-small  btn-primary btn-info">基本信息</a>
+						<a href="flueSheetList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="烟道板质量检测模块:详情">
-	    	  			<a href="flueSheetInspectionList.do" class="btn btn-small btn-primary btn-success">质量检查</a>
+	    	  			<a href="flueSheetInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-success">质量检查</a>
 					</t:privilege>
 					<t:privilege res="烟道板养护记录模块:详情">
-	      				<a href="flueSheetCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      				<a href="flueSheetCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span8">

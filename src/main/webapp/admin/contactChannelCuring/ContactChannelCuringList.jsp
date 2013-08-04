@@ -34,13 +34,13 @@
 			<div class="row-fluid">
 			    <div class="span6">
 		      		<t:privilege res="联络通道模块:详情">
-					<a href="contactChannelList.do" class="btn btn-small  btn-primary btn-info">基本信息</a>
+					<a href="contactChannelList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="联络通道质量检测模块:详情">
-	    	  		<a href="contactChannelInspectionList.do" class="btn btn-small btn-primary btn-info btn-info" >质量检查</a>
+	    	  		<a href="contactChannelInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info btn-info" >质量检查</a>
 					</t:privilege>
 					<t:privilege res="联络通道养护记录模块:详情">
-	      			<a href="contactChannelCuringList.do" class="btn btn-small  btn-primary btn-success">养护记录</a>
+	      			<a href="contactChannelCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span6"><form class="text-right form-inline margin-buttom" action="contactChannelCuringList.do" method="post">
@@ -48,7 +48,6 @@
 			  <s:select name="tunnelId" id="tunnelId"
 					list="tunnels" listKey="id" listValue="name" value="tunnelId" theme="simple" >
 			  </s:select>
-			  <input type="hidden" name="process" value="true"/>
 			  <button type="submit" class="btn btn-success btn-small">查询</button>
 			</form></div></div>
 			<table class="table table-striped table-bordered table-condensed table-hover">
@@ -88,16 +87,16 @@
 			<div class="pagination text-center">
 			  <ul>
 			  	<li><a href="#">共${totalSize}记录，${totalPages}页</a></li>
-			    <li><a href="?index=1">首页</a></li>
+			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&index=1">首页</a></li>
 				    <s:iterator id="item" value="pageIndexs" >
 				    	<s:if test="${item == index }">
-							<li class="disabled"><a href="?index=${item}">${item}</a></li>
+							<li class="disabled"><a href="?tunnelId=<s:property value="tunnelId"/>&index=${item}">${item}</a></li>
 				    	</s:if>
 				    	<s:else>
-							<li><a href="?index=${item}">${item}</a></li>
+							<li><a href="?tunnelId=<s:property value="tunnelId"/>&index=${item}">${item}</a></li>
 				    	</s:else>
 				    </s:iterator>
-			    <li><a href="?index=${totalPages}">末页</a></li>
+			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&index=${totalPages}">末页</a></li>
 			  </ul>
 			</div>
       </div>

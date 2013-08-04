@@ -35,13 +35,13 @@
       		<div class="row-fluid">
       			<div class="span4">
 		      		<t:privilege res="车道板模块:详情">
-					<a href="plankList.do" class="btn btn-small  btn-primary btn-success">基本信息</a>
+					<a href="plankList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="车道板质量检测模块:详情">
-	    	  		<a href="plankInspectionList.do" class="btn btn-small btn-primary btn-info">质量检查</a>
+	    	  		<a href="plankInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
 					</t:privilege>
 					<t:privilege res="车道板养护记录模块:详情">
-	      			<a href="plankCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      			<a href="plankCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span8">
@@ -103,7 +103,7 @@
 			<div class="pagination text-center">
 			  <ul>
 			  	<li><a href="#">共${totalSize}记录，${totalPages}页</a></li>
-			    <li><a href="?index=1">首页</a></li>
+			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=1">首页</a></li>
 				    <s:iterator id="item" value="pageIndexs" >
 				    	<s:if test="${item == index }">
 							<li class="disabled"><a href="?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=${item}">${item}</a></li>

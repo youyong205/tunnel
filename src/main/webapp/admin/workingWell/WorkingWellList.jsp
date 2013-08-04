@@ -34,13 +34,13 @@
 			<div class="row-fluid">
 				<div class="span6">
 		      		<t:privilege res="工作井模块:详情">
-					<a href="workingWellList.do" class="btn btn-small  btn-primary btn-success">基本信息</a>
+					<a href="workingWellList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="工作井质量检测模块:详情">
-	    	  		<a href="workingWellInspectionList.do" class="btn btn-small btn-primary btn-info">质量检查</a>
+	    	  		<a href="workingWellInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
 					</t:privilege>
 					<t:privilege res="工作井养护记录模块:详情">
-	      			<a href="workingWellCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      			<a href="workingWellCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div><div class="span6"><form class="text-right form-inline margin-buttom" action="workingWellList.do" method="post">
 			  隧道

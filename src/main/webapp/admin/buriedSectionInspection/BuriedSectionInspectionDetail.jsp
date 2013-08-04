@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#inspectionList').addClass("active");
+	$('#buriedSectionList').addClass("active");
 	$('#inspection_role').val("<s:property value="inspection.role"/>");
 	$("#form").validate();
 });

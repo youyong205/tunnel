@@ -13,10 +13,11 @@
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/bootstrap.datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/buriedSection.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#buriedSectionCuringList').addClass("active");
+	$('#buriedSectionList').addClass("active");
 	$("#form").validate();
 	$('#datetimepicker1').datetimepicker();
 	$('#datetimepicker2').datetimepicker();

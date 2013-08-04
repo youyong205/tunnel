@@ -13,10 +13,11 @@
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/bootstrap.datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/contactChannel.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#contactChannelInspectionList').addClass("active");
+	$('#contactChannelList').addClass("active");
 	$("#form").validate();
 	$('#datetimepicker1').datetimepicker();
 	$('#datetimepicker2').datetimepicker();

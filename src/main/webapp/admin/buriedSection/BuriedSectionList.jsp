@@ -34,13 +34,13 @@
 			<div class="row-fluid">
 				<div class="span6">
 		      		<t:privilege res="暗埋段模块:详情">
-					<a href="buriedSectionList.do" class="btn btn-small  btn-primary btn-success">基本信息</a>
+					<a href="buriedSectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="暗埋段质量检测模块:详情">
-	    	  		<a href="buriedSectionInspectionList.do" class="btn btn-small btn-primary btn-info">质量检查</a>
+	    	  		<a href="buriedSectionInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
 					</t:privilege>
 					<t:privilege res="暗埋段养护记录模块:详情">
-	      			<a href="buriedSectionCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      			<a href="buriedSectionCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span6"><form class="text-right form-inline margin-buttom" action="buriedSectionList.do" method="post">

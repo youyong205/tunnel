@@ -14,8 +14,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#curingList').addClass("active");
-	$('#curing_role').val("<s:property value="curing.role"/>");
+	$('#buriedSectionList').addClass("active");
 	$("#form").validate();
 });
 </script>

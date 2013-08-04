@@ -33,13 +33,13 @@
       <div class="span10"> 
 			<div class="row-fluid"><div class="span6">
 		      		<t:privilege res="敞开段模块:详情">
-					<a href="openSectionList.do" class="btn btn-small  btn-primary btn-info ">基本信息</a>
+					<a href="openSectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info ">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="敞开段质量检测模块:详情">
-	    	  		<a href="openSectionInspectionList.do" class="btn btn-small btn-primary btn-success">质量检查</a>
+	    	  		<a href="openSectionInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-success">质量检查</a>
 					</t:privilege>
 					<t:privilege res="敞开段养护记录模块:详情">
-	      			<a href="openSectionCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      			<a href="openSectionCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span6"><form class="text-right form-inline margin-buttom" action="openSectionInspectionList.do" method="post">
@@ -87,16 +87,16 @@
 			<div class="pagination text-center">
 			  <ul>
 			  	<li><a href="#">共${totalSize}记录，${totalPages}页</a></li>
-			    <li><a href="?index=1">首页</a></li>
+			    <li><a href="?index=1&tunnelId=<s:property value="tunnelId"/>">首页</a></li>
 				    <s:iterator id="item" value="pageIndexs" >
 				    	<s:if test="${item == index }">
-							<li class="disabled"><a href="?index=${item}">${item}</a></li>
+							<li class="disabled"><a href="?index=${item}&tunnelId=<s:property value="tunnelId"/>">${item}</a></li>
 				    	</s:if>
 				    	<s:else>
-							<li><a href="?index=${item}">${item}</a></li>
+							<li><a href="?index=${item}&tunnelId=<s:property value="tunnelId"/>">${item}</a></li>
 				    	</s:else>
 				    </s:iterator>
-			    <li><a href="?index=${totalPages}">末页</a></li>
+			    <li><a href="?index=${totalPages}&tunnelId=<s:property value="tunnelId"/>">末页</a></li>
 			  </ul>
 			</div>
       </div>

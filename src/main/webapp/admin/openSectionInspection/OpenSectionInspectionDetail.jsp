@@ -14,8 +14,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#inspectionList').addClass("active");
-	$('#inspection_role').val("<s:property value="inspection.role"/>");
+	$('#openSectionList').addClass("active");
 	$("#form").validate();
 });
 </script>

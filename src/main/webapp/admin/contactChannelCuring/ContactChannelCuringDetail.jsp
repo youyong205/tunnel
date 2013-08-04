@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#curingList').addClass("active");
+	$('#contactChannelList').addClass("active");
 	$('#curing_role').val("<s:property value="curing.role"/>");
 	$("#form").validate();
 });

@@ -42,7 +42,7 @@ public abstract class InspectionAction extends PagedAction {
 
 	@Autowired
 	protected TunnelService m_tunnelService;
-	
+
 	@Autowired
 	protected TunnelSectionService m_tunnelSectionService;
 
@@ -226,7 +226,9 @@ public abstract class InspectionAction extends PagedAction {
 	}
 
 	protected void validateTunnelId() {
-		m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
 	}
 
 	public int getParentTunnelSectionId() {
@@ -242,12 +244,12 @@ public abstract class InspectionAction extends PagedAction {
 	}
 
 	public List<TunnelSection> getTunnelSections() {
-   	return m_tunnelSections;
-   }
+		return m_tunnelSections;
+	}
 
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
-   	m_tunnelSectionService = tunnelSectionService;
-   }
+		m_tunnelSectionService = tunnelSectionService;
+	}
 
 	public static class Item {
 

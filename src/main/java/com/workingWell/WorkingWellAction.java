@@ -143,6 +143,16 @@ public class WorkingWellAction extends ScheduledAction {
 			return ERROR;
 		}
 	}
+	
+	public String queryWorkingWellListsByTunnelId() {
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+
+		m_workingWells = m_workingWellService.queryLimitedWorkingWellsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		return SUCCESS;
+	}
+
 
 	public String workingWellList() {
 		Authority auth = checkAuthority(buildResource(Modules.s_workingWell_model, Operation.s_operation_detail));

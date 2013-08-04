@@ -34,5 +34,17 @@
 		<action name="queryAllFacilitys" class="facilityAction" method="queryAllFacilitys">
 			<result type="json"></result>
 		</action>
+		<action name="queryContactChannelListsByTunnelId" class="contactChannelAction" method="queryContactChannelListsByTunnelId">
+			<result type="json"></result>
+		</action>
+		<action name="queryWorkingWellListsByTunnelId" class="workingWellAction" method="queryWorkingWellListsByTunnelId">
+			<result type="json"></result>
+		</action>
+		<action name="queryOpenSectionListsByTunnelId" class="openSectionAction" method="queryOpenSectionListsByTunnelId">
+			<result type="json"></result>
+		</action>
+		<action name="queryBuriedSectionListsByTunnelId" class="buriedSectionAction" method="queryBuriedSectionListsByTunnelId">
+			<result type="json"></result>
+		</action>
 	</package>
 </struts>

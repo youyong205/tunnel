@@ -99,6 +99,15 @@ public class BuriedSectionAction extends ScheduledAction {
 		}
 	}
 
+	public String queryBuriedSectionListsByTunnelId() {
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+
+		m_buriedSections = m_buriedSectionService.queryLimitedBuriedSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		return SUCCESS;
+	}
+
 	public String buriedSectionList() {
 		Authority auth = checkAuthority(buildResource(Modules.s_buriedSection_model, Operation.s_operation_detail));
 		if (auth != null) {

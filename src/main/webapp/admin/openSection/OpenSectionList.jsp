@@ -34,13 +34,13 @@
       	<div class="row-fluid">
       		 <div class="span6">
 		      		<t:privilege res="敞开段模块:详情">
-					<a href="openSectionList.do" class="btn btn-small  btn-primary btn-success">基本信息</a>
+					<a href="openSectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="敞开段质量检测模块:详情">
-	    	  		<a href="openSectionInspectionList.do" class="btn btn-small btn-primary btn-info">质量检查</a>
+	    	  		<a href="openSectionInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
 					</t:privilege>
 					<t:privilege res="敞开段养护记录模块:详情">
-	      			<a href="openSectionCuringList.do" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      			<a href="openSectionCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span6"><form class="text-right form-inline margin-buttom" action="openSectionList.do" method="post">
@@ -107,7 +107,7 @@
 			</div>
       </div>
     </div>
-    <%@include file="./../Foot.jsp"%>
   </div>
+    <%@include file="./../Foot.jsp"%>
 </body>
 </html>

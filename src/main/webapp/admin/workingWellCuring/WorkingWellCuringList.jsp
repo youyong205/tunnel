@@ -34,13 +34,13 @@
 			<div class="row-fluid">
 				<div class="span6">
 		      		<t:privilege res="工作井模块:详情">
-					<a href="workingWellList.do" class="btn btn-small  btn-primary btn-info">基本信息</a>
+					<a href="workingWellList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="工作井质量检测模块:详情">
-	    	  		<a href="workingWellInspectionList.do" class="btn btn-small btn-primary btn-info">质量检查</a>
+	    	  		<a href="workingWellInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
 					</t:privilege>
 					<t:privilege res="工作井养护记录模块:详情">
-	      			<a href="workingWellCuringList.do" class="btn btn-small  btn-primary btn-success">养护记录</a>
+	      			<a href="workingWellCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">养护记录</a>
       				</t:privilege>
       			</div><div class="span6"><form class="text-right form-inline margin-buttom" action="workingWellCuringList.do" method="post">
 			  隧道
@@ -87,16 +87,16 @@
 			<div class="pagination text-center">
 			  <ul>
 			  	<li><a href="#">共${totalSize}记录，${totalPages}页</a></li>
-			    <li><a href="?index=1">首页</a></li>
+			    <li><a href="?index=1&tunnelId=<s:property value="tunnelId"/>">首页</a></li>
 				    <s:iterator id="item" value="pageIndexs" >
 				    	<s:if test="${item == index }">
-							<li class="disabled"><a href="?index=${item}">${item}</a></li>
+							<li class="disabled"><a href="?index=${item}&tunnelId=<s:property value="tunnelId"/>">${item}</a></li>
 				    	</s:if>
 				    	<s:else>
-							<li><a href="?index=${item}">${item}</a></li>
+							<li><a href="?index=${item}&tunnelId=<s:property value="tunnelId"/>">${item}</a></li>
 				    	</s:else>
 				    </s:iterator>
-			    <li><a href="?index=${totalPages}">末页</a></li>
+			    <li><a href="?index=${totalPages}&tunnelId=<s:property value="tunnelId"/>">末页</a></li>
 			  </ul>
 			</div>
       </div>

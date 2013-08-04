@@ -98,6 +98,15 @@ public class ContactChannelAction extends ScheduledAction {
 			return ERROR;
 		}
 	}
+	
+	public String queryContactChannelListsByTunnelId() {
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+
+		m_contactChannels = m_contactChannelService.queryLimitedContactChannelsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		return SUCCESS;
+	}
 
 	public String contactChannelList() {
 		Authority auth = checkAuthority(buildResource(Modules.s_contactChannel_model, Operation.s_operation_detail));
