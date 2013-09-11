@@ -31,11 +31,12 @@
       <%@include file="./../Menu.jsp"%>
       <div class="span10"> 
       		<form class="text-right form-inline margin-buttom" action="documentList.do" method="post">
-			  模块
+			  <strong>模块</strong>
 			  <s:select name="module" id="module"
-						list="documentModules"  value="module" theme="simple" >
-				 </s:select>
-			  名称<input type="text" name="name" size="30" value='<s:property value="name"/>'/>
+			  			headerKey="" headerValue ="_ALL"
+ 						list="documentModules"  value="module" theme="simple" >
+			  </s:select>
+			  <strong>名称</strong><input type="text" name="name" size="30" value='<s:property value="name"/>'/>
 			  <button type="submit" class="btn btn-success btn-small">查询</button>
 			</form>
 			<table class="table table-striped table-bordered table-condensed table-hover">
@@ -58,9 +59,7 @@
 						<t:privilege res="工程文档模块:详情">
 							<a class="btn btn-small btn-primary" href="documentUpdate.do?documentId=<s:property value="id"/>">详情</a>
 						</t:privilege>
-						<t:privilege res="工程文档模块:下载">
-							<a class="btn btn-small btn-primary" href="documentDownload.do?documentId=<s:property value="id"/>">下载</a>
-						</t:privilege>
+						<a class="btn btn-small btn-primary" href="documentDownload.do?documentId=<s:property value="id"/>">下载</a>
 					</td>
 					</tr>
 				</s:iterator></tbody>

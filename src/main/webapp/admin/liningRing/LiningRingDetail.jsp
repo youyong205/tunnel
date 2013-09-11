@@ -55,8 +55,12 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">楔形量</strong></td>
 						<td><input type="text" size="30" name="liningRing.wedgeNumber" readonly  class="{required:true,digits:true}"  value="<s:property value="liningRing.wedgeNumber"/>"/></td>
+						<td style="text-align:right;"><strong class="text-success">环初始偏移角度</strong></td>
+						<td><input type="text" size="30" name="liningRing.angle" class="{required:true,digits:true}" value="<s:property value="liningRing.angle"/>"/></td>
+					</tr>
+					<tr>
 						<td style="text-align:right;"><strong class="text-success">描述</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="liningRing.des"  readonly class="{maxlength:512}"><s:property value="liningRing.des"/></textarea></td>
+						<td colspan='3'><textarea type="text" rows="5" cols="60"  name="liningRing.des"  readonly class="{maxlength:512}"><s:property value="liningRing.des"/></textarea></td>
 					</tr>
 						</tbody>
 				</table>

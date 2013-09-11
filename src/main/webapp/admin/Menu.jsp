@@ -5,22 +5,22 @@
 			<li class="nav-header" id="tunnelList"><a href="tunnelList.do">隧道信息</a></li>
 			<li class="nav-header" id="constructionUnitList"><a href="constructionUnitList.do">工程单位</a></li>
 			<li class="nav-header" id="liningRingList"><a href="liningRingList.do">衬砌环</a></li>
-			<li class="nav-header" id="tunnelSectionList"><a href="tunnelSectionList.do">盾构道段</a></li>
-			<li class="nav-header"  id="tunnelSectionList"><a href="tunnelSectionList.do">衬砌环施工</a></li>
+			<li class="nav-header" id="tunnelSectionList"><a href="tunnelSectionList.do">盾构段</a></li>
+			<li class="nav-header"  id="tunnelSectionList"><a href="tunnelSectionList.do??tunnelId=<s:property value="tunnelId"/>">衬砌环施工</a></li>
 			<li class="nav-header" >同步构件</li>
-			<li id="rectangleComponentList"><a href="rectangleComponentList.do">口型构件</a></li>
-			<li id="plankList"><a href="plankList.do">车道板</a></li>
-			<li id="bracketList"><a href="bracketList.do">牛腿</a></li>
-			<li id="saddleWeightList"><a href="saddleWeightList.do">压重块</a></li>
-			<li id="flueSheetList"><a href="flueSheetList.do">烟道板</a></li>
-			<li class="nav-header" id="pumpingStationList"><a href="pumpingStationList.do">泵房</a></li>
-			<li class="nav-header" id="facilityList"><a href="facilityList.do">设备</a></li>
-			<li class="nav-header" id="escapeList"><a href="escapeList.do">逃生楼梯</a></li>
-			<li class="nav-header" id="linePipeList"><a href="linePipeList.do">预埋管线</a></li>
-			<li class="nav-header" id="contactChannelList"><a href="contactChannelList.do">联络通道</a></li>
-			<li class="nav-header" id="workingWellList"><a href="workingWellList.do">工作井</a></li>
-			<li class="nav-header" id="buriedSectionList"><a href="buriedSectionList.do">暗埋段</a></li>
-			<li class="nav-header" id="openSectionList"><a href="openSectionList.do">敞开段</a></li>
+			<li id="rectangleComponentList"><a href="rectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>">口型构件</a></li>
+			<li id="plankList"><a href="plankList.do?tunnelId=<s:property value="tunnelId"/>">车道板</a></li>
+			<li id="bracketList"><a href="bracketList.do?tunnelId=<s:property value="tunnelId"/>">牛腿</a></li>
+			<li id="saddleWeightList"><a href="saddleWeightList.do?tunnelId=<s:property value="tunnelId"/>">压重块</a></li>
+			<li id="flueSheetList"><a href="flueSheetList.do?tunnelId=<s:property value="tunnelId"/>">烟道板</a></li>
+			<li class="nav-header" id="pumpingStationList"><a href="pumpingStationList.do?tunnelId=<s:property value="tunnelId"/>">泵房</a></li>
+			<li class="nav-header" id="facilityList"><a href="facilityList.do?tunnelId=<s:property value="tunnelId"/>">设备</a></li>
+			<li class="nav-header" id="escapeList"><a href="escapeList.do?tunnelId=<s:property value="tunnelId"/>">逃生楼梯</a></li>
+			<li class="nav-header" id="linePipeList"><a href="linePipeList.do?tunnelId=<s:property value="tunnelId"/>">预埋管线</a></li>
+			<li class="nav-header" id="contactChannelList"><a href="contactChannelList.do?tunnelId=<s:property value="tunnelId"/>">联络通道</a></li>
+			<li class="nav-header" id="workingWellList"><a href="workingWellList.do?tunnelId=<s:property value="tunnelId"/>">工作井</a></li>
+			<li class="nav-header" id="buriedSectionList"><a href="buriedSectionList.do?tunnelId=<s:property value="tunnelId"/>">暗埋段</a></li>
+			<li class="nav-header" id="openSectionList"><a href="openSectionList.do?tunnelId=<s:property value="tunnelId"/>">敞开段</a></li>
 			<li class="nav-header" id="documentList"><a href="documentList.do">工程文档</a></li>
 			<li class="nav-header">系统管理</li>
 			<li id="userList"><a href="userList.do">用户管理</a></li>

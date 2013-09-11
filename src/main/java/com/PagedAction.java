@@ -23,7 +23,7 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	protected int m_index = 1;
 
-	protected static final int SIZE = 5;
+	protected static final int SIZE = 20;
 
 	public static final int s_half_size = 3;
 

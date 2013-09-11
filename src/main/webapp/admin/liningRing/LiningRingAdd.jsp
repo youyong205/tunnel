@@ -56,8 +56,12 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">楔形量</strong></td>
 						<td><input type="text" size="30" name="liningRing.wedgeNumber" class="{required:true,digits:true}"/></td>
+						<td style="text-align:right;"><strong class="text-success">环初始偏移角度</strong></td>
+						<td><input type="text" size="30" name="liningRing.angle" class="{required:true,number:true}"/></td>
+					</tr>
+					<tr>
 						<td style="text-align:right;"><strong class="text-success">描述</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="liningRing.des" class="{maxlength:512}"></textarea></td>
+						<td colspan='3'><textarea type="text" rows="5" cols="60"  name="liningRing.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					</tbody>
 					</table>
@@ -75,7 +79,7 @@ $(document).ready(function() {
 							<td width="5%"style="text-align:right;"><strong class="text-success">颜色</strong></td>
 							<td width="20%"><input type="text" size="10" name="blocks[0].color" required/></td>
 							<td width="5%" style="text-align:right;"><strong class="text-success">描述</strong></td>
-							<td width="15%"><textarea type="text" rows="3" cols="40"  name="blocks[0].des" class="{maxlength:512}"></textarea></td>
+							<td width="15%"><textarea type="text" rows="3" cols="30"  name="blocks[0].des" class="{maxlength:512}"></textarea></td>
 							<td width="5%"><a href="javascript:removeBlock('block0')" class="btn btn-small btn-danger">删除</a></td>
 						</tr></tbody>
 					</table>
@@ -90,7 +94,7 @@ $(document).ready(function() {
 					<td width="5%"  style="text-align:right;"><strong class="text-success">颜色</strong></td>
 					<td width="20%" ><input type="text" size="10" name="blocks[0].color" required/></td>
 					<td width="5%"  style="text-align:right;"><strong class="text-success">描述</strong></td>
-					<td width="15%" ><textarea type="text" rows="3" cols="40"  name="blocks[0].des" class="{maxlength:512}"></textarea></td>
+					<td width="15%" ><textarea type="text" rows="3" cols="30"  name="blocks[0].des" class="{maxlength:512}"></textarea></td>
 					<td width="5%" ><a href="javascript:removeBlock('block0')" class="btn btn-small btn-danger">删除</a></td>
 				</tr>
 			</table>

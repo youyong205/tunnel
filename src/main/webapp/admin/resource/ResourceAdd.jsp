@@ -50,7 +50,6 @@ $(document).ready(function() {
 								<option value="新增">新增</option>
 								<option value="编辑">编辑</option>
 								<option value="删除">删除</option>
-								<option value="下载">下载</option>
 							</select>
 						</td>
 					</tr>

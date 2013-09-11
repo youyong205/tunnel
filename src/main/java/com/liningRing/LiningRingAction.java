@@ -19,6 +19,8 @@ public class LiningRingAction extends PagedAction {
 
 	private List<LiningRing> m_liningRings;
 
+	private List<LiningRingGraph> m_lingRingGraphs;
+
 	private int m_liningRingId;
 
 	private LiningRingService m_liningRingService;
@@ -30,9 +32,9 @@ public class LiningRingAction extends PagedAction {
 	private List<LiningRingBlock> m_blocks = new ArrayList<LiningRingBlock>();
 
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_liningRing_model;
-   }
+	}
 
 	public List<LiningRingBlock> getBlocks() {
 		return m_blocks;
@@ -46,7 +48,7 @@ public class LiningRingAction extends PagedAction {
 		return m_liningRings;
 	}
 
-	public String liningRingAdd(){
+	public String liningRingAdd() {
 		return SUCCESS;
 	}
 
@@ -78,7 +80,7 @@ public class LiningRingAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String liningRingDelete() {
 		Authority auth = checkAuthority(buildResource(Modules.s_liningRing_model, Operation.s_operation_detail));
 		if (auth != null) {
@@ -115,6 +117,13 @@ public class LiningRingAction extends PagedAction {
 				start = 0;
 			}
 			m_liningRings = m_liningRingService.queryLimitedLiningRings(start, SIZE);
+			m_lingRingGraphs = new ArrayList<LiningRingGraph>();
+
+			for (LiningRing ring : m_liningRings) {
+				List<LiningRingBlock> liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(ring.getId());
+				
+				m_lingRingGraphs.add(new LiningRingGraph(ring.getAngle()).addBlocksInfo(liningRingBlocks));
+			}
 			return SUCCESS;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
@@ -188,5 +197,8 @@ public class LiningRingAction extends PagedAction {
 		m_liningRingService = liningRingService;
 	}
 
+	public List<LiningRingGraph> getLingRingGraphs() {
+		return m_lingRingGraphs;
+	}
 
 }

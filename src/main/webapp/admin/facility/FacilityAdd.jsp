@@ -73,7 +73,11 @@ $(document).ready(function() {
 							</select>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">管养单位ID</strong></td>
-						<td><input type="text" size="40" name="facility.constructionUnitId" class="{required:true,number:true}"/></td>
+						<td>
+							<s:select name="facility.constructionUnitId" id="id"
+									list="constructionUnits" listKey="id" listValue="name"  theme="simple" >
+							</s:select>
+						</td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">关联环号</strong></td>

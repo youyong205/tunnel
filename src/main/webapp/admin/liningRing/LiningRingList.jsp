@@ -2,15 +2,21 @@
 <%@ taglib prefix="s" uri="/WEB-INF/tld/struts-tags.tld"%>
 <%@ taglib prefix="t" uri="/WEB-INF/tld/struts-privilege.tld"%>
 
-<!DOCTYPE html><html>
+<!DOCTYPE html>
 <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>软土盾构隧道后台管理系统</title>
-
 <link rel="stylesheet" type='text/css' href="css/bootstrap.min.css" >
 <link rel='stylesheet' type='text/css' href='css/admin.css' />
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="chart/raphael-min.js" type="text/javascript"></script>
+<script src="chart/venus.js" type="text/javascript"></script>
+<script src="chart/common.js" type="text/javascript"></script>
+<script src="chart/customevent.js" type="text/javascript"></script>
+<script src="chart/svgchart_rebuild.js" type="text/javascript"></script>
+<script src="chart/pie.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -18,6 +24,28 @@
 		$(".delete").bind("click", function() {
 			return confirm("确定要删除此分类吗(不可恢复)？");
 		});
+	    
+	    <s:iterator  value="lingRingGraphs" status="vs">
+		    var graph = <s:property value="gsonString" escape="false"/>;
+		    var _angle = graph.angle;
+		    var _data = graph.blocks;
+	   		var _opt = {
+		        pie:{
+		            animation:"simultaneous",
+		            hollow: 80,
+		            showText:false,
+		            rotate: _angle,
+		            duration:2000,
+		            stroke:{
+		                'stroke-width':2,
+		                'stroke':'#dfdfdf'
+		            },
+		            radius:100
+		        },
+		        legend:{}
+		    };
+		    new Venus.SvgChart("pie<s:property value="#vs.index"/>", _data, _opt);
+	    </s:iterator>
 	});
 </script>
 </head>
@@ -31,20 +59,20 @@
       <div class="span10"> 
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
-					<th width="5%">序号</th>
-					<th width="25%">类型</th>
-					<th width="55%">名称</th>
-					<th width="15%">操作
+					<th colspan='4' style="text-align:right;padding-right:15px;">操作
 						<t:privilege res="衬砌环模块:新增">
 						<a class="space btn btn-small btn-info" href="liningRingAdd.do?index=<s:property value="index"/>" >新增</a>
 						</t:privilege>
 					</th>
 				</tr></thead><tbody>
 				<s:iterator value="liningRings" status="vs">
-					<tr>
-					<td><s:property value='#vs.index+1'/></td>
-					<td><s:property value="type" /></td>
-					<td><s:property value="name" /></td>
+					<s:if test="#vs.odd == true">
+						<tr>
+					</s:if>
+					<td>
+						<div>【<s:property value="type"/>】<s:property value="name"/></div>
+						<div style="width:400px; height: 250px;" id="pie<s:property value="#vs.index"/>"></div>
+					</td>
 					<td>
 						<t:privilege res="衬砌环模块:详情">
 						<a class="btn btn-small btn-success" href="liningRingDetail.do?liningRingId=<s:property value="id"/>&index=<s:property value="index"/>">详情</a>
@@ -55,8 +83,10 @@
 						<t:privilege res="衬砌环模块:删除">
 						<a class="delete btn  btn-small btn-danger" href="liningRingDelete.do?liningRingId=<s:property value="id"/>&index=<s:property value="index"/>">删除</a>
 						</t:privilege>
-						</td>
-					</tr>
+					</td>
+					<s:if test="#vs.even ==true  || vs.last">
+						</tr>
+					</s:if>
 				</s:iterator></tbody>
 			</table>
 			<div class="pagination text-center">

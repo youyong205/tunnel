@@ -4,7 +4,7 @@
 	<typeAlias alias="liningRing" type="com.liningRing.LiningRing" />
 	<sql id="liningRing.columns">
 		id,name,type,pipeShape,pipeNumber,pipeThickness,pipeWidth,
-		wedgeNumber,des,creationDate,modifyDate
+		wedgeNumber,angle,des,creationDate,modifyDate
 	</sql>
 	<select id="liningRing.queryAllLiningRings" resultClass="liningRing">
 		select
@@ -32,7 +32,7 @@
 	<insert id="liningRing.insert" parameterClass="liningRing">
 		insert into liningRing (<include refid="liningRing.columns" />) values
 		(#id#,#name#,#type#,#pipeShape#,#pipeNumber#,#pipeThickness#,#pipeWidth#,
-		#wedgeNumber#,#des#,now(),now())
+		#wedgeNumber#,#angle#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
@@ -41,7 +41,7 @@
 		update liningRing set
 		name=#name#,type=#type#,pipeShape=#pipeShape#,pipeNumber=#pipeNumber#,
 		pipeThickness=#pipeThickness#,pipeWidth=#pipeWidth#,
-		wedgeNumber=#wedgeNumber#,des=#des#,modifyDate=now()
+		wedgeNumber=#wedgeNumber#,angle=#angle#,des=#des#,modifyDate=now()
 		where id=#id#
 	</update>
 	<delete id="liningRing.delete" parameterClass="int">

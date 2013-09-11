@@ -6,12 +6,13 @@ function addBlock() {
 	var tr = $('#block').html();
 	var trHtml = "<tr class='block' id='block0'>" + tr + "</tr>";
 	var maxId = findMaxIndex();
+	
+	console.log(maxId+"=======");
 	var newId = "block"+maxId;
 	var newIteratorId="["+maxId+"]";
 	trHtml = trHtml.replaceAll("block0",newId);
 	trHtml = trHtml.replaceAll("\\[0\\]",newIteratorId);
 	$('#blockTable').append(trHtml);
-	findMaxIndex();
 }
 
 function findMaxIndex() {

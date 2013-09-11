@@ -12,7 +12,9 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
+import com.Authority;
 import com.Modules;
+import com.Operation;
 import com.PagedAction;
 
 public class DocumentAction extends PagedAction {
@@ -35,17 +37,17 @@ public class DocumentAction extends PagedAction {
 
 	private InputStream m_inputStream;
 
-	public static String s_file = "默认文件名";
-
-	public static String s_context_type = "text/plain";
-
-
 	public String documentDownload() {
 		m_document = m_documentService.findByPK(m_documentId);
 		if (m_document != null) {
 			try {
 				String path = m_document.getPath();
 				String absolutePath = m_document.getAbsolutePath();
+				String module = m_document.getModule();
+				Authority auth = checkAuthority(buildResource(module, Operation.s_operation_detail));
+				if (auth != null) {
+					return auth.getName();
+				}
 				File file = new File(absolutePath);
 
 				if (!file.exists()) {
@@ -54,7 +56,7 @@ public class DocumentAction extends PagedAction {
 					m_inputStream = new FileInputStream(file);
 				}
 			} catch (Exception e) {
-				m_inputStream = new ByteArrayInputStream("Struts 2 下载示例".getBytes());
+				m_inputStream = new ByteArrayInputStream("The file is not existed.".getBytes());
 			}
 		}
 		return SUCCESS;
@@ -91,15 +93,15 @@ public class DocumentAction extends PagedAction {
 	}
 
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_document_model;
-   }
+	}
 
 	public String getContextType() {
 		if (m_document != null) {
 			return m_document.getType();
 		}
-		return s_context_type;
+		return "text/plain";
 	}
 
 	public Document getDocument() {
@@ -125,7 +127,7 @@ public class DocumentAction extends PagedAction {
 			}
 			return name;
 		}
-		return s_file;
+		return "Default File";
 	}
 
 	public InputStream getInputStream() throws Exception {
@@ -155,7 +157,7 @@ public class DocumentAction extends PagedAction {
 	public void setModule(String module) {
 		m_module = module;
 	}
-	
+
 	public void setName(String name) {
 		m_name = name;
 	}

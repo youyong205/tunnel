@@ -8,7 +8,7 @@
 	<tr>
 		<td style="text-align:right;"><strong class="text-success">选择施工单位</strong></td>
 		<td colspan='3'>
-			 <s:select name="schedule.constructionUnitId" id="id"
+			<s:select name="schedule.constructionUnitId" id="id"
 					list="constructionUnits" listKey="id" listValue="name"  theme="simple" >
 			</s:select>
 		</td>

@@ -20,6 +20,8 @@ public class LiningRing {
 
 	private int m_wedgeNumber;
 
+	private double m_angle;
+	
 	private String m_des;
 
 	private Date m_creationDate;
@@ -113,6 +115,14 @@ public class LiningRing {
 	public void setWedgeNumber(int wedgeNumber) {
 		m_wedgeNumber = wedgeNumber;
 	}
+	
+	public double getAngle() {
+   	return m_angle;
+   }
+
+	public void setAngle(double angle) {
+   	m_angle = angle;
+   }
 
 	@Override
    public String toString() {

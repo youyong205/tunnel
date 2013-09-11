@@ -70,6 +70,7 @@ CREATE TABLE  `liningRing` (
   `pipeNumber`  int(11) NOT NULL COMMENT '管片数量',
   `pipeThickness`  double NOT NULL COMMENT '管片厚度(m)',
   `pipeWidth`  double NOT NULL COMMENT '管片宽度(m)',
+  `angle`  double NOT NULL COMMENT '初始偏移角度',
   `wedgeNumber`  int(11) NOT NULL COMMENT '楔形量',
   `des` varchar(1024) COMMENT '衬砌环描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
@@ -100,7 +101,7 @@ CREATE TABLE `tunnelSection`(
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='隧道盾构段信息';
 
-CREATE TABLE `tunnelSectionConstruction`(
+CREATE TABLE `liningRingConstruction`(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
   `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
@@ -116,16 +117,13 @@ CREATE TABLE `tunnelSectionConstruction`(
   `planeDeviation` varchar(64) NOT NULL  COMMENT '管片平面偏差',
   `elevationDeviation` varchar(64) NOT NULL  COMMENT '管片高程偏差',
   `gaps` varchar(1024) NOT NULL  COMMENT '管片间隙',
-  
-
   `positionAngle` double NOT NULL COMMENT '横径（m）',
   `positionAngle` double NOT NULL COMMENT '竖径（m）',
-
   `des` varchar(1024) COMMENT '衬砌环施工简介',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='盾构段衬砌环信息';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='盾构段衬砌环施工信息';
 
 CREATE TABLE `rectangleComponent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
