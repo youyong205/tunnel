@@ -57,6 +57,7 @@ CREATE TABLE  `log` (
 CREATE TABLE  `tunnel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL  COMMENT '隧道名称',
+  `type` varchar(64) NOT NULL  COMMENT '隧道类型',
   `des` varchar(1024) NOT NULL COMMENT '隧道简介',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
@@ -106,24 +107,59 @@ CREATE TABLE `liningRingConstruction`(
   `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
   `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
   `liningRingId` int(11) NOT NULL COMMENT '衬砌环ID',
+  `name` varchar(64) NOT NULL  COMMENT '衬砌环编号',
+  `lineType` varchar(64) NOT NULL  COMMENT '线路类型',
   `startPosition` double NOT NULL COMMENT '开始里程(m)',
   `endPosition` double NOT NULL COMMENT '结束里程(m)',
   `positionAngle` double NOT NULL COMMENT '管片拼装定位角(°)',
-  `workers` varchar(64) NOT NULL  COMMENT '施工人员',
-  `time` datetime NOT NULL COMMENT '施工时间',
+  `scheduleId` int(11) NOT NULL COMMENT '施工进度ID',
   `computingStaff` varchar(64) NOT NULL  COMMENT '计算人员',
   `inspectors` varchar(64) NOT NULL  COMMENT '检查人员',
   `surveyors` varchar(64) NOT NULL  COMMENT '测量人员',
   `planeDeviation` varchar(64) NOT NULL  COMMENT '管片平面偏差',
   `elevationDeviation` varchar(64) NOT NULL  COMMENT '管片高程偏差',
-  `gaps` varchar(1024) NOT NULL  COMMENT '管片间隙',
-  `positionAngle` double NOT NULL COMMENT '横径（m）',
-  `positionAngle` double NOT NULL COMMENT '竖径（m）',
+  `gapUp` varchar(64) NOT NULL  COMMENT '管片间隙上',
+  `gapDown` varchar(64) NOT NULL  COMMENT '管片间隙下',
+  `gapLeft` varchar(64) NOT NULL  COMMENT '管片间隙左',
+  `gapRight` varchar(64) NOT NULL  COMMENT '管片间隙右',
+  `gap1` varchar(64) NOT NULL  COMMENT '管片间隙1',
+  `gap2` varchar(64) NOT NULL  COMMENT '管片间隙2',
+  `gap3` varchar(64) NOT NULL  COMMENT '管片间隙3',
+  `gap4` varchar(64) NOT NULL  COMMENT '管片间隙4',
+  `gap5` varchar(64) NOT NULL  COMMENT '管片间隙5',
+  `gap6` varchar(64) NOT NULL  COMMENT '管片间隙6',
+  `gap7` varchar(64) NOT NULL  COMMENT '管片间隙7',
+  `gap8` varchar(64) NOT NULL  COMMENT '管片间隙8',
+  `diameter` double NOT NULL COMMENT '横径（m）',
+  `verticalDiameter` double NOT NULL COMMENT '竖径（m）',
+  `leftUp` varchar(64) NOT NULL  COMMENT '左上',
+  `leftDown` varchar(64) NOT NULL  COMMENT '左下',
+  `rightUp` varchar(64) NOT NULL  COMMENT '右上',
+  `rightDown` varchar(64) NOT NULL  COMMENT '右下',
   `des` varchar(1024) COMMENT '衬砌环施工简介',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='盾构段衬砌环施工信息';
+
+CREATE TABLE `liningRingDeformation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `liningRingConstructionId` int(11) NOT NULL COMMENT '衬砌环ID',
+  `measuringPoing` varchar(64) NOT NULL COMMENT '测点',
+  `value` double NOT NULL COMMENT '变形测量值',
+  `changeValue` double NOT NULL COMMENT '变形变化值',
+  `cumulativeValue` double NOT NULL COMMENT '累计变化值',
+  `date` datetime NOT NULL COMMENT '测量时间',
+  `des` varchar(1024) COMMENT '简介',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_date` (`date`),
+  KEY `ix_tunnel_section_liningRingConstruction` (`tunnelId`,`tunnelSectionId`,`liningRingConstructionId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='衬砌环变形检测信息';
 
 CREATE TABLE `rectangleComponent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -139,7 +175,8 @@ CREATE TABLE `rectangleComponent` (
   `des` varchar(1024) COMMENT '口型构建描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='口型构件基本信息';
 
 CREATE TABLE `plank`(
@@ -161,7 +198,8 @@ CREATE TABLE `plank`(
   `des` varchar(1024) COMMENT '车道板描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车道板基本信息';
 
 CREATE TABLE `bracket` (
@@ -180,7 +218,8 @@ CREATE TABLE `bracket` (
   `des` varchar(1024) COMMENT '牛腿描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='牛腿基本信息';
 
 CREATE TABLE `saddleWeight` (
@@ -199,7 +238,8 @@ CREATE TABLE `saddleWeight` (
   `des` varchar(1024) COMMENT '压重块描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='压重块基本信息';
 
 CREATE TABLE `flueSheet` (
@@ -218,7 +258,8 @@ CREATE TABLE `flueSheet` (
   `des` varchar(1024) COMMENT '烟道板描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='烟道板基本信息';
 
 CREATE TABLE `pumpingStation`(
@@ -238,7 +279,8 @@ CREATE TABLE `pumpingStation`(
   `des` varchar(1024) COMMENT '泵房备注',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='泵房基本信息';
 
 CREATE TABLE `escape`(
@@ -256,7 +298,8 @@ CREATE TABLE `escape`(
   `des` varchar(1024) COMMENT '逃生楼梯备注',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='逃生楼梯基本信息';
 
 CREATE TABLE `linePipe`(
@@ -273,7 +316,8 @@ CREATE TABLE `linePipe`(
   `des` varchar(1024) COMMENT '预埋管线备注',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='预埋管线基本信息';
 
 CREATE TABLE `facility`(
@@ -295,7 +339,8 @@ CREATE TABLE `facility`(
   `des` varchar(1024) COMMENT '设备备注',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel_section` (`tunnelId`,`tunnelSectionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='设备基本信息';
 
 CREATE TABLE `document`(
@@ -326,7 +371,8 @@ CREATE TABLE `contactChannel`(
   `des` varchar(1024) COMMENT '联络通道描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel` (`tunnelId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='联络通道基本信息';
 
 CREATE TABLE `workingWell`(
@@ -346,7 +392,8 @@ CREATE TABLE `workingWell`(
   `des` varchar(1024) COMMENT '联络通道描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel` (`tunnelId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='工作井基本信息';
 
 CREATE TABLE `buriedSection`(
@@ -369,7 +416,8 @@ CREATE TABLE `buriedSection`(
   `des` varchar(1024) COMMENT '暗埋段描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel` (`tunnelId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='暗埋段基本信息';
 
 CREATE TABLE `openSection`(
@@ -391,7 +439,8 @@ CREATE TABLE `openSection`(
   `des` varchar(1024) COMMENT '敞开段描述',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ix_tunnel` (`tunnelId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='敞开段基本信息';
 
 CREATE TABLE `constructionUnit`(
@@ -434,7 +483,7 @@ CREATE TABLE `inspection`(
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`),
-  KEY `ix_tunnel_type_componentId` (`tunnelId`,`type`,`componentId`)
+  KEY `ix_tunnel_section_type` (`tunnelId`,`tunnelSectionId`,`type`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='隧道质量检测基本信息';
 
 CREATE TABLE `curing`(
@@ -452,7 +501,7 @@ CREATE TABLE `curing`(
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`),
-  KEY `ix_tunnel_type_componentId` (`tunnelId`,`type`,`componentId`)
+  KEY `ix_tunnel_section_type` (`tunnelId`,`tunnelSectionId`,`type`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='隧道养护基本信息';
 
 

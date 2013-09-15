@@ -102,4 +102,8 @@ public class Modules {
 
 	public static String s_facility_curing_model = "设备养护记录模块";
 
+	public static String s_liningRingConstruction_model = "衬砌环施工模块";
+
+	public static String s_liningRingDeformation_model ="衬砌环变形检测模块";
+
 }

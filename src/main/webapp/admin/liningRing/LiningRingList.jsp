@@ -69,11 +69,11 @@
 					<s:if test="#vs.odd == true">
 						<tr>
 					</s:if>
-					<td>
-						<div>【<s:property value="type"/>】<s:property value="name"/></div>
-						<div style="width:400px; height: 250px;" id="pie<s:property value="#vs.index"/>"></div>
+					<td width="45%">
+						<div>【<s:property value="type"/>】<span class='text-error'><s:property value="name"/></span></div>
+						<div style="width:450px; height: 250px;" id="pie<s:property value="#vs.index"/>"></div>
 					</td>
-					<td>
+					<td width="5%">
 						<t:privilege res="衬砌环模块:详情">
 						<a class="btn btn-small btn-success" href="liningRingDetail.do?liningRingId=<s:property value="id"/>&index=<s:property value="index"/>">详情</a>
 						</t:privilege>

@@ -61,7 +61,9 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	      
 	      Modules.s_linePipe_model, Modules.s_linePipe_inspection_model, Modules.s_linePipe_curing_model, //
 	      
-	      Modules.s_facility_model, Modules.s_facility_inspection_model, Modules.s_facility_curing_model));
+	      Modules.s_facility_model, Modules.s_facility_inspection_model, Modules.s_facility_curing_model,//
+	      
+			Modules.s_liningRingConstruction_model , Modules.s_liningRingDeformation_model));
 
 	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(
 	      Modules.s_contactChannel_model,  Modules.s_contactChannel_curing_model, //

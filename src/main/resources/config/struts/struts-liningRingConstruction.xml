@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="liningRingConstruction" extends="default">
+		<action name="liningRingConstructionList" class="liningRingConstructionAction" method="liningRingConstructionList">
+			<result name="success">admin/liningRingConstruction/LiningRingConstructionList.jsp</result>
+		</action>
+		<action name="liningRingConstructionAdd"  class="liningRingConstructionAction" method="liningRingConstructionAdd">
+			<result name="success">admin/liningRingConstruction/LiningRingConstructionAdd.jsp</result>
+		</action>
+		<action name="liningRingConstructionAddSubmit" class="liningRingConstructionAction" method="liningRingConstructionAddSubmit">
+			<result name="success" type="redirect">liningRingConstructionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="liningRingConstructionUpdate" class="liningRingConstructionAction" method="liningRingConstructionUpdate" >
+			<result name="success">admin/liningRingConstruction/LiningRingConstructionUpdate.jsp</result>
+		</action>
+		<action name="liningRingConstructionDetail" class="liningRingConstructionAction" method="liningRingConstructionUpdate" >
+			<result name="success">admin/liningRingConstruction/LiningRingConstructionDetail.jsp</result>
+		</action>
+		<action name="liningRingConstructionUpdateSubmit" class="liningRingConstructionAction" method="liningRingConstructionUpdateSubmit">
+			<result name="success" type="redirect">liningRingConstructionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="liningRingConstructionDelete" class="liningRingConstructionAction" method="liningRingConstructionDelete">
+			<result name="success" type="redirect">liningRingConstructionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+	</package>	
+</struts>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="liningRingConstructionDao" class="com.liningRingConstruction.LiningRingConstructionDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="liningRingConstructionService" class="com.liningRingConstruction.LiningRingConstructionServiceImpl">
+		<property name="liningRingConstructionDao">
+			<ref bean="liningRingConstructionDao" />
+		</property>
+	</bean>
+	<bean id="liningRingConstructionAction" class="com.liningRingConstruction.LiningRingConstructionAction" scope="prototype">
+		<property name="liningRingConstructionService">
+			<ref bean="liningRingConstructionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="scheduleService">
+			<ref bean="scheduleService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="liningRingService">
+			<ref bean="liningRingService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+	</bean>
+</beans>  

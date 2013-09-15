@@ -8,6 +8,8 @@ public class Tunnel {
 
 	private String m_name;
 
+	private String m_type;
+	
 	private String m_des;
 	
 	private Date m_creationDate;
@@ -42,6 +44,14 @@ public class Tunnel {
 
 	public void setName(String name) {
    	m_name = name;
+   }
+	
+	public String getType() {
+   	return m_type;
+   }
+
+	public void setType(String type) {
+   	m_type = type;
    }
 
 	@Override

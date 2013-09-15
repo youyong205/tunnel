@@ -31,10 +31,11 @@
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10"> 
-			<table class="table table-striped table-bordered table-condensed table-hover">
+		<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="80%">名称</th>
+					<th width="20%">类型</th>
+					<th width="60%">名称</th>
 					<th width="15%">操作
 					<t:privilege res="隧道模块:新增">
 						<a class="space btn btn-small btn-info" href="tunnelAdd.do?index=<s:property value="index"/>" >新增</a>
@@ -44,6 +45,11 @@
 				<s:iterator value="tunnels" status="vs">
 					<tr>
 					<td><s:property value='#vs.index+1'/></td>
+					<td>
+						<s:if test="type==1">地铁隧道</s:if>
+						<s:elseif test="type==2">道路隧道</s:elseif>
+						<s:elseif test="type==3">市政隧道</s:elseif>
+					</td>
 					<td><s:property value="name" /></td>
 					<td>
 					<t:privilege res="隧道模块:详情">

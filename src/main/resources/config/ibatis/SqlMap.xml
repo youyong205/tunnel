@@ -34,4 +34,7 @@
 		<sqlMap resource="config/ibatis/Escape.xml"/>
 		<sqlMap resource="config/ibatis/LinePipe.xml"/>
 		<sqlMap resource="config/ibatis/Facility.xml"/>
+		
+		<sqlMap resource="config/ibatis/LiningRingConstruction.xml"/>
+		<sqlMap resource="config/ibatis/LiningRingDeformation.xml"/>
 </sqlMapConfig>

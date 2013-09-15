@@ -49,6 +49,9 @@
 	<include file="config/struts/struts-linePipe.xml"></include>
 	<include file="config/struts/struts-facility.xml"></include>
 	
+	<include file="config/struts/struts-liningRingConstruction.xml"></include>
+	<include file="config/struts/struts-liningRingDeformation.xml"></include>
+	
 	<package name="default" extends="struts-default">
 		<!-- <interceptors> <interceptor name="loginInterceptor" class="com.golf.tools.UserInterceptor"> 
 			</interceptor> <interceptor-stack name="myDefaultStack"> <interceptor-ref 

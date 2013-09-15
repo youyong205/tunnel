@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="liningRingDeformationDao" class="com.liningRingDeformation.LiningRingDeformationDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="liningRingDeformationService" class="com.liningRingDeformation.LiningRingDeformationServiceImpl">
+		<property name="liningRingDeformationDao">
+			<ref bean="liningRingDeformationDao" />
+		</property>
+	</bean>
+	<bean id="liningRingDeformationAction" class="com.liningRingDeformation.LiningRingDeformationAction" scope="prototype">
+		<property name="liningRingConstructionService">
+			<ref bean="liningRingConstructionService" />
+		</property>
+		<property name="liningRingDeformationService">
+			<ref bean="liningRingDeformationService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="liningRingService">
+			<ref bean="liningRingService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
+</beans>  

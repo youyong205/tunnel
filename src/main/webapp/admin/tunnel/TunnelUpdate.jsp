@@ -15,7 +15,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#tunnelList').addClass("active");
-	$('#tunnel_role').val("<s:property value="tunnel.role"/>");
+	$('#type').val("<s:property value="tunnel.type"/>");
 	$("#form").validate();
 });
 </script>
@@ -38,6 +38,16 @@ $(document).ready(function() {
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">名称</strong></td>
 						<td><input type="text" size="60" name="tunnel.name" value="<s:property value='tunnel.name'/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">类型</strong></td>
+						<td>
+							<select name="tunnel.type" id="type">
+								<option value="1">地铁隧道</option>
+								<option value="2">道路隧道</option>
+								<option value="3">市政隧道</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">简介</strong></td>

@@ -7,6 +7,9 @@
 		<action name="queryAllTunnelSections" class="tunnelSectionAction" method="queryAllTunnelSections">
 			<result type="json"></result>
 		</action>
+		<action name="queryAllLiningRingConstruction" class="liningRingConstructionAction" method="queryAllLiningRingConstruction">
+			<result type="json"></result>
+		</action>
 		<action name="queryAllRectangleComponents" class="rectangleComponentAction" method="queryAllRectangleComponents">
 			<result type="json"></result>
 		</action>

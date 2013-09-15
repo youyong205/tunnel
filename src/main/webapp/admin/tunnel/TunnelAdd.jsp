@@ -39,6 +39,16 @@ $(document).ready(function() {
 						<td><input type="text" size="60" name="tunnel.name" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">类型</strong></td>
+						<td>
+							<select name="tunnel.type">
+								<option value="1">地铁隧道</option>
+								<option value="2">道路隧道</option>
+								<option value="3">市政隧道</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">简介</strong></td>
 						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des" class="{maxlength:512}"></textarea></td>
 					</tr>

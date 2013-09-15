@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="liningRingConstruction" type="com.liningRingConstruction.LiningRingConstruction" />
+	<sql id="liningRingConstruction.columns">
+		id,tunnelId,tunnelSectionId,liningRingId,lineType,name,startPosition,endPosition,
+		positionAngle,scheduleId,computingStaff,
+		inspectors,surveyors,planeDeviation,elevationDeviation,gapUp,gapDown,gapLeft,
+		gapRight,gap1,gap2,gap3,gap4,gap5,gap6,gap7,gap8,diameter,verticalDiameter,
+		leftUp,leftDown,rightUp,rightDown,des,creationDate,modifyDate
+	</sql>
+	<select id="liningRingConstruction.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from liningRingConstruction
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="liningRingConstruction.queryLimitedLiningRingConstructions" resultClass="liningRingConstruction">
+		select
+		<include refid="liningRingConstruction.columns" />
+		from liningRingConstruction
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
+	</select>
+	<select id="liningRingConstruction.findByName" resultClass="liningRingConstruction" parameterClass="String">
+		select
+		<include refid="liningRingConstruction.columns" />
+		from liningRingConstruction where name=#name#
+	</select>
+	<select id="liningRingConstruction.findById" resultClass="liningRingConstruction" parameterClass="int">
+		select
+		<include refid="liningRingConstruction.columns" />
+		from liningRingConstruction where id=#id#
+	</select>
+	<insert id="liningRingConstruction.insert" parameterClass="liningRingConstruction">
+		insert into liningRingConstruction (<include refid="liningRingConstruction.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingId#,#lineType#,#name#,#startPosition#,
+		#endPosition#,#positionAngle#,#scheduleId#,#computingStaff#,#inspectors#,
+		#surveyors#,#planeDeviation#,
+		#elevationDeviation#,#gapUp#,#gapDown#,#gapLeft#,#gapRight#,#gap1#,#gap2#,
+		#gap3#,#gap4#,#gap5#,#gap6#,#gap7#,#gap8#,#diameter#,#verticalDiameter#,
+		#leftUp#,#leftDown#,#rightUp#,#rightDown#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="liningRingConstruction.update" parameterClass="liningRingConstruction">
+		update liningRingConstruction set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingId=#liningRingId#,
+		name=#name#,startPosition=#startPosition#,endPosition=#endPosition#,positionAngle=#positionAngle#,
+		lineType=#lineType#,
+		computingStaff=#computingStaff#,inspectors=#inspectors#,surveyors=#surveyors#,
+		planeDeviation=#planeDeviation#,elevationDeviation=#elevationDeviation#,gapUp=#gapUp#,
+		gapDown=#gapDown#,gapLeft=#gapLeft#,gapRight=#gapRight#,gap1=#gap1#,gap2=#gap2#,gap3=#gap3#,
+		gap4=#gap4#,gap5=#gap5#,gap6=#gap6#,gap7=#gap7#,gap8=#gap8#,diameter=#diameter#,
+		verticalDiameter=#verticalDiameter#,leftUp=#leftUp#,leftDown=#leftDown#,rightUp=#rightUp#,
+		rightDown=#rightDown#,des=#des#,modifyDate=now() where id=#id#
+	</update>
+	<delete id="liningRingConstruction.delete" parameterClass="int">
+		delete from liningRingConstruction
+		where
+		id=#id#
+	</delete>
+</sqlMap>

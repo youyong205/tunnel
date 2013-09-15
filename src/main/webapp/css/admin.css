@@ -58,7 +58,7 @@ select{
 }
 
 .nav li  +.nav-header{
-	margin-top:2px;
+	margin-top:1px;
 }
 .nav-header{
 	padding:3px 3px;
@@ -67,10 +67,10 @@ select{
 	padding:10px 10px 10px 19px;
 }
 .row-fluid .span2 {
-	width: 11%;
+	width: 8%;
 }
 .row-fluid .span10 {
-	width: 86%;
+	width: 89%;
 }
 label{
 	display:inline;
@@ -116,5 +116,17 @@ label.valid {
 	padding:0px 10px;
 }
 .nav-header {
-	padding: 0px 3px;
+	padding: 0px 8px 0px 0px;
+}
+.nav .nav-child{
+	font-weight:bold;
+	font-size:13px;
+}
+.span10{
+	padding-top:10px;
+}
+.fixed{
+	position: fixed;
+	left: 22px;
+	top: 45px;
 }

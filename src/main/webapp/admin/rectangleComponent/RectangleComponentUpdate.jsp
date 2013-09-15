@@ -44,7 +44,7 @@ $(document).ready(function() {
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
 						<td width="35%">
 							<s:select name="rectangleComponent.tunnelId" id="tunnelId"
-								onchange="tunnelChanged()" 
+								onchange="tunnelChangedExcluedeAll()" 
 								list="tunnels" listKey="id" listValue="name" 
 								value="rectangleComponent.tunnelId" theme="simple" >
 							</s:select>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="liningRingDeformation" extends="default">
+		<action name="liningRingDeformationList" class="liningRingDeformationAction" method="liningRingDeformationList">
+			<result name="success">admin/liningRingDeformation/LiningRingDeformationList.jsp</result>
+		</action>
+		<action name="liningRingDeformationAdd"  class="liningRingDeformationAction" method="liningRingDeformationAdd">
+			<result name="success">admin/liningRingDeformation/LiningRingDeformationAdd.jsp</result>
+		</action>
+		<action name="liningRingDeformationAddSubmit" class="liningRingDeformationAction" method="liningRingDeformationAddSubmit">
+			<result name="success" type="redirect">liningRingDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="liningRingDeformationUpdate" class="liningRingDeformationAction" method="liningRingDeformationUpdate" >
+			<result name="success">admin/liningRingDeformation/LiningRingDeformationUpdate.jsp</result>
+		</action>
+		<action name="liningRingDeformationDetail" class="liningRingDeformationAction" method="liningRingDeformationUpdate" >
+			<result name="success">admin/liningRingDeformation/LiningRingDeformationDetail.jsp</result>
+		</action>
+		<action name="liningRingDeformationUpdateSubmit" class="liningRingDeformationAction" method="liningRingDeformationUpdateSubmit">
+			<result name="success" type="redirect">liningRingDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="liningRingDeformationDelete" class="liningRingDeformationAction" method="liningRingDeformationDelete">
+			<result name="success" type="redirect">liningRingDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="liningRingDeformationBatchDelete" class="liningRingDeformationAction" method="liningRingDeformationBatchDelete">
+			<result name="success" type="redirect">liningRingDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>
