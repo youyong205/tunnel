@@ -18,6 +18,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#liningRingMeasureList').addClass('active');
+		$('#liningRingDeformationList').removeClass("btn-info");
+		$('#liningRingDeformationList').addClass("btn-success");
 		$(".delete").bind("click", function() {
 			return confirm("确定要删除此分类吗(不可恢复)？");
 		});
@@ -32,18 +34,7 @@
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10"> 
-      		<div>
-      			<div>
-					<a href="liningRingDeformationList.do?tunnel=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">变形</a>
-					<a href="" class="btn btn-small  btn-primary btn-info">沉降</a>
-					<a href="" class="btn btn-small  btn-primary btn-info">渗漏水</a>
-					<a href="" class="btn btn-small  btn-primary btn-info">混凝土退化</a>
-					<a href="" class="btn btn-small  btn-primary btn-info">接缝张开</a>
-					<a href="" class="btn btn-small  btn-primary btn-info">错台错缝</a>
-					<a href="" class="btn btn-small  btn-primary btn-info">裂缝</a>
-					<a href="" class="btn btn-small  btn-primary btn-info">锈蚀</a>
-	      		</div>
-      		</div>
+     		<%@include file="./../MeasuringHeader.jsp"%>
       		<div class="row-fluid">
       			<div class="span12">
       				<form class="text-right form-inline margin-buttom" action="liningRingDeformationList.do" method="post">
@@ -79,16 +70,14 @@
 					<th width="5%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
 					<th width="5%">序号</th>
 					<th width="30%">检测时间</th>
-					<th width="10%">测点</th>
-					<th width="10%">测量值</th>
-					<th width="10%">变化值</th>
-					<th width="10%">累计变化值</th>
+					<th width="20%">测点</th>
+					<th width="20%">测量值</th>
 					<th width="20%">
-					<t:privilege res="衬砌环变形检测模块:新增">
+					<t:privilege res="衬砌环横断面变形检测模块:新增">
 						<a class="btn btn-small btn-info" href="liningRingDeformationAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>" >新增</a>
-						<a class="btn btn-small btn-info" href="liningRingDeformationAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>" >导入</a>
+						<a class="btn btn-small btn-info" href="liningRingDeformationBatchAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>" >导入</a>
 					</t:privilege>
-					<t:privilege res="衬砌环变形检测模块:删除">
+					<t:privilege res="衬砌环横断面变形检测模块:删除">
 						<button  class="btn btn-small btn-danger" type="submit">批量删除</button></td>
 					</t:privilege>
 					</th>
@@ -100,16 +89,14 @@
 					<td><s:date name="date" format="yyyy-MM-dd"/></td>
 					<td><s:property value='measuringPoing'/></td>
 					<td><s:property value='value'/></td>
-					<td><s:property value='changeValue'/></td>
-					<td><s:property value='cumulativeValue'/></td>
 					<td>
-					<t:privilege res="衬砌环变形检测模块:详情">
+					<t:privilege res="衬砌环横断面变形检测模块:详情">
 						<a class="btn btn-small btn-success" href="liningRingDeformationDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingDeformationId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>
 					</t:privilege>
-					<t:privilege res="衬砌环变形检测模块:编辑">
+					<t:privilege res="衬砌环横断面变形检测模块:编辑">
 						<a class="btn btn-small btn-primary" href="liningRingDeformationUpdate.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingDeformationId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">编辑</a>
 					</t:privilege>
-					<t:privilege res="衬砌环变形检测模块:删除">
+					<t:privilege res="衬砌环横断面变形检测模块:删除">
 						<a class="delete btn  btn-small btn-danger" href="liningRingDeformationDelete.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingDeformationId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">删除</a>
 					</t:privilege>
 					</td>

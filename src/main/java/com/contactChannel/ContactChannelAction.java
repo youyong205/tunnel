@@ -99,15 +99,6 @@ public class ContactChannelAction extends ScheduledAction {
 		}
 	}
 	
-	public String queryContactChannelListsByTunnelId() {
-		if (m_tunnelId == 0) {
-			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
-		}
-
-		m_contactChannels = m_contactChannelService.queryLimitedContactChannelsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
-		return SUCCESS;
-	}
-
 	public String contactChannelList() {
 		Authority auth = checkAuthority(buildResource(Modules.s_contactChannel_model, Operation.s_operation_detail));
 		if (auth != null) {
@@ -226,6 +217,15 @@ public class ContactChannelAction extends ScheduledAction {
 
 	public List<Tunnel> getTunnels() {
 		return m_tunnels;
+	}
+
+	public String queryContactChannelListsByTunnelId() {
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+
+		m_contactChannels = m_contactChannelService.queryLimitedContactChannelsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		return SUCCESS;
 	}
 
 	public void setContactChannel(ContactChannel contactChannel) {

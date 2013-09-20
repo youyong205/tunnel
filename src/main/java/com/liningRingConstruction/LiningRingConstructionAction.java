@@ -46,7 +46,7 @@ public class LiningRingConstructionAction extends ScheduledAction {
 	private List<TunnelSection> m_tunnelSections;
 
 	private List<LiningRing> m_liningRings;
-
+	
 	@Override
 	public String getActionModule() {
 		return Modules.s_liningRingConstruction_model;
@@ -60,16 +60,28 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		return m_liningRingConstructions;
 	}
 
+	public List<LiningRing> getLiningRings() {
+		return m_liningRings;
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public int getTunnelId() {
 		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
 	}
 
 	public int getTunnelSectionId() {
 		return m_tunnelSectionId;
 	}
 
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
 	}
 
 	public String liningRingConstructionAdd() {
@@ -132,20 +144,6 @@ public class LiningRingConstructionAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllLiningRingConstructions() {
-		m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
-		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
-	}
-
-	public String queryAllLiningRingConstruction() {
-		m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
-		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
 	}
 
 	public String liningRingConstructionList() {
@@ -233,6 +231,20 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		}
 	}
 
+	public String queryAllLiningRingConstruction() {
+		m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
+	}
+
+	public String queryAllLiningRingConstructions() {
+		m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
+	}
+
 	public void setLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
 		m_liningRingConstruction = liningRingConstruction;
 	}
@@ -243,6 +255,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
 		m_liningRingConstructionService = liningRingConstructionService;
+	}
+
+	public void setLiningRingService(LiningRingService liningRingService) {
+		m_liningRingService = liningRingService;
 	}
 
 	public void setTunnelId(int tunnelId) {
@@ -259,22 +275,6 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
-	}
-
-	public List<LiningRing> getLiningRings() {
-		return m_liningRings;
-	}
-
-	public void setLiningRingService(LiningRingService liningRingService) {
-		m_liningRingService = liningRingService;
 	}
 
 }

@@ -1,14 +1,23 @@
 package com.liningRingDeformation;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import jxl.Cell;
+import jxl.CellType;
+import jxl.DateCell;
+import jxl.Sheet;
+import jxl.Workbook;
 
 import org.apache.log4j.Logger;
 
 import com.Authority;
+import com.BatchInsertResult;
+import com.FileUploadAction;
 import com.Modules;
 import com.Operation;
-import com.PagedAction;
 import com.liningRing.LiningRing;
 import com.liningRing.LiningRingService;
 import com.liningRingConstruction.LiningRingConstruction;
@@ -19,7 +28,7 @@ import com.tunnel.TunnelService;
 import com.tunnelSection.TunnelSection;
 import com.tunnelSection.TunnelSectionService;
 
-public class LiningRingDeformationAction extends PagedAction {
+public class LiningRingDeformationAction extends FileUploadAction {
 
 	private static final long serialVersionUID = 2802256599554299998L;
 
@@ -55,11 +64,66 @@ public class LiningRingDeformationAction extends PagedAction {
 
 	private List<LiningRingConstruction> m_liningRingConstructions;
 
+	private SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 	private int[] m_deleteId = new int[SIZE];
+
+	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
+
+	private LiningRingDeformation convert(Cell[] cells) {
+		try {
+			LiningRingDeformation defarmation = new LiningRingDeformation();
+			String name = cells[0].getContents();
+			Date date = null;
+			if (cells[1].getType() == CellType.DATE) {
+				DateCell dateCell = (DateCell) cells[1];
+				date = dateCell.getDate();
+			} else {
+				date = m_sdf.parse(cells[1].getContents());
+			}
+			String measuringPoing = cells[2].getContents();
+			double value = Double.parseDouble(cells[3].getContents());
+			String des = "";
+
+			if (cells.length > 4) {
+				des = cells[4].getContents();
+			}
+
+			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
+
+			if (construction != null) {
+				defarmation.setTunnelId(construction.getTunnelId());
+				defarmation.setTunnelSectionId(construction.getTunnelSectionId());
+				defarmation.setLiningRingConstructionId(construction.getId());
+				defarmation.setDate(date);
+				defarmation.setMeasuringPoing(measuringPoing);
+				defarmation.setValue(value);
+				defarmation.setDes(des);
+				return defarmation;
+			}
+		} catch (ArrayIndexOutOfBoundsException e) {
+		} catch (Exception e) {
+			m_logger.error(e);
+		}
+
+		return null;
+	}
 
 	@Override
 	public String getActionModule() {
 		return Modules.s_liningRingDeformation_model;
+	}
+
+	public BatchInsertResult getBatchInsertResult() {
+		return m_batchInsertResult;
+	}
+
+	public int getLiningRingConstructionId() {
+		return m_liningRingConstructionId;
+	}
+
+	public List<LiningRingConstruction> getLiningRingConstructions() {
+		return m_liningRingConstructions;
 	}
 
 	public LiningRingDeformation getLiningRingDeformation() {
@@ -70,16 +134,28 @@ public class LiningRingDeformationAction extends PagedAction {
 		return m_liningRingDeformations;
 	}
 
+	public List<LiningRing> getLiningRings() {
+		return m_liningRings;
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public int getTunnelId() {
 		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
 	}
 
 	public int getTunnelSectionId() {
 		return m_tunnelSectionId;
 	}
 
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
 	}
 
 	public String liningRingDeformationAdd() {
@@ -121,6 +197,48 @@ public class LiningRingDeformationAction extends PagedAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
+	}
+
+	public String liningRingDeformationBatchAdd() {
+		if (m_uploadFile.getFile() != null) {
+
+		}
+		return SUCCESS;
+	}
+
+	public String liningRingDeformationBatchAddSubmit() {
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingDeformation_model, Operation.s_operation_add));
+		if (auth != null) {
+			return auth.getName();
+		}
+
+		if (m_uploadFile.getFile() != null) {
+			int i;
+			Sheet sheet;
+			Workbook book = null;
+			try {
+				book = Workbook.getWorkbook(m_uploadFile.getFile());
+				sheet = book.getSheet(0);
+				i = 1;
+				while (true) {
+					Cell[] cols = sheet.getRow(i);
+					LiningRingDeformation defarmation = convert(cols);
+
+					if (defarmation != null) {
+						m_liningRingDeformationService.insertLiningRingDeformation(defarmation);
+						m_batchInsertResult.addSuccess();
+					} else {
+						m_batchInsertResult.addFail(i + 1);
+					}
+					i++;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				book.close();
+			}
+		}
+		return SUCCESS;
 	}
 
 	public String liningRingDeformationBatchDelete() {
@@ -167,13 +285,6 @@ public class LiningRingDeformationAction extends PagedAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllLiningRingDeformations() {
-		m_liningRingDeformations = m_liningRingDeformationService.queryLimitedLiningRingDeformations(m_tunnelId,
-		      m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
 	}
 
 	public String liningRingDeformationList() {
@@ -259,6 +370,25 @@ public class LiningRingDeformationAction extends PagedAction {
 		}
 	}
 
+	public String queryAllLiningRingDeformations() {
+		m_liningRingDeformations = m_liningRingDeformationService.queryLimitedLiningRingDeformations(m_tunnelId,
+		      m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
+	}
+
+	public void setDeleteId(int[] deleteId) {
+		m_deleteId = deleteId;
+	}
+
+	public void setLiningRingConstructionId(int liningRingConstructionId) {
+		m_liningRingConstructionId = liningRingConstructionId;
+	}
+
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
+
 	public void setLiningRingDeformation(LiningRingDeformation liningRingDeformation) {
 		m_liningRingDeformation = liningRingDeformation;
 	}
@@ -269,6 +399,10 @@ public class LiningRingDeformationAction extends PagedAction {
 
 	public void setLiningRingDeformationService(LiningRingDeformationService liningRingDeformationService) {
 		m_liningRingDeformationService = liningRingDeformationService;
+	}
+
+	public void setLiningRingService(LiningRingService liningRingService) {
+		m_liningRingService = liningRingService;
 	}
 
 	public void setTunnelId(int tunnelId) {
@@ -285,42 +419,6 @@ public class LiningRingDeformationAction extends PagedAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
-	}
-
-	public List<LiningRing> getLiningRings() {
-		return m_liningRings;
-	}
-
-	public void setLiningRingService(LiningRingService liningRingService) {
-		m_liningRingService = liningRingService;
-	}
-
-	public int getLiningRingConstructionId() {
-		return m_liningRingConstructionId;
-	}
-
-	public void setLiningRingConstructionId(int liningRingConstructionId) {
-		m_liningRingConstructionId = liningRingConstructionId;
-	}
-
-	public List<LiningRingConstruction> getLiningRingConstructions() {
-		return m_liningRingConstructions;
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-		m_liningRingConstructionService = liningRingConstructionService;
-	}
-
-	public void setDeleteId(int[] deleteId) {
-		m_deleteId = deleteId;
 	}
 
 }

@@ -21,25 +21,9 @@ public class OpenSection {
 
 	private Document m_document;
 
-	public void setSchedule(Schedule schedule) {
-		m_schedule = schedule;
-	}
-
 	private int m_scheduleId;
 
 	private Schedule m_schedule;
-
-	public int getScheduleId() {
-		return m_scheduleId;
-	}
-
-	public void setScheduleId(int scheduleId) {
-		m_scheduleId = scheduleId;
-	}
-
-	public Schedule getSchedule() {
-		return m_schedule;
-	}
 
 	private double m_startPosition;
 
@@ -117,6 +101,14 @@ public class OpenSection {
 		return m_platformPileBottom;
 	}
 
+	public Schedule getSchedule() {
+		return m_schedule;
+	}
+
+	public int getScheduleId() {
+		return m_scheduleId;
+	}
+
 	public double getStartFloor() {
 		return m_startFloor;
 	}
@@ -191,6 +183,14 @@ public class OpenSection {
 
 	public void setPlatformPileBottom(double platformPileBottom) {
 		m_platformPileBottom = platformPileBottom;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		m_schedule = schedule;
+	}
+
+	public void setScheduleId(int scheduleId) {
+		m_scheduleId = scheduleId;
 	}
 
 	public void setStartFloor(double startFloor) {

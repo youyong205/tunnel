@@ -12,10 +12,10 @@ public interface PlankService {
 
 	public int insertPlank(Plank plank);
 
-	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
-
 	public List<Plank> queryLimitedPlanks(int tunnelId, int tunnelSectionId, int start,
 	      int size);
+
+	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 
 	public int updatePlank(Plank plank);
 

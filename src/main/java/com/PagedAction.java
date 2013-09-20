@@ -63,7 +63,7 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	      
 	      Modules.s_facility_model, Modules.s_facility_inspection_model, Modules.s_facility_curing_model,//
 	      
-			Modules.s_liningRingConstruction_model , Modules.s_liningRingDeformation_model));
+			Modules.s_liningRingConstruction_model , Modules.s_liningRingDeformation_model , Modules.s_liningRingLongitudinalDeformation_model));
 
 	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(
 	      Modules.s_contactChannel_model,  Modules.s_contactChannel_curing_model, //
@@ -92,6 +92,24 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	      
 	      Modules.s_facility_model, Modules.s_facility_curing_model));
 
+	public String buildResource(String module, String oper) {
+		return module + ":" + oper;
+	}
+
+	public Authority checkAuthority(String resources) {
+		User user = queryUserInfo();
+
+		if (user == null) {
+			return Authority.Login;
+		} else {
+			if (!user.getResources().containsKey(resources)) {
+				return Authority.NoAuth;
+			} else {
+				return null;
+			}
+		}
+	}
+
 	public int computeTotalPages(int totalSize) {
 		return (int) Math.ceil(totalSize * 1.0 / SIZE);
 	}
@@ -112,15 +130,6 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 			log.setUserId(user.getId());
 		}
 		return log;
-	}
-
-	public User queryUserInfo() {
-		Object object = m_session.get("user");
-		if (object != null) {
-			return (User) object;
-		} else {
-			return null;
-		}
 	}
 
 	public abstract String getActionModule();
@@ -166,6 +175,15 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 		return m_totalSize;
 	}
 
+	public User queryUserInfo() {
+		Object object = m_session.get("user");
+		if (object != null) {
+			return (User) object;
+		} else {
+			return null;
+		}
+	}
+
 	public void setIndex(int index) {
 		m_index = index;
 	}
@@ -177,24 +195,6 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	@Override
 	public void setSession(Map<String, Object> session) {
 		m_session = session;
-	}
-
-	public String buildResource(String module, String oper) {
-		return module + ":" + oper;
-	}
-
-	public Authority checkAuthority(String resources) {
-		User user = queryUserInfo();
-
-		if (user == null) {
-			return Authority.Login;
-		} else {
-			if (!user.getResources().containsKey(resources)) {
-				return Authority.NoAuth;
-			} else {
-				return null;
-			}
-		}
 	}
 
 }

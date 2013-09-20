@@ -16,6 +16,9 @@
 $(document).ready(function() {
 	$('#tunnelSectionList').addClass("active");
 	$("#form").validate();
+
+	var type='<s:property value="tunnelSection.environment"/>';
+	$('#environment').val(type);
 });
 </script>
 </head>
@@ -50,6 +53,22 @@ $(document).ready(function() {
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段类型</strong></td>
 						<td><input type="text" size="60" name="tunnelSection.type" value="<s:property value="tunnelSection.type"/>" class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段环境</strong></td>
+						<td>
+							<select id="environment" name="tunnelSection.environment">
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="C">C</option>
+								<option value="D">D</option>
+								<option value="E">E</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段外径</strong></td>
+						<td><input type="text" size="60" name="tunnelSection.externalDiameter" value="<s:property value="tunnelSection.externalDiameter"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段简介</strong></td>

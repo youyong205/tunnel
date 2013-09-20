@@ -18,31 +18,6 @@ public class PlankCuringAction extends CuringAction {
 	private List<Item> m_items;
 
 	@Override
-	public String getActionModule() {
-		return Modules.s_plank_curing_model;
-	}
-
-	@Override
-	public String getComponentNameById(int id) {
-		Plank plank = m_plankService.findByPK(id);
-		if (plank != null) {
-			return plank.getName();
-		} else {
-			return Modules.s_deleted;
-		}
-	}
-
-	@Override
-	public List<Item> getItems() {
-		return m_items;
-	}
-
-	@Override
-	public String getModule() {
-		return Modules.s_plank_model;
-	}
-
-	@Override
 	public String curingAdd() {
 		if (m_tunnelId == 0) {
 			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
@@ -79,6 +54,31 @@ public class PlankCuringAction extends CuringAction {
 		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
 		m_items = queryItems(m_tunnelId, tunnelSectionId);
 		return result;
+	}
+
+	@Override
+	public String getActionModule() {
+		return Modules.s_plank_curing_model;
+	}
+
+	@Override
+	public String getComponentNameById(int id) {
+		Plank plank = m_plankService.findByPK(id);
+		if (plank != null) {
+			return plank.getName();
+		} else {
+			return Modules.s_deleted;
+		}
+	}
+
+	@Override
+	public List<Item> getItems() {
+		return m_items;
+	}
+
+	@Override
+	public String getModule() {
+		return Modules.s_plank_model;
 	}
 
 	private List<Item> queryItems(int tunnelId, int tunnelSectionId) {

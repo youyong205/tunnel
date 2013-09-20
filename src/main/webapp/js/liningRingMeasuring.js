@@ -36,6 +36,7 @@ function tunnelChangedExcluedeAll() {
 							+ value[i].name + "</option>");
 				}
 			}
+			tunnelSectionChanged(true);
 		}
 	})
 }

@@ -57,6 +57,11 @@ public class TunnelSectionAction extends PagedAction {
 		return m_tunnelSections;
 	}
 
+	public String queryAllTunnelSections() {
+		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		return SUCCESS;
+	}
+
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
@@ -127,11 +132,6 @@ public class TunnelSectionAction extends PagedAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllTunnelSections() {
-		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
-		return SUCCESS;
 	}
 
 	public String tunnelSectionList() {

@@ -28,6 +28,10 @@ public class LiningRing {
 
 	private Date m_modifyDate;
 
+	public double getAngle() {
+   	return m_angle;
+   }
+
 	public Date getCreationDate() {
 		return m_creationDate;
 	}
@@ -72,6 +76,10 @@ public class LiningRing {
 		return m_wedgeNumber;
 	}
 
+	public void setAngle(double angle) {
+   	m_angle = angle;
+   }
+
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
 	}
@@ -107,7 +115,7 @@ public class LiningRing {
 	public void setPipeWidth(double pipeWidth) {
 		m_pipeWidth = pipeWidth;
 	}
-
+	
 	public void setType(String type) {
 		m_type = type;
 	}
@@ -115,14 +123,6 @@ public class LiningRing {
 	public void setWedgeNumber(int wedgeNumber) {
 		m_wedgeNumber = wedgeNumber;
 	}
-	
-	public double getAngle() {
-   	return m_angle;
-   }
-
-	public void setAngle(double angle) {
-   	m_angle = angle;
-   }
 
 	@Override
    public String toString() {

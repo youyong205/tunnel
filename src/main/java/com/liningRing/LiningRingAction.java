@@ -40,6 +40,10 @@ public class LiningRingAction extends PagedAction {
 		return m_blocks;
 	}
 
+	public List<LiningRingGraph> getLingRingGraphs() {
+		return m_lingRingGraphs;
+	}
+
 	public LiningRing getLiningRing() {
 		return m_liningRing;
 	}
@@ -195,10 +199,6 @@ public class LiningRingAction extends PagedAction {
 
 	public void setLiningRingService(LiningRingService liningRingService) {
 		m_liningRingService = liningRingService;
-	}
-
-	public List<LiningRingGraph> getLingRingGraphs() {
-		return m_lingRingGraphs;
 	}
 
 }

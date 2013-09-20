@@ -52,6 +52,22 @@ $(document).ready(function() {
 						<td><input type="text" size="60" name="tunnelSection.type" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段环境</strong></td>
+						<td>
+							<select name="tunnelSection.environment">
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="C">C</option>
+								<option value="D">D</option>
+								<option value="E">E</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段外径</strong></td>
+						<td><input type="text" size="60" name="tunnelSection.externalDiameter" class="{required:true,number:true}"/></td>
+					</tr>
+					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段简介</strong></td>
 						<td><textarea type="text" rows="5" cols="80"  name="tunnelSection.des" class="{maxlength:512}"></textarea></td>
 					</tr>

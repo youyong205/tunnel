@@ -30,6 +30,10 @@ public class Tunnel {
    	return m_name;
    }
 
+	public String getType() {
+   	return m_type;
+   }
+
 	public void setCreationDate(Date creationDate) {
    	m_creationDate = creationDate;
    }
@@ -41,13 +45,9 @@ public class Tunnel {
 	public void setId(int id) {
    	m_id = id;
    }
-
+	
 	public void setName(String name) {
    	m_name = name;
-   }
-	
-	public String getType() {
-   	return m_type;
    }
 
 	public void setType(String type) {

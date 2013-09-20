@@ -37,4 +37,5 @@
 		
 		<sqlMap resource="config/ibatis/LiningRingConstruction.xml"/>
 		<sqlMap resource="config/ibatis/LiningRingDeformation.xml"/>
+		<sqlMap resource="config/ibatis/LiningRingLongitudinalDeformation.xml"/>
 </sqlMapConfig>

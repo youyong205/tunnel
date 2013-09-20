@@ -4,7 +4,7 @@
 	<typeAlias alias="tunnelSection" type="com.tunnelSection.TunnelSection" />
 
 	<sql id="tunnelSection.columns">
-		id,tunnelId,name,type,des,creationDate,modifyDate
+		id,tunnelId,name,type,environment,externalDiameter,des,creationDate,modifyDate
 	</sql>
 	<select id="tunnelSection.queryAllSize" resultClass="int">
 		select count(*) from tunnelSection
@@ -34,14 +34,16 @@
 	</select>
 	<insert id="tunnelSection.insert" parameterClass="tunnelSection">
 		insert into tunnelSection (<include refid="tunnelSection.columns" />) values
-		(#id#,#tunnelId#,#name#,#type#,#des#,now(),now())
+		(#id#,#tunnelId#,#name#,#type#,#environment#,#externalDiameter#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
 	</insert>
 	<update id="tunnelSection.update" parameterClass="tunnelSection">
 		update tunnelSection set tunnelId=#tunnelId#,
-		name=#name#,des=#des#,type=#type#,modifyDate=now()
+		name=#name#,des=#des#,type=#type#,
+		environment=#environment#,externalDiameter=#externalDiameter#,
+		modifyDate=now()
 		where id=#id#
 	</update>
 	<delete id="tunnelSection.delete" parameterClass="int">

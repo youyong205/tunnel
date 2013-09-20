@@ -26,15 +26,6 @@ public class EscapeDao {
 		return (Integer) m_baseDao.insert("escape.insert", escape);
 	}
 
-	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-
-		return (Integer)m_baseDao.queryForObject("escape.querySizeByTunnelAndSection",parameters);
-   }
-
 	@SuppressWarnings("rawtypes")
 	public List queryAllEscapes() {
 		return m_baseDao.queryForList("escape.queryAllEscapes");
@@ -51,6 +42,15 @@ public class EscapeDao {
 
 		return m_baseDao.queryForList("escape.queryLimitedEscapes", parameters);
 	}
+
+	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+
+		return (Integer)m_baseDao.queryForObject("escape.querySizeByTunnelAndSection",parameters);
+   }
 
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;

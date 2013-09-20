@@ -25,31 +25,15 @@ public class BuriedSection {
 	
 	private Schedule m_schedule;
 
-	public int getScheduleId() {
-   	return m_scheduleId;
-   }
-
-	public void setScheduleId(int scheduleId) {
-   	m_scheduleId = scheduleId;
-   }
-	
-	public Schedule getSchedule() {
-   	return m_schedule;
-   }
-
-	public void setSchedule(Schedule schedule) {
-   	m_schedule = schedule;
-   }
-
-
-
 	private double m_startPosition;
 
 	private double m_endPosition;
-
+	
 	private String m_envelope;
 
 	private double m_startFloor;
+
+
 
 	private double m_endFloor;
 
@@ -123,6 +107,14 @@ public class BuriedSection {
 
 	public double getRoofThickness() {
    	return m_roofThickness;
+   }
+
+	public Schedule getSchedule() {
+   	return m_schedule;
+   }
+
+	public int getScheduleId() {
+   	return m_scheduleId;
    }
 
 	public double getStartFloor() {
@@ -203,6 +195,14 @@ public class BuriedSection {
 
 	public void setRoofThickness(double roofThickness) {
    	m_roofThickness = roofThickness;
+   }
+
+	public void setSchedule(Schedule schedule) {
+   	m_schedule = schedule;
+   }
+
+	public void setScheduleId(int scheduleId) {
+   	m_scheduleId = scheduleId;
    }
 
 	public void setStartFloor(double startFloor) {

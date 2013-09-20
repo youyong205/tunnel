@@ -26,15 +26,6 @@ public class SaddleWeightDao {
 		return (Integer) m_baseDao.insert("saddleWeight.insert", saddleWeight);
 	}
 
-	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-
-		return (Integer)m_baseDao.queryForObject("saddleWeight.querySizeByTunnelAndSection",parameters);
-   }
-
 	@SuppressWarnings("rawtypes")
 	public List queryAllSaddleWeights() {
 		return m_baseDao.queryForList("saddleWeight.queryAllSaddleWeights");
@@ -51,6 +42,15 @@ public class SaddleWeightDao {
 
 		return m_baseDao.queryForList("saddleWeight.queryLimitedSaddleWeights", parameters);
 	}
+
+	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+
+		return (Integer)m_baseDao.queryForObject("saddleWeight.querySizeByTunnelAndSection",parameters);
+   }
 
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;

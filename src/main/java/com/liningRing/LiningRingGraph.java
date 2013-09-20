@@ -32,16 +32,8 @@ public class LiningRingGraph {
    	return angle;
    }
 
-	public void setAngle(double angle) {
-   	this.angle = angle;
-   }
-
 	public Map<String, Double> getBlocks() {
    	return blocks;
-   }
-
-	public void setBlocks(Map<String, Double> blocks) {
-   	this.blocks = blocks;
    }
 
 	public String getGsonString() {
@@ -49,4 +41,12 @@ public class LiningRingGraph {
 
 		return gson.toJson(this);
 	}
+
+	public void setAngle(double angle) {
+   	this.angle = angle;
+   }
+
+	public void setBlocks(Map<String, Double> blocks) {
+   	this.blocks = blocks;
+   }
 }

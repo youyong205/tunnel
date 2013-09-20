@@ -47,6 +47,10 @@ public class SaddleWeightAction extends ScheduledAction {
 		return Modules.s_saddleWeight_model;
 	}
 
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public SaddleWeight getSaddleWeight() {
 		return m_saddleWeight;
 	}
@@ -59,12 +63,23 @@ public class SaddleWeightAction extends ScheduledAction {
 		return m_tunnelId;
 	}
 
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
 	public int getTunnelSectionId() {
 		return m_tunnelSectionId;
 	}
 
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
+	}
+
+	public String queryAllSaddleWeights() {
+		m_saddleWeights = m_saddleWeightService.queryLimitedSaddleWeights(m_tunnelId,
+		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
 	}
 
 	public String saddleWeightAdd() {
@@ -130,13 +145,6 @@ public class SaddleWeightAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllSaddleWeights() {
-		m_saddleWeights = m_saddleWeightService.queryLimitedSaddleWeights(m_tunnelId,
-		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
 	}
 
 	public String saddleWeightList() {
@@ -264,14 +272,6 @@ public class SaddleWeightAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
 	}
 
 }

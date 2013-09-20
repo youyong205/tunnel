@@ -13,6 +13,12 @@
 		<action name="liningRingDeformationAddSubmit" class="liningRingDeformationAction" method="liningRingDeformationAddSubmit">
 			<result name="success" type="redirect">liningRingDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
 		</action>
+		<action name="liningRingDeformationBatchAdd"  class="liningRingDeformationAction" method="liningRingDeformationBatchAdd">
+			<result name="success">admin/liningRingDeformation/LiningRingDeformationBatchAdd.jsp</result>
+		</action>
+		<action name="liningRingDeformationBatchAddSubmit" class="liningRingDeformationAction" method="liningRingDeformationBatchAddSubmit">
+			<result name="success">admin/liningRingDeformation/LiningRingDeformationBatchResult.jsp</result>
+		</action>
 		<action name="liningRingDeformationUpdate" class="liningRingDeformationAction" method="liningRingDeformationUpdate" >
 			<result name="success">admin/liningRingDeformation/LiningRingDeformationUpdate.jsp</result>
 		</action>

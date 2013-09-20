@@ -26,15 +26,6 @@ public class FacilityDao {
 		return (Integer) m_baseDao.insert("facility.insert", facility);
 	}
 
-	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-
-		return (Integer)m_baseDao.queryForObject("facility.querySizeByTunnelAndSection",parameters);
-   }
-
 	@SuppressWarnings("rawtypes")
 	public List queryAllFacilitys() {
 		return m_baseDao.queryForList("facility.queryAllFacilitys");
@@ -51,6 +42,15 @@ public class FacilityDao {
 
 		return m_baseDao.queryForList("facility.queryLimitedFacilitys", parameters);
 	}
+
+	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+
+		return (Integer)m_baseDao.queryForObject("facility.querySizeByTunnelAndSection",parameters);
+   }
 
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;

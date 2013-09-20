@@ -3,7 +3,7 @@
 <sqlMap>
 	<typeAlias alias="liningRingDeformation" type="com.liningRingDeformation.LiningRingDeformation" />
 	<sql id="liningRingDeformation.columns">
-		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,value,changeValue,cumulativeValue,date,des,creationDate,modifyDate
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,value,date,des,creationDate,modifyDate
 	</sql>
 	<select id="liningRingDeformation.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from liningRingDeformation
@@ -34,7 +34,15 @@
                  liningRingConstructionId=#liningRingConstructionId#
             </isGreaterThan>
    		</dynamic>
+   		order by id desc
 		limit #start#,#size#
+	</select>
+	<select id="liningRingDeformation.queryLiningRingDeformationByDuration" resultClass="liningRingDeformation">
+		select
+		<include refid="liningRingDeformation.columns" />
+		from liningRingDeformation
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
 	</select>
 	<select id="liningRingDeformation.findByName" resultClass="liningRingDeformation" parameterClass="String">
 		select
@@ -48,7 +56,7 @@
 	</select>
 	<insert id="liningRingDeformation.insert" parameterClass="liningRingDeformation">
 		insert into liningRingDeformation (<include refid="liningRingDeformation.columns" />) values
-		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#measuringPoing#,#value#,#changeValue#,#cumulativeValue#,#date#,#des#,now(),now())
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#measuringPoing#,#value#,#date#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
@@ -56,7 +64,7 @@
 	<update id="liningRingDeformation.update" parameterClass="liningRingDeformation">
 		update liningRingDeformation set
 		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,measuringPoing=#measuringPoing#,
-		value=#value#,changeValue=#changeValue#,cumulativeValue=#cumulativeValue#,date=#date#,des=#des#,
+		value=#value#,date=#date#,des=#des#,
 		modifyDate=now() where id=#id#
 	</update>
 	<delete id="liningRingDeformation.delete" parameterClass="int">

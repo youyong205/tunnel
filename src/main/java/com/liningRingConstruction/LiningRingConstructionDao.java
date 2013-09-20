@@ -26,15 +26,6 @@ public class LiningRingConstructionDao {
 		return (Integer) m_baseDao.insert("liningRingConstruction.insert", liningRingConstruction);
 	}
 
-	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-
-		return (Integer)m_baseDao.queryForObject("liningRingConstruction.querySizeByTunnelAndSection",parameters);
-   }
-
 	@SuppressWarnings("rawtypes")
 	public List queryAllLiningRingConstructions() {
 		return m_baseDao.queryForList("liningRingConstruction.queryAllLiningRingConstructions");
@@ -51,6 +42,15 @@ public class LiningRingConstructionDao {
 
 		return m_baseDao.queryForList("liningRingConstruction.queryLimitedLiningRingConstructions", parameters);
 	}
+
+	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+
+		return (Integer)m_baseDao.queryForObject("liningRingConstruction.querySizeByTunnelAndSection",parameters);
+   }
 
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;

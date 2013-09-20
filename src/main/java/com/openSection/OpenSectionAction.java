@@ -123,15 +123,6 @@ public class OpenSectionAction extends ScheduledAction {
 		}
 	}
 
-	public String queryOpenSectionListsByTunnelId() {
-		if (m_tunnelId == 0) {
-			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
-		}
-
-		m_openSections = m_openSectionService.queryLimitedOpenSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
-		return SUCCESS;
-	}
-	
 	public String openSectionList() {
 		Authority auth = checkAuthority(buildResource(Modules.s_openSection_model, Operation.s_operation_detail));
 		if (auth != null) {
@@ -169,7 +160,7 @@ public class OpenSectionAction extends ScheduledAction {
 			return ERROR;
 		}
 	}
-
+	
 	public String openSectionUpdate() {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
@@ -224,6 +215,15 @@ public class OpenSectionAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
+	}
+
+	public String queryOpenSectionListsByTunnelId() {
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+
+		m_openSections = m_openSectionService.queryLimitedOpenSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		return SUCCESS;
 	}
 
 	public void setOpenSection(OpenSection openSection) {

@@ -12,10 +12,10 @@ public interface FacilityService {
 
 	public int insertFacility(Facility facility);
 
-	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
-
 	public List<Facility> queryLimitedFacilitys(int tunnelId, int tunnelSectionId, int start,
 	      int size);
+
+	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 
 	public int updateFacility(Facility facility);
 

@@ -42,31 +42,6 @@ public class FlueSheetAction extends ScheduledAction {
 
 	private List<TunnelSection> m_tunnelSections;
 
-	@Override
-	public String getActionModule() {
-		return Modules.s_flueSheet_model;
-	}
-
-	public FlueSheet getFlueSheet() {
-		return m_flueSheet;
-	}
-
-	public List<FlueSheet> getFlueSheets() {
-		return m_flueSheets;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
 	public String flueSheetAdd() {
 		m_tunnels = m_tunnelService.queryAllTunnels();
 
@@ -131,13 +106,6 @@ public class FlueSheetAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllFlueSheets() {
-		m_flueSheets = m_flueSheetService.queryLimitedFlueSheets(m_tunnelId,
-		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
 	}
 
 	public String flueSheetList() {
@@ -240,6 +208,46 @@ public class FlueSheetAction extends ScheduledAction {
 		}
 	}
 
+	@Override
+	public String getActionModule() {
+		return Modules.s_flueSheet_model;
+	}
+
+	public FlueSheet getFlueSheet() {
+		return m_flueSheet;
+	}
+
+	public List<FlueSheet> getFlueSheets() {
+		return m_flueSheets;
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
+	}
+
+	public String queryAllFlueSheets() {
+		m_flueSheets = m_flueSheetService.queryLimitedFlueSheets(m_tunnelId,
+		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
+	}
+
 	public void setFlueSheet(FlueSheet flueSheet) {
 		m_flueSheet = flueSheet;
 	}
@@ -266,14 +274,6 @@ public class FlueSheetAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
 	}
 
 }

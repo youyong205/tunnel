@@ -59,6 +59,15 @@ public class WorkingWellAction extends ScheduledAction {
 		return m_workingWells;
 	}
 
+	public String queryWorkingWellListsByTunnelId() {
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+
+		m_workingWells = m_workingWellService.queryLimitedWorkingWellsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		return SUCCESS;
+	}
+
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
@@ -119,7 +128,7 @@ public class WorkingWellAction extends ScheduledAction {
 			return ERROR;
 		}
 	}
-
+	
 	public String workingWellDelete() {
 		Authority auth = checkAuthority(buildResource(Modules.s_workingWell_model, Operation.s_operation_delete));
 		if (auth != null) {
@@ -142,15 +151,6 @@ public class WorkingWellAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-	
-	public String queryWorkingWellListsByTunnelId() {
-		if (m_tunnelId == 0) {
-			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
-		}
-
-		m_workingWells = m_workingWellService.queryLimitedWorkingWellsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
-		return SUCCESS;
 	}
 
 

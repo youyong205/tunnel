@@ -10,6 +10,9 @@
 		<property name="liningRingDeformationDao">
 			<ref bean="liningRingDeformationDao" />
 		</property>
+		<property name="liningRingConstructionService">
+			<ref bean="liningRingConstructionService" />
+		</property>
 	</bean>
 	<bean id="liningRingDeformationAction" class="com.liningRingDeformation.LiningRingDeformationAction" scope="prototype">
 		<property name="liningRingConstructionService">
@@ -26,6 +29,9 @@
 		</property>
 		<property name="liningRingService">
 			<ref bean="liningRingService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
 		</property>
 		<property name="tunnelSectionService">
 			<ref bean="tunnelSectionService" />

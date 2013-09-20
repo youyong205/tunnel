@@ -18,6 +18,8 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#liningRingMeasureList').addClass("active");
+	$('#liningRingDeformationList').removeClass("btn-info");
+	$('#liningRingDeformationList').addClass("btn-success");
 	$("#form").validate();
 	$('#datetimepicker1').datetimepicker();
 });
@@ -31,10 +33,11 @@ $(document).ready(function() {
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
+     		<%@include file="./../MeasuringHeader.jsp"%>
 			<form action="liningRingDeformationAddSubmit.do" id="form" method="post">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='4'><h4 class="text-info text-center">新增衬砌环变形检测信息</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">新增衬砌环横断面变形检测信息</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
@@ -72,16 +75,12 @@ $(document).ready(function() {
 				               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 				            </span>
 				         </td>
+				    </tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">测点</strong></td>
 						<td><input type="text" name="liningRingDeformation.measuringPoing" class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">变形值</strong></td>
 						<td><input type="text" name="liningRingDeformation.value" class="{required:true,number:true}"/></td>
-					<tr>
-						<td style="text-align:right;"><strong class="text-success">变形变化值</strong></td>
-						<td><input type="text" name="liningRingDeformation.changeValue" class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">累计变化值</strong></td>
-						<td><input type="text" name="liningRingDeformation.cumulativeValue" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">简介</strong></td>

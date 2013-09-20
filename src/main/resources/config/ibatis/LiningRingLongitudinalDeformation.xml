@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="liningRingLongitudinalDeformation" type="com.liningRingLongitudinalDeformation.LiningRingLongitudinalDeformation" />
+	<sql id="liningRingLongitudinalDeformation.columns">
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,value,date,des,creationDate,modifyDate
+	</sql>
+	<select id="liningRingLongitudinalDeformation.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from liningRingLongitudinalDeformation
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="liningRingLongitudinalDeformation.queryLimitedLiningRingLongitudinalDeformations" resultClass="liningRingLongitudinalDeformation">
+		select
+		<include refid="liningRingLongitudinalDeformation.columns" />
+		from liningRingLongitudinalDeformation
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+   		order by id desc
+		limit #start#,#size#
+	</select>
+	<select id="liningRingLongitudinalDeformation.queryLiningRingLongitudinalDeformationByDuration" resultClass="liningRingLongitudinalDeformation">
+		select
+		<include refid="liningRingLongitudinalDeformation.columns" />
+		from liningRingLongitudinalDeformation
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
+	</select>
+	<select id="liningRingLongitudinalDeformation.findByName" resultClass="liningRingLongitudinalDeformation" parameterClass="String">
+		select
+		<include refid="liningRingLongitudinalDeformation.columns" />
+		from liningRingLongitudinalDeformation where name=#name#
+	</select>
+	<select id="liningRingLongitudinalDeformation.findById" resultClass="liningRingLongitudinalDeformation" parameterClass="int">
+		select
+		<include refid="liningRingLongitudinalDeformation.columns" />
+		from liningRingLongitudinalDeformation where id=#id#
+	</select>
+	<insert id="liningRingLongitudinalDeformation.insert" parameterClass="liningRingLongitudinalDeformation">
+		insert into liningRingLongitudinalDeformation (<include refid="liningRingLongitudinalDeformation.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#measuringPoing#,#value#,#date#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="liningRingLongitudinalDeformation.update" parameterClass="liningRingLongitudinalDeformation">
+		update liningRingLongitudinalDeformation set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,measuringPoing=#measuringPoing#,
+		value=#value#,date=#date#,des=#des#,
+		modifyDate=now() where id=#id#
+	</update>
+	<delete id="liningRingLongitudinalDeformation.delete" parameterClass="int">
+		delete from liningRingLongitudinalDeformation
+		where
+		id=#id#
+	</delete>
+</sqlMap>

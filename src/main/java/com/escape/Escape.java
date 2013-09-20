@@ -45,149 +45,149 @@ public class Escape {
 
 	private Date m_modifyDate;
 
-	public int getId() {
-		return m_id;
-	}
+	public double getActualMileage() {
+   	return m_actualMileage;
+   }
 
-	public void setId(int id) {
-		m_id = id;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public void setTunnelId(int tunnelId) {
-		m_tunnelId = tunnelId;
-	}
-
-	public Tunnel getTunnel() {
-		return m_tunnel;
-	}
-
-	public void setTunnel(Tunnel tunnel) {
-		m_tunnel = tunnel;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public void setTunnelSectionId(int tunnelSectionId) {
-		m_tunnelSectionId = tunnelSectionId;
-	}
-
-	public TunnelSection getTunnelSection() {
-		return m_tunnelSection;
-	}
-
-	public void setTunnelSection(TunnelSection tunnelSection) {
-		m_tunnelSection = tunnelSection;
-	}
-
-	public int getDocumentId() {
-		return m_documentId;
-	}
-
-	public void setDocumentId(int documentId) {
-		m_documentId = documentId;
-	}
-
-	public Document getDocument() {
-		return m_document;
-	}
-
-	public void setDocument(Document document) {
-		m_document = document;
-	}
-
-	public int getScheduleId() {
-		return m_scheduleId;
-	}
-
-	public void setScheduleId(int scheduleId) {
-		m_scheduleId = scheduleId;
-	}
-
-	public Schedule getSchedule() {
-		return m_schedule;
-	}
-
-	public void setSchedule(Schedule schedule) {
-		m_schedule = schedule;
-	}
-
-	public String getName() {
-		return m_name;
-	}
-
-	public void setName(String name) {
-		m_name = name;
-	}
-
-	public String getType() {
-		return m_type;
-	}
-
-	public void setType(String type) {
-		m_type = type;
-	}
-
-	public String getLineType() {
-		return m_lineType;
-	}
-
-	public void setLineType(String lineType) {
-		m_lineType = lineType;
+	public Date getCreationDate() {
+		return m_creationDate;
 	}
 
 	public String getDes() {
 		return m_des;
 	}
 
-	public void setDes(String des) {
-		m_des = des;
+	public Document getDocument() {
+		return m_document;
 	}
 
-	public Date getCreationDate() {
-		return m_creationDate;
+	public int getDocumentId() {
+		return m_documentId;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		m_creationDate = creationDate;
+	public int getId() {
+		return m_id;
+	}
+
+	public String getLineType() {
+		return m_lineType;
 	}
 
 	public Date getModifyDate() {
 		return m_modifyDate;
 	}
 
-	public void setModifyDate(Date modifyDate) {
-		m_modifyDate = modifyDate;
-	}
-
-	public String getStakeMileage() {
-		return m_stakeMileage;
-	}
-
-	public void setStakeMileage(String stakeMileage) {
-		m_stakeMileage = stakeMileage;
+	public String getName() {
+		return m_name;
 	}
 
 	public String getPosition() {
 		return m_position;
 	}
 
-	public void setPosition(String position) {
-		m_position = position;
+	public Schedule getSchedule() {
+		return m_schedule;
 	}
 
-	public double getActualMileage() {
-   	return m_actualMileage;
-   }
+	public int getScheduleId() {
+		return m_scheduleId;
+	}
+
+	public String getStakeMileage() {
+		return m_stakeMileage;
+	}
+
+	public Tunnel getTunnel() {
+		return m_tunnel;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public TunnelSection getTunnelSection() {
+		return m_tunnelSection;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public String getType() {
+		return m_type;
+	}
 
 	public void setActualMileage(double actualMileage) {
    	m_actualMileage = actualMileage;
    }
+
+	public void setCreationDate(Date creationDate) {
+		m_creationDate = creationDate;
+	}
+
+	public void setDes(String des) {
+		m_des = des;
+	}
+
+	public void setDocument(Document document) {
+		m_document = document;
+	}
+
+	public void setDocumentId(int documentId) {
+		m_documentId = documentId;
+	}
+
+	public void setId(int id) {
+		m_id = id;
+	}
+
+	public void setLineType(String lineType) {
+		m_lineType = lineType;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		m_modifyDate = modifyDate;
+	}
+
+	public void setName(String name) {
+		m_name = name;
+	}
+
+	public void setPosition(String position) {
+		m_position = position;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		m_schedule = schedule;
+	}
+
+	public void setScheduleId(int scheduleId) {
+		m_scheduleId = scheduleId;
+	}
+
+	public void setStakeMileage(String stakeMileage) {
+		m_stakeMileage = stakeMileage;
+	}
+
+	public void setTunnel(Tunnel tunnel) {
+		m_tunnel = tunnel;
+	}
+
+	public void setTunnelId(int tunnelId) {
+		m_tunnelId = tunnelId;
+	}
+
+	public void setTunnelSection(TunnelSection tunnelSection) {
+		m_tunnelSection = tunnelSection;
+	}
+
+	public void setTunnelSectionId(int tunnelSectionId) {
+		m_tunnelSectionId = tunnelSectionId;
+	}
+
+	public void setType(String type) {
+		m_type = type;
+	}
 
 	@Override
    public String toString() {

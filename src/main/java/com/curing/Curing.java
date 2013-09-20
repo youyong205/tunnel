@@ -98,6 +98,14 @@ public class Curing {
 		return m_tunnelId;
 	}
 
+	public TunnelSection getTunnelSection() {
+   	return m_tunnelSection;
+   }
+
+	public int getTunnelSectionId() {
+   	return m_tunnelSectionId;
+   }
+
 	public String getType() {
 		return m_type;
 	}
@@ -158,25 +166,17 @@ public class Curing {
 		m_tunnelId = tunnelId;
 	}
 
-	public void setType(String type) {
-		m_type = type;
-	}
-
-	public int getTunnelSectionId() {
-   	return m_tunnelSectionId;
+	public void setTunnelSection(TunnelSection tunnelSection) {
+   	m_tunnelSection = tunnelSection;
    }
 
 	public void setTunnelSectionId(int tunnelSectionId) {
    	m_tunnelSectionId = tunnelSectionId;
    }
 
-	public TunnelSection getTunnelSection() {
-   	return m_tunnelSection;
-   }
-
-	public void setTunnelSection(TunnelSection tunnelSection) {
-   	m_tunnelSection = tunnelSection;
-   }
+	public void setType(String type) {
+		m_type = type;
+	}
 
 	@Override
 	public String toString() {

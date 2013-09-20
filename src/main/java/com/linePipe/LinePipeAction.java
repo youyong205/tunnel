@@ -55,16 +55,24 @@ public class LinePipeAction extends ScheduledAction {
 		return m_linePipes;
 	}
 
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public int getTunnelId() {
 		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
 	}
 
 	public int getTunnelSectionId() {
 		return m_tunnelSectionId;
 	}
 
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
 	}
 
 	public String linePipeAdd() {
@@ -129,12 +137,6 @@ public class LinePipeAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllLinePipes() {
-		m_linePipes = m_linePipeService.queryLimitedLinePipes(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
 	}
 
 	public String linePipeList() {
@@ -234,6 +236,12 @@ public class LinePipeAction extends ScheduledAction {
 		}
 	}
 
+	public String queryAllLinePipes() {
+		m_linePipes = m_linePipeService.queryLimitedLinePipes(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
+	}
+
 	public void setLinePipe(LinePipe linePipe) {
 		m_linePipe = linePipe;
 	}
@@ -260,14 +268,6 @@ public class LinePipeAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
 	}
 
 }

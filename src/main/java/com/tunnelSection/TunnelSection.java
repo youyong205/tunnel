@@ -16,6 +16,10 @@ public class TunnelSection {
 	
 	private Tunnel m_tunnel;
 	
+	private String m_environment;
+	
+	private double m_externalDiameter;
+	
 	private String m_des;
 	
 	private Date m_creationDate;
@@ -28,6 +32,14 @@ public class TunnelSection {
 
 	public String getDes() {
    	return m_des;
+   }
+
+	public String getEnvironment() {
+   	return m_environment;
+   }
+
+	public double getExternalDiameter() {
+   	return m_externalDiameter;
    }
 
 	public int getId() {
@@ -62,6 +74,14 @@ public class TunnelSection {
    	m_des = des;
    }
 
+	public void setEnvironment(String environment) {
+   	m_environment = environment;
+   }
+
+	public void setExternalDiameter(double externalDiameter) {
+   	m_externalDiameter = externalDiameter;
+   }
+
 	public void setId(int id) {
    	m_id = id;
    }
@@ -89,7 +109,8 @@ public class TunnelSection {
 	@Override
    public String toString() {
 	   return "TunnelSection [m_id=" + m_id + ", m_name=" + m_name + ", m_type=" + m_type + ", m_tunnelId=" + m_tunnelId
-	         + ", m_des=" + m_des + "]";
+	         + ", m_environment=" + m_environment + ", m_externalDiameter=" + m_externalDiameter + ", m_des=" + m_des
+	         + ", m_creationDate=" + m_creationDate + ", m_modifyDate=" + m_modifyDate + "]";
    }
-
+	
 }

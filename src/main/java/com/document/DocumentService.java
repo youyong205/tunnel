@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface DocumentService {
 
+	public int deleteDocument(int id);
+
 	public Document findByPK(int id);
 
 	public int insertDocument(String module, UploadFile file);
@@ -27,9 +29,7 @@ public interface DocumentService {
 	 * @return
 	 */
 	public int querySizeByModuleName(String module, String name);
-
-	public int updateDocument(String module, UploadFile file,Document document);
 	
-	public int deleteDocument(int id);
+	public int updateDocument(String module, UploadFile file,Document document);
 
 }

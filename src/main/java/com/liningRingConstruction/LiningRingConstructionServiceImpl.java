@@ -1,9 +1,15 @@
 package com.liningRingConstruction;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
+
+import com.liningRingDeformation.LiningRingDeformation;
+import com.liningRingLongitudinalDeformation.LiningRingLongitudinalDeformation;
 
 public class LiningRingConstructionServiceImpl implements LiningRingConstructionService {
 
@@ -11,11 +17,20 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 	private Logger m_logger = Logger.getLogger(LiningRingConstructionServiceImpl.class);
 
+	private Map<String, LiningRingConstruction> m_constructions = new LinkedHashMap<String, LiningRingConstruction>() {
+
+		private static final long serialVersionUID = 2196477629965076834L;
+
+		@Override
+		protected boolean removeEldestEntry(Entry<String, LiningRingConstruction> eldest) {
+			return size() > 200;
+		}
+	};
+
 	@Override
 	public int deleteLiningRingConstruction(int id) {
 		try {
 			int result = m_liningRingConstructionDao.deleteLiningRingConstruction(id);
-
 			return result;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
@@ -25,12 +40,21 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 	@Override
 	public LiningRingConstruction findByName(String name) {
-		try {
-			return m_liningRingConstructionDao.findByName(name);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
+		LiningRingConstruction construction = m_constructions.get(name);
+
+		if (construction == null) {
+			try {
+				construction = m_liningRingConstructionDao.findByName(name);
+
+				if (construction != null) {
+					m_constructions.put(name, construction);
+				}
+			} catch (Exception e) {
+				m_logger.error(e.getMessage(), e);
+				return null;
+			}
 		}
+		return construction;
 	}
 
 	@Override
@@ -57,8 +81,8 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<LiningRingConstruction> queryLimitedLiningRingConstructions(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<LiningRingConstruction> queryLimitedLiningRingConstructions(int tunnelId, int tunnelSectionId,
+	      int start, int size) {
 		try {
 			return m_liningRingConstructionDao.queryLimitedLiningRingConstructions(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {
@@ -92,5 +116,17 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 			return -1;
 		}
 	}
+
+	@Override
+   public int updateDeformationState(LiningRingDeformation defomation) {
+		System.out.println("Update updateDeformationState State");
+	   return 0;
+   }
+
+	@Override
+   public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState) {
+		System.out.println("Update updateLongitudinalDeformationState State");
+	   return 0;
+   }
 
 }

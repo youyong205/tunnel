@@ -42,31 +42,6 @@ public class BracketAction extends ScheduledAction {
 
 	private List<TunnelSection> m_tunnelSections;
 
-	@Override
-	public String getActionModule() {
-		return Modules.s_bracket_model;
-	}
-
-	public Bracket getBracket() {
-		return m_bracket;
-	}
-
-	public List<Bracket> getBrackets() {
-		return m_brackets;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
 	public String bracketAdd() {
 		m_tunnels = m_tunnelService.queryAllTunnels();
 
@@ -129,12 +104,6 @@ public class BracketAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllBrackets() {
-		m_brackets = m_bracketService.queryLimitedBrackets(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
 	}
 
 	public String bracketList() {
@@ -234,6 +203,45 @@ public class BracketAction extends ScheduledAction {
 		}
 	}
 
+	@Override
+	public String getActionModule() {
+		return Modules.s_bracket_model;
+	}
+
+	public Bracket getBracket() {
+		return m_bracket;
+	}
+
+	public List<Bracket> getBrackets() {
+		return m_brackets;
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
+	}
+
+	public String queryAllBrackets() {
+		m_brackets = m_bracketService.queryLimitedBrackets(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
+	}
+
 	public void setBracket(Bracket bracket) {
 		m_bracket = bracket;
 	}
@@ -260,14 +268,6 @@ public class BracketAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
 	}
 
 }

@@ -96,7 +96,9 @@ CREATE TABLE `tunnelSection`(
   `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
   `name` varchar(64) NOT NULL  COMMENT '盾构段编号',
   `type` varchar(64) NOT NULL  COMMENT '盾构段类型',
-  `des` varchar(1024) COMMENT '隧道简介',
+  `environment` varchar(64) NOT NULL  COMMENT '盾构段环境',
+  `externalDiameter` double NOT NULL COMMENT '盾构段外径',
+  `des` varchar(1024) COMMENT '盾构段简介',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
@@ -136,6 +138,14 @@ CREATE TABLE `liningRingConstruction`(
   `leftDown` varchar(64) NOT NULL  COMMENT '左下',
   `rightUp` varchar(64) NOT NULL  COMMENT '右上',
   `rightDown` varchar(64) NOT NULL  COMMENT '右下',
+  `deformationState` varchar(64)   COMMENT '横断面变形状态',
+  `longitudinalDeformationState` varchar(64)  COMMENT '纵断面变形状态',
+  `girthOpenState` varchar(64)  COMMENT '环缝张开状态',
+  `longitudinalOpenState` varchar(64)  COMMENT '纵缝张开状态',
+  `girthFaultState` varchar(64)  COMMENT '环缝错台状态',
+  `longitudinalFaultState` varchar(64)  COMMENT '纵缝错台状态',
+  `coverLossState` varchar(64)  COMMENT '保护层损失状态',
+  `cracksState` varchar(64)  COMMENT '裂缝状态',
   `des` varchar(1024) COMMENT '衬砌环施工简介',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
   `modifyDate` datetime NOT NULL COMMENT '修改时间',
@@ -149,9 +159,7 @@ CREATE TABLE `liningRingDeformation` (
   `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
   `liningRingConstructionId` int(11) NOT NULL COMMENT '衬砌环ID',
   `measuringPoing` varchar(64) NOT NULL COMMENT '测点',
-  `value` double NOT NULL COMMENT '变形测量值',
-  `changeValue` double NOT NULL COMMENT '变形变化值',
-  `cumulativeValue` double NOT NULL COMMENT '累计变化值',
+  `value` double NOT NULL COMMENT '纵向曲率值',
   `date` datetime NOT NULL COMMENT '测量时间',
   `des` varchar(1024) COMMENT '简介',
   `creationDate` datetime NOT NULL COMMENT '创建时间',
@@ -159,7 +167,23 @@ CREATE TABLE `liningRingDeformation` (
   PRIMARY KEY (`id`),
   KEY `ix_date` (`date`),
   KEY `ix_tunnel_section_liningRingConstruction` (`tunnelId`,`tunnelSectionId`,`liningRingConstructionId`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='衬砌环变形检测信息';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='衬砌环横断面变形检测信息';
+
+CREATE TABLE `liningRingLongitudinalDeformation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `liningRingConstructionId` int(11) NOT NULL COMMENT '衬砌环ID',
+  `measuringPoing` varchar(64) NOT NULL COMMENT '测点',
+  `value` double NOT NULL COMMENT '纵向曲率值',
+  `date` datetime NOT NULL COMMENT '测量时间',
+  `des` varchar(1024) COMMENT '简介',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_date` (`date`),
+  KEY `ix_tunnel_section_liningRingConstruction` (`tunnelId`,`tunnelSectionId`,`liningRingConstructionId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='衬砌环纵断面变形检测信息';
 
 CREATE TABLE `rectangleComponent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

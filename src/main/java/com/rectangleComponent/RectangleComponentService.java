@@ -12,10 +12,10 @@ public interface RectangleComponentService {
 
 	public int insertRectangleComponent(RectangleComponent rectangleComponent);
 
-	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
-
 	public List<RectangleComponent> queryLimitedRectangleComponents(int tunnelId, int tunnelSectionId, int start,
 	      int size);
+
+	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 
 	public int updateRectangleComponent(RectangleComponent rectangleComponent);
 

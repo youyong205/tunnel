@@ -104,6 +104,8 @@ public class Modules {
 
 	public static String s_liningRingConstruction_model = "衬砌环施工模块";
 
-	public static String s_liningRingDeformation_model ="衬砌环变形检测模块";
+	public static String s_liningRingDeformation_model ="衬砌环横断面变形检测模块";
+
+	public static String s_liningRingLongitudinalDeformation_model="衬砌环纵断面变形检测模块";
 
 }

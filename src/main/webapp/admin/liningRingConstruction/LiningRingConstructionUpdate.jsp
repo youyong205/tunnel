@@ -41,6 +41,31 @@ $(document).ready(function() {
 						<input type="hidden" name="liningRingConstruction.documentId" value="<s:property value="liningRingConstruction.documentId"/>"/>
 						<input type="hidden" name="liningRingConstruction.id" value="<s:property value="liningRingConstruction.id"/>" />
 					</tr>
+										<tr>
+						<td style="text-align:right;"><strong class="text-success">横断面变形状态</strong></td>
+						<td><input type="text" name="liningRingConstruction.deformationState" value="<s:property value="liningRingConstruction.deformationState"/>" class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">纵断面变形状态</strong></td>
+						<td><input type="text" name="liningRingConstruction.LongitudinalDeformationState" value="<s:property value="liningRingConstruction.LongitudinalDeformationState"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">环缝张开状态</strong></td>
+						<td><input type="text" name="liningRingConstruction.girthOpenState" value="<s:property value="liningRingConstruction.girthOpenState"/>" class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">纵缝张开状态</strong></td>
+						<td><input type="text" name="liningRingConstruction.LongitudinalOpenState" value="<s:property value="liningRingConstruction.LongitudinalOpenState"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">环缝错台状态</strong></td>
+						<td><input type="text" name="liningRingConstruction.girthFaultState" value="<s:property value="liningRingConstruction.girthFaultState"/>" class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">纵缝错台状态</strong></td>
+						<td><input type="text" name="liningRingConstruction.LongitudinalFaultState" value="<s:property value="liningRingConstruction.LongitudinalFaultState"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr><tr>
+						<td style="text-align:right;"><strong class="text-success">保护层损失状态</strong></td>
+						<td><input type="text" name="liningRingConstruction.coverLossState" value="<s:property value="liningRingConstruction.coverLossState"/>" class="{required:true,maxlength:64}"/></td>
+						<td style="text-align:right;"><strong class="text-success">裂缝状态</strong></td>
+						<td><input type="text" name="liningRingConstruction.cracksState" value="<s:property value="liningRingConstruction.cracksState"/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+				</table>
+				<table class="table table-striped table-bordered table-condensed">
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
 						<td width="35%">

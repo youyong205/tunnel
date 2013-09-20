@@ -72,6 +72,10 @@ public abstract class InspectionAction extends PagedAction {
 
 	public abstract String getModule();
 
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public Tunnel getTunnel() {
 		return m_tunnel;
 	}
@@ -82,6 +86,14 @@ public abstract class InspectionAction extends PagedAction {
 
 	public List<Tunnel> getTunnels() {
 		return m_tunnels;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
 	}
 
 	public String inspectionAdd() {
@@ -221,6 +233,14 @@ public abstract class InspectionAction extends PagedAction {
 		m_tunnelId = tunnelId;
 	}
 
+	public void setTunnelSectionId(int tunnelSectionId) {
+		m_tunnelSectionId = tunnelSectionId;
+	}
+
+	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
+		m_tunnelSectionService = tunnelSectionService;
+	}
+
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
@@ -229,26 +249,6 @@ public abstract class InspectionAction extends PagedAction {
 		if (m_tunnelId == 0) {
 			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 		}
-	}
-
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public void setTunnelSectionId(int tunnelSectionId) {
-		m_tunnelSectionId = tunnelSectionId;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
-	}
-
-	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
-		m_tunnelSectionService = tunnelSectionService;
 	}
 
 	public static class Item {

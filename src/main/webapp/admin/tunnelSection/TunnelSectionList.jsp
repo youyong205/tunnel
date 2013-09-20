@@ -41,9 +41,10 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="35%">隧道名称</th>
-					<th width="25%">盾构段编号</th>
-					<th width="20%">盾构段类型</th>
+					<th width="30%">隧道名称</th>
+					<th width="20%">盾构段编号</th>
+					<th width="20%">类型</th>
+					<th width="10%">环境</th>
 					<th width="15%">操作
 					<t:privilege res="盾构段模块:新增">
 					<a class="space btn btn-small btn-info" href="tunnelSectionAdd.do?index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>" >新增</a>
@@ -54,8 +55,9 @@
 					<tr>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:property value="tunnel.name" /></td>
-					<td><s:property value="name" /></td>
-					<td><s:property value="type" /></td>
+					<td><s:property value="name"/></td>
+					<td><s:property value="type"/></td>
+					<td><s:property value="environment"/></td>
 					<td>
 					<t:privilege res="盾构段模块:详情">
 						<a class="btn btn-small btn-success" href="tunnelSectionDetail.do?tunnelSectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">详情</a>

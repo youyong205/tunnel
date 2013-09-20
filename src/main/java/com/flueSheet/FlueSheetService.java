@@ -12,10 +12,10 @@ public interface FlueSheetService {
 
 	public int insertFlueSheet(FlueSheet flueSheet);
 
-	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
-
 	public List<FlueSheet> queryLimitedFlueSheets(int tunnelId, int tunnelSectionId, int start,
 	      int size);
+
+	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 
 	public int updateFlueSheet(FlueSheet flueSheet);
 

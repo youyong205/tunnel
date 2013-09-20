@@ -47,6 +47,10 @@ public class RectangleComponentAction extends ScheduledAction {
 		return Modules.s_rectangleComponent_model;
 	}
 
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public RectangleComponent getRectangleComponent() {
 		return m_rectangleComponent;
 	}
@@ -59,12 +63,23 @@ public class RectangleComponentAction extends ScheduledAction {
 		return m_tunnelId;
 	}
 
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
 	public int getTunnelSectionId() {
 		return m_tunnelSectionId;
 	}
 
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
+	}
+
+	public String queryAllRectangleComponents() {
+		m_rectangleComponents = m_rectangleComponentService.queryLimitedRectangleComponents(m_tunnelId,
+		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
 	}
 
 	public String rectangleComponentAdd() {
@@ -130,13 +145,6 @@ public class RectangleComponentAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllRectangleComponents() {
-		m_rectangleComponents = m_rectangleComponentService.queryLimitedRectangleComponents(m_tunnelId,
-		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
 	}
 
 	public String rectangleComponentList() {
@@ -264,14 +272,6 @@ public class RectangleComponentAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
 	}
 
 }

@@ -26,15 +26,6 @@ public class RectangleComponentDao {
 		return (Integer) m_baseDao.insert("rectangleComponent.insert", rectangleComponent);
 	}
 
-	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-
-		return (Integer)m_baseDao.queryForObject("rectangleComponent.querySizeByTunnelAndSection",parameters);
-   }
-
 	@SuppressWarnings("rawtypes")
 	public List queryAllRectangleComponents() {
 		return m_baseDao.queryForList("rectangleComponent.queryAllRectangleComponents");
@@ -51,6 +42,15 @@ public class RectangleComponentDao {
 
 		return m_baseDao.queryForList("rectangleComponent.queryLimitedRectangleComponents", parameters);
 	}
+
+	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+
+		return (Integer)m_baseDao.queryForObject("rectangleComponent.querySizeByTunnelAndSection",parameters);
+   }
 
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;

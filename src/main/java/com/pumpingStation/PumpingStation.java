@@ -49,164 +49,164 @@ public class PumpingStation {
 
 	private Date m_modifyDate;
 
-	public int getId() {
-		return m_id;
-	}
-
-	public void setId(int id) {
-		m_id = id;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public void setTunnelId(int tunnelId) {
-		m_tunnelId = tunnelId;
-	}
-
-	public Tunnel getTunnel() {
-		return m_tunnel;
-	}
-
-	public void setTunnel(Tunnel tunnel) {
-		m_tunnel = tunnel;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public void setTunnelSectionId(int tunnelSectionId) {
-		m_tunnelSectionId = tunnelSectionId;
-	}
-
-	public TunnelSection getTunnelSection() {
-		return m_tunnelSection;
-	}
-
-	public void setTunnelSection(TunnelSection tunnelSection) {
-		m_tunnelSection = tunnelSection;
-	}
-
-	public int getDocumentId() {
-		return m_documentId;
-	}
-
-	public void setDocumentId(int documentId) {
-		m_documentId = documentId;
-	}
-
-	public Document getDocument() {
-		return m_document;
-	}
-
-	public void setDocument(Document document) {
-		m_document = document;
-	}
-
-	public int getScheduleId() {
-		return m_scheduleId;
-	}
-
-	public void setScheduleId(int scheduleId) {
-		m_scheduleId = scheduleId;
-	}
-
-	public Schedule getSchedule() {
-		return m_schedule;
-	}
-
-	public void setSchedule(Schedule schedule) {
-		m_schedule = schedule;
-	}
-
-	public String getName() {
-		return m_name;
-	}
-
-	public void setName(String name) {
-		m_name = name;
-	}
-
-	public String getType() {
-		return m_type;
-	}
-
-	public void setType(String type) {
-		m_type = type;
-	}
-
-	public String getLineType() {
-		return m_lineType;
-	}
-
-	public void setLineType(String lineType) {
-		m_lineType = lineType;
-	}
-
-	public String getDes() {
-		return m_des;
-	}
-
-	public void setDes(String des) {
-		m_des = des;
+	public double getAbsolutEelevation() {
+		return m_absolutEelevation;
 	}
 
 	public Date getCreationDate() {
 		return m_creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		m_creationDate = creationDate;
+	public String getDes() {
+		return m_des;
 	}
 
-	public Date getModifyDate() {
-		return m_modifyDate;
+	public Document getDocument() {
+		return m_document;
 	}
 
-	public void setModifyDate(Date modifyDate) {
-		m_modifyDate = modifyDate;
+	public int getDocumentId() {
+		return m_documentId;
 	}
 
-	public String getStakeMileage() {
-		return m_stakeMileage;
-	}
-
-	public void setStakeMileage(String stakeMileage) {
-		m_stakeMileage = stakeMileage;
-	}
-
-	public String getPosition() {
-		return m_position;
-	}
-
-	public void setPosition(String position) {
-		m_position = position;
+	public int getId() {
+		return m_id;
 	}
 
 	public double getLaneMileage() {
 		return m_laneMileage;
 	}
 
-	public void setLaneMileage(double laneMileage) {
-		m_laneMileage = laneMileage;
+	public String getLineType() {
+		return m_lineType;
+	}
+
+	public Date getModifyDate() {
+		return m_modifyDate;
+	}
+
+	public String getName() {
+		return m_name;
+	}
+
+	public String getPosition() {
+		return m_position;
+	}
+
+	public Schedule getSchedule() {
+		return m_schedule;
+	}
+
+	public int getScheduleId() {
+		return m_scheduleId;
 	}
 
 	public double getShieldMileage() {
 		return m_shieldMileage;
 	}
 
-	public void setShieldMileage(double shieldMileage) {
-		m_shieldMileage = shieldMileage;
+	public String getStakeMileage() {
+		return m_stakeMileage;
 	}
 
-	public double getAbsolutEelevation() {
-		return m_absolutEelevation;
+	public Tunnel getTunnel() {
+		return m_tunnel;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public TunnelSection getTunnelSection() {
+		return m_tunnelSection;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public String getType() {
+		return m_type;
 	}
 
 	public void setAbsolutEelevation(double absolutEelevation) {
 		m_absolutEelevation = absolutEelevation;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		m_creationDate = creationDate;
+	}
+
+	public void setDes(String des) {
+		m_des = des;
+	}
+
+	public void setDocument(Document document) {
+		m_document = document;
+	}
+
+	public void setDocumentId(int documentId) {
+		m_documentId = documentId;
+	}
+
+	public void setId(int id) {
+		m_id = id;
+	}
+
+	public void setLaneMileage(double laneMileage) {
+		m_laneMileage = laneMileage;
+	}
+
+	public void setLineType(String lineType) {
+		m_lineType = lineType;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		m_modifyDate = modifyDate;
+	}
+
+	public void setName(String name) {
+		m_name = name;
+	}
+
+	public void setPosition(String position) {
+		m_position = position;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		m_schedule = schedule;
+	}
+
+	public void setScheduleId(int scheduleId) {
+		m_scheduleId = scheduleId;
+	}
+
+	public void setShieldMileage(double shieldMileage) {
+		m_shieldMileage = shieldMileage;
+	}
+
+	public void setStakeMileage(String stakeMileage) {
+		m_stakeMileage = stakeMileage;
+	}
+
+	public void setTunnel(Tunnel tunnel) {
+		m_tunnel = tunnel;
+	}
+
+	public void setTunnelId(int tunnelId) {
+		m_tunnelId = tunnelId;
+	}
+
+	public void setTunnelSection(TunnelSection tunnelSection) {
+		m_tunnelSection = tunnelSection;
+	}
+
+	public void setTunnelSectionId(int tunnelSectionId) {
+		m_tunnelSectionId = tunnelSectionId;
+	}
+
+	public void setType(String type) {
+		m_type = type;
 	}
 
 	@Override

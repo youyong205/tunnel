@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="liningRingLongitudinalDeformation" extends="default">
+		<action name="liningRingLongitudinalDeformationList" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationList">
+			<result name="success">admin/liningRingLongitudinalDeformation/LiningRingLongitudinalDeformationList.jsp</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationAdd"  class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationAdd">
+			<result name="success">admin/liningRingLongitudinalDeformation/LiningRingLongitudinalDeformationAdd.jsp</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationAddSubmit" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationAddSubmit">
+			<result name="success" type="redirect">liningRingLongitudinalDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationBatchAdd"  class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationBatchAdd">
+			<result name="success">admin/liningRingLongitudinalDeformation/LiningRingLongitudinalDeformationBatchAdd.jsp</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationBatchAddSubmit" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationBatchAddSubmit">
+			<result name="success">admin/liningRingLongitudinalDeformation/LiningRingLongitudinalDeformationBatchResult.jsp</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationUpdate" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationUpdate" >
+			<result name="success">admin/liningRingLongitudinalDeformation/LiningRingLongitudinalDeformationUpdate.jsp</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationDetail" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationUpdate" >
+			<result name="success">admin/liningRingLongitudinalDeformation/LiningRingLongitudinalDeformationDetail.jsp</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationUpdateSubmit" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationUpdateSubmit">
+			<result name="success" type="redirect">liningRingLongitudinalDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationDelete" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationDelete">
+			<result name="success" type="redirect">liningRingLongitudinalDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="liningRingLongitudinalDeformationBatchDelete" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationBatchDelete">
+			<result name="success" type="redirect">liningRingLongitudinalDeformationList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

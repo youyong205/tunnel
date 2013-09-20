@@ -1,5 +1,6 @@
 package com.liningRingDeformation;
 
+import java.util.Date;
 import java.util.List;
 
 public interface LiningRingDeformationService {
@@ -12,10 +13,15 @@ public interface LiningRingDeformationService {
 
 	public int insertLiningRingDeformation(LiningRingDeformation liningRingDeformation);
 
-	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingId);
+	public List<LiningRingDeformation> queryLimitedLiningRingDeformations(int tunnelId, int tunnelSectionId,
+	      int liningRingConstructionId, int start, int size);
 
-	public List<LiningRingDeformation> queryLimitedLiningRingDeformations(int tunnelId, int tunnelSectionId, int liningRingConstructionId,int start,
-	      int size);
+	public List<LiningRingDeformation> queryLiningRingDeformationByDuration(int liningRingConstructionId, Date start,
+	      Date end);
+
+	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
+
+	public LiningRingDeformation queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateLiningRingDeformation(LiningRingDeformation liningRingDeformation);
 

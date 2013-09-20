@@ -12,10 +12,10 @@ public interface BracketService {
 
 	public int insertBracket(Bracket bracket);
 
-	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
-
 	public List<Bracket> queryLimitedBrackets(int tunnelId, int tunnelSectionId, int start,
 	      int size);
+
+	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 
 	public int updateBracket(Bracket bracket);
 

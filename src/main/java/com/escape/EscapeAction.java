@@ -42,31 +42,6 @@ public class EscapeAction extends ScheduledAction {
 
 	private List<TunnelSection> m_tunnelSections;
 
-	@Override
-	public String getActionModule() {
-		return Modules.s_escape_model;
-	}
-
-	public Escape getEscape() {
-		return m_escape;
-	}
-
-	public List<Escape> getEscapes() {
-		return m_escapes;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
 	public String escapeAdd() {
 		m_tunnels = m_tunnelService.queryAllTunnels();
 
@@ -129,12 +104,6 @@ public class EscapeAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllEscapes() {
-		m_escapes = m_escapeService.queryLimitedEscapes(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
 	}
 
 	public String escapeList() {
@@ -234,6 +203,45 @@ public class EscapeAction extends ScheduledAction {
 		}
 	}
 
+	@Override
+	public String getActionModule() {
+		return Modules.s_escape_model;
+	}
+
+	public Escape getEscape() {
+		return m_escape;
+	}
+
+	public List<Escape> getEscapes() {
+		return m_escapes;
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
+	}
+
+	public String queryAllEscapes() {
+		m_escapes = m_escapeService.queryLimitedEscapes(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
+	}
+
 	public void setEscape(Escape escape) {
 		m_escape = escape;
 	}
@@ -260,14 +268,6 @@ public class EscapeAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
 	}
 
 }
