@@ -36,14 +36,14 @@ $(document).ready(function() {
      		<%@include file="./../MeasuringHeader.jsp"%>
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<td colspan='2'><h4 class="text-info text-center">批量新增衬砌环横断面变形检测结果</h4></td>
+						<td colspan='2'><h4 class="text-info text-center">批量新增<s:property value="actionModule"/>记录结果</h4></td>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
 						<input type="hidden" name="liningRingConstructionId" value="<s:property value="liningRingConstructionId"/>"/>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">成功新增记录条数</strong></td>
+						<td width="30%" style="text-align:right;"><strong class="text-success">成功新增记录条数</strong></td>
 						<td>
 							<s:property value="batchInsertResult.success"/>
 				         </td>

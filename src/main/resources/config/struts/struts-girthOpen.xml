@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="girthOpen" extends="default">
+		<action name="girthOpenList" class="girthOpenAction" method="girthOpenList">
+			<result name="success">admin/girthOpen/GirthOpenList.jsp</result>
+		</action>
+		<action name="girthOpenAdd"  class="girthOpenAction" method="girthOpenAdd">
+			<result name="success">admin/girthOpen/GirthOpenAdd.jsp</result>
+		</action>
+		<action name="girthOpenAddSubmit" class="girthOpenAction" method="girthOpenAddSubmit">
+			<result name="success" type="redirect">girthOpenList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="girthOpenBatchAdd"  class="girthOpenAction" method="girthOpenBatchAdd">
+			<result name="success">admin/girthOpen/GirthOpenBatchAdd.jsp</result>
+		</action>
+		<action name="girthOpenBatchAddSubmit" class="girthOpenAction" method="girthOpenBatchAddSubmit">
+			<result name="success">admin/girthOpen/GirthOpenBatchResult.jsp</result>
+		</action>
+		<action name="girthOpenUpdate" class="girthOpenAction" method="girthOpenUpdate" >
+			<result name="success">admin/girthOpen/GirthOpenUpdate.jsp</result>
+		</action>
+		<action name="girthOpenDetail" class="girthOpenAction" method="girthOpenUpdate" >
+			<result name="success">admin/girthOpen/GirthOpenDetail.jsp</result>
+		</action>
+		<action name="girthOpenUpdateSubmit" class="girthOpenAction" method="girthOpenUpdateSubmit">
+			<result name="success" type="redirect">girthOpenList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="girthOpenDelete" class="girthOpenAction" method="girthOpenDelete">
+			<result name="success" type="redirect">girthOpenList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="girthOpenBatchDelete" class="girthOpenAction" method="girthOpenBatchDelete">
+			<result name="success" type="redirect">girthOpenList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

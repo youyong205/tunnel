@@ -185,6 +185,58 @@ CREATE TABLE `liningRingLongitudinalDeformation` (
   KEY `ix_tunnel_section_liningRingConstruction` (`tunnelId`,`tunnelSectionId`,`liningRingConstructionId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='衬砌环纵断面变形检测信息';
 
+CREATE TABLE `GirthOpen` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `liningRingConstructionId` int(11) NOT NULL COMMENT '衬砌环ID',
+  `blockIndex` int(11) NOT NULL COMMENT '衬砌环的所在块',
+  `type` int(11) NOT NULL COMMENT '1表示和上一环张开，2表示和下一环张开',
+  `measuringPoing` varchar(64) NOT NULL COMMENT '测点',
+  `value` double NOT NULL COMMENT '环缝张开量值',
+  `serious` int(11) NOT NULL COMMENT '是否出现严重连接缺陷,1表示没有，2表示有',
+  `date` datetime NOT NULL COMMENT '测量时间',
+  `des` varchar(1024) COMMENT '简介',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_date` (`date`),
+  KEY `ix_tunnel_section_liningRingConstruction` (`tunnelId`,`tunnelSectionId`,`liningRingConstructionId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='衬砌环环缝张开检测信息';
+
+CREATE TABLE `GirthFault` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `liningRingConstructionId` int(11) NOT NULL COMMENT '衬砌环ID',
+  `measuringPoing` varchar(64) NOT NULL COMMENT '测点',
+  `value` double NOT NULL COMMENT '环缝错台值',
+  `date` datetime NOT NULL COMMENT '测量时间',
+  `des` varchar(1024) COMMENT '简介',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_date` (`date`),
+  KEY `ix_tunnel_section_liningRingConstruction` (`tunnelId`,`tunnelSectionId`,`liningRingConstructionId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='衬砌环环缝错台检测信息';
+
+CREATE TABLE `Settlement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `liningRingConstructionId` int(11) NOT NULL COMMENT '衬砌环ID',
+  `measuringPoing` varchar(64) NOT NULL COMMENT '测点',
+  `value` double NOT NULL COMMENT '沉降值',
+  `distance` double NOT NULL COMMENT '与初始点距离',
+  `date` datetime NOT NULL COMMENT '测量时间',
+  `des` varchar(1024) COMMENT '简介',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  `modifyDate` datetime NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_date` (`date`),
+  KEY `ix_tunnel_section_liningRingConstruction` (`tunnelId`,`tunnelSectionId`,`liningRingConstructionId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='衬砌环环缝沉降检测信息';
+
 CREATE TABLE `rectangleComponent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tunnelId` int(11) NOT NULL COMMENT '隧道ID',

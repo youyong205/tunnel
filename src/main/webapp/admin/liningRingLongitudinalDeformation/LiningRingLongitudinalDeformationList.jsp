@@ -97,8 +97,6 @@
 						<a class="btn btn-small btn-primary" href="liningRingLongitudinalDeformationUpdate.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingLongitudinalDeformationId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">编辑</a>
 					</t:privilege>
 					<t:privilege res="衬砌环纵断面变形检测模块:删除">
-					<t:privilege res="衬砌环纵断面变形检测模块:删除">
-					<t:privilege res="衬砌环纵断面变形检测模块:删除">
 						<a class="delete btn  btn-small btn-danger" href="liningRingLongitudinalDeformationDelete.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingLongitudinalDeformationId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">删除</a>
 					</t:privilege>
 					</td>

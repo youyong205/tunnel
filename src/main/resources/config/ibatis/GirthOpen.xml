@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="girthOpen" type="com.girthOpen.GirthOpen" />
+	<sql id="girthOpen.columns">
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,value,
+		type,serious,blockIndex,date,des,creationDate,modifyDate
+	</sql>
+	<select id="girthOpen.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from girthOpen
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="girthOpen.queryLimitedGirthOpens" resultClass="girthOpen">
+		select
+		<include refid="girthOpen.columns" />
+		from girthOpen
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+   		order by id desc
+		limit #start#,#size#
+	</select>
+	<select id="girthOpen.queryGirthOpenByDuration" resultClass="girthOpen">
+		select
+		<include refid="girthOpen.columns" />
+		from girthOpen
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
+	</select>
+	<select id="girthOpen.findByName" resultClass="girthOpen" parameterClass="String">
+		select
+		<include refid="girthOpen.columns" />
+		from girthOpen where name=#name#
+	</select>
+	<select id="girthOpen.findById" resultClass="girthOpen" parameterClass="int">
+		select
+		<include refid="girthOpen.columns" />
+		from girthOpen where id=#id#
+	</select>
+	<insert id="girthOpen.insert" parameterClass="girthOpen">
+		insert into girthOpen (<include refid="girthOpen.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#measuringPoing#,#value#,
+		#type#,#serious#,#blockIndex#,#date#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="girthOpen.update" parameterClass="girthOpen">
+		update girthOpen set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,measuringPoing=#measuringPoing#,
+		type=#type#,serious=#serious#,blockIndex=#blockIndex#,value=#value#,date=#date#,des=#des#,
+		modifyDate=now() where id=#id#
+	</update>
+	<delete id="girthOpen.delete" parameterClass="int">
+		delete from girthOpen
+		where
+		id=#id#
+	</delete>
+</sqlMap>

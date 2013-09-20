@@ -34,10 +34,10 @@ $(document).ready(function() {
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
      		<%@include file="./../MeasuringHeader.jsp"%>
-			<form action="liningRingLongitudinalDeformationUpdateSubmit.do" id="form" method="post"  enctype="multipart/form-data">
-				<table  class="table table-striped table-bordered table-condensed"> 
+			<form action="liningRingLongitudinalDeformationUpdateSubmit.do" id="form" method="post">
+				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='4'><h4 class="text-info text-center">编辑衬砌环纵断面变形检测信息</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">编辑<s:property value="actionModule"/>记录</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>

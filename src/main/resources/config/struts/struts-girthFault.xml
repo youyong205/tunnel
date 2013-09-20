@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="girthFault" extends="default">
+		<action name="girthFaultList" class="girthFaultAction" method="girthFaultList">
+			<result name="success">admin/girthFault/GirthFaultList.jsp</result>
+		</action>
+		<action name="girthFaultAdd"  class="girthFaultAction" method="girthFaultAdd">
+			<result name="success">admin/girthFault/GirthFaultAdd.jsp</result>
+		</action>
+		<action name="girthFaultAddSubmit" class="girthFaultAction" method="girthFaultAddSubmit">
+			<result name="success" type="redirect">girthFaultList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="girthFaultBatchAdd"  class="girthFaultAction" method="girthFaultBatchAdd">
+			<result name="success">admin/girthFault/GirthFaultBatchAdd.jsp</result>
+		</action>
+		<action name="girthFaultBatchAddSubmit" class="girthFaultAction" method="girthFaultBatchAddSubmit">
+			<result name="success">admin/girthFault/GirthFaultBatchResult.jsp</result>
+		</action>
+		<action name="girthFaultUpdate" class="girthFaultAction" method="girthFaultUpdate" >
+			<result name="success">admin/girthFault/GirthFaultUpdate.jsp</result>
+		</action>
+		<action name="girthFaultDetail" class="girthFaultAction" method="girthFaultUpdate" >
+			<result name="success">admin/girthFault/GirthFaultDetail.jsp</result>
+		</action>
+		<action name="girthFaultUpdateSubmit" class="girthFaultAction" method="girthFaultUpdateSubmit">
+			<result name="success" type="redirect">girthFaultList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="girthFaultDelete" class="girthFaultAction" method="girthFaultDelete">
+			<result name="success" type="redirect">girthFaultList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="girthFaultBatchDelete" class="girthFaultAction" method="girthFaultBatchDelete">
+			<result name="success" type="redirect">girthFaultList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

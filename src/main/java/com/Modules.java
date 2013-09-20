@@ -108,4 +108,10 @@ public class Modules {
 
 	public static String s_liningRingLongitudinalDeformation_model="衬砌环纵断面变形检测模块";
 
+	public static String s_girthOpen_model="衬砌环环缝张开检测模块";
+
+	public static String s_girthFault_model="衬砌环环缝错台检测模块";
+
+	public static String s_settlement_model="衬砌环沉降检测模块";
+
 }

@@ -9,6 +9,8 @@ import com.Modules;
 import com.Operation;
 import com.ScheduledAction;
 import com.liningRing.LiningRing;
+import com.liningRing.LiningRingBlock;
+import com.liningRing.LiningRingBlockService;
 import com.liningRing.LiningRingService;
 import com.log.Log;
 import com.schedule.Schedule;
@@ -33,6 +35,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	private LiningRingConstruction m_liningRingConstruction = new LiningRingConstruction();
 
+	private List<LiningRingBlock> m_liningRingBlocks;
+
+	private LiningRingBlockService m_liningRingBlockService;
+
 	private int m_tunnelId;
 
 	private int m_tunnelSectionId;
@@ -46,7 +52,7 @@ public class LiningRingConstructionAction extends ScheduledAction {
 	private List<TunnelSection> m_tunnelSections;
 
 	private List<LiningRing> m_liningRings;
-	
+
 	@Override
 	public String getActionModule() {
 		return Modules.s_liningRingConstruction_model;
@@ -119,6 +125,14 @@ public class LiningRingConstructionAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
+	}
+
+	public String queryAllLiningRingBlocks() {
+		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
+		int liningRingId = m_liningRingConstruction.getLiningRingId();
+		m_liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(liningRingId);
+
+		return SUCCESS;
 	}
 
 	public String liningRingConstructionDelete() {
@@ -275,6 +289,14 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
+	}
+
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
 	}
 
 }

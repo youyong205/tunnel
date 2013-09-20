@@ -101,7 +101,6 @@ public class LiningRingDeformationAction extends FileUploadAction {
 				defarmation.setDes(des);
 				return defarmation;
 			}
-		} catch (ArrayIndexOutOfBoundsException e) {
 		} catch (Exception e) {
 			m_logger.error(e);
 		}
@@ -200,9 +199,6 @@ public class LiningRingDeformationAction extends FileUploadAction {
 	}
 
 	public String liningRingDeformationBatchAdd() {
-		if (m_uploadFile.getFile() != null) {
-
-		}
 		return SUCCESS;
 	}
 
@@ -232,8 +228,9 @@ public class LiningRingDeformationAction extends FileUploadAction {
 					}
 					i++;
 				}
+			} catch (ArrayIndexOutOfBoundsException e) {
 			} catch (Exception e) {
-				e.printStackTrace();
+				m_logger.error(e);
 			} finally {
 				book.close();
 			}

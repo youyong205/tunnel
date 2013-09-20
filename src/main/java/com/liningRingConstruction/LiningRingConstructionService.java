@@ -2,8 +2,11 @@ package com.liningRingConstruction;
 
 import java.util.List;
 
+import com.girthFault.GirthFault;
+import com.girthOpen.GirthOpen;
 import com.liningRingDeformation.LiningRingDeformation;
 import com.liningRingLongitudinalDeformation.LiningRingLongitudinalDeformation;
+import com.settlement.Settlement;
 
 public interface LiningRingConstructionService {
 
@@ -26,16 +29,18 @@ public interface LiningRingConstructionService {
 
 	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState);
 
-//	public int updateGirthOpenState(GirthOpen girthOpen);
+	public int updateGirthOpenState(GirthOpen girthOpen);
 //
 //	public int updateLongitudinalOpenStateOpenState(LongitudinalOpen longitudinalOpen);
 //
-//	public int updateGirthFaultState(GirthFault girthFault);
-//
+	public int updateGirthFaultState(GirthFault girthFault);
+
 //	public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault);
 //
 //	public int updateCoverLossState(CoverLoss coverLoss);
 //
 //	public int updateCracksState(Cracks cracks);
+	
+	public int updateSettlementState(Settlement settlement);
 
 }

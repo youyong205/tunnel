@@ -27,6 +27,9 @@
 		<property name="liningRingService">
 			<ref bean="liningRingService" />
 		</property>
+		<property name="liningRingBlockService">
+			<ref bean="liningRingBlockService" />
+		</property>
 		<property name="tunnelSectionService">
 			<ref bean="tunnelSectionService" />
 		</property>

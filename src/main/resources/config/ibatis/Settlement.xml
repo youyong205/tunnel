@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="settlement" type="com.settlement.Settlement" />
+	<sql id="settlement.columns">
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,value,
+		distance,date,des,creationDate,modifyDate
+	</sql>
+	<select id="settlement.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from settlement
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="settlement.queryLimitedSettlements" resultClass="settlement">
+		select
+		<include refid="settlement.columns" />
+		from settlement
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+   		order by id desc
+		limit #start#,#size#
+	</select>
+	<select id="settlement.querySettlementByDuration" resultClass="settlement">
+		select
+		<include refid="settlement.columns" />
+		from settlement
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
+	</select>
+	<select id="settlement.findByName" resultClass="settlement" parameterClass="String">
+		select
+		<include refid="settlement.columns" />
+		from settlement where name=#name#
+	</select>
+	<select id="settlement.findById" resultClass="settlement" parameterClass="int">
+		select
+		<include refid="settlement.columns" />
+		from settlement where id=#id#
+	</select>
+	<insert id="settlement.insert" parameterClass="settlement">
+		insert into settlement (<include refid="settlement.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#measuringPoing#,#value#,
+		#distance#,#date#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="settlement.update" parameterClass="settlement">
+		update settlement set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,measuringPoing=#measuringPoing#,
+		value=#value#,distance=#distance#,date=#date#,des=#des#,
+		modifyDate=now() where id=#id#
+	</update>
+	<delete id="settlement.delete" parameterClass="int">
+		delete from settlement
+		where
+		id=#id#
+	</delete>
+</sqlMap>

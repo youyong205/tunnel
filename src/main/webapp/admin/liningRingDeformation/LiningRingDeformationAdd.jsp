@@ -37,7 +37,7 @@ $(document).ready(function() {
 			<form action="liningRingDeformationAddSubmit.do" id="form" method="post">
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='4'><h4 class="text-info text-center">新增衬砌环横断面变形检测信息</h4></th>
+						<th colspan='4'><h4 class="text-info text-center">新增<s:property value="actionModule"/>记录</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
