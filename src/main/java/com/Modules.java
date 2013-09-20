@@ -104,14 +104,26 @@ public class Modules {
 
 	public static String s_liningRingConstruction_model = "衬砌环施工模块";
 
-	public static String s_liningRingDeformation_model ="衬砌环横断面变形检测模块";
+	public static String s_liningRingDeformation_model = "衬砌环横断面变形检测模块";
 
-	public static String s_liningRingLongitudinalDeformation_model="衬砌环纵断面变形检测模块";
+	public static String s_liningRingLongitudinalDeformation_model = "衬砌环纵断面变形检测模块";
 
-	public static String s_girthOpen_model="衬砌环环缝张开检测模块";
+	public static String s_girthOpen_model = "衬砌环环缝张开检测模块";
 
-	public static String s_girthFault_model="衬砌环环缝错台检测模块";
+	public static String s_girthFault_model = "衬砌环环缝错台检测模块";
 
-	public static String s_settlement_model="衬砌环沉降检测模块";
+	public static String s_settlement_model = "衬砌环沉降检测模块";
+
+	public static String s_longitudinalOpen_model = "衬砌环纵缝张开检测模块";
+
+	public static String s_longitudinalFault_model = "衬砌环纵缝错台检测模块";
+
+	public static String s_coverLoss_model = "衬砌环保护层缺失检测模块";
+
+	public static String s_cracks_model = "衬砌环裂缝检测模块";
+
+	public static String s_seepage_model = "衬砌环渗漏水检测模块";
+
+	public static String s_rust_model="衬砌环锈蚀检测模块";
 
 }

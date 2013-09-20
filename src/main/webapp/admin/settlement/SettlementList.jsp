@@ -70,8 +70,8 @@
 					<th width="5%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
 					<th width="5%">序号</th>
 					<th width="30%">检测时间</th>
-					<th width="20%">测点</th>
-					<th width="20%">测量值</th>
+					<th width="20%">与初始点距离</th>
+					<th width="20%">本次测值(mm)</th>
 					<th width="20%">
 					<t:privilege res="衬砌环横断面变形检测模块:新增">
 						<a class="btn btn-small btn-info" href="settlementAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>" >新增</a>
@@ -87,17 +87,17 @@
 					<td><input type="checkbox" name="deleteId" value="<s:property value='id'/>"/></td>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:date name="date" format="yyyy-MM-dd"/></td>
-					<td><s:property value='measuringPoing'/></td>
+					<td><s:property value='distance'/></td>
 					<td><s:property value='value'/></td>
 					<td>
 					<t:privilege res="衬砌环横断面变形检测模块:详情">
-						<a class="btn btn-small btn-success" href="settlementDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&settlementId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>
+						<a class="btn btn-small btn-success" href="settlementDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&settlementId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>
 					</t:privilege>
 					<t:privilege res="衬砌环横断面变形检测模块:编辑">
-						<a class="btn btn-small btn-primary" href="settlementUpdate.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&settlementId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">编辑</a>
+						<a class="btn btn-small btn-primary" href="settlementUpdate.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&settlementId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">编辑</a>
 					</t:privilege>
 					<t:privilege res="衬砌环横断面变形检测模块:删除">
-						<a class="delete btn  btn-small btn-danger" href="settlementDelete.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&settlementId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">删除</a>
+						<a class="delete btn  btn-small btn-danger" href="settlementDelete.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&settlementId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">删除</a>
 					</t:privilege>
 					</td>
 					</tr>

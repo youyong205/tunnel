@@ -77,9 +77,14 @@ $(document).ready(function() {
 				         </td>
 				    </tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">测点</strong></td>
-						<td><input type="text" name="girthFault.measuringPoing" class="{required:true,maxlength:64}"/></td>
-						<td style="text-align:right;"><strong class="text-success">环缝错台值</strong></td>
+						<td style="text-align:right;"><strong class="text-success">环缝错台位置</strong></td>
+						<td>
+							<select name="girthFault.type">
+								<option value="1">和上一环错台</option>
+								<option value="2">和下一环错台</option>
+							</select>
+						</td>
+						<td style="text-align:right;"><strong class="text-success">错台量Δh (mm)</strong></td>
 						<td><input type="text" name="girthFault.value" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>

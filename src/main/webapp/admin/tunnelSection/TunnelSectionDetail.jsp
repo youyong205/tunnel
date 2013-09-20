@@ -15,7 +15,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#tunnelSectionList').addClass("active");
-	$("#form").validate();
+	
 	var type='<s:property value="tunnelSection.environment"/>';
 	$('#environment').val(type);
 });

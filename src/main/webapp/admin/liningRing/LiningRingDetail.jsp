@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#liningRingList').addClass("active");
-	$("#form").validate();
+	
 });
 </script>
 </head>

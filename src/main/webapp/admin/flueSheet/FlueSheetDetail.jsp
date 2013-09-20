@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#flueSheetList').addClass("active");
-	$("#form").validate();
+	
 	var type='<s:property value="flueSheet.lineType"/>';
 	$('#lineType').val(type);
 });

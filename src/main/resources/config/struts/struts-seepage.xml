@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="seepage" extends="default">
+		<action name="seepageList" class="seepageAction" method="seepageList">
+			<result name="success">admin/seepage/SeepageList.jsp</result>
+		</action>
+		<action name="seepageAdd"  class="seepageAction" method="seepageAdd">
+			<result name="success">admin/seepage/SeepageAdd.jsp</result>
+		</action>
+		<action name="seepageAddSubmit" class="seepageAction" method="seepageAddSubmit">
+			<result name="success" type="redirect">seepageList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="seepageBatchAdd"  class="seepageAction" method="seepageBatchAdd">
+			<result name="success">admin/seepage/SeepageBatchAdd.jsp</result>
+		</action>
+		<action name="seepageBatchAddSubmit" class="seepageAction" method="seepageBatchAddSubmit">
+			<result name="success">admin/seepage/SeepageBatchResult.jsp</result>
+		</action>
+		<action name="seepageUpdate" class="seepageAction" method="seepageUpdate" >
+			<result name="success">admin/seepage/SeepageUpdate.jsp</result>
+		</action>
+		<action name="seepageDetail" class="seepageAction" method="seepageUpdate" >
+			<result name="success">admin/seepage/SeepageDetail.jsp</result>
+		</action>
+		<action name="seepageUpdateSubmit" class="seepageAction" method="seepageUpdateSubmit">
+			<result name="success" type="redirect">seepageList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="seepageDelete" class="seepageAction" method="seepageDelete">
+			<result name="success" type="redirect">seepageList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="seepageBatchDelete" class="seepageAction" method="seepageBatchDelete">
+			<result name="success" type="redirect">seepageList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

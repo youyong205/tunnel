@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="rust" type="com.rust.Rust" />
+	<sql id="rust.columns">
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,shape,
+		area,startAngle,endAngle,date,des,creationDate,modifyDate
+	</sql>
+	<select id="rust.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from rust
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="rust.queryLimitedRusts" resultClass="rust">
+		select
+		<include refid="rust.columns" />
+		from rust
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+   		order by id desc
+		limit #start#,#size#
+	</select>
+	<select id="rust.queryRustByDuration" resultClass="rust">
+		select
+		<include refid="rust.columns" />
+		from rust
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
+	</select>
+	<select id="rust.findByName" resultClass="rust" parameterClass="String">
+		select
+		<include refid="rust.columns" />
+		from rust where name=#name#
+	</select>
+	<select id="rust.findById" resultClass="rust" parameterClass="int">
+		select
+		<include refid="rust.columns" />
+		from rust where id=#id#
+	</select>
+	<insert id="rust.insert" parameterClass="rust">
+		insert into rust (<include refid="rust.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#blockIndex#,
+		#shape#,#area#,#startAngle#,#endAngle#,#date#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="rust.update" parameterClass="rust">
+		update rust set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,
+		blockIndex=#blockIndex#,shape=#shape#,area=#area#,startAngle=#startAngle#,
+		endAngle=#endAngle#,date=#date#,des=#des#,modifyDate=now() where id=#id#
+	</update>
+	<delete id="rust.delete" parameterClass="int">
+		delete from rust
+		where
+		id=#id#
+	</delete>
+</sqlMap>

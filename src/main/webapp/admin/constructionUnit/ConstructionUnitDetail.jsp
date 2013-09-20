@@ -16,7 +16,7 @@
 $(document).ready(function() {
 	$('#constructionUnitList').addClass("active");
 	$('#constructionUnit_role').val("<s:property value="constructionUnit.role"/>");
-	$("#form").validate();
+	
 });
 </script>
 </head>

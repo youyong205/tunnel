@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="coverLoss" extends="default">
+		<action name="coverLossList" class="coverLossAction" method="coverLossList">
+			<result name="success">admin/coverLoss/CoverLossList.jsp</result>
+		</action>
+		<action name="coverLossAdd"  class="coverLossAction" method="coverLossAdd">
+			<result name="success">admin/coverLoss/CoverLossAdd.jsp</result>
+		</action>
+		<action name="coverLossAddSubmit" class="coverLossAction" method="coverLossAddSubmit">
+			<result name="success" type="redirect">coverLossList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="coverLossBatchAdd"  class="coverLossAction" method="coverLossBatchAdd">
+			<result name="success">admin/coverLoss/CoverLossBatchAdd.jsp</result>
+		</action>
+		<action name="coverLossBatchAddSubmit" class="coverLossAction" method="coverLossBatchAddSubmit">
+			<result name="success">admin/coverLoss/CoverLossBatchResult.jsp</result>
+		</action>
+		<action name="coverLossUpdate" class="coverLossAction" method="coverLossUpdate" >
+			<result name="success">admin/coverLoss/CoverLossUpdate.jsp</result>
+		</action>
+		<action name="coverLossDetail" class="coverLossAction" method="coverLossUpdate" >
+			<result name="success">admin/coverLoss/CoverLossDetail.jsp</result>
+		</action>
+		<action name="coverLossUpdateSubmit" class="coverLossAction" method="coverLossUpdateSubmit">
+			<result name="success" type="redirect">coverLossList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="coverLossDelete" class="coverLossAction" method="coverLossDelete">
+			<result name="success" type="redirect">coverLossList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="coverLossBatchDelete" class="coverLossAction" method="coverLossBatchDelete">
+			<result name="success" type="redirect">coverLossList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

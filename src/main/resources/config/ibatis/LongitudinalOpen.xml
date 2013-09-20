@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="longitudinalOpen" type="com.longitudinalOpen.LongitudinalOpen" />
+	<sql id="longitudinalOpen.columns">
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,type,value,
+		serious,date,des,creationDate,modifyDate
+	</sql>
+	<select id="longitudinalOpen.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from longitudinalOpen
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="longitudinalOpen.queryLimitedLongitudinalOpens" resultClass="longitudinalOpen">
+		select
+		<include refid="longitudinalOpen.columns" />
+		from longitudinalOpen
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+   		order by id desc
+		limit #start#,#size#
+	</select>
+	<select id="longitudinalOpen.queryLongitudinalOpenByDuration" resultClass="longitudinalOpen">
+		select
+		<include refid="longitudinalOpen.columns" />
+		from longitudinalOpen
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
+	</select>
+	<select id="longitudinalOpen.findByName" resultClass="longitudinalOpen" parameterClass="String">
+		select
+		<include refid="longitudinalOpen.columns" />
+		from longitudinalOpen where name=#name#
+	</select>
+	<select id="longitudinalOpen.findById" resultClass="longitudinalOpen" parameterClass="int">
+		select
+		<include refid="longitudinalOpen.columns" />
+		from longitudinalOpen where id=#id#
+	</select>
+	<insert id="longitudinalOpen.insert" parameterClass="longitudinalOpen">
+		insert into longitudinalOpen (<include refid="longitudinalOpen.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#blockIndex#,#type#,#value#,
+		#serious#,#date#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="longitudinalOpen.update" parameterClass="longitudinalOpen">
+		update longitudinalOpen set
+		id=#id#,tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,
+		blockIndex=#blockIndex#,type=#type#,value=#value#,date=#date#,serious=#serious#,des=#des#,
+		modifyDate=now() where id=#id#
+	</update>
+	<delete id="longitudinalOpen.delete" parameterClass="int">
+		delete from longitudinalOpen
+		where
+		id=#id#
+	</delete>
+</sqlMap>

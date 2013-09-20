@@ -21,8 +21,8 @@ public class GirthFault {
 
 	private LiningRingConstruction m_liningRingConstruction;
 
-	private String m_measuringPoing;
-
+	private int m_type;
+	
 	private double m_value;
 
 	private Date m_date;
@@ -57,9 +57,13 @@ public class GirthFault {
 		return m_liningRingConstructionId;
 	}
 
-	public String getMeasuringPoing() {
-		return m_measuringPoing;
-	}
+	public int getType() {
+   	return m_type;
+   }
+
+	public void setType(int type) {
+   	m_type = type;
+   }
 
 	public Date getModifyDate() {
 		return m_modifyDate;
@@ -109,10 +113,6 @@ public class GirthFault {
 		m_liningRingConstructionId = liningRingConstructionId;
 	}
 
-	public void setMeasuringPoing(String measuringPoing) {
-		m_measuringPoing = measuringPoing;
-	}
-
 	public void setModifyDate(Date modifyDate) {
 		m_modifyDate = modifyDate;
 	}
@@ -140,8 +140,8 @@ public class GirthFault {
 	@Override
 	public String toString() {
 		return "GirthFault [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId="
-		      + m_tunnelSectionId + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_MeasuringPoing="
-		      + m_measuringPoing + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des
+		      + m_tunnelSectionId + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_type="
+		      + m_type + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des
 		      + ", m_creationDate=" + m_creationDate + ", m_modifyDate=" + m_modifyDate + "]";
 	}
 

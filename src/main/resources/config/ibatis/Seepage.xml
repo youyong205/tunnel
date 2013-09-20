@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="seepage" type="com.seepage.Seepage" />
+	<sql id="seepage.columns">
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,shape,
+		size,startAngle,endAngle,affect,date,des,creationDate,modifyDate
+	</sql>
+	<select id="seepage.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from seepage
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="seepage.queryLimitedSeepages" resultClass="seepage">
+		select
+		<include refid="seepage.columns" />
+		from seepage
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+   		order by id desc
+		limit #start#,#size#
+	</select>
+	<select id="seepage.querySeepageByDuration" resultClass="seepage">
+		select
+		<include refid="seepage.columns" />
+		from seepage
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
+	</select>
+	<select id="seepage.findByName" resultClass="seepage" parameterClass="String">
+		select
+		<include refid="seepage.columns" />
+		from seepage where name=#name#
+	</select>
+	<select id="seepage.findById" resultClass="seepage" parameterClass="int">
+		select
+		<include refid="seepage.columns" />
+		from seepage where id=#id#
+	</select>
+	<insert id="seepage.insert" parameterClass="seepage">
+		insert into seepage (<include refid="seepage.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#blockIndex#,
+		#shape#,#size#,#startAngle#,#endAngle#,#affect#,#date#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="seepage.update" parameterClass="seepage">
+		update seepage set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,
+		blockIndex=#blockIndex#,shape=#shape#,size=#size#,startAngle=#startAngle#,
+		endAngle=#endAngle#,affect=#affect#,date=#date#,des=#des#,modifyDate=now() where id=#id#
+	</update>
+	<delete id="seepage.delete" parameterClass="int">
+		delete from seepage
+		where
+		id=#id#
+	</delete>
+</sqlMap>

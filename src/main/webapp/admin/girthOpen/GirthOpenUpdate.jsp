@@ -76,7 +76,7 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">选择所在块</strong></td>
 						<td>
 							<s:select name="girthOpen.blockIndex" id="liningRingBlockId"
-							list="liningRingBlocks" listKey="id" listValue="blockIndex"
+							list="liningRingBlocks" listKey="blockIndex" listValue="blockIndex"
 							theme="simple" >
 							</s:select> 
 						</td>
@@ -96,7 +96,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">环缝张开δh</strong></td>
 						<td><input type="text" name="girthOpen.value" class="{required:true,number:true}" value="<s:property value="girthOpen.value"/>"/></td>
-						<td style="text-align:right;"><strong class="text-success">和上或下张开</strong></td>
+						<td style="text-align:right;"><strong class="text-success">环缝张开位置</strong></td>
 						<td>
 							<select id="type" name="girthOpen.type">
 								<option value="1">和上一环张开</option>

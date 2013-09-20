@@ -417,5 +417,9 @@ public class SettlementAction extends FileUploadAction {
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
+	
+	public int getParentLiningRingConstructionId(){
+		return m_liningRingConstructionId;
+	}
 
 }

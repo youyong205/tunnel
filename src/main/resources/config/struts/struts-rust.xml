@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="rust" extends="default">
+		<action name="rustList" class="rustAction" method="rustList">
+			<result name="success">admin/rust/RustList.jsp</result>
+		</action>
+		<action name="rustAdd"  class="rustAction" method="rustAdd">
+			<result name="success">admin/rust/RustAdd.jsp</result>
+		</action>
+		<action name="rustAddSubmit" class="rustAction" method="rustAddSubmit">
+			<result name="success" type="redirect">rustList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="rustBatchAdd"  class="rustAction" method="rustBatchAdd">
+			<result name="success">admin/rust/RustBatchAdd.jsp</result>
+		</action>
+		<action name="rustBatchAddSubmit" class="rustAction" method="rustBatchAddSubmit">
+			<result name="success">admin/rust/RustBatchResult.jsp</result>
+		</action>
+		<action name="rustUpdate" class="rustAction" method="rustUpdate" >
+			<result name="success">admin/rust/RustUpdate.jsp</result>
+		</action>
+		<action name="rustDetail" class="rustAction" method="rustUpdate" >
+			<result name="success">admin/rust/RustDetail.jsp</result>
+		</action>
+		<action name="rustUpdateSubmit" class="rustAction" method="rustUpdateSubmit">
+			<result name="success" type="redirect">rustList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="rustDelete" class="rustAction" method="rustDelete">
+			<result name="success" type="redirect">rustList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="rustBatchDelete" class="rustAction" method="rustBatchDelete">
+			<result name="success" type="redirect">rustList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

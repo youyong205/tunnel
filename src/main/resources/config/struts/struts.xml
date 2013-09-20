@@ -55,6 +55,12 @@
 	<include file="config/struts/struts-girthOpen.xml"></include>
 	<include file="config/struts/struts-girthFault.xml"></include>
 	<include file="config/struts/struts-settlement.xml"></include>
+	<include file="config/struts/struts-longitudinalOpen.xml"></include>
+	<include file="config/struts/struts-longitudinalFault.xml"></include>
+	<include file="config/struts/struts-coverLoss.xml"></include>
+	<include file="config/struts/struts-cracks.xml"></include>
+	<include file="config/struts/struts-seepage.xml"></include>
+	<include file="config/struts/struts-rust.xml"></include>
 	
 	<package name="default" extends="struts-default">
 		<!-- <interceptors> <interceptor name="loginInterceptor" class="com.golf.tools.UserInterceptor"> 

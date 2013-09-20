@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#linePipeList').addClass("active");
-	$("#form").validate();
+	
 	var type='<s:property value="linePipe.lineType"/>';
 	$('#lineType').val(type);
 });

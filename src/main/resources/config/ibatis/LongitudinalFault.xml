@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="longitudinalFault" type="com.longitudinalFault.LongitudinalFault" />
+	<sql id="longitudinalFault.columns">
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,value,
+		type,blockIndex,date,des,creationDate,modifyDate
+	</sql>
+	<select id="longitudinalFault.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from longitudinalFault
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="longitudinalFault.queryLimitedLongitudinalFaults" resultClass="longitudinalFault">
+		select
+		<include refid="longitudinalFault.columns" />
+		from longitudinalFault
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+   		order by id desc
+		limit #start#,#size#
+	</select>
+	<select id="longitudinalFault.queryLongitudinalFaultByDuration" resultClass="longitudinalFault">
+		select
+		<include refid="longitudinalFault.columns" />
+		from longitudinalFault
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
+	</select>
+	<select id="longitudinalFault.findByName" resultClass="longitudinalFault" parameterClass="String">
+		select
+		<include refid="longitudinalFault.columns" />
+		from longitudinalFault where name=#name#
+	</select>
+	<select id="longitudinalFault.findById" resultClass="longitudinalFault" parameterClass="int">
+		select
+		<include refid="longitudinalFault.columns" />
+		from longitudinalFault where id=#id#
+	</select>
+	<insert id="longitudinalFault.insert" parameterClass="longitudinalFault">
+		insert into longitudinalFault (<include refid="longitudinalFault.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#value#,
+		#type#,#blockIndex#,#date#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="longitudinalFault.update" parameterClass="longitudinalFault">
+		update longitudinalFault set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,
+		type=#type#,blockIndex=#blockIndex#,value=#value#,date=#date#,des=#des#,
+		modifyDate=now() where id=#id#
+	</update>
+	<delete id="longitudinalFault.delete" parameterClass="int">
+		delete from longitudinalFault
+		where
+		id=#id#
+	</delete>
+</sqlMap>

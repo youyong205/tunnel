@@ -16,7 +16,7 @@
 $(document).ready(function() {
 	$('#facilityList').addClass("active");
 	$('#curing_role').val("<s:property value="curing.role"/>");
-	$("#form").validate();
+	
 });
 </script>
 </head>

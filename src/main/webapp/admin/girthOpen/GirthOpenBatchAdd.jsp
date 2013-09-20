@@ -54,19 +54,19 @@ $(document).ready(function() {
 					</tr>
 				</table>
 				<table class="table table-striped table-bordered table-condensed">
-					<tr><td colspan='7'><h4 class="text-info text-center">导入excel的模板示例【<span class='text-error'>仅支持2007版本格式，请转换到此版本</span>】</h4></td></tr>
+					<tr><td colspan='8'><h4 class="text-info text-center">导入excel的模板示例【<span class='text-error'>仅支持2003-2007版本格式，请转换到此版本</span>】</h4></td></tr>
 					<tr><th>衬砌环唯一名称</th><th>所在块</th><th>测量时间</th><th>测点</th><th>变形值</th><th>和上或下张开</br>(1表示和上环，2表示和下环)</th><th>是否出现严重连接缺陷</br>（1表示否，2表示是）</th><th>描述</th></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-01</td><td>测点信息</td><td>100</td><td>1</td><td>1</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-02</td><td>测点信息</td><td>100</td><td>1</td><td>1</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-03</td><td>测点信息</td><td>100</td><td>1</td><td>1</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-04</td><td>测点信息</td><td>100</td><td>1</td><td>2</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-05</td><td>测点信息</td><td>100</td><td>1</td><td>2</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-06</td><td>测点信息</td><td>100</td><td>1</td><td>2</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-07</td><td>测点信息</td><td>100</td><td>1</td><td>2</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-08</td><td>测点信息</td><td>100</td><td>1</td><td>2</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-09</td><td>测点信息</td><td>100</td><td>1</td><td>2</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-10</td><td>测点信息</td><td>100</td><td>1</td><td>2</td>1<td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-11</td><td>测点信息</td><td>100</td><td>1</td><td>2</td>1<td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-01</td><td>测点信息</td><td>100</td><td>1</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-02</td><td>测点信息</td><td>100</td><td>1</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-03</td><td>测点信息</td><td>100</td><td>1</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-04</td><td>测点信息</td><td>100</td><td>1</td><td>2</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-05</td><td>测点信息</td><td>100</td><td>1</td><td>2</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-06</td><td>测点信息</td><td>100</td><td>1</td><td>2</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-07</td><td>测点信息</td><td>100</td><td>1</td><td>2</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-08</td><td>测点信息</td><td>100</td><td>1</td><td>2</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-09</td><td>测点信息</td><td>100</td><td>1</td><td>2</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-10</td><td>测点信息</td><td>100</td><td>1</td><td>2</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-11</td><td>测点信息</td><td>100</td><td>1</td><td>2</td><td>暂无说明</td></tr>
 				</table>
 			</form>
       </div>

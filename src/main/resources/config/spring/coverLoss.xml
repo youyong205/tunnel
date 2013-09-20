@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="coverLossDao" class="com.coverLoss.CoverLossDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="coverLossService" class="com.coverLoss.CoverLossServiceImpl">
+		<property name="coverLossDao">
+			<ref bean="coverLossDao" />
+		</property>
+		<property name="liningRingConstructionService">
+			<ref bean="liningRingConstructionService" />
+		</property>
+	</bean>
+	<bean id="coverLossAction" class="com.coverLoss.CoverLossAction" scope="prototype">
+		<property name="liningRingConstructionService">
+			<ref bean="liningRingConstructionService" />
+		</property>
+		<property name="coverLossService">
+			<ref bean="coverLossService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="liningRingService">
+			<ref bean="liningRingService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="liningRingBlockService">
+			<ref bean="liningRingBlockService" />
+		</property>
+	</bean>
+</beans>  

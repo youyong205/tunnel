@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#rectangleComponentList').addClass("active");
-	$("#form").validate();
+	
 	var type='<s:property value="rectangleComponent.lineType"/>';
 	$('#lineType').val(type);
 });

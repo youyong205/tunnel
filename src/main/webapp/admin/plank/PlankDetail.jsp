@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#plankList').addClass("active");
-	$("#form").validate();
+	
 	var type='<s:property value="plank.lineType"/>';
 	$('#lineType').val(type);
 });

@@ -16,7 +16,7 @@
 $(document).ready(function() {
 	$('#tunnelList').addClass("active");
 	$('#tunnel_role').val("<s:property value="tunnel.role"/>");
-	$("#form").validate();
+	
 });
 </script>
 </head>

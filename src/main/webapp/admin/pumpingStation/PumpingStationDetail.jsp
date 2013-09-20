@@ -17,7 +17,7 @@
 $(document).ready(function() {
 	$('#pumpingStationList').addClass("active");
 	$('#pumpingStation_role').val("<s:property value="pumpingStation.role"/>");
-	$("#form").validate();
+	
 	var type='<s:property value="pumpingStation.lineType"/>';
 	$('#lineType').val(type);
 });

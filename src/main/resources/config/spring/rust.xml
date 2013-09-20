@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="rustDao" class="com.rust.RustDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="rustService" class="com.rust.RustServiceImpl">
+		<property name="rustDao">
+			<ref bean="rustDao" />
+		</property>
+		<property name="liningRingConstructionService">
+			<ref bean="liningRingConstructionService" />
+		</property>
+	</bean>
+	<bean id="rustAction" class="com.rust.RustAction" scope="prototype">
+		<property name="liningRingConstructionService">
+			<ref bean="liningRingConstructionService" />
+		</property>
+		<property name="rustService">
+			<ref bean="rustService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="liningRingService">
+			<ref bean="liningRingService" />
+		</property>
+		<property name="documentService">
+			<ref bean="documentService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+		<property name="liningRingBlockService">
+			<ref bean="liningRingBlockService" />
+		</property>
+	</bean>
+</beans>  

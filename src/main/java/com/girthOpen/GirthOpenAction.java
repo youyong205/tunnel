@@ -439,5 +439,10 @@ public class GirthOpenAction extends FileUploadAction {
 	public List<LiningRingBlock> getLiningRingBlocks() {
 		return m_liningRingBlocks;
 	}
+	
+	public int getParentLiningRingConstructionId(){
+		return m_liningRingConstructionId;
+	}
+
 
 }

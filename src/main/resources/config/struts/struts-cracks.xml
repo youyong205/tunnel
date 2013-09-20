@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="cracks" extends="default">
+		<action name="cracksList" class="cracksAction" method="cracksList">
+			<result name="success">admin/cracks/CracksList.jsp</result>
+		</action>
+		<action name="cracksAdd"  class="cracksAction" method="cracksAdd">
+			<result name="success">admin/cracks/CracksAdd.jsp</result>
+		</action>
+		<action name="cracksAddSubmit" class="cracksAction" method="cracksAddSubmit">
+			<result name="success" type="redirect">cracksList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="cracksBatchAdd"  class="cracksAction" method="cracksBatchAdd">
+			<result name="success">admin/cracks/CracksBatchAdd.jsp</result>
+		</action>
+		<action name="cracksBatchAddSubmit" class="cracksAction" method="cracksBatchAddSubmit">
+			<result name="success">admin/cracks/CracksBatchResult.jsp</result>
+		</action>
+		<action name="cracksUpdate" class="cracksAction" method="cracksUpdate" >
+			<result name="success">admin/cracks/CracksUpdate.jsp</result>
+		</action>
+		<action name="cracksDetail" class="cracksAction" method="cracksUpdate" >
+			<result name="success">admin/cracks/CracksDetail.jsp</result>
+		</action>
+		<action name="cracksUpdateSubmit" class="cracksAction" method="cracksUpdateSubmit">
+			<result name="success" type="redirect">cracksList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="cracksDelete" class="cracksAction" method="cracksDelete">
+			<result name="success" type="redirect">cracksList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="cracksBatchDelete" class="cracksAction" method="cracksBatchDelete">
+			<result name="success" type="redirect">cracksList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

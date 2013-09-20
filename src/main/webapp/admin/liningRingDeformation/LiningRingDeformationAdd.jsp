@@ -79,7 +79,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">测点</strong></td>
 						<td><input type="text" name="liningRingDeformation.measuringPoing" class="{required:true,maxlength:64}"/></td>
-						<td style="text-align:right;"><strong class="text-success">变形值</strong></td>
+						<td style="text-align:right;"><strong class="text-success">本次测值D’(mm)</strong></td>
 						<td><input type="text" name="liningRingDeformation.value" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>

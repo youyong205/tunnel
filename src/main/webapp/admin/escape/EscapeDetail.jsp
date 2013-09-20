@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#escapeList').addClass("active");
-	$("#form").validate();
+	
 	var type='<s:property value="escape.lineType"/>';
 	$('#lineType').val(type);
 });

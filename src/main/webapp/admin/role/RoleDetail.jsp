@@ -16,7 +16,7 @@
 $(document).ready(function() {
 	$('#roleList').addClass("active");
 	$('#role_role').val("<s:property value="role.role"/>");
-	$("#form").validate();
+	
 });
 </script>
 </head>

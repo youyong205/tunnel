@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$('#liningRingMeasureList').addClass("active");
 	$('#settlementList').removeClass("btn-info");
 	$('#settlementList').addClass("btn-success");
-	$("#form").validate();
+	
 });
 </script>
 </head>

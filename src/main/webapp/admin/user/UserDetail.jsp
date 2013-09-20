@@ -15,7 +15,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#userList').addClass("active");
-	$("#form").validate();
+	
 });
 </script>
 </head>

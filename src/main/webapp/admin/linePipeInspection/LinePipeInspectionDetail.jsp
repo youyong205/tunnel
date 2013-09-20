@@ -16,7 +16,7 @@
 $(document).ready(function() {
 	$('#linePipeList').addClass("active");
 	$('#inspection_role').val("<s:property value="inspection.role"/>");
-	$("#form").validate();
+	
 });
 </script>
 </head>

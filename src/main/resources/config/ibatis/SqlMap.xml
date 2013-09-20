@@ -41,4 +41,10 @@
 		<sqlMap resource="config/ibatis/GirthOpen.xml"/>
 		<sqlMap resource="config/ibatis/GirthFault.xml"/>
 		<sqlMap resource="config/ibatis/Settlement.xml"/>
+		<sqlMap resource="config/ibatis/LongitudinalOpen.xml"/>
+		<sqlMap resource="config/ibatis/LongitudinalFault.xml"/>
+		<sqlMap resource="config/ibatis/CoverLoss.xml"/>
+		<sqlMap resource="config/ibatis/Cracks.xml"/>
+		<sqlMap resource="config/ibatis/Seepage.xml"/>
+		<sqlMap resource="config/ibatis/Rust.xml"/>
 </sqlMapConfig>

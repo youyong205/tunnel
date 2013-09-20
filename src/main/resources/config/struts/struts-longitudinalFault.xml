@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="longitudinalFault" extends="default">
+		<action name="longitudinalFaultList" class="longitudinalFaultAction" method="longitudinalFaultList">
+			<result name="success">admin/longitudinalFault/LongitudinalFaultList.jsp</result>
+		</action>
+		<action name="longitudinalFaultAdd"  class="longitudinalFaultAction" method="longitudinalFaultAdd">
+			<result name="success">admin/longitudinalFault/LongitudinalFaultAdd.jsp</result>
+		</action>
+		<action name="longitudinalFaultAddSubmit" class="longitudinalFaultAction" method="longitudinalFaultAddSubmit">
+			<result name="success" type="redirect">longitudinalFaultList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="longitudinalFaultBatchAdd"  class="longitudinalFaultAction" method="longitudinalFaultBatchAdd">
+			<result name="success">admin/longitudinalFault/LongitudinalFaultBatchAdd.jsp</result>
+		</action>
+		<action name="longitudinalFaultBatchAddSubmit" class="longitudinalFaultAction" method="longitudinalFaultBatchAddSubmit">
+			<result name="success">admin/longitudinalFault/LongitudinalFaultBatchResult.jsp</result>
+		</action>
+		<action name="longitudinalFaultUpdate" class="longitudinalFaultAction" method="longitudinalFaultUpdate" >
+			<result name="success">admin/longitudinalFault/LongitudinalFaultUpdate.jsp</result>
+		</action>
+		<action name="longitudinalFaultDetail" class="longitudinalFaultAction" method="longitudinalFaultUpdate" >
+			<result name="success">admin/longitudinalFault/LongitudinalFaultDetail.jsp</result>
+		</action>
+		<action name="longitudinalFaultUpdateSubmit" class="longitudinalFaultAction" method="longitudinalFaultUpdateSubmit">
+			<result name="success" type="redirect">longitudinalFaultList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="longitudinalFaultDelete" class="longitudinalFaultAction" method="longitudinalFaultDelete">
+			<result name="success" type="redirect">longitudinalFaultList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="longitudinalFaultBatchDelete" class="longitudinalFaultAction" method="longitudinalFaultBatchDelete">
+			<result name="success" type="redirect">longitudinalFaultList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

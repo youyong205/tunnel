@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="cracks" type="com.cracks.Cracks" />
+	<sql id="cracks.columns">
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,number,type,
+		length,width,angle,dip,date,des,creationDate,modifyDate
+	</sql>
+	<select id="cracks.querySizeByTunnelAndSection" resultClass="int">
+		select count(*) from cracks
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+	</select>
+	<select id="cracks.queryLimitedCrackss" resultClass="cracks">
+		select
+		<include refid="cracks.columns" />
+		from cracks
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="tunnelSectionId" compareValue="0">
+                 tunnelSectionId=#tunnelSectionId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="liningRingConstructionId" compareValue="0">
+                 liningRingConstructionId=#liningRingConstructionId#
+            </isGreaterThan>
+   		</dynamic>
+   		order by id desc
+		limit #start#,#size#
+	</select>
+	<select id="cracks.queryCracksByDuration" resultClass="cracks">
+		select
+		<include refid="cracks.columns" />
+		from cracks
+		where liningRingConstructionId=#liningRingConstructionId#
+		 <![CDATA[and date>=#start# and date<=#end# ]]>
+	</select>
+	<select id="cracks.findByName" resultClass="cracks" parameterClass="String">
+		select
+		<include refid="cracks.columns" />
+		from cracks where name=#name#
+	</select>
+	<select id="cracks.findById" resultClass="cracks" parameterClass="int">
+		select
+		<include refid="cracks.columns" />
+		from cracks where id=#id#
+	</select>
+	<insert id="cracks.insert" parameterClass="cracks">
+		insert into cracks (<include refid="cracks.columns" />) values
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#blockIndex#,
+		#number#,#type#,#length#,#width#,#angle#,#dip#,#date#,#des#,now(),now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="cracks.update" parameterClass="cracks">
+		update cracks set
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,
+		blockIndex=#blockIndex#,number=#number#,type=#type#,length=#length#,width=#width#,
+		angle=#angle#,dip=#dip#,date=#date#,des=#des#,modifyDate=now() where id=#id#
+	</update>
+	<delete id="cracks.delete" parameterClass="int">
+		delete from cracks
+		where
+		id=#id#
+	</delete>
+</sqlMap>

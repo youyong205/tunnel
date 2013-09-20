@@ -8,10 +8,16 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
+import com.coverLoss.CoverLoss;
+import com.cracks.Cracks;
 import com.girthFault.GirthFault;
 import com.girthOpen.GirthOpen;
 import com.liningRingDeformation.LiningRingDeformation;
 import com.liningRingLongitudinalDeformation.LiningRingLongitudinalDeformation;
+import com.longitudinalFault.LongitudinalFault;
+import com.longitudinalOpen.LongitudinalOpen;
+import com.rust.Rust;
+import com.seepage.Seepage;
 import com.settlement.Settlement;
 
 public class LiningRingConstructionServiceImpl implements LiningRingConstructionService {
@@ -122,13 +128,11 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 	@Override
    public int updateDeformationState(LiningRingDeformation defomation) {
-		System.out.println("Update updateDeformationState State");
 	   return 0;
    }
 
 	@Override
    public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState) {
-		System.out.println("Update updateLongitudinalDeformationState State");
 	   return 0;
    }
 
@@ -144,6 +148,41 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 	@Override
    public int updateSettlementState(Settlement settlement) {
+	   // TODO Auto-generated method stub
+	   return 0;
+   }
+
+	@Override
+   public int updateLongitudinalOpenState(LongitudinalOpen longitudinalOpen) {
+	   // TODO Auto-generated method stub
+	   return 0;
+   }
+
+	@Override
+   public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault) {
+	   // TODO Auto-generated method stub
+	   return 0;
+   }
+
+	@Override
+   public int updateCoverLossState(CoverLoss coverLoss) {
+		return 0;
+   }
+
+	@Override
+   public int updateCracksState(Cracks cracks) {
+	   // TODO Auto-generated method stub
+	   return 0;
+   }
+
+	@Override
+   public int updateSeepageState(Seepage seepage) {
+	   // TODO Auto-generated method stub
+	   return 0;
+   }
+
+	@Override
+   public int updateRustState(Rust rust) {
 	   // TODO Auto-generated method stub
 	   return 0;
    }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="longitudinalOpen" extends="default">
+		<action name="longitudinalOpenList" class="longitudinalOpenAction" method="longitudinalOpenList">
+			<result name="success">admin/longitudinalOpen/LongitudinalOpenList.jsp</result>
+		</action>
+		<action name="longitudinalOpenAdd"  class="longitudinalOpenAction" method="longitudinalOpenAdd">
+			<result name="success">admin/longitudinalOpen/LongitudinalOpenAdd.jsp</result>
+		</action>
+		<action name="longitudinalOpenAddSubmit" class="longitudinalOpenAction" method="longitudinalOpenAddSubmit">
+			<result name="success" type="redirect">longitudinalOpenList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="longitudinalOpenBatchAdd"  class="longitudinalOpenAction" method="longitudinalOpenBatchAdd">
+			<result name="success">admin/longitudinalOpen/LongitudinalOpenBatchAdd.jsp</result>
+		</action>
+		<action name="longitudinalOpenBatchAddSubmit" class="longitudinalOpenAction" method="longitudinalOpenBatchAddSubmit">
+			<result name="success">admin/longitudinalOpen/LongitudinalOpenBatchResult.jsp</result>
+		</action>
+		<action name="longitudinalOpenUpdate" class="longitudinalOpenAction" method="longitudinalOpenUpdate" >
+			<result name="success">admin/longitudinalOpen/LongitudinalOpenUpdate.jsp</result>
+		</action>
+		<action name="longitudinalOpenDetail" class="longitudinalOpenAction" method="longitudinalOpenUpdate" >
+			<result name="success">admin/longitudinalOpen/LongitudinalOpenDetail.jsp</result>
+		</action>
+		<action name="longitudinalOpenUpdateSubmit" class="longitudinalOpenAction" method="longitudinalOpenUpdateSubmit">
+			<result name="success" type="redirect">longitudinalOpenList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="longitudinalOpenDelete" class="longitudinalOpenAction" method="longitudinalOpenDelete">
+			<result name="success" type="redirect">longitudinalOpenList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+		<action name="longitudinalOpenBatchDelete" class="longitudinalOpenAction" method="longitudinalOpenBatchDelete">
+			<result name="success" type="redirect">longitudinalOpenList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}&amp;liningRingConstructionId=${liningRingConstructionId}</result>
+		</action>
+	</package>	
+</struts>

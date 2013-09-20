@@ -15,7 +15,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#openSectionList').addClass("active");
-	$("#form").validate();
+	
 });
 </script>
 </head>

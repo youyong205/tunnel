@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$('#liningRingMeasureList').addClass("active");
 	$('#liningRingLongitudinalDeformationList').removeClass("btn-info");
 	$('#liningRingLongitudinalDeformationList').addClass("btn-success");
-	$("#form").validate();
+	
 });
 </script>
 </head>
@@ -76,7 +76,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">测点</strong></td>
 						<td><input type="text" name="liningRingLongitudinalDeformation.measuringPoing"  value="<s:property value="liningRingLongitudinalDeformation.measuringPoing"/>"  class="{required:true,maxlength:64}"/></td>
-						<td style="text-align:right;"><strong class="text-success">变形值</strong></td>
+						<td style="text-align:right;"><strong class="text-success">纵向曲率ζ</strong></td>
 						<td><input type="text" name="liningRingLongitudinalDeformation.value" value="<s:property value="liningRingLongitudinalDeformation.value"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>

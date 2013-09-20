@@ -96,7 +96,6 @@ public class GirthFaultAction extends FileUploadAction {
 				defarmation.setTunnelSectionId(construction.getTunnelSectionId());
 				defarmation.setLiningRingConstructionId(construction.getId());
 				defarmation.setDate(date);
-				defarmation.setMeasuringPoing(measuringPoing);
 				defarmation.setValue(value);
 				defarmation.setDes(des);
 				return defarmation;
@@ -416,6 +415,10 @@ public class GirthFaultAction extends FileUploadAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
+	}
+	
+	public int getParentLiningRingConstructionId(){
+		return m_liningRingConstructionId;
 	}
 
 }

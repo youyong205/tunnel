@@ -2,10 +2,16 @@ package com.liningRingConstruction;
 
 import java.util.List;
 
+import com.coverLoss.CoverLoss;
+import com.cracks.Cracks;
 import com.girthFault.GirthFault;
 import com.girthOpen.GirthOpen;
 import com.liningRingDeformation.LiningRingDeformation;
 import com.liningRingLongitudinalDeformation.LiningRingLongitudinalDeformation;
+import com.longitudinalFault.LongitudinalFault;
+import com.longitudinalOpen.LongitudinalOpen;
+import com.rust.Rust;
+import com.seepage.Seepage;
 import com.settlement.Settlement;
 
 public interface LiningRingConstructionService {
@@ -30,17 +36,21 @@ public interface LiningRingConstructionService {
 	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState);
 
 	public int updateGirthOpenState(GirthOpen girthOpen);
-//
-//	public int updateLongitudinalOpenStateOpenState(LongitudinalOpen longitudinalOpen);
-//
+
+	public int updateLongitudinalOpenState(LongitudinalOpen longitudinalOpen);
+
 	public int updateGirthFaultState(GirthFault girthFault);
 
-//	public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault);
-//
-//	public int updateCoverLossState(CoverLoss coverLoss);
-//
-//	public int updateCracksState(Cracks cracks);
-	
 	public int updateSettlementState(Settlement settlement);
+
+	public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault);
+
+	public int updateCoverLossState(CoverLoss coverLoss);
+
+	public int updateCracksState(Cracks cracks);
+
+	public int updateSeepageState(Seepage seepage);
+
+	public int updateRustState(Rust rust);
 
 }

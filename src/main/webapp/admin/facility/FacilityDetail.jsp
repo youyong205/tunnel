@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#facilityList').addClass("active");
-	$("#form").validate();
+	
 	var type='<s:property value="facility.lineType"/>';
 	$('#lineType').val(type);
 });

@@ -16,7 +16,7 @@
 $(document).ready(function() {
 	$('#resourceList').addClass("active");
 	$('#name').val("<s:property value="resource.name"/>");
-	$("#form").validate();
+	
 });
 </script>
 </head>

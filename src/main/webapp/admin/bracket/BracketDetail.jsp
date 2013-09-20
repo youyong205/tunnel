@@ -17,7 +17,7 @@
 $(document).ready(function() {
 	$('#bracketList').addClass("active");
 	$('#bracket_role').val("<s:property value="bracket.role"/>");
-	$("#form").validate();
+	
 	var type='<s:property value="bracket.lineType"/>';
 	$('#lineType').val(type);
 });
