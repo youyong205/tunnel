@@ -97,7 +97,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">终止环向角度(°)</strong></td>
 						<td><input type="text" name="rust.endAngle" class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="rust.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>

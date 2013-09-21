@@ -94,7 +94,7 @@ $(document).ready(function() {
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="saddleWeight.document.id"/>"><s:property value="saddleWeight.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">压重块简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">压重块备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  readonly  name="saddleWeight.des" class="{maxlength:512}"><s:property value="saddleWeight.des"/></textarea></td>
 					</tr>
 					</table>

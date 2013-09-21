@@ -31,7 +31,7 @@
          </div></td>
 	</tr>
 	<tr>
-		<td width="20%" style="text-align:right;"><strong class="text-success">施工进度简介</strong></td>
+		<td width="20%" style="text-align:right;"><strong class="text-success">施工进度备注信息</strong></td>
 		<td colspan='3'><textarea type="text" rows="5" cols="80"  name="schedule.des" class="{maxlength:512}"></textarea></td>
 	</tr>
 </table>

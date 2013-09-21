@@ -1,13 +1,10 @@
 package com.girthFault;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
-import jxl.CellType;
-import jxl.DateCell;
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -64,41 +61,34 @@ public class GirthFaultAction extends FileUploadAction {
 
 	private List<LiningRingConstruction> m_liningRingConstructions;
 
-	private SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
 
 	private GirthFault convert(Cell[] cells) {
 		try {
-			GirthFault defarmation = new GirthFault();
-			String name = cells[0].getContents();
-			Date date = null;
-			if (cells[1].getType() == CellType.DATE) {
-				DateCell dateCell = (DateCell) cells[1];
-				date = dateCell.getDate();
-			} else {
-				date = m_sdf.parse(cells[1].getContents());
-			}
-			String measuringPoing = cells[2].getContents();
-			double value = Double.parseDouble(cells[3].getContents());
+			GirthFault fault = new GirthFault();
+			String name = convertToString(cells[0]);
+			Date date = convertToDate(cells[1]);
+			int type = convertToInteger(cells[2]);
+			double value = convertToDouble(cells[3]);
 			String des = "";
 
 			if (cells.length > 4) {
-				des = cells[4].getContents();
+				des =  convertToString(cells[4]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
 
 			if (construction != null) {
-				defarmation.setTunnelId(construction.getTunnelId());
-				defarmation.setTunnelSectionId(construction.getTunnelSectionId());
-				defarmation.setLiningRingConstructionId(construction.getId());
-				defarmation.setDate(date);
-				defarmation.setValue(value);
-				defarmation.setDes(des);
-				return defarmation;
+				fault.setTunnelId(construction.getTunnelId());
+				fault.setTunnelSectionId(construction.getTunnelSectionId());
+				fault.setLiningRingConstructionId(construction.getId());
+				fault.setDate(date);
+				fault.setValue(value);
+				fault.setType(type);
+				fault.setDes(des);
+				return fault;
 			}
 		} catch (Exception e) {
 			m_logger.error(e);

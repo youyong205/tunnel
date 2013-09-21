@@ -34,7 +34,7 @@ $(document).ready(function() {
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
      		<%@include file="./../MeasuringHeader.jsp"%>
-				<table  class="table table-striped table-bordered table-condensed">
+				<table  class="table table-striped table-bordered table-condensed table-hover">
 					<tr>	
 						<td colspan='2'><h4 class="text-info text-center">批量新增<s:property value="actionModule"/>记录结果</h4></td>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>

@@ -94,7 +94,7 @@ $(document).ready(function() {
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="flueSheet.document.id"/>"><s:property value="flueSheet.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">烟道板简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">烟道板备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  readonly  name="flueSheet.des" class="{maxlength:512}"><s:property value="flueSheet.des"/></textarea></td>
 					</tr>
 					</table>

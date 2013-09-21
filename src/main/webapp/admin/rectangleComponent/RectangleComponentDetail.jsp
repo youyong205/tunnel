@@ -88,7 +88,7 @@ $(document).ready(function() {
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="rectangleComponent.document.id"/>"><s:property value="rectangleComponent.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">口型构件备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60" readonly name="rectangleComponent.des" class="{maxlength:512}"><s:property value="rectangleComponent.des"/></textarea></td>
 					</tr>
 					</table>

@@ -68,7 +68,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上传设计制作文档<br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
 						<td ><input type="file" name="upload" class="{required:true}"></td>
-						<td style="text-align:right;"><strong class="text-success">联络通道简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">联络通道备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="40"  name="contactChannel.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					

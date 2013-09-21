@@ -6,8 +6,8 @@
 			<li class="nav-header" id="tunnelSectionList"><a href="tunnelSectionList.do">盾构段</a></li>
 			<li class="nav-header"  id="liningRingConstructionList"><a href="liningRingConstructionList.do??tunnelId=<s:property value="tunnelId"/>">衬砌环</a></li>
 			<li id="liningRingMeasureList" class="nav-child"><a href="liningRingDeformationList.do?tunnelId=<s:property value="tunnelId"/>">病害检测</a></li>
+			<li id="" class="nav-child"><a href="#">施工质量</a></li>
 			<li id="" class="nav-child"><a href="#">养护记录</a></li>
-			<li id="" class="nav-child"><a href="#">病害状态</a></li>
 			<li class="nav-header" >同步构件</li>
 			<li id="rectangleComponentList" class="nav-child"><a href="rectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>">口型构件</a></li>
 			<li id="plankList" class="nav-child"><a href="plankList.do?tunnelId=<s:property value="tunnelId"/>">车道板</a></li>

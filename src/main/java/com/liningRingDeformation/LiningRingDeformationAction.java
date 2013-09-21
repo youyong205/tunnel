@@ -1,13 +1,10 @@
 package com.liningRingDeformation;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
-import jxl.CellType;
-import jxl.DateCell;
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -64,8 +61,6 @@ public class LiningRingDeformationAction extends FileUploadAction {
 
 	private List<LiningRingConstruction> m_liningRingConstructions;
 
-	private SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
@@ -73,22 +68,15 @@ public class LiningRingDeformationAction extends FileUploadAction {
 	private LiningRingDeformation convert(Cell[] cells) {
 		try {
 			LiningRingDeformation defarmation = new LiningRingDeformation();
-			String name = cells[0].getContents();
-			Date date = null;
-			if (cells[1].getType() == CellType.DATE) {
-				DateCell dateCell = (DateCell) cells[1];
-				date = dateCell.getDate();
-			} else {
-				date = m_sdf.parse(cells[1].getContents());
-			}
-			String measuringPoing = cells[2].getContents();
-			double value = Double.parseDouble(cells[3].getContents());
+			String name = convertToString(cells[0]);
+			Date date = convertToDate(cells[1]);
+			String measuringPoing = convertToString(cells[2]);
+			double value = convertToDouble(cells[3]);
 			String des = "";
 
-			if (cells.length > 4) {
-				des = cells[4].getContents();
+			if (cells.length >= 5) {
+				des = convertToString(cells[4]);
 			}
-
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
 
 			if (construction != null) {
@@ -417,8 +405,8 @@ public class LiningRingDeformationAction extends FileUploadAction {
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
-	
-	public int getParentLiningRingConstructionId(){
+
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 

@@ -56,7 +56,7 @@ $(document).ready(function() {
 						<td><input type="text" size="60" name="constructionUnit.phone" readonly value="<s:property value='constructionUnit.phone'/>" class="{required:true,maxlength:128}"/></td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="80"  name="constructionUnit.des" readonly class="{maxlength:512}"><s:property value='constructionUnit.des'/></textarea></td>
 					</tr>
 					</table>

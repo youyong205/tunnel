@@ -110,7 +110,7 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="longitudinalOpen.des" class="{maxlength:512}"><s:property value="longitudinalOpen.des"/></textarea></td>
 					</tr>
 					<tr>

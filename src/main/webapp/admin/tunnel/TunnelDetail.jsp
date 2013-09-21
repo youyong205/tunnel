@@ -40,7 +40,7 @@ $(document).ready(function() {
 						<td><input type="text" size="60" name="tunnel.name" readonly value="<s:property value='tunnel.name'/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des" readonly class="{maxlength:512}"><s:property value='tunnel.des'/></textarea></td>
 					</tr>
 					</table>

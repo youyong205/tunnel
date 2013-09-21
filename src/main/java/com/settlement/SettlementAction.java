@@ -1,13 +1,10 @@
 package com.settlement;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
-import jxl.CellType;
-import jxl.DateCell;
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -19,6 +16,8 @@ import com.FileUploadAction;
 import com.Modules;
 import com.Operation;
 import com.liningRing.LiningRing;
+import com.liningRing.LiningRingBlock;
+import com.liningRing.LiningRingBlockService;
 import com.liningRing.LiningRingService;
 import com.liningRingConstruction.LiningRingConstruction;
 import com.liningRingConstruction.LiningRingConstructionService;
@@ -54,6 +53,10 @@ public class SettlementAction extends FileUploadAction {
 
 	private TunnelSectionService m_tunnelSectionService;
 
+	private List<LiningRingBlock> m_liningRingBlocks;
+
+	private LiningRingBlockService m_liningRingBlockService;
+
 	private LiningRingConstructionService m_liningRingConstructionService;
 
 	private List<Tunnel> m_tunnels;
@@ -64,42 +67,36 @@ public class SettlementAction extends FileUploadAction {
 
 	private List<LiningRingConstruction> m_liningRingConstructions;
 
-	private SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
 
 	private Settlement convert(Cell[] cells) {
 		try {
-			Settlement defarmation = new Settlement();
-			String name = cells[0].getContents();
-			Date date = null;
-			if (cells[1].getType() == CellType.DATE) {
-				DateCell dateCell = (DateCell) cells[1];
-				date = dateCell.getDate();
-			} else {
-				date = m_sdf.parse(cells[1].getContents());
-			}
-			String measuringPoing = cells[2].getContents();
-			double value = Double.parseDouble(cells[3].getContents());
+			Settlement settlement = new Settlement();
+			String name = convertToString(cells[0]);
+			int blockIndex = convertToInteger(cells[1]);
+			Date date = convertToDate(cells[2]);
+			double value = convertToDouble(cells[3]);
+			double distance = convertToDouble(cells[4]);
 			String des = "";
 
-			if (cells.length > 4) {
-				des = cells[4].getContents();
+			if (cells.length >= 6) {
+				des = convertToString(cells[5]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
 
 			if (construction != null) {
-				defarmation.setTunnelId(construction.getTunnelId());
-				defarmation.setTunnelSectionId(construction.getTunnelSectionId());
-				defarmation.setLiningRingConstructionId(construction.getId());
-				defarmation.setDate(date);
-				defarmation.setMeasuringPoing(measuringPoing);
-				defarmation.setValue(value);
-				defarmation.setDes(des);
-				return defarmation;
+				settlement.setTunnelId(construction.getTunnelId());
+				settlement.setTunnelSectionId(construction.getTunnelSectionId());
+				settlement.setLiningRingConstructionId(construction.getId());
+				settlement.setBlockIndex(blockIndex);
+				settlement.setDate(date);
+				settlement.setValue(value);
+				settlement.setDistance(distance);
+				settlement.setDes(des);
+				return settlement;
 			}
 		} catch (Exception e) {
 			m_logger.error(e);
@@ -173,6 +170,10 @@ public class SettlementAction extends FileUploadAction {
 		} else {
 			m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
 		}
+		if (m_liningRingConstructions.size() > 0) {
+			int liningRingId = m_liningRingConstructions.get(0).getLiningRingId();
+			m_liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(liningRingId);
+		}
 		return SUCCESS;
 	}
 
@@ -184,8 +185,7 @@ public class SettlementAction extends FileUploadAction {
 		try {
 			int id = m_settlementService.insertSettlement(m_settlement);
 			if (id > 0) {
-				Log log = createLog(Modules.s_settlement_model, Operation.s_operation_add,
-				      m_settlement);
+				Log log = createLog(Modules.s_settlement_model, Operation.s_operation_add, m_settlement);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -270,8 +270,7 @@ public class SettlementAction extends FileUploadAction {
 			m_settlement = m_settlementService.findByPK(m_settlementId);
 			int count = m_settlementService.deleteSettlement(m_settlementId);
 			if (count > 0) {
-				Log log = createLog(Modules.s_settlement_model, Operation.s_operation_delete,
-				      m_settlementId);
+				Log log = createLog(Modules.s_settlement_model, Operation.s_operation_delete, m_settlementId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -312,8 +311,8 @@ public class SettlementAction extends FileUploadAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_settlements = m_settlementService.queryLimitedSettlements(m_tunnelId,
-			      m_tunnelSectionId, m_liningRingConstructionId, start, SIZE);
+			m_settlements = m_settlementService.queryLimitedSettlements(m_tunnelId, m_tunnelSectionId,
+			      m_liningRingConstructionId, start, SIZE);
 			for (Settlement settlement : m_settlements) {
 				settlement.setTunnel(m_tunnelService.findByPK(settlement.getTunnelId()));
 			}
@@ -329,11 +328,13 @@ public class SettlementAction extends FileUploadAction {
 			m_liningRings = m_liningRingService.queryAllLiningRings();
 			m_settlement = m_settlementService.findByPK(m_settlementId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
-			      m_settlement.getTunnelId(), 0, Integer.MAX_VALUE);
-			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(
-			      m_settlement.getTunnelId(), m_settlement.getTunnelSectionId(), 0,
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_settlement.getTunnelId(), 0,
 			      Integer.MAX_VALUE);
+			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(
+			      m_settlement.getTunnelId(), m_settlement.getTunnelSectionId(), 0, Integer.MAX_VALUE);
+			int liningRingConstructionId = m_settlement.getLiningRingConstructionId();
+			int liningRingId = m_liningRingConstructionService.findByPK(liningRingConstructionId).getLiningRingId();
+			m_liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(liningRingId);
 			if (m_settlement != null) {
 				return SUCCESS;
 			} else {
@@ -353,8 +354,7 @@ public class SettlementAction extends FileUploadAction {
 		try {
 			int count = m_settlementService.updateSettlement(m_settlement);
 			if (count > 0) {
-				Log log = createLog(Modules.s_settlement_model, Operation.s_operation_update,
-				      m_settlement);
+				Log log = createLog(Modules.s_settlement_model, Operation.s_operation_update, m_settlement);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -368,8 +368,7 @@ public class SettlementAction extends FileUploadAction {
 	}
 
 	public String queryAllSettlements() {
-		m_settlements = m_settlementService.queryLimitedSettlements(m_tunnelId,
-		      m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+		m_settlements = m_settlementService.queryLimitedSettlements(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}
@@ -417,8 +416,16 @@ public class SettlementAction extends FileUploadAction {
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
-	
-	public int getParentLiningRingConstructionId(){
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
+	}
+
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 

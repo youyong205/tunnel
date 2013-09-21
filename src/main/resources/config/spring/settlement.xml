@@ -36,5 +36,8 @@
 		<property name="tunnelSectionService">
 			<ref bean="tunnelSectionService" />
 		</property>
+		<property name="liningRingBlockService">
+			<ref bean="liningRingBlockService" />
+		</property>
 	</bean>
 </beans>  

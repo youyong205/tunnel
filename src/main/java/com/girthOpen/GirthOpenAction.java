@@ -1,13 +1,10 @@
 package com.girthOpen;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
-import jxl.CellType;
-import jxl.DateCell;
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -70,8 +67,6 @@ public class GirthOpenAction extends FileUploadAction {
 
 	private List<LiningRingConstruction> m_liningRingConstructions;
 
-	private SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
@@ -79,23 +74,18 @@ public class GirthOpenAction extends FileUploadAction {
 	private GirthOpen convert(Cell[] cells) {
 		try {
 			GirthOpen girthOpen = new GirthOpen();
-			String name = cells[0].getContents();
-			int blockIndex = Integer.parseInt(cells[1].getContents());
-			Date date = null;
-			if (cells[2].getType() == CellType.DATE) {
-				DateCell dateCell = (DateCell) cells[2];
-				date = dateCell.getDate();
-			} else {
-				date = m_sdf.parse(cells[2].getContents());
-			}
-			String measuringPoing = cells[3].getContents();
-			double value = Double.parseDouble(cells[4].getContents());
-			int type = Integer.parseInt(cells[5].getContents());
-			int serious = Integer.parseInt(cells[6].getContents());
+
+			String name = convertToString(cells[0]);
+			int blockIndex = convertToInteger(cells[1]);
+			Date date = convertToDate(cells[2]);
+			String measuringPoing = convertToString(cells[3]);
+			double value = convertToDouble(cells[4]);
+			int type = convertToInteger(cells[5]);
+			int serious = convertToInteger(cells[6]);
 			String des = "";
 
-			if (cells.length > 6) {
-				des = cells[4].getContents();
+			if (cells.length >= 8) {
+				des = convertToString(cells[7]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -439,10 +429,9 @@ public class GirthOpenAction extends FileUploadAction {
 	public List<LiningRingBlock> getLiningRingBlocks() {
 		return m_liningRingBlocks;
 	}
-	
-	public int getParentLiningRingConstructionId(){
+
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
-
 
 }

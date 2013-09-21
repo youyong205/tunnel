@@ -54,7 +54,7 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td colspan='3'><textarea type="text" rows="5" cols="80" readonly name="resource.des" class="{maxlength:512}"><s:property value="resource.des"/></textarea></td>
 						
 					</tr>

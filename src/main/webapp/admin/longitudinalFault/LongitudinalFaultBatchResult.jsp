@@ -34,7 +34,7 @@ $(document).ready(function() {
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
      		<%@include file="./../MeasuringHeader.jsp"%>
-				<table  class="table table-striped table-bordered table-condensed">
+				<table  class="table table-striped table-bordered table-condensed table-hover">
 					<tr>	
 						<td colspan='2'><h4 class="text-info text-center">批量新增<s:property value="actionModule"/>记录结果</h4></td>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
@@ -43,7 +43,7 @@ $(document).ready(function() {
 						<input type="hidden" name="liningRingConstructionId" value="<s:property value="liningRingConstructionId"/>"/>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">成功新增记录条数</strong></td>
+						<td width='20%' style="text-align:right;"><strong class="text-success">成功新增记录条数</strong></td>
 						<td>
 							<s:property value="batchInsertResult.success"/>
 				         </td>

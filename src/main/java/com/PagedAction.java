@@ -1,9 +1,16 @@
 package com;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import jxl.Cell;
+import jxl.CellType;
+import jxl.DateCell;
 
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,70 +39,105 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	protected Map<String, Object> m_session;
 
+	protected SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 	private List<String> m_modules = new ArrayList<String>(Arrays.asList(Modules.s_user_model, Modules.s_role_model,
-	      Modules.s_resource_model, Modules.s_log_module, Modules.s_document_model, Modules.s_tunnel_model,
-	      
-	      Modules.s_constructionUnit_model, Modules.s_liningRing_model, Modules.s_tunnelSection_model,
+	      Modules.s_resource_model,
+	      Modules.s_log_module,
+	      Modules.s_document_model,
+	      Modules.s_tunnel_model,
 
-	      Modules.s_contactChannel_model, Modules.s_contactChannel_inspection_model, Modules.s_contactChannel_curing_model, //
-	      
-	      Modules.s_buriedSection_model, Modules.s_buriedSection_inspection_model,Modules.s_buriedSection_curing_model, //
-	     
-	      Modules.s_openSection_model, Modules.s_openSection_inspection_model, Modules.s_openSection_curing_model, //
-	      
-	      Modules.s_workingWell_model, Modules.s_workingWell_inspection_model, Modules.s_workingWell_curing_model, //
-	     
-	      Modules.s_rectangleComponent_model, Modules.s_rectangleComponent_inspection_model, Modules.s_rectangleComponent_curing_model, //
-	      
-	      Modules.s_plank_model, Modules.s_plank_inspection_model, Modules.s_plank_curing_model, //
-	      
-	      Modules.s_bracket_model, Modules.s_bracket_inspection_model, Modules.s_bracket_curing_model, //
-	      
-	      Modules.s_saddleWeight_model, Modules.s_saddleWeight_inspection_model, Modules.s_saddleWeight_curing_model, //
-	      
-	      Modules.s_flueSheet_model, Modules.s_flueSheet_inspection_model, Modules.s_flueSheet_curing_model,//
-	      
-	      Modules.s_pumpingStation_model, Modules.s_pumpingStation_inspection_model, Modules.s_pumpingStation_curing_model, //
-	      
-	      Modules.s_escape_model, Modules.s_escape_inspection_model, Modules.s_escape_curing_model, //
-	      
-	      Modules.s_linePipe_model, Modules.s_linePipe_inspection_model, Modules.s_linePipe_curing_model, //
-	      
-	      Modules.s_facility_model, Modules.s_facility_inspection_model, Modules.s_facility_curing_model,//
-	      
-			Modules.s_liningRingConstruction_model , Modules.s_liningRingDeformation_model , Modules.s_liningRingLongitudinalDeformation_model,
-			
-			Modules.s_girthOpen_model,Modules.s_girthFault_model,Modules.s_settlement_model,Modules.s_longitudinalOpen_model,
-			
-			Modules.s_longitudinalFault_model,Modules.s_coverLoss_model,Modules.s_cracks_model,Modules.s_seepage_model,
-			
-			Modules.s_rust_model));
+	      Modules.s_constructionUnit_model,
+	      Modules.s_liningRing_model,
+	      Modules.s_tunnelSection_model,
 
-	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(
-	      Modules.s_contactChannel_model,  Modules.s_contactChannel_curing_model, //
-	      
-	      Modules.s_buriedSection_model,Modules.s_buriedSection_curing_model, //
-	      
+	      Modules.s_contactChannel_model,
+	      Modules.s_contactChannel_inspection_model,
+	      Modules.s_contactChannel_curing_model, //
+
+	      Modules.s_buriedSection_model,
+	      Modules.s_buriedSection_inspection_model,
+	      Modules.s_buriedSection_curing_model, //
+
+	      Modules.s_openSection_model,
+	      Modules.s_openSection_inspection_model,
+	      Modules.s_openSection_curing_model, //
+
+	      Modules.s_workingWell_model,
+	      Modules.s_workingWell_inspection_model,
+	      Modules.s_workingWell_curing_model, //
+
+	      Modules.s_rectangleComponent_model,
+	      Modules.s_rectangleComponent_inspection_model,
+	      Modules.s_rectangleComponent_curing_model, //
+
+	      Modules.s_plank_model,
+	      Modules.s_plank_inspection_model,
+	      Modules.s_plank_curing_model, //
+
+	      Modules.s_bracket_model,
+	      Modules.s_bracket_inspection_model,
+	      Modules.s_bracket_curing_model, //
+
+	      Modules.s_saddleWeight_model,
+	      Modules.s_saddleWeight_inspection_model,
+	      Modules.s_saddleWeight_curing_model, //
+
+	      Modules.s_flueSheet_model,
+	      Modules.s_flueSheet_inspection_model,
+	      Modules.s_flueSheet_curing_model,//
+
+	      Modules.s_pumpingStation_model,
+	      Modules.s_pumpingStation_inspection_model,
+	      Modules.s_pumpingStation_curing_model, //
+
+	      Modules.s_escape_model,
+	      Modules.s_escape_inspection_model,
+	      Modules.s_escape_curing_model, //
+
+	      Modules.s_linePipe_model,
+	      Modules.s_linePipe_inspection_model,
+	      Modules.s_linePipe_curing_model, //
+
+	      Modules.s_facility_model,
+	      Modules.s_facility_inspection_model,
+	      Modules.s_facility_curing_model,//
+
+	      Modules.s_liningRingConstruction_model, Modules.s_liningRingDeformation_model,
+	      Modules.s_liningRingLongitudinalDeformation_model,
+
+	      Modules.s_girthOpen_model, Modules.s_girthFault_model, Modules.s_settlement_model,
+	      Modules.s_longitudinalOpen_model,
+
+	      Modules.s_longitudinalFault_model, Modules.s_coverLoss_model, Modules.s_cracks_model, Modules.s_seepage_model,
+
+	      Modules.s_rust_model));
+
+	private List<String> m_documentModules = new ArrayList<String>(Arrays.asList(Modules.s_contactChannel_model,
+	      Modules.s_contactChannel_curing_model, //
+
+	      Modules.s_buriedSection_model, Modules.s_buriedSection_curing_model, //
+
 	      Modules.s_openSection_model, Modules.s_openSection_curing_model, //
-	      
-	      Modules.s_workingWell_model,  Modules.s_workingWell_curing_model, //
-	     
-	      Modules.s_rectangleComponent_model,  Modules.s_rectangleComponent_curing_model, //
-	      
+
+	      Modules.s_workingWell_model, Modules.s_workingWell_curing_model, //
+
+	      Modules.s_rectangleComponent_model, Modules.s_rectangleComponent_curing_model, //
+
 	      Modules.s_plank_model, Modules.s_plank_curing_model, //
-	      
-	      Modules.s_bracket_model,  Modules.s_bracket_curing_model, //
-	      
-	      Modules.s_saddleWeight_model,Modules.s_saddleWeight_curing_model, //
-	      
-	      Modules.s_flueSheet_model,Modules.s_flueSheet_curing_model,//
-	      
-	      Modules.s_pumpingStation_model,  Modules.s_pumpingStation_curing_model, //
-	      
+
+	      Modules.s_bracket_model, Modules.s_bracket_curing_model, //
+
+	      Modules.s_saddleWeight_model, Modules.s_saddleWeight_curing_model, //
+
+	      Modules.s_flueSheet_model, Modules.s_flueSheet_curing_model,//
+
+	      Modules.s_pumpingStation_model, Modules.s_pumpingStation_curing_model, //
+
 	      Modules.s_escape_model, Modules.s_escape_curing_model, //
-	      
+
 	      Modules.s_linePipe_model, Modules.s_linePipe_curing_model, //
-	      
+
 	      Modules.s_facility_model, Modules.s_facility_curing_model));
 
 	public String buildResource(String module, String oper) {
@@ -201,6 +243,27 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	@Override
 	public void setSession(Map<String, Object> session) {
 		m_session = session;
+	}
+
+	public Date convertToDate(Cell cell) throws ParseException {
+		if (cell.getType() == CellType.DATE) {
+			DateCell dateCell = (DateCell) cell;
+			return dateCell.getDate();
+		} else {
+			return m_sdf.parse(cell.getContents());
+		}
+	}
+
+	public double convertToDouble(Cell cell) {
+		return Double.parseDouble(cell.getContents());
+	}
+
+	public int convertToInteger(Cell cell) {
+		return Integer.parseInt(cell.getContents());
+	}
+
+	public String convertToString(Cell cell) {
+		return cell.getContents();
 	}
 
 }

@@ -99,7 +99,7 @@ $(document).ready(function() {
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>
-						<td style="text-align:right;"><strong class="text-success">泵房简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">泵房备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="50"  name="pumpingStation.des" class="{maxlength:512}"><s:property value="pumpingStation.des"/></textarea></td>
 					</tr>
 					</table>

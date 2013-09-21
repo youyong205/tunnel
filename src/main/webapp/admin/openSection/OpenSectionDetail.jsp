@@ -85,7 +85,7 @@ $(document).ready(function() {
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="openSection.document.id"/>"><s:property value="openSection.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">敞开段简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">敞开段备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="40" readonly name="openSection.des" class="{maxlength:512}"><s:property value="openSection.des"/></textarea></td>
 					</tr>
 				</table>

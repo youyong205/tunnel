@@ -91,7 +91,7 @@ $(document).ready(function() {
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>
-						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">口型构件备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="rectangleComponent.des" class="{maxlength:512}"><s:property value="rectangleComponent.des"/></textarea></td>
 					</tr>
 					</table>

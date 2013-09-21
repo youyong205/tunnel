@@ -47,7 +47,7 @@ $(document).ready(function() {
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
 						<td width="35%">
 						<s:select name="settlement.tunnelId" id="tunnelId"
-							onchange="tunnelChangedExcluedeAll()" 
+							onchange="tunnelChangedAndBlock()" 
 							list="tunnels" listKey="id" listValue="name" 
 							value="tunnelId" theme="simple" >
 						</s:select></td>
@@ -55,7 +55,7 @@ $(document).ready(function() {
 						<td width="40%">
 						<s:select name="settlement.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
-							onchange="tunnelSectionChanged(true)" 
+							onchange="tunnelSectionChangedAndBlock()" 
 							value="tunnelSectionId" theme="simple" >
 						</s:select> </td>
 					</tr>
@@ -63,10 +63,19 @@ $(document).ready(function() {
 						<td width="10%" style="text-align:right;"><strong class="text-success">选择衬砌环</strong></td>
 						<td width="40%">
 							<s:select name="settlement.liningRingConstructionId" id="liningRingConstructionId"
-							list="liningRingConstructions" listKey="id" listValue="name"
+							list="liningRingConstructions" listKey="id" listValue="name" onchange="liningRingChanged()"
 							value="liningRingConstructionId" theme="simple" >
 							</s:select> 
 						</td>
+						<td style="text-align:right;"><strong class="text-success">选择所在块</strong></td>
+						<td>
+							<s:select name="settlement.blockIndex" id="liningRingBlockId"
+							list="liningRingBlocks" listKey="blockIndex" listValue="blockIndex"
+							theme="simple" >
+							</s:select> 
+						</td>
+					</tr>
+					<tr>
 						<td style="text-align:right;"><strong class="text-success">测量时间</strong></td>
 						<td>
 						<div id="datetimepicker1" class="input-append date">
@@ -75,17 +84,13 @@ $(document).ready(function() {
 				               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 				            </span>
 				         </td>
-				    </tr>
-					<tr>
-						<td style="text-align:right;"><strong class="text-success">测点</strong></td>
-						<td><input type="text" name="settlement.measuringPoing" class="{required:true,maxlength:64}"/></td>
-						<td style="text-align:right;"><strong class="text-success">沉降值</strong></td>
+						<td style="text-align:right;"><strong class="text-success">沉降值(mm)</strong></td>
 						<td><input type="text" name="settlement.value" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">与初始点距离</strong></td>
 						<td><input type="text" name="settlement.distance" class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td ><textarea type="text" rows="5" cols="60"  name="settlement.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>

@@ -91,12 +91,12 @@ $(document).ready(function() {
 				         <td style="text-align:right;"><strong class="text-success">类型</strong></td>
 						 <td>
 							<select name="coverLoss.type" id="type">
-								<option value="1">蜂窝</option>
-								<option value="2">麻面</option>
-								<option value="3">混凝土起层</option>
-								<option value="4">剥落</option>
-								<option value="5">露筋</option>
-								<option value="6">其他</option>
+								<option value="蜂窝">蜂窝</option>
+								<option value="麻面">麻面</option>
+								<option value="混凝土起层">混凝土起层</option>
+								<option value="剥落">剥落</option>
+								<option value="露筋">露筋</option>
+								<option value="其他">其他</option>
 							</select>
 						</td>
 					</tr>
@@ -115,7 +115,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">面积(mm)</strong></td>
 						<td><input type="text" name="coverLoss.area" value='<s:property value="coverLoss.area"/>'  class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="coverLoss.des" class="{maxlength:512}"><s:property value="coverLoss.des"/></textarea></td>
 					</tr>
 					<tr>

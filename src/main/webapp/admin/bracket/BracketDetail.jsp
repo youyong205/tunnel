@@ -95,7 +95,7 @@ $(document).ready(function() {
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="bracket.document.id"/>"><s:property value="bracket.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">牛腿简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">牛腿备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60" readonly  name="bracket.des" class="{maxlength:512}"><s:property value="bracket.des"/></textarea></td>
 					</tr>
 					</table>

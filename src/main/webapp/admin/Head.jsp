@@ -25,7 +25,7 @@
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <form action="login.do" method="post">
-	<table  class="table table-striped table-bordered table-condensed">
+	<table  class="table table-striped table-bordered table-condensed table-hover">
 		<tr>	
 			<th colspan='2'><h4 class="text-info text-center">用户登录</h4></th>
 		</tr>

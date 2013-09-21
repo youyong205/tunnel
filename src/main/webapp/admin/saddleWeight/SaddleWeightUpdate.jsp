@@ -97,7 +97,7 @@ $(document).ready(function() {
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>
-						<td style="text-align:right;"><strong class="text-success">压重块简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">压重块备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="saddleWeight.des" class="{maxlength:512}"><s:property value="saddleWeight.des"/></textarea></td>
 					</tr>
 					</table>

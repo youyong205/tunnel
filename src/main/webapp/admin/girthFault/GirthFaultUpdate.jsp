@@ -89,7 +89,7 @@ $(document).ready(function() {
 						<td><input type="text" name="girthFault.value" value="<s:property value="girthFault.value"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td colspan='3'><textarea type="text" rows="5" cols="60"  name="girthFault.des" class="{maxlength:512}"><s:property value="girthFault.des"/></textarea></td>
 					</tr>
 					<tr>

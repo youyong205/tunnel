@@ -3,7 +3,7 @@
 <sqlMap>
 	<typeAlias alias="settlement" type="com.settlement.Settlement" />
 	<sql id="settlement.columns">
-		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,value,
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,value,
 		distance,date,des,creationDate,modifyDate
 	</sql>
 	<select id="settlement.querySizeByTunnelAndSection" resultClass="int">
@@ -57,7 +57,7 @@
 	</select>
 	<insert id="settlement.insert" parameterClass="settlement">
 		insert into settlement (<include refid="settlement.columns" />) values
-		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#measuringPoing#,#value#,
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#blockIndex#,#value#,
 		#distance#,#date#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
@@ -65,7 +65,7 @@
 	</insert>
 	<update id="settlement.update" parameterClass="settlement">
 		update settlement set
-		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,measuringPoing=#measuringPoing#,
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,blockIndex=#blockIndex#,
 		value=#value#,distance=#distance#,date=#date#,des=#des#,
 		modifyDate=now() where id=#id#
 	</update>

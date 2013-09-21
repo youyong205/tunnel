@@ -1,13 +1,10 @@
 package com.cracks;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
-import jxl.CellType;
-import jxl.DateCell;
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -70,8 +67,6 @@ public class CracksAction extends FileUploadAction {
 
 	private List<LiningRingConstruction> m_liningRingConstructions;
 
-	private SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
@@ -79,23 +74,19 @@ public class CracksAction extends FileUploadAction {
 	private Cracks convert(Cell[] cells) {
 		try {
 			Cracks cracks = new Cracks();
-			String name = cells[0].getContents();
-			int blockIndex = Integer.parseInt(cells[1].getContents());
-			Date date = null;
-			if (cells[2].getType() == CellType.DATE) {
-				DateCell dateCell = (DateCell) cells[2];
-				date = dateCell.getDate();
-			} else {
-				date = m_sdf.parse(cells[2].getContents());
-			}
-			String measuringPoing = cells[3].getContents();
-			double value = Double.parseDouble(cells[4].getContents());
-			int type = Integer.parseInt(cells[5].getContents());
-			int serious = Integer.parseInt(cells[6].getContents());
+			String name = convertToString(cells[0]);
+			int blockIndex = convertToInteger(cells[1]);
+			Date date = convertToDate(cells[2]);
+			String type = convertToString(cells[3]);
+			int number = convertToInteger(cells[4]);
+			double length = convertToDouble(cells[5]);
+			double width = convertToDouble(cells[6]);
+			double angle = convertToDouble(cells[7]);
+			double dip = convertToDouble(cells[8]);
 			String des = "";
 
-			if (cells.length > 6) {
-				des = cells[4].getContents();
+			if (cells.length >= 10) {
+				des = convertToString(cells[9]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -105,7 +96,15 @@ public class CracksAction extends FileUploadAction {
 				cracks.setTunnelSectionId(construction.getTunnelSectionId());
 				cracks.setLiningRingConstructionId(construction.getId());
 				cracks.setBlockIndex(blockIndex);
+				cracks.setType(type);
 				cracks.setDate(date);
+				cracks.setNumber(number);
+				cracks.setWidth(width);
+				cracks.setLength(length);
+				cracks.setAngle(angle);
+				cracks.setDip(dip);
+				cracks.setDes(des);
+
 				return cracks;
 			}
 		} catch (Exception e) {
@@ -321,8 +320,8 @@ public class CracksAction extends FileUploadAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_crackss = m_cracksService.queryLimitedCrackss(m_tunnelId, m_tunnelSectionId,
-			      m_liningRingConstructionId, start, SIZE);
+			m_crackss = m_cracksService.queryLimitedCrackss(m_tunnelId, m_tunnelSectionId, m_liningRingConstructionId,
+			      start, SIZE);
 			for (Cracks cracks : m_crackss) {
 				cracks.setTunnel(m_tunnelService.findByPK(cracks.getTunnelId()));
 			}
@@ -434,8 +433,8 @@ public class CracksAction extends FileUploadAction {
 	public List<LiningRingBlock> getLiningRingBlocks() {
 		return m_liningRingBlocks;
 	}
-	
-	public int getParentLiningRingConstructionId(){
+
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 

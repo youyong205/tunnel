@@ -1,13 +1,10 @@
 package com.longitudinalFault;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
-import jxl.CellType;
-import jxl.DateCell;
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -70,8 +67,6 @@ public class LongitudinalFaultAction extends FileUploadAction {
 
 	private List<LiningRingConstruction> m_liningRingConstructions;
 
-	private SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
@@ -79,23 +74,15 @@ public class LongitudinalFaultAction extends FileUploadAction {
 	private LongitudinalFault convert(Cell[] cells) {
 		try {
 			LongitudinalFault longitudinalFault = new LongitudinalFault();
-			String name = cells[0].getContents();
-			int blockIndex = Integer.parseInt(cells[1].getContents());
-			Date date = null;
-			if (cells[2].getType() == CellType.DATE) {
-				DateCell dateCell = (DateCell) cells[2];
-				date = dateCell.getDate();
-			} else {
-				date = m_sdf.parse(cells[2].getContents());
-			}
-			String measuringPoing = cells[3].getContents();
-			double value = Double.parseDouble(cells[4].getContents());
-			int type = Integer.parseInt(cells[5].getContents());
-			int serious = Integer.parseInt(cells[6].getContents());
+			String name = convertToString(cells[0]);
+			int blockIndex = convertToInteger(cells[1]);
+			Date date = convertToDate(cells[2]);
+			int type = convertToInteger(cells[3]);
+			double value = convertToDouble(cells[4]);
 			String des = "";
 
-			if (cells.length > 6) {
-				des = cells[4].getContents();
+			if (cells.length >= 6) {
+				des = convertToString(cells[5]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -324,8 +311,8 @@ public class LongitudinalFaultAction extends FileUploadAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_longitudinalFaults = m_longitudinalFaultService.queryLimitedLongitudinalFaults(m_tunnelId, m_tunnelSectionId,
-			      m_liningRingConstructionId, start, SIZE);
+			m_longitudinalFaults = m_longitudinalFaultService.queryLimitedLongitudinalFaults(m_tunnelId,
+			      m_tunnelSectionId, m_liningRingConstructionId, start, SIZE);
 			for (LongitudinalFault longitudinalFault : m_longitudinalFaults) {
 				longitudinalFault.setTunnel(m_tunnelService.findByPK(longitudinalFault.getTunnelId()));
 			}
@@ -341,8 +328,8 @@ public class LongitudinalFaultAction extends FileUploadAction {
 			m_liningRings = m_liningRingService.queryAllLiningRings();
 			m_longitudinalFault = m_longitudinalFaultService.findByPK(m_longitudinalFaultId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_longitudinalFault.getTunnelId(), 0,
-			      Integer.MAX_VALUE);
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
+			      m_longitudinalFault.getTunnelId(), 0, Integer.MAX_VALUE);
 			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(
 			      m_longitudinalFault.getTunnelId(), m_longitudinalFault.getTunnelSectionId(), 0, Integer.MAX_VALUE);
 			int liningRingConstructionId = m_longitudinalFault.getLiningRingConstructionId();
@@ -381,7 +368,8 @@ public class LongitudinalFaultAction extends FileUploadAction {
 	}
 
 	public String queryAllLongitudinalFaults() {
-		m_longitudinalFaults = m_longitudinalFaultService.queryLimitedLongitudinalFaults(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+		m_longitudinalFaults = m_longitudinalFaultService.queryLimitedLongitudinalFaults(m_tunnelId, m_tunnelSectionId,
+		      0, 0, Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}
@@ -437,10 +425,9 @@ public class LongitudinalFaultAction extends FileUploadAction {
 	public List<LiningRingBlock> getLiningRingBlocks() {
 		return m_liningRingBlocks;
 	}
-	
-	public int getParentLiningRingConstructionId(){
+
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
-
 
 }

@@ -68,7 +68,7 @@ $(document).ready(function() {
 						<td><input type="text" size="60" name="tunnelSection.externalDiameter" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段简介</strong></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="80"  name="tunnelSection.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>

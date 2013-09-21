@@ -86,7 +86,7 @@ $(document).ready(function() {
 						<span class='text-error'>多个文档请打zip包</span>
 						</br><span class='text-error'>总大小不超过40M</span></strong></td>
 						<td ><input type="file" name="upload" class="{required:true}"></td>
-						<td style="text-align:right;"><strong class="text-success">泵房简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">泵房备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="50"  name="pumpingStation.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					</table>

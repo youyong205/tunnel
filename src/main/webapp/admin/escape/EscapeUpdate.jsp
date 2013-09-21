@@ -93,7 +93,7 @@ $(document).ready(function() {
 							</s:if>
 							更换附件<input type="file" name="upload">
 						</td>
-						<td style="text-align:right;"><strong class="text-success">逃生楼梯简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">逃生楼梯备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="escape.des" class="{maxlength:512}"><s:property value="escape.des"/></textarea></td>
 					</tr>
 					</table>

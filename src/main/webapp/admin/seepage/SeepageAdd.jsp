@@ -51,8 +51,8 @@ $(document).ready(function() {
 							list="tunnels" listKey="id" listValue="name" 
 							value="tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="35%">
 						<s:select name="seepage.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
 							onchange="tunnelSectionChangedAndBlock()" 
@@ -106,8 +106,8 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="seepage.des" class="{maxlength:512}"></textarea></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
+						<td colspan='3'><textarea type="text" rows="5" cols="60"  name="seepage.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

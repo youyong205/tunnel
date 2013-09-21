@@ -95,7 +95,7 @@ $(document).ready(function() {
 								<option value="2">和上一块纵缝错台</option>
 							</select>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="longitudinalFault.des" class="{maxlength:512}"><s:property value="longitudinalFault.des"/></textarea></td>
 					</tr>
 					</table>

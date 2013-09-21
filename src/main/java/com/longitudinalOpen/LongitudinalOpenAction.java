@@ -1,13 +1,10 @@
 package com.longitudinalOpen;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
-import jxl.CellType;
-import jxl.DateCell;
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -70,8 +67,6 @@ public class LongitudinalOpenAction extends FileUploadAction {
 
 	private List<LiningRingConstruction> m_liningRingConstructions;
 
-	private SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
@@ -79,23 +74,17 @@ public class LongitudinalOpenAction extends FileUploadAction {
 	private LongitudinalOpen convert(Cell[] cells) {
 		try {
 			LongitudinalOpen longitudinalOpen = new LongitudinalOpen();
-			String name = cells[0].getContents();
-			int blockIndex = Integer.parseInt(cells[1].getContents());
-			Date date = null;
-			if (cells[2].getType() == CellType.DATE) {
-				DateCell dateCell = (DateCell) cells[2];
-				date = dateCell.getDate();
-			} else {
-				date = m_sdf.parse(cells[2].getContents());
-			}
-			String measuringPoing = cells[3].getContents();
-			double value = Double.parseDouble(cells[4].getContents());
-			int type = Integer.parseInt(cells[5].getContents());
-			int serious = Integer.parseInt(cells[6].getContents());
+
+			String name = convertToString(cells[0]);
+			int blockIndex = convertToInteger(cells[1]);
+			Date date = convertToDate(cells[2]);
+			double value = convertToDouble(cells[3]);
+			int type = convertToInteger(cells[4]);
+			int serious = convertToInteger(cells[5]);
 			String des = "";
 
-			if (cells.length > 6) {
-				des = cells[4].getContents();
+			if (cells.length >= 7) {
+				des = convertToString(cells[6]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -108,6 +97,7 @@ public class LongitudinalOpenAction extends FileUploadAction {
 				longitudinalOpen.setDate(date);
 				longitudinalOpen.setType(type);
 				longitudinalOpen.setValue(value);
+				longitudinalOpen.setSerious(serious);
 				longitudinalOpen.setDes(des);
 				return longitudinalOpen;
 			}

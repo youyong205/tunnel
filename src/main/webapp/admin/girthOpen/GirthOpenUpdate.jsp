@@ -94,7 +94,7 @@ $(document).ready(function() {
 						<td><input type="text" name="girthOpen.measuringPoing" class="{required:true,maxlength:64}"  value="<s:property value="girthOpen.measuringPoing"/>"/></td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">环缝张开δh</strong></td>
+						<td style="text-align:right;"><strong class="text-success">环缝张开量δh</strong></td>
 						<td><input type="text" name="girthOpen.value" class="{required:true,number:true}" value="<s:property value="girthOpen.value"/>"/></td>
 						<td style="text-align:right;"><strong class="text-success">环缝张开位置</strong></td>
 						<td>
@@ -111,7 +111,7 @@ $(document).ready(function() {
 								<option value="2">是</option>
 							</select>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="girthOpen.des" class="{maxlength:512}"><s:property value="girthOpen.des"/></textarea></td>
 					</tr>
 					<tr>

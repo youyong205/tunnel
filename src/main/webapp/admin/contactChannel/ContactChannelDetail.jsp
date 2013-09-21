@@ -71,7 +71,7 @@ $(document).ready(function() {
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="contactChannel.document.id"/>"><s:property value="contactChannel.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">联络通道简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">联络通道备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="40" name="contactChannel.des" readonly class="{maxlength:512}"><s:property value="contactChannel.des"/></textarea></td>
 					</tr>
 				</table>

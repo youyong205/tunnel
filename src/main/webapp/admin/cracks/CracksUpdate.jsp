@@ -52,8 +52,8 @@ $(document).ready(function() {
 							list="tunnels" listKey="id" listValue="name" 
 							value="cracks.tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="35%">
 						<s:select name="cracks.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
 							onchange="tunnelSectionChangedAndBlock()" 
@@ -103,7 +103,7 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">裂缝倾角(°)</strong></td>
 						<td><input type="text" name="cracks.dip"  value='<s:property value="cracks.dip"/>' class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="60"  name="cracks.des" class="{maxlength:512}"><s:property value="cracks.des"/></textarea></td>
 					</tr>
 					<tr>

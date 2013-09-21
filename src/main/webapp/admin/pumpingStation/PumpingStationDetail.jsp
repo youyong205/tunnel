@@ -97,7 +97,7 @@ $(document).ready(function() {
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="pumpingStation.document.id"/>"><s:property value="pumpingStation.document.name"/></a>
 							</s:if>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">口型构件简介</strong></td>
+						<td style="text-align:right;"><strong class="text-success">口型构件备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="50" readonly name="pumpingStation.des" readonly class="{maxlength:512}"><s:property value="pumpingStation.des"/></textarea></td>
 					</tr>
 					</table>
