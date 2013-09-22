@@ -62,17 +62,29 @@
 	<include file="config/struts/struts-seepage.xml"></include>
 	<include file="config/struts/struts-rust.xml"></include>
 	
+	<include file="config/struts/struts-main.xml"></include>
+	
 	<package name="default" extends="struts-default">
-		<!-- <interceptors> <interceptor name="loginInterceptor" class="com.golf.tools.UserInterceptor"> 
-			</interceptor> <interceptor-stack name="myDefaultStack"> <interceptor-ref 
-			name="loginInterceptor"></interceptor-ref> <interceptor-ref name="defaultStack"></interceptor-ref> 
-			</interceptor-stack> </interceptors> <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref> -->
 		<global-results>
 			<result name="success">admin/SystemSuccess.jsp</result>
 			<result name="sql">admin/SystemError.jsp</result>
 			<result name="root">admin/SystemError.jsp</result>
-			<result name="relogin">admin/login/home.jsp</result>
-			<result name="login">admin/login/home.jsp</result>
+			<result name="relogin">admin/login/home.jsp?requestUrl=${requestUrl}</result>
+			<result name="login">admin/login/home.jsp?requestUrl=${requestUrl}</result>
+			<result name="input">admin/SystemError.jsp</result>
+			<result name="error">admin/SystemError.jsp</result>
+			<result name="exception">admin/SystemError.jsp</result>
+			<result name="exception">admin/SystemError.jsp</result>
+			<result name="noAuth">admin/login/noauth.jsp</result>
+		</global-results>
+	</package>
+	<package name="main" extends="struts-default">
+		<global-results>
+			<result name="success">admin/SystemSuccess.jsp</result>
+			<result name="sql">admin/SystemError.jsp</result>
+			<result name="root">admin/SystemError.jsp</result>
+			<result name="relogin">user/login/home.jsp?requestUrl=${requestUrl}</result>
+			<result name="login">user/login/home.jsp?requestUrl=${requestUrl}</result>
 			<result name="input">admin/SystemError.jsp</result>
 			<result name="error">admin/SystemError.jsp</result>
 			<result name="exception">admin/SystemError.jsp</result>

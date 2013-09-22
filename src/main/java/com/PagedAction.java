@@ -8,10 +8,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import jxl.Cell;
 import jxl.CellType;
 import jxl.DateCell;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,7 +33,7 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	protected int m_index = 1;
 
-	protected static final int SIZE = 20;
+	protected static final int SIZE = 1;
 
 	public static final int s_half_size = 3;
 
@@ -38,6 +41,8 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	protected LogService m_logService;
 
 	protected Map<String, Object> m_session;
+
+	protected String m_requestUrl;
 
 	protected SimpleDateFormat m_sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -146,16 +151,27 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	public Authority checkAuthority(String resources) {
 		User user = queryUserInfo();
+		Authority auth = null;
 
 		if (user == null) {
-			return Authority.Login;
+			auth = Authority.Login;
 		} else {
 			if (!user.getResources().containsKey(resources)) {
-				return Authority.NoAuth;
-			} else {
-				return null;
+				auth = Authority.NoAuth;
 			}
 		}
+		if (auth != null) {
+			HttpServletRequest request = ServletActionContext.getRequest();
+			String queryString = request.getQueryString();
+			String requestURI = request.getRequestURI();
+			int index = requestURI.lastIndexOf('/');
+
+			m_requestUrl = requestURI.substring(index + 1);
+			if (queryString != null) {
+				m_requestUrl = m_requestUrl + '?' + queryString;
+			}
+		}
+		return auth;
 	}
 
 	public int computeTotalPages(int totalSize) {
@@ -264,6 +280,14 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 
 	public String convertToString(Cell cell) {
 		return cell.getContents();
+	}
+
+	public String getRequestUrl() {
+		return m_requestUrl;
+	}
+
+	public void setRequestUrl(String requestUrl) {
+		m_requestUrl = requestUrl;
 	}
 
 }

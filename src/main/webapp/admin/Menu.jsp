@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<div class="span2">
+<div class="span2" id="adminMenu">
 	<div class="well sidebar-nav fixed">
 		<ul class="nav nav-list">
 			<li class="nav-header" id="tunnelList"><a href="tunnelList.do">隧道信息</a></li>

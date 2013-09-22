@@ -104,6 +104,42 @@ public class LiningRingConstruction {
 
 	private Date m_modifyDate;
 
+	private String computeLevel(String str) {
+		if (str == null) {
+			return Level.A.getName();
+		} else {
+			if (str.indexOf(Level.E.getName()) > -1) {
+				return Level.E.getName();
+			}
+			if (str.indexOf(Level.D.getName()) > -1) {
+				return Level.D.getName();
+			}
+			if (str.indexOf(Level.C.getName()) > -1) {
+				return Level.C.getName();
+			}
+			if (str.indexOf(Level.B.getName()) > -1) {
+				return Level.B.getName();
+			}
+			return Level.A.getName();
+		}
+	}
+
+	public String getMaxGirthOpenState() {
+		return computeLevel(m_girthOpenState);
+	}
+
+	public String getMaxLongitudinalOpenState() {
+		return computeLevel(m_longitudinalOpenState);
+	}
+
+	public String getMaxGirthFaultState() {
+		return computeLevel(m_girthFaultState);
+	}
+
+	public String getMaxLongitudinalFaultState() {
+		return computeLevel(m_longitudinalFaultState);
+	}
+
 	public String getComputingStaff() {
 		return m_computingStaff;
 	}

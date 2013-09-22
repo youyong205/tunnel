@@ -28,7 +28,8 @@
   		<s:actionerror/>
   		<table align="center" class="table table-striped table-bordered">
 			<tr>	
-				<th colspan='2'><h4 class="text-info text-center">用户登录</h4></th>
+				<th colspan='2'><h4 class="text-info text-center">后台用户登录</h4></th>
+				<input type='hidden' name="requestUrl" value='<s:property value="requestUrl"/>'/>
 			</tr>
 			<tr>
 				<td width="45%" style="text-align:right;"><strong class="text-success">用户名</strong></td>

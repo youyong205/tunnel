@@ -15,8 +15,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#tunnelList').addClass("active");
-	$('#tunnel_role').val("<s:property value="tunnel.role"/>");
-	
+	$('#type').val("<s:property value="tunnel.type"/>");
 });
 </script>
 </head>
@@ -28,23 +27,31 @@ $(document).ready(function() {
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
-			<form action="tunnelUpdateSubmit.do" id="form" method="post">
-				<table  class="table table-striped table-bordered table-condensed">
+			<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='2'><h4 class="text-info text-center">隧道信息</h4></th>
+						<th colspan='2'><h4 class="text-info text-center">编辑隧道信息</h4></th>
 						<input type="hidden" name="tunnel.id" value="<s:property value="tunnel.id"/>" />
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">名称</strong></td>
-						<td><input type="text" size="60" name="tunnel.name" readonly value="<s:property value='tunnel.name'/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input type="text" size="60" name="tunnel.name" value="<s:property value='tunnel.name'/>"  class="{required:true,maxlength:64}"/></td>
+					</tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">类型</strong></td>
+						<td>
+							<select name="tunnel.type" id="type">
+								<option value="1">地铁隧道</option>
+								<option value="2">道路隧道</option>
+								<option value="3">市政隧道</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des" readonly class="{maxlength:512}"><s:property value='tunnel.des'/></textarea></td>
+						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des"  class="{maxlength:512}"><s:property value='tunnel.des'/></textarea></td>
 					</tr>
 					</table>
-			</form>
       </div>
     </div>
     <%@include file="./../Foot.jsp"%>

@@ -65,7 +65,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
-						<td colspa='3'>
+						<td colspan='3'>
 							<select name="liningRingConstruction.lineType">
 								<option value="上行">上行</option>
 								<option value="下行">下行</option>

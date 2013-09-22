@@ -87,7 +87,7 @@
 			</table>
 			<div class="pagination text-center">
 			  <ul>
-			  	<li><a href="#">共${totalSize}记录，${totalPages}页</a></li>
+			  	<li><a href="#">共${totalSize}记录&${totalPages}页</a></li>
 			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&index=1">首页</a></li>
 				    <s:iterator id="item" value="pageIndexs" >
 				    	<s:if test="${item == index }">
