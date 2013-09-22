@@ -35,7 +35,7 @@
                  liningRingConstructionId=#liningRingConstructionId#
             </isGreaterThan>
    		</dynamic>
-   		order by id desc
+   		order by date desc
 		limit #start#,#size#
 	</select>
 	<select id="settlement.querySettlementByDuration" resultClass="settlement">
@@ -44,6 +44,7 @@
 		from settlement
 		where liningRingConstructionId=#liningRingConstructionId#
 		 <![CDATA[and date>=#start# and date<=#end# ]]>
+		order by date asc
 	</select>
 	<select id="settlement.findByName" resultClass="settlement" parameterClass="String">
 		select

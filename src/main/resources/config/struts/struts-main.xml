@@ -25,6 +25,10 @@
 		<action name="userLiningRingConstructionList" class="liningRingConstructionAction" method="liningRingConstructionList">
 			<result name="success">user/liningRingConstruction/LiningRingConstructionList.jsp</result>
 		</action>
+		<action name="userLiningRingDeformationQuery" class="liningRingDeformationAction" method="liningRingDeformationQuery">
+			<result name="success">user/liningRingConstruction/LiningRingDeformation.jsp</result>
+		</action>
+		
 		
 	</package>	
 </struts>

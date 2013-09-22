@@ -35,7 +35,7 @@
                  liningRingConstructionId=#liningRingConstructionId#
             </isGreaterThan>
    		</dynamic>
-   		order by id desc
+   		order by date desc
 		limit #start#,#size#
 	</select>
 	<select id="girthOpen.queryGirthOpenByDuration" resultClass="girthOpen">
@@ -44,6 +44,7 @@
 		from girthOpen
 		where liningRingConstructionId=#liningRingConstructionId#
 		 <![CDATA[and date>=#start# and date<=#end# ]]>
+		order by date asc
 	</select>
 	<select id="girthOpen.findByName" resultClass="girthOpen" parameterClass="String">
 		select

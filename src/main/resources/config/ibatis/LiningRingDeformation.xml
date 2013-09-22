@@ -34,7 +34,7 @@
                  liningRingConstructionId=#liningRingConstructionId#
             </isGreaterThan>
    		</dynamic>
-   		order by id desc
+   		order by date desc
 		limit #start#,#size#
 	</select>
 	<select id="liningRingDeformation.queryLiningRingDeformationByDuration" resultClass="liningRingDeformation">
@@ -43,6 +43,7 @@
 		from liningRingDeformation
 		where liningRingConstructionId=#liningRingConstructionId#
 		 <![CDATA[and date>=#start# and date<=#end# ]]>
+   		order by date asc
 	</select>
 	<select id="liningRingDeformation.findByName" resultClass="liningRingDeformation" parameterClass="String">
 		select

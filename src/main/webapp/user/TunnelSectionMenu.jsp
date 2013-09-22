@@ -9,7 +9,6 @@
 	<ul class="nav nav-list">
 		<li id='tunnelSectionBaseInfo' class="nav-header"><a href="userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">基本信息</a></li>
 		<li id='tunnelSectionState' class="nav-header"><a href="userTunnelSectionState.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">服役状态</a></li>
-		<li class="nav-header"><a href="userLiningRingConstructionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">衬砌环</a></li>
 		<li class="nav-header">同步构件</li>
 		<li><a class='subChild' style="padding-left:30px" href="">口型构件</a></li>
 		<li><a class='subChild' style="padding-left:30px" href="">车道板</a></li>

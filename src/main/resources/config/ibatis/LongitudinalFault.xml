@@ -35,7 +35,7 @@
                  liningRingConstructionId=#liningRingConstructionId#
             </isGreaterThan>
    		</dynamic>
-   		order by id desc
+   		order by date desc
 		limit #start#,#size#
 	</select>
 	<select id="longitudinalFault.queryLongitudinalFaultByDuration" resultClass="longitudinalFault">
@@ -44,6 +44,7 @@
 		from longitudinalFault
 		where liningRingConstructionId=#liningRingConstructionId#
 		 <![CDATA[and date>=#start# and date<=#end# ]]>
+		order by date asc
 	</select>
 	<select id="longitudinalFault.findByName" resultClass="longitudinalFault" parameterClass="String">
 		select

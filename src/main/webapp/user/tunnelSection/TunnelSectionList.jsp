@@ -37,7 +37,7 @@
 				<div class='span10'>
 					<form class="text-right form-inline margin-buttom"
 						action="userTunnelSectionList.do" method="post">
-						隧道
+						<strong>隧道</strong>
 						<s:select name="tunnelId" id="tunnelId" list="tunnels"
 							listKey="id" listValue="name" value="tunnelId" theme="simple">
 						</s:select>
