@@ -6,13 +6,13 @@
 			<ul class="nav">
 				<li id="tunnelList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">隧道<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="userTunnelList.do">基本信息</a></li>
-						<li><a href="">盾构段</a></li>
-						<li><a href="">联络通道</a></li>
-						<li><a href="">工作井</a></li>
-						<li><a href="">暗埋段</a></li>
-						<li><a href="">敞开段</a></li>
-						<li><a href="">施工单位</a></li>
+						<li><a href="userTunnelList.do?tunnelId=<s:property value="tunnelId"/>&index=<s:property value="index"/>">基本信息</a></li>
+						<li><a href="userTunnelList.do?tunnelId=<s:property value="tunnelId"/>&index=<s:property value="index"/>">服役状态</a></li>
+						<li><a href="userContactChannelList.do?tunnelId=<s:property value="tunnelId"/>">联络通道</a></li>
+						<li><a href="userWorkingWellList.do?tunnelId=<s:property value="tunnelId"/>">工作井</a></li>
+						<li><a href="userBuriedSectionList.do?tunnelId=<s:property value="tunnelId"/>">暗埋段</a></li>
+						<li><a href="userOpenSectionList.do?tunnelId=<s:property value="tunnelId"/>">敞开段</a></li>
+						<li><a href="userConstructionUnitList.do?tunnelId=<s:property value="tunnelId"/>">施工单位</a></li>
 					</ul></li>
 				<li id="tunnelSectionList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">盾构段<b class="caret"></b></a>
 					<ul class="dropdown-menu">

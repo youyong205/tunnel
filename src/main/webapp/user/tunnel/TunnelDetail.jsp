@@ -41,8 +41,8 @@
 		<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><p class="text-info text-center">隧道信息详情</p></th>
-						<input type="hidden" name="tunnel.id" value="<s:property value="tunnel.id"/>" />
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnel.id" value="<s:property value="tunnel.id"/>" />
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="40%" style="text-align:right;"><strong class="text-success">名称</strong></td>

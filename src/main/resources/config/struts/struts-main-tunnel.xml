@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="userMainTunnel" extends="main">
+		<action name="userTunnelList" class="tunnelAction" method="tunnelList">
+			<result name="success">user/tunnel/TunnelList.jsp</result>
+		</action>
+		<action name="userTunnelDetail" class="tunnelAction" method="tunnelUpdate" >
+			<result name="success">user/tunnel/TunnelDetail.jsp</result>
+		</action>
+		
+		<action name="userContactChannelList" class="contactChannelAction" method="contactChannelList">
+			<result name="success">user/tunnel/ContactChannelList.jsp</result>
+		</action>
+		<action name="userContactChannelDetail" class="contactChannelAction" method="contactChannelUpdate" >
+			<result name="success">user/tunnel/ContactChannelDetail.jsp</result>
+		</action>
+		<action name="userContactChannelInspectionList" class="contactChannelInspectionAction" method="inspectionList">
+			<result name="success">user/tunnel/ContactChannelInspectionList.jsp</result>
+		</action>
+		<action name="userContactChannelInspectionDetail" class="contactChannelInspectionAction" method="inspectionUpdate" >
+			<result name="success">user/tunnel/ContactChannelInspectionDetail.jsp</result>
+		</action>
+		<action name="userContactChannelCuringList" class="contactChannelCuringAction" method="curingList">
+			<result name="success">user/tunnel/ContactChannelCuringList.jsp</result>
+		</action>
+		<action name="userContactChannelCuringDetail" class="contactChannelCuringAction" method="curingUpdate" >
+			<result name="success">user/tunnel/ContactChannelCuringDetail.jsp</result>
+		</action>
+		
+		<action name="userWorkingWellList" class="workingWellAction" method="workingWellList">
+			<result name="success">user/tunnel/WorkingWellList.jsp</result>
+		</action>
+		<action name="userWorkingWellDetail" class="workingWellAction" method="workingWellUpdate" >
+			<result name="success">user/tunnel/WorkingWellDetail.jsp</result>
+		</action>
+		<action name="userWorkingWellInspectionList" class="workingWellInspectionAction" method="inspectionList">
+			<result name="success">user/tunnel/WorkingWellInspectionList.jsp</result>
+		</action>
+		<action name="userWorkingWellInspectionDetail" class="workingWellInspectionAction" method="inspectionUpdate" >
+			<result name="success">user/tunnel/WorkingWellInspectionDetail.jsp</result>
+		</action>
+		<action name="userWorkingWellCuringList" class="workingWellCuringAction" method="curingList">
+			<result name="success">user/tunnel/WorkingWellCuringList.jsp</result>
+		</action>
+		<action name="userWorkingWellCuringDetail" class="workingWellCuringAction" method="curingUpdate" >
+			<result name="success">user/tunnel/WorkingWellCuringDetail.jsp</result>
+		</action>
+		
+		<action name="userBuriedSectionList" class="buriedSectionAction" method="buriedSectionList">
+			<result name="success">user/tunnel/BuriedSectionList.jsp</result>
+		</action>
+		<action name="userBuriedSectionDetail" class="buriedSectionAction" method="buriedSectionUpdate" >
+			<result name="success">user/tunnel/BuriedSectionDetail.jsp</result>
+		</action>
+		<action name="userBuriedSectionInspectionList" class="buriedSectionInspectionAction" method="inspectionList">
+			<result name="success">user/tunnel/BuriedSectionInspectionList.jsp</result>
+		</action>
+		<action name="userBuriedSectionInspectionDetail" class="buriedSectionInspectionAction" method="inspectionUpdate" >
+			<result name="success">user/tunnel/BuriedSectionInspectionDetail.jsp</result>
+		</action>
+		<action name="userBuriedSectionCuringList" class="buriedSectionCuringAction" method="curingList">
+			<result name="success">user/tunnel/BuriedSectionCuringList.jsp</result>
+		</action>
+		<action name="userBuriedSectionCuringDetail" class="buriedSectionCuringAction" method="curingUpdate" >
+			<result name="success">user/tunnel/BuriedSectionCuringDetail.jsp</result>
+		</action>
+				
+		<action name="userOpenSectionList" class="openSectionAction" method="openSectionList">
+			<result name="success">user/tunnel/OpenSectionList.jsp</result>
+		</action>
+		<action name="userOpenSectionDetail" class="openSectionAction" method="openSectionUpdate" >
+			<result name="success">user/tunnel/OpenSectionDetail.jsp</result>
+		</action>
+		<action name="userOpenSectionInspectionList" class="openSectionInspectionAction" method="inspectionList">
+			<result name="success">user/tunnel/OpenSectionInspectionList.jsp</result>
+		</action>
+		<action name="userOpenSectionInspectionDetail" class="openSectionInspectionAction" method="inspectionUpdate" >
+			<result name="success">user/tunnel/OpenSectionInspectionDetail.jsp</result>
+		</action>
+		<action name="userOpenSectionCuringList" class="openSectionCuringAction" method="curingList">
+			<result name="success">user/tunnel/OpenSectionCuringList.jsp</result>
+		</action>
+		<action name="userOpenSectionCuringDetail" class="openSectionCuringAction" method="curingUpdate" >
+			<result name="success">user/tunnel/OpenSectionCuringDetail.jsp</result>
+		</action>
+		
+		<action name="userConstructionUnitList" class="constructionUnitAction" method="constructionUnitList">
+			<result name="success">user/tunnel/ConstructionUnitList.jsp</result>
+		</action>
+		<action name="userConstructionUnitDetail" class="constructionUnitAction" method="constructionUnitUpdate" >
+			<result name="success">user/tunnel/ConstructionUnitDetail.jsp</result>
+		</action>
+		
+	</package>	
+</struts>

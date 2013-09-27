@@ -19,9 +19,19 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#tunnelSectionList').addClass('active');
-		$('#tunnelSectionState').addClass('active');
+		var type = '<s:property value='type'/>';
+		if(type==null||type.length==0){
+			$('#tunnelSectionState').addClass('active');
+		}else{
+			$('#'+type).addClass('active');
+		}
 	});
 </script>
+<style type="text/css">
+td{
+	padding:6px 4px 0px 4px;
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -40,7 +50,7 @@
 			<div class="span2">
 				<%@include file="./../TunnelSectionMenu.jsp"%>
 			</div>
-			<div class="span10">
+			<div class="span10" style='margin-left:10px;'>
 				<form class="text-right form-inline margin-buttom"
 					action="userTunnelSectionState.do" method="post">
 					<strong>选择隧道</strong>
@@ -55,29 +65,33 @@
 					</s:select>
 					<button type="submit" class="btn btn-success btn-small">查询</button>
 				</form>
-				<div style='padding-left:40px;'>
-					<h5 class='text-error text-center'>上行线盾构隧道状态
+				<div>
+					<h5 class=' text-center'>上行线【<span class="text-error">服役指标-<s:property value="typeDes"/></span>】
 						<s:iterator value="upCounts" status="vs">
-							<span class="level<s:property value="key" />"><s:property value="key" /></span>
+							<span class="level<s:property value="key" />"><s:property value="key" />&nbsp;&nbsp;</span>
 							<s:property value="value"/>
 						</s:iterator>
 					</h5>
+					<table style='margin-bottom:0px;' class="table table-striped table-bordered table-condensed table-hover">
 					<s:iterator value="upSvgs" status="vs">
-						<span><s:property value="key" /></span>衬砌环服役状态
-						<s:property value="value" escape="false" />
+						<tr><td style="text-align:center;padding:6px 4px 0px 4px;" class='text-success' width="9%"><s:property value="key" /></td>
+							<td  style="padding:6px 4px 0px 4px;"><s:property value="value" escape="false" /></td></tr>
 					</s:iterator>
+					</table>
 				</div>
-				<div style='padding-left:40px;'>
-					<h5 class='text-error text-center'>下行线盾构隧道状态
+				<div>
+					<h5 class=' text-center'>下行线【<span class="text-error">服役指标-<s:property value="typeDes"/></span>】
 					<s:iterator value="downCounts" status="vs">
-						<span class="level<s:property value="key" />"><s:property value="key" /></span>
+						<span class="level<s:property value="key" />"><s:property value="key" />&nbsp;&nbsp;</span>
 						<s:property value="value"/>
 					</s:iterator>
 					</h5>
+					<table class="table table-striped table-bordered table-condensed table-hover">
 					<s:iterator value="downSvgs" status="vs">
-						<span><s:property value="key" /></span>衬砌环服役状态
-						<s:property value="value" escape="false" />
+						<tr><td  style="text-align:center;padding:6px 4px 0px 4px;" class='text-success' width="9%"><s:property value="key" /></td>
+							<td style="padding:6px 4px 0px 4px;"><s:property value="value" escape="false" /></td></tr>
 					</s:iterator>
+					</table>
 				</div>
 			</div>
 		</div>

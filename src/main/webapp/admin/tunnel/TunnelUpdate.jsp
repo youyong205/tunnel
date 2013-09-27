@@ -16,6 +16,7 @@
 $(document).ready(function() {
 	$('#tunnelList').addClass("active");
 	$('#type').val("<s:property value="tunnel.type"/>");
+	$('#state').val("<s:property value="tunnel.state"/>");
 	$("#form").validate();
 });
 </script>
@@ -46,6 +47,18 @@ $(document).ready(function() {
 								<option value="1">地铁隧道</option>
 								<option value="2">道路隧道</option>
 								<option value="3">市政隧道</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">服役等级</strong></td>
+						<td>
+							<select name="tunnel.state" id='state'>
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="C">C</option>
+								<option value="D">D</option>
+								<option value="E">E</option>
 							</select>
 						</td>
 					</tr>

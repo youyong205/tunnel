@@ -33,11 +33,11 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='4'><h4 class="text-info text-center">口型构件信息详情</h4></th>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
-						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
-						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
-						<input type="hidden" name="escape.documentId" value="<s:property value="escape.documentId"/>"/>
-						<input type="hidden" name="escape.id" value="<s:property value="escape.id"/>" />
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input readonly type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
+						<input readonly type="hidden" name="escape.documentId" value="<s:property value="escape.documentId"/>"/>
+						<input readonly type="hidden" name="escape.id" value="<s:property value="escape.id"/>" />
 					</tr>
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
@@ -58,15 +58,15 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-						<td ><input type="text" size="40" name="escape.name"  readonly value="<s:property value="escape.name"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input readonly type="text" size="40" name="escape.name"   value="<s:property value="escape.name"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">逃生楼梯类型</strong></td>
-						<td ><input type="text" size="40" name="escape.type"  readonly value="<s:property value="escape.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input readonly type="text" size="40" name="escape.type"   value="<s:property value="escape.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">桩号里程</strong></td>
-						<td><input type="text" size="40" name="escape.stakeMileage" readonly value="<s:property value="escape.stakeMileage"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="escape.stakeMileage"  value="<s:property value="escape.stakeMileage"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">位置描述</strong></td>
-						<td><input type="text" size="40" name="escape.position" readonly value="<s:property value="escape.position"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="escape.position"  value="<s:property value="escape.position"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
@@ -77,7 +77,7 @@ $(document).ready(function() {
 							</select>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">实测里程(m)</strong></td>
-						<td><input type="text" size="40" name="escape.actualMileage" readonly  value="<s:property value="escape.actualMileage"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" size="40" name="escape.actualMileage"   value="<s:property value="escape.actualMileage"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
@@ -91,7 +91,7 @@ $(document).ready(function() {
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">口型构件备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60" readonly name="escape.des" readonly class="{maxlength:512}"><s:property value="escape.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="60"  name="escape.des"  class="{maxlength:512}"><s:property value="escape.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>

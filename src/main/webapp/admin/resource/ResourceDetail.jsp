@@ -31,8 +31,8 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">资源信息</h4></th>
-						<input type="hidden" name="resource.id" value="<s:property value="resource.id"/>"/>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="resource.id" value="<s:property value="resource.id"/>"/>
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">模块名</strong></td>
@@ -55,7 +55,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea type="text" rows="5" cols="80" readonly name="resource.des" class="{maxlength:512}"><s:property value="resource.des"/></textarea></td>
+						<td colspan='3'><textarea readonly type="text" rows="5" cols="80"  name="resource.des" class="{maxlength:512}"><s:property value="resource.des"/></textarea></td>
 						
 					</tr>
 					</table>

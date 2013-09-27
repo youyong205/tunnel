@@ -10,6 +10,8 @@ public class Tunnel {
 
 	private String m_type;
 	
+	private String m_state;
+	
 	private String m_des;
 	
 	private Date m_creationDate;
@@ -52,6 +54,14 @@ public class Tunnel {
 
 	public void setType(String type) {
    	m_type = type;
+   }
+	
+	public String getState() {
+   	return m_state;
+   }
+
+	public void setState(String state) {
+   	m_state = state;
    }
 
 	@Override

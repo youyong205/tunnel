@@ -34,11 +34,11 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='4'><h4 class="text-info text-center">牛腿信息详情</h4></th>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
-						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
-						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
-						<input type="hidden" name="bracket.documentId" value="<s:property value="bracket.documentId"/>"/>
-						<input type="hidden" name="bracket.id" value="<s:property value="bracket.id"/>" />
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input readonly type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
+						<input readonly type="hidden" name="bracket.documentId" value="<s:property value="bracket.documentId"/>"/>
+						<input readonly type="hidden" name="bracket.id" value="<s:property value="bracket.id"/>" />
 					</tr>
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
@@ -59,9 +59,9 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-						<td ><input type="text" size="40" name="bracket.name" readonly value="<s:property value="bracket.name"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input readonly type="text" size="40" name="bracket.name"  value="<s:property value="bracket.name"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">牛腿类型</strong></td>
-						<td ><input type="text" size="40" name="bracket.type" readonly value="<s:property value="bracket.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input readonly type="text" size="40" name="bracket.type"  value="<s:property value="bracket.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
@@ -74,15 +74,15 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">混凝土强度</strong></td>
-						<td><input type="text" size="40" name="bracket.concreteStrength" readonly value="<s:property value="bracket.concreteStrength"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="bracket.concreteStrength"  value="<s:property value="bracket.concreteStrength"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">钢筋强度</strong></td>
-						<td><input type="text" size="40" name="bracket.reinforcementStrength" readonly value="<s:property value="bracket.reinforcementStrength"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="bracket.reinforcementStrength"  value="<s:property value="bracket.reinforcementStrength"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">开始里程(m)</strong></td>
-						<td><input type="text" name="bracket.startPosition" readonly value="<s:property value="bracket.startPosition"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" name="bracket.startPosition"  value="<s:property value="bracket.startPosition"/>" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">结束里程(m)</strong></td>
-						<td><input type="text" name="bracket.endPosition" readonly value="<s:property value="bracket.endPosition"/>"  class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" name="bracket.endPosition"  value="<s:property value="bracket.endPosition"/>"  class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
@@ -96,7 +96,7 @@ $(document).ready(function() {
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">牛腿备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60" readonly  name="bracket.des" class="{maxlength:512}"><s:property value="bracket.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="60"   name="bracket.des" class="{maxlength:512}"><s:property value="bracket.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleUpdate.jsp"%>

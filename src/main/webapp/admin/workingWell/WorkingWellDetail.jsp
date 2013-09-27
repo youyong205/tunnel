@@ -32,10 +32,10 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='4'><h4 class="text-info text-center">工作井信息</h4></th>
-						<input type="hidden" name="workingWell.id" value="<s:property value="workingWell.id"/>"/>
-						<input type="hidden" name="workingWell.documentId" value="<s:property value="workingWell.documentId"/>"/>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
-						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input readonly type="hidden" name="workingWell.id" value="<s:property value="workingWell.id"/>"/>
+						<input readonly type="hidden" name="workingWell.documentId" value="<s:property value="workingWell.documentId"/>"/>
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
@@ -45,31 +45,31 @@ $(document).ready(function() {
 							</s:select>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">烟道夹层标高</strong></td>
-						<td><input type="text" name="workingWell.eleationMezzanine" readonly value="<s:property value="workingWell.eleationMezzanine"/>" class="{required:true}"/></td>
+						<td><input readonly type="text" name="workingWell.eleationMezzanine"  value="<s:property value="workingWell.eleationMezzanine"/>" class="{required:true}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">工作井编号</strong></td>
-						<td width="30%"><input type="text" name="workingWell.name"  readonly value="<s:property value="workingWell.name"/>" class="{required:true,maxlength:64}"/></td>
+						<td width="30%"><input readonly type="text" name="workingWell.name"   value="<s:property value="workingWell.name"/>" class="{required:true,maxlength:64}"/></td>
 						<td width="15%" style="text-align:right;"><strong class="text-success">工作井类型</strong></td>
-						<td width="35%" ><input type="text" name="workingWell.type" readonly value="<s:property value="workingWell.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td width="35%" ><input readonly type="text" name="workingWell.type"  value="<s:property value="workingWell.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">开始里程(m)</strong></td>
-						<td><input type="text" name="workingWell.startPosition"  readonly value="<s:property value="workingWell.startPosition"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" name="workingWell.startPosition"   value="<s:property value="workingWell.startPosition"/>" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">结束里程(m)</strong></td>
-						<td><input type="text" name="workingWell.endPosition"  readonly value="<s:property value="workingWell.endPosition"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" name="workingWell.endPosition"   value="<s:property value="workingWell.endPosition"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">下一层标高标高(m)</strong></td>
-						<td><input type="text" name="workingWell.eleationOne" readonly  value="<s:property value="workingWell.eleationOne"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" name="workingWell.eleationOne"   value="<s:property value="workingWell.eleationOne"/>" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">下二层标高标高(m)</strong></td>
-						<td><input type="text" name="workingWell.eleationTwo"  readonly value="<s:property value="workingWell.eleationTwo"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" name="workingWell.eleationTwo"   value="<s:property value="workingWell.eleationTwo"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">下三层标高标高(m)</strong></td>
-						<td><input type="text" name="workingWell.eleationThree"  readonly value="<s:property value="workingWell.eleationThree"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" name="workingWell.eleationThree"   value="<s:property value="workingWell.eleationThree"/>" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">下四层标高标高(m)</strong></td>
-						<td><input type="text" name="workingWell.eleationFour"  readonly value="<s:property value="workingWell.eleationFour"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" name="workingWell.eleationFour"   value="<s:property value="workingWell.eleationFour"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上传设计制作设计附件</br>
@@ -83,7 +83,7 @@ $(document).ready(function() {
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">工作井备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="40"  readonly name="workingWell.des" class="{maxlength:512}"><s:property value="workingWell.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="40"   name="workingWell.des" class="{maxlength:512}"><s:property value="workingWell.des"/></textarea></td>
 					</tr>
 				</table>
 				<%@include file="./../schedule/ScheduleDetail.jsp"%>

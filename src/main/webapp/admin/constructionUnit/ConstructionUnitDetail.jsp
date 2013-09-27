@@ -15,8 +15,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#constructionUnitList').addClass("active");
-	$('#constructionUnit_role').val("<s:property value="constructionUnit.role"/>");
-	
 });
 </script>
 </head>
@@ -32,32 +30,32 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">施工单位信息</h4></th>
-						<input type="hidden" name="constructionUnit.id" value="<s:property value="constructionUnit.id"/>" />
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="constructionUnit.id" value="<s:property value="constructionUnit.id"/>" />
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">名称</strong></td>
-						<td><input type="text" size="60" name="constructionUnit.name" readonly value="<s:property value='constructionUnit.name'/>"  class="{required:true,maxlength:128}"/></td>
+						<td><input readonly type="text" size="60" name="constructionUnit.name"  value="<s:property value='constructionUnit.name'/>"  class="{required:true,maxlength:128}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">类型</strong></td>
-						<td><input type="text" size="60" name="constructionUnit.type" readonly value="<s:property value='constructionUnit.type'/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="60" name="constructionUnit.type"  value="<s:property value='constructionUnit.type'/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">地址</strong></td>
-						<td><input type="text" size="60" name="constructionUnit.address" readonly value="<s:property value='constructionUnit.address'/>" class="{required:true,maxlength:128}"/></td>
+						<td><input readonly type="text" size="60" name="constructionUnit.address"  value="<s:property value='constructionUnit.address'/>" class="{required:true,maxlength:128}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">施工人员</strong></td>
-						<td><input type="text" size="60" name="constructionUnit.workers" readonly value="<s:property value='constructionUnit.workers'/>" class="{required:true,maxlength:128}"/></td>
+						<td><input readonly type="text" size="60" name="constructionUnit.workers"  value="<s:property value='constructionUnit.workers'/>" class="{required:true,maxlength:128}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">联系电话</strong></td>
-						<td><input type="text" size="60" name="constructionUnit.phone" readonly value="<s:property value='constructionUnit.phone'/>" class="{required:true,maxlength:128}"/></td>
+						<td><input readonly type="text" size="60" name="constructionUnit.phone"  value="<s:property value='constructionUnit.phone'/>" class="{required:true,maxlength:128}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="constructionUnit.des" readonly class="{maxlength:512}"><s:property value='constructionUnit.des'/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="80"  name="constructionUnit.des"  class="{maxlength:512}"><s:property value='constructionUnit.des'/></textarea></td>
 					</tr>
 					</table>
 			</form>

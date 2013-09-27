@@ -67,6 +67,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 	private Map<String, Integer> m_downCounts;
 
 	private LiningRingGraph m_liningRingGraph;
+	
+	private String m_type;
+	
+	private String m_typeDes;
 
 	@Override
 	public String getActionModule() {
@@ -131,10 +135,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 			}
 
 			if (m_liningRingConstructions.size() < 100) {
-				for (int i = 0; i < 290; i++) {
+				for (int i = 0; i < 2090; i++) {
 					LiningRingConstruction item = new LiningRingConstruction();
 					item.setName("test");
-					if (i < 150) {
+					if (i < 1050) {
 						item.setLineType("上行");
 					} else {
 						item.setLineType("下行");
@@ -143,7 +147,7 @@ public class LiningRingConstructionAction extends ScheduledAction {
 				}
 			}
 
-			TunnelSectionState state = new TunnelSectionState(m_liningRingConstructions);
+			TunnelSectionState state = new TunnelSectionState(m_liningRingConstructions,m_type);
 			TunnelSectionStateBuilder builder = new TunnelSectionStateBuilder();
 
 			List<List<LiningRingState>> ups = state.getUpStates();
@@ -171,7 +175,7 @@ public class LiningRingConstructionAction extends ScheduledAction {
 	}
 
 	public String buildSvgTitle(int index, int fixSize, int length) {
-		String title = "第" + (fixSize * index + 1) + "到" + (fixSize * index + length) + "个";
+		String title =  (fixSize * index + 1) + "-" + (fixSize * index + length);
 
 		return title;
 	}
@@ -262,4 +266,20 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		return m_liningRingGraph;
 	}
 
+	public String getType() {
+   	return m_type;
+   }
+
+	public void setType(String type) {
+   	m_type = type;
+   }
+
+	public String getTypeDes() {
+   	return m_typeDes;
+   }
+
+	public void setTypeDes(String typeDes) {
+   	m_typeDes = typeDes;
+   }
+	
 }

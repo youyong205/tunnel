@@ -46,11 +46,11 @@
 				<table class="table table-striped table-bordered table-condensed">
 			<tr>
 				<th colspan='2'><h4 class="text-info text-center">盾构段信息</h4></th>
-				<input type="hidden" name="index"
+				<input readonly type="hidden" name="index"
 					value="<s:property value="index"/>" />
-				<input type="hidden" name="tunnelId"
+				<input readonly type="hidden" name="tunnelId"
 					value="<s:property value="tunnelId"/>" />
-				<input type="hidden" name="tunnelSection.id"
+				<input readonly type="hidden" name="tunnelSection.id"
 					value="<s:property value="tunnelSection.id"/>" />
 			</tr>
 			<tr>
@@ -64,15 +64,15 @@
 			<tr>
 				<td width="30%" style="text-align: right;"><strong
 					class="text-success">盾构段编号</strong></td>
-				<td><input type="text" size="60" name="tunnelSection.name"
-					readonly value="<s:property value="tunnelSection.name"/>"
+				<td><input readonly type="text" size="60" name="tunnelSection.name"
+					 value="<s:property value="tunnelSection.name"/>"
 					class="{required:true,maxlength:64}" /></td>
 			</tr>
 			<tr>
 				<td width="30%" style="text-align: right;"><strong
 					class="text-success">盾构段类型</strong></td>
-				<td><input type="text" size="60" name="tunnelSection.type"
-					readonly value="<s:property value="tunnelSection.type"/>"
+				<td><input readonly type="text" size="60" name="tunnelSection.type"
+					 value="<s:property value="tunnelSection.type"/>"
 					class="{required:true,maxlength:64}" /></td>
 			</tr>
 			<tr>
@@ -89,7 +89,7 @@
 			<tr>
 				<td width="30%" style="text-align: right;"><strong
 					class="text-success">盾构段外径</strong></td>
-				<td><input type="text" size="60" readonly
+				<td><input readonly type="text" size="60" 
 					name="tunnelSection.externalDiameter"
 					value="<s:property value="tunnelSection.externalDiameter"/>"
 					class="{required:true,number:true}" /></td>
@@ -97,7 +97,7 @@
 			<tr>
 				<td width="30%" style="text-align: right;"><strong
 					class="text-success">盾构段备注信息</strong></td>
-				<td><textarea type="text" rows="5" cols="80" readonly
+				<td><textarea readonly type="text" rows="5" cols="80" 
 						name="tunnelSection.des" class="{maxlength:512}"><s:property value="tunnelSection.des" /></textarea></td>
 			</tr>
 		</table>

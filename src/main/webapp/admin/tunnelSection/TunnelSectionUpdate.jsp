@@ -18,7 +18,9 @@ $(document).ready(function() {
 	$("#form").validate();
 
 	var type='<s:property value="tunnelSection.environment"/>';
+	var state='<s:property value="tunnelSection.state"/>';
 	$('#environment').val(type);
+	$('#state').val(state);
 });
 </script>
 </head>
@@ -58,6 +60,18 @@ $(document).ready(function() {
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段环境</strong></td>
 						<td>
 							<select id="environment" name="tunnelSection.environment">
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="C">C</option>
+								<option value="D">D</option>
+								<option value="E">E</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">服役等级</strong></td>
+						<td>
+							<select name="tunnelSection.state" id='state'>
 								<option value="A">A</option>
 								<option value="B">B</option>
 								<option value="C">C</option>

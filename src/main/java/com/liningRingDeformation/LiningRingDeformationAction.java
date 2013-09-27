@@ -322,9 +322,9 @@ public class LiningRingDeformationAction extends LineChartAction {
 				datas.put(date.getTime(), deformation.getValue());
 			}
 		}
-		
 		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
-		m_lineChart.add("Deformation", datas);
+		m_lineChart.add("横断面变形", datas);
+		
 		m_liningRingDeformations = m_liningRingDeformationService.queryLimitedLiningRingDeformations(m_tunnelId,
 		      m_tunnelSectionId, m_liningRingConstructionId, 0, 1);
 

@@ -12,6 +12,7 @@
 <script type="text/javascript" src="js/validate.js"></script>
 <script src="js/jquery.validate.min.js" type="text/javascript" ></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
+
 <script type="text/javascript">
 	function gid(id) { return document.getElementById ? document.getElementById(id) : null; }
 	function timeDesc() {
@@ -30,10 +31,10 @@
   <%@include file="./../Head.jsp"%>
   </br>
   </br>
-  <div class="container-fluid text-center">
+  <div class="container-fluid">
   	 <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
-      <div class="span10">
+      <div class="span10 text-center">
 	  	<div>
 	  		<a class='btn btn-primary' href="tunnelList.do">返回主页</a>
 	  		<a class='btn btn-danger' href="${requestUrl}"><span id="tS">4 秒后</span>返回上次请求页面</a>

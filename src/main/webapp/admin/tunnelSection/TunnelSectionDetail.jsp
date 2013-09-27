@@ -17,7 +17,9 @@ $(document).ready(function() {
 	$('#tunnelSectionList').addClass("active");
 	
 	var type='<s:property value="tunnelSection.environment"/>';
+	var state='<s:property value="tunnelSection.state"/>';
 	$('#environment').val(type);
+	$('#state').val(state);
 });
 </script>
 </head>
@@ -33,9 +35,9 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">盾构段信息</h4></th>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
-						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
-						<input type="hidden" name="tunnelSection.id" value="<s:property value="tunnelSection.id"/>"/>
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input readonly type="hidden" name="tunnelSection.id" value="<s:property value="tunnelSection.id"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
@@ -47,11 +49,11 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段编号</strong></td>
-						<td><input type="text" size="60" name="tunnelSection.name" readonly value="<s:property value="tunnelSection.name"/>" class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="60" name="tunnelSection.name"  value="<s:property value="tunnelSection.name"/>" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段类型</strong></td>
-						<td><input type="text" size="60" name="tunnelSection.type" readonly value="<s:property value="tunnelSection.type"/>" class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="60" name="tunnelSection.type"  value="<s:property value="tunnelSection.type"/>" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段环境</strong></td>
@@ -66,12 +68,24 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">服役等级</strong></td>
+						<td>
+							<select name="tunnelSection.state" id='state'>
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="C">C</option>
+								<option value="D">D</option>
+								<option value="E">E</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段外径</strong></td>
-						<td><input type="text" size="60" name="tunnelSection.externalDiameter" value="<s:property value="tunnelSection.externalDiameter"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly  type="text" size="60" name="tunnelSection.externalDiameter" value="<s:property value="tunnelSection.externalDiameter"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="80" readonly name="tunnelSection.des" class="{maxlength:512}"><s:property value="tunnelSection.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="80"  name="tunnelSection.des" class="{maxlength:512}"><s:property value="tunnelSection.des"/></textarea></td>
 					</tr>
 				</table>
 			</form>

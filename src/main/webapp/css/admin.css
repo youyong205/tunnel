@@ -74,7 +74,15 @@ select {
 
 #adminMenu .nav .nav-child {
 	font-weight: bold;
+	font-size: 14px;
+}
+#adminMenu .nav .nav-child2 {
 	font-size: 13px;
+	padding-left:20px;
+}
+#adminMenu .nav .nav-child3 {
+	font-size: 12px;
+	padding-left:40px;
 }
 
 .well {
@@ -82,11 +90,11 @@ select {
 }
 
 .row-fluid .span2 {
-	width: 8%;
+	width: 10%;
 }
 
 .row-fluid .span10 {
-	width: 89%;
+	width: 87%;
 }
 
 label {

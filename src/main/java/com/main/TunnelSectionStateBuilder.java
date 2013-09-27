@@ -7,9 +7,9 @@ import java.util.Map;
 import com.main.TunnelSectionState.LiningRingState;
 
 public class TunnelSectionStateBuilder {
-	private final int WIDTH = 14;
+	private final int WIDTH = 7;
 
-	private final int HEIGHT = 80;
+	private final int HEIGHT = 20;
 
 	private final String GREEN = "green";
 
@@ -49,7 +49,7 @@ public class TunnelSectionStateBuilder {
 	}
 
 	private String buildHeader() {
-		String format = "<svg width='100%' height='" + (HEIGHT + 5) + "' version='1.1'"
+		String format = "<svg width='100%' height='" + HEIGHT + "' version='1.1'"
 		      + "xmlns='http://www.w3.org/2000/svg'>";
 
 		return format;

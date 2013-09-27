@@ -33,11 +33,11 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='4'><h4 class="text-info text-center">口型构件信息详情</h4></th>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
-						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
-						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
-						<input type="hidden" name="linePipe.documentId" value="<s:property value="linePipe.documentId"/>"/>
-						<input type="hidden" name="linePipe.id" value="<s:property value="linePipe.id"/>" />
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input readonly type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
+						<input readonly type="hidden" name="linePipe.documentId" value="<s:property value="linePipe.documentId"/>"/>
+						<input readonly type="hidden" name="linePipe.id" value="<s:property value="linePipe.id"/>" />
 					</tr>
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
@@ -58,15 +58,15 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-						<td ><input type="text" size="40" name="linePipe.name"  readonly value="<s:property value="linePipe.name"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input readonly type="text" size="40" name="linePipe.name"   value="<s:property value="linePipe.name"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">预埋管线类型</strong></td>
-						<td ><input type="text" size="40" name="linePipe.type"  readonly value="<s:property value="linePipe.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input readonly type="text" size="40" name="linePipe.type"   value="<s:property value="linePipe.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">桩号里程</strong></td>
-						<td><input type="text" size="40" name="linePipe.stakeMileage" readonly value="<s:property value="linePipe.stakeMileage"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="linePipe.stakeMileage"  value="<s:property value="linePipe.stakeMileage"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">位置描述</strong></td>
-						<td><input type="text" size="40" name="linePipe.position" readonly value="<s:property value="linePipe.position"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="linePipe.position"  value="<s:property value="linePipe.position"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
@@ -89,7 +89,7 @@ $(document).ready(function() {
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">口型构件备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60" readonly name="linePipe.des" readonly class="{maxlength:512}"><s:property value="linePipe.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="60"  name="linePipe.des"  class="{maxlength:512}"><s:property value="linePipe.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>

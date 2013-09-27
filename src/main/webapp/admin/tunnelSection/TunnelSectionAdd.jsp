@@ -68,6 +68,18 @@ $(document).ready(function() {
 						<td><input type="text" size="60" name="tunnelSection.externalDiameter" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">服役等级</strong></td>
+						<td>
+							<select name="tunnelSection.state" id='state'>
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="C">C</option>
+								<option value="D">D</option>
+								<option value="E">E</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="80"  name="tunnelSection.des" class="{maxlength:512}"></textarea></td>
 					</tr>

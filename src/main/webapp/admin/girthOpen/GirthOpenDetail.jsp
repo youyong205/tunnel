@@ -34,11 +34,11 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='4'><h4 class="text-info text-center"><s:property value="actionModule"/>记录详情</h4></th>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
-						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
-						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
-						<input type="hidden" name="liningRingConstructionId" value="<s:property value="liningRingConstructionId"/>"/>
-						<input type="hidden" name="girthOpen.id" value="<s:property value="girthOpen.id"/>" />
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input readonly type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
+						<input readonly type="hidden" name="liningRingConstructionId" value="<s:property value="liningRingConstructionId"/>"/>
+						<input readonly type="hidden" name="girthOpen.id" value="<s:property value="girthOpen.id"/>" />
 					</tr>
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
@@ -76,17 +76,17 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">测量时间</strong></td>
 						<td>
 						<div id="datetimepicker1" class="input-append date">
-				            <input name="girthOpen.date"  placeholder="检测时间"  class="{required:true,date:true}"
+				            <input readonly name="girthOpen.date"  placeholder="检测时间"  class="{required:true,date:true}"
 				               data-format="yyyy-MM-dd" type="text"  value="<s:date name="girthOpen.date" format="yyyy-MM-dd"/>"   ></input> <span class="add-on"> <i
 				               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 				            </span>
 				         </td>
 						<td style="text-align:right;"><strong class="text-success">测点</strong></td>
-						<td><input type="text" name="girthOpen.measuringPoing" class="{required:true,maxlength:64}"  value="<s:property value="girthOpen.measuringPoing"/>"/></td>
+						<td><input readonly type="text" name="girthOpen.measuringPoing" class="{required:true,maxlength:64}"  value="<s:property value="girthOpen.measuringPoing"/>"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">环缝张开量δh</strong></td>
-						<td><input type="text" name="girthOpen.value" class="{required:true,number:true}" value="<s:property value="girthOpen.value"/>"/></td>
+						<td><input readonly type="text" name="girthOpen.value" class="{required:true,number:true}" value="<s:property value="girthOpen.value"/>"/></td>
 						<td style="text-align:right;"><strong class="text-success">环缝张开位置</strong></td>
 						<td>
 							<select id="type" name="girthOpen.type">
@@ -103,7 +103,7 @@ $(document).ready(function() {
 							</select>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="girthOpen.des" class="{maxlength:512}"><s:property value="girthOpen.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="60"  name="girthOpen.des" class="{maxlength:512}"><s:property value="girthOpen.des"/></textarea></td>
 					</tr>
 					</table>
 			</form>

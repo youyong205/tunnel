@@ -16,6 +16,7 @@
 $(document).ready(function() {
 	$('#tunnelList').addClass("active");
 	$('#type').val("<s:property value="tunnel.type"/>");
+	$('#state').val("<s:property value="tunnel.state"/>");
 });
 </script>
 </head>
@@ -30,12 +31,12 @@ $(document).ready(function() {
 			<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">编辑隧道信息</h4></th>
-						<input type="hidden" name="tunnel.id" value="<s:property value="tunnel.id"/>" />
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnel.id" value="<s:property value="tunnel.id"/>" />
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">名称</strong></td>
-						<td><input type="text" size="60" name="tunnel.name" value="<s:property value='tunnel.name'/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="60" name="tunnel.name" value="<s:property value='tunnel.name'/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">类型</strong></td>
@@ -48,8 +49,20 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">服役等级</strong></td>
+						<td>
+							<select name="tunnel.state" id='state'>
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="C">C</option>
+								<option value="D">D</option>
+								<option value="E">E</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des"  class="{maxlength:512}"><s:property value='tunnel.des'/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="80"  name="tunnel.des"  class="{maxlength:512}"><s:property value='tunnel.des'/></textarea></td>
 					</tr>
 					</table>
       </div>

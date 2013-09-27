@@ -18,23 +18,23 @@ public class TunnelSectionState {
 
 	private Map<String, Integer> m_downCounts = new TreeMap<String, Integer>();
 
-	private final int m_size = 50;
-	
+	private final int m_size = 100;
+
 	public Map<String, Integer> getUpCounts() {
-   	return m_upCounts;
-   }
+		return m_upCounts;
+	}
 
 	public void setUpCounts(Map<String, Integer> upCounts) {
-   	m_upCounts = upCounts;
-   }
+		m_upCounts = upCounts;
+	}
 
 	public Map<String, Integer> getDownCounts() {
-   	return m_downCounts;
-   }
+		return m_downCounts;
+	}
 
 	public void setDownCounts(Map<String, Integer> downCounts) {
-   	m_downCounts = downCounts;
-   }
+		m_downCounts = downCounts;
+	}
 
 	public List<List<LiningRingState>> getUpStates() {
 		return m_upStates;
@@ -56,7 +56,7 @@ public class TunnelSectionState {
 		return m_size;
 	}
 
-	public TunnelSectionState(List<LiningRingConstruction> constructions) {
+	public TunnelSectionState(List<LiningRingConstruction> constructions, String stateType) {
 		int length = constructions.size();
 
 		for (int i = 0; i < length; i++) {
@@ -64,15 +64,15 @@ public class TunnelSectionState {
 			String type = construction.getLineType();
 
 			if (Constrants.UP.equals(type)) {
-				addLiningRing(m_upStates, m_upCounts, construction);
+				addLiningRing(m_upStates, m_upCounts, construction, stateType);
 			} else {
-				addLiningRing(m_downStates, m_downCounts, construction);
+				addLiningRing(m_downStates, m_downCounts, construction, stateType);
 			}
 		}
 	}
 
 	private void addLiningRing(List<List<LiningRingState>> allStates, Map<String, Integer> counts,
-	      LiningRingConstruction construction) {
+	      LiningRingConstruction construction, String type) {
 		int size = allStates.size();
 
 		if (size == 0) {
@@ -90,7 +90,7 @@ public class TunnelSectionState {
 			allStates.add(states);
 		}
 
-		String state = computeState(construction);
+		String state = computeState(construction, type);
 		Integer count = counts.get(state);
 
 		if (count == null) {
@@ -102,7 +102,7 @@ public class TunnelSectionState {
 		      .getTunnelSectionId(), construction.getName(), state));
 	}
 
-	public String computeState(LiningRingConstruction construction) {
+	public String computeState(LiningRingConstruction construction, String type) {
 		double a = Math.random();
 
 		if (a > 0.4) {

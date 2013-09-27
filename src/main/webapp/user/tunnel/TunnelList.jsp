@@ -28,7 +28,7 @@
 		<ul class="breadcrumb">
 			<li>当前位置：</li>
 			<li>首页<span class="divider">/</span></li>
-			<li class="active">隧道列表</li>
+			<li class="active">联络通道</li>
 		</ul>
 	</div>
 	<div class='row'>
@@ -40,7 +40,8 @@
 				 <thead><tr>
 					<th width="8%">序号</th>
 					<th width="20%">类型</th>
-					<th width="47%">名称</th>
+					<th width="20%">名称</th>
+					<th width="27%">服役状态</th>
 					<th>详情</th>
 				</tr></thead><tbody>
 				<s:iterator value="tunnels" status="vs">
@@ -52,11 +53,13 @@
 						<s:elseif test="type==3">市政隧道</s:elseif>
 					</td>
 					<td><s:property value="name" /></td>
+					<td><span class='level<s:property value="state"/>'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="state"/></span>
+					</td>
 					<td>
 					<a class='btn btn-small btn-info' href='userTunnelDetail.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>'>详情</a>
 					<a class='btn btn-small btn-info' href='userTunnelSectionList.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>'>盾构段</a>
-					<a class='btn btn-small btn-info' href='userTunnelDetail.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>'>服役状态</a></td>
-					</tr>
+					<a class='btn btn-small btn-info' href='userTunnelDetail.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>'>服役状态</a>
+					</td></tr>
 				</s:iterator></tbody>
 			</table>
 			<div class="pagination text-center">

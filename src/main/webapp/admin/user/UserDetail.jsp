@@ -30,21 +30,21 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">用户详细信息</h4></th>
-						<input type="hidden" name="user.id" value="<s:property value="user.id"/>"/>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="user.id" value="<s:property value="user.id"/>"/>
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">用户名</strong></td>
-						<td><input type="text" size="60" name="user.userName" readonly value="<s:property value="user.userName"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="60" name="user.userName"  value="<s:property value="user.userName"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">密码</strong></td>
-						<td><input type="text" size="60" name="user.password" readonly value="<s:property value="user.password"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="60" name="user.password"  value="<s:property value="user.password"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">真实姓名</strong></td>
-						<td><input type="text" size="60" name="user.realName" readonly value="<s:property value="user.realName"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="60" name="user.realName"  value="<s:property value="user.realName"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success text-right">用户角色</strong></td>

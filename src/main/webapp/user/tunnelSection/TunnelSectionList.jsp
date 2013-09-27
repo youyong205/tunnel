@@ -48,10 +48,10 @@
 						<thead>
 							<tr>
 								<th width="10%">序号</th>
-								<th width="20%">隧道名称</th>
 								<th width="20%">盾构段编号</th>
-								<th width="20%">类型</th>
-								<th width="10%">环境</th>
+								<th width="15%">类型</th>
+								<th width="15%">环境</th>
+								<th width="20%">服役状态</th>
 								<th width="25%">详情</th>
 							</tr>
 						</thead>
@@ -59,15 +59,17 @@
 							<s:iterator value="tunnelSections" status="vs">
 								<tr>
 									<td><s:property value='#vs.index+1' /></td>
-									<td><s:property value="tunnel.name" /></td>
 									<td><s:property value="name" /></td>
 									<td><s:property value="type" /></td>
 									<td><s:property value="environment" /></td>
+									<td>
+										<span class='level<s:property value="state"/>'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="state"/></span>
+									</td>
 									<td><a
 										href='userTunnelSectionDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="id"/>&index=<s:property value="index"/>'
 										class='btn btn-small btn-info'>详情</a> <a
 										href='userTunnelSectionState.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="id"/>&index=<s:property value="index"/>'
-										class='btn btn-small btn-info'>服役状态</a></td>
+										class='btn btn-small btn-info'>详细状态</a></td>
 								</tr>
 							</s:iterator>
 						</tbody>

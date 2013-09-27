@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="userMainTunnelSection" extends="main">
+		<action name="userTunnelSectionList" class="tunnelSectionAction" method="tunnelSectionList">
+			<result name="success">user/tunnelSection/TunnelSectionList.jsp</result>
+		</action>
+		<action name="userTunnelSectionDetail" class="tunnelSectionAction" method="tunnelSectionUpdate" >
+			<result name="success">user/tunnelSection/TunnelSectionDetail.jsp</result>
+		</action>
+		<action name="userTunnelSectionState" class="userLiningRingConstructionAction" method="liningRingConstructionList">
+			<result name="success">user/tunnelSection/TunnelSectionState.jsp</result>
+		</action>
+		
+		<action name="userRectangleComponentList" class="rectangleComponentAction" method="rectangleComponentList">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentList.jsp</result>
+		</action>
+		<action name="userRectangleComponentDetail" class="rectangleComponentAction" method="rectangleComponentUpdate" >
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentDetail.jsp</result>
+		</action>
+		<action name="userRectangleComponentInspectionList" class="rectangleComponentInspectionAction" method="inspectionList">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentInspectionList.jsp</result>
+		</action>
+		<action name="userRectangleComponentInspectionDetail" class="rectangleComponentInspectionAction" method="inspectionUpdate" >
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentInspectionDetail.jsp</result>
+		</action>
+		<action name="userRectangleComponentCuringList" class="rectangleComponentCuringAction" method="curingList">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentCuringList.jsp</result>
+		</action>
+		<action name="userRectangleComponentCuringDetail" class="rectangleComponentCuringAction" method="curingUpdate" >
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentCuringDetail.jsp</result>
+		</action>
+		
+	</package>	
+</struts>

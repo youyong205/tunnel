@@ -20,6 +20,8 @@ public class TunnelSection {
 	
 	private double m_externalDiameter;
 	
+	private String m_state;
+	
 	private String m_des;
 	
 	private Date m_creationDate;
@@ -104,6 +106,14 @@ public class TunnelSection {
 
 	public void setType(String type) {
    	m_type = type;
+   }
+
+	public String getState() {
+   	return m_state;
+   }
+
+	public void setState(String state) {
+   	m_state = state;
    }
 
 	@Override

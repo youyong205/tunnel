@@ -4,8 +4,13 @@
 <head>
 <title>软土盾构隧道后台管理系统</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet" user="screen">
+<link rel="stylesheet" type='text/css' href="css/bootstrap.min.css" >
 <link rel='stylesheet' type='text/css' href='css/admin.css' />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.metadata.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
 </head>
 <body>
   <%@include file="./Head.jsp"%>

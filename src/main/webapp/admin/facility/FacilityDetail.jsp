@@ -33,11 +33,11 @@ $(document).ready(function() {
 				<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='4'><h4 class="text-info text-center">编辑设备信息</h4></th>
-						<input type="hidden" name="index" value="<s:property value="index"/>"/>
-						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
-						<input type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
-						<input type="hidden" name="facility.documentId" value="<s:property value="facility.documentId"/>"/>
-						<input type="hidden" name="facility.id" value="<s:property value="facility.id"/>" />
+						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input readonly type="hidden" name="tunnelSectionId" value="<s:property value="tunnelSectionId"/>"/>
+						<input readonly type="hidden" name="facility.documentId" value="<s:property value="facility.documentId"/>"/>
+						<input readonly type="hidden" name="facility.id" value="<s:property value="facility.id"/>" />
 					</tr>
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
@@ -58,15 +58,15 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">名称编号</strong></td>
-						<td ><input type="text" size="40" name="facility.name" readonly value="<s:property value="facility.name"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input readonly type="text" size="40" name="facility.name"  value="<s:property value="facility.name"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">设备类型</strong></td>
-						<td ><input type="text" size="40" name="facility.type"  readonly  value="<s:property value="facility.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td ><input readonly type="text" size="40" name="facility.type"    value="<s:property value="facility.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">桩号里程</strong></td>
-						<td><input type="text" size="40" name="facility.stakeMileage" readonly  value="<s:property value="facility.stakeMileage"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="facility.stakeMileage"   value="<s:property value="facility.stakeMileage"/>"  class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">位置描述</strong></td>
-						<td><input type="text" size="40" name="facility.position" readonly  value="<s:property value="facility.position"/>"  class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="facility.position"   value="<s:property value="facility.position"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
@@ -77,19 +77,19 @@ $(document).ready(function() {
 							</select>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">管养单位ID</strong></td>
-						<td><input type="text" size="40" name="facility.constructionUnitId" readonly   value="<s:property value="facility.constructionUnitId"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" size="40" name="facility.constructionUnitId"    value="<s:property value="facility.constructionUnitId"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">关联环号</strong></td>
-						<td><input type="text" size="40" name="facility.liningRingId"  readonly  value="<s:property value="facility.liningRingId"/>" class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="facility.liningRingId"    value="<s:property value="facility.liningRingId"/>" class="{required:true,maxlength:64}"/></td>
 						<td style="text-align:right;"><strong class="text-success">箱号</strong></td>
-						<td><input type="text" size="40" name="facility.boxNumber"  readonly  value="<s:property value="facility.boxNumber"/>" class="{required:true,maxlength:64}"/></td>
+						<td><input readonly type="text" size="40" name="facility.boxNumber"    value="<s:property value="facility.boxNumber"/>" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">长度</strong></td>
-						<td><input type="text" size="40" name="facility.width"  readonly  value="<s:property value="facility.width"/>" class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" size="40" name="facility.width"    value="<s:property value="facility.width"/>" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">高度</strong></td>
-						<td><input type="text" size="40" name="facility.height"  readonly  value="<s:property value="facility.height"/>"  class="{required:true,number:true}"/></td>
+						<td><input readonly type="text" size="40" name="facility.height"    value="<s:property value="facility.height"/>"  class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
@@ -103,7 +103,7 @@ $(document).ready(function() {
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">设备备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="facility.des"  readonly  class="{maxlength:512}"><s:property value="facility.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="60"  name="facility.des"    class="{maxlength:512}"><s:property value="facility.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>

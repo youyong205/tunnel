@@ -4,7 +4,7 @@
 	<typeAlias alias="tunnel" type="com.tunnel.Tunnel" />
 
 	<sql id="tunnel.columns">
-		id,name,type,des,creationDate
+		id,name,type,state,des,creationDate
 	</sql>
 	<select id="tunnel.queryAllTunnels" resultClass="tunnel">
 		select
@@ -31,14 +31,14 @@
 	</select>
 	<insert id="tunnel.insert" parameterClass="tunnel">
 		insert into tunnel (<include refid="tunnel.columns" />) values
-		(#id#,#name#,#type#,#des#,now())
+		(#id#,#name#,#type#,,#state#,#des#,now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
 	</insert>
 	<update id="tunnel.update" parameterClass="tunnel">
 		update tunnel set
-		name=#name#,type=#type#,des=#des#
+		name=#name#,type=#type#,des=#des#,state=#state#
 		where id=#id#
 	</update>
 	<delete id="tunnel.delete" parameterClass="int">
