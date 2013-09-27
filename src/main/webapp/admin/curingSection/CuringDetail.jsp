@@ -55,7 +55,7 @@
 		<td style="text-align:right;"><strong class="text-success">上传养护资料<br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
 		<td>
 			<s:if test="curing.documentId>0">
-				已经上传附件:&nbsp;<span class='text-error'><s:property value="curing.document.name"/></span></br>
+				<span class='text-error'><s:property value="curing.document.name"/></span></br>
 			</s:if>
 		</td>
 		<td style="text-align:right;"><strong class="text-success">处理措施</strong></td>

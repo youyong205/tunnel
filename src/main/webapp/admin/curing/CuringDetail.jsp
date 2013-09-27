@@ -38,7 +38,7 @@
 		<td style="text-align:right;"><strong class="text-success">上传养护资料<br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
 		<td>
 			<s:if test="curing.documentId>0">
-				已经上传附件:&nbsp;
+				
 				<a class='text-error' href="documentDownload.do?documentId=<s:property value="curing.document.id"/>"><s:property value="curing.document.name"/></a>
 				</br>
 			</s:if>

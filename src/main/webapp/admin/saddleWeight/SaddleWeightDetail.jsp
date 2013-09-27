@@ -89,7 +89,7 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="saddleWeight.documentId>0">
-								已经上传附件:&nbsp;
+								
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="saddleWeight.document.id"/>"><s:property value="saddleWeight.document.name"/></a>
 							</s:if>
 						</td>

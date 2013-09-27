@@ -83,7 +83,7 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="rectangleComponent.documentId>0">
-								已经上传附件:&nbsp;
+								
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="rectangleComponent.document.id"/>"><s:property value="rectangleComponent.document.name"/></a>
 							</s:if>
 						</td>

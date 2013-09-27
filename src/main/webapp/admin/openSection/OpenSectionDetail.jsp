@@ -81,7 +81,7 @@ $(document).ready(function() {
 						</strong></td>
 						<td>
 							<s:if test="openSection.documentId>0">
-								已经上传附件:&nbsp;
+								
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="openSection.document.id"/>"><s:property value="openSection.document.name"/></a>
 							</s:if>
 						</td>

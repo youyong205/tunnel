@@ -86,7 +86,7 @@ $(document).ready(function() {
 						</strong></td>
 						<td>
 							<s:if test="buriedSection.documentId>0">
-								已经上传附件:&nbsp;
+								
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="buriedSection.document.id"/>"><s:property value="buriedSection.document.name"/></a>
 							</s:if>
 						</td>

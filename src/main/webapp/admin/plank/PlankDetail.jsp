@@ -98,7 +98,7 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="plank.documentId>0">
-								已经上传附件:&nbsp;
+								
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="plank.document.id"/>"><s:property value="plank.document.name"/></a>
 							</s:if>
 						</td>

@@ -86,7 +86,7 @@ $(document).ready(function() {
 						</td>
 						<td>
 							<s:if test="escape.documentId>0">
-								已经上传附件:&nbsp;
+								
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="escape.document.id"/>"><s:property value="escape.document.name"/></a>
 							</s:if>
 						</td>
