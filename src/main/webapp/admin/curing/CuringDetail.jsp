@@ -35,7 +35,7 @@
 	           <input readonly name="curing.position" class="{required:true}"  value="<s:property value='curing.position'/>"  type="text"></input> 
 	       </tr>
 	<tr>
-		<td style="text-align:right;"><strong class="text-success">上传养护资料<br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
+		<td style="text-align:right;"><strong class="text-success">养护资料<br></strong></td>
 		<td>
 			<s:if test="curing.documentId>0">
 				
