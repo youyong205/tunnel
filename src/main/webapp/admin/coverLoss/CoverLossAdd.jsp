@@ -113,7 +113,7 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">面积(mm)</strong></td>
 						<td><input type="text" name="coverLoss.area" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="coverLoss.des" class="{maxlength:512}"></textarea></td>
+						<td><textarea type="text" rows="5" cols="40"  name="coverLoss.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

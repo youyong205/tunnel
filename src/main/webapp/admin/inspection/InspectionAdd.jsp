@@ -46,13 +46,13 @@
        </tr>
 <tr>
 	<td style="text-align:right;"><strong class="text-success">质量描述</strong></td>
-	<td><textarea type="text" rows="5" cols="50" name="inspection.description" class="{maxlength:512}"></textarea></td>
+	<td><textarea type="text" rows="5" cols="40" name="inspection.description" class="{maxlength:512}"></textarea></td>
 <td style="text-align:right;"><strong class="text-success">处理措施</strong></td>
-	<td><textarea type="text" rows="5" cols="50" name="inspection.action" class="{maxlength:512}"></textarea></td>
+	<td><textarea type="text" rows="5" cols="40" name="inspection.action" class="{maxlength:512}"></textarea></td>
 </tr>
 <tr>
 	<td style="text-align:right;"><strong class="text-success">备注</strong></td>
-	<td colspan='3'><textarea type="text" rows="5" cols="50" name="inspection.des" class="{maxlength:512}"></textarea></td>
+	<td colspan='3'><textarea type="text" rows="5" cols="40" name="inspection.des" class="{maxlength:512}"></textarea></td>
 </tr>
 <tr>
 	<td colspan="4" style="text-align:center;">

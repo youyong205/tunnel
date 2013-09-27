@@ -53,7 +53,7 @@
 						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td colspan='3'>
 							 <s:select name="buriedSection.tunnelId" id="buriedSectionId"
 									list="tunnels" listKey="id" listValue="name"  theme="simple" >
@@ -64,8 +64,8 @@
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">暗埋段编号</strong></td>
 						<td width="30%"><input readonly type="text" name="buriedSection.name"   value="<s:property value="buriedSection.name"/>" class="{required:true,maxlength:64}"/></td>
-						<td width="15%" style="text-align:right;"><strong class="text-success">暗埋段类型</strong></td>
-						<td width="35%" ><input readonly type="text" name="buriedSection.type"   value="<s:property value="buriedSection.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">暗埋段类型</strong></td>
+						<td width="30%" ><input readonly type="text" name="buriedSection.type"   value="<s:property value="buriedSection.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 										<tr>
 						<td style="text-align:right;"><strong class="text-success">开始里程(m)</strong></td>
@@ -98,17 +98,15 @@
 						<td><input readonly type="text" name="buriedSection.endHeadroom"    value="<s:property value="buriedSection.endHeadroom"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">上传设计制作设计附件</br>
-						<span class='text-error'>多个文档请打zip包</span>
-						</br><span class='text-error'>总大小不超过40M</span></strong></td>
+						<td style="text-align:right;"><strong class="text-success">设计制作设计附件</br>
+						</strong></td>
 						<td>
 							<s:if test="buriedSection.documentId>0">
-								已经上传附件:&nbsp;
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="buriedSection.document.id"/>"><s:property value="buriedSection.document.name"/></a>
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">暗埋段备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="40"    name="buriedSection.des" class="{maxlength:512}"><s:property value="buriedSection.des"/> </textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="30"    name="buriedSection.des" class="{maxlength:512}"><s:property value="buriedSection.des"/> </textarea></td>
 					</tr>
 				</table>
 				<%@include file="./../../admin/schedule/ScheduleDetail.jsp"%>

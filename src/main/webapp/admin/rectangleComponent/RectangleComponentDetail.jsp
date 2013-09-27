@@ -16,7 +16,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#rectangleComponentList').addClass("active");
-	
 	var type='<s:property value="rectangleComponent.lineType"/>';
 	$('#lineType').val(type);
 });
@@ -40,7 +39,7 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="rectangleComponent.id" value="<s:property value="rectangleComponent.id"/>" />
 					</tr>
 					<tr>
-						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td width="35%">
 							<s:select name="rectangleComponent.tunnelId" id="tunnelId"
 								onchange="tunnelChanged()" 
@@ -48,7 +47,7 @@ $(document).ready(function() {
 								value="rectangleComponent.tunnelId" theme="simple" >
 							</s:select>
 						</td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
 						<td width="40%">
 							<s:select name="rectangleComponent.tunnelSectionId" id="tunnelSectionId"
 								list="tunnelSections" listKey="id" listValue="name"
@@ -78,9 +77,9 @@ $(document).ready(function() {
 						<td><input readonly type="text" name="rectangleComponent.endPosition"  value="<s:property value="rectangleComponent.endPosition"/>"  class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
-							<span class='text-error'>多个文档请打zip包</span>
-							</br><span class='text-error'>总大小不超过40M</span></strong>
+						<td style="text-align:right;"><strong class="text-success">设计制作文档</br>
+							
+							</strong>
 						</td>
 						<td>
 							<s:if test="rectangleComponent.documentId>0">
@@ -89,7 +88,7 @@ $(document).ready(function() {
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">口型构件备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="60"  name="rectangleComponent.des" class="{maxlength:512}"><s:property value="rectangleComponent.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="40"  name="rectangleComponent.des" class="{maxlength:512}"><s:property value="rectangleComponent.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>

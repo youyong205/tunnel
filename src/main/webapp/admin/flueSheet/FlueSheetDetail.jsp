@@ -40,7 +40,7 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="flueSheet.id" value="<s:property value="flueSheet.id"/>" />
 					</tr>
 					<tr>
-						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td width="35%">
 							<s:select name="flueSheet.tunnelId" id="tunnelId"
 								onchange="tunnelChanged()" 
@@ -48,7 +48,7 @@ $(document).ready(function() {
 								value="flueSheet.tunnelId" theme="simple" >
 							</s:select>
 						</td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
 						<td width="40%">
 							<s:select name="flueSheet.tunnelSectionId" id="tunnelSectionId"
 								list="tunnelSections" listKey="id" listValue="name"
@@ -84,9 +84,9 @@ $(document).ready(function() {
 						<td><input readonly type="text" name="flueSheet.endPosition"    value="<s:property value="flueSheet.endPosition"/>"  class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
-							<span class='text-error'>多个文档请打zip包</span>
-							</br><span class='text-error'>总大小不超过40M</span></strong>
+						<td style="text-align:right;"><strong class="text-success">设计制作文档</br>
+							
+							</strong>
 						</td>
 						<td>
 							<s:if test="flueSheet.documentId>0">
@@ -95,7 +95,7 @@ $(document).ready(function() {
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">烟道板备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="60"    name="flueSheet.des" class="{maxlength:512}"><s:property value="flueSheet.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="40"    name="flueSheet.des" class="{maxlength:512}"><s:property value="flueSheet.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>

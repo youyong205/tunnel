@@ -44,11 +44,11 @@
 			</s:if>
 		</td>
 		<td style="text-align:right;"><strong class="text-success">处理措施</strong></td>
-		<td><textarea readonly type="text" rows="5" cols="50" name="curing.action"  class="{maxlength:512}"><s:property value='curing.action'/></textarea></td>
+		<td><textarea readonly type="text" rows="5" cols="40" name="curing.action"  class="{maxlength:512}"><s:property value='curing.action'/></textarea></td>
 	</tr>
 	<tr>
 		<td style="text-align:right;"><strong class="text-success">备注</strong></td>
-		<td  colspan='3'><textarea readonly type="text" rows="5" cols="50" name="curing.des"  class="{maxlength:512}"><s:property value='curing.des'/></textarea></td>
+		<td  colspan='3'><textarea readonly type="text" rows="5" cols="40" name="curing.des"  class="{maxlength:512}"><s:property value='curing.des'/></textarea></td>
 	</tr>
 </table>
 	

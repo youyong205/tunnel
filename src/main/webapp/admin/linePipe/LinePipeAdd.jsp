@@ -79,7 +79,7 @@ $(document).ready(function() {
 						</br><span class='text-error'>总大小不超过40M</span></strong></td>
 						<td ><input type="file" name="upload" class="{required:true}"></td>
 						<td style="text-align:right;"><strong class="text-success">预埋管线备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="linePipe.des" class="{maxlength:512}"></textarea></td>
+						<td><textarea type="text" rows="5" cols="40"  name="linePipe.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleAdd.jsp"%>

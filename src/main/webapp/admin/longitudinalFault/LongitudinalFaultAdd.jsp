@@ -97,7 +97,7 @@ $(document).ready(function() {
 							</select>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="longitudinalFault.des" class="{maxlength:512}"></textarea></td>
+						<td><textarea type="text" rows="5" cols="40"  name="longitudinalFault.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

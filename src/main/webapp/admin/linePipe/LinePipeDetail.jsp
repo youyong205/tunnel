@@ -40,7 +40,7 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="linePipe.id" value="<s:property value="linePipe.id"/>" />
 					</tr>
 					<tr>
-						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td width="35%">
 							<s:select name="linePipe.tunnelId" id="tunnelId"
 								onchange="tunnelChanged()" 
@@ -48,7 +48,7 @@ $(document).ready(function() {
 								value="linePipe.tunnelId" theme="simple" >
 							</s:select>
 						</td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
 						<td width="40%">
 							<s:select name="linePipe.tunnelSectionId" id="tunnelSectionId"
 								list="tunnelSections" listKey="id" listValue="name"
@@ -78,9 +78,9 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
-							<span class='text-error'>多个文档请打zip包</span>
-							</br><span class='text-error'>总大小不超过40M</span></strong>
+						<td style="text-align:right;"><strong class="text-success">设计制作文档</br>
+							
+							</strong>
 						</td>
 						<td>
 							<s:if test="linePipe.documentId>0">
@@ -89,7 +89,7 @@ $(document).ready(function() {
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">口型构件备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="60"  name="linePipe.des"  class="{maxlength:512}"><s:property value="linePipe.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="40"  name="linePipe.des"  class="{maxlength:512}"><s:property value="linePipe.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>

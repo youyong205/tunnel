@@ -92,7 +92,7 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">与初始点距离</strong></td>
 						<td><input type="text" name="settlement.distance" class="{required:true,number:true}" value="<s:property value="settlement.distance"/>" /></td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="settlement.des" class="{maxlength:512}"><s:property value="settlement.des"/></textarea></td>
+						<td><textarea type="text" rows="5" cols="40"  name="settlement.des" class="{maxlength:512}"><s:property value="settlement.des"/></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

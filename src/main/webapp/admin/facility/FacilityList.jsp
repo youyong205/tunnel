@@ -35,13 +35,13 @@
       		<div class="row-fluid">
       			<div class="span4">
 		      		<t:privilege res="设备模块:详情">
-					<a href="facilityList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">基本信息</a>
+					<a href="facilityList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>" class="btn btn-small  btn-primary btn-success">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="设备质量检测模块:详情">
-	    	  		<a href="facilityInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
+	    	  		<a href="facilityInspectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
 					</t:privilege>
 					<t:privilege res="设备养护记录模块:详情">
-	      			<a href="facilityCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
+	      			<a href="facilityCuringList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span8">

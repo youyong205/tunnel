@@ -35,13 +35,13 @@
       		<div class="row-fluid">
       			<div class="span4">
 		      		<t:privilege res="逃生楼梯模块:详情">
-						<a href="escapeList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">基本信息</a>
+						<a href="escapeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">基本信息</a>
 	    	  		</t:privilege>
 	    	  		<t:privilege res="逃生楼梯质量检测模块:详情">
-	    	  			<a href="escapeInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
+	    	  			<a href="escapeInspectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
 					</t:privilege>
 					<t:privilege res="逃生楼梯养护记录模块:详情">
-	      				<a href="escapeCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success">养护记录</a>
+	      				<a href="escapeCuringList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>" class="btn btn-small  btn-primary btn-success">养护记录</a>
       				</t:privilege>
       			</div>
       			<div class="span8">

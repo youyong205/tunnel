@@ -36,7 +36,7 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td>
 							 <s:select name="openSection.tunnelId" id="openSectionId"
 									list="tunnels" listKey="id" listValue="name"  theme="simple" >
@@ -76,9 +76,9 @@ $(document).ready(function() {
 						<td><input readonly type="text" name="openSection.platformPileBottom"   value="<s:property value="openSection.endPosition"/>"  class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>	
-						<td style="text-align:right;"><strong class="text-success">上传设计制作文档</br>
-						<span class='text-error'>多个文档请打zip包</span>
-						</br><span class='text-error'>总大小不超过40M</span></strong></td>
+						<td style="text-align:right;"><strong class="text-success">设计制作文档</br>
+						
+						</strong></td>
 						<td>
 							<s:if test="openSection.documentId>0">
 								已经上传附件:&nbsp;

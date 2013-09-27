@@ -54,7 +54,7 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="20%">联络通道名称</th>
+					<th width="20%">联络通道编号</th>
 					<th width="10%">检测时间</th>
 					<th width="50%">质量描述</th>
 					<th width="15%">操作

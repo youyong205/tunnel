@@ -65,7 +65,7 @@ $(document).ready(function() {
 				</table>
 				<table class="table table-striped table-bordered table-condensed">
 					<tr>
-						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td width="35%">
 							<s:select name="liningRingConstruction.tunnelId" id="tunnelId"
 								onchange="tunnelChangedExcluedeAll()" 
@@ -73,7 +73,7 @@ $(document).ready(function() {
 								value="liningRingConstruction.tunnelId" theme="simple" >
 							</s:select>
 						</td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
 						<td width="40%">
 							<s:select name="liningRingConstruction.tunnelSectionId" id="tunnelSectionId"
 								list="tunnelSections" listKey="id" listValue="name"
@@ -175,7 +175,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea readonly type="text" rows="5" cols="60"  name="liningRingConstruction.des" class="{maxlength:512}"><s:property value="liningRingConstruction.des"/></textarea></td>
+						<td colspan='3'><textarea readonly type="text" rows="5" cols="40"  name="liningRingConstruction.des" class="{maxlength:512}"><s:property value="liningRingConstruction.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>

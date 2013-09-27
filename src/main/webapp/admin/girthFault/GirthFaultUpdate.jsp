@@ -90,7 +90,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea type="text" rows="5" cols="60"  name="girthFault.des" class="{maxlength:512}"><s:property value="girthFault.des"/></textarea></td>
+						<td colspan='3'><textarea type="text" rows="5" cols="40"  name="girthFault.des" class="{maxlength:512}"><s:property value="girthFault.des"/></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

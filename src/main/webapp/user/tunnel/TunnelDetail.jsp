@@ -18,7 +18,6 @@
 	$(document).ready(function() {
 		$('#tunnelList').addClass('active');
 		$('#baseInfo').addClass('active');
-		$('#baseInfo').addClass('active');
 	});
 </script>
 </head>

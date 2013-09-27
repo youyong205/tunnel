@@ -12,13 +12,13 @@
 		<input readonly type="hidden" name="curing.type"value="<s:property value="module"/>" />
 	</tr>
 	<tr>
-		<td style="text-align: right;"><strong class="text-success">选择隧道</strong></td>
+		<td style="text-align: right;"><strong class="text-success">隧道</strong></td>
 		<td><s:select name="curing.tunnelId" id="tunnelId"
 				onchange="tunnelChanged()" list="tunnels" listKey="id"
 				listValue="name" value="curing.tunnelId" theme="simple">
 			</s:select></td>
 
-		<td style="text-align: right;"><strong class="text-success">选择盾构段</strong></td>
+		<td style="text-align: right;"><strong class="text-success">盾构段</strong></td>
 		<td><s:select name="curing.tunnelSectionId"
 				id="tunnelSectionId" onchange="tunnelSectionChanged()"
 				list="tunnelSections" listKey="id" listValue="name"
@@ -31,7 +31,7 @@
 				list="items" listKey="id" listValue="name"  value="curing.componentId" theme="simple" >
 		</s:select></td>
 		
-		<td style="text-align:right;"><strong class="text-success">选择施工单位</strong></td>
+		<td style="text-align:right;"><strong class="text-success">施工单位</strong></td>
 		<td>
 			 <s:select name="curing.constructionUnitId" id="id"
 					list="constructionUnits" listKey="id" listValue="name"  value="curing.constructionUnitId" theme="simple" >
@@ -59,11 +59,11 @@
 			</s:if>
 		</td>
 		<td style="text-align:right;"><strong class="text-success">处理措施</strong></td>
-		<td><textarea readonly type="text" rows="5" cols="50" name="curing.action"  class="{maxlength:512}"><s:property value='curing.action'/></textarea></td>
+		<td><textarea readonly type="text" rows="5" cols="40" name="curing.action"  class="{maxlength:512}"><s:property value='curing.action'/></textarea></td>
 	</tr>
 	<tr>
 		<td style="text-align:right;"><strong class="text-success">备注</strong></td>
-		<td  colspan='3'><textarea readonly type="text" rows="5" cols="50" name="curing.des"  class="{maxlength:512}"><s:property value='curing.des'/></textarea></td>
+		<td  colspan='3'><textarea readonly type="text" rows="5" cols="40" name="curing.des"  class="{maxlength:512}"><s:property value='curing.des'/></textarea></td>
 	</tr>
 </table>
 	

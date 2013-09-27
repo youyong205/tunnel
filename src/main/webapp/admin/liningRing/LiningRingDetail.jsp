@@ -60,7 +60,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">描述</strong></td>
-						<td colspan='3'><textarea readonly type="text" rows="5" cols="60"  name="liningRing.des"   class="{maxlength:512}"><s:property value="liningRing.des"/></textarea></td>
+						<td colspan='3'><textarea readonly type="text" rows="5" cols="40"  name="liningRing.des"   class="{maxlength:512}"><s:property value="liningRing.des"/></textarea></td>
 					</tr>
 						</tbody>
 				</table>

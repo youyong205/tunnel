@@ -13,48 +13,60 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="js/tunnel.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#contactChannel').addClass('active');
+		$('#tunnelSectionList').addClass('active');
+		$('#rectangleComponent').addClass('active');
 	});
 </script>
 </head>
 <body>
   <div class="container">
-	<%@include file="./../Head.jsp"%>
+	<%@include file="./../../Head.jsp"%>
 	<div>
 		<ul class="breadcrumb">
 			<li>当前位置：</li>
 			<li>首页<span class="divider">/</span></li>
-			<li><a href="userContactChannelList.do?tunnelId=<s:property value="tunnelId"/>">联络通道</a><span class="divider">/</span></li>
+			<li><a href='userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>'>盾构段</a><span class="divider">/</span></li>
+			<li><a href="userRectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">口型构件</a><span class="divider">/</span></li>
 			<li class="active">养护记录</li>
 		</ul>
 	</div>
 	<div class='row'>
 		<div class='span2'>
-			<%@include file="./../TunnelMenu.jsp"%>
+			<%@include file="./../../TunnelSectionMenu.jsp"%>
 		</div>
 		<div class='span10'>
 			<div class="row-fluid">
 			    <div class="span6">
-					<a href="userContactChannelList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-info">联络通道列表</a>
-    	  			<a href="userContactChannelInspectionList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
-      				<a href="userContactChannelCuringList.do?tunnelId=<s:property value="tunnelId"/>" class="btn btn-small  btn-primary btn-success ">养护记录</a>
+					<a href="userRectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">口型构件列表</a>
+    	  			<a href="userRectangleComponentInspectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
+      				<a href="userRectangleComponentCuringList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-success ">养护记录</a>
       			</div>
-				<div class="span6"><form class="text-right form-inline margin-buttom" action="userContactChannelCuringList.do" method="post">
-				  隧道
-				  <s:select name="tunnelId" id="tunnelId"
-						list="tunnels" listKey="id" listValue="name" value="tunnelId" theme="simple" >
-				  </s:select>
-				  <button type="submit" class="btn btn-success btn-small">查询</button>
-				</form></div></div>
+				<div class="span6">
+					<form class="text-right form-inline margin-buttom" method="get">
+						<strong>选择隧道</strong>
+						<s:select name="tunnelId" id="tunnelId"
+							onchange="tunnelChanged()"  
+							list="tunnels" listKey="id" listValue="name" 
+							value="tunnelId" theme="simple" >
+						</s:select>
+						<strong>选择盾构段</strong>
+						<s:select name="tunnelSectionId" id="tunnelSectionId"
+							list="tunnelSections" listKey="id" listValue="name"
+							headerKey="0" headerValue="ALL"
+							value="tunnelSectionId" theme="simple" >
+						</s:select> 
+					  <button type="submit" class="btn btn-success btn-small">查询</button>
+					</form></div></div>
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="6%">序号</th>
-					<th width="20%">联络通道名称</th>
+					<th width="20%">口型构件编号</th>
 					<th width="10%">养护时间</th>
-					<th width="50%">处理措施</th>
+					<th width="54%">处理措施</th>
 					<th width="10%">操作</th>
 				</tr></thead><tbody>
 				<s:iterator value="curings" status="vs">
@@ -66,8 +78,8 @@
 					</td>
 					<td><s:property value="action" /></td>
 					<td>
-					<t:privilege res="联络通道养护记录模块:详情">
-						<a class="btn btn-small btn-success" href="userContactChannelCuringDetail.do?curingId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>">详情</a>
+					<t:privilege res="口型构件养护记录模块:详情">
+						<a class="btn btn-small btn-success" href="userRectangleComponentCuringDetail.do?curingId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>">详情</a>
 					</t:privilege>
 					</td>
 					</tr>
@@ -91,7 +103,7 @@
 		</div>
 	</div>
      
-    <%@include file="./../Foot.jsp"%>
+    <%@include file="./../../Foot.jsp"%>
   </div>
 </body>
 </html>

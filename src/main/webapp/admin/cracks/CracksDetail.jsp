@@ -41,14 +41,14 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="cracks.id" value="<s:property value="cracks.id"/>" />
 					</tr>
 					<tr>
-						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td width="35%">
 						<s:select name="cracks.tunnelId" id="tunnelId"
 							onchange="tunnelChangedAndBlock()" 
 							list="tunnels" listKey="id" listValue="name" 
 							value="cracks.tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="15%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
 						<td width="35%">
 						<s:select name="cracks.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
@@ -57,14 +57,14 @@ $(document).ready(function() {
 						</s:select> </td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">选择衬砌环</strong></td>
+						<td style="text-align:right;"><strong class="text-success">衬砌环</strong></td>
 						<td>
 							<s:select name="cracks.liningRingConstructionId" id="liningRingConstructionId"
 							list="liningRingConstructions" listKey="id" listValue="name" onchange="liningRingChanged()"
 							value="cracks.liningRingConstructionId" theme="simple" >
 							</s:select> 
 						</td>
-						<td style="text-align:right;"><strong class="text-success">选择所在块</strong></td>
+						<td style="text-align:right;"><strong class="text-success">所在块</strong></td>
 						<td>
 							<s:select name="cracks.blockIndex" id="liningRingBlockId"
 							list="liningRingBlocks" listKey="blockIndex" listValue="blockIndex"
@@ -100,7 +100,7 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">裂缝倾角(°)</strong></td>
 						<td><input readonly type="text" name="cracks.dip"  value='<s:property value="cracks.dip"/>' class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="60"  name="cracks.des" class="{maxlength:512}"><s:property value="cracks.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="40"  name="cracks.des" class="{maxlength:512}"><s:property value="cracks.des"/></textarea></td>
 					</tr>
 					</table>
 			</form>

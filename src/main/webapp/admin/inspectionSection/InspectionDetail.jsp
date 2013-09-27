@@ -12,13 +12,13 @@
 		<input readonly type="hidden" name="inspection.type"value="<s:property value="module"/>" />
 	</tr>
 	<tr>
-		<td style="text-align: right;"><strong class="text-success">选择隧道</strong></td>
+		<td style="text-align: right;"><strong class="text-success">隧道</strong></td>
 		<td><s:select name="inspection.tunnelId" id="tunnelId"
 				onchange="tunnelChanged()" list="tunnels" listKey="id"
 				listValue="name" value="inspection.tunnelId" theme="simple">
 			</s:select></td>
 
-		<td style="text-align: right;"><strong class="text-success">选择盾构段</strong></td>
+		<td style="text-align: right;"><strong class="text-success">盾构段</strong></td>
 		<td><s:select name="inspection.tunnelSectionId"
 				id="tunnelSectionId" onchange="tunnelSectionChanged()"
 				list="tunnelSections" listKey="id" listValue="name"
@@ -31,7 +31,7 @@
 				list="items" listKey="id" listValue="name" theme="simple">
 			</s:select></td>
 
-		<td style="text-align: right;"><strong class="text-success">选择施工单位</strong></td>
+		<td style="text-align: right;"><strong class="text-success">施工单位</strong></td>
 		<td><s:select name="inspection.constructionUnitId" id="id"
 				list="constructionUnits" listKey="id" listValue="name"
 				theme="simple">
@@ -63,15 +63,15 @@
 	</tr>
 	<tr>
 		<td style="text-align: right;"><strong class="text-success">质量描述</strong></td>
-		<td><textarea readonly type="text" rows="5" cols="50" 
+		<td><textarea readonly type="text" rows="5" cols="40" 
 				name="inspection.description" class="{maxlength:512}"><s:property value="inspection.description" /></textarea></td>
 		<td style="text-align: right;"><strong class="text-success">处理措施</strong></td>
-		<td><textarea readonly type="text" rows="5" cols="50" 
+		<td><textarea readonly type="text" rows="5" cols="40" 
 				name="inspection.action" class="{maxlength:512}"><s:property value="inspection.action" /></textarea></td>
 	</tr>
 	<tr>
 		<td style="text-align: right;"><strong class="text-success">备注</strong></td>
-		<td><textarea readonly type="text" rows="5" cols="50" 
+		<td><textarea readonly type="text" rows="5" cols="40" 
 				name="inspection.des" class="{maxlength:512}"><s:property value="inspection.des" /></textarea></td>
 	</tr>
 </table>

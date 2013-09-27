@@ -54,7 +54,7 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="15%">编号</th>
+					<th width="15%">工作井编号</th>
 					<th width="10%">类型</th>
 					<th width="15%">施工开始</th>
 					<th width="15%">施工结束</th>

@@ -53,7 +53,7 @@
 						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td>
 							 <s:select name="workingWell.tunnelId" id="workingWellId"
 									list="tunnels" listKey="id" listValue="name"  theme="simple" >
@@ -65,8 +65,8 @@
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">工作井编号</strong></td>
 						<td width="30%"><input readonly type="text" name="workingWell.name"   value="<s:property value="workingWell.name"/>" class="{required:true,maxlength:64}"/></td>
-						<td width="15%" style="text-align:right;"><strong class="text-success">工作井类型</strong></td>
-						<td width="35%" ><input readonly type="text" name="workingWell.type"  value="<s:property value="workingWell.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">工作井类型</strong></td>
+						<td width="30%" ><input readonly type="text" name="workingWell.type"  value="<s:property value="workingWell.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">开始里程(m)</strong></td>
@@ -87,18 +87,15 @@
 						<td><input readonly type="text" name="workingWell.eleationFour"   value="<s:property value="workingWell.eleationFour"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">上传设计制作设计附件</br>
-						<span class='text-error'>多个文档请打zip包</span>
-						</br><span class='text-error'>总大小不超过40M</span>
+						<td style="text-align:right;"><strong class="text-success">设计制作设计附件</br>
 						</strong></td>
 						<td>
 							<s:if test="workingWell.documentId>0">
-								已经上传附件:&nbsp;
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="workingWell.document.id"/>"><s:property value="workingWell.document.name"/></a>
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">工作井备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="40"   name="workingWell.des" class="{maxlength:512}"><s:property value="workingWell.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="30"   name="workingWell.des" class="{maxlength:512}"><s:property value="workingWell.des"/></textarea></td>
 					</tr>
 				</table>
 				<%@include file="./../../admin/schedule/ScheduleDetail.jsp"%>

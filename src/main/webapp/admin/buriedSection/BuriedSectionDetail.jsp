@@ -36,7 +36,7 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td colspan='3'>
 							 <s:select name="buriedSection.tunnelId" id="buriedSectionId"
 									list="tunnels" listKey="id" listValue="name"  theme="simple" >
@@ -82,8 +82,8 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上传设计制作设计附件</br>
-						<span class='text-error'>多个文档请打zip包</span>
-						</br><span class='text-error'>总大小不超过40M</span></strong></td>
+						
+						</strong></td>
 						<td>
 							<s:if test="buriedSection.documentId>0">
 								已经上传附件:&nbsp;

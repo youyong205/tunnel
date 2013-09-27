@@ -29,7 +29,7 @@
 			<li>当前位置：</li>
 			<li>首页<span class="divider">/</span></li>
 			<li><a href="userWorkingWellList.do?tunnelId=<s:property value="tunnelId"/>">工作井</a><span class="divider">/</span></li>
-			<li class="active">养护记录</li>
+			<li class="active">质量检查</li>
 		</ul>
 	</div>
 	<div class='row'>
@@ -54,7 +54,7 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="8%">序号</th>
-					<th width="20%">工作井名称</th>
+					<th width="20%">工作井编号</th>
 					<th width="10%">检测时间</th>
 					<th width="52%">质量描述</th>
 					<th width="10%">操作

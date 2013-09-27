@@ -53,7 +53,7 @@
 						<input readonly type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td>
 							 <s:select name="contactChannel.tunnelId" id="contactChannelId"
 									list="tunnels" listKey="id" listValue="name"  theme="simple" >
@@ -65,8 +65,8 @@
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">联络通道编号</strong></td>
 						<td width="30%"><input readonly type="text" name="contactChannel.name"    value="<s:property value="contactChannel.name"/>" class="{required:true,maxlength:64}"/></td>
-						<td width="15%" style="text-align:right;"><strong class="text-success">联络通道类型</strong></td>
-						<td width="35%" ><input readonly type="text" name="contactChannel.type"   value="<s:property value="contactChannel.type"/>"  class="{required:true,maxlength:64}"/></td>
+						<td width="22%" style="text-align:right;"><strong class="text-success">联络通道类型</strong></td>
+						<td width="28%" ><input readonly type="text" name="contactChannel.type"   value="<s:property value="contactChannel.type"/>"  class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">上行线隧道里程(m)</strong></td>
@@ -81,15 +81,14 @@
 						<td><input readonly type="text" name="contactChannel.downCenter"    value="<s:property value="contactChannel.downCenter"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">设计制作设计附件</br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
+						<td style="text-align:right;"><strong class="text-success">制作设计附件</br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
 						<td>
 							<s:if test="contactChannel.documentId>0">
-								已经上传附件:&nbsp;
 								<a class='text-error' href="documentDownload.do?documentId=<s:property value="contactChannel.document.id"/>"><s:property value="contactChannel.document.name"/></a>
 							</s:if>
 						</td>
 						<td style="text-align:right;"><strong class="text-success">联络通道备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="40" name="contactChannel.des"  class="{maxlength:512}"><s:property value="contactChannel.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="30" name="contactChannel.des"  class="{maxlength:512}"><s:property value="contactChannel.des"/></textarea></td>
 					</tr>
 				</table>
 				<%@include file="./../../admin/schedule/ScheduleDetail.jsp"%>

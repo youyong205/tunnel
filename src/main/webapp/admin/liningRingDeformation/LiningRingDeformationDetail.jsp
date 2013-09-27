@@ -41,14 +41,14 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="liningRingDeformation.id" value="<s:property value="liningRingDeformation.id"/>" />
 					</tr>
 					<tr>
-						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td width="35%">
 						<s:select name="liningRingDeformation.tunnelId" id="tunnelId"
 							onchange="tunnelChangedExcluedeAll()" 
 							list="tunnels" listKey="id" listValue="name" 
 							value="liningRingDeformation.tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
 						<td width="40%">
 						<s:select name="liningRingDeformation.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
@@ -57,7 +57,7 @@ $(document).ready(function() {
 						</s:select> </td>
 					</tr>
 					<tr>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择衬砌环</strong></td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">衬砌环</strong></td>
 						<td width="40%">
 							<s:select name="liningRingDeformation.liningRingConstructionId" id="liningRingConstructionId"
 							list="liningRingConstructions" listKey="id" listValue="name"
@@ -81,7 +81,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea readonly type="text" rows="5" cols="60"  name="liningRingDeformation.des" class="{maxlength:512}"><s:property value="liningRingDeformation.des"/></textarea></td>
+						<td colspan='3'><textarea readonly type="text" rows="5" cols="40"  name="liningRingDeformation.des" class="{maxlength:512}"><s:property value="liningRingDeformation.des"/></textarea></td>
 					</tr>
 					</table>
 			</form>

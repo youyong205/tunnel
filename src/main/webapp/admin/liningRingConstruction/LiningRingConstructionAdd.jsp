@@ -146,7 +146,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea type="text" rows="5" cols="60"  name="liningRingConstruction.des" class="{maxlength:512}"></textarea></td>
+						<td colspan='3'><textarea type="text" rows="5" cols="40"  name="liningRingConstruction.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleAdd.jsp"%>

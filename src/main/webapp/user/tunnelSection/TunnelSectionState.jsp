@@ -41,7 +41,7 @@ td{
 				<li>当前位置：</li>
 				<li>首页<span class="divider">/</span></li>
 				<li class="active"><a
-					href='userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>'>盾构段列表</a><span
+					href='userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>'>盾构段</a><span
 					class="divider">/</span></li>
 				<li class="active">服役状态</li>
 			</ul>

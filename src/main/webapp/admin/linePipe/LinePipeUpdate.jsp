@@ -92,7 +92,7 @@ $(document).ready(function() {
 							更换附件<input type="file" name="upload">
 						</td>
 						<td style="text-align:right;"><strong class="text-success">预埋管线备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="linePipe.des" class="{maxlength:512}"><s:property value="linePipe.des"/></textarea></td>
+						<td><textarea type="text" rows="5" cols="40"  name="linePipe.des" class="{maxlength:512}"><s:property value="linePipe.des"/></textarea></td>
 					</tr>
 					</table>
 					<%@include file="./../schedule/ScheduleUpdate.jsp"%>

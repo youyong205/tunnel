@@ -32,9 +32,7 @@
 			<ul class="breadcrumb">
 				<li>当前位置：</li>
 				<li>首页<span class="divider">/</span></li>
-				<li class="active"><a
-					href='userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>'>盾构段列表</a><span
-					class="divider">/</span></li>
+				<li class="active"><a href='userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>'>盾构段</a><span class="divider">/</span></li>
 				<li class="active">详细信息</li>
 			</ul>
 		</div>

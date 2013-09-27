@@ -18,7 +18,7 @@
 		<li id='girthFault'><a style="padding-left:25px" href="userTunnelSectionState.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>&type=girthFault&typeDes=环缝错台">环缝错台</a></li>
 		<li id='longitudinalFault'><a style="padding-left:25px" href="userTunnelSectionState.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>&type=longitudinalFault&typeDes=纵缝错台">纵缝错台</a></li>
 		<li class="nav-header">同步构件</li>
-		<li><a class='subChild' style="padding-left:30px" href="">口型构件</a></li>
+		<li id='rectangleComponent'><a class='subChild' style="padding-left:30px" href="userRectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">口型构件</a></li>
 		<li><a class='subChild' style="padding-left:30px" href="">车道板</a></li>
 		<li><a class='subChild' style="padding-left:30px" href="">牛腿</a></li>
 		<li><a class='subChild' style="padding-left:30px" href="">压重块</a></li>

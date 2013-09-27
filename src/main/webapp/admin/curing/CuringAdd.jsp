@@ -44,11 +44,11 @@
 	<td style="text-align:right;"><strong class="text-success">上传养护资料<br><span class='text-error'>（多个文档请打zip包）</span></strong></td>
 	<td ><input type="file" name="upload" class="{required:true}"></td>
 	<td style="text-align:right;"><strong class="text-success">处理措施</strong></td>
-	<td><textarea type="text" rows="5" cols="50" name="curing.action" class="{maxlength:512}"></textarea></td>
+	<td><textarea type="text" rows="5" cols="40" name="curing.action" class="{maxlength:512}"></textarea></td>
 </tr>
 <tr>
 	<td style="text-align:right;"><strong class="text-success">备注</strong></td>
-	<td colspan='3'><textarea type="text" rows="5" cols="50" name="curing.des" class="{maxlength:512}"></textarea></td>
+	<td colspan='3'><textarea type="text" rows="5" cols="40" name="curing.des" class="{maxlength:512}"></textarea></td>
 </tr>
 <tr>
 	<td colspan="4" style="text-align:center;">

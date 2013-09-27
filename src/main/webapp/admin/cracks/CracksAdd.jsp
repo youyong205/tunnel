@@ -103,7 +103,7 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">裂缝倾角(°)</strong></td>
 						<td><input type="text" name="cracks.dip" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="60"  name="cracks.des" class="{maxlength:512}"></textarea></td>
+						<td><textarea type="text" rows="5" cols="40"  name="cracks.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

@@ -40,7 +40,7 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="tunnelSection.id" value="<s:property value="tunnelSection.id"/>"/>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td>
 							<s:select name="tunnelSection.tunnelId" id="tunnelSectionId"
 									list="tunnels" listKey="id" listValue="name"  value="tunnelSection.tunnelId" theme="simple" >

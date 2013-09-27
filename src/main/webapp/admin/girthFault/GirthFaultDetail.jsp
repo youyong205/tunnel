@@ -41,14 +41,14 @@ $(document).ready(function() {
 						<input readonly type="hidden" name="girthFault.id" value="<s:property value="girthFault.id"/>" />
 					</tr>
 					<tr>
-						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td width="35%">
 						<s:select name="girthFault.tunnelId" id="tunnelId"
 							onchange="tunnelChangedExcluedeAll()" 
 							list="tunnels" listKey="id" listValue="name" 
 							value="girthFault.tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
 						<td width="40%">
 						<s:select name="girthFault.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
@@ -57,7 +57,7 @@ $(document).ready(function() {
 						</s:select> </td>
 					</tr>
 					<tr>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择衬砌环</strong></td>
+						<td width="10%" style="text-align:right;"><strong class="text-success">衬砌环</strong></td>
 						<td width="40%">
 							<s:select name="girthFault.liningRingConstructionId" id="liningRingConstructionId"
 							list="liningRingConstructions" listKey="id" listValue="name"
@@ -86,7 +86,7 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea readonly type="text" rows="5" cols="60"  name="girthFault.des" class="{maxlength:512}"><s:property value="girthFault.des"/></textarea></td>
+						<td colspan='3'><textarea readonly type="text" rows="5" cols="40"  name="girthFault.des" class="{maxlength:512}"><s:property value="girthFault.des"/></textarea></td>
 					</tr>
 					</table>
 			</form>

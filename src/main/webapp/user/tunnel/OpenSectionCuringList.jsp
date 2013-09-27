@@ -53,7 +53,7 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="6%">序号</th>
-					<th width="20%">敞开段名称</th>
+					<th width="20%">敞开段编号</th>
 					<th width="10%">养护时间</th>
 					<th width="50%">处理措施</th>
 					<th width="10%">操作</th>

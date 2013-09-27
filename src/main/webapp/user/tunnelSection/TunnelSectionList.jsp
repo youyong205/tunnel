@@ -28,7 +28,7 @@
 		<ul class="breadcrumb">
 			<li>当前位置：</li>
 			<li>首页<span class="divider">/</span></li>
-			<li class="active">盾构段列表</li>
+			<li class="active">盾构段</li>
 		</ul>
 			<div class='row'>
 				<div class='span2'>
