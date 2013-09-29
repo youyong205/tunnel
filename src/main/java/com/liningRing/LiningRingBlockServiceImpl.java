@@ -40,7 +40,7 @@ public class LiningRingBlockServiceImpl implements LiningRingBlockService {
 	}
 
 	public void setLiningRingBlockDao(LiningRingBlockDao liningRingBlockDao) {
-   	m_liningRingBlockDao = liningRingBlockDao;
-   }
-	
+		m_liningRingBlockDao = liningRingBlockDao;
+	}
+
 }

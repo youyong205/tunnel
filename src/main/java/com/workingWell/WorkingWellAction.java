@@ -128,7 +128,7 @@ public class WorkingWellAction extends ScheduledAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String workingWellDelete() {
 		Authority auth = checkAuthority(buildResource(Modules.s_workingWell_model, Operation.s_operation_delete));
 		if (auth != null) {
@@ -152,7 +152,6 @@ public class WorkingWellAction extends ScheduledAction {
 			return ERROR;
 		}
 	}
-
 
 	public String workingWellList() {
 		Authority auth = checkAuthority(buildResource(Modules.s_workingWell_model, Operation.s_operation_detail));

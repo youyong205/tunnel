@@ -13,7 +13,7 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 	private GirthOpenDao m_girthOpenDao;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
-	
+
 	private Logger m_logger = Logger.getLogger(GirthOpenServiceImpl.class);
 
 	@Override
@@ -63,8 +63,7 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GirthOpen> queryGirthOpenByDuration(int girthOpenId, Date start,
-	      Date end) {
+	public List<GirthOpen> queryGirthOpenByDuration(int girthOpenId, Date start, Date end) {
 		try {
 			return m_girthOpenDao.queryGirthOpenByDuration(girthOpenId, start, end);
 		} catch (Exception e) {
@@ -86,11 +85,10 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GirthOpen> queryLimitedGirthOpens(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<GirthOpen> queryLimitedGirthOpens(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
+	      int start, int size) {
 		try {
-			return m_girthOpenDao.queryLimitedGirthOpens(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_girthOpenDao.queryLimitedGirthOpens(tunnelId, tunnelSectionId, liningRingConstructionId, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<GirthOpen>();
@@ -112,8 +110,8 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	@Override
 	public int updateGirthOpen(GirthOpen girthOpen) {
@@ -126,5 +124,5 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 			return -1;
 		}
 	}
-	
+
 }

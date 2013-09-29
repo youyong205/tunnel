@@ -32,8 +32,8 @@ public class LiningRingDao {
 	}
 
 	public int queryAllSize() {
-		return (Integer)m_baseDao.queryForObject("liningRing.queryAllSize",null);
-   }
+		return (Integer) m_baseDao.queryForObject("liningRing.queryAllSize", null);
+	}
 
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedLiningRings(int start, int size) {

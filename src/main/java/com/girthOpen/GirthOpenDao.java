@@ -50,13 +50,12 @@ public class GirthOpenDao {
 		parameters.put("tunnelSectionId", tunnelSectionId);
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 
-		return (GirthOpen) m_baseDao.queryForObject("girthOpen.queryLastestDeformation",
-		      parameters);
+		return (GirthOpen) m_baseDao.queryForObject("girthOpen.queryLastestDeformation", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedGirthOpens(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
-	      int start, int size) {
+	public List queryLimitedGirthOpens(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start,
+	      int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("tunnelId", tunnelId);

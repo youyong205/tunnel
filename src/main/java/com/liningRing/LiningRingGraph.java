@@ -27,14 +27,14 @@ public class LiningRingGraph {
 	public String buildIndexText(int i) {
 		return "第" + i + "块";
 	}
-	
+
 	public double getAngle() {
-   	return angle;
-   }
+		return angle;
+	}
 
 	public Map<String, Double> getBlocks() {
-   	return blocks;
-   }
+		return blocks;
+	}
 
 	public String getGsonString() {
 		Gson gson = new Gson();
@@ -43,10 +43,10 @@ public class LiningRingGraph {
 	}
 
 	public void setAngle(double angle) {
-   	this.angle = angle;
-   }
+		this.angle = angle;
+	}
 
 	public void setBlocks(Map<String, Double> blocks) {
-   	this.blocks = blocks;
-   }
+		this.blocks = blocks;
+	}
 }

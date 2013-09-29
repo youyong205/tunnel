@@ -21,7 +21,7 @@ public class LiningRing {
 	private int m_wedgeNumber;
 
 	private double m_angle;
-	
+
 	private String m_des;
 
 	private Date m_creationDate;
@@ -29,8 +29,8 @@ public class LiningRing {
 	private Date m_modifyDate;
 
 	public double getAngle() {
-   	return m_angle;
-   }
+		return m_angle;
+	}
 
 	public Date getCreationDate() {
 		return m_creationDate;
@@ -77,8 +77,8 @@ public class LiningRing {
 	}
 
 	public void setAngle(double angle) {
-   	m_angle = angle;
-   }
+		m_angle = angle;
+	}
 
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
@@ -115,7 +115,7 @@ public class LiningRing {
 	public void setPipeWidth(double pipeWidth) {
 		m_pipeWidth = pipeWidth;
 	}
-	
+
 	public void setType(String type) {
 		m_type = type;
 	}
@@ -125,10 +125,10 @@ public class LiningRing {
 	}
 
 	@Override
-   public String toString() {
-	   return "LiningRing [m_id=" + m_id + ", m_name=" + m_name + ", m_type=" + m_type + ", m_pipeShape=" + m_pipeShape
-	         + ", m_pipeNumber=" + m_pipeNumber + ", m_pipeThickness=" + m_pipeThickness + ", m_pipeWidth="
-	         + m_pipeWidth + ", m_wedgeNumber=" + m_wedgeNumber + ", m_des=" + m_des + "]";
-   }
+	public String toString() {
+		return "LiningRing [m_id=" + m_id + ", m_name=" + m_name + ", m_type=" + m_type + ", m_pipeShape=" + m_pipeShape
+		      + ", m_pipeNumber=" + m_pipeNumber + ", m_pipeThickness=" + m_pipeThickness + ", m_pipeWidth="
+		      + m_pipeWidth + ", m_wedgeNumber=" + m_wedgeNumber + ", m_des=" + m_des + "]";
+	}
 
 }

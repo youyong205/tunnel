@@ -13,7 +13,7 @@ public class CracksServiceImpl implements CracksService {
 	private CracksDao m_cracksDao;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
-	
+
 	private Logger m_logger = Logger.getLogger(CracksServiceImpl.class);
 
 	@Override
@@ -63,8 +63,7 @@ public class CracksServiceImpl implements CracksService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Cracks> queryCracksByDuration(int cracksId, Date start,
-	      Date end) {
+	public List<Cracks> queryCracksByDuration(int cracksId, Date start, Date end) {
 		try {
 			return m_cracksDao.queryCracksByDuration(cracksId, start, end);
 		} catch (Exception e) {
@@ -86,11 +85,10 @@ public class CracksServiceImpl implements CracksService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Cracks> queryLimitedCrackss(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<Cracks> queryLimitedCrackss(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start,
+	      int size) {
 		try {
-			return m_cracksDao.queryLimitedCrackss(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_cracksDao.queryLimitedCrackss(tunnelId, tunnelSectionId, liningRingConstructionId, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Cracks>();
@@ -112,8 +110,8 @@ public class CracksServiceImpl implements CracksService {
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	@Override
 	public int updateCracks(Cracks cracks) {
@@ -126,5 +124,5 @@ public class CracksServiceImpl implements CracksService {
 			return -1;
 		}
 	}
-	
+
 }

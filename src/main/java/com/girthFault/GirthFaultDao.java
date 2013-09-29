@@ -50,13 +50,12 @@ public class GirthFaultDao {
 		parameters.put("tunnelSectionId", tunnelSectionId);
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 
-		return (GirthFault) m_baseDao.queryForObject("girthFault.queryLastestDeformation",
-		      parameters);
+		return (GirthFault) m_baseDao.queryForObject("girthFault.queryLastestDeformation", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedGirthFaults(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
-	      int start, int size) {
+	public List queryLimitedGirthFaults(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start,
+	      int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("tunnelId", tunnelId);

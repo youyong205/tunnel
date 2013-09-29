@@ -46,8 +46,8 @@ public class Escape {
 	private Date m_modifyDate;
 
 	public double getActualMileage() {
-   	return m_actualMileage;
-   }
+		return m_actualMileage;
+	}
 
 	public Date getCreationDate() {
 		return m_creationDate;
@@ -118,8 +118,8 @@ public class Escape {
 	}
 
 	public void setActualMileage(double actualMileage) {
-   	m_actualMileage = actualMileage;
-   }
+		m_actualMileage = actualMileage;
+	}
 
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
@@ -190,11 +190,11 @@ public class Escape {
 	}
 
 	@Override
-   public String toString() {
-	   return "Escape [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId=" + m_tunnelSectionId
-	         + ", m_documentId=" + m_documentId + ", m_scheduleId=" + m_scheduleId + ", m_name=" + m_name + ", m_type="
-	         + m_type + ", m_lineType=" + m_lineType + ", m_stakeMileage=" + m_stakeMileage + ", m_position="
-	         + m_position + ", m_actualMileage=" + m_actualMileage + "]";
-   }
+	public String toString() {
+		return "Escape [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId=" + m_tunnelSectionId
+		      + ", m_documentId=" + m_documentId + ", m_scheduleId=" + m_scheduleId + ", m_name=" + m_name + ", m_type="
+		      + m_type + ", m_lineType=" + m_lineType + ", m_stakeMileage=" + m_stakeMileage + ", m_position="
+		      + m_position + ", m_actualMileage=" + m_actualMileage + "]";
+	}
 
 }

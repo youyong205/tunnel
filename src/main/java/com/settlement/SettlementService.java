@@ -15,11 +15,10 @@ public interface SettlementService {
 
 	public Settlement queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
-	public List<Settlement> queryLimitedSettlements(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size);
+	public List<Settlement> queryLimitedSettlements(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
+	      int start, int size);
 
-	public List<Settlement> querySettlementByDuration(int liningRingConstructionId, Date start,
-	      Date end);
+	public List<Settlement> querySettlementByDuration(int liningRingConstructionId, Date start, Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 

@@ -126,8 +126,7 @@ public class PlankAction extends ScheduledAction {
 			m_scheduleService.deleteSchedule(m_plank.getScheduleId());
 			int count = m_plankService.deletePlank(m_plankId);
 			if (count > 0) {
-				Log log = createLog(Modules.s_plank_model, Operation.s_operation_delete,
-				      m_plankId);
+				Log log = createLog(Modules.s_plank_model, Operation.s_operation_delete, m_plankId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -159,8 +158,7 @@ public class PlankAction extends ScheduledAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_planks = m_plankService.queryLimitedPlanks(m_tunnelId,
-			      m_tunnelSectionId, start, SIZE);
+			m_planks = m_plankService.queryLimitedPlanks(m_tunnelId, m_tunnelSectionId, start, SIZE);
 			for (Plank plank : m_planks) {
 				plank.setTunnel(m_tunnelService.findByPK(plank.getTunnelId()));
 				int scheduleId = plank.getScheduleId();
@@ -186,8 +184,8 @@ public class PlankAction extends ScheduledAction {
 		try {
 			m_plank = m_plankService.findByPK(m_plankId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
-			      m_plank.getTunnelId(), 0, Integer.MAX_VALUE);
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_plank.getTunnelId(), 0,
+			      Integer.MAX_VALUE);
 			m_schedule = m_scheduleService.findByPK(m_plank.getScheduleId());
 			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			int documentId = m_plank.getDocumentId();
@@ -225,8 +223,7 @@ public class PlankAction extends ScheduledAction {
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_plankService.updatePlank(m_plank);
 			if (count > 0) {
-				Log log = createLog(Modules.s_plank_model, Operation.s_operation_update,
-				      m_plank);
+				Log log = createLog(Modules.s_plank_model, Operation.s_operation_update, m_plank);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -240,8 +237,7 @@ public class PlankAction extends ScheduledAction {
 	}
 
 	public String queryAllPlanks() {
-		m_planks = m_plankService.queryLimitedPlanks(m_tunnelId,
-		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		m_planks = m_plankService.queryLimitedPlanks(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}

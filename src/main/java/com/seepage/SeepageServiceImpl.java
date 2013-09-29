@@ -13,7 +13,7 @@ public class SeepageServiceImpl implements SeepageService {
 	private SeepageDao m_seepageDao;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
-	
+
 	private Logger m_logger = Logger.getLogger(SeepageServiceImpl.class);
 
 	@Override
@@ -74,11 +74,10 @@ public class SeepageServiceImpl implements SeepageService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Seepage> queryLimitedSeepages(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<Seepage> queryLimitedSeepages(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
+	      int start, int size) {
 		try {
-			return m_seepageDao.queryLimitedSeepages(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_seepageDao.queryLimitedSeepages(tunnelId, tunnelSectionId, liningRingConstructionId, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Seepage>();
@@ -87,8 +86,7 @@ public class SeepageServiceImpl implements SeepageService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Seepage> querySeepageByDuration(int seepageId, Date start,
-	      Date end) {
+	public List<Seepage> querySeepageByDuration(int seepageId, Date start, Date end) {
 		try {
 			return m_seepageDao.querySeepageByDuration(seepageId, start, end);
 		} catch (Exception e) {
@@ -108,8 +106,8 @@ public class SeepageServiceImpl implements SeepageService {
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	public void setSeepageDao(SeepageDao seepageDao) {
 		m_seepageDao = seepageDao;
@@ -126,5 +124,5 @@ public class SeepageServiceImpl implements SeepageService {
 			return -1;
 		}
 	}
-	
+
 }

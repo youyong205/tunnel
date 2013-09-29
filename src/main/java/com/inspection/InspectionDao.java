@@ -30,7 +30,7 @@ public class InspectionDao {
 
 		parameters.put("type", type);
 		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId",tunnelSectionId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
 
 		return (Integer) m_baseDao.queryForObject("inspection.queryInspectionSizeByType", parameters);
 	}
@@ -43,7 +43,7 @@ public class InspectionDao {
 		parameters.put("size", size);
 		parameters.put("type", type);
 		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId",tunnelSectionId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
 
 		return m_baseDao.queryForList("inspection.queryLimitedInspectionsByType", parameters);
 	}

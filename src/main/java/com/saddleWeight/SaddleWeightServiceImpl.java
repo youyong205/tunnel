@@ -57,8 +57,7 @@ public class SaddleWeightServiceImpl implements SaddleWeightService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<SaddleWeight> queryLimitedSaddleWeights(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<SaddleWeight> queryLimitedSaddleWeights(int tunnelId, int tunnelSectionId, int start, int size) {
 		try {
 			return m_saddleWeightDao.queryLimitedSaddleWeights(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {

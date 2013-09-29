@@ -125,7 +125,7 @@ public class LiningRingAction extends PagedAction {
 
 			for (LiningRing ring : m_liningRings) {
 				List<LiningRingBlock> liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(ring.getId());
-				
+
 				m_lingRingGraphs.add(new LiningRingGraph(ring.getAngle()).addBlocksInfo(liningRingBlocks));
 			}
 			return SUCCESS;

@@ -325,8 +325,8 @@ public class RustAction extends FileUploadAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_rusts = m_rustService.queryLimitedRusts(m_tunnelId, m_tunnelSectionId,
-			      m_liningRingConstructionId, start, SIZE);
+			m_rusts = m_rustService.queryLimitedRusts(m_tunnelId, m_tunnelSectionId, m_liningRingConstructionId, start,
+			      SIZE);
 			for (Rust rust : m_rusts) {
 				rust.setTunnel(m_tunnelService.findByPK(rust.getTunnelId()));
 			}

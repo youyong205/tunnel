@@ -12,9 +12,9 @@ public class Document {
 	private String m_type;
 
 	private String m_path;
-	
+
 	private String m_absolutePath;
-	
+
 	private String m_des;
 
 	private Date m_creationDate;
@@ -22,16 +22,16 @@ public class Document {
 	private Date m_modifyDate;
 
 	public String getAbsolutePath() {
-   	return m_absolutePath;
-   }
+		return m_absolutePath;
+	}
 
 	public Date getCreationDate() {
 		return m_creationDate;
 	}
 
 	public String getDes() {
-   	return m_des;
-   }
+		return m_des;
+	}
 
 	public int getId() {
 		return m_id;
@@ -58,16 +58,16 @@ public class Document {
 	}
 
 	public void setAbsolutePath(String absolutePath) {
-   	m_absolutePath = absolutePath;
-   }
+		m_absolutePath = absolutePath;
+	}
 
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
 	}
 
 	public void setDes(String des) {
-   	m_des = des;
-   }
+		m_des = des;
+	}
 
 	public void setId(int id) {
 		m_id = id;
@@ -94,9 +94,9 @@ public class Document {
 	}
 
 	@Override
-   public String toString() {
-	   return "Document [m_id=" + m_id + ", m_module=" + m_module + ", m_name=" + m_name + ", m_type=" + m_type
-	         + ", m_path=" + m_path + ", m_absolutePath=" + m_absolutePath + ", m_des=" + m_des + "]";
-   }
+	public String toString() {
+		return "Document [m_id=" + m_id + ", m_module=" + m_module + ", m_name=" + m_name + ", m_type=" + m_type
+		      + ", m_path=" + m_path + ", m_absolutePath=" + m_absolutePath + ", m_des=" + m_des + "]";
+	}
 
 }

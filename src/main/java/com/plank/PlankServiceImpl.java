@@ -57,8 +57,7 @@ public class PlankServiceImpl implements PlankService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Plank> queryLimitedPlanks(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<Plank> queryLimitedPlanks(int tunnelId, int tunnelSectionId, int start, int size) {
 		try {
 			return m_plankDao.queryLimitedPlanks(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {

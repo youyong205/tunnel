@@ -25,11 +25,11 @@ public class RectangleComponentCuringAction extends CuringAction {
 		m_tunnels = m_tunnelService.queryAllTunnels();
 		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
 		int tunnelSectionId = m_tunnelSectionId;
-		
+
 		if (tunnelSectionId == 0 && m_tunnelSections.size() > 0) {
 			tunnelSectionId = m_tunnelSections.get(0).getId();
 		}
-		m_items = queryItems(m_tunnelId,tunnelSectionId);
+		m_items = queryItems(m_tunnelId, tunnelSectionId);
 		return super.curingAdd();
 	}
 

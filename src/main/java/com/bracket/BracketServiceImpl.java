@@ -57,8 +57,7 @@ public class BracketServiceImpl implements BracketService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Bracket> queryLimitedBrackets(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<Bracket> queryLimitedBrackets(int tunnelId, int tunnelSectionId, int start, int size) {
 		try {
 			return m_bracketDao.queryLimitedBrackets(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {

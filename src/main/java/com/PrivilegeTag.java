@@ -28,8 +28,8 @@ public class PrivilegeTag extends TagSupport {
 				if (res.containsKey(m_res)) {
 					return EVAL_BODY_INCLUDE;
 				}
-			}else{
-				
+			} else {
+
 			}
 		} catch (Exception e) {
 			s_logger.error(e.getMessage(), e);

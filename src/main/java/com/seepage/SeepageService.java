@@ -15,11 +15,10 @@ public interface SeepageService {
 
 	public Seepage queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
-	public List<Seepage> queryLimitedSeepages(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size);
+	public List<Seepage> queryLimitedSeepages(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
+	      int start, int size);
 
-	public List<Seepage> querySeepageByDuration(int liningRingConstructionId, Date start,
-	      Date end);
+	public List<Seepage> querySeepageByDuration(int liningRingConstructionId, Date start, Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 

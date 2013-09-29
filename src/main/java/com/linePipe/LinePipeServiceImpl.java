@@ -57,8 +57,7 @@ public class LinePipeServiceImpl implements LinePipeService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<LinePipe> queryLimitedLinePipes(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<LinePipe> queryLimitedLinePipes(int tunnelId, int tunnelSectionId, int start, int size) {
 		try {
 			return m_linePipeDao.queryLimitedLinePipes(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {

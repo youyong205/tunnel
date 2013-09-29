@@ -36,14 +36,14 @@ public class DocumentServiceImpl implements DocumentService {
 	}
 
 	@Override
-   public int deleteDocument(int id) {
+	public int deleteDocument(int id) {
 		try {
 			return m_documentDao.deleteDocument(id);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
 		}
-   }
+	}
 
 	@Override
 	public Document findByPK(int id) {
@@ -122,7 +122,7 @@ public class DocumentServiceImpl implements DocumentService {
 	}
 
 	@Override
-   public int updateDocument(String module, UploadFile uploadFile, Document document) {
+	public int updateDocument(String module, UploadFile uploadFile, Document document) {
 		try {
 			long time = System.currentTimeMillis();
 			String outPath = m_baseDocumentPath + module + '/' + time + '_' + uploadFile.getFilename();
@@ -142,5 +142,5 @@ public class DocumentServiceImpl implements DocumentService {
 			m_logger.error(e);
 		}
 		return 0;
-   }
+	}
 }

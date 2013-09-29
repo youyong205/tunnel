@@ -14,9 +14,9 @@ public class ResourceDao {
 		return m_baseDao.delete("resource.delete", id);
 	}
 
-	public Resource findByNamePassword(String resourceName,String password) {
-		Map<String,String> pars = new HashMap<String,String>();
-		
+	public Resource findByNamePassword(String resourceName, String password) {
+		Map<String, String> pars = new HashMap<String, String>();
+
 		pars.put("resourceName", resourceName);
 		pars.put("password", password);
 		return (Resource) m_baseDao.queryForObject("resource.findByName", pars);
@@ -36,8 +36,8 @@ public class ResourceDao {
 	}
 
 	public int queryAllSize() {
-		return (Integer)m_baseDao.queryForObject("resource.queryAllSize",null);
-   }
+		return (Integer) m_baseDao.queryForObject("resource.queryAllSize", null);
+	}
 
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedResources(int start, int size) {

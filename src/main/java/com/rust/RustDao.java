@@ -39,13 +39,11 @@ public class RustDao {
 		parameters.put("tunnelSectionId", tunnelSectionId);
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 
-		return (Rust) m_baseDao.queryForObject("rust.queryLastestDeformation",
-		      parameters);
+		return (Rust) m_baseDao.queryForObject("rust.queryLastestDeformation", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedRusts(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
-	      int start, int size) {
+	public List queryLimitedRusts(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("tunnelId", tunnelId);

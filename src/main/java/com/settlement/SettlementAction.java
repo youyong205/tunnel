@@ -163,7 +163,8 @@ public class SettlementAction extends FileUploadAction {
 	}
 
 	public String queryAllSettlements() {
-		m_settlements = m_settlementService.queryLimitedSettlements(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+		m_settlements = m_settlementService.queryLimitedSettlements(m_tunnelId, m_tunnelSectionId, 0, 0,
+		      Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}

@@ -12,7 +12,7 @@ import com.log.Log;
 
 public class ResourceAction extends PagedAction {
 
-   private static final long serialVersionUID = 4901652667413788534L;
+	private static final long serialVersionUID = 4901652667413788534L;
 
 	private Logger m_logger = Logger.getLogger(ResourceAction.class);
 
@@ -21,13 +21,13 @@ public class ResourceAction extends PagedAction {
 	private int m_resourceId;
 
 	private ResourceService m_resourceService;
-	
+
 	private Resource m_resource = new Resource();
-	
+
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_resource_model;
-   }
+	}
 
 	public Resource getResource() {
 		return m_resource;
@@ -37,7 +37,7 @@ public class ResourceAction extends PagedAction {
 		return m_resources;
 	}
 
-	public String resourceAdd(){
+	public String resourceAdd() {
 		return SUCCESS;
 	}
 
@@ -50,7 +50,7 @@ public class ResourceAction extends PagedAction {
 			int id = m_resourceService.insertResource(m_resource);
 			if (id > 0) {
 				Log log = createLog(Modules.s_resource_model, Operation.s_operation_add, m_resource);
-				
+
 				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
@@ -61,7 +61,7 @@ public class ResourceAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String resourceDelete() {
 		Authority auth = checkAuthority(buildResource(Modules.s_resource_model, Operation.s_operation_delete));
 		if (auth != null) {
@@ -71,7 +71,7 @@ public class ResourceAction extends PagedAction {
 			int count = m_resourceService.deleteResource(m_resourceId);
 			if (count > 0) {
 				Log log = createLog(Modules.s_resource_model, Operation.s_operation_delete, m_resourceId);
-				
+
 				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
@@ -126,7 +126,7 @@ public class ResourceAction extends PagedAction {
 			int count = m_resourceService.updateResource(m_resource);
 			if (count > 0) {
 				Log log = createLog(Modules.s_resource_model, Operation.s_operation_update, m_resource);
-				
+
 				m_logService.insertLog(log);
 				return SUCCESS;
 			} else {
@@ -145,7 +145,6 @@ public class ResourceAction extends PagedAction {
 	public void setResourceId(int resourceId) {
 		m_resourceId = resourceId;
 	}
-
 
 	public void setResourceService(ResourceService resourceService) {
 		m_resourceService = resourceService;

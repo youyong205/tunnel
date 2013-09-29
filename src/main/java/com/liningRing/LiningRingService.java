@@ -5,7 +5,7 @@ import java.util.List;
 public interface LiningRingService {
 
 	public int deleteLiningRing(int id);
-	
+
 	public LiningRing findByName(String name);
 
 	public LiningRing findByPK(int id);

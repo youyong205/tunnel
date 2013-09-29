@@ -15,11 +15,10 @@ public interface RustService {
 
 	public Rust queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
-	public List<Rust> queryLimitedRusts(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size);
+	public List<Rust> queryLimitedRusts(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start,
+	      int size);
 
-	public List<Rust> queryRustByDuration(int liningRingConstructionId, Date start,
-	      Date end);
+	public List<Rust> queryRustByDuration(int liningRingConstructionId, Date start, Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 

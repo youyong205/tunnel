@@ -52,14 +52,14 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	@Override
-   public int queryAllSize() {
+	public int queryAllSize() {
 		try {
 			return m_resourceDao.queryAllSize();
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
 		}
-   }
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override

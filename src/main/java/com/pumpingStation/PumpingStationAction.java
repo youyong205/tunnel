@@ -158,7 +158,8 @@ public class PumpingStationAction extends ScheduledAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_pumpingStations = m_pumpingStationService.queryLimitedPumpingStations(m_tunnelId, m_tunnelSectionId, start, SIZE);
+			m_pumpingStations = m_pumpingStationService.queryLimitedPumpingStations(m_tunnelId, m_tunnelSectionId, start,
+			      SIZE);
 			for (PumpingStation pumpingStation : m_pumpingStations) {
 				pumpingStation.setTunnel(m_tunnelService.findByPK(pumpingStation.getTunnelId()));
 				int scheduleId = pumpingStation.getScheduleId();
@@ -184,8 +185,8 @@ public class PumpingStationAction extends ScheduledAction {
 		try {
 			m_pumpingStation = m_pumpingStationService.findByPK(m_pumpingStationId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_pumpingStation.getTunnelId(), 0,
-			      Integer.MAX_VALUE);
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_pumpingStation.getTunnelId(),
+			      0, Integer.MAX_VALUE);
 			m_schedule = m_scheduleService.findByPK(m_pumpingStation.getScheduleId());
 			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			int documentId = m_pumpingStation.getDocumentId();
@@ -237,7 +238,8 @@ public class PumpingStationAction extends ScheduledAction {
 	}
 
 	public String queryAllPumpingStations() {
-		m_pumpingStations = m_pumpingStationService.queryLimitedPumpingStations(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		m_pumpingStations = m_pumpingStationService.queryLimitedPumpingStations(m_tunnelId, m_tunnelSectionId, 0,
+		      Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}

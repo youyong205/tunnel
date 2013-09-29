@@ -13,7 +13,6 @@ public class InspectionServiceImpl implements InspectionService {
 
 	private Logger m_logger = Logger.getLogger(InspectionServiceImpl.class);
 
-
 	@Override
 	public int deleteInspection(int id) {
 		try {
@@ -27,13 +26,13 @@ public class InspectionServiceImpl implements InspectionService {
 
 	@Override
 	public Inspection findByPK(int id) {
-			try {
-				Inspection inspection = m_inspectionDao.findByPK(id);
+		try {
+			Inspection inspection = m_inspectionDao.findByPK(id);
 
-				return inspection;
-			} catch (Exception e) {
-				m_logger.error(e.getMessage(), e);
-			}
+			return inspection;
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+		}
 		return null;
 	}
 

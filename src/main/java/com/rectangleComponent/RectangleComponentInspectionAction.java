@@ -50,11 +50,11 @@ public class RectangleComponentInspectionAction extends InspectionAction {
 		m_tunnels = m_tunnelService.queryAllTunnels();
 		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
 		int tunnelSectionId = m_tunnelSectionId;
-		
+
 		if (tunnelSectionId == 0 && m_tunnelSections.size() > 0) {
 			tunnelSectionId = m_tunnelSections.get(0).getId();
 		}
-		m_items = queryItems(m_tunnelId,tunnelSectionId);
+		m_items = queryItems(m_tunnelId, tunnelSectionId);
 		return super.inspectionAdd();
 	}
 
@@ -71,16 +71,16 @@ public class RectangleComponentInspectionAction extends InspectionAction {
 	@Override
 	public String inspectionUpdate() {
 		String result = super.inspectionUpdate();
-		
+
 		m_tunnelId = m_inspection.getTunnelId();
 		int tunnelSectionId = m_inspection.getTunnelSectionId();
 		m_tunnels = m_tunnelService.queryAllTunnels();
 		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
-		m_items = queryItems(m_tunnelId,tunnelSectionId);
+		m_items = queryItems(m_tunnelId, tunnelSectionId);
 		return result;
 	}
 
-	private List<Item> queryItems(int tunnelId,int tunnelSectionId) {
+	private List<Item> queryItems(int tunnelId, int tunnelSectionId) {
 		List<RectangleComponent> rectangleComponents = m_rectangleComponentService.queryLimitedRectangleComponents(
 		      tunnelId, tunnelSectionId, 0, Integer.MAX_VALUE);
 		List<Item> items = new ArrayList<Item>();

@@ -5,7 +5,7 @@ import java.util.List;
 public interface ConstructionUnitService {
 
 	public int deleteConstructionUnit(int id);
-	
+
 	public ConstructionUnit findByName(String name);
 
 	public ConstructionUnit findByPK(int id);

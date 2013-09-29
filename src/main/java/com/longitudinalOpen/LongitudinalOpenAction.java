@@ -141,7 +141,7 @@ public class LongitudinalOpenAction extends FileUploadAction {
 		return m_longitudinalOpens;
 	}
 
-	public int getParentLiningRingConstructionId(){
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 
@@ -339,8 +339,8 @@ public class LongitudinalOpenAction extends FileUploadAction {
 			m_liningRings = m_liningRingService.queryAllLiningRings();
 			m_longitudinalOpen = m_longitudinalOpenService.findByPK(m_longitudinalOpenId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_longitudinalOpen.getTunnelId(), 0,
-			      Integer.MAX_VALUE);
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
+			      m_longitudinalOpen.getTunnelId(), 0, Integer.MAX_VALUE);
 			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(
 			      m_longitudinalOpen.getTunnelId(), m_longitudinalOpen.getTunnelSectionId(), 0, Integer.MAX_VALUE);
 			int liningRingConstructionId = m_longitudinalOpen.getLiningRingConstructionId();
@@ -379,7 +379,8 @@ public class LongitudinalOpenAction extends FileUploadAction {
 	}
 
 	public String queryAllLongitudinalOpens() {
-		m_longitudinalOpens = m_longitudinalOpenService.queryLimitedLongitudinalOpens(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+		m_longitudinalOpens = m_longitudinalOpenService.queryLimitedLongitudinalOpens(m_tunnelId, m_tunnelSectionId, 0,
+		      0, Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}
@@ -427,7 +428,7 @@ public class LongitudinalOpenAction extends FileUploadAction {
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
 	}
-	
+
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}

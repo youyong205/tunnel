@@ -50,13 +50,12 @@ public class CoverLossDao {
 		parameters.put("tunnelSectionId", tunnelSectionId);
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 
-		return (CoverLoss) m_baseDao.queryForObject("coverLoss.queryLastestDeformation",
-		      parameters);
+		return (CoverLoss) m_baseDao.queryForObject("coverLoss.queryLastestDeformation", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedCoverLosss(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
-	      int start, int size) {
+	public List queryLimitedCoverLosss(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start,
+	      int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("tunnelId", tunnelId);

@@ -13,13 +13,12 @@ public interface GirthOpenService {
 
 	public int insertGirthOpen(GirthOpen girthOpen);
 
-	public List<GirthOpen> queryGirthOpenByDuration(int liningRingConstructionId, Date start,
-	      Date end);
+	public List<GirthOpen> queryGirthOpenByDuration(int liningRingConstructionId, Date start, Date end);
 
 	public GirthOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
-	public List<GirthOpen> queryLimitedGirthOpens(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size);
+	public List<GirthOpen> queryLimitedGirthOpens(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
+	      int start, int size);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 

@@ -13,7 +13,7 @@ public class LiningRingDeformationServiceImpl implements LiningRingDeformationSe
 	private LiningRingDeformationDao m_liningRingDeformationDao;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
-	
+
 	private Logger m_logger = Logger.getLogger(LiningRingDeformationServiceImpl.class);
 
 	@Override
@@ -100,7 +100,8 @@ public class LiningRingDeformationServiceImpl implements LiningRingDeformationSe
 	@Override
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
 		try {
-			return m_liningRingDeformationDao.querySizeByTunnelAndSection(tunnelId, tunnelSectionId, liningRingConstructionId);
+			return m_liningRingDeformationDao.querySizeByTunnelAndSection(tunnelId, tunnelSectionId,
+			      liningRingConstructionId);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
@@ -108,8 +109,8 @@ public class LiningRingDeformationServiceImpl implements LiningRingDeformationSe
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	public void setLiningRingDeformationDao(LiningRingDeformationDao liningRingDeformationDao) {
 		m_liningRingDeformationDao = liningRingDeformationDao;
@@ -126,5 +127,5 @@ public class LiningRingDeformationServiceImpl implements LiningRingDeformationSe
 			return -1;
 		}
 	}
-	
+
 }

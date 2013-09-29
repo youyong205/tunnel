@@ -9,9 +9,9 @@ public interface RoleService {
 	public int deleteRoleResources(int roleId);
 
 	public Role findByPK(int id);
-	
+
 	public int insertRole(Role role);
-	
+
 	public void insertRoleResources(RoleResource roleResource);
 
 	public int queryAllSize();

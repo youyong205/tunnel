@@ -18,8 +18,7 @@ public interface LongitudinalOpenService {
 	public List<LongitudinalOpen> queryLimitedLongitudinalOpens(int tunnelId, int tunnelSectionId,
 	      int liningRingConstructionId, int start, int size);
 
-	public List<LongitudinalOpen> queryLongitudinalOpenByDuration(int liningRingConstructionId, Date start,
-	      Date end);
+	public List<LongitudinalOpen> queryLongitudinalOpenByDuration(int liningRingConstructionId, Date start, Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 

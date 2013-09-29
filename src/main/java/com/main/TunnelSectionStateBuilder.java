@@ -36,8 +36,7 @@ public class TunnelSectionStateBuilder {
 	}
 
 	private String buildHeader() {
-		String format = "<svg width='100%' height='" + HEIGHT + "' version='1.1'"
-		      + "xmlns='http://www.w3.org/2000/svg'>";
+		String format = "<svg width='100%' height='" + HEIGHT + "' version='1.1'" + "xmlns='http://www.w3.org/2000/svg'>";
 
 		return format;
 	}

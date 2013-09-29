@@ -39,13 +39,12 @@ public class SettlementDao {
 		parameters.put("tunnelSectionId", tunnelSectionId);
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 
-		return (Settlement) m_baseDao.queryForObject("settlement.queryLastestDeformation",
-		      parameters);
+		return (Settlement) m_baseDao.queryForObject("settlement.queryLastestDeformation", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedSettlements(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
-	      int start, int size) {
+	public List queryLimitedSettlements(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start,
+	      int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("tunnelId", tunnelId);

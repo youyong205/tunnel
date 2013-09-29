@@ -12,8 +12,7 @@ public interface EscapeService {
 
 	public int insertEscape(Escape escape);
 
-	public List<Escape> queryLimitedEscapes(int tunnelId, int tunnelSectionId, int start,
-	      int size);
+	public List<Escape> queryLimitedEscapes(int tunnelId, int tunnelSectionId, int start, int size);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 

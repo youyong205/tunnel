@@ -18,8 +18,7 @@ public interface LongitudinalFaultService {
 	public List<LongitudinalFault> queryLimitedLongitudinalFaults(int tunnelId, int tunnelSectionId,
 	      int liningRingConstructionId, int start, int size);
 
-	public List<LongitudinalFault> queryLongitudinalFaultByDuration(int liningRingConstructionId, Date start,
-	      Date end);
+	public List<LongitudinalFault> queryLongitudinalFaultByDuration(int liningRingConstructionId, Date start, Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 

@@ -7,11 +7,11 @@ public interface UserService {
 	public int deleteUser(int id);
 
 	public int deleteUserRoles(int userId);
-	
-	public User findByNamePassword(String name,String password);
-	
+
+	public User findByNamePassword(String name, String password);
+
 	public User findByPK(int id);
-	
+
 	public int insertUser(User user);
 
 	public void insertUserRoles(UserRole userRole);

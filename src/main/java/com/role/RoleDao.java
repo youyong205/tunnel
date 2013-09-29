@@ -16,11 +16,11 @@ public class RoleDao {
 
 	public int deleteRoleResources(int roleId) {
 		return m_baseDao.delete("roleResource.deleteByRoleId", roleId);
-   }
+	}
 
-	public Role findByNamePassword(String roleName,String password) {
-		Map<String,String> pars = new HashMap<String,String>();
-		
+	public Role findByNamePassword(String roleName, String password) {
+		Map<String, String> pars = new HashMap<String, String>();
+
 		pars.put("roleName", roleName);
 		pars.put("password", password);
 		return (Role) m_baseDao.queryForObject("role.findByName", pars);
@@ -36,7 +36,7 @@ public class RoleDao {
 
 	public void insertRoleResources(RoleResource roleResource) {
 		m_baseDao.insert("roleResource.insert", roleResource);
-   }
+	}
 
 	@SuppressWarnings("rawtypes")
 	public List queryAllRoles() {
@@ -44,8 +44,8 @@ public class RoleDao {
 	}
 
 	public int queryAllSize() {
-		return (Integer)m_baseDao.queryForObject("role.queryAllSize",null);
-   }
+		return (Integer) m_baseDao.queryForObject("role.queryAllSize", null);
+	}
 
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedRoles(int start, int size) {
@@ -58,9 +58,9 @@ public class RoleDao {
 	}
 
 	@SuppressWarnings("rawtypes")
-   public List queryRoleResources(int roleId) {
+	public List queryRoleResources(int roleId) {
 		return m_baseDao.queryForList("roleResource.queryRoleResources", roleId);
-   }
+	}
 
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;

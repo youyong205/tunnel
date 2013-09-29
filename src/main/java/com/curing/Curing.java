@@ -23,9 +23,9 @@ public class Curing {
 	private Tunnel m_tunnel;
 
 	private int m_tunnelSectionId;
-	
+
 	private TunnelSection m_tunnelSection;
-	
+
 	private int m_documentId;
 
 	private Document m_document;
@@ -99,12 +99,12 @@ public class Curing {
 	}
 
 	public TunnelSection getTunnelSection() {
-   	return m_tunnelSection;
-   }
+		return m_tunnelSection;
+	}
 
 	public int getTunnelSectionId() {
-   	return m_tunnelSectionId;
-   }
+		return m_tunnelSectionId;
+	}
 
 	public String getType() {
 		return m_type;
@@ -167,12 +167,12 @@ public class Curing {
 	}
 
 	public void setTunnelSection(TunnelSection tunnelSection) {
-   	m_tunnelSection = tunnelSection;
-   }
+		m_tunnelSection = tunnelSection;
+	}
 
 	public void setTunnelSectionId(int tunnelSectionId) {
-   	m_tunnelSectionId = tunnelSectionId;
-   }
+		m_tunnelSectionId = tunnelSectionId;
+	}
 
 	public void setType(String type) {
 		m_type = type;

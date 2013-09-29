@@ -47,9 +47,9 @@ public class CuringServiceImpl implements CuringService {
 	}
 
 	@Override
-	public int queryCuringSizeByType(int tunnelId, int tunnelSectionId,String type) {
+	public int queryCuringSizeByType(int tunnelId, int tunnelSectionId, String type) {
 		try {
-			return m_curingDao.queryCuringSizeByType(tunnelId,tunnelSectionId, type);
+			return m_curingDao.queryCuringSizeByType(tunnelId, tunnelSectionId, type);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
@@ -60,7 +60,7 @@ public class CuringServiceImpl implements CuringService {
 	@Override
 	public List<Curing> queryLimitedCuringsByType(int tunnelId, int tunnelSectionId, String type, int start, int size) {
 		try {
-			return m_curingDao.queryLimitedCuringsByType(tunnelId,tunnelSectionId, type, start, size);
+			return m_curingDao.queryLimitedCuringsByType(tunnelId, tunnelSectionId, type, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Curing>();

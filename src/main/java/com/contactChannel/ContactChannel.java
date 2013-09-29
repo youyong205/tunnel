@@ -20,9 +20,9 @@ public class ContactChannel {
 	private int m_documentId;
 
 	private int m_scheduleId;
-	
+
 	private Schedule m_schedule;
-	
+
 	private Document m_document;
 
 	private double m_upLine;
@@ -78,12 +78,12 @@ public class ContactChannel {
 	}
 
 	public Schedule getSchedule() {
-   	return m_schedule;
-   }
+		return m_schedule;
+	}
 
 	public int getScheduleId() {
-   	return m_scheduleId;
-   }
+		return m_scheduleId;
+	}
 
 	public int getSoilOrder() {
 		return m_soilOrder;
@@ -146,12 +146,12 @@ public class ContactChannel {
 	}
 
 	public void setSchedule(Schedule schedule) {
-   	m_schedule = schedule;
-   }
+		m_schedule = schedule;
+	}
 
 	public void setScheduleId(int scheduleId) {
-   	m_scheduleId = scheduleId;
-   }
+		m_scheduleId = scheduleId;
+	}
 
 	public void setSoilOrder(int soilOrder) {
 		m_soilOrder = soilOrder;
@@ -160,7 +160,7 @@ public class ContactChannel {
 	public void setTunnel(Tunnel tunnel) {
 		m_tunnel = tunnel;
 	}
-	
+
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
@@ -178,11 +178,11 @@ public class ContactChannel {
 	}
 
 	@Override
-   public String toString() {
-	   return "ContactChannel [m_id=" + m_id + ", m_name=" + m_name + ", m_type=" + m_type + ", m_tunnelId="
-	         + m_tunnelId + ", m_documentId=" + m_documentId + ", m_upLine=" + m_upLine + ", m_downLine=" + m_downLine
-	         + ", m_upCenter=" + m_upCenter + ", m_downCenter=" + m_downCenter + ", m_soilOrder=" + m_soilOrder
-	         + ", m_des=" + m_des + "]";
-   }
-	
+	public String toString() {
+		return "ContactChannel [m_id=" + m_id + ", m_name=" + m_name + ", m_type=" + m_type + ", m_tunnelId="
+		      + m_tunnelId + ", m_documentId=" + m_documentId + ", m_upLine=" + m_upLine + ", m_downLine=" + m_downLine
+		      + ", m_upCenter=" + m_upCenter + ", m_downCenter=" + m_downCenter + ", m_soilOrder=" + m_soilOrder
+		      + ", m_des=" + m_des + "]";
+	}
+
 }

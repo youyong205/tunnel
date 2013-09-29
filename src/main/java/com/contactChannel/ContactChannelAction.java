@@ -98,7 +98,7 @@ public class ContactChannelAction extends ScheduledAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String contactChannelList() {
 		Authority auth = checkAuthority(buildResource(Modules.s_contactChannel_model, Operation.s_operation_detail));
 		if (auth != null) {
@@ -224,7 +224,8 @@ public class ContactChannelAction extends ScheduledAction {
 			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 		}
 
-		m_contactChannels = m_contactChannelService.queryLimitedContactChannelsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		m_contactChannels = m_contactChannelService.queryLimitedContactChannelsByTunnelId(m_tunnelId, 0,
+		      Integer.MAX_VALUE);
 		return SUCCESS;
 	}
 

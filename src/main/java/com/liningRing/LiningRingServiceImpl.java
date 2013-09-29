@@ -30,7 +30,7 @@ public class LiningRingServiceImpl implements LiningRingService {
 	public int deleteLiningRing(int id) {
 		try {
 			int result = m_liningRingDao.deleteLiningRing(id);
-		
+
 			m_liningRings.remove(id);
 			return result;
 		} catch (Exception e) {
@@ -40,15 +40,15 @@ public class LiningRingServiceImpl implements LiningRingService {
 	}
 
 	@Override
-   public LiningRing findByName(String name) {
+	public LiningRing findByName(String name) {
 		try {
 			return m_liningRingDao.findByName(name);
-			
+
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return null;
 		}
-   }
+	}
 
 	@Override
 	public LiningRing findByPK(int id) {
@@ -71,7 +71,7 @@ public class LiningRingServiceImpl implements LiningRingService {
 	public int insertLiningRing(LiningRing liningRing) {
 		try {
 			int result = m_liningRingDao.insertLiningRing(liningRing);
-			
+
 			m_liningRings.put(liningRing.getId(), liningRing);
 			return result;
 		} catch (Exception e) {
@@ -119,7 +119,7 @@ public class LiningRingServiceImpl implements LiningRingService {
 	public int updateLiningRing(LiningRing liningRing) {
 		try {
 			int result = m_liningRingDao.updateLiningRing(liningRing);
-			
+
 			m_liningRings.put(liningRing.getId(), liningRing);
 			return result;
 		} catch (Exception e) {

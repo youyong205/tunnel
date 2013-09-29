@@ -30,7 +30,7 @@ public class ConstructionUnitServiceImpl implements ConstructionUnitService {
 	public int deleteConstructionUnit(int id) {
 		try {
 			int result = m_constructionUnitDao.deleteConstructionUnit(id);
-		
+
 			m_constructionUnits.remove(id);
 			return result;
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class ConstructionUnitServiceImpl implements ConstructionUnitService {
 	public int insertConstructionUnit(ConstructionUnit constructionUnit) {
 		try {
 			int result = m_constructionUnitDao.insertConstructionUnit(constructionUnit);
-			
+
 			m_constructionUnits.put(constructionUnit.getId(), constructionUnit);
 			return result;
 		} catch (Exception e) {
@@ -118,7 +118,7 @@ public class ConstructionUnitServiceImpl implements ConstructionUnitService {
 	public int updateConstructionUnit(ConstructionUnit constructionUnit) {
 		try {
 			int result = m_constructionUnitDao.updateConstructionUnit(constructionUnit);
-			
+
 			m_constructionUnits.put(constructionUnit.getId(), constructionUnit);
 			return result;
 		} catch (Exception e) {

@@ -20,9 +20,9 @@ public class WorkingWell {
 	private int m_documentId;
 
 	private Document m_document;
-	
+
 	private int m_scheduleId;
-	
+
 	private Schedule m_schedule;
 
 	private double m_startPosition;
@@ -82,8 +82,8 @@ public class WorkingWell {
 	}
 
 	public double getEndPosition() {
-   	return m_endPosition;
-   }
+		return m_endPosition;
+	}
 
 	public int getId() {
 		return m_id;
@@ -98,16 +98,16 @@ public class WorkingWell {
 	}
 
 	public Schedule getSchedule() {
-   	return m_schedule;
-   }
+		return m_schedule;
+	}
 
 	public int getScheduleId() {
-   	return m_scheduleId;
-   }
+		return m_scheduleId;
+	}
 
 	public double getStartPosition() {
-   	return m_startPosition;
-   }
+		return m_startPosition;
+	}
 
 	public Tunnel getTunnel() {
 		return m_tunnel;
@@ -116,7 +116,6 @@ public class WorkingWell {
 	public int getTunnelId() {
 		return m_tunnelId;
 	}
-
 
 	public String getType() {
 		return m_type;
@@ -159,8 +158,8 @@ public class WorkingWell {
 	}
 
 	public void setEndPosition(double endPosition) {
-   	m_endPosition = endPosition;
-   }
+		m_endPosition = endPosition;
+	}
 
 	public void setId(int id) {
 		m_id = id;
@@ -175,16 +174,16 @@ public class WorkingWell {
 	}
 
 	public void setSchedule(Schedule schedule) {
-   	m_schedule = schedule;
-   }
+		m_schedule = schedule;
+	}
 
 	public void setScheduleId(int scheduleId) {
-   	m_scheduleId = scheduleId;
-   }
+		m_scheduleId = scheduleId;
+	}
 
 	public void setStartPosition(double startPosition) {
-   	m_startPosition = startPosition;
-   }
+		m_startPosition = startPosition;
+	}
 
 	public void setTunnel(Tunnel tunnel) {
 		m_tunnel = tunnel;
@@ -199,12 +198,12 @@ public class WorkingWell {
 	}
 
 	@Override
-   public String toString() {
-	   return "WorkingWell [m_id=" + m_id + ", m_name=" + m_name + ", m_type=" + m_type + ", m_tunnelId=" + m_tunnelId
-	         + ", m_documentId=" + m_documentId + ", m_startPosition=" + m_startPosition + ", m_endPosition="
-	         + m_endPosition + ", m_eleationOne=" + m_eleationOne + ", m_eleationTwo=" + m_eleationTwo
-	         + ", m_eleationThree=" + m_eleationThree + ", m_eleationFour=" + m_eleationFour + ", m_eleationMezzanine="
-	         + m_eleationMezzanine + ", m_des=" + m_des + "]";
-   }
+	public String toString() {
+		return "WorkingWell [m_id=" + m_id + ", m_name=" + m_name + ", m_type=" + m_type + ", m_tunnelId=" + m_tunnelId
+		      + ", m_documentId=" + m_documentId + ", m_startPosition=" + m_startPosition + ", m_endPosition="
+		      + m_endPosition + ", m_eleationOne=" + m_eleationOne + ", m_eleationTwo=" + m_eleationTwo
+		      + ", m_eleationThree=" + m_eleationThree + ", m_eleationFour=" + m_eleationFour + ", m_eleationMezzanine="
+		      + m_eleationMezzanine + ", m_des=" + m_des + "]";
+	}
 
 }

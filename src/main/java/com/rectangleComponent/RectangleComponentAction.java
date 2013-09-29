@@ -232,8 +232,7 @@ public class RectangleComponentAction extends ScheduledAction {
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_rectangleComponentService.updateRectangleComponent(m_rectangleComponent);
 			if (count > 0) {
-				Log log = createLog(Modules.s_rectangleComponent_model, Operation.s_operation_update,
-				      m_rectangleComponent);
+				Log log = createLog(Modules.s_rectangleComponent_model, Operation.s_operation_update, m_rectangleComponent);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

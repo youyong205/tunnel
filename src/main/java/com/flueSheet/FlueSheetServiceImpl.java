@@ -57,8 +57,7 @@ public class FlueSheetServiceImpl implements FlueSheetService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<FlueSheet> queryLimitedFlueSheets(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<FlueSheet> queryLimitedFlueSheets(int tunnelId, int tunnelSectionId, int start, int size) {
 		try {
 			return m_flueSheetDao.queryLimitedFlueSheets(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {

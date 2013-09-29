@@ -13,7 +13,7 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 	private GirthFaultDao m_girthFaultDao;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
-	
+
 	private Logger m_logger = Logger.getLogger(GirthFaultServiceImpl.class);
 
 	@Override
@@ -63,8 +63,7 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GirthFault> queryGirthFaultByDuration(int girthFaultId, Date start,
-	      Date end) {
+	public List<GirthFault> queryGirthFaultByDuration(int girthFaultId, Date start, Date end) {
 		try {
 			return m_girthFaultDao.queryGirthFaultByDuration(girthFaultId, start, end);
 		} catch (Exception e) {
@@ -86,11 +85,11 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GirthFault> queryLimitedGirthFaults(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<GirthFault> queryLimitedGirthFaults(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
+	      int start, int size) {
 		try {
-			return m_girthFaultDao.queryLimitedGirthFaults(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_girthFaultDao.queryLimitedGirthFaults(tunnelId, tunnelSectionId, liningRingConstructionId, start,
+			      size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<GirthFault>();
@@ -112,8 +111,8 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	@Override
 	public int updateGirthFault(GirthFault girthFault) {
@@ -126,5 +125,5 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 			return -1;
 		}
 	}
-	
+
 }

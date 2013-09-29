@@ -92,7 +92,7 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@SuppressWarnings("unchecked")
-   @Override
+	@Override
 	public List<RoleResource> queryRoleResources(int roleId) {
 		try {
 			return m_roleDao.queryRoleResources(roleId);

@@ -22,11 +22,11 @@ public class Settlement {
 	private LiningRingConstruction m_liningRingConstruction;
 
 	private int m_blockIndex;
-	
+
 	private double m_value;
 
 	private double m_distance;
-	
+
 	private Date m_date;
 
 	private String m_des;
@@ -36,8 +36,8 @@ public class Settlement {
 	private Date m_modifyDate;
 
 	public int getBlockIndex() {
-   	return m_blockIndex;
-   }
+		return m_blockIndex;
+	}
 
 	public Date getCreationDate() {
 		return m_creationDate;
@@ -52,12 +52,13 @@ public class Settlement {
 	}
 
 	public double getDistance() {
-   	return m_distance;
-   }
+		return m_distance;
+	}
 
 	public int getId() {
 		return m_id;
 	}
+
 	public LiningRingConstruction getLiningRingConstruction() {
 		return m_liningRingConstruction;
 	}
@@ -91,8 +92,8 @@ public class Settlement {
 	}
 
 	public void setBlockIndex(int blockIndex) {
-   	m_blockIndex = blockIndex;
-   }
+		m_blockIndex = blockIndex;
+	}
 
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
@@ -107,8 +108,8 @@ public class Settlement {
 	}
 
 	public void setDistance(double distance) {
-   	m_distance = distance;
-   }
+		m_distance = distance;
+	}
 
 	public void setId(int id) {
 		m_id = id;
@@ -129,7 +130,7 @@ public class Settlement {
 	public void setTunnel(Tunnel tunnel) {
 		m_tunnel = tunnel;
 	}
-	
+
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
@@ -137,7 +138,7 @@ public class Settlement {
 	public void setTunnelSection(TunnelSection tunnelSection) {
 		m_tunnelSection = tunnelSection;
 	}
-	
+
 	public void setTunnelSectionId(int tunnelSectionId) {
 		m_tunnelSectionId = tunnelSectionId;
 	}
@@ -148,10 +149,10 @@ public class Settlement {
 
 	@Override
 	public String toString() {
-		return "Settlement [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId="
-		      + m_tunnelSectionId + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_blockIndex="
-		      + m_blockIndex + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des
-		      + ", m_creationDate=" + m_creationDate + ", m_modifyDate=" + m_modifyDate + "]";
+		return "Settlement [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId=" + m_tunnelSectionId
+		      + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_blockIndex=" + m_blockIndex
+		      + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des + ", m_creationDate=" + m_creationDate
+		      + ", m_modifyDate=" + m_modifyDate + "]";
 	}
 
 }

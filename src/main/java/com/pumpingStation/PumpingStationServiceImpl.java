@@ -57,8 +57,7 @@ public class PumpingStationServiceImpl implements PumpingStationService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<PumpingStation> queryLimitedPumpingStations(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<PumpingStation> queryLimitedPumpingStations(int tunnelId, int tunnelSectionId, int start, int size) {
 		try {
 			return m_pumpingStationDao.queryLimitedPumpingStations(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {

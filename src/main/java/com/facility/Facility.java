@@ -32,9 +32,9 @@ public class Facility {
 	private String m_type;
 
 	private String m_lineType;
-	
+
 	private String m_stakeMileage;
-	
+
 	private String m_position;
 
 	private String m_liningRingId;
@@ -102,8 +102,8 @@ public class Facility {
 	}
 
 	public String getPosition() {
-   	return m_position;
-   }
+		return m_position;
+	}
 
 	public Schedule getSchedule() {
 		return m_schedule;
@@ -114,8 +114,8 @@ public class Facility {
 	}
 
 	public String getStakeMileage() {
-   	return m_stakeMileage;
-   }
+		return m_stakeMileage;
+	}
 
 	public Tunnel getTunnel() {
 		return m_tunnel;
@@ -190,8 +190,8 @@ public class Facility {
 	}
 
 	public void setPosition(String position) {
-   	m_position = position;
-   }
+		m_position = position;
+	}
 
 	public void setSchedule(Schedule schedule) {
 		m_schedule = schedule;
@@ -202,8 +202,8 @@ public class Facility {
 	}
 
 	public void setStakeMileage(String stakeMileage) {
-   	m_stakeMileage = stakeMileage;
-   }
+		m_stakeMileage = stakeMileage;
+	}
 
 	public void setTunnel(Tunnel tunnel) {
 		m_tunnel = tunnel;
@@ -212,7 +212,7 @@ public class Facility {
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
-	
+
 	public void setTunnelSection(TunnelSection tunnelSection) {
 		m_tunnelSection = tunnelSection;
 	}
@@ -230,12 +230,12 @@ public class Facility {
 	}
 
 	@Override
-   public String toString() {
-	   return "Facility [m_id=" + m_id + ", m_tunnel=" + m_tunnel + ", m_tunnelSectionId=" + m_tunnelSectionId
-	         + ", m_documentId=" + m_documentId + ", m_scheduleId=" + m_scheduleId + ", m_name=" + m_name + ", m_type="
-	         + m_type + ", m_lineType=" + m_lineType + ", m_stakeMileage=" + m_stakeMileage + ", m_position="
-	         + m_position + ", m_liningRingId=" + m_liningRingId + ", m_boxNumber=" + m_boxNumber + ", m_width="
-	         + m_width + ", m_height=" + m_height + ", m_constructionUnitId=" + m_constructionUnitId + "]";
-   }
+	public String toString() {
+		return "Facility [m_id=" + m_id + ", m_tunnel=" + m_tunnel + ", m_tunnelSectionId=" + m_tunnelSectionId
+		      + ", m_documentId=" + m_documentId + ", m_scheduleId=" + m_scheduleId + ", m_name=" + m_name + ", m_type="
+		      + m_type + ", m_lineType=" + m_lineType + ", m_stakeMileage=" + m_stakeMileage + ", m_position="
+		      + m_position + ", m_liningRingId=" + m_liningRingId + ", m_boxNumber=" + m_boxNumber + ", m_width="
+		      + m_width + ", m_height=" + m_height + ", m_constructionUnitId=" + m_constructionUnitId + "]";
+	}
 
 }

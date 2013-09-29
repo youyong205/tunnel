@@ -12,8 +12,7 @@ public interface LinePipeService {
 
 	public int insertLinePipe(LinePipe linePipe);
 
-	public List<LinePipe> queryLimitedLinePipes(int tunnelId, int tunnelSectionId, int start,
-	      int size);
+	public List<LinePipe> queryLimitedLinePipes(int tunnelId, int tunnelSectionId, int start, int size);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 

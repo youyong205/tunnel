@@ -33,13 +33,13 @@ public class UserAction extends PagedAction {
 	private List<Role> m_roles;
 
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_user_model;
-   }
+	}
 
 	public Integer[] getRoleIdSelect() {
-   	return m_roleIdSelect;
-   }
+		return m_roleIdSelect;
+	}
 
 	public List<Role> getRoles() {
 		return m_roles;
@@ -155,7 +155,7 @@ public class UserAction extends PagedAction {
 			m_user = m_userService.findByPK(m_userId);
 			m_roles = m_roleService.queryLimitedRoles(0, Integer.MAX_VALUE);
 			List<UserRole> roles = m_userService.queryUserRoles(m_userId);
-			
+
 			m_roleIdSelect = new Integer[roles.size()];
 			for (int i = 0; i < roles.size(); i++) {
 				m_roleIdSelect[i] = roles.get(i).getRoleId();

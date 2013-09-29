@@ -270,7 +270,7 @@ public abstract class CuringAction extends FileUploadAction {
 	}
 
 	protected void validateTunnelId() {
-		if(m_tunnelId==0){
+		if (m_tunnelId == 0) {
 			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 		}
 	}

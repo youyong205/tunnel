@@ -114,8 +114,8 @@ public class LiningRingLongitudinalDeformationServiceImpl implements LiningRingL
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	public void setLiningRingLongitudinalDeformationDao(
 	      LiningRingLongitudinalDeformationDao liningRingLongitudinalDeformationDao) {
@@ -135,5 +135,5 @@ public class LiningRingLongitudinalDeformationServiceImpl implements LiningRingL
 			return -1;
 		}
 	}
-	
+
 }

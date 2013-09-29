@@ -57,8 +57,7 @@ public class FacilityServiceImpl implements FacilityService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Facility> queryLimitedFacilitys(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<Facility> queryLimitedFacilitys(int tunnelId, int tunnelSectionId, int start, int size) {
 		try {
 			return m_facilityDao.queryLimitedFacilitys(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {

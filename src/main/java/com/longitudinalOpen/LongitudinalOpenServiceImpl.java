@@ -13,7 +13,7 @@ public class LongitudinalOpenServiceImpl implements LongitudinalOpenService {
 	private LongitudinalOpenDao m_longitudinalOpenDao;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
-	
+
 	private Logger m_logger = Logger.getLogger(LongitudinalOpenServiceImpl.class);
 
 	@Override
@@ -87,8 +87,7 @@ public class LongitudinalOpenServiceImpl implements LongitudinalOpenService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<LongitudinalOpen> queryLongitudinalOpenByDuration(int longitudinalOpenId, Date start,
-	      Date end) {
+	public List<LongitudinalOpen> queryLongitudinalOpenByDuration(int longitudinalOpenId, Date start, Date end) {
 		try {
 			return m_longitudinalOpenDao.queryLongitudinalOpenByDuration(longitudinalOpenId, start, end);
 		} catch (Exception e) {
@@ -108,8 +107,8 @@ public class LongitudinalOpenServiceImpl implements LongitudinalOpenService {
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	public void setLongitudinalOpenDao(LongitudinalOpenDao longitudinalOpenDao) {
 		m_longitudinalOpenDao = longitudinalOpenDao;
@@ -126,5 +125,5 @@ public class LongitudinalOpenServiceImpl implements LongitudinalOpenService {
 			return -1;
 		}
 	}
-	
+
 }

@@ -66,8 +66,8 @@ public class RoleAction extends PagedAction {
 
 			for (Resource temp : res) {
 				int id = temp.getId();
-				
-				if(selectedResourcesMap.containsKey(id)){
+
+				if (selectedResourcesMap.containsKey(id)) {
 					temp.setChecked(true);
 				}
 			}
@@ -86,9 +86,9 @@ public class RoleAction extends PagedAction {
 	}
 
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_role_model;
-   }
+	}
 
 	public Map<String, ModuleResources> getModuleResources() {
 		return m_moduleResources;
@@ -253,7 +253,7 @@ public class RoleAction extends PagedAction {
 	public void setRoleId(int roleId) {
 		m_roleId = roleId;
 	}
-	
+
 	public void setRoleService(RoleService roleService) {
 		m_roleService = roleService;
 	}

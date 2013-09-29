@@ -12,8 +12,7 @@ public interface SaddleWeightService {
 
 	public int insertSaddleWeight(SaddleWeight saddleWeight);
 
-	public List<SaddleWeight> queryLimitedSaddleWeights(int tunnelId, int tunnelSectionId, int start,
-	      int size);
+	public List<SaddleWeight> queryLimitedSaddleWeights(int tunnelId, int tunnelSectionId, int start, int size);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 

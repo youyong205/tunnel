@@ -27,8 +27,8 @@ public class TunnelDao {
 	}
 
 	public int queryAllSize() {
-		return (Integer)m_baseDao.queryForObject("tunnel.queryAllSize",null);
-   }
+		return (Integer) m_baseDao.queryForObject("tunnel.queryAllSize", null);
+	}
 
 	@SuppressWarnings("rawtypes")
 	public List queryAllTunnels() {

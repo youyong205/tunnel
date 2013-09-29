@@ -13,13 +13,12 @@ public interface CracksService {
 
 	public int insertCracks(Cracks cracks);
 
-	public List<Cracks> queryCracksByDuration(int liningRingConstructionId, Date start,
-	      Date end);
+	public List<Cracks> queryCracksByDuration(int liningRingConstructionId, Date start, Date end);
 
 	public Cracks queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
-	public List<Cracks> queryLimitedCrackss(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size);
+	public List<Cracks> queryLimitedCrackss(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start,
+	      int size);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 

@@ -32,8 +32,8 @@ public class ConstructionUnitDao {
 	}
 
 	public int queryAllSize() {
-		return (Integer)m_baseDao.queryForObject("constructionUnit.queryAllSize",null);
-   }
+		return (Integer) m_baseDao.queryForObject("constructionUnit.queryAllSize", null);
+	}
 
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedConstructionUnits(int start, int size) {

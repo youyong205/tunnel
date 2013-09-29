@@ -125,7 +125,7 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 		return m_liningRings;
 	}
 
-	public int getParentLiningRingConstructionId(){
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 
@@ -169,12 +169,14 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	}
 
 	public String liningRingLongitudinalDeformationAddSubmit() {
-		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_add));
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model,
+		      Operation.s_operation_add));
 		if (auth != null) {
 			return auth.getName();
 		}
 		try {
-			int id = m_liningRingLongitudinalDeformationService.insertLiningRingLongitudinalDeformation(m_liningRingLongitudinalDeformation);
+			int id = m_liningRingLongitudinalDeformationService
+			      .insertLiningRingLongitudinalDeformation(m_liningRingLongitudinalDeformation);
 			if (id > 0) {
 				Log log = createLog(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_add,
 				      m_liningRingLongitudinalDeformation);
@@ -195,7 +197,8 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	}
 
 	public String liningRingLongitudinalDeformationBatchAddSubmit() {
-		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_add));
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model,
+		      Operation.s_operation_add));
 		if (auth != null) {
 			return auth.getName();
 		}
@@ -231,7 +234,8 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	}
 
 	public String liningRingLongitudinalDeformationBatchDelete() {
-		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_delete));
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model,
+		      Operation.s_operation_delete));
 		if (auth != null) {
 			return auth.getName();
 		}
@@ -243,7 +247,8 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 					sb.append(id).append(",");
 				}
 			}
-			Log log = createLog(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_batch_delete, sb.toString());
+			Log log = createLog(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_batch_delete,
+			      sb.toString());
 
 			m_logService.insertLog(log);
 			return SUCCESS;
@@ -254,13 +259,16 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	}
 
 	public String liningRingLongitudinalDeformationDelete() {
-		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_delete));
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model,
+		      Operation.s_operation_delete));
 		if (auth != null) {
 			return auth.getName();
 		}
 		try {
-			m_liningRingLongitudinalDeformation = m_liningRingLongitudinalDeformationService.findByPK(m_liningRingLongitudinalDeformationId);
-			int count = m_liningRingLongitudinalDeformationService.deleteLiningRingLongitudinalDeformation(m_liningRingLongitudinalDeformationId);
+			m_liningRingLongitudinalDeformation = m_liningRingLongitudinalDeformationService
+			      .findByPK(m_liningRingLongitudinalDeformationId);
+			int count = m_liningRingLongitudinalDeformationService
+			      .deleteLiningRingLongitudinalDeformation(m_liningRingLongitudinalDeformationId);
 			if (count > 0) {
 				Log log = createLog(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_delete,
 				      m_liningRingLongitudinalDeformationId);
@@ -277,7 +285,8 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	}
 
 	public String liningRingLongitudinalDeformationList() {
-		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_detail));
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model,
+		      Operation.s_operation_detail));
 		if (auth != null) {
 			return auth.getName();
 		}
@@ -297,17 +306,19 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 			} else {
 				m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
 			}
-			m_totalSize = m_liningRingLongitudinalDeformationService.querySizeByTunnelAndSection(m_tunnelId, m_tunnelSectionId,
-			      m_liningRingConstructionId);
+			m_totalSize = m_liningRingLongitudinalDeformationService.querySizeByTunnelAndSection(m_tunnelId,
+			      m_tunnelSectionId, m_liningRingConstructionId);
 			m_totalPages = computeTotalPages(m_totalSize);
 			int start = (m_index - 1) * SIZE;
 			if (start < 0) {
 				start = 0;
 			}
-			m_liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService.queryLimitedLiningRingLongitudinalDeformations(m_tunnelId,
-			      m_tunnelSectionId, m_liningRingConstructionId, start, SIZE);
+			m_liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService
+			      .queryLimitedLiningRingLongitudinalDeformations(m_tunnelId, m_tunnelSectionId,
+			            m_liningRingConstructionId, start, SIZE);
 			for (LiningRingLongitudinalDeformation liningRingLongitudinalDeformation : m_liningRingLongitudinalDeformations) {
-				liningRingLongitudinalDeformation.setTunnel(m_tunnelService.findByPK(liningRingLongitudinalDeformation.getTunnelId()));
+				liningRingLongitudinalDeformation.setTunnel(m_tunnelService.findByPK(liningRingLongitudinalDeformation
+				      .getTunnelId()));
 			}
 			return SUCCESS;
 		} catch (Exception e) {
@@ -319,13 +330,14 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	public String liningRingLongitudinalDeformationUpdate() {
 		try {
 			m_liningRings = m_liningRingService.queryAllLiningRings();
-			m_liningRingLongitudinalDeformation = m_liningRingLongitudinalDeformationService.findByPK(m_liningRingLongitudinalDeformationId);
+			m_liningRingLongitudinalDeformation = m_liningRingLongitudinalDeformationService
+			      .findByPK(m_liningRingLongitudinalDeformationId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
 			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
 			      m_liningRingLongitudinalDeformation.getTunnelId(), 0, Integer.MAX_VALUE);
 			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(
-			      m_liningRingLongitudinalDeformation.getTunnelId(), m_liningRingLongitudinalDeformation.getTunnelSectionId(), 0,
-			      Integer.MAX_VALUE);
+			      m_liningRingLongitudinalDeformation.getTunnelId(),
+			      m_liningRingLongitudinalDeformation.getTunnelSectionId(), 0, Integer.MAX_VALUE);
 			if (m_liningRingLongitudinalDeformation != null) {
 				return SUCCESS;
 			} else {
@@ -338,12 +350,14 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	}
 
 	public String liningRingLongitudinalDeformationUpdateSubmit() {
-		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_update));
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model,
+		      Operation.s_operation_update));
 		if (auth != null) {
 			return auth.getName();
 		}
 		try {
-			int count = m_liningRingLongitudinalDeformationService.updateLiningRingLongitudinalDeformation(m_liningRingLongitudinalDeformation);
+			int count = m_liningRingLongitudinalDeformationService
+			      .updateLiningRingLongitudinalDeformation(m_liningRingLongitudinalDeformation);
 			if (count > 0) {
 				Log log = createLog(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_update,
 				      m_liningRingLongitudinalDeformation);
@@ -360,8 +374,8 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	}
 
 	public String queryAllLiningRingLongitudinalDeformations() {
-		m_liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService.queryLimitedLiningRingLongitudinalDeformations(m_tunnelId,
-		      m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+		m_liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService
+		      .queryLimitedLiningRingLongitudinalDeformations(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}
@@ -386,7 +400,8 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 		m_liningRingLongitudinalDeformationId = liningRingLongitudinalDeformationId;
 	}
 
-	public void setLiningRingLongitudinalDeformationService(LiningRingLongitudinalDeformationService liningRingLongitudinalDeformationService) {
+	public void setLiningRingLongitudinalDeformationService(
+	      LiningRingLongitudinalDeformationService liningRingLongitudinalDeformationService) {
 		m_liningRingLongitudinalDeformationService = liningRingLongitudinalDeformationService;
 	}
 
@@ -405,7 +420,7 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
 	}
-	
+
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}

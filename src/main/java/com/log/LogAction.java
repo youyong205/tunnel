@@ -29,9 +29,9 @@ public class LogAction extends PagedAction {
 	private String m_operation;
 
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_log_module;
-   }
+	}
 
 	public Log getLog() {
 		return m_log;
@@ -131,6 +131,5 @@ public class LogAction extends PagedAction {
 	public void setUserService(UserService userService) {
 		m_userService = userService;
 	}
-
 
 }

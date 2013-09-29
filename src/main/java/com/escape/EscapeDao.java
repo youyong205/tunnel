@@ -32,7 +32,7 @@ public class EscapeDao {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedEscapes(int tunnelId,int tunnelSectionId,int start, int size) {
+	public List queryLimitedEscapes(int tunnelId, int tunnelSectionId, int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("tunnelId", tunnelId);
@@ -43,14 +43,14 @@ public class EscapeDao {
 		return m_baseDao.queryForList("escape.queryLimitedEscapes", parameters);
 	}
 
-	public int querySizeByTunnelAndSection(int tunnelId,int tunnelSectionId) {
+	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("tunnelId", tunnelId);
 		parameters.put("tunnelSectionId", tunnelSectionId);
 
-		return (Integer)m_baseDao.queryForObject("escape.querySizeByTunnelAndSection",parameters);
-   }
+		return (Integer) m_baseDao.queryForObject("escape.querySizeByTunnelAndSection", parameters);
+	}
 
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;

@@ -31,13 +31,14 @@ public class Schedule {
 	public static int CONTACT_CHANNEL = 1;
 
 	private SimpleDateFormat m_simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
 	public ConstructionUnit getConstructionUnit() {
 		return m_constructionUnit;
 	}
 
 	public int getConstructionUnitId() {
-   	return m_constructionUnitId;
-   }
+		return m_constructionUnitId;
+	}
 
 	public Date getCreationDate() {
 		return m_creationDate;
@@ -51,9 +52,9 @@ public class Schedule {
 		return m_endTime;
 	}
 
-	public String getEndTimeStr(){
+	public String getEndTimeStr() {
 		return m_simpleDateFormat.format(m_endTime);
-		
+
 	}
 
 	public int getId() {
@@ -72,7 +73,7 @@ public class Schedule {
 		return m_startTime;
 	}
 
-	public String getStartTimeStr(){
+	public String getStartTimeStr() {
 		return m_simpleDateFormat.format(m_startTime);
 	}
 
@@ -85,8 +86,8 @@ public class Schedule {
 	}
 
 	public void setConstructionUnitId(int constructionUnitId) {
-   	m_constructionUnitId = constructionUnitId;
-   }
+		m_constructionUnitId = constructionUnitId;
+	}
 
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
@@ -100,26 +101,27 @@ public class Schedule {
 		m_endTime = endTime;
 	}
 
-	public void setEndTimeStr(String end) throws ParseException{
+	public void setEndTimeStr(String end) throws ParseException {
 		m_endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(end);
 	}
-	
+
 	public void setId(int id) {
 		m_id = id;
 	}
-	
+
 	public void setModifyDate(Date modifyDate) {
 		m_modifyDate = modifyDate;
 	}
+
 	public void setName(String name) {
 		m_name = name;
 	}
-	
+
 	public void setStartTime(Date startTime) {
 		m_startTime = startTime;
 	}
 
-	public void setStartTimeStr(String start) throws ParseException{
+	public void setStartTimeStr(String start) throws ParseException {
 		m_startTime = m_simpleDateFormat.parse(start);
 	}
 
@@ -133,5 +135,5 @@ public class Schedule {
 		      + m_constructionUnit + ", m_type=" + m_type + ", m_startTime=" + m_startTime + ", m_endTime=" + m_endTime
 		      + ", m_name=" + m_name + ", m_des=" + m_des + "]";
 	}
-	
+
 }

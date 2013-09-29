@@ -115,30 +115,30 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	}
 
 	@Override
-   public int updateCoverLossState(CoverLoss coverLoss) {
+	public int updateCoverLossState(CoverLoss coverLoss) {
 		return 0;
-   }
+	}
 
 	@Override
-   public int updateCracksState(Cracks cracks) {
-	   // TODO Auto-generated method stub
-	   return 0;
-   }
+	public int updateCracksState(Cracks cracks) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	@Override
-   public int updateDeformationState(LiningRingDeformation defomation) {
-	   return 0;
-   }
+	public int updateDeformationState(LiningRingDeformation defomation) {
+		return 0;
+	}
 
 	@Override
-   public int updateGirthFaultState(GirthFault girthFault) {
-	   return 0;
-   }
+	public int updateGirthFaultState(GirthFault girthFault) {
+		return 0;
+	}
 
 	@Override
-   public int updateGirthOpenState(GirthOpen girthOpen) {
-	   return 0;
-   }
+	public int updateGirthOpenState(GirthOpen girthOpen) {
+		return 0;
+	}
 
 	@Override
 	public int updateLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
@@ -153,38 +153,38 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	}
 
 	@Override
-   public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState) {
-	   return 0;
-   }
+	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState) {
+		return 0;
+	}
 
 	@Override
-   public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault) {
-	   // TODO Auto-generated method stub
-	   return 0;
-   }
+	public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	@Override
-   public int updateLongitudinalOpenState(LongitudinalOpen longitudinalOpen) {
-	   // TODO Auto-generated method stub
-	   return 0;
-   }
+	public int updateLongitudinalOpenState(LongitudinalOpen longitudinalOpen) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	@Override
-   public int updateRustState(Rust rust) {
-	   // TODO Auto-generated method stub
-	   return 0;
-   }
+	public int updateRustState(Rust rust) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	@Override
-   public int updateSeepageState(Seepage seepage) {
-	   // TODO Auto-generated method stub
-	   return 0;
-   }
+	public int updateSeepageState(Seepage seepage) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	@Override
-   public int updateSettlementState(Settlement settlement) {
-	   // TODO Auto-generated method stub
-	   return 0;
-   }
+	public int updateSettlementState(Settlement settlement) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

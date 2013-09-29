@@ -26,8 +26,8 @@ public class LiningRingBlock {
 	}
 
 	public int getBlockIndex() {
-   	return m_blockIndex;
-   }
+		return m_blockIndex;
+	}
 
 	public String getColor() {
 		return m_color;
@@ -58,8 +58,8 @@ public class LiningRingBlock {
 	}
 
 	public void setBlockIndex(int blockIndex) {
-   	m_blockIndex = blockIndex;
-   }
+		m_blockIndex = blockIndex;
+	}
 
 	public void setColor(String color) {
 		m_color = color;
@@ -87,8 +87,8 @@ public class LiningRingBlock {
 
 	@Override
 	public String toString() {
-		return "LiningRingBlock [m_id=" + m_id + ", m_liningRingId=" + m_liningRingId + ", m_blockIndex=" + m_blockIndex + ", m_angle="
-		      + m_angle + ", m_color=" + m_color + ", m_des=" + m_des + "]";
+		return "LiningRingBlock [m_id=" + m_id + ", m_liningRingId=" + m_liningRingId + ", m_blockIndex=" + m_blockIndex
+		      + ", m_angle=" + m_angle + ", m_color=" + m_color + ", m_des=" + m_des + "]";
 	}
 
 	public boolean validate() {

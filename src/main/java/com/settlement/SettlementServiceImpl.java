@@ -13,7 +13,7 @@ public class SettlementServiceImpl implements SettlementService {
 	private SettlementDao m_settlementDao;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
-	
+
 	private Logger m_logger = Logger.getLogger(SettlementServiceImpl.class);
 
 	@Override
@@ -74,11 +74,11 @@ public class SettlementServiceImpl implements SettlementService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Settlement> queryLimitedSettlements(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<Settlement> queryLimitedSettlements(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
+	      int start, int size) {
 		try {
-			return m_settlementDao.queryLimitedSettlements(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_settlementDao.queryLimitedSettlements(tunnelId, tunnelSectionId, liningRingConstructionId, start,
+			      size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Settlement>();
@@ -87,8 +87,7 @@ public class SettlementServiceImpl implements SettlementService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Settlement> querySettlementByDuration(int settlementId, Date start,
-	      Date end) {
+	public List<Settlement> querySettlementByDuration(int settlementId, Date start, Date end) {
 		try {
 			return m_settlementDao.querySettlementByDuration(settlementId, start, end);
 		} catch (Exception e) {
@@ -108,8 +107,8 @@ public class SettlementServiceImpl implements SettlementService {
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	public void setSettlementDao(SettlementDao settlementDao) {
 		m_settlementDao = settlementDao;
@@ -126,5 +125,5 @@ public class SettlementServiceImpl implements SettlementService {
 			return -1;
 		}
 	}
-	
+
 }

@@ -14,13 +14,13 @@ public class GirthOpen {
 	private int m_tunnelSectionId;
 
 	private int m_liningRingConstructionId;
-	
+
 	private int m_type;
-	
+
 	private int m_serious;
 
 	private int m_blockIndex;
-	
+
 	private Tunnel m_tunnel;
 
 	private TunnelSection m_tunnelSection;
@@ -40,8 +40,8 @@ public class GirthOpen {
 	private Date m_modifyDate;
 
 	public int getBlockIndex() {
-   	return m_blockIndex;
-   }
+		return m_blockIndex;
+	}
 
 	public Date getCreationDate() {
 		return m_creationDate;
@@ -76,8 +76,8 @@ public class GirthOpen {
 	}
 
 	public int getSerious() {
-   	return m_serious;
-   }
+		return m_serious;
+	}
 
 	public Tunnel getTunnel() {
 		return m_tunnel;
@@ -96,16 +96,16 @@ public class GirthOpen {
 	}
 
 	public int getType() {
-   	return m_type;
-   }
+		return m_type;
+	}
 
 	public double getValue() {
 		return m_value;
 	}
 
 	public void setBlockIndex(int blockIndex) {
-   	m_blockIndex = blockIndex;
-   }
+		m_blockIndex = blockIndex;
+	}
 
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
@@ -140,9 +140,9 @@ public class GirthOpen {
 	}
 
 	public void setSerious(int serious) {
-   	m_serious = serious;
-   }
-	
+		m_serious = serious;
+	}
+
 	public void setTunnel(Tunnel tunnel) {
 		m_tunnel = tunnel;
 	}
@@ -154,14 +154,14 @@ public class GirthOpen {
 	public void setTunnelSection(TunnelSection tunnelSection) {
 		m_tunnelSection = tunnelSection;
 	}
-	
+
 	public void setTunnelSectionId(int tunnelSectionId) {
 		m_tunnelSectionId = tunnelSectionId;
 	}
 
 	public void setType(int type) {
-   	m_type = type;
-   }
+		m_type = type;
+	}
 
 	public void setValue(double value) {
 		m_value = value;
@@ -169,10 +169,10 @@ public class GirthOpen {
 
 	@Override
 	public String toString() {
-		return "GirthOpen [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId="
-		      + m_tunnelSectionId + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_MeasuringPoing="
-		      + m_measuringPoing + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des
-		      + ", m_creationDate=" + m_creationDate + ", m_modifyDate=" + m_modifyDate + "]";
+		return "GirthOpen [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId=" + m_tunnelSectionId
+		      + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_MeasuringPoing=" + m_measuringPoing
+		      + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des + ", m_creationDate=" + m_creationDate
+		      + ", m_modifyDate=" + m_modifyDate + "]";
 	}
 
 }

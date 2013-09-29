@@ -136,7 +136,7 @@ public class SeepageAction extends FileUploadAction {
 		return m_liningRings;
 	}
 
-	public int getParentLiningRingConstructionId(){
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 
@@ -331,8 +331,8 @@ public class SeepageAction extends FileUploadAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_seepages = m_seepageService.queryLimitedSeepages(m_tunnelId, m_tunnelSectionId,
-			      m_liningRingConstructionId, start, SIZE);
+			m_seepages = m_seepageService.queryLimitedSeepages(m_tunnelId, m_tunnelSectionId, m_liningRingConstructionId,
+			      start, SIZE);
 			for (Seepage seepage : m_seepages) {
 				seepage.setTunnel(m_tunnelService.findByPK(seepage.getTunnelId()));
 			}
@@ -430,7 +430,7 @@ public class SeepageAction extends FileUploadAction {
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
 	}
-	
+
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}

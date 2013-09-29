@@ -20,8 +20,8 @@ public class User {
 	private Date m_creationDate;
 
 	private Date m_modifyDate;
-	
-	private Map<String,Resource> m_resources;
+
+	private Map<String, Resource> m_resources;
 
 	public static final int ADMIN = 1;
 
@@ -50,8 +50,8 @@ public class User {
 	}
 
 	public Map<String, Resource> getResources() {
-   	return m_resources;
-   }
+		return m_resources;
+	}
 
 	public int getRole() {
 		return m_role;
@@ -82,9 +82,9 @@ public class User {
 	}
 
 	public void setResources(Map<String, Resource> resources) {
-   	m_resources = resources;
-   }
-	
+		m_resources = resources;
+	}
+
 	public void setRole(int role) {
 		m_role = role;
 	}
@@ -94,9 +94,9 @@ public class User {
 	}
 
 	@Override
-   public String toString() {
-	   return "User [m_id=" + m_id + ", m_userName=" + m_userName + ", m_password=" + m_password + ", m_realName="
-	         + m_realName + ", m_role=" + m_role + "]";
-   }
+	public String toString() {
+		return "User [m_id=" + m_id + ", m_userName=" + m_userName + ", m_password=" + m_password + ", m_realName="
+		      + m_realName + ", m_role=" + m_role + "]";
+	}
 
 }

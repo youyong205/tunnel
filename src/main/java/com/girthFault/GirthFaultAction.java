@@ -75,7 +75,7 @@ public class GirthFaultAction extends FileUploadAction {
 			String des = "";
 
 			if (cells.length > 4) {
-				des =  convertToString(cells[4]);
+				des = convertToString(cells[4]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -126,7 +126,7 @@ public class GirthFaultAction extends FileUploadAction {
 		return m_liningRings;
 	}
 
-	public int getParentLiningRingConstructionId(){
+	public int getParentLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 
@@ -177,8 +177,7 @@ public class GirthFaultAction extends FileUploadAction {
 		try {
 			int id = m_girthFaultService.insertGirthFault(m_girthFault);
 			if (id > 0) {
-				Log log = createLog(Modules.s_girthFault_model, Operation.s_operation_add,
-				      m_girthFault);
+				Log log = createLog(Modules.s_girthFault_model, Operation.s_operation_add, m_girthFault);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -263,8 +262,7 @@ public class GirthFaultAction extends FileUploadAction {
 			m_girthFault = m_girthFaultService.findByPK(m_girthFaultId);
 			int count = m_girthFaultService.deleteGirthFault(m_girthFaultId);
 			if (count > 0) {
-				Log log = createLog(Modules.s_girthFault_model, Operation.s_operation_delete,
-				      m_girthFaultId);
+				Log log = createLog(Modules.s_girthFault_model, Operation.s_operation_delete, m_girthFaultId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -305,8 +303,8 @@ public class GirthFaultAction extends FileUploadAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_girthFaults = m_girthFaultService.queryLimitedGirthFaults(m_tunnelId,
-			      m_tunnelSectionId, m_liningRingConstructionId, start, SIZE);
+			m_girthFaults = m_girthFaultService.queryLimitedGirthFaults(m_tunnelId, m_tunnelSectionId,
+			      m_liningRingConstructionId, start, SIZE);
 			for (GirthFault girthFault : m_girthFaults) {
 				girthFault.setTunnel(m_tunnelService.findByPK(girthFault.getTunnelId()));
 			}
@@ -322,11 +320,10 @@ public class GirthFaultAction extends FileUploadAction {
 			m_liningRings = m_liningRingService.queryAllLiningRings();
 			m_girthFault = m_girthFaultService.findByPK(m_girthFaultId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
-			      m_girthFault.getTunnelId(), 0, Integer.MAX_VALUE);
-			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(
-			      m_girthFault.getTunnelId(), m_girthFault.getTunnelSectionId(), 0,
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_girthFault.getTunnelId(), 0,
 			      Integer.MAX_VALUE);
+			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(
+			      m_girthFault.getTunnelId(), m_girthFault.getTunnelSectionId(), 0, Integer.MAX_VALUE);
 			if (m_girthFault != null) {
 				return SUCCESS;
 			} else {
@@ -346,8 +343,7 @@ public class GirthFaultAction extends FileUploadAction {
 		try {
 			int count = m_girthFaultService.updateGirthFault(m_girthFault);
 			if (count > 0) {
-				Log log = createLog(Modules.s_girthFault_model, Operation.s_operation_update,
-				      m_girthFault);
+				Log log = createLog(Modules.s_girthFault_model, Operation.s_operation_update, m_girthFault);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -361,8 +357,8 @@ public class GirthFaultAction extends FileUploadAction {
 	}
 
 	public String queryAllGirthFaults() {
-		m_girthFaults = m_girthFaultService.queryLimitedGirthFaults(m_tunnelId,
-		      m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+		m_girthFaults = m_girthFaultService.queryLimitedGirthFaults(m_tunnelId, m_tunnelSectionId, 0, 0,
+		      Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}
@@ -406,7 +402,7 @@ public class GirthFaultAction extends FileUploadAction {
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
 	}
-	
+
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}

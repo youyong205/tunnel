@@ -160,7 +160,7 @@ public class OpenSectionAction extends ScheduledAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String openSectionUpdate() {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();

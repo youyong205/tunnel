@@ -39,8 +39,7 @@ public class LongitudinalOpenDao {
 		parameters.put("tunnelSectionId", tunnelSectionId);
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 
-		return (LongitudinalOpen) m_baseDao.queryForObject("longitudinalOpen.queryLastestDeformation",
-		      parameters);
+		return (LongitudinalOpen) m_baseDao.queryForObject("longitudinalOpen.queryLastestDeformation", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")

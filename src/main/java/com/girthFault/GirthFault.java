@@ -22,7 +22,7 @@ public class GirthFault {
 	private LiningRingConstruction m_liningRingConstruction;
 
 	private int m_type;
-	
+
 	private double m_value;
 
 	private Date m_date;
@@ -78,8 +78,8 @@ public class GirthFault {
 	}
 
 	public int getType() {
-   	return m_type;
-   }
+		return m_type;
+	}
 
 	public double getValue() {
 		return m_value;
@@ -130,8 +130,8 @@ public class GirthFault {
 	}
 
 	public void setType(int type) {
-   	m_type = type;
-   }
+		m_type = type;
+	}
 
 	public void setValue(double value) {
 		m_value = value;
@@ -139,10 +139,10 @@ public class GirthFault {
 
 	@Override
 	public String toString() {
-		return "GirthFault [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId="
-		      + m_tunnelSectionId + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_type="
-		      + m_type + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des
-		      + ", m_creationDate=" + m_creationDate + ", m_modifyDate=" + m_modifyDate + "]";
+		return "GirthFault [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId=" + m_tunnelSectionId
+		      + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_type=" + m_type + ", m_value="
+		      + m_value + ", m_date=" + m_date + ", m_des=" + m_des + ", m_creationDate=" + m_creationDate
+		      + ", m_modifyDate=" + m_modifyDate + "]";
 	}
 
 }

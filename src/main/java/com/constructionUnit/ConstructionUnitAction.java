@@ -24,7 +24,7 @@ public class ConstructionUnitAction extends PagedAction {
 
 	private ConstructionUnit m_constructionUnit = new ConstructionUnit();
 
-	public String constructionUnitAdd(){
+	public String constructionUnitAdd() {
 		return SUCCESS;
 	}
 
@@ -124,11 +124,11 @@ public class ConstructionUnitAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
+
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_constructionUnit_model;
-   }
+	}
 
 	public ConstructionUnit getConstructionUnit() {
 		return m_constructionUnit;
@@ -145,7 +145,7 @@ public class ConstructionUnitAction extends PagedAction {
 	public void setConstructionUnitId(int constructionUnitId) {
 		m_constructionUnitId = constructionUnitId;
 	}
-	
+
 	public void setConstructionUnitService(ConstructionUnitService constructionUnitService) {
 		m_constructionUnitService = constructionUnitService;
 	}

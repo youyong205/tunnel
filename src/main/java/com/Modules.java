@@ -124,6 +124,6 @@ public class Modules {
 
 	public static String s_seepage_model = "衬砌环渗漏水检测模块";
 
-	public static String s_rust_model="衬砌环锈蚀检测模块";
+	public static String s_rust_model = "衬砌环锈蚀检测模块";
 
 }

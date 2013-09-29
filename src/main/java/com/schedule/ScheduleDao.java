@@ -28,8 +28,8 @@ public class ScheduleDao {
 	}
 
 	public int queryAllSize() {
-		return (Integer)m_baseDao.queryForObject("schedule.queryAllSize",null);
-   }
+		return (Integer) m_baseDao.queryForObject("schedule.queryAllSize", null);
+	}
 
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedSchedules(int start, int size) {

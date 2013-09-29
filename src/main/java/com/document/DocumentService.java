@@ -29,7 +29,7 @@ public interface DocumentService {
 	 * @return
 	 */
 	public int querySizeByModuleName(String module, String name);
-	
-	public int updateDocument(String module, UploadFile file,Document document);
+
+	public int updateDocument(String module, UploadFile file, Document document);
 
 }

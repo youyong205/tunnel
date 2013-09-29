@@ -24,9 +24,9 @@ public class ScheduleAction extends PagedAction {
 	private Schedule m_schedule = new Schedule();
 
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_schedule_model;
-   }
+	}
 
 	public Schedule getSchedule() {
 		return m_schedule;
@@ -36,7 +36,7 @@ public class ScheduleAction extends PagedAction {
 		return m_schedules;
 	}
 
-	public String scheduleAdd(){
+	public String scheduleAdd() {
 		return SUCCESS;
 	}
 
@@ -73,7 +73,7 @@ public class ScheduleAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String scheduleList() {
 		try {
 			m_totalSize = m_scheduleService.queryAllSize();
@@ -128,7 +128,7 @@ public class ScheduleAction extends PagedAction {
 	public void setScheduleId(int scheduleId) {
 		m_scheduleId = scheduleId;
 	}
-	
+
 	public void setScheduleService(ScheduleService scheduleService) {
 		m_scheduleService = scheduleService;
 	}

@@ -57,8 +57,7 @@ public class EscapeServiceImpl implements EscapeService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Escape> queryLimitedEscapes(int tunnelId, int tunnelSectionId, int start,
-	      int size) {
+	public List<Escape> queryLimitedEscapes(int tunnelId, int tunnelSectionId, int start, int size) {
 		try {
 			return m_escapeDao.queryLimitedEscapes(tunnelId, tunnelSectionId, start, size);
 		} catch (Exception e) {

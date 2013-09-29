@@ -50,13 +50,11 @@ public class CracksDao {
 		parameters.put("tunnelSectionId", tunnelSectionId);
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 
-		return (Cracks) m_baseDao.queryForObject("cracks.queryLastestDeformation",
-		      parameters);
+		return (Cracks) m_baseDao.queryForObject("cracks.queryLastestDeformation", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedCrackss(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
-	      int start, int size) {
+	public List queryLimitedCrackss(int tunnelId, int tunnelSectionId, int liningRingConstructionId, int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("tunnelId", tunnelId);

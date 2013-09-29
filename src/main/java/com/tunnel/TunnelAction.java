@@ -25,9 +25,9 @@ public class TunnelAction extends PagedAction {
 	private Tunnel m_tunnel = new Tunnel();
 
 	@Override
-   public String getActionModule() {
+	public String getActionModule() {
 		return Modules.s_tunnel_model;
-   }
+	}
 
 	public Tunnel getTunnel() {
 		return m_tunnel;
@@ -48,8 +48,8 @@ public class TunnelAction extends PagedAction {
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
-	
-	public String tunnelAdd(){
+
+	public String tunnelAdd() {
 		return SUCCESS;
 	}
 
@@ -128,7 +128,7 @@ public class TunnelAction extends PagedAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String tunnelUpdateSubmit() {
 		Authority auth = checkAuthority(buildResource(Modules.s_tunnel_model, Operation.s_operation_update));
 		if (auth != null) {

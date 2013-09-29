@@ -53,11 +53,11 @@ public class LogDao {
 
 		parameters.put("start", start);
 		parameters.put("size", size);
-		
-		if(StringUtils.isNotEmpty(module)){
+
+		if (StringUtils.isNotEmpty(module)) {
 			parameters.put("module", module);
 		}
-		if(StringUtils.isNotEmpty(operation)){
+		if (StringUtils.isNotEmpty(operation)) {
 			parameters.put("operation", operation);
 		}
 		return m_baseDao.queryForList("log.queryLimitedLogsByModuleOperation", parameters);
@@ -66,10 +66,10 @@ public class LogDao {
 	public int querySizeByModuleOperation(String module, String operation) {
 		Map<String, String> parameters = new HashMap<String, String>();
 
-		if(StringUtils.isNotEmpty(module)){
+		if (StringUtils.isNotEmpty(module)) {
 			parameters.put("module", module);
 		}
-		if(StringUtils.isNotEmpty(operation)){
+		if (StringUtils.isNotEmpty(operation)) {
 			parameters.put("operation", operation);
 		}
 		return (Integer) m_baseDao.queryForObject("log.querySizeByModuleOperation", parameters);

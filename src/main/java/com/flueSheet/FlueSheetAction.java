@@ -94,8 +94,7 @@ public class FlueSheetAction extends ScheduledAction {
 			m_scheduleService.deleteSchedule(m_flueSheet.getScheduleId());
 			int count = m_flueSheetService.deleteFlueSheet(m_flueSheetId);
 			if (count > 0) {
-				Log log = createLog(Modules.s_flueSheet_model, Operation.s_operation_delete,
-				      m_flueSheetId);
+				Log log = createLog(Modules.s_flueSheet_model, Operation.s_operation_delete, m_flueSheetId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -127,8 +126,7 @@ public class FlueSheetAction extends ScheduledAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_flueSheets = m_flueSheetService.queryLimitedFlueSheets(m_tunnelId,
-			      m_tunnelSectionId, start, SIZE);
+			m_flueSheets = m_flueSheetService.queryLimitedFlueSheets(m_tunnelId, m_tunnelSectionId, start, SIZE);
 			for (FlueSheet flueSheet : m_flueSheets) {
 				flueSheet.setTunnel(m_tunnelService.findByPK(flueSheet.getTunnelId()));
 				int scheduleId = flueSheet.getScheduleId();
@@ -154,8 +152,8 @@ public class FlueSheetAction extends ScheduledAction {
 		try {
 			m_flueSheet = m_flueSheetService.findByPK(m_flueSheetId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
-			      m_flueSheet.getTunnelId(), 0, Integer.MAX_VALUE);
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_flueSheet.getTunnelId(), 0,
+			      Integer.MAX_VALUE);
 			m_schedule = m_scheduleService.findByPK(m_flueSheet.getScheduleId());
 			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			int documentId = m_flueSheet.getDocumentId();
@@ -194,8 +192,7 @@ public class FlueSheetAction extends ScheduledAction {
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_flueSheetService.updateFlueSheet(m_flueSheet);
 			if (count > 0) {
-				Log log = createLog(Modules.s_flueSheet_model, Operation.s_operation_update,
-				      m_flueSheet);
+				Log log = createLog(Modules.s_flueSheet_model, Operation.s_operation_update, m_flueSheet);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -242,8 +239,7 @@ public class FlueSheetAction extends ScheduledAction {
 	}
 
 	public String queryAllFlueSheets() {
-		m_flueSheets = m_flueSheetService.queryLimitedFlueSheets(m_tunnelId,
-		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		m_flueSheets = m_flueSheetService.queryLimitedFlueSheets(m_tunnelId, m_tunnelSectionId, 0, Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}

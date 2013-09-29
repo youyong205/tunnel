@@ -7,7 +7,7 @@ public abstract class LineChartAction extends FileUploadAction {
 
 	private static final long serialVersionUID = 6612697338740069923L;
 
-	protected LineChart m_lineChart ;
+	protected LineChart m_lineChart;
 
 	protected Date m_start;
 

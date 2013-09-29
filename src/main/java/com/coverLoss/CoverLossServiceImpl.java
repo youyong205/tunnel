@@ -13,7 +13,7 @@ public class CoverLossServiceImpl implements CoverLossService {
 	private CoverLossDao m_coverLossDao;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
-	
+
 	private Logger m_logger = Logger.getLogger(CoverLossServiceImpl.class);
 
 	@Override
@@ -63,8 +63,7 @@ public class CoverLossServiceImpl implements CoverLossService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CoverLoss> queryCoverLossByDuration(int coverLossId, Date start,
-	      Date end) {
+	public List<CoverLoss> queryCoverLossByDuration(int coverLossId, Date start, Date end) {
 		try {
 			return m_coverLossDao.queryCoverLossByDuration(coverLossId, start, end);
 		} catch (Exception e) {
@@ -86,11 +85,10 @@ public class CoverLossServiceImpl implements CoverLossService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CoverLoss> queryLimitedCoverLosss(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<CoverLoss> queryLimitedCoverLosss(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
+	      int start, int size) {
 		try {
-			return m_coverLossDao.queryLimitedCoverLosss(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_coverLossDao.queryLimitedCoverLosss(tunnelId, tunnelSectionId, liningRingConstructionId, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<CoverLoss>();
@@ -112,8 +110,8 @@ public class CoverLossServiceImpl implements CoverLossService {
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
 
 	@Override
 	public int updateCoverLoss(CoverLoss coverLoss) {
@@ -126,5 +124,5 @@ public class CoverLossServiceImpl implements CoverLossService {
 			return -1;
 		}
 	}
-	
+
 }

@@ -76,8 +76,8 @@ public class SaddleWeightAction extends ScheduledAction {
 	}
 
 	public String queryAllSaddleWeights() {
-		m_saddleWeights = m_saddleWeightService.queryLimitedSaddleWeights(m_tunnelId,
-		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		m_saddleWeights = m_saddleWeightService.queryLimitedSaddleWeights(m_tunnelId, m_tunnelSectionId, 0,
+		      Integer.MAX_VALUE);
 
 		return SUCCESS;
 	}
@@ -133,8 +133,7 @@ public class SaddleWeightAction extends ScheduledAction {
 			m_scheduleService.deleteSchedule(m_saddleWeight.getScheduleId());
 			int count = m_saddleWeightService.deleteSaddleWeight(m_saddleWeightId);
 			if (count > 0) {
-				Log log = createLog(Modules.s_saddleWeight_model, Operation.s_operation_delete,
-				      m_saddleWeightId);
+				Log log = createLog(Modules.s_saddleWeight_model, Operation.s_operation_delete, m_saddleWeightId);
 
 				m_logService.insertLog(log);
 				return SUCCESS;
@@ -166,8 +165,7 @@ public class SaddleWeightAction extends ScheduledAction {
 			if (start < 0) {
 				start = 0;
 			}
-			m_saddleWeights = m_saddleWeightService.queryLimitedSaddleWeights(m_tunnelId,
-			      m_tunnelSectionId, start, SIZE);
+			m_saddleWeights = m_saddleWeightService.queryLimitedSaddleWeights(m_tunnelId, m_tunnelSectionId, start, SIZE);
 			for (SaddleWeight saddleWeight : m_saddleWeights) {
 				saddleWeight.setTunnel(m_tunnelService.findByPK(saddleWeight.getTunnelId()));
 				int scheduleId = saddleWeight.getScheduleId();
@@ -193,8 +191,8 @@ public class SaddleWeightAction extends ScheduledAction {
 		try {
 			m_saddleWeight = m_saddleWeightService.findByPK(m_saddleWeightId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
-			      m_saddleWeight.getTunnelId(), 0, Integer.MAX_VALUE);
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_saddleWeight.getTunnelId(),
+			      0, Integer.MAX_VALUE);
 			m_schedule = m_scheduleService.findByPK(m_saddleWeight.getScheduleId());
 			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			int documentId = m_saddleWeight.getDocumentId();
@@ -232,8 +230,7 @@ public class SaddleWeightAction extends ScheduledAction {
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_saddleWeightService.updateSaddleWeight(m_saddleWeight);
 			if (count > 0) {
-				Log log = createLog(Modules.s_saddleWeight_model, Operation.s_operation_update,
-				      m_saddleWeight);
+				Log log = createLog(Modules.s_saddleWeight_model, Operation.s_operation_update, m_saddleWeight);
 
 				m_logService.insertLog(log);
 				return SUCCESS;

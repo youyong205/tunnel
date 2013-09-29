@@ -15,10 +15,10 @@ public class LiningRingBlockDao {
 	public int insertLiningRingBlock(LiningRingBlock liningRing) {
 		return (Integer) m_baseDao.insert("liningRingBlock.insert", liningRing);
 	}
-	
+
 	@SuppressWarnings("rawtypes")
-	public List queryByLiningRingId(int liningRingId){
-		return m_baseDao.queryForList("liningRingBlock.queryByLiningRingId",liningRingId);
+	public List queryByLiningRingId(int liningRingId) {
+		return m_baseDao.queryForList("liningRingBlock.queryByLiningRingId", liningRingId);
 	}
 
 	public void setBaseDao(BaseDao baseDao) {

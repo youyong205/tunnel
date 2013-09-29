@@ -22,19 +22,19 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-   public int deleteUserRoles(int userId) {
+	public int deleteUserRoles(int userId) {
 		try {
 			return m_userDao.deleteUserRoles(userId);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
 		}
-   }
+	}
 
 	@Override
-	public User findByNamePassword(String name,String password) {
+	public User findByNamePassword(String name, String password) {
 		try {
-			return m_userDao.findByNamePassword(name,password);
+			return m_userDao.findByNamePassword(name, password);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return null;
@@ -62,23 +62,23 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-   public void insertUserRoles(UserRole userRole) {
+	public void insertUserRoles(UserRole userRole) {
 		try {
-			 m_userDao.insertUserRoles(userRole);
+			m_userDao.insertUserRoles(userRole);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 		}
-   }
+	}
 
 	@Override
-   public int queryAllSize() {
+	public int queryAllSize() {
 		try {
 			return m_userDao.queryAllSize();
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
 		}
-   }
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<User> queryAllUsers() {
@@ -102,15 +102,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@SuppressWarnings("unchecked")
-   @Override
-   public List<UserRole> queryUserRoles(int userId) {
+	@Override
+	public List<UserRole> queryUserRoles(int userId) {
 		try {
 			return m_userDao.queryUserRoles(userId);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 		}
 		return new ArrayList<UserRole>();
-   }
+	}
 
 	public void setUserDao(UserDao userDao) {
 		m_userDao = userDao;

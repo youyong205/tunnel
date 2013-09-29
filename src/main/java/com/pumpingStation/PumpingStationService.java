@@ -12,8 +12,7 @@ public interface PumpingStationService {
 
 	public int insertPumpingStation(PumpingStation pumpingStation);
 
-	public List<PumpingStation> queryLimitedPumpingStations(int tunnelId, int tunnelSectionId, int start,
-	      int size);
+	public List<PumpingStation> queryLimitedPumpingStations(int tunnelId, int tunnelSectionId, int start, int size);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 
