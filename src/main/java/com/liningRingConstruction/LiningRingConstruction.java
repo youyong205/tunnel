@@ -104,6 +104,14 @@ public class LiningRingConstruction {
 
 	private Date m_modifyDate;
 
+	public String getTotalState() {
+		String state = m_deformationState + ',' + m_longitudinalDeformationState + ',' + m_girthOpenState + ','
+		      + m_longitudinalOpenState + ',' + m_girthFaultState + ',' + m_longitudinalFaultState + ','
+		      + m_coverLossState + ',' + m_cracksState;
+
+		return computeLevel(state);
+	}
+
 	private String computeLevel(String str) {
 		if (str == null) {
 			return Level.A.getName();
@@ -136,12 +144,29 @@ public class LiningRingConstruction {
 		return m_cracksState;
 	}
 
+	public RingState getCoverLossRingState() {
+		String state = computeLevel(m_coverLossState);
+		RingState ringState = new RingState(state, m_coverLossState);
+
+		return ringState;
+	}
+
+	public RingState getCracksRingState() {
+		String state = computeLevel(m_cracksState);
+		RingState ringState = new RingState(state, m_cracksState);
+
+		return ringState;
+	}
+
 	public Date getCreationDate() {
 		return m_creationDate;
 	}
 
-	public String getDeformationState() {
-		return m_deformationState;
+	public RingState getDeformationRingState() {
+		String state = computeLevel(m_deformationState);
+		RingState ringState = new RingState(state, m_deformationState);
+
+		return ringState;
 	}
 
 	public String getDes() {
@@ -248,12 +273,47 @@ public class LiningRingConstruction {
 		return m_longitudinalDeformationState;
 	}
 
+	public RingState getLongitudinalDeformationRingState() {
+		String state = computeLevel(m_longitudinalDeformationState);
+		RingState ringState = new RingState(state, m_longitudinalDeformationState);
+
+		return ringState;
+	}
+
 	public String getLongitudinalFaultState() {
 		return m_longitudinalFaultState;
 	}
 
 	public String getLongitudinalOpenState() {
 		return m_longitudinalOpenState;
+	}
+
+	public RingState getGirthFaultRingState() {
+		String state = computeLevel(m_girthFaultState);
+		RingState ringState = new RingState(state, m_girthFaultState);
+
+		return ringState;
+	}
+
+	public RingState getGirthOpenRingState() {
+		String state = computeLevel(m_girthOpenState);
+		RingState ringState = new RingState(state, m_girthOpenState);
+
+		return ringState;
+	}
+
+	public RingState getLongitudinalFaultRingState() {
+		String state = computeLevel(m_longitudinalFaultState);
+		RingState ringState = new RingState(state, m_longitudinalFaultState);
+
+		return ringState;
+	}
+
+	public RingState getLongitudinalOpenRingState() {
+		String state = computeLevel(m_longitudinalOpenState);
+		RingState ringState = new RingState(state, m_longitudinalOpenState);
+
+		return ringState;
 	}
 
 	public String getMaxGirthFaultState() {
@@ -522,6 +582,10 @@ public class LiningRingConstruction {
 
 	public void setVerticalDiameter(double verticalDiameter) {
 		m_verticalDiameter = verticalDiameter;
+	}
+
+	public String getDeformationState() {
+		return m_deformationState;
 	}
 
 	@Override

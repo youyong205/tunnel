@@ -63,13 +63,13 @@
 									<td><s:property value="type" /></td>
 									<td><s:property value="environment" /></td>
 									<td>
-										<span class='level<s:property value="state"/>'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="state"/></span>
+										<span class='level<s:property value="state"/>'><s:property value="state"/></span>
 									</td>
 									<td><a
 										href='userTunnelSectionDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="id"/>&index=<s:property value="index"/>'
 										class='btn btn-small btn-info'>详情</a> <a
 										href='userTunnelSectionState.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="id"/>&index=<s:property value="index"/>'
-										class='btn btn-small btn-info'>详细状态</a></td>
+										class='btn btn-small btn-info'>服役状态</a></td>
 								</tr>
 							</s:iterator>
 						</tbody>

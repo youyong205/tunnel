@@ -40,7 +40,8 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="8%">序号</th>
-					<th width="82%">名称</th>
+					<th width="42%">名称</th>
+					<th width="40%">类型</th>
 					<th width="10%">操作
 					</th>
 				</tr></thead><tbody>
@@ -48,6 +49,7 @@
 					<tr>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:property value="name" /></td>
+					<td><s:property value="type" /></td>
 					<td>
 						<a class="btn btn-small btn-success" href="userConstructionUnitDetail.do?constructionUnitId=<s:property value="id"/>&index=<s:property value="index"/>">详情</a>
 					</td>
@@ -71,7 +73,6 @@
 			</div>
 		</div>
 	</div>
-     
     <%@include file="./../Foot.jsp"%>
   </div>
 </body>

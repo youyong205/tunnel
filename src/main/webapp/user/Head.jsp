@@ -6,17 +6,16 @@
 			<ul class="nav">
 				<li id="tunnelList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">隧道<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="userTunnelList.do?tunnelId=<s:property value="tunnelId"/>&index=<s:property value="index"/>">基本信息</a></li>
-						<li><a href="userTunnelList.do?tunnelId=<s:property value="tunnelId"/>&index=<s:property value="index"/>">服役状态</a></li>
-						<li><a href="userContactChannelList.do?tunnelId=<s:property value="tunnelId"/>">联络通道</a></li>
-						<li><a href="userWorkingWellList.do?tunnelId=<s:property value="tunnelId"/>">工作井</a></li>
-						<li><a href="userBuriedSectionList.do?tunnelId=<s:property value="tunnelId"/>">暗埋段</a></li>
-						<li><a href="userOpenSectionList.do?tunnelId=<s:property value="tunnelId"/>">敞开段</a></li>
+						<li><a href="userTunnelList.do?tunnelId=<s:property value="tunnelId"/>&index=<s:property value="index"/>">隧道信息</a></li>
+						<li><a style="padding:3px 30px" href="userContactChannelList.do?tunnelId=<s:property value="tunnelId"/>">联络通道</a></li>
+						<li><a style="padding:3px 30px" href="userWorkingWellList.do?tunnelId=<s:property value="tunnelId"/>">工作井</a></li>
+						<li><a style="padding:3px 30px"  href="userBuriedSectionList.do?tunnelId=<s:property value="tunnelId"/>">暗埋段</a></li>
+						<li><a style="padding:3px 30px"  href="userOpenSectionList.do?tunnelId=<s:property value="tunnelId"/>">敞开段</a></li>
 						<li><a href="userConstructionUnitList.do?tunnelId=<s:property value="tunnelId"/>">施工单位</a></li>
 					</ul></li>
 				<li id="tunnelSectionList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">盾构段<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">基本信息</a></li>
+						<li><a href="userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">盾构段信息</a></li>
 						<li><a href="userTunnelSectionState.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>&typeDes=综合">服役状态</a></li>
 						<li class="nav-header">同步构件</li>
 						<li><a style="padding:3px 30px" href="userRectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">口型构件</a></li>
@@ -31,18 +30,21 @@
 					</ul></li>
 				<li id="liningRingConstructionList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">衬砌环<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="userLiningRingConstructionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="id"/>&index=<s:property value="index"/>">基本信息</a></li>
-						<li><a href="">横断面变形</a></li>
-						<li><a href="">纵断面变形</a></li>
-						<li><a href="">环缝张开</a></li>
-						<li><a href="">纵缝张开</a></li>
-						<li><a href="">环缝错台</a></li>
-						<li><a href="">纵缝错台</a></li>
-						<li><a href="">保护层损失</a></li>
-						<li><a href="">裂缝</a></li>
-						<li><a href="">沉降</a></li>
-						<li><a href="">渗漏水</a></li>
-						<li><a href="">锈蚀</a></li>
+						<li><a href="userLiningRingConstructionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="id"/>&index=<s:property value="index"/>">衬砌环信息</a></li>
+						<li class="nav-header">构件状态</li>
+						<li><a style="padding:3px 30px" href="">横断面变形</a></li>
+						<li><a style="padding:3px 30px" href="">纵断面变形</a></li>
+						<li><a style="padding:3px 30px" href="">保护层损失</a></li>
+						<li><a style="padding:3px 30px" href="">裂缝</a></li>
+						<li class="nav-header">连接状态</li>
+						<li><a style="padding:3px 30px" href="">环缝张开</a></li>
+						<li><a style="padding:3px 30px" href="">纵缝张开</a></li>
+						<li><a style="padding:3px 30px" href="">环缝错台</a></li>
+						<li><a style="padding:3px 30px" href="">纵缝错台</a></li>
+						<li class="nav-header">其他状态</li>
+						<li><a style="padding:3px 30px" href="">沉降</a></li>
+						<li><a style="padding:3px 30px" href="">渗漏水</a></li>
+						<li><a style="padding:3px 30px" href="">锈蚀</a></li>
 					</ul></li>
 				</ul>
 			<p class="navbar-text pull-right">

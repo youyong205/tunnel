@@ -56,6 +56,10 @@
 						</td>
 					</tr>
 					<tr>
+						<td width="40%" style="text-align:right;"><strong class="text-success">服役状态</strong></td>
+						<td><s:property value='tunnel.state'/></td>
+					</tr>					
+					<tr>
 						<td width="40%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><s:property value='tunnel.des'/></td>
 					</tr>

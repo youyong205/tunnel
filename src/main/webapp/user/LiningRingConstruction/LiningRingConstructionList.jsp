@@ -53,12 +53,12 @@
 			</form>
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
-					<th width="10%">序号</th>
-					<th width="35%">衬砌环施工编号</th>
+					<th width="8%">序号</th>
+					<th width="22%">衬砌环施工编号</th>
 					<th width="20%">施工开始时间</th>
 					<th width="20%">施工结束时间</th>
-					<th width="15%">详情
-					</th>
+					<th width="15%">服役状态</th>
+					<th width="15%">详情</th>
 				</tr></thead><tbody>
 				<s:iterator value="liningRingConstructions" status="vs">
 					<tr>
@@ -66,6 +66,9 @@
 					<td><s:property value="name" /></td>
 					<td><s:property value="schedule.startTimeStr" /></td>
 					<td><s:property value="schedule.endTimeStr" /></td>
+					<td>
+						<span class="level<s:property value="totalState"/>"><s:property value="totalState"/></span></td>
+					</td>
 					<td>
 						<a class="btn btn-small btn-info" href="userLiningRingConstructionDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="id"/>&index=<s:property value="index"/>">详情</a>
 					</td>

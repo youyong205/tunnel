@@ -32,7 +32,7 @@
    		var _opt = {
 	        pie:{
 	            animation:"simultaneous",
-	            hollow: 130,
+	            hollow: 88,
 	            showText:false,
 	            rotate: _angle,
 	            duration:2000,
@@ -40,7 +40,7 @@
 	                'stroke-width':2,
 	                'stroke':'#dfdfdf'
 	            },
-	            radius:150
+	            radius:100
 	        },
 	        legend:{}
 	    };
@@ -68,43 +68,54 @@
 		<div class='span10'>
 			<div class="tabbable text-error" id="content"> <!-- Only required for left/right tabs -->
   			<ul class="nav nav-tabs">
-   			 	<li class="text-right active"><a id="tab1Href" href="#tab1" data-toggle="tab"><strong>衬砌环信息</strong></a></li>
-   			 	<li class="text-right"><a href="#tab2" id="tab2Href" data-toggle="tab"><strong>施工数据</strong></a></li>
-   			 	<li class="text-right"><a href="#tab3" id="tab3Href" data-toggle="tab"><strong>施工进度</strong></a></li>
+   			 	<li class="active"><a href="#tab1"id="tab1Href" data-toggle="tab"><strong>衬砌环信息</strong></a></li>
+   			 	<li class=""><a href="#tab2" id="tab2Href" data-toggle="tab"><strong>施工数据</strong></a></li>
+   			 	<li class=""><a href="#tab3" id="tab3Href" data-toggle="tab"><strong>施工进度</strong></a></li>
   			</ul>
   			<div class="tab-content">
 	    		<div class="tab-pane active" id="tab1">
-	    			<div class='row-fluid'>
-	    				<div class='span8'>
-			    			<div style="width:500px; height: 350px;" id="liningRing"></div>
-	    				</div>
-	    				<div class='span4'>
+		    			<div style="width:500px; height: 220px;" id="liningRing"></div>
+	    				<div>
 	    					<h4 class='text-error text-center'>构件状态</h4>
-			    			<table class="table table-striped table-bordered table-condensed">
-	    						<tr><td style='text-align:right' width='50%'><a class='btn btn-small btn-primary' href="">横断面变形</a></td><td>
-	    							<span class="level<s:property value="liningRingConstruction.deformationState"/>"><s:property value="liningRingConstruction.deformationState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵断面变形</a></td><td>
-	    							<span class="level<s:property value="liningRingConstruction.LongitudinalDeformationState"/>"><s:property value="liningRingConstruction.LongitudinalDeformationState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">保护层损失</a></td><td>
-	    							<span class="level<s:property value="liningRingConstruction.coverLossState"/>"><s:property value="liningRingConstruction.coverLossState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">裂缝状态</a></td><td>
-	    							<span class="level<s:property value="liningRingConstruction.cracksState"/>"><s:property value="liningRingConstruction.cracksState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
-	    					</table>
-	    					
-	    					<h4 class='text-error text-center'>连接状态</h4>
-			    			<table class="table table-striped table-bordered table-condensed">
-	    						<tr><td style='text-align:right' width='50%'><a class='btn btn-small btn-primary' href="">环缝张开</a></td><td>
-	    							<span class="level<s:property value="liningRingConstruction.maxGirthOpenState"/>"><s:property value="liningRingConstruction.girthOpenState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵缝张开</a></td><td>
-	    							<span class="level<s:property value="liningRingConstruction.maxLongitudinalOpenState"/>"><s:property value="liningRingConstruction.LongitudinalOpenState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">环缝错台</a></td><td>
-	    							<span class="level<s:property value="liningRingConstruction.maxGirthFaultState"/>"><s:property value="liningRingConstruction.girthFaultState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵缝错台</a></td><td>
-	    							<span class="level<s:property value="liningRingConstruction.maxLongitudinalFaultState"/>"><s:property value="liningRingConstruction.longitudinalFaultState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+			    			<table class="table table-striped table-bordered table-condensed table-hover">
+			    				<tr><th style='text-align:right'>指标</td><th>综合指标</th>
+			    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
+			    					<th>第<s:property value='#vs.index+1'/>块</th>
+			    				</s:iterator></tr>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">横断面变形</a></td>
+			    					<td colspan='20'><span class="level<s:property value="liningRingConstruction.deformationState"/>"><s:property value="liningRingConstruction.deformationState"/></span></td></tr>
+	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵断面变形</a></td>
+	    							<td colspan='20' ><span class="level<s:property value="liningRingConstruction.LongitudinalDeformationState"/>"><s:property value="liningRingConstruction.LongitudinalDeformationState"/></span></td></tr>
+	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">环缝错台</a></td>
+	    							<td colspan='20'><span class="level<s:property value="liningRingConstruction.girthFaultRingState.state"/>"><s:property value="liningRingConstruction.girthFaultRingState.state"/></span></td></tr>
+	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">裂缝状态</a></td>
+			    				<td><span class="level<s:property value="liningRingConstruction.cracksRingState.state"/>"><s:property value="liningRingConstruction.cracksRingState.state"/></span></td>
+			    				<s:iterator value="liningRingConstruction.cracksRingState.states">
+			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    				</s:iterator></tr>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">环缝张开</a></td>
+			    				<td><span class="level<s:property value="liningRingConstruction.girthOpenRingState.state"/>"><s:property value="liningRingConstruction.girthOpenRingState.state"/></span></td>
+			    				<s:iterator value="liningRingConstruction.girthOpenRingState.states">
+			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    				</s:iterator></tr>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵缝张开</a></td>
+			    				<td><span class="level<s:property value="liningRingConstruction.longitudinalOpenRingState.state"/>"><s:property value="liningRingConstruction.longitudinalOpenRingState.state"/></span></td>
+			    				<s:iterator value="liningRingConstruction.longitudinalOpenRingState.states">
+			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    				</s:iterator></tr>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵缝错台</a></td>
+			    				<td><span class="level<s:property value="liningRingConstruction.longitudinalFaultRingState.state"/>"><s:property value="liningRingConstruction.longitudinalFaultRingState.state"/></span></td>
+			    				<s:iterator value="liningRingConstruction.longitudinalFaultRingState.states">
+			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    				</s:iterator></tr>
+	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">保护层损失</a></td>
+	    						<td><span class="level<s:property value="liningRingConstruction.coverLossRingState.state"/>"><s:property value="liningRingConstruction.coverLossRingState.state"/></span></td>
+			    				<s:iterator value="liningRingConstruction.coverLossRingState.states">
+			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    				</s:iterator></tr>
 	    					</table>
 	    				</div>
 	    			</div>
-	    		</div>
 	    		<div class="tab-pane" id="tab2">
 	    			<table class="table table-striped table-bordered table-condensed">
 					<tr>

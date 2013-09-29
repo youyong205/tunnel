@@ -186,24 +186,39 @@ label.valid {
 .levelA {
 	color:green;
 	background:green;
+	display:-moz-inline-box;
+	display:inline-block;
+	width:60px;
 }
 
 .levelB {
 	color:blue;
 	background:blue;
+	display:-moz-inline-box;
+	display:inline-block;
+	width:60px;
 }
 
 .levelC {
 	color:yellow;
 	background:yellow;
+	display:-moz-inline-box;
+	display:inline-block;
+	width:60px;
 }
 
 .levelD {
 	color:orange;
 	background:orange;
+	display:-moz-inline-box;
+	display:inline-block;
+	width:60px;
 }
 
 .levelE {
 	color:red;
 	background:red;
+	display:-moz-inline-box;
+	display:inline-block;
+	width:60px;
 }
