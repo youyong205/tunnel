@@ -76,7 +76,7 @@
 	    		<div class="tab-pane active" id="tab1">
 		    			<div style="width:500px; height: 220px;" id="liningRing"></div>
 	    				<div>
-	    					<h4 class='text-error text-center'>构件状态【第一块和第二块张开量、错台默认算在第一块的状态上】</h4>
+	    					<h4 class='text-error text-center'>构件状态【第一块和第二块张开量、错台显示在在第一块的状态上，以此类推】</h4>
 			    			<table class="table table-striped table-bordered table-condensed table-hover">
 			    				<tr><th style='text-align:right'>指标</td><th>综合指标</th>
 			    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
