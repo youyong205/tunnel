@@ -13,6 +13,10 @@ public abstract class LineChartAction extends FileUploadAction {
 
 	protected Date m_end;
 
+	public Date getEnd() {
+		return m_end;
+	}
+
 	public LineChart getLineChart() {
 		return m_lineChart;
 	}
@@ -21,20 +25,16 @@ public abstract class LineChartAction extends FileUploadAction {
 		return m_start;
 	}
 
-	public Date getEnd() {
-		return m_end;
+	public void setEnd(String end) {
+		try {
+			m_end = m_sdf.parse(end);
+		} catch (ParseException e) {
+		}
 	}
 
 	public void setStart(String start) {
 		try {
 			m_start = m_sdf.parse(start);
-		} catch (ParseException e) {
-		}
-	}
-
-	public void setEnd(String end) {
-		try {
-			m_end = m_sdf.parse(end);
 		} catch (ParseException e) {
 		}
 	}

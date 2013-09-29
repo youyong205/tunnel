@@ -88,16 +88,16 @@
 			<div class="pagination text-center">
 			  <ul>
 			  	<li><a href="#">共${totalSize}记录&${totalPages}页</a></li>
-			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&index=1">首页</a></li>
+			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=1">首页</a></li>
 				    <s:iterator id="item" value="pageIndexs" >
 				    	<s:if test="${item == index }">
-							<li class="disabled"><a href="?tunnelId=<s:property value="tunnelId"/>&index=${item}">${item}</a></li>
+							<li class="disabled"><a href="?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=${item}">${item}</a></li>
 				    	</s:if>
 				    	<s:else>
-							<li><a href="?tunnelId=<s:property value="tunnelId"/>&index=${item}">${item}</a></li>
+							<li><a href="?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=${item}">${item}</a></li>
 				    	</s:else>
 				    </s:iterator>
-			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&index=${totalPages}">末页</a></li>
+			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=${totalPages}">末页</a></li>
 			  </ul>
 			</div>
 		</div>

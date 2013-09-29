@@ -11,10 +11,6 @@ public class LineChart {
 
 	private List<Data> series = new ArrayList<Data>();
 
-	public void setSeries(List<Data> series) {
-		this.series = series;
-	}
-
 	public void add(String subTitle, Map<Long, Double> data) {
 		series.add(new Data(subTitle, data));
 	}
@@ -27,6 +23,10 @@ public class LineChart {
 
 	public List<Data> getSeries() {
 		return series;
+	}
+
+	public void setSeries(List<Data> series) {
+		this.series = series;
 	}
 
 	public static class Data {

@@ -16,18 +16,18 @@
 					</ul></li>
 				<li id="tunnelSectionList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">盾构段<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="userTunnelSectionList.do">基本信息</a></li>
-						<li><a href="">衬砌环</a></li>
-						<li><a href="">同步构件</a></li>
-						<li><a style="padding:3px 30px" href="">口型构件</a></li>
-						<li><a style="padding:3px 30px" href="">车道板</a></li>
-						<li><a style="padding:3px 30px" href="">牛腿</a></li>
-						<li><a style="padding:3px 30px" href="">压重块</a></li>
-						<li><a style="padding:3px 30px" href="">烟道板</a></li>
-						<li><a href="">泵房</a></li>
-						<li><a href="">设备</a></li>
-						<li><a href="">逃生楼梯</a></li>
-						<li><a href="">预埋管线</a></li>
+						<li><a href="userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">基本信息</a></li>
+						<li><a href="userTunnelSectionState.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>&typeDes=综合">服役状态</a></li>
+						<li class="nav-header">同步构件</li>
+						<li><a style="padding:3px 30px" href="userRectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">口型构件</a></li>
+						<li><a style="padding:3px 30px" href="userPlankList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">车道板</a></li>
+						<li><a style="padding:3px 30px" href="userBracketList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">牛腿</a></li>
+						<li><a style="padding:3px 30px" href="userSaddleWeightList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">压重块</a></li>
+						<li><a style="padding:3px 30px" href="userFlueSheetList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">烟道板</a></li>
+						<li><a href="userPumpingStationList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">泵房</a></li>
+						<li><a href="userFacilityList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">设备</a></li>
+						<li><a href="userEscapeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">逃生楼梯</a></li>
+						<li><a href="userLinePipeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">预埋管线</a></li>
 					</ul></li>
 				<li id="liningRingConstructionList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">衬砌环<b class="caret"></b></a>
 					<ul class="dropdown-menu">

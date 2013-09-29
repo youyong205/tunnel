@@ -182,6 +182,27 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 		return (int) Math.ceil(totalSize * 1.0 / pageSize);
 	}
 
+	public Date convertToDate(Cell cell) throws ParseException {
+		if (cell.getType() == CellType.DATE) {
+			DateCell dateCell = (DateCell) cell;
+			return dateCell.getDate();
+		} else {
+			return m_sdf.parse(cell.getContents());
+		}
+	}
+
+	public double convertToDouble(Cell cell) {
+		return Double.parseDouble(cell.getContents());
+	}
+
+	public int convertToInteger(Cell cell) {
+		return Integer.parseInt(cell.getContents());
+	}
+
+	public String convertToString(Cell cell) {
+		return cell.getContents();
+	}
+
 	public Log createLog(String module, String operation, Object content) {
 		Log log = new Log();
 
@@ -231,6 +252,10 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 		return indexs;
 	}
 
+	public String getRequestUrl() {
+		return m_requestUrl;
+	}
+
 	public int getTotalPages() {
 		return m_totalPages;
 	}
@@ -256,38 +281,13 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 		m_logService = logService;
 	}
 
+	public void setRequestUrl(String requestUrl) {
+		m_requestUrl = requestUrl;
+	}
+
 	@Override
 	public void setSession(Map<String, Object> session) {
 		m_session = session;
-	}
-
-	public Date convertToDate(Cell cell) throws ParseException {
-		if (cell.getType() == CellType.DATE) {
-			DateCell dateCell = (DateCell) cell;
-			return dateCell.getDate();
-		} else {
-			return m_sdf.parse(cell.getContents());
-		}
-	}
-
-	public double convertToDouble(Cell cell) {
-		return Double.parseDouble(cell.getContents());
-	}
-
-	public int convertToInteger(Cell cell) {
-		return Integer.parseInt(cell.getContents());
-	}
-
-	public String convertToString(Cell cell) {
-		return cell.getContents();
-	}
-
-	public String getRequestUrl() {
-		return m_requestUrl;
-	}
-
-	public void setRequestUrl(String requestUrl) {
-		m_requestUrl = requestUrl;
 	}
 
 }

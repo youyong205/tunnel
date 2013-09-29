@@ -19,13 +19,13 @@
 		<li id='longitudinalFault'><a style="padding-left:25px" href="userTunnelSectionState.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>&type=longitudinalFault&typeDes=纵缝错台">纵缝错台</a></li>
 		<li class="nav-header">同步构件</li>
 		<li id='rectangleComponent'><a class='subChild' style="padding-left:30px" href="userRectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">口型构件</a></li>
-		<li><a class='subChild' style="padding-left:30px" href="">车道板</a></li>
-		<li><a class='subChild' style="padding-left:30px" href="">牛腿</a></li>
-		<li><a class='subChild' style="padding-left:30px" href="">压重块</a></li>
-		<li><a class='subChild' style="padding-left:30px" href="">烟道板</a></li>
-		<li class="nav-header"><a href="">泵房</a></li>
-		<li class="nav-header"><a href="">设备</a></li>
-		<li class="nav-header"><a href="">逃生楼梯</a></li>
-		<li class="nav-header"><a href="">预埋管线</a></li>
+		<li id='plank'><a class='subChild' style="padding-left:30px" href="userPlankList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">车道板</a></li>
+		<li id='bracket'><a class='subChild' style="padding-left:30px" href="userBracketList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">牛腿</a></li>
+		<li id='saddleWeight'><a class='subChild' style="padding-left:30px" href="userSaddleWeightList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">压重块</a></li>
+		<li id='flueSheet'><a class='subChild' style="padding-left:30px" href="userFlueSheetList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">烟道板</a></li>
+		<li id='pumpingStation'><a class='subChild' href="userPumpingStationList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">泵房</a></li>
+		<li id='facility'><a class='subChild' href="userFacilityList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">设备</a></li>
+		<li id='escape'><a class='subChild' href="userEscapeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">逃生楼梯</a></li>
+		<li id='linePipe'><a class='subChild' href="userLinePipeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=<s:property value="index"/>">预埋管线</a></li>
 	</ul>
 </div>

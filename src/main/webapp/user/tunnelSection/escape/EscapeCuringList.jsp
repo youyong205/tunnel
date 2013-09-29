@@ -18,7 +18,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#tunnelSectionList').addClass('active');
-		$('#rectangleComponent').addClass('active');
+		$('#escape').addClass('active');
 	});
 </script>
 </head>
@@ -30,8 +30,8 @@
 			<li>当前位置：</li>
 			<li>首页<span class="divider">/</span></li>
 			<li><a href='userTunnelSectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>'>盾构段</a><span class="divider">/</span></li>
-			<li><a href="userRectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">口型构件</a><span class="divider">/</span></li>
-			<li class="active">质量检查</li>
+			<li><a href="userEscapeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">逃生楼梯</a><span class="divider">/</span></li>
+			<li class="active">养护记录</li>
 		</ul>
 	</div>
 	<div class='row'>
@@ -39,14 +39,14 @@
 			<%@include file="./../../TunnelSectionMenu.jsp"%>
 		</div>
 		<div class='span10'>
-     <div class="row-fluid">
+			<div class="row-fluid">
 			    <div class="span6">
-					<a href="userRectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">口型构件列表</a>
-	    	  		<a href="userRectangleComponentInspectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small btn-primary btn-success" >质量检查</a>
-	      			<a href="userRectangleComponentCuringList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
+					<a href="userEscapeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">逃生楼梯列表</a>
+    	  			<a href="userEscapeInspectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
+      				<a href="userEscapeCuringList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-success ">养护记录</a>
       			</div>
-      			<div class="span6">
-		      		<form class="text-right form-inline margin-buttom" method="get">
+				<div class="span6">
+					<form class="text-right form-inline margin-buttom" method="get">
 						<strong>选择隧道</strong>
 						<s:select name="tunnelId" id="tunnelId"
 							onchange="tunnelChanged()"  
@@ -64,22 +64,23 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="6%">序号</th>
-					<th width="20%">口型构件编号</th>
-					<th width="10%">检测时间</th>
-					<th width="54%">质量描述</th>
-					<th width="10%">操作
-					</th>
+					<th width="20%">逃生楼梯编号</th>
+					<th width="10%">养护时间</th>
+					<th width="54%">处理措施</th>
+					<th width="10%">操作</th>
 				</tr></thead><tbody>
-				<s:iterator value="inspections" status="vs">
+				<s:iterator value="curings" status="vs">
 					<tr>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:property value="componentName" /></td>
 					<td>
 						<s:date name="time" format="yyyy-MM-dd"/>
 					</td>
-					<td><s:property value="description" /></td>
+					<td><s:property value="action" /></td>
 					<td>
-						<a class="btn btn-small btn-success" href="userRectangleComponentInspectionDetail.do?inspectionId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>">详情</a>
+					<t:privilege res="逃生楼梯养护记录模块:详情">
+						<a class="btn btn-small btn-success" href="userEscapeCuringDetail.do?curingId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>">详情</a>
+					</t:privilege>
 					</td>
 					</tr>
 				</s:iterator></tbody>
@@ -98,7 +99,10 @@
 				    </s:iterator>
 			    <li><a href="?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&index=${totalPages}">末页</a></li>
 			  </ul>
-			</div></div>
+			</div>
+		</div>
+	</div>
+     
     <%@include file="./../../Foot.jsp"%>
   </div>
 </body>
