@@ -22,6 +22,8 @@
 
 		var type = '<s:property value="tunnelSection.environment"/>';
 		$('#environment').val(type);
+		var state = '<s:property value="tunnelSection.state"/>';
+		$('#state').val(state);
 	});
 </script>
 </head>
@@ -77,6 +79,17 @@
 				<td width="30%" style="text-align: right;"><strong
 					class="text-success">盾构段环境</strong></td>
 				<td><select id="environment" name="tunnelSection.environment">
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+						<option value="D">D</option>
+						<option value="E">E</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="30%" style="text-align: right;"><strong
+					class="text-success">服役等级</strong></td>
+				<td><select id="state" name="tunnelSection.state">
 						<option value="A">A</option>
 						<option value="B">B</option>
 						<option value="C">C</option>
