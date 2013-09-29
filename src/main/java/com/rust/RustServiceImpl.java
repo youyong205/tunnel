@@ -61,6 +61,17 @@ public class RustServiceImpl implements RustService {
 		}
 	}
 
+	@Override
+	public Rust queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_rustDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Rust> queryLimitedRusts(int tunnelId, int tunnelSectionId,
@@ -96,6 +107,10 @@ public class RustServiceImpl implements RustService {
 		}
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	public void setRustDao(RustDao rustDao) {
 		m_rustDao = rustDao;
 	}
@@ -111,20 +126,5 @@ public class RustServiceImpl implements RustService {
 			return -1;
 		}
 	}
-
-	@Override
-	public Rust queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_rustDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

@@ -13,6 +13,8 @@ public interface LongitudinalFaultService {
 
 	public int insertLongitudinalFault(LongitudinalFault longitudinalFault);
 
+	public LongitudinalFault queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
+
 	public List<LongitudinalFault> queryLimitedLongitudinalFaults(int tunnelId, int tunnelSectionId,
 	      int liningRingConstructionId, int start, int size);
 
@@ -20,8 +22,6 @@ public interface LongitudinalFaultService {
 	      Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
-
-	public LongitudinalFault queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateLongitudinalFault(LongitudinalFault longitudinalFault);
 

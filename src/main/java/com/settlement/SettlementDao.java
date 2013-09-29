@@ -32,6 +32,17 @@ public class SettlementDao {
 		return m_baseDao.queryForList("settlement.queryAllSettlements");
 	}
 
+	public Settlement queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (Settlement) m_baseDao.queryForObject("settlement.queryLastestDeformation",
+		      parameters);
+	}
+
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedSettlements(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
@@ -73,17 +84,6 @@ public class SettlementDao {
 
 	public int updateSettlement(Settlement settlement) {
 		return m_baseDao.update("settlement.update", settlement);
-	}
-
-	public Settlement queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (Settlement) m_baseDao.queryForObject("settlement.queryLastestDeformation",
-		      parameters);
 	}
 
 }

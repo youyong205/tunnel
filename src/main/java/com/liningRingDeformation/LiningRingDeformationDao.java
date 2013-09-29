@@ -32,6 +32,17 @@ public class LiningRingDeformationDao {
 		return m_baseDao.queryForList("liningRingDeformation.queryAllLiningRingDeformations");
 	}
 
+	public LiningRingDeformation queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (LiningRingDeformation) m_baseDao.queryForObject("liningRingDeformation.queryLastestDeformation",
+		      parameters);
+	}
+
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedLiningRingDeformations(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
@@ -73,17 +84,6 @@ public class LiningRingDeformationDao {
 
 	public int updateLiningRingDeformation(LiningRingDeformation liningRingDeformation) {
 		return m_baseDao.update("liningRingDeformation.update", liningRingDeformation);
-	}
-
-	public LiningRingDeformation queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (LiningRingDeformation) m_baseDao.queryForObject("liningRingDeformation.queryLastestDeformation",
-		      parameters);
 	}
 
 }

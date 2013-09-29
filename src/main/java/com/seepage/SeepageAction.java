@@ -120,6 +120,10 @@ public class SeepageAction extends FileUploadAction {
 		return m_batchInsertResult;
 	}
 
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
 	public int getLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
@@ -128,20 +132,24 @@ public class SeepageAction extends FileUploadAction {
 		return m_liningRingConstructions;
 	}
 
+	public List<LiningRing> getLiningRings() {
+		return m_liningRings;
+	}
+
+	public int getParentLiningRingConstructionId(){
+		return m_liningRingConstructionId;
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public Seepage getSeepage() {
 		return m_seepage;
 	}
 
 	public List<Seepage> getSeepages() {
 		return m_seepages;
-	}
-
-	public List<LiningRing> getLiningRings() {
-		return m_liningRings;
-	}
-
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
 	}
 
 	public int getTunnelId() {
@@ -158,6 +166,12 @@ public class SeepageAction extends FileUploadAction {
 
 	public List<TunnelSection> getTunnelSections() {
 		return m_tunnelSections;
+	}
+
+	public String queryAllSeepages() {
+		m_seepages = m_seepageService.queryLimitedSeepages(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
 	}
 
 	public String seepageAdd() {
@@ -373,14 +387,12 @@ public class SeepageAction extends FileUploadAction {
 		}
 	}
 
-	public String queryAllSeepages() {
-		m_seepages = m_seepageService.queryLimitedSeepages(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
-	}
-
 	public void setDeleteId(int[] deleteId) {
 		m_deleteId = deleteId;
+	}
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
 	}
 
 	public void setLiningRingConstructionId(int liningRingConstructionId) {
@@ -389,6 +401,10 @@ public class SeepageAction extends FileUploadAction {
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
 		m_liningRingConstructionService = liningRingConstructionService;
+	}
+
+	public void setLiningRingService(LiningRingService liningRingService) {
+		m_liningRingService = liningRingService;
 	}
 
 	public void setSeepage(Seepage seepage) {
@@ -403,10 +419,6 @@ public class SeepageAction extends FileUploadAction {
 		m_seepageService = seepageService;
 	}
 
-	public void setLiningRingService(LiningRingService liningRingService) {
-		m_liningRingService = liningRingService;
-	}
-
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
@@ -418,21 +430,9 @@ public class SeepageAction extends FileUploadAction {
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
 	}
-
+	
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
-	}
-
-	public List<LiningRingBlock> getLiningRingBlocks() {
-		return m_liningRingBlocks;
-	}
-	
-	public int getParentLiningRingConstructionId(){
-		return m_liningRingConstructionId;
 	}
 
 }

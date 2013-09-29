@@ -32,6 +32,17 @@ public class RustDao {
 		return m_baseDao.queryForList("rust.queryAllRusts");
 	}
 
+	public Rust queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (Rust) m_baseDao.queryForObject("rust.queryLastestDeformation",
+		      parameters);
+	}
+
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedRusts(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
@@ -73,17 +84,6 @@ public class RustDao {
 
 	public int updateRust(Rust rust) {
 		return m_baseDao.update("rust.update", rust);
-	}
-
-	public Rust queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (Rust) m_baseDao.queryForObject("rust.queryLastestDeformation",
-		      parameters);
 	}
 
 }

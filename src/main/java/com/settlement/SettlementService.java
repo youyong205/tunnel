@@ -13,6 +13,8 @@ public interface SettlementService {
 
 	public int insertSettlement(Settlement settlement);
 
+	public Settlement queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
+
 	public List<Settlement> queryLimitedSettlements(int tunnelId, int tunnelSectionId,
 	      int liningRingConstructionId, int start, int size);
 
@@ -20,8 +22,6 @@ public interface SettlementService {
 	      Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
-
-	public Settlement queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateSettlement(Settlement settlement);
 

@@ -114,12 +114,20 @@ public class LongitudinalFaultAction extends FileUploadAction {
 		return m_batchInsertResult;
 	}
 
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
 	public int getLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 
 	public List<LiningRingConstruction> getLiningRingConstructions() {
 		return m_liningRingConstructions;
+	}
+
+	public List<LiningRing> getLiningRings() {
+		return m_liningRings;
 	}
 
 	public LongitudinalFault getLongitudinalFault() {
@@ -130,8 +138,8 @@ public class LongitudinalFaultAction extends FileUploadAction {
 		return m_longitudinalFaults;
 	}
 
-	public List<LiningRing> getLiningRings() {
-		return m_liningRings;
+	public int getParentLiningRingConstructionId() {
+		return m_liningRingConstructionId;
 	}
 
 	public int getParentTunnelSectionId() {
@@ -378,12 +386,20 @@ public class LongitudinalFaultAction extends FileUploadAction {
 		m_deleteId = deleteId;
 	}
 
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
+	}
+
 	public void setLiningRingConstructionId(int liningRingConstructionId) {
 		m_liningRingConstructionId = liningRingConstructionId;
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
 		m_liningRingConstructionService = liningRingConstructionService;
+	}
+
+	public void setLiningRingService(LiningRingService liningRingService) {
+		m_liningRingService = liningRingService;
 	}
 
 	public void setLongitudinalFault(LongitudinalFault longitudinalFault) {
@@ -396,10 +412,6 @@ public class LongitudinalFaultAction extends FileUploadAction {
 
 	public void setLongitudinalFaultService(LongitudinalFaultService longitudinalFaultService) {
 		m_longitudinalFaultService = longitudinalFaultService;
-	}
-
-	public void setLiningRingService(LiningRingService liningRingService) {
-		m_liningRingService = liningRingService;
 	}
 
 	public void setTunnelId(int tunnelId) {
@@ -416,18 +428,6 @@ public class LongitudinalFaultAction extends FileUploadAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
-	}
-
-	public List<LiningRingBlock> getLiningRingBlocks() {
-		return m_liningRingBlocks;
-	}
-
-	public int getParentLiningRingConstructionId() {
-		return m_liningRingConstructionId;
 	}
 
 }

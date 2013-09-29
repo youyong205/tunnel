@@ -58,6 +58,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		return Modules.s_liningRingConstruction_model;
 	}
 
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
 	public LiningRingConstruction getLiningRingConstruction() {
 		return m_liningRingConstruction;
 	}
@@ -125,14 +129,6 @@ public class LiningRingConstructionAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
-	}
-
-	public String queryAllLiningRingBlocks() {
-		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
-		int liningRingId = m_liningRingConstruction.getLiningRingId();
-		m_liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(liningRingId);
-
-		return SUCCESS;
 	}
 
 	public String liningRingConstructionDelete() {
@@ -245,6 +241,14 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		}
 	}
 
+	public String queryAllLiningRingBlocks() {
+		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
+		int liningRingId = m_liningRingConstruction.getLiningRingId();
+		m_liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(liningRingId);
+
+		return SUCCESS;
+	}
+
 	public String queryAllLiningRingConstruction() {
 		m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
 		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
@@ -257,6 +261,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
 
 		return SUCCESS;
+	}
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
 	}
 
 	public void setLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
@@ -289,14 +297,6 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public List<LiningRingBlock> getLiningRingBlocks() {
-		return m_liningRingBlocks;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
 	}
 
 }

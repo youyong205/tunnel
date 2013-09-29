@@ -113,55 +113,6 @@ public class CoverLossAction extends FileUploadAction {
 		return null;
 	}
 
-	@Override
-	public String getActionModule() {
-		return Modules.s_coverLoss_model;
-	}
-
-	public BatchInsertResult getBatchInsertResult() {
-		return m_batchInsertResult;
-	}
-
-	public int getLiningRingConstructionId() {
-		return m_liningRingConstructionId;
-	}
-
-	public List<LiningRingConstruction> getLiningRingConstructions() {
-		return m_liningRingConstructions;
-	}
-
-	public CoverLoss getCoverLoss() {
-		return m_coverLoss;
-	}
-
-	public List<CoverLoss> getCoverLosss() {
-		return m_coverLosss;
-	}
-
-	public List<LiningRing> getLiningRings() {
-		return m_liningRings;
-	}
-
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public List<Tunnel> getTunnels() {
-		return m_tunnels;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public List<TunnelSection> getTunnelSections() {
-		return m_tunnelSections;
-	}
-
 	public String coverLossAdd() {
 		m_tunnels = m_tunnelService.queryAllTunnels();
 		m_liningRings = m_liningRingService.queryAllLiningRings();
@@ -375,22 +326,67 @@ public class CoverLossAction extends FileUploadAction {
 		}
 	}
 
+	@Override
+	public String getActionModule() {
+		return Modules.s_coverLoss_model;
+	}
+
+	public BatchInsertResult getBatchInsertResult() {
+		return m_batchInsertResult;
+	}
+
+	public CoverLoss getCoverLoss() {
+		return m_coverLoss;
+	}
+
+	public List<CoverLoss> getCoverLosss() {
+		return m_coverLosss;
+	}
+
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
+	public int getLiningRingConstructionId() {
+		return m_liningRingConstructionId;
+	}
+
+	public List<LiningRingConstruction> getLiningRingConstructions() {
+		return m_liningRingConstructions;
+	}
+
+	public List<LiningRing> getLiningRings() {
+		return m_liningRings;
+	}
+
+	public int getParentLiningRingConstructionId() {
+		return m_liningRingConstructionId;
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public List<Tunnel> getTunnels() {
+		return m_tunnels;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
+	}
+
 	public String queryAllCoverLosss() {
 		m_coverLosss = m_coverLossService.queryLimitedCoverLosss(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
 
 		return SUCCESS;
-	}
-
-	public void setDeleteId(int[] deleteId) {
-		m_deleteId = deleteId;
-	}
-
-	public void setLiningRingConstructionId(int liningRingConstructionId) {
-		m_liningRingConstructionId = liningRingConstructionId;
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-		m_liningRingConstructionService = liningRingConstructionService;
 	}
 
 	public void setCoverLoss(CoverLoss coverLoss) {
@@ -403,6 +399,22 @@ public class CoverLossAction extends FileUploadAction {
 
 	public void setCoverLossService(CoverLossService coverLossService) {
 		m_coverLossService = coverLossService;
+	}
+
+	public void setDeleteId(int[] deleteId) {
+		m_deleteId = deleteId;
+	}
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
+	}
+
+	public void setLiningRingConstructionId(int liningRingConstructionId) {
+		m_liningRingConstructionId = liningRingConstructionId;
+	}
+
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+		m_liningRingConstructionService = liningRingConstructionService;
 	}
 
 	public void setLiningRingService(LiningRingService liningRingService) {
@@ -423,18 +435,6 @@ public class CoverLossAction extends FileUploadAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
-	}
-
-	public List<LiningRingBlock> getLiningRingBlocks() {
-		return m_liningRingBlocks;
-	}
-
-	public int getParentLiningRingConstructionId() {
-		return m_liningRingConstructionId;
 	}
 
 }

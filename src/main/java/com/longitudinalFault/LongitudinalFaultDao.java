@@ -32,6 +32,17 @@ public class LongitudinalFaultDao {
 		return m_baseDao.queryForList("longitudinalFault.queryAllLongitudinalFaults");
 	}
 
+	public LongitudinalFault queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (LongitudinalFault) m_baseDao.queryForObject("longitudinalFault.queryLastestDeformation",
+		      parameters);
+	}
+
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedLongitudinalFaults(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
@@ -73,17 +84,6 @@ public class LongitudinalFaultDao {
 
 	public int updateLongitudinalFault(LongitudinalFault longitudinalFault) {
 		return m_baseDao.update("longitudinalFault.update", longitudinalFault);
-	}
-
-	public LongitudinalFault queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (LongitudinalFault) m_baseDao.queryForObject("longitudinalFault.queryLastestDeformation",
-		      parameters);
 	}
 
 }

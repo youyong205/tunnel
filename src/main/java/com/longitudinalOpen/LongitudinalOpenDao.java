@@ -32,6 +32,17 @@ public class LongitudinalOpenDao {
 		return m_baseDao.queryForList("longitudinalOpen.queryAllLongitudinalOpens");
 	}
 
+	public LongitudinalOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (LongitudinalOpen) m_baseDao.queryForObject("longitudinalOpen.queryLastestDeformation",
+		      parameters);
+	}
+
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedLongitudinalOpens(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
@@ -73,17 +84,6 @@ public class LongitudinalOpenDao {
 
 	public int updateLongitudinalOpen(LongitudinalOpen longitudinalOpen) {
 		return m_baseDao.update("longitudinalOpen.update", longitudinalOpen);
-	}
-
-	public LongitudinalOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (LongitudinalOpen) m_baseDao.queryForObject("longitudinalOpen.queryLastestDeformation",
-		      parameters);
 	}
 
 }

@@ -35,6 +35,10 @@ public class LongitudinalFault {
 
 	private Date m_modifyDate;
 
+	public int getBlockIndex() {
+		return m_blockIndex;
+	}
+
 	public Date getCreationDate() {
 		return m_creationDate;
 	}
@@ -79,8 +83,16 @@ public class LongitudinalFault {
 		return m_tunnelSectionId;
 	}
 
+	public int getType() {
+		return m_type;
+	}
+
 	public double getValue() {
 		return m_value;
+	}
+
+	public void setBlockIndex(int blockIndex) {
+		m_blockIndex = blockIndex;
 	}
 
 	public void setCreationDate(Date creationDate) {
@@ -127,24 +139,12 @@ public class LongitudinalFault {
 		m_tunnelSectionId = tunnelSectionId;
 	}
 
-	public void setValue(double value) {
-		m_value = value;
-	}
-
-	public int getType() {
-		return m_type;
-	}
-
 	public void setType(int type) {
 		m_type = type;
 	}
 
-	public int getBlockIndex() {
-		return m_blockIndex;
-	}
-
-	public void setBlockIndex(int blockIndex) {
-		m_blockIndex = blockIndex;
+	public void setValue(double value) {
+		m_value = value;
 	}
 
 	@Override

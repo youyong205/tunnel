@@ -57,14 +57,6 @@ public class GirthFault {
 		return m_liningRingConstructionId;
 	}
 
-	public int getType() {
-   	return m_type;
-   }
-
-	public void setType(int type) {
-   	m_type = type;
-   }
-
 	public Date getModifyDate() {
 		return m_modifyDate;
 	}
@@ -84,6 +76,10 @@ public class GirthFault {
 	public int getTunnelSectionId() {
 		return m_tunnelSectionId;
 	}
+
+	public int getType() {
+   	return m_type;
+   }
 
 	public double getValue() {
 		return m_value;
@@ -132,6 +128,10 @@ public class GirthFault {
 	public void setTunnelSectionId(int tunnelSectionId) {
 		m_tunnelSectionId = tunnelSectionId;
 	}
+
+	public void setType(int type) {
+   	m_type = type;
+   }
 
 	public void setValue(double value) {
 		m_value = value;

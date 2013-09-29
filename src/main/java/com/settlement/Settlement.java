@@ -35,6 +35,10 @@ public class Settlement {
 
 	private Date m_modifyDate;
 
+	public int getBlockIndex() {
+   	return m_blockIndex;
+   }
+
 	public Date getCreationDate() {
 		return m_creationDate;
 	}
@@ -47,10 +51,13 @@ public class Settlement {
 		return m_des;
 	}
 
+	public double getDistance() {
+   	return m_distance;
+   }
+
 	public int getId() {
 		return m_id;
 	}
-
 	public LiningRingConstruction getLiningRingConstruction() {
 		return m_liningRingConstruction;
 	}
@@ -58,6 +65,7 @@ public class Settlement {
 	public int getLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
+
 	public Date getModifyDate() {
 		return m_modifyDate;
 	}
@@ -82,6 +90,10 @@ public class Settlement {
 		return m_value;
 	}
 
+	public void setBlockIndex(int blockIndex) {
+   	m_blockIndex = blockIndex;
+   }
+
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
 	}
@@ -93,6 +105,10 @@ public class Settlement {
 	public void setDes(String des) {
 		m_des = des;
 	}
+
+	public void setDistance(double distance) {
+   	m_distance = distance;
+   }
 
 	public void setId(int id) {
 		m_id = id;
@@ -113,7 +129,7 @@ public class Settlement {
 	public void setTunnel(Tunnel tunnel) {
 		m_tunnel = tunnel;
 	}
-
+	
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
@@ -121,7 +137,7 @@ public class Settlement {
 	public void setTunnelSection(TunnelSection tunnelSection) {
 		m_tunnelSection = tunnelSection;
 	}
-
+	
 	public void setTunnelSectionId(int tunnelSectionId) {
 		m_tunnelSectionId = tunnelSectionId;
 	}
@@ -129,22 +145,6 @@ public class Settlement {
 	public void setValue(double value) {
 		m_value = value;
 	}
-	
-	public double getDistance() {
-   	return m_distance;
-   }
-
-	public void setDistance(double distance) {
-   	m_distance = distance;
-   }
-	
-	public int getBlockIndex() {
-   	return m_blockIndex;
-   }
-
-	public void setBlockIndex(int blockIndex) {
-   	m_blockIndex = blockIndex;
-   }
 
 	@Override
 	public String toString() {

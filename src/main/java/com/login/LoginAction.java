@@ -105,6 +105,10 @@ public class LoginAction extends PagedAction {
 		m_resourceService = resourceService;
 	}
 
+	public void setRole(String role) {
+		m_role = role;
+	}
+
 	public void setRoleService(RoleService roleService) {
 		m_roleService = roleService;
 	}
@@ -115,10 +119,6 @@ public class LoginAction extends PagedAction {
 
 	public void setUserService(UserService userService) {
 		m_userService = userService;
-	}
-
-	public void setRole(String role) {
-		m_role = role;
 	}
 
 }

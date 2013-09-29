@@ -44,148 +44,148 @@ public class Cracks {
 
 	private Date m_modifyDate;
 
-	public Tunnel getTunnel() {
-		return m_tunnel;
-	}
-
-	public void setTunnel(Tunnel tunnel) {
-		m_tunnel = tunnel;
-	}
-
-	public TunnelSection getTunnelSection() {
-		return m_tunnelSection;
-	}
-
-	public void setTunnelSection(TunnelSection tunnelSection) {
-		m_tunnelSection = tunnelSection;
-	}
-
-	public LiningRingConstruction getLiningRingConstruction() {
-		return m_liningRingConstruction;
-	}
-
-	public void setLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
-		m_liningRingConstruction = liningRingConstruction;
-	}
-
-	public int getId() {
-		return m_id;
-	}
-
-	public void setId(int id) {
-		m_id = id;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public void setTunnelId(int tunnelId) {
-		m_tunnelId = tunnelId;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public void setTunnelSectionId(int tunnelSectionId) {
-		m_tunnelSectionId = tunnelSectionId;
-	}
-
-	public int getLiningRingConstructionId() {
-		return m_liningRingConstructionId;
-	}
-
-	public void setLiningRingConstructionId(int liningRingConstructionId) {
-		m_liningRingConstructionId = liningRingConstructionId;
+	public double getAngle() {
+		return m_angle;
 	}
 
 	public int getBlockIndex() {
 		return m_blockIndex;
 	}
 
-	public void setBlockIndex(int blockIndex) {
-		m_blockIndex = blockIndex;
-	}
-
-	public int getNumber() {
-		return m_number;
-	}
-
-	public void setNumber(int number) {
-		m_number = number;
-	}
-
-	public String getType() {
-		return m_type;
-	}
-
-	public void setType(String type) {
-		m_type = type;
-	}
-
-	public double getLength() {
-		return m_length;
-	}
-
-	public void setLength(double length) {
-		m_length = length;
-	}
-
-	public double getWidth() {
-		return m_width;
-	}
-
-	public void setWidth(double width) {
-		m_width = width;
-	}
-
-	public double getAngle() {
-		return m_angle;
-	}
-
-	public void setAngle(double angle) {
-		m_angle = angle;
-	}
-
-	public double getDip() {
-		return m_dip;
-	}
-
-	public void setDip(double dip) {
-		m_dip = dip;
+	public Date getCreationDate() {
+		return m_creationDate;
 	}
 
 	public Date getDate() {
 		return m_date;
 	}
 
-	public void setDate(Date date) {
-		m_date = date;
-	}
-
 	public String getDes() {
 		return m_des;
 	}
 
-	public void setDes(String des) {
-		m_des = des;
+	public double getDip() {
+		return m_dip;
 	}
 
-	public Date getCreationDate() {
-		return m_creationDate;
+	public int getId() {
+		return m_id;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		m_creationDate = creationDate;
+	public double getLength() {
+		return m_length;
+	}
+
+	public LiningRingConstruction getLiningRingConstruction() {
+		return m_liningRingConstruction;
+	}
+
+	public int getLiningRingConstructionId() {
+		return m_liningRingConstructionId;
 	}
 
 	public Date getModifyDate() {
 		return m_modifyDate;
 	}
 
+	public int getNumber() {
+		return m_number;
+	}
+
+	public Tunnel getTunnel() {
+		return m_tunnel;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public TunnelSection getTunnelSection() {
+		return m_tunnelSection;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public String getType() {
+		return m_type;
+	}
+
+	public double getWidth() {
+		return m_width;
+	}
+
+	public void setAngle(double angle) {
+		m_angle = angle;
+	}
+
+	public void setBlockIndex(int blockIndex) {
+		m_blockIndex = blockIndex;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		m_creationDate = creationDate;
+	}
+
+	public void setDate(Date date) {
+		m_date = date;
+	}
+
+	public void setDes(String des) {
+		m_des = des;
+	}
+
+	public void setDip(double dip) {
+		m_dip = dip;
+	}
+
+	public void setId(int id) {
+		m_id = id;
+	}
+
+	public void setLength(double length) {
+		m_length = length;
+	}
+
+	public void setLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
+		m_liningRingConstruction = liningRingConstruction;
+	}
+
+	public void setLiningRingConstructionId(int liningRingConstructionId) {
+		m_liningRingConstructionId = liningRingConstructionId;
+	}
+
 	public void setModifyDate(Date modifyDate) {
 		m_modifyDate = modifyDate;
+	}
+
+	public void setNumber(int number) {
+		m_number = number;
+	}
+
+	public void setTunnel(Tunnel tunnel) {
+		m_tunnel = tunnel;
+	}
+
+	public void setTunnelId(int tunnelId) {
+		m_tunnelId = tunnelId;
+	}
+
+	public void setTunnelSection(TunnelSection tunnelSection) {
+		m_tunnelSection = tunnelSection;
+	}
+
+	public void setTunnelSectionId(int tunnelSectionId) {
+		m_tunnelSectionId = tunnelSectionId;
+	}
+
+	public void setType(String type) {
+		m_type = type;
+	}
+
+	public void setWidth(double width) {
+		m_width = width;
 	}
 
 	@Override

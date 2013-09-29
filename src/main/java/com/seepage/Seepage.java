@@ -42,140 +42,140 @@ public class Seepage {
 
 	private LiningRingConstruction m_liningRingConstruction;
 
-	public int getId() {
-		return m_id;
-	}
-
-	public void setId(int id) {
-		m_id = id;
-	}
-
-	public int getTunnelId() {
-		return m_tunnelId;
-	}
-
-	public void setTunnelId(int tunnelId) {
-		m_tunnelId = tunnelId;
-	}
-
-	public int getTunnelSectionId() {
-		return m_tunnelSectionId;
-	}
-
-	public void setTunnelSectionId(int tunnelSectionId) {
-		m_tunnelSectionId = tunnelSectionId;
-	}
-
-	public int getLiningRingConstructionId() {
-		return m_liningRingConstructionId;
-	}
-
-	public void setLiningRingConstructionId(int liningRingConstructionId) {
-		m_liningRingConstructionId = liningRingConstructionId;
+	public int getAffect() {
+		return m_affect;
 	}
 
 	public int getBlockIndex() {
 		return m_blockIndex;
 	}
 
-	public void setBlockIndex(int blockIndex) {
-		m_blockIndex = blockIndex;
-	}
-
-	public String getShape() {
-		return m_shape;
-	}
-
-	public void setShape(String shape) {
-		m_shape = shape;
-	}
-
-	public double getSize() {
-		return m_size;
-	}
-
-	public void setSize(double size) {
-		m_size = size;
-	}
-
-	public double getStartAngle() {
-		return m_startAngle;
-	}
-
-	public void setStartAngle(double startAngle) {
-		m_startAngle = startAngle;
-	}
-
-	public double getEndAngle() {
-		return m_endAngle;
-	}
-
-	public void setEndAngle(double endAngle) {
-		m_endAngle = endAngle;
-	}
-
-	public int getAffect() {
-		return m_affect;
-	}
-
-	public void setAffect(int affect) {
-		m_affect = affect;
+	public Date getCreationDate() {
+		return m_creationDate;
 	}
 
 	public Date getDate() {
 		return m_date;
 	}
 
-	public void setDate(Date date) {
-		m_date = date;
-	}
-
 	public String getDes() {
 		return m_des;
 	}
 
-	public void setDes(String des) {
-		m_des = des;
+	public double getEndAngle() {
+		return m_endAngle;
 	}
 
-	public Date getCreationDate() {
-		return m_creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		m_creationDate = creationDate;
-	}
-
-	public Date getModifyDate() {
-		return m_modifyDate;
-	}
-
-	public void setModifyDate(Date modifyDate) {
-		m_modifyDate = modifyDate;
-	}
-
-	public Tunnel getTunnel() {
-		return m_tunnel;
-	}
-
-	public void setTunnel(Tunnel tunnel) {
-		m_tunnel = tunnel;
-	}
-
-	public TunnelSection getTunnelSection() {
-		return m_tunnelSection;
-	}
-
-	public void setTunnelSection(TunnelSection tunnelSection) {
-		m_tunnelSection = tunnelSection;
+	public int getId() {
+		return m_id;
 	}
 
 	public LiningRingConstruction getLiningRingConstruction() {
 		return m_liningRingConstruction;
 	}
 
+	public int getLiningRingConstructionId() {
+		return m_liningRingConstructionId;
+	}
+
+	public Date getModifyDate() {
+		return m_modifyDate;
+	}
+
+	public String getShape() {
+		return m_shape;
+	}
+
+	public double getSize() {
+		return m_size;
+	}
+
+	public double getStartAngle() {
+		return m_startAngle;
+	}
+
+	public Tunnel getTunnel() {
+		return m_tunnel;
+	}
+
+	public int getTunnelId() {
+		return m_tunnelId;
+	}
+
+	public TunnelSection getTunnelSection() {
+		return m_tunnelSection;
+	}
+
+	public int getTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
+	public void setAffect(int affect) {
+		m_affect = affect;
+	}
+
+	public void setBlockIndex(int blockIndex) {
+		m_blockIndex = blockIndex;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		m_creationDate = creationDate;
+	}
+
+	public void setDate(Date date) {
+		m_date = date;
+	}
+
+	public void setDes(String des) {
+		m_des = des;
+	}
+
+	public void setEndAngle(double endAngle) {
+		m_endAngle = endAngle;
+	}
+
+	public void setId(int id) {
+		m_id = id;
+	}
+
 	public void setLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
 		m_liningRingConstruction = liningRingConstruction;
+	}
+
+	public void setLiningRingConstructionId(int liningRingConstructionId) {
+		m_liningRingConstructionId = liningRingConstructionId;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		m_modifyDate = modifyDate;
+	}
+
+	public void setShape(String shape) {
+		m_shape = shape;
+	}
+
+	public void setSize(double size) {
+		m_size = size;
+	}
+
+	public void setStartAngle(double startAngle) {
+		m_startAngle = startAngle;
+	}
+
+	public void setTunnel(Tunnel tunnel) {
+		m_tunnel = tunnel;
+	}
+
+	public void setTunnelId(int tunnelId) {
+		m_tunnelId = tunnelId;
+	}
+
+	public void setTunnelSection(TunnelSection tunnelSection) {
+		m_tunnelSection = tunnelSection;
+	}
+
+	public void setTunnelSectionId(int tunnelSectionId) {
+		m_tunnelSectionId = tunnelSectionId;
 	}
 	
 	@Override

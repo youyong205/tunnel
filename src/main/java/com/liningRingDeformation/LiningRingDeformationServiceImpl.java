@@ -61,6 +61,17 @@ public class LiningRingDeformationServiceImpl implements LiningRingDeformationSe
 		}
 	}
 
+	@Override
+	public LiningRingDeformation queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_liningRingDeformationDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<LiningRingDeformation> queryLimitedLiningRingDeformations(int tunnelId, int tunnelSectionId,
@@ -96,6 +107,10 @@ public class LiningRingDeformationServiceImpl implements LiningRingDeformationSe
 		}
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	public void setLiningRingDeformationDao(LiningRingDeformationDao liningRingDeformationDao) {
 		m_liningRingDeformationDao = liningRingDeformationDao;
 	}
@@ -111,20 +126,5 @@ public class LiningRingDeformationServiceImpl implements LiningRingDeformationSe
 			return -1;
 		}
 	}
-
-	@Override
-	public LiningRingDeformation queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_liningRingDeformationDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

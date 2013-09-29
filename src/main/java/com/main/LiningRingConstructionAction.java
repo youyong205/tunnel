@@ -72,9 +72,23 @@ public class LiningRingConstructionAction extends ScheduledAction {
 	
 	private String m_typeDes;
 
+	public String buildSvgTitle(int index, int fixSize, int length) {
+		String title =  (fixSize * index + 1) + "-" + (fixSize * index + length);
+
+		return title;
+	}
+
 	@Override
 	public String getActionModule() {
 		return Modules.s_liningRingConstruction_model;
+	}
+
+	public Map<String, Integer> getDownCounts() {
+		return m_downCounts;
+	}
+
+	public Map<String, String> getDownSvgs() {
+		return m_downSvgs;
 	}
 
 	public LiningRingConstruction getLiningRingConstruction() {
@@ -83,6 +97,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	public List<LiningRingConstruction> getLiningRingConstructions() {
 		return m_liningRingConstructions;
+	}
+
+	public LiningRingGraph getLiningRingGraph() {
+		return m_liningRingGraph;
 	}
 
 	public List<LiningRing> getLiningRings() {
@@ -101,12 +119,58 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		return m_tunnels;
 	}
 
+	public TunnelSection getTunnelSection() {
+		return m_tunnelSection;
+	}
+
 	public int getTunnelSectionId() {
 		return m_tunnelSectionId;
 	}
 
 	public List<TunnelSection> getTunnelSections() {
 		return m_tunnelSections;
+	}
+
+	public String getType() {
+   	return m_type;
+   }
+
+	public String getTypeDes() {
+   	return m_typeDes;
+   }
+
+	public Map<String, Integer> getUpCounts() {
+		return m_upCounts;
+	}
+
+	public Map<String, String> getUpSvgs() {
+		return m_upSvgs;
+	}
+
+	public String liningRingConstructionDetail() {
+		try {
+			m_liningRings = m_liningRingService.queryAllLiningRings();
+			m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
+			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
+			      m_liningRingConstruction.getTunnelId(), 0, Integer.MAX_VALUE);
+			m_schedule = m_scheduleService.findByPK(m_liningRingConstruction.getScheduleId());
+			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
+
+			LiningRing ring = m_liningRingService.findByPK(m_liningRingConstruction.getLiningRingId());
+			List<LiningRingBlock> liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(ring.getId());
+
+			m_liningRingGraph = new LiningRingGraph(ring.getAngle()).addBlocksInfo(liningRingBlocks);
+
+			if (m_liningRingConstruction != null) {
+				return SUCCESS;
+			} else {
+				return ERROR;
+			}
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return ERROR;
+		}
 	}
 
 	public String liningRingConstructionList() {
@@ -174,36 +238,8 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		}
 	}
 
-	public String buildSvgTitle(int index, int fixSize, int length) {
-		String title =  (fixSize * index + 1) + "-" + (fixSize * index + length);
-
-		return title;
-	}
-
-	public String liningRingConstructionDetail() {
-		try {
-			m_liningRings = m_liningRingService.queryAllLiningRings();
-			m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
-			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(
-			      m_liningRingConstruction.getTunnelId(), 0, Integer.MAX_VALUE);
-			m_schedule = m_scheduleService.findByPK(m_liningRingConstruction.getScheduleId());
-			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
-
-			LiningRing ring = m_liningRingService.findByPK(m_liningRingConstruction.getLiningRingId());
-			List<LiningRingBlock> liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(ring.getId());
-
-			m_liningRingGraph = new LiningRingGraph(ring.getAngle()).addBlocksInfo(liningRingBlocks);
-
-			if (m_liningRingConstruction != null) {
-				return SUCCESS;
-			} else {
-				return ERROR;
-			}
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return ERROR;
-		}
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
 	}
 
 	public void setLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
@@ -238,44 +274,8 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		m_tunnelService = tunnelService;
 	}
 
-	public Map<String, String> getUpSvgs() {
-		return m_upSvgs;
-	}
-
-	public Map<String, String> getDownSvgs() {
-		return m_downSvgs;
-	}
-
-	public TunnelSection getTunnelSection() {
-		return m_tunnelSection;
-	}
-
-	public Map<String, Integer> getUpCounts() {
-		return m_upCounts;
-	}
-
-	public Map<String, Integer> getDownCounts() {
-		return m_downCounts;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
-	}
-
-	public LiningRingGraph getLiningRingGraph() {
-		return m_liningRingGraph;
-	}
-
-	public String getType() {
-   	return m_type;
-   }
-
 	public void setType(String type) {
    	m_type = type;
-   }
-
-	public String getTypeDes() {
-   	return m_typeDes;
    }
 
 	public void setTypeDes(String typeDes) {

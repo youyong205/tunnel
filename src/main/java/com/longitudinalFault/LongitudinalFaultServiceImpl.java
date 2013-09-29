@@ -61,6 +61,17 @@ public class LongitudinalFaultServiceImpl implements LongitudinalFaultService {
 		}
 	}
 
+	@Override
+	public LongitudinalFault queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_longitudinalFaultDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<LongitudinalFault> queryLimitedLongitudinalFaults(int tunnelId, int tunnelSectionId,
@@ -96,6 +107,10 @@ public class LongitudinalFaultServiceImpl implements LongitudinalFaultService {
 		}
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	public void setLongitudinalFaultDao(LongitudinalFaultDao longitudinalFaultDao) {
 		m_longitudinalFaultDao = longitudinalFaultDao;
 	}
@@ -111,20 +126,5 @@ public class LongitudinalFaultServiceImpl implements LongitudinalFaultService {
 			return -1;
 		}
 	}
-
-	@Override
-	public LongitudinalFault queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_longitudinalFaultDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

@@ -20,42 +20,6 @@ public class TunnelSectionState {
 
 	private final int m_size = 100;
 
-	public Map<String, Integer> getUpCounts() {
-		return m_upCounts;
-	}
-
-	public void setUpCounts(Map<String, Integer> upCounts) {
-		m_upCounts = upCounts;
-	}
-
-	public Map<String, Integer> getDownCounts() {
-		return m_downCounts;
-	}
-
-	public void setDownCounts(Map<String, Integer> downCounts) {
-		m_downCounts = downCounts;
-	}
-
-	public List<List<LiningRingState>> getUpStates() {
-		return m_upStates;
-	}
-
-	public void setUpStates(List<List<LiningRingState>> upStates) {
-		m_upStates = upStates;
-	}
-
-	public List<List<LiningRingState>> getDownStates() {
-		return m_downStates;
-	}
-
-	public void setDownStates(List<List<LiningRingState>> downStates) {
-		m_downStates = downStates;
-	}
-
-	public int getSize() {
-		return m_size;
-	}
-
 	public TunnelSectionState(List<LiningRingConstruction> constructions, String stateType) {
 		int length = constructions.size();
 
@@ -118,6 +82,42 @@ public class TunnelSectionState {
 			return "D";
 		}
 		return "E";
+	}
+
+	public Map<String, Integer> getDownCounts() {
+		return m_downCounts;
+	}
+
+	public List<List<LiningRingState>> getDownStates() {
+		return m_downStates;
+	}
+
+	public int getSize() {
+		return m_size;
+	}
+
+	public Map<String, Integer> getUpCounts() {
+		return m_upCounts;
+	}
+
+	public List<List<LiningRingState>> getUpStates() {
+		return m_upStates;
+	}
+
+	public void setDownCounts(Map<String, Integer> downCounts) {
+		m_downCounts = downCounts;
+	}
+
+	public void setDownStates(List<List<LiningRingState>> downStates) {
+		m_downStates = downStates;
+	}
+
+	public void setUpCounts(Map<String, Integer> upCounts) {
+		m_upCounts = upCounts;
+	}
+
+	public void setUpStates(List<List<LiningRingState>> upStates) {
+		m_upStates = upStates;
 	}
 
 	public static class LiningRingState {

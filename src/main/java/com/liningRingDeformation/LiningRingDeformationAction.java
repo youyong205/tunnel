@@ -111,6 +111,10 @@ public class LiningRingDeformationAction extends LineChartAction {
 		return m_batchInsertResult;
 	}
 
+	public LiningRingConstruction getLiningRingConstruction() {
+		return m_liningRingConstruction;
+	}
+
 	public int getLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
@@ -129,6 +133,10 @@ public class LiningRingDeformationAction extends LineChartAction {
 
 	public List<LiningRing> getLiningRings() {
 		return m_liningRings;
+	}
+
+	public int getParentLiningRingConstructionId() {
+		return m_liningRingConstructionId;
 	}
 
 	public int getParentTunnelSectionId() {
@@ -278,6 +286,46 @@ public class LiningRingDeformationAction extends LineChartAction {
 		}
 	}
 
+	public String liningRingDeformationList() {
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingDeformation_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
+		try {
+			if (m_tunnelId == 0) {
+				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+			}
+			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0,
+			      Integer.MAX_VALUE);
+			if (m_tunnelSectionId == 0 && m_tunnelSections != null && m_tunnelSections.size() > 0) {
+				m_tunnelSectionId = m_tunnelSections.get(0).getId();
+			}
+			if (m_tunnelSectionId > 0) {
+				m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+				      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+			} else {
+				m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
+			}
+			m_totalSize = m_liningRingDeformationService.querySizeByTunnelAndSection(m_tunnelId, m_tunnelSectionId,
+			      m_liningRingConstructionId);
+			m_totalPages = computeTotalPages(m_totalSize);
+			int start = (m_index - 1) * SIZE;
+			if (start < 0) {
+				start = 0;
+			}
+			m_liningRingDeformations = m_liningRingDeformationService.queryLimitedLiningRingDeformations(m_tunnelId,
+			      m_tunnelSectionId, m_liningRingConstructionId, start, SIZE);
+			for (LiningRingDeformation liningRingDeformation : m_liningRingDeformations) {
+				liningRingDeformation.setTunnel(m_tunnelService.findByPK(liningRingDeformation.getTunnelId()));
+			}
+			return SUCCESS;
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return ERROR;
+		}
+	}
+
 	public String liningRingDeformationQuery() {
 		if (m_start == null || m_end == null) {
 			m_end = new Date();
@@ -332,46 +380,6 @@ public class LiningRingDeformationAction extends LineChartAction {
 			m_liningRingDeformation = m_liningRingDeformations.get(0);
 		}
 		return SUCCESS;
-	}
-
-	public String liningRingDeformationList() {
-		Authority auth = checkAuthority(buildResource(Modules.s_liningRingDeformation_model, Operation.s_operation_detail));
-		if (auth != null) {
-			return auth.getName();
-		}
-		try {
-			if (m_tunnelId == 0) {
-				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
-			}
-			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0,
-			      Integer.MAX_VALUE);
-			if (m_tunnelSectionId == 0 && m_tunnelSections != null && m_tunnelSections.size() > 0) {
-				m_tunnelSectionId = m_tunnelSections.get(0).getId();
-			}
-			if (m_tunnelSectionId > 0) {
-				m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
-				      m_tunnelSectionId, 0, Integer.MAX_VALUE);
-			} else {
-				m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
-			}
-			m_totalSize = m_liningRingDeformationService.querySizeByTunnelAndSection(m_tunnelId, m_tunnelSectionId,
-			      m_liningRingConstructionId);
-			m_totalPages = computeTotalPages(m_totalSize);
-			int start = (m_index - 1) * SIZE;
-			if (start < 0) {
-				start = 0;
-			}
-			m_liningRingDeformations = m_liningRingDeformationService.queryLimitedLiningRingDeformations(m_tunnelId,
-			      m_tunnelSectionId, m_liningRingConstructionId, start, SIZE);
-			for (LiningRingDeformation liningRingDeformation : m_liningRingDeformations) {
-				liningRingDeformation.setTunnel(m_tunnelService.findByPK(liningRingDeformation.getTunnelId()));
-			}
-			return SUCCESS;
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return ERROR;
-		}
 	}
 
 	public String liningRingDeformationUpdate() {
@@ -466,14 +474,6 @@ public class LiningRingDeformationAction extends LineChartAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public int getParentLiningRingConstructionId() {
-		return m_liningRingConstructionId;
-	}
-
-	public LiningRingConstruction getLiningRingConstruction() {
-		return m_liningRingConstruction;
 	}
 
 }

@@ -63,23 +63,34 @@ public class CoverLossServiceImpl implements CoverLossService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CoverLoss> queryLimitedCoverLosss(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<CoverLoss> queryCoverLossByDuration(int coverLossId, Date start,
+	      Date end) {
 		try {
-			return m_coverLossDao.queryLimitedCoverLosss(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_coverLossDao.queryCoverLossByDuration(coverLossId, start, end);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<CoverLoss>();
 		}
 	}
 
+	@Override
+	public CoverLoss queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_coverLossDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CoverLoss> queryCoverLossByDuration(int coverLossId, Date start,
-	      Date end) {
+	public List<CoverLoss> queryLimitedCoverLosss(int tunnelId, int tunnelSectionId,
+	      int liningRingConstructionId, int start, int size) {
 		try {
-			return m_coverLossDao.queryCoverLossByDuration(coverLossId, start, end);
+			return m_coverLossDao.queryLimitedCoverLosss(tunnelId, tunnelSectionId,
+			      liningRingConstructionId, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<CoverLoss>();
@@ -100,6 +111,10 @@ public class CoverLossServiceImpl implements CoverLossService {
 		m_coverLossDao = coverLossDao;
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	@Override
 	public int updateCoverLoss(CoverLoss coverLoss) {
 		try {
@@ -111,20 +126,5 @@ public class CoverLossServiceImpl implements CoverLossService {
 			return -1;
 		}
 	}
-
-	@Override
-	public CoverLoss queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_coverLossDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

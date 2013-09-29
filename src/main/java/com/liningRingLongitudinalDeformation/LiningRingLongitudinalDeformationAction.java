@@ -125,6 +125,10 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 		return m_liningRings;
 	}
 
+	public int getParentLiningRingConstructionId(){
+		return m_liningRingConstructionId;
+	}
+
 	public int getParentTunnelSectionId() {
 		return m_tunnelSectionId;
 	}
@@ -401,13 +405,9 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
 	}
-
+	
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-	
-	public int getParentLiningRingConstructionId(){
-		return m_liningRingConstructionId;
 	}
 
 }

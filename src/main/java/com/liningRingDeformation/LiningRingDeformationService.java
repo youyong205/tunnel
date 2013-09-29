@@ -13,6 +13,8 @@ public interface LiningRingDeformationService {
 
 	public int insertLiningRingDeformation(LiningRingDeformation liningRingDeformation);
 
+	public LiningRingDeformation queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
+
 	public List<LiningRingDeformation> queryLimitedLiningRingDeformations(int tunnelId, int tunnelSectionId,
 	      int liningRingConstructionId, int start, int size);
 
@@ -20,8 +22,6 @@ public interface LiningRingDeformationService {
 	      Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
-
-	public LiningRingDeformation queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateLiningRingDeformation(LiningRingDeformation liningRingDeformation);
 

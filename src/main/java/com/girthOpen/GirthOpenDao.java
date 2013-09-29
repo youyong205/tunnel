@@ -33,6 +33,28 @@ public class GirthOpenDao {
 	}
 
 	@SuppressWarnings("rawtypes")
+	public List queryGirthOpenByDuration(int liningRingConstructionId, Date start, Date end) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		parameters.put("start", start);
+		parameters.put("end", end);
+
+		return m_baseDao.queryForList("girthOpen.queryGirthOpenByDuration", parameters);
+	}
+
+	public GirthOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (GirthOpen) m_baseDao.queryForObject("girthOpen.queryLastestDeformation",
+		      parameters);
+	}
+
+	@SuppressWarnings("rawtypes")
 	public List queryLimitedGirthOpens(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
@@ -44,17 +66,6 @@ public class GirthOpenDao {
 		parameters.put("size", size);
 
 		return m_baseDao.queryForList("girthOpen.queryLimitedGirthOpens", parameters);
-	}
-
-	@SuppressWarnings("rawtypes")
-	public List queryGirthOpenByDuration(int liningRingConstructionId, Date start, Date end) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-		parameters.put("start", start);
-		parameters.put("end", end);
-
-		return m_baseDao.queryForList("girthOpen.queryGirthOpenByDuration", parameters);
 	}
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
@@ -73,17 +84,6 @@ public class GirthOpenDao {
 
 	public int updateGirthOpen(GirthOpen girthOpen) {
 		return m_baseDao.update("girthOpen.update", girthOpen);
-	}
-
-	public GirthOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (GirthOpen) m_baseDao.queryForObject("girthOpen.queryLastestDeformation",
-		      parameters);
 	}
 
 }

@@ -63,23 +63,34 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GirthFault> queryLimitedGirthFaults(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<GirthFault> queryGirthFaultByDuration(int girthFaultId, Date start,
+	      Date end) {
 		try {
-			return m_girthFaultDao.queryLimitedGirthFaults(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_girthFaultDao.queryGirthFaultByDuration(girthFaultId, start, end);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<GirthFault>();
 		}
 	}
 
+	@Override
+	public GirthFault queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_girthFaultDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GirthFault> queryGirthFaultByDuration(int girthFaultId, Date start,
-	      Date end) {
+	public List<GirthFault> queryLimitedGirthFaults(int tunnelId, int tunnelSectionId,
+	      int liningRingConstructionId, int start, int size) {
 		try {
-			return m_girthFaultDao.queryGirthFaultByDuration(girthFaultId, start, end);
+			return m_girthFaultDao.queryLimitedGirthFaults(tunnelId, tunnelSectionId,
+			      liningRingConstructionId, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<GirthFault>();
@@ -100,6 +111,10 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 		m_girthFaultDao = girthFaultDao;
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	@Override
 	public int updateGirthFault(GirthFault girthFault) {
 		try {
@@ -111,20 +126,5 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 			return -1;
 		}
 	}
-
-	@Override
-	public GirthFault queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_girthFaultDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

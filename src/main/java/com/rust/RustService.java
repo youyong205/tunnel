@@ -13,6 +13,8 @@ public interface RustService {
 
 	public int insertRust(Rust rust);
 
+	public Rust queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
+
 	public List<Rust> queryLimitedRusts(int tunnelId, int tunnelSectionId,
 	      int liningRingConstructionId, int start, int size);
 
@@ -20,8 +22,6 @@ public interface RustService {
 	      Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
-
-	public Rust queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateRust(Rust rust);
 

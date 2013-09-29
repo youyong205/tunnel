@@ -124,28 +124,24 @@ public class LiningRingConstruction {
 		}
 	}
 
-	public String getMaxGirthOpenState() {
-		return computeLevel(m_girthOpenState);
-	}
-
-	public String getMaxLongitudinalOpenState() {
-		return computeLevel(m_longitudinalOpenState);
-	}
-
-	public String getMaxGirthFaultState() {
-		return computeLevel(m_girthFaultState);
-	}
-
-	public String getMaxLongitudinalFaultState() {
-		return computeLevel(m_longitudinalFaultState);
-	}
-
 	public String getComputingStaff() {
 		return m_computingStaff;
 	}
 
+	public String getCoverLossState() {
+		return m_coverLossState;
+	}
+
+	public String getCracksState() {
+		return m_cracksState;
+	}
+
 	public Date getCreationDate() {
 		return m_creationDate;
+	}
+
+	public String getDeformationState() {
+		return m_deformationState;
 	}
 
 	public String getDes() {
@@ -212,6 +208,14 @@ public class LiningRingConstruction {
 		return m_gapUp;
 	}
 
+	public String getGirthFaultState() {
+		return m_girthFaultState;
+	}
+
+	public String getGirthOpenState() {
+		return m_girthOpenState;
+	}
+
 	public int getId() {
 		return m_id;
 	}
@@ -238,6 +242,34 @@ public class LiningRingConstruction {
 
 	public int getLiningRingId() {
 		return m_liningRingId;
+	}
+
+	public String getLongitudinalDeformationState() {
+		return m_longitudinalDeformationState;
+	}
+
+	public String getLongitudinalFaultState() {
+		return m_longitudinalFaultState;
+	}
+
+	public String getLongitudinalOpenState() {
+		return m_longitudinalOpenState;
+	}
+
+	public String getMaxGirthFaultState() {
+		return computeLevel(m_girthFaultState);
+	}
+
+	public String getMaxGirthOpenState() {
+		return computeLevel(m_girthOpenState);
+	}
+
+	public String getMaxLongitudinalFaultState() {
+		return computeLevel(m_longitudinalFaultState);
+	}
+
+	public String getMaxLongitudinalOpenState() {
+		return computeLevel(m_longitudinalOpenState);
 	}
 
 	public Date getModifyDate() {
@@ -304,8 +336,20 @@ public class LiningRingConstruction {
 		m_computingStaff = computingStaff;
 	}
 
+	public void setCoverLossState(String coverLossState) {
+		m_coverLossState = coverLossState;
+	}
+
+	public void setCracksState(String cracksState) {
+		m_cracksState = cracksState;
+	}
+
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
+	}
+
+	public void setDeformationState(String deformationState) {
+		m_deformationState = deformationState;
 	}
 
 	public void setDes(String des) {
@@ -372,6 +416,14 @@ public class LiningRingConstruction {
 		m_gapUp = gapUp;
 	}
 
+	public void setGirthFaultState(String girthFaultState) {
+		m_girthFaultState = girthFaultState;
+	}
+
+	public void setGirthOpenState(String girthOpenState) {
+		m_girthOpenState = girthOpenState;
+	}
+
 	public void setId(int id) {
 		m_id = id;
 	}
@@ -398,6 +450,18 @@ public class LiningRingConstruction {
 
 	public void setLiningRingId(int liningRingId) {
 		m_liningRingId = liningRingId;
+	}
+
+	public void setLongitudinalDeformationState(String longitudinalDeformationState) {
+		m_longitudinalDeformationState = longitudinalDeformationState;
+	}
+
+	public void setLongitudinalFaultState(String longitudinalFaultState) {
+		m_longitudinalFaultState = longitudinalFaultState;
+	}
+
+	public void setLongitudinalOpenState(String longitudinalOpenState) {
+		m_longitudinalOpenState = longitudinalOpenState;
 	}
 
 	public void setModifyDate(Date modifyDate) {
@@ -458,70 +522,6 @@ public class LiningRingConstruction {
 
 	public void setVerticalDiameter(double verticalDiameter) {
 		m_verticalDiameter = verticalDiameter;
-	}
-
-	public String getDeformationState() {
-		return m_deformationState;
-	}
-
-	public void setDeformationState(String deformationState) {
-		m_deformationState = deformationState;
-	}
-
-	public String getLongitudinalDeformationState() {
-		return m_longitudinalDeformationState;
-	}
-
-	public void setLongitudinalDeformationState(String longitudinalDeformationState) {
-		m_longitudinalDeformationState = longitudinalDeformationState;
-	}
-
-	public String getGirthOpenState() {
-		return m_girthOpenState;
-	}
-
-	public void setGirthOpenState(String girthOpenState) {
-		m_girthOpenState = girthOpenState;
-	}
-
-	public String getLongitudinalOpenState() {
-		return m_longitudinalOpenState;
-	}
-
-	public void setLongitudinalOpenState(String longitudinalOpenState) {
-		m_longitudinalOpenState = longitudinalOpenState;
-	}
-
-	public String getGirthFaultState() {
-		return m_girthFaultState;
-	}
-
-	public void setGirthFaultState(String girthFaultState) {
-		m_girthFaultState = girthFaultState;
-	}
-
-	public String getLongitudinalFaultState() {
-		return m_longitudinalFaultState;
-	}
-
-	public void setLongitudinalFaultState(String longitudinalFaultState) {
-		m_longitudinalFaultState = longitudinalFaultState;
-	}
-
-	public String getCoverLossState() {
-		return m_coverLossState;
-	}
-
-	public void setCoverLossState(String coverLossState) {
-		m_coverLossState = coverLossState;
-	}
-
-	public String getCracksState() {
-		return m_cracksState;
-	}
-
-	public void setCracksState(String cracksState) {
-		m_cracksState = cracksState;
 	}
 
 	@Override

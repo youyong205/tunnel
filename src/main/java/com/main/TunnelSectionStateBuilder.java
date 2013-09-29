@@ -31,6 +31,34 @@ public class TunnelSectionStateBuilder {
 		m_colors.put("E", RED);
 	}
 
+	private String buildFooter() {
+		return "</svg>";
+	}
+
+	private String buildHeader() {
+		String format = "<svg width='100%' height='" + HEIGHT + "' version='1.1'"
+		      + "xmlns='http://www.w3.org/2000/svg'>";
+
+		return format;
+	}
+
+	private String buildLink(LiningRingState state) {
+		String format = " <a xlink:href='userLiningRingConstructionDetail.do?tunnelId=%d&tunnelSectionId=%d&liningRingConstructionId=%d'>";
+
+		return String.format(format, state.getTunnelId(), state.getTunnelSectionId(), state.getId());
+	}
+
+	private String buildLinkFoot() {
+		return " </a>";
+	}
+
+	private String buildRectangle(int index, LiningRingState state) {
+		String format = "<rect x='%d' y='00' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:1;"
+		      + "opacity:0.9'/>";
+
+		return String.format(format, WIDTH * index, WIDTH, HEIGHT, m_colors.get(state.getState()));
+	}
+
 	public String buildXml(List<LiningRingState> states) {
 		StringBuilder sb = new StringBuilder(1024);
 
@@ -46,34 +74,6 @@ public class TunnelSectionStateBuilder {
 		sb.append(buildFooter());
 
 		return sb.toString();
-	}
-
-	private String buildHeader() {
-		String format = "<svg width='100%' height='" + HEIGHT + "' version='1.1'"
-		      + "xmlns='http://www.w3.org/2000/svg'>";
-
-		return format;
-	}
-
-	private String buildFooter() {
-		return "</svg>";
-	}
-
-	private String buildRectangle(int index, LiningRingState state) {
-		String format = "<rect x='%d' y='00' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:1;"
-		      + "opacity:0.9'/>";
-
-		return String.format(format, WIDTH * index, WIDTH, HEIGHT, m_colors.get(state.getState()));
-	}
-
-	private String buildLink(LiningRingState state) {
-		String format = " <a xlink:href='userLiningRingConstructionDetail.do?tunnelId=%d&tunnelSectionId=%d&liningRingConstructionId=%d'>";
-
-		return String.format(format, state.getTunnelId(), state.getTunnelSectionId(), state.getId());
-	}
-
-	private String buildLinkFoot() {
-		return " </a>";
 	}
 
 }

@@ -32,6 +32,10 @@ public class Tunnel {
    	return m_name;
    }
 
+	public String getState() {
+   	return m_state;
+   }
+
 	public String getType() {
    	return m_type;
    }
@@ -43,25 +47,21 @@ public class Tunnel {
 	public void setDes(String des) {
    	m_des = des;
    }
-
+	
 	public void setId(int id) {
    	m_id = id;
    }
-	
+
 	public void setName(String name) {
    	m_name = name;
+   }
+	
+	public void setState(String state) {
+   	m_state = state;
    }
 
 	public void setType(String type) {
    	m_type = type;
-   }
-	
-	public String getState() {
-   	return m_state;
-   }
-
-	public void setState(String state) {
-   	m_state = state;
    }
 
 	@Override

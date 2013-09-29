@@ -63,23 +63,34 @@ public class CracksServiceImpl implements CracksService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Cracks> queryLimitedCrackss(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<Cracks> queryCracksByDuration(int cracksId, Date start,
+	      Date end) {
 		try {
-			return m_cracksDao.queryLimitedCrackss(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_cracksDao.queryCracksByDuration(cracksId, start, end);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Cracks>();
 		}
 	}
 
+	@Override
+	public Cracks queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_cracksDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Cracks> queryCracksByDuration(int cracksId, Date start,
-	      Date end) {
+	public List<Cracks> queryLimitedCrackss(int tunnelId, int tunnelSectionId,
+	      int liningRingConstructionId, int start, int size) {
 		try {
-			return m_cracksDao.queryCracksByDuration(cracksId, start, end);
+			return m_cracksDao.queryLimitedCrackss(tunnelId, tunnelSectionId,
+			      liningRingConstructionId, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Cracks>();
@@ -100,6 +111,10 @@ public class CracksServiceImpl implements CracksService {
 		m_cracksDao = cracksDao;
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	@Override
 	public int updateCracks(Cracks cracks) {
 		try {
@@ -111,20 +126,5 @@ public class CracksServiceImpl implements CracksService {
 			return -1;
 		}
 	}
-
-	@Override
-	public Cracks queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_cracksDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

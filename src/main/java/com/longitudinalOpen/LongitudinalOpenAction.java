@@ -117,12 +117,20 @@ public class LongitudinalOpenAction extends FileUploadAction {
 		return m_batchInsertResult;
 	}
 
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
 	public int getLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
 
 	public List<LiningRingConstruction> getLiningRingConstructions() {
 		return m_liningRingConstructions;
+	}
+
+	public List<LiningRing> getLiningRings() {
+		return m_liningRings;
 	}
 
 	public LongitudinalOpen getLongitudinalOpen() {
@@ -133,8 +141,8 @@ public class LongitudinalOpenAction extends FileUploadAction {
 		return m_longitudinalOpens;
 	}
 
-	public List<LiningRing> getLiningRings() {
-		return m_liningRings;
+	public int getParentLiningRingConstructionId(){
+		return m_liningRingConstructionId;
 	}
 
 	public int getParentTunnelSectionId() {
@@ -380,12 +388,20 @@ public class LongitudinalOpenAction extends FileUploadAction {
 		m_deleteId = deleteId;
 	}
 
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
+	}
+
 	public void setLiningRingConstructionId(int liningRingConstructionId) {
 		m_liningRingConstructionId = liningRingConstructionId;
 	}
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
 		m_liningRingConstructionService = liningRingConstructionService;
+	}
+
+	public void setLiningRingService(LiningRingService liningRingService) {
+		m_liningRingService = liningRingService;
 	}
 
 	public void setLongitudinalOpen(LongitudinalOpen longitudinalOpen) {
@@ -400,10 +416,6 @@ public class LongitudinalOpenAction extends FileUploadAction {
 		m_longitudinalOpenService = longitudinalOpenService;
 	}
 
-	public void setLiningRingService(LiningRingService liningRingService) {
-		m_liningRingService = liningRingService;
-	}
-
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
@@ -415,21 +427,9 @@ public class LongitudinalOpenAction extends FileUploadAction {
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
 	}
-
+	
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
-	}
-
-	public List<LiningRingBlock> getLiningRingBlocks() {
-		return m_liningRingBlocks;
-	}
-	
-	public int getParentLiningRingConstructionId(){
-		return m_liningRingConstructionId;
 	}
 
 }

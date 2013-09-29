@@ -61,6 +61,17 @@ public class SeepageServiceImpl implements SeepageService {
 		}
 	}
 
+	@Override
+	public Seepage queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_seepageDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Seepage> queryLimitedSeepages(int tunnelId, int tunnelSectionId,
@@ -96,6 +107,10 @@ public class SeepageServiceImpl implements SeepageService {
 		}
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	public void setSeepageDao(SeepageDao seepageDao) {
 		m_seepageDao = seepageDao;
 	}
@@ -111,20 +126,5 @@ public class SeepageServiceImpl implements SeepageService {
 			return -1;
 		}
 	}
-
-	@Override
-	public Seepage queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_seepageDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

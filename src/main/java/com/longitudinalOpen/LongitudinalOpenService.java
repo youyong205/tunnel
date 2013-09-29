@@ -13,6 +13,8 @@ public interface LongitudinalOpenService {
 
 	public int insertLongitudinalOpen(LongitudinalOpen longitudinalOpen);
 
+	public LongitudinalOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
+
 	public List<LongitudinalOpen> queryLimitedLongitudinalOpens(int tunnelId, int tunnelSectionId,
 	      int liningRingConstructionId, int start, int size);
 
@@ -20,8 +22,6 @@ public interface LongitudinalOpenService {
 	      Date end);
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
-
-	public LongitudinalOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateLongitudinalOpen(LongitudinalOpen longitudinalOpen);
 

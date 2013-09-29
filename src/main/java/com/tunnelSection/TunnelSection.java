@@ -56,6 +56,10 @@ public class TunnelSection {
    	return m_name;
    }
 
+	public String getState() {
+   	return m_state;
+   }
+
 	public Tunnel getTunnel() {
    	return m_tunnel;
    }
@@ -96,6 +100,10 @@ public class TunnelSection {
    	m_name = name;
    }
 
+	public void setState(String state) {
+   	m_state = state;
+   }
+
 	public void setTunnel(Tunnel tunnel) {
    	m_tunnel = tunnel;
    }
@@ -106,14 +114,6 @@ public class TunnelSection {
 
 	public void setType(String type) {
    	m_type = type;
-   }
-
-	public String getState() {
-   	return m_state;
-   }
-
-	public void setState(String state) {
-   	m_state = state;
    }
 
 	@Override

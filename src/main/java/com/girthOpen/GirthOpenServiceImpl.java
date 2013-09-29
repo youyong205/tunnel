@@ -63,23 +63,34 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GirthOpen> queryLimitedGirthOpens(int tunnelId, int tunnelSectionId,
-	      int liningRingConstructionId, int start, int size) {
+	public List<GirthOpen> queryGirthOpenByDuration(int girthOpenId, Date start,
+	      Date end) {
 		try {
-			return m_girthOpenDao.queryLimitedGirthOpens(tunnelId, tunnelSectionId,
-			      liningRingConstructionId, start, size);
+			return m_girthOpenDao.queryGirthOpenByDuration(girthOpenId, start, end);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<GirthOpen>();
 		}
 	}
 
+	@Override
+	public GirthOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_girthOpenDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GirthOpen> queryGirthOpenByDuration(int girthOpenId, Date start,
-	      Date end) {
+	public List<GirthOpen> queryLimitedGirthOpens(int tunnelId, int tunnelSectionId,
+	      int liningRingConstructionId, int start, int size) {
 		try {
-			return m_girthOpenDao.queryGirthOpenByDuration(girthOpenId, start, end);
+			return m_girthOpenDao.queryLimitedGirthOpens(tunnelId, tunnelSectionId,
+			      liningRingConstructionId, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<GirthOpen>();
@@ -100,6 +111,10 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 		m_girthOpenDao = girthOpenDao;
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	@Override
 	public int updateGirthOpen(GirthOpen girthOpen) {
 		try {
@@ -111,20 +126,5 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 			return -1;
 		}
 	}
-
-	@Override
-	public GirthOpen queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_girthOpenDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

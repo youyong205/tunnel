@@ -106,14 +106,6 @@ public class GirthFaultAction extends FileUploadAction {
 		return m_batchInsertResult;
 	}
 
-	public int getLiningRingConstructionId() {
-		return m_liningRingConstructionId;
-	}
-
-	public List<LiningRingConstruction> getLiningRingConstructions() {
-		return m_liningRingConstructions;
-	}
-
 	public GirthFault getGirthFault() {
 		return m_girthFault;
 	}
@@ -122,8 +114,20 @@ public class GirthFaultAction extends FileUploadAction {
 		return m_girthFaults;
 	}
 
+	public int getLiningRingConstructionId() {
+		return m_liningRingConstructionId;
+	}
+
+	public List<LiningRingConstruction> getLiningRingConstructions() {
+		return m_liningRingConstructions;
+	}
+
 	public List<LiningRing> getLiningRings() {
 		return m_liningRings;
+	}
+
+	public int getParentLiningRingConstructionId(){
+		return m_liningRingConstructionId;
 	}
 
 	public int getParentTunnelSectionId() {
@@ -367,14 +371,6 @@ public class GirthFaultAction extends FileUploadAction {
 		m_deleteId = deleteId;
 	}
 
-	public void setLiningRingConstructionId(int liningRingConstructionId) {
-		m_liningRingConstructionId = liningRingConstructionId;
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-		m_liningRingConstructionService = liningRingConstructionService;
-	}
-
 	public void setGirthFault(GirthFault girthFault) {
 		m_girthFault = girthFault;
 	}
@@ -385,6 +381,14 @@ public class GirthFaultAction extends FileUploadAction {
 
 	public void setGirthFaultService(GirthFaultService girthFaultService) {
 		m_girthFaultService = girthFaultService;
+	}
+
+	public void setLiningRingConstructionId(int liningRingConstructionId) {
+		m_liningRingConstructionId = liningRingConstructionId;
+	}
+
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+		m_liningRingConstructionService = liningRingConstructionService;
 	}
 
 	public void setLiningRingService(LiningRingService liningRingService) {
@@ -402,13 +406,9 @@ public class GirthFaultAction extends FileUploadAction {
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
 	}
-
+	
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-	
-	public int getParentLiningRingConstructionId(){
-		return m_liningRingConstructionId;
 	}
 
 }

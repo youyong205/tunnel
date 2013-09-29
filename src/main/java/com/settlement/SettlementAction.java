@@ -114,6 +114,10 @@ public class SettlementAction extends FileUploadAction {
 		return m_batchInsertResult;
 	}
 
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
 	public int getLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
@@ -122,20 +126,24 @@ public class SettlementAction extends FileUploadAction {
 		return m_liningRingConstructions;
 	}
 
+	public List<LiningRing> getLiningRings() {
+		return m_liningRings;
+	}
+
+	public int getParentLiningRingConstructionId() {
+		return m_liningRingConstructionId;
+	}
+
+	public int getParentTunnelSectionId() {
+		return m_tunnelSectionId;
+	}
+
 	public Settlement getSettlement() {
 		return m_settlement;
 	}
 
 	public List<Settlement> getSettlements() {
 		return m_settlements;
-	}
-
-	public List<LiningRing> getLiningRings() {
-		return m_liningRings;
-	}
-
-	public int getParentTunnelSectionId() {
-		return m_tunnelSectionId;
 	}
 
 	public int getTunnelId() {
@@ -152,6 +160,44 @@ public class SettlementAction extends FileUploadAction {
 
 	public List<TunnelSection> getTunnelSections() {
 		return m_tunnelSections;
+	}
+
+	public String queryAllSettlements() {
+		m_settlements = m_settlementService.queryLimitedSettlements(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
+	}
+
+	public void setDeleteId(int[] deleteId) {
+		m_deleteId = deleteId;
+	}
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
+	}
+
+	public void setLiningRingConstructionId(int liningRingConstructionId) {
+		m_liningRingConstructionId = liningRingConstructionId;
+	}
+
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+		m_liningRingConstructionService = liningRingConstructionService;
+	}
+
+	public void setLiningRingService(LiningRingService liningRingService) {
+		m_liningRingService = liningRingService;
+	}
+
+	public void setSettlement(Settlement settlement) {
+		m_settlement = settlement;
+	}
+
+	public void setSettlementId(int settlementId) {
+		m_settlementId = settlementId;
+	}
+
+	public void setSettlementService(SettlementService settlementService) {
+		m_settlementService = settlementService;
 	}
 
 	public String settlementAdd() {
@@ -367,40 +413,6 @@ public class SettlementAction extends FileUploadAction {
 		}
 	}
 
-	public String queryAllSettlements() {
-		m_settlements = m_settlementService.queryLimitedSettlements(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
-	}
-
-	public void setDeleteId(int[] deleteId) {
-		m_deleteId = deleteId;
-	}
-
-	public void setLiningRingConstructionId(int liningRingConstructionId) {
-		m_liningRingConstructionId = liningRingConstructionId;
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-		m_liningRingConstructionService = liningRingConstructionService;
-	}
-
-	public void setSettlement(Settlement settlement) {
-		m_settlement = settlement;
-	}
-
-	public void setSettlementId(int settlementId) {
-		m_settlementId = settlementId;
-	}
-
-	public void setSettlementService(SettlementService settlementService) {
-		m_settlementService = settlementService;
-	}
-
-	public void setLiningRingService(LiningRingService liningRingService) {
-		m_liningRingService = liningRingService;
-	}
-
 	public void setTunnelId(int tunnelId) {
 		m_tunnelId = tunnelId;
 	}
@@ -415,18 +427,6 @@ public class SettlementAction extends FileUploadAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
-	}
-
-	public List<LiningRingBlock> getLiningRingBlocks() {
-		return m_liningRingBlocks;
-	}
-
-	public int getParentLiningRingConstructionId() {
-		return m_liningRingConstructionId;
 	}
 
 }

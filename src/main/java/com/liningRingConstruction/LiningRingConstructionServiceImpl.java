@@ -115,6 +115,32 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	}
 
 	@Override
+   public int updateCoverLossState(CoverLoss coverLoss) {
+		return 0;
+   }
+
+	@Override
+   public int updateCracksState(Cracks cracks) {
+	   // TODO Auto-generated method stub
+	   return 0;
+   }
+
+	@Override
+   public int updateDeformationState(LiningRingDeformation defomation) {
+	   return 0;
+   }
+
+	@Override
+   public int updateGirthFaultState(GirthFault girthFault) {
+	   return 0;
+   }
+
+	@Override
+   public int updateGirthOpenState(GirthOpen girthOpen) {
+	   return 0;
+   }
+
+	@Override
 	public int updateLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
 		try {
 			int result = m_liningRingConstructionDao.updateLiningRingConstruction(liningRingConstruction);
@@ -127,27 +153,12 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	}
 
 	@Override
-   public int updateDeformationState(LiningRingDeformation defomation) {
-	   return 0;
-   }
-
-	@Override
    public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState) {
 	   return 0;
    }
 
 	@Override
-   public int updateGirthOpenState(GirthOpen girthOpen) {
-	   return 0;
-   }
-
-	@Override
-   public int updateGirthFaultState(GirthFault girthFault) {
-	   return 0;
-   }
-
-	@Override
-   public int updateSettlementState(Settlement settlement) {
+   public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault) {
 	   // TODO Auto-generated method stub
 	   return 0;
    }
@@ -159,18 +170,7 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
    }
 
 	@Override
-   public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault) {
-	   // TODO Auto-generated method stub
-	   return 0;
-   }
-
-	@Override
-   public int updateCoverLossState(CoverLoss coverLoss) {
-		return 0;
-   }
-
-	@Override
-   public int updateCracksState(Cracks cracks) {
+   public int updateRustState(Rust rust) {
 	   // TODO Auto-generated method stub
 	   return 0;
    }
@@ -182,7 +182,7 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
    }
 
 	@Override
-   public int updateRustState(Rust rust) {
+   public int updateSettlementState(Settlement settlement) {
 	   // TODO Auto-generated method stub
 	   return 0;
    }

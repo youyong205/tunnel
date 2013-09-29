@@ -119,14 +119,6 @@ public class GirthOpenAction extends FileUploadAction {
 		return m_batchInsertResult;
 	}
 
-	public int getLiningRingConstructionId() {
-		return m_liningRingConstructionId;
-	}
-
-	public List<LiningRingConstruction> getLiningRingConstructions() {
-		return m_liningRingConstructions;
-	}
-
 	public GirthOpen getGirthOpen() {
 		return m_girthOpen;
 	}
@@ -135,8 +127,24 @@ public class GirthOpenAction extends FileUploadAction {
 		return m_girthOpens;
 	}
 
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
+	public int getLiningRingConstructionId() {
+		return m_liningRingConstructionId;
+	}
+
+	public List<LiningRingConstruction> getLiningRingConstructions() {
+		return m_liningRingConstructions;
+	}
+
 	public List<LiningRing> getLiningRings() {
 		return m_liningRings;
+	}
+
+	public int getParentLiningRingConstructionId() {
+		return m_liningRingConstructionId;
 	}
 
 	public int getParentTunnelSectionId() {
@@ -382,14 +390,6 @@ public class GirthOpenAction extends FileUploadAction {
 		m_deleteId = deleteId;
 	}
 
-	public void setLiningRingConstructionId(int liningRingConstructionId) {
-		m_liningRingConstructionId = liningRingConstructionId;
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-		m_liningRingConstructionService = liningRingConstructionService;
-	}
-
 	public void setGirthOpen(GirthOpen girthOpen) {
 		m_girthOpen = girthOpen;
 	}
@@ -400,6 +400,18 @@ public class GirthOpenAction extends FileUploadAction {
 
 	public void setGirthOpenService(GirthOpenService girthOpenService) {
 		m_girthOpenService = girthOpenService;
+	}
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
+	}
+
+	public void setLiningRingConstructionId(int liningRingConstructionId) {
+		m_liningRingConstructionId = liningRingConstructionId;
+	}
+
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+		m_liningRingConstructionService = liningRingConstructionService;
 	}
 
 	public void setLiningRingService(LiningRingService liningRingService) {
@@ -420,18 +432,6 @@ public class GirthOpenAction extends FileUploadAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
-	}
-
-	public List<LiningRingBlock> getLiningRingBlocks() {
-		return m_liningRingBlocks;
-	}
-
-	public int getParentLiningRingConstructionId() {
-		return m_liningRingConstructionId;
 	}
 
 }

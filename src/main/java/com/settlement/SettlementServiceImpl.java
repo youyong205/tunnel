@@ -61,6 +61,17 @@ public class SettlementServiceImpl implements SettlementService {
 		}
 	}
 
+	@Override
+	public Settlement queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		try {
+			return m_settlementDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
+
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Settlement> queryLimitedSettlements(int tunnelId, int tunnelSectionId,
@@ -96,6 +107,10 @@ public class SettlementServiceImpl implements SettlementService {
 		}
 	}
 
+	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
+   	m_liningRingConstructionService = liningRingConstructionService;
+   }
+
 	public void setSettlementDao(SettlementDao settlementDao) {
 		m_settlementDao = settlementDao;
 	}
@@ -111,20 +126,5 @@ public class SettlementServiceImpl implements SettlementService {
 			return -1;
 		}
 	}
-
-	@Override
-	public Settlement queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		try {
-			return m_settlementDao.queryLastestDeformation(tunnelId, tunnelSectionId, liningRingConstructionId);
-
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return null;
-		}
-	}
-
-	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
-   	m_liningRingConstructionService = liningRingConstructionService;
-   }
 	
 }

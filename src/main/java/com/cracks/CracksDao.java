@@ -33,6 +33,28 @@ public class CracksDao {
 	}
 
 	@SuppressWarnings("rawtypes")
+	public List queryCracksByDuration(int liningRingConstructionId, Date start, Date end) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		parameters.put("start", start);
+		parameters.put("end", end);
+
+		return m_baseDao.queryForList("cracks.queryCracksByDuration", parameters);
+	}
+
+	public Cracks queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (Cracks) m_baseDao.queryForObject("cracks.queryLastestDeformation",
+		      parameters);
+	}
+
+	@SuppressWarnings("rawtypes")
 	public List queryLimitedCrackss(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
@@ -44,17 +66,6 @@ public class CracksDao {
 		parameters.put("size", size);
 
 		return m_baseDao.queryForList("cracks.queryLimitedCrackss", parameters);
-	}
-
-	@SuppressWarnings("rawtypes")
-	public List queryCracksByDuration(int liningRingConstructionId, Date start, Date end) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-		parameters.put("start", start);
-		parameters.put("end", end);
-
-		return m_baseDao.queryForList("cracks.queryCracksByDuration", parameters);
 	}
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
@@ -73,17 +84,6 @@ public class CracksDao {
 
 	public int updateCracks(Cracks cracks) {
 		return m_baseDao.update("cracks.update", cracks);
-	}
-
-	public Cracks queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (Cracks) m_baseDao.queryForObject("cracks.queryLastestDeformation",
-		      parameters);
 	}
 
 }

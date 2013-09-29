@@ -32,6 +32,17 @@ public class SeepageDao {
 		return m_baseDao.queryForList("seepage.queryAllSeepages");
 	}
 
+	public Seepage queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (Seepage) m_baseDao.queryForObject("seepage.queryLastestDeformation",
+		      parameters);
+	}
+
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedSeepages(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
@@ -73,17 +84,6 @@ public class SeepageDao {
 
 	public int updateSeepage(Seepage seepage) {
 		return m_baseDao.update("seepage.update", seepage);
-	}
-
-	public Seepage queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (Seepage) m_baseDao.queryForObject("seepage.queryLastestDeformation",
-		      parameters);
 	}
 
 }

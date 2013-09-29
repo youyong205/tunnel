@@ -33,6 +33,28 @@ public class CoverLossDao {
 	}
 
 	@SuppressWarnings("rawtypes")
+	public List queryCoverLossByDuration(int liningRingConstructionId, Date start, Date end) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		parameters.put("start", start);
+		parameters.put("end", end);
+
+		return m_baseDao.queryForList("coverLoss.queryCoverLossByDuration", parameters);
+	}
+
+	public CoverLoss queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+
+		return (CoverLoss) m_baseDao.queryForObject("coverLoss.queryLastestDeformation",
+		      parameters);
+	}
+
+	@SuppressWarnings("rawtypes")
 	public List queryLimitedCoverLosss(int tunnelId, int tunnelSectionId, int liningRingConstructionId,
 	      int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
@@ -44,17 +66,6 @@ public class CoverLossDao {
 		parameters.put("size", size);
 
 		return m_baseDao.queryForList("coverLoss.queryLimitedCoverLosss", parameters);
-	}
-
-	@SuppressWarnings("rawtypes")
-	public List queryCoverLossByDuration(int liningRingConstructionId, Date start, Date end) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-		parameters.put("start", start);
-		parameters.put("end", end);
-
-		return m_baseDao.queryForList("coverLoss.queryCoverLossByDuration", parameters);
 	}
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
@@ -73,17 +84,6 @@ public class CoverLossDao {
 
 	public int updateCoverLoss(CoverLoss coverLoss) {
 		return m_baseDao.update("coverLoss.update", coverLoss);
-	}
-
-	public CoverLoss queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("tunnelId", tunnelId);
-		parameters.put("tunnelSectionId", tunnelSectionId);
-		parameters.put("liningRingConstructionId", liningRingConstructionId);
-
-		return (CoverLoss) m_baseDao.queryForObject("coverLoss.queryLastestDeformation",
-		      parameters);
 	}
 
 }

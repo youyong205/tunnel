@@ -118,6 +118,10 @@ public class RustAction extends FileUploadAction {
 		return m_batchInsertResult;
 	}
 
+	public List<LiningRingBlock> getLiningRingBlocks() {
+		return m_liningRingBlocks;
+	}
+
 	public int getLiningRingConstructionId() {
 		return m_liningRingConstructionId;
 	}
@@ -126,20 +130,20 @@ public class RustAction extends FileUploadAction {
 		return m_liningRingConstructions;
 	}
 
-	public Rust getRust() {
-		return m_rust;
-	}
-
-	public List<Rust> getRusts() {
-		return m_rusts;
-	}
-
 	public List<LiningRing> getLiningRings() {
 		return m_liningRings;
 	}
 
 	public int getParentTunnelSectionId() {
 		return m_tunnelSectionId;
+	}
+
+	public Rust getRust() {
+		return m_rust;
+	}
+
+	public List<Rust> getRusts() {
+		return m_rusts;
 	}
 
 	public int getTunnelId() {
@@ -156,6 +160,12 @@ public class RustAction extends FileUploadAction {
 
 	public List<TunnelSection> getTunnelSections() {
 		return m_tunnelSections;
+	}
+
+	public String queryAllRusts() {
+		m_rusts = m_rustService.queryLimitedRusts(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
+
+		return SUCCESS;
 	}
 
 	public String rustAdd() {
@@ -371,14 +381,12 @@ public class RustAction extends FileUploadAction {
 		}
 	}
 
-	public String queryAllRusts() {
-		m_rusts = m_rustService.queryLimitedRusts(m_tunnelId, m_tunnelSectionId, 0, 0, Integer.MAX_VALUE);
-
-		return SUCCESS;
-	}
-
 	public void setDeleteId(int[] deleteId) {
 		m_deleteId = deleteId;
+	}
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
 	}
 
 	public void setLiningRingConstructionId(int liningRingConstructionId) {
@@ -387,6 +395,10 @@ public class RustAction extends FileUploadAction {
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
 		m_liningRingConstructionService = liningRingConstructionService;
+	}
+
+	public void setLiningRingService(LiningRingService liningRingService) {
+		m_liningRingService = liningRingService;
 	}
 
 	public void setRust(Rust rust) {
@@ -399,10 +411,6 @@ public class RustAction extends FileUploadAction {
 
 	public void setRustService(RustService rustService) {
 		m_rustService = rustService;
-	}
-
-	public void setLiningRingService(LiningRingService liningRingService) {
-		m_liningRingService = liningRingService;
 	}
 
 	public void setTunnelId(int tunnelId) {
@@ -419,14 +427,6 @@ public class RustAction extends FileUploadAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
-	}
-
-	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-		m_liningRingBlockService = liningRingBlockService;
-	}
-
-	public List<LiningRingBlock> getLiningRingBlocks() {
-		return m_liningRingBlocks;
 	}
 
 }

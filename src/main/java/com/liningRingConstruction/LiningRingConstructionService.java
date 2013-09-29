@@ -29,28 +29,28 @@ public interface LiningRingConstructionService {
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 
-	public int updateLiningRingConstruction(LiningRingConstruction liningRingConstruction);
-
-	public int updateDeformationState(LiningRingDeformation defomation);
-
-	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState);
-
-	public int updateGirthOpenState(GirthOpen girthOpen);
-
-	public int updateLongitudinalOpenState(LongitudinalOpen longitudinalOpen);
-
-	public int updateGirthFaultState(GirthFault girthFault);
-
-	public int updateSettlementState(Settlement settlement);
-
-	public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault);
-
 	public int updateCoverLossState(CoverLoss coverLoss);
 
 	public int updateCracksState(Cracks cracks);
 
-	public int updateSeepageState(Seepage seepage);
+	public int updateDeformationState(LiningRingDeformation defomation);
+
+	public int updateGirthFaultState(GirthFault girthFault);
+
+	public int updateGirthOpenState(GirthOpen girthOpen);
+
+	public int updateLiningRingConstruction(LiningRingConstruction liningRingConstruction);
+
+	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState);
+
+	public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault);
+
+	public int updateLongitudinalOpenState(LongitudinalOpen longitudinalOpen);
 
 	public int updateRustState(Rust rust);
+
+	public int updateSeepageState(Seepage seepage);
+
+	public int updateSettlementState(Settlement settlement);
 
 }
