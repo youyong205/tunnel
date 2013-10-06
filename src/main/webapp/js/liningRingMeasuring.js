@@ -2,6 +2,9 @@ function tunnelChanged() {
 	tunnelChangedInternal(true, false);
 }
 
+function tunnelChanged(excludeClildAll,excludeNexChildAll){
+	tunnelChangedInternal(excludeClildAll, excludeNexChildAll);
+}
 
 function tunnelChangedExcluedeAll() {
 	tunnelChangedInternal(true, true);
@@ -9,7 +12,6 @@ function tunnelChangedExcluedeAll() {
 
 function tunnelChangedInternal(excludeClildAll, excludeNexChildAll) {
 	document.getElementById('tunnelSectionId').options.length = 0;
-	console.log("===="+excludeClildAll+"=======");
 	var id = $('#tunnelId').val();
 	$.ajax({
 		type : "get",
@@ -153,7 +155,7 @@ function checkForm() {
 }
 
 
-function graphLineChart(title,lable,data){
+function graphLineChart(title,lable,unit,data){
 	Highcharts.setOptions({
 	    global: {
 	        useUTC: false
@@ -183,14 +185,14 @@ function graphLineChart(title,lable,data){
         },
         yAxis: {
             title: {
-                text: lable
+                text: lable + unit
             },
             min: 0
         },
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
-                    Highcharts.dateFormat('%Y-%m-%d', this.x) +' '+lable+' = '+ this.y;
+                    Highcharts.dateFormat('%Y-%m-%d', this.x) +' '+lable+' = '+ this.y+unit;
             }
         },
         series:data

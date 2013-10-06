@@ -85,9 +85,9 @@
 			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">横断面变形</a></td>
 			    					<td colspan='20'><span class="level<s:property value="liningRingConstruction.deformationState"/>"><s:property value="liningRingConstruction.deformationState"/></span></td></tr>
 	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵断面变形</a></td>
-	    							<td colspan='20' ><span class="level<s:property value="liningRingConstruction.LongitudinalDeformationState"/>"><s:property value="liningRingConstruction.LongitudinalDeformationState"/></span></td></tr>
+	    							<td colspan='20' ><span class="level<s:property value="liningRingConstruction.longitudinalDeformationState"/>"><s:property value="liningRingConstruction.longitudinalDeformationState"/></span></td></tr>
 	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">环缝错台</a></td>
-	    							<td colspan='20'><span class="level<s:property value="liningRingConstruction.girthFaultRingState.state"/>"><s:property value="liningRingConstruction.girthFaultRingState.state"/></span></td></tr>
+	    							<td colspan='20'><span class="level<s:property value="liningRingConstruction.girthFaultState"/>"><s:property value="liningRingConstruction.girthFaultState"/></span></td></tr>
 	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">裂缝状态</a></td>
 			    				<td><span class="level<s:property value="liningRingConstruction.cracksRingState.state"/>"><s:property value="liningRingConstruction.cracksRingState.state"/></span></td>
 			    				<s:iterator value="liningRingConstruction.cracksRingState.states">

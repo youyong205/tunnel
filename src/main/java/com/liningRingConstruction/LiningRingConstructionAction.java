@@ -53,6 +53,16 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	private List<LiningRing> m_liningRings;
 
+	private String[] m_longitudinalOpenState = new String[10];
+
+	private String[] m_girthOpenState = new String[10];
+
+	private String[] m_longitudinalFaultState = new String[10];
+
+	private String[] m_coverLossState = new String[10];
+
+	private String[] m_cracksState = new String[10];
+
 	@Override
 	public String getActionModule() {
 		return Modules.s_liningRingConstruction_model;
@@ -105,6 +115,65 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		return SUCCESS;
 	}
 
+	private void buildDefaultState(LiningRingConstruction liningRingConstruction) {
+		int liningRingId = m_liningRingConstruction.getLiningRingId();
+		int size = m_liningRingBlockService.queryByLiningRingId(liningRingId).size();
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+
+		for (int i = 0; i < size; i++) {
+			if (first) {
+				sb.append("-");
+				first = false;
+			} else {
+				sb.append(",").append("-");
+			}
+		}
+		String defaultState = "-";
+		String defaultBlockState = sb.toString();
+
+		m_liningRingConstruction.setDeformationState(defaultState);
+		m_liningRingConstruction.setLongitudinalDeformationState(defaultState);
+		m_liningRingConstruction.setGirthFaultState(defaultState);
+
+		m_liningRingConstruction.setLongitudinalOpenState(defaultBlockState);
+		m_liningRingConstruction.setGirthOpenState(defaultBlockState);
+		m_liningRingConstruction.setLongitudinalFaultState(defaultBlockState);
+		m_liningRingConstruction.setCoverLossState(defaultBlockState);
+		m_liningRingConstruction.setCracksState(defaultBlockState);
+	}
+
+	private String buildBlockState(String[] states) {
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+		int size = states.length;
+
+		for (int i = 0; i < size; i++) {
+			String item = states[i];
+
+			if (first) {
+				if (item != null && item.length() > 0) {
+					sb.append(item);
+					first = false;
+				}
+			} else {
+				if (item != null && item.length() > 0) {
+					sb.append(",").append(item);
+				}
+			}
+		}
+		
+		return sb.toString();
+	}
+
+	private void updateDefaultState(LiningRingConstruction liningRingConstruction) {
+		m_liningRingConstruction.setLongitudinalOpenState(buildBlockState(m_longitudinalOpenState));
+		m_liningRingConstruction.setGirthOpenState(buildBlockState(m_girthOpenState));
+		m_liningRingConstruction.setLongitudinalFaultState(buildBlockState(m_longitudinalFaultState));
+		m_liningRingConstruction.setCoverLossState(buildBlockState(m_coverLossState));
+		m_liningRingConstruction.setCracksState(buildBlockState(m_cracksState));
+	}
+
 	public String liningRingConstructionAddSubmit() {
 		Authority auth = checkAuthority(buildResource(Modules.s_liningRingConstruction_model, Operation.s_operation_add));
 		if (auth != null) {
@@ -114,7 +183,7 @@ public class LiningRingConstructionAction extends ScheduledAction {
 			m_schedule.setType(getActionModule());
 			int scheduleId = m_scheduleService.insertSchedule(m_schedule);
 			m_liningRingConstruction.setScheduleId(scheduleId);
-
+			buildDefaultState(m_liningRingConstruction);
 			int id = m_liningRingConstructionService.insertLiningRingConstruction(m_liningRingConstruction);
 			if (id > 0) {
 				Log log = createLog(Modules.s_liningRingConstruction_model, Operation.s_operation_add,
@@ -223,8 +292,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 		if (auth != null) {
 			return auth.getName();
 		}
+
 		try {
 			m_scheduleService.updateSchedule(m_schedule);
+			updateDefaultState(m_liningRingConstruction);
 			int count = m_liningRingConstructionService.updateLiningRingConstruction(m_liningRingConstruction);
 			if (count > 0) {
 				Log log = createLog(Modules.s_liningRingConstruction_model, Operation.s_operation_update,
@@ -298,5 +369,25 @@ public class LiningRingConstructionAction extends ScheduledAction {
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
+
+	public void setLongitudinalOpenState(String[] longitudinalOpenState) {
+   	m_longitudinalOpenState = longitudinalOpenState;
+   }
+
+	public void setGirthOpenState(String[] girthOpenState) {
+		m_girthOpenState = girthOpenState;
+   }
+
+	public void setLongitudinalFaultState(String[] longitudinalFaultState) {
+   	m_longitudinalFaultState = longitudinalFaultState;
+   }
+
+	public void setCoverLossState(String[] coverLossState) {
+   	m_coverLossState = coverLossState;
+   }
+
+	public void setCracksState(String[] cracksState) {
+   	m_cracksState = cracksState;
+   }
 
 }

@@ -2,6 +2,8 @@ package com.liningRingConstruction;
 
 public enum Level {
 
+	NULL("-"),
+	
 	A("A"),
 
 	B("B"),

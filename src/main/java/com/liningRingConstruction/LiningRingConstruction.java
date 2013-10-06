@@ -128,7 +128,10 @@ public class LiningRingConstruction {
 			if (str.indexOf(Level.B.getName()) > -1) {
 				return Level.B.getName();
 			}
-			return Level.A.getName();
+			if (str.indexOf(Level.A.getName()) > -1) {
+				return Level.A.getName();
+			}
+			return Level.NULL.getName();
 		}
 	}
 

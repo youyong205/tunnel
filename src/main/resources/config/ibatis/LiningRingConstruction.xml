@@ -55,7 +55,7 @@
 		#gap3#,#gap4#,#gap5#,#gap6#,#gap7#,#gap8#,#diameter#,#verticalDiameter#,
 		#leftUp#,#leftDown#,#rightUp#,#rightDown#,#des#,
 		#deformationState#,#longitudinalDeformationState#,#girthOpenState#,#longitudinalOpenState#,
-		#girthFaultState#,#longitudinalFaultState#,#coverLossState#,#cracksState#
+		#girthFaultState#,#longitudinalFaultState#,#coverLossState#,#cracksState#,
 		now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>

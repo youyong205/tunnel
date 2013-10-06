@@ -25,7 +25,7 @@
 		$('#datetimepicker2').datetimepicker();
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
-		graphLineChart("横断面检测趋势图","测量值(mm)",data.series)
+		graphLineChart("横断面检测趋势图","测量值","(mm)",data.series);
 	});
 </script>
 

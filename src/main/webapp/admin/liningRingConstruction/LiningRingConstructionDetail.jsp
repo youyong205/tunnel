@@ -178,6 +178,141 @@ $(document).ready(function() {
 						<td colspan='3'><textarea readonly type="text" rows="5" cols="40"  name="liningRingConstruction.des" class="{maxlength:512}"><s:property value="liningRingConstruction.des"/></textarea></td>
 					</tr>
 					</table>
+					<table class="table table-striped table-bordered table-condensed table-hover">
+		    				<tr>	
+								<th colspan='20'><h4 class="text-info text-center">服役状态信息</h4></th>
+							</tr>
+		    				<tr><th style='text-align:right'>指标</td><th>综合指标</th>
+		    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
+		    					<th>第<s:property value='#vs.index+1'/>块</th>
+		    				</s:iterator></tr>
+		    				<script type="text/javascript">
+								$(document).ready(function() {
+									$('#deformationState').val('<s:property value="liningRingConstruction.deformationState"/>');
+									$('#longitudinalDeformationState').val('<s:property value="liningRingConstruction.longitudinalDeformationState"/>');
+									$('#girthFaultState').val('<s:property value="liningRingConstruction.girthFaultState"/>');
+									
+									<s:iterator value="liningRingConstruction.cracksRingState.states" status="vs">
+										$('#cracksState'+<s:property value="#vs.index"/>).val('<s:property value="state"/>');
+				    				</s:iterator>
+				    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
+										$('#girthOpenState'+<s:property value="#vs.index"/>).val('<s:property value="state"/>');
+				    				</s:iterator>
+				    				<s:iterator value="liningRingConstruction.longitudinalOpenRingState.states" status="vs">
+										$('#longitudinalOpenState'+<s:property value="#vs.index"/>).val('<s:property value="state"/>');
+				    				</s:iterator>
+				    				<s:iterator value="liningRingConstruction.longitudinalFaultRingState.states" status="vs">
+										$('#longitudinalFaultState'+<s:property value="#vs.index"/>).val('<s:property value="state"/>');
+				    				</s:iterator>
+				    				<s:iterator value="liningRingConstruction.coverLossRingState.states" status="vs">
+										$('#coverLossState'+<s:property value="#vs.index"/>).val('<s:property value="state"/>');
+				    				</s:iterator>
+								});
+								</script>
+		    				<tr><td style='text-align:right'>横断面变形</td>
+		    					<td colspan='20'>
+		    					<select name="liningRingConstruction.deformationState" id="deformationState">
+		    						<option value="-">未检测</option>
+		    						<option value="A">正常</option>
+		    						<option value="B">退化</option>
+		    						<option value="C">劣化</option>
+		    						<option value="D">恶化</option>
+		    						<option value="E">危险</option>
+		    					</select>
+		    					</td></tr>
+    						<tr><td style='text-align:right'>纵断面变形</td>
+    							<td colspan='20' >
+    							<select name="liningRingConstruction.longitudinalDeformationState" id="longitudinalDeformationState">
+		    						<option value="-">未检测</option>
+		    						<option value="A">正常</option>
+		    						<option value="B">退化</option>
+		    						<option value="C">劣化</option>
+		    						<option value="D">恶化</option>
+		    						<option value="E">危险</option>
+		    					</select>
+    							</td></tr>
+    						<tr><td style='text-align:right'>环缝错台</td>
+    							<td colspan='20'>
+    							<select name="liningRingConstruction.girthFaultState" id="girthFaultState">
+		    						<option value="-">未检测</option>
+		    						<option value="A">正常</option>
+		    						<option value="B">退化</option>
+		    						<option value="C">劣化</option>
+		    						<option value="D">恶化</option>
+		    						<option value="E">危险</option>
+		    					</select>
+    						<tr><td style='text-align:right'>裂缝状态</td>
+		    				<td><span class="level<s:property value="liningRingConstruction.cracksRingState.state"/>"><s:property value="liningRingConstruction.cracksRingState.state"/></span></td>
+		    				<s:iterator value="liningRingConstruction.cracksRingState.states" status="vs">
+		    						<td><select name="cracksState" id="cracksState<s:property value='#vs.index'/>">
+			    						<option value="-">未检测</option>
+			    						<option value="A">正常</option>
+			    						<option value="B">退化</option>
+			    						<option value="C">劣化</option>
+			    						<option value="D">恶化</option>
+			    						<option value="E">危险</option>
+			    					</select>
+			    					<span class="level<s:property value="state"/>"><s:property value="state"/></span>
+		    					</td>
+		    				</s:iterator></tr>
+		    				<tr><td style='text-align:right'>环缝张开</td>
+		    				<td><span class="level<s:property value="liningRingConstruction.girthOpenRingState.state"/>"><s:property value="liningRingConstruction.girthOpenRingState.state"/></span></td>
+		    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
+		    					<td>
+		    						<select name="girthOpenState" id="girthOpenState<s:property value='#vs.index'/>">
+			    						<option value="-">未检测</option>
+			    						<option value="A">正常</option>
+			    						<option value="B">退化</option>
+			    						<option value="C">劣化</option>
+			    						<option value="D">恶化</option>
+			    						<option value="E">危险</option>
+			    					</select>
+		    					<span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+		    				</s:iterator></tr>
+		    				<tr><td style='text-align:right'>纵缝张开</td>
+		    				<td><span class="level<s:property value="liningRingConstruction.longitudinalOpenRingState.state"/>"><s:property value="liningRingConstruction.longitudinalOpenRingState.state"/></span></td>
+		    				<s:iterator value="liningRingConstruction.longitudinalOpenRingState.states" status="vs">
+		    					<td>
+		    						<select name="longitudinalOpenState" id="longitudinalOpenState<s:property value='#vs.index'/>">
+			    						<option value="-">未检测</option>
+			    						<option value="A">正常</option>
+			    						<option value="B">退化</option>
+			    						<option value="C">劣化</option>
+			    						<option value="D">恶化</option>
+			    						<option value="E">危险</option>
+			    					</select>
+		    					<span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+		    				</s:iterator></tr>
+		    				<tr><td style='text-align:right'>纵缝错台</td>
+		    				<td><span class="level<s:property value="liningRingConstruction.longitudinalFaultRingState.state"/>"><s:property value="liningRingConstruction.longitudinalFaultRingState.state"/></span></td>
+		    				<s:iterator value="liningRingConstruction.longitudinalFaultRingState.states" status="vs">
+		    					<td>
+		    						<select name="longitudinalFaultState" id="longitudinalFaultState<s:property value='#vs.index'/>">
+			    						<option value="-">未检测</option>
+			    						<option value="A">正常</option>
+			    						<option value="B">退化</option>
+			    						<option value="C">劣化</option>
+			    						<option value="D">恶化</option>
+			    						<option value="E">危险</option>
+			    					</select>
+			    					
+		    					<span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+		    				</s:iterator></tr>
+    						<tr><td style='text-align:right'>保护层损失</td>
+    						<td><span class="level<s:property value="liningRingConstruction.coverLossRingState.state"/>"><s:property value="liningRingConstruction.coverLossRingState.state"/></span></td>
+		    				<s:iterator value="liningRingConstruction.coverLossRingState.states" status="vs">
+		    					<td>
+		    						<select name="coverLossState" id="coverLossState<s:property value='#vs.index'/>">
+			    						<option value="-">未检测</option>
+			    						<option value="A">正常</option>
+			    						<option value="B">退化</option>
+			    						<option value="C">劣化</option>
+			    						<option value="D">恶化</option>
+			    						<option value="E">危险</option>
+			    					</select>
+		    					<span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+		    				</s:iterator></tr>
+    					</table>
 					<%@include file="./../schedule/ScheduleDetail.jsp"%>
 			</form>
       </div>

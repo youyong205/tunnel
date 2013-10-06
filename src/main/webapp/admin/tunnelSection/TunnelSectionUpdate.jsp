@@ -72,11 +72,11 @@ $(document).ready(function() {
 						<td width="20%" style="text-align:right;"><strong class="text-success">服役等级</strong></td>
 						<td>
 							<select name="tunnelSection.state" id='state'>
-								<option value="A">A</option>
-								<option value="B">B</option>
-								<option value="C">C</option>
-								<option value="D">D</option>
-								<option value="E">E</option>
+		    						<option value="A">正常</option>
+		    						<option value="B">退化</option>
+		    						<option value="C">劣化</option>
+		    						<option value="D">恶化</option>
+		    						<option value="E">危险</option>
 							</select>
 						</td>
 					</tr>
