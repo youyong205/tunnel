@@ -41,6 +41,7 @@ public class PlankCuringAction extends CuringAction {
 		}
 		m_tunnels = m_tunnelService.queryAllTunnels();
 		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		m_items = queryItems(m_tunnelId, m_tunnelSectionId);
 		return super.curingList();
 	}
 

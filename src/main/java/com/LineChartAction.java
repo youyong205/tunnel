@@ -1,13 +1,20 @@
 package com;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
+
+import com.liningRingConstruction.LiningRingConstruction;
 
 public abstract class LineChartAction extends FileUploadAction {
 
 	private static final long serialVersionUID = 6612697338740069923L;
 
 	protected LineChart m_lineChart;
+
+	protected LineChart m_secondLineChart;
+
+	protected LiningRingConstruction m_liningRingConstruction;
 
 	protected Date m_start;
 
@@ -38,4 +45,32 @@ public abstract class LineChartAction extends FileUploadAction {
 		} catch (ParseException e) {
 		}
 	}
+
+	public LiningRingConstruction getLiningRingConstruction() {
+		return m_liningRingConstruction;
+	}
+
+	public void setLiningRingConstruction(LiningRingConstruction liningRingConstruction) {
+		m_liningRingConstruction = liningRingConstruction;
+	}
+
+	public LineChart getSecondLineChart() {
+		return m_secondLineChart;
+	}
+
+	public void setSecondLineChart(LineChart secondLineChart) {
+		m_secondLineChart = secondLineChart;
+	}
+
+	protected long formatTime(Date date) {
+		Calendar cal = Calendar.getInstance();
+
+		cal.setTime(date);
+		cal.set(Calendar.HOUR, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTimeInMillis();
+	}
+
 }

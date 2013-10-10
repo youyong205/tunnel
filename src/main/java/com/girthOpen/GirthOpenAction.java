@@ -1,8 +1,11 @@
 package com.girthOpen;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -12,7 +15,8 @@ import org.apache.log4j.Logger;
 
 import com.Authority;
 import com.BatchInsertResult;
-import com.FileUploadAction;
+import com.LineChart;
+import com.LineChartAction;
 import com.Modules;
 import com.Operation;
 import com.liningRing.LiningRing;
@@ -27,7 +31,7 @@ import com.tunnel.TunnelService;
 import com.tunnelSection.TunnelSection;
 import com.tunnelSection.TunnelSectionService;
 
-public class GirthOpenAction extends FileUploadAction {
+public class GirthOpenAction extends LineChartAction {
 
 	private static final long serialVersionUID = 2802256599554299998L;
 
@@ -336,6 +340,56 @@ public class GirthOpenAction extends FileUploadAction {
 		}
 	}
 
+	public String girthOpenQuery() {
+		if (m_start == null || m_end == null) {
+			m_end = new Date();
+
+			Calendar cal = Calendar.getInstance();
+			cal.add(Calendar.MONTH, -1);
+			m_start = cal.getTime();
+		}
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+		m_tunnels = m_tunnelService.queryAllTunnels();
+		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		if (m_tunnelSectionId == 0 && m_tunnelSections != null && m_tunnelSections.size() > 0) {
+			m_tunnelSectionId = m_tunnelSections.get(0).getId();
+		}
+		if (m_tunnelSectionId > 0) {
+			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+			      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		} else {
+			m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
+		}
+
+		if (m_liningRingConstructionId == 0 && m_liningRingConstructions.size() > 0) {
+			m_liningRingConstructionId = m_liningRingConstructions.get(0).getId();
+		}
+
+		m_lineChart = new LineChart();
+		m_girthOpens = m_girthOpenService.queryGirthOpenByDuration(
+		      m_liningRingConstructionId, m_start, m_end);
+
+		Map<Long, Double> datas = new LinkedHashMap<Long, Double>();
+		if (m_girthOpens != null) {
+			for (GirthOpen deformation : m_girthOpens) {
+				Date date = deformation.getDate();
+
+				datas.put(formatTime(date), deformation.getValue());
+			}
+		}
+		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
+		m_lineChart.add("环缝张开", datas);
+
+		m_girthOpens = m_girthOpenService.queryLimitedGirthOpens(m_tunnelId,
+		      m_tunnelSectionId, m_liningRingConstructionId, 0, 1);
+
+		if (m_girthOpens != null && m_girthOpens.size() == 1) {
+			m_girthOpen = m_girthOpens.get(0);
+		}
+		return SUCCESS;
+	}
 	public String girthOpenUpdate() {
 		try {
 			m_liningRings = m_liningRingService.queryAllLiningRings();

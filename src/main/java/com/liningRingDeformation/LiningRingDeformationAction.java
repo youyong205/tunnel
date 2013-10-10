@@ -361,13 +361,8 @@ public class LiningRingDeformationAction extends LineChartAction {
 		if (m_liningRingDeformations != null) {
 			for (LiningRingDeformation deformation : m_liningRingDeformations) {
 				Date date = deformation.getDate();
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(date);
-				cal.set(Calendar.HOUR, 0);
-				cal.set(Calendar.MINUTE, 0);
-				cal.set(Calendar.SECOND, 0);
-				cal.set(Calendar.MILLISECOND, 0);
-				datas.put(date.getTime(), deformation.getValue());
+
+				datas.put(formatTime(date), deformation.getValue());
 			}
 		}
 		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);

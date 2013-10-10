@@ -185,4 +185,25 @@
 			<ref bean="tunnelSectionService" />
 		</property>
 	</bean>
+	
+	<bean id="liningRingConstructionInspectionAction" class="com.liningRingConstruction.LiningRingConstructionInspectionAction" scope="prototype">
+		<property name="inspectionService">
+			<ref bean="inspectionService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="liningRingConstructionService">
+			<ref bean="liningRingConstructionService" />
+		</property>
+		<property name="constructionUnitService">
+			<ref bean="constructionUnitService" />
+		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
+	</bean>
 </beans>  

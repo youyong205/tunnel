@@ -1,8 +1,11 @@
 package com.liningRingLongitudinalDeformation;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -12,7 +15,8 @@ import org.apache.log4j.Logger;
 
 import com.Authority;
 import com.BatchInsertResult;
-import com.FileUploadAction;
+import com.LineChart;
+import com.LineChartAction;
 import com.Modules;
 import com.Operation;
 import com.liningRing.LiningRing;
@@ -25,7 +29,7 @@ import com.tunnel.TunnelService;
 import com.tunnelSection.TunnelSection;
 import com.tunnelSection.TunnelSectionService;
 
-public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
+public class LiningRingLongitudinalDeformationAction extends LineChartAction {
 
 	private static final long serialVersionUID = 2802256599554299998L;
 
@@ -327,6 +331,58 @@ public class LiningRingLongitudinalDeformationAction extends FileUploadAction {
 		}
 	}
 
+
+	public String liningRingLongitudinalDeformationQuery() {
+		if (m_start == null || m_end == null) {
+			m_end = new Date();
+
+			Calendar cal = Calendar.getInstance();
+			cal.add(Calendar.MONTH, -1);
+			m_start = cal.getTime();
+		}
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+		m_tunnels = m_tunnelService.queryAllTunnels();
+		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		if (m_tunnelSectionId == 0 && m_tunnelSections != null && m_tunnelSections.size() > 0) {
+			m_tunnelSectionId = m_tunnelSections.get(0).getId();
+		}
+		if (m_tunnelSectionId > 0) {
+			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+			      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		} else {
+			m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
+		}
+
+		if (m_liningRingConstructionId == 0 && m_liningRingConstructions.size() > 0) {
+			m_liningRingConstructionId = m_liningRingConstructions.get(0).getId();
+		}
+
+		m_lineChart = new LineChart();
+		m_liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService.queryLiningRingLongitudinalDeformationByDuration(
+		      m_liningRingConstructionId, m_start, m_end);
+
+		Map<Long, Double> datas = new LinkedHashMap<Long, Double>();
+		if (m_liningRingLongitudinalDeformations != null) {
+			for (LiningRingLongitudinalDeformation deformation : m_liningRingLongitudinalDeformations) {
+				Date date = deformation.getDate();
+
+				datas.put(formatTime(date), deformation.getValue());
+			}
+		}
+		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
+		m_lineChart.add("纵断面变形", datas);
+
+		m_liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService.queryLimitedLiningRingLongitudinalDeformations(m_tunnelId,
+		      m_tunnelSectionId, m_liningRingConstructionId, 0, 1);
+
+		if (m_liningRingLongitudinalDeformations != null && m_liningRingLongitudinalDeformations.size() == 1) {
+			m_liningRingLongitudinalDeformation = m_liningRingLongitudinalDeformations.get(0);
+		}
+		return SUCCESS;
+	}
+	
 	public String liningRingLongitudinalDeformationUpdate() {
 		try {
 			m_liningRings = m_liningRingService.queryAllLiningRings();

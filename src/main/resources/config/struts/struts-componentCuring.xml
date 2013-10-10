@@ -201,5 +201,28 @@
 		<action name="pumpingStationCuringDelete" class="pumpingStationCuringAction" method="curingDelete">
 			<result name="success" type="redirect">pumpingStationCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
 		</action>
+		
+		<action name="liningRingConstructionCuringList" class="liningRingConstructionCuringAction" method="curingList">
+			<result name="success">admin/liningRingConstructionCuring/LiningRingConstructionCuringList.jsp </result>
+		</action>
+		<action name="liningRingConstructionCuringAdd" class="liningRingConstructionCuringAction" method="curingAdd">
+			<result name="success">admin/liningRingConstructionCuring/LiningRingConstructionCuringAdd.jsp </result>
+		</action>
+		<action name="liningRingConstructionCuringAddSubmit" class="liningRingConstructionCuringAction" method="curingAddSubmit">
+			<result name="success" type="redirect">liningRingConstructionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="liningRingConstructionCuringUpdate" class="liningRingConstructionCuringAction" method="curingUpdate">
+			<result name="success">admin/liningRingConstructionCuring/LiningRingConstructionCuringUpdate.jsp</result>
+		</action>
+		<action name="liningRingConstructionCuringDetail" class="liningRingConstructionCuringAction" method="curingUpdate">
+			<result name="success">admin/liningRingConstructionCuring/LiningRingConstructionCuringDetail.jsp</result>
+		</action>
+		<action name="liningRingConstructionCuringUpdateSubmit" class="liningRingConstructionCuringAction" method="curingUpdateSubmit">
+			<result name="success" type="redirect">liningRingConstructionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="liningRingConstructionCuringDelete" class="liningRingConstructionCuringAction" method="curingDelete">
+			<result name="success" type="redirect">liningRingConstructionCuringList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		
 	</package>
 </struts>	

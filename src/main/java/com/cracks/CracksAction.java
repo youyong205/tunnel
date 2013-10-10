@@ -1,8 +1,13 @@
 package com.cracks;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -12,7 +17,8 @@ import org.apache.log4j.Logger;
 
 import com.Authority;
 import com.BatchInsertResult;
-import com.FileUploadAction;
+import com.LineChart;
+import com.LineChartAction;
 import com.Modules;
 import com.Operation;
 import com.liningRing.LiningRing;
@@ -27,7 +33,7 @@ import com.tunnel.TunnelService;
 import com.tunnelSection.TunnelSection;
 import com.tunnelSection.TunnelSectionService;
 
-public class CracksAction extends FileUploadAction {
+public class CracksAction extends LineChartAction {
 
 	private static final long serialVersionUID = 2802256599554299998L;
 
@@ -281,6 +287,96 @@ public class CracksAction extends FileUploadAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
+	}
+
+	public String cracksQuery() {
+		if (m_start == null || m_end == null) {
+			m_end = new Date();
+
+			Calendar cal = Calendar.getInstance();
+			cal.add(Calendar.MONTH, -1);
+			m_start = cal.getTime();
+		}
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+		m_tunnels = m_tunnelService.queryAllTunnels();
+		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		if (m_tunnelSectionId == 0 && m_tunnelSections != null && m_tunnelSections.size() > 0) {
+			m_tunnelSectionId = m_tunnelSections.get(0).getId();
+		}
+		if (m_tunnelSectionId > 0) {
+			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+			      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		} else {
+			m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
+		}
+
+		if (m_liningRingConstructionId == 0 && m_liningRingConstructions.size() > 0) {
+			m_liningRingConstructionId = m_liningRingConstructions.get(0).getId();
+		}
+
+		m_lineChart = new LineChart();
+		m_crackss = m_cracksService.queryCracksByDuration(m_liningRingConstructionId, m_start, m_end);
+
+		Function widthImpl = new Function() {
+			@Override
+			public double getValue(Cracks cracks) {
+				return cracks.getWidth();
+			}
+		};
+
+		Function numberImple = new Function() {
+			@Override
+			public double getValue(Cracks cracks) {
+				return cracks.getNumber();
+			}
+		};
+		m_lineChart = new LineChart();
+		m_secondLineChart = new LineChart();
+		buildChart(m_lineChart, m_crackss, widthImpl);
+		buildChart(m_secondLineChart, m_crackss, numberImple);
+		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
+		return SUCCESS;
+	}
+
+	private void buildChart(LineChart lineChart, List<Cracks> crackss, Function function) {
+		Map<Integer, Map<Long, Double>> allDatas = new TreeMap<Integer, Map<Long, Double>>();
+		Map<Long, Double> all = new LinkedHashMap<Long, Double>();
+		if (crackss != null) {
+			for (Cracks cracks : crackss) {
+				int blockIndex = cracks.getBlockIndex();
+				Date date = cracks.getDate();
+				long time = formatTime(date);
+
+				Map<Long, Double> datas = allDatas.get(blockIndex);
+
+				if (datas == null) {
+					datas = new LinkedHashMap<Long, Double>();
+					allDatas.put(blockIndex, datas);
+				}
+
+				Double value = all.get(time);
+				double width = function.getValue(cracks);
+				if (value == null) {
+					all.put(time, width);
+				} else {
+					all.put(time, value + width);
+				}
+
+				datas.put(time, width);
+			}
+		}
+
+		lineChart.add("所有块", all);
+		for (Entry<Integer, Map<Long, Double>> entry : allDatas.entrySet()) {
+			lineChart.add("第" + entry.getKey() + "块", entry.getValue());
+		}
+	}
+
+	public static interface Function {
+
+		double getValue(Cracks cracks);
 	}
 
 	public String cracksUpdate() {

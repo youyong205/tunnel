@@ -1,4 +1,12 @@
 function tunnelChanged(){
+	tunnelChangedInternal(true);
+}
+
+function tunnelChanged(excludeAll){
+	tunnelChangedInternal(excludeAll);
+}
+
+function tunnelChangedInternal(w){
 	document.getElementById('componentId').options.length = 0;
 	var id = $('#tunnelId').val();
 	$.ajax({
@@ -9,6 +17,9 @@ function tunnelChanged(){
 			var value = data.buriedSections;
 
 			if (value != null) {
+				if(!excluedeAll){
+					obj.append("<option value='0'>ALL</option>");
+				}
 				for ( var i = 0; i < value.length; i++) {
 					obj.append("<option value='" + value[i].id + "'>"
 							+ value[i].name + "</option>");
@@ -17,4 +28,3 @@ function tunnelChanged(){
 		}
 	});
 }
-

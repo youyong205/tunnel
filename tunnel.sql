@@ -696,6 +696,22 @@ CREATE TABLE `curing`(
   KEY `ix_tunnel_section_type` (`tunnelId`,`tunnelSectionId`,`type`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='隧道养护基本信息';
 
+CREATE TABLE `mailRecord` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `type` int(11) NOT NULL COMMENT '发送邮件的内容，1表示告警邮件，2表示每日报表邮件',
+  `time` datetime NOT NULL COMMENT '发送时间',
+  `receivers` varchar(500) NOT NULL COMMENT '接受用户邮件列表',
+  `title` varchar(200) NOT NULL COMMENT '邮件标题',
+  `content` text NOT NULL COMMENT '邮件具体内容',
+  `status` int(11) NOT NULL COMMENT '1表示发送成功、2表示发送失败',
+  `creation_date` datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='邮件通知记录表';
+
+
+
+
 
 
 

@@ -202,5 +202,26 @@
 			<result name="success" type="redirect">pumpingStationInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
 		</action>
 		
+		<action name="liningRingConstructionInspectionList" class="liningRingConstructionInspectionAction" method="inspectionList">
+			<result name="success">admin/liningRingConstructionInspection/LiningRingConstructionInspectionList.jsp </result>
+		</action>
+		<action name="liningRingConstructionInspectionAdd" class="liningRingConstructionInspectionAction" method="inspectionAdd">
+			<result name="success">admin/liningRingConstructionInspection/LiningRingConstructionInspectionAdd.jsp </result>
+		</action>
+		<action name="liningRingConstructionInspectionAddSubmit" class="liningRingConstructionInspectionAction" method="inspectionAddSubmit">
+			<result name="success" type="redirect">liningRingConstructionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId} </result>
+		</action>
+		<action name="liningRingConstructionInspectionUpdate" class="liningRingConstructionInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/liningRingConstructionInspection/LiningRingConstructionInspectionUpdate.jsp</result>
+		</action>
+		<action name="liningRingConstructionInspectionDetail" class="liningRingConstructionInspectionAction" method="inspectionUpdate">
+			<result name="success">admin/liningRingConstructionInspection/LiningRingConstructionInspectionDetail.jsp</result>
+		</action>
+		<action name="liningRingConstructionInspectionUpdateSubmit" class="liningRingConstructionInspectionAction" method="inspectionUpdateSubmit">
+			<result name="success" type="redirect">liningRingConstructionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
+		<action name="liningRingConstructionInspectionDelete" class="liningRingConstructionInspectionAction" method="inspectionDelete">
+			<result name="success" type="redirect">liningRingConstructionInspectionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
+		</action>
 	</package>
 </struts>	

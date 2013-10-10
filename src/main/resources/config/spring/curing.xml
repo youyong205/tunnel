@@ -11,7 +11,7 @@
 			<ref bean="curingDao" />
 		</property>
 	</bean>
-		<bean id="contactChannelCuringAction" class="com.contactChannel.ContactChannelCuringAction" scope="prototype">
+	<bean id="contactChannelCuringAction" class="com.contactChannel.ContactChannelCuringAction" scope="prototype">
 		<property name="curingService">
 			<ref bean="curingService" />
 		</property>

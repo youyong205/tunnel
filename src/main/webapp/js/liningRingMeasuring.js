@@ -155,6 +155,51 @@ function checkForm() {
 }
 
 
+function graphLineChartContainer(container,title,lable,unit,data){
+	Highcharts.setOptions({
+	    global: {
+	        useUTC: false
+	    }
+	});
+	console.log(container);
+	$('#'+container).highcharts({
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text:  title
+        },
+        credits : {
+            enabled:false
+        },
+        xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: { // don't display the dummy year
+                second: '%H:%M:%S',
+                minute: '%e. %b %H:%M',
+                hour: '%b/%e %H:%M',
+                day: '%m-%d',
+                week: '%e. %b',
+                month: '%y-%m',
+                year: '%y'
+            }
+        },
+        yAxis: {
+            title: {
+                text: lable + unit
+            },
+            min: 0
+        },
+        tooltip: {
+            formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br/>'+
+                    Highcharts.dateFormat('%Y-%m-%d', this.x) +' '+lable+' = '+ this.y+unit;
+            }
+        },
+        series:data
+    });
+}
+
 function graphLineChart(title,lable,unit,data){
 	Highcharts.setOptions({
 	    global: {

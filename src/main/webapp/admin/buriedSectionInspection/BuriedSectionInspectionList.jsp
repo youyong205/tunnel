@@ -13,6 +13,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="js/buriedSection.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -44,8 +45,12 @@
       				</t:privilege>
       			</div><div class="span6"><form class="text-right form-inline margin-buttom" action="buriedSectionInspectionList.do" method="post">
 			  隧道
-			  <s:select name="tunnelId" id="tunnelId"
+			  <s:select name="tunnelId" id="tunnelId"  onchange="tunnelChanged(false)"
 					list="tunnels" listKey="id" listValue="name" value="tunnelId" theme="simple" >
+			  </s:select>暗埋段
+			  <s:select name="componentId" id="componentId"
+			  		headerKey="0" headerValue="ALL"
+					list="items" listKey="id" listValue="name" value="componentId" theme="simple" >
 			  </s:select>
 			  <input type="hidden" name="process" value="true"/>
 			  <button type="submit" class="btn btn-success btn-small">查询</button>

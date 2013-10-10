@@ -49,6 +49,8 @@ public abstract class InspectionAction extends PagedAction {
 	protected int m_tunnelId;
 
 	protected int m_tunnelSectionId;
+	
+	protected int m_componentId;
 
 	protected Inspection m_inspection = new Inspection();
 
@@ -152,13 +154,13 @@ public abstract class InspectionAction extends PagedAction {
 		}
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_totalSize = m_inspectionService.queryInspectionSizeByType(m_tunnelId, m_tunnelSectionId, getModule());
+			m_totalSize = m_inspectionService.queryInspectionSizeByType(m_tunnelId, m_tunnelSectionId,m_componentId, getModule());
 			m_totalPages = computeTotalPages(m_totalSize);
 			int start = (m_index - 1) * SIZE;
 			if (start < 0) {
 				start = 0;
 			}
-			m_inspections = m_inspectionService.queryLimitedInspectionsByType(m_tunnelId, m_tunnelSectionId, getModule(),
+			m_inspections = m_inspectionService.queryLimitedInspectionsByType(m_tunnelId, m_tunnelSectionId,m_componentId, getModule(),
 			      start, SIZE);
 
 			for (Inspection inspection : m_inspections) {
@@ -250,6 +252,14 @@ public abstract class InspectionAction extends PagedAction {
 			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 		}
 	}
+
+	public int getComponentId() {
+   	return m_componentId;
+   }
+
+	public void setComponentId(int componentId) {
+   	m_componentId = componentId;
+   }
 
 	public static class Item {
 

@@ -18,6 +18,10 @@
 				compareValue="0">
 				tunnelSectionId=#tunnelSectionId#
 			</isGreaterThan>
+			<isGreaterThan prepend="AND" property="componentId"
+				compareValue="0">
+				componentId=#componentId#
+			</isGreaterThan>
 			<isPropertyAvailable prepend="AND" property="type">
 				type=#type#
 			</isPropertyAvailable>
@@ -35,6 +39,10 @@
 			<isGreaterThan prepend="AND" property="tunnelSectionId"
 				compareValue="0">
 				tunnelSectionId=#tunnelSectionId#
+			</isGreaterThan>
+			<isGreaterThan prepend="AND" property="componentId"
+				compareValue="0">
+				componentId=#componentId#
 			</isGreaterThan>
 			<isPropertyAvailable prepend="AND" property="type">
 				type=#type#

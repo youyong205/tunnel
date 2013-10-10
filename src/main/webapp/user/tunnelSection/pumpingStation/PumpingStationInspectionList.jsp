@@ -13,8 +13,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
-<script type="text/javascript" src="js/tunnel.js"></script>
-
+<script type="text/javascript" src="js/pumpingStation.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#tunnelSectionList').addClass('active');
@@ -40,25 +39,29 @@
 		</div>
 		<div class='span10'>
      <div class="row-fluid">
-			    <div class="span6">
+			    <div class="span4">
 					<a href="userPumpingStationList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">泵房列表</a>
 	    	  		<a href="userPumpingStationInspectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small btn-primary btn-success" >质量检查</a>
 	      			<a href="userPumpingStationCuringList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
       			</div>
-      			<div class="span6">
+      			<div class="span8">
 		      		<form class="text-right form-inline margin-buttom" method="get">
-						<strong>选择隧道</strong>
-						<s:select name="tunnelId" id="tunnelId"
-							onchange="tunnelChanged()"  
-							list="tunnels" listKey="id" listValue="name" 
-							value="tunnelId" theme="simple" >
+						<strong>隧道</strong>
+						<s:select name="tunnelId" id="tunnelId" onchange="tunnelChanged(false)"
+							list="tunnels" listKey="id" listValue="name" value="tunnelId"
+							theme="simple">
 						</s:select>
-						<strong>选择盾构段</strong>
+						<strong>盾构段</strong>
 						<s:select name="tunnelSectionId" id="tunnelSectionId"
-							list="tunnelSections" listKey="id" listValue="name"
-							headerKey="0" headerValue="ALL"
-							value="tunnelSectionId" theme="simple" >
-						</s:select> 
+							list="tunnelSections" listKey="id" listValue="name" headerKey="0"
+							headerValue="ALL" onchange="tunnelSectionChanged(false)"
+							value="tunnelSectionId" theme="simple">
+						</s:select>
+						<strong>泵房</strong>
+						<s:select name="componentId" id="componentId" list="items" listKey="id"
+							listValue="name" headerKey="0" headerValue="ALL" value="componentId"
+							theme="simple">
+						</s:select>
 					  <button type="submit" class="btn btn-success btn-small">查询</button>
 					</form></div></div>
 			<table class="table table-striped table-bordered table-condensed table-hover">

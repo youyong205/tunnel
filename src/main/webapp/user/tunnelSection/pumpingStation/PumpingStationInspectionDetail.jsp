@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
-<script type="text/javascript" src="js/tunnel.js"></script>
+<script type="text/javascript" src="js/pumpingStation.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {

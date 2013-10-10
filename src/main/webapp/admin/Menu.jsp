@@ -6,8 +6,8 @@
 			<li class="nav-child" id="tunnelSectionList"><a href="tunnelSectionList.do">盾构段</a></li>
 			<li class="nav-child2"  id="liningRingConstructionList"><a href="liningRingConstructionList.do??tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">衬砌环</a></li>
 			<li id="liningRingMeasureList" class="nav-child3"><a href="liningRingDeformationList.do?tunnelId=<s:property value="tunnelId"/>">病害检测</a></li>
-			<li id="" class="nav-child3"><a href="#">施工质量</a></li>
-			<li id="" class="nav-child3"><a href="#">养护记录</a></li>
+			<li id="liningRingConstructionInspectionList" class="nav-child3"><a href="liningRingConstructionInspectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">施工质量</a></li>
+			<li id="liningRingConstructionCuringList" class="nav-child3"><a href="liningRingConstructionCuringList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">养护记录</a></li>
 			<li class="nav-child2" >同步构件</li>
 			<li id="rectangleComponentList" class="nav-child3"><a href="rectangleComponentList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">口型构件</a></li>
 			<li id="plankList" class="nav-child3"><a href="plankList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">车道板</a></li>
@@ -29,6 +29,7 @@
 			<li class="nav-child" id="liningRingList"><a href="liningRingList.do">衬砌环</a></li>
 			<li class="nav-child" id="constructionUnitList"><a href="constructionUnitList.do">工程单位</a></li>
 			<li class="nav-child" id="documentList"><a href="documentList.do">工程文档</a></li>
+			<li class="nav-child" id="mailRecordList"><a href="mailRecordList.do">系统邮件</a></li>
 			<li class="nav-header">系统管理</li>
 			<li id="userList" class="nav-child"><a href="userList.do">用户管理</a></li>
 			<li id="roleList" class="nav-child"><a href="roleList.do">角色管理</a></li>

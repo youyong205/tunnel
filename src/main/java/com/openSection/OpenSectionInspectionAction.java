@@ -52,6 +52,7 @@ public class OpenSectionInspectionAction extends InspectionAction {
 	@Override
 	public String inspectionList() {
 		validateTunnelId();
+		m_items = queryItems();
 		return super.inspectionList();
 	}
 

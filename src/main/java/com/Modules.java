@@ -126,4 +126,10 @@ public class Modules {
 
 	public static String s_rust_model = "衬砌环锈蚀检测模块";
 
+	public static String s_liningRingConstruction_curing_model = "衬砌环养护记录模块";
+
+	public static String s_liningRingConstruction_inspection_model = "衬砌环质量检测模块";
+
+	public static String s_mailRecord_model="邮件模块";
+
 }

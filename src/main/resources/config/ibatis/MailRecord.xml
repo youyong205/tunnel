@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="mailRecord" type="com.mailRecord.MailRecord" />
+
+	<sql id="mailRecord.columns">
+		id,tunnelId,type,time,receivers,title,content,status,creation_date
+	</sql>
+	<select id="mailRecord.queryAllMailRecords" resultClass="mailRecord">
+		select
+		<include refid="mailRecord.columns" />
+		from mailRecord
+	</select>
+	<select id="mailRecord.queryAllSize" resultClass="int">
+		select count(*) from mailRecord
+	</select>
+	<select id="mailRecord.queryLimitedMailRecords" resultClass="mailRecord">
+		select
+		<include refid="mailRecord.columns" />
+		from mailRecord limit #start#,#size#
+	</select>
+	<select id="mailRecord.findById" resultClass="mailRecord" parameterClass="int">
+		select
+		<include refid="mailRecord.columns" />
+		from mailRecord where id=#id#
+	</select>
+	<insert id="mailRecord.insert" parameterClass="mailRecord">
+		insert into mailRecord (<include refid="mailRecord.columns" />) values
+		(#id#,#tunnelId#,#type#,#time#,#receivers#,#title#,#content#,#status#,now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="mailRecord.update" parameterClass="mailRecord">
+		update mailRecord set 
+		type=#type#,time=#time#,receivers=#receivers#,
+		title=#title#,content=#content#,status=#status#
+		where id=#id#
+	</update>
+	<delete id="mailRecord.delete" parameterClass="int">
+		delete from mailRecord
+		where
+		id=#id#
+	</delete>
+</sqlMap>

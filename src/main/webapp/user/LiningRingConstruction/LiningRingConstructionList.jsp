@@ -37,20 +37,30 @@
 			<%@include file="./../LiningRingMenu.jsp"%>
 		</div>
 		<div class='span10'>
-			<form class="text-right form-inline margin-buttom" action="userLiningRingConstructionList.do" method="post">
-				<strong>选择隧道</strong>
-				<s:select name="tunnelId" id="tunnelId"
-					onchange="tunnelChangedExcluedeAll()"  
-					list="tunnels" listKey="id" listValue="name" 
-					value="tunnelId" theme="simple" >
-				</s:select>
-				<strong>选择盾构段</strong>
-				<s:select name="tunnelSectionId" id="tunnelSectionId"
-					list="tunnelSections" listKey="id" listValue="name"
-					value="tunnelSectionId" theme="simple" >
-				</s:select> 
-			  <button type="submit" class="btn btn-success btn-small">查询</button>
-			</form>
+			<div class="row-fluid">
+				<div class="span4">
+					<a href="userLiningRingConstructionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-success">衬砌环列表</a>
+    	  			<a href="userLiningRingConstructionInspectionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small btn-primary btn-info">质量检查</a>
+      				<a href="userLiningRingConstructionCuringList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>" class="btn btn-small  btn-primary btn-info">养护记录</a>
+      			</div>
+      			<div class="span8">
+      				<form class="text-right form-inline margin-buttom" action="userLiningRingConstructionList.do" method="post">
+						<strong>选择隧道</strong>
+						<s:select name="tunnelId" id="tunnelId"
+							onchange="tunnelChangedExcluedeAll()"  
+							list="tunnels" listKey="id" listValue="name" 
+							value="tunnelId" theme="simple" >
+						</s:select>
+						<strong>选择盾构段</strong>
+						<s:select name="tunnelSectionId" id="tunnelSectionId"
+							list="tunnelSections" listKey="id" listValue="name"
+							value="tunnelSectionId" theme="simple" >
+						</s:select> 
+					  <button type="submit" class="btn btn-success btn-small">查询</button>
+					</form>
+      			</div>
+      		</div>
+			
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="8%">序号</th>

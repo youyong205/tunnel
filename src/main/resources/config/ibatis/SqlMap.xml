@@ -9,6 +9,7 @@
 		<sqlMap resource="config/ibatis/Resource.xml"/>
 		<sqlMap resource="config/ibatis/Log.xml"/>
 		<sqlMap resource="config/ibatis/Document.xml"/>
+		<sqlMap resource="config/ibatis/MailRecord.xml"/>
 		
 		<sqlMap resource="config/ibatis/LiningRing.xml"/>
 		<sqlMap resource="config/ibatis/LiningRingBlock.xml"/>

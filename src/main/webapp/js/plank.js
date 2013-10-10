@@ -1,4 +1,20 @@
-function tunnelChanged(){
+function tunnelChanged(excluedeAll) {
+	if (excluedeAll == undefined) {
+		tunnelChangedInternal(true);
+	} else {
+		tunnelChangedInternal(excluedeAll);
+	}
+}
+
+function tunnelSectionChanged(excluedeAll) {
+	if (excluedeAll == undefined) {
+		tunnelSectionChangedInternal(true);
+	} else {
+		tunnelSectionChangedInternal(excluedeAll);
+	}
+}
+
+function tunnelChangedInternal(excluedeAll) {
 	document.getElementById('tunnelSectionId').options.length = 0;
 	var id = $('#tunnelId').val();
 	$.ajax({
@@ -9,28 +25,35 @@ function tunnelChanged(){
 			var value = data.tunnelSections;
 
 			if (value != null) {
+				if (!excluedeAll) {
+					obj.append("<option value='0'>ALL</option>");
+				}
 				for ( var i = 0; i < value.length; i++) {
 					obj.append("<option value='" + value[i].id + "'>"
 							+ value[i].name + "</option>");
 				}
 			}
-			tunnelSectionChanged();
+			$("#tunnelSectionId").change();
 		}
 	});
 }
 
-function tunnelSectionChanged(){
+function tunnelSectionChangedInternal(excluedeAll) {
 	document.getElementById('componentId').options.length = 0;
 	var tunnelId = $('#tunnelId').val();
-	var tunnelSectionId=$('#tunnelSectionId').val();
+	var tunnelSectionId = $('#tunnelSectionId').val();
 	$.ajax({
 		type : "get",
-		url : "queryAllPlanks.do?tunnelId=" + tunnelId+"&tunnelSectionId="+tunnelSectionId,
+		url : "queryAllPlanks.do?tunnelId=" + tunnelId
+				+ "&tunnelSectionId=" + tunnelSectionId,
 		success : function(data, textStatus) {
 			var obj = $('#componentId');
 			var value = data.planks;
 
 			if (value != null) {
+				if (!excluedeAll) {
+					obj.append("<option value='0'>ALL</option>");
+				}
 				for ( var i = 0; i < value.length; i++) {
 					obj.append("<option value='" + value[i].id + "'>"
 							+ value[i].name + "</option>");

@@ -25,18 +25,19 @@ public class InspectionDao {
 		return (Integer) m_baseDao.insert("inspection.insert", inspection);
 	}
 
-	public int queryInspectionSizeByType(int tunnelId, int tunnelSectionId, String type) {
+	public int queryInspectionSizeByType(int tunnelId, int tunnelSectionId,int componentId, String type) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("type", type);
 		parameters.put("tunnelId", tunnelId);
 		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("componentId", componentId);
 
 		return (Integer) m_baseDao.queryForObject("inspection.queryInspectionSizeByType", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedInspectionsByType(int tunnelId, int tunnelSectionId, String type, int start, int size) {
+	public List queryLimitedInspectionsByType(int tunnelId, int tunnelSectionId, int componentId,String type, int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("start", start);
@@ -44,6 +45,7 @@ public class InspectionDao {
 		parameters.put("type", type);
 		parameters.put("tunnelId", tunnelId);
 		parameters.put("tunnelSectionId", tunnelSectionId);
+		parameters.put("componentId", componentId);
 
 		return m_baseDao.queryForList("inspection.queryLimitedInspectionsByType", parameters);
 	}

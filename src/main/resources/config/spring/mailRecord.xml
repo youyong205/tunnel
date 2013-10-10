@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="false" default-autowire="byName">
+	<bean id="mailRecordDao" class="com.mailRecord.MailRecordDao">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="mailRecordService" class="com.mailRecord.MailRecordServiceImpl">
+		<property name="mailRecordDao">
+			<ref bean="mailRecordDao" />
+		</property>
+	</bean>
+	<bean id="mailRecordAction" class="com.mailRecord.MailRecordAction" scope="prototype">
+		<property name="mailRecordService">
+			<ref bean="mailRecordService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+	</bean>
+	<bean id="loginAction" class="com.login.LoginAction" scope="prototype">
+		<property name="mailRecordService">
+			<ref bean="mailRecordService" />
+		</property>
+	</bean>
+</beans>  

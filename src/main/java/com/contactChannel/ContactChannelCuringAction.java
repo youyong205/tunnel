@@ -27,6 +27,7 @@ public class ContactChannelCuringAction extends CuringAction {
 	@Override
 	public String curingList() {
 		validateTunnelId();
+		m_items = queryItems();
 		return super.curingList();
 	}
 

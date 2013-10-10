@@ -82,8 +82,8 @@
 					  <button type="submit" class="btn btn-success btn-small">查询</button>
 					</form>
 					<h4 class='text-info text-center'><span>横断面变形状态</span><span style='margin-left:5px;' class="level<s:property value="liningRingConstruction.deformationState"/>"><s:property value="liningRingConstruction.deformationState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-						<span style='margin-left:15px;'>最近检测变形值</span><span  style='margin-left:5px;'><s:property value="liningRingDeformation.value"/></span>
-					</h4>
+					<%-- 	<span style='margin-left:15px;'>最近检测变形值</span><span  style='margin-left:5px;'><s:property value="liningRingDeformation.value"/></span>
+					 --%></h4>
 			<div id="chart" style="min-width: 400px; width:90%; height:400px; margin: 0 auto"></div>
 		</div>
 	</div>

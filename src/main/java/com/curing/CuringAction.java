@@ -51,6 +51,8 @@ public abstract class CuringAction extends FileUploadAction {
 
 	protected int m_tunnelSectionId;
 
+	protected int m_componentId;
+
 	protected Curing m_curing = new Curing();
 
 	public String curingAdd() {
@@ -113,13 +115,13 @@ public abstract class CuringAction extends FileUploadAction {
 		}
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
-			m_totalSize = m_curingService.queryCuringSizeByType(m_tunnelId, m_tunnelSectionId, getModule());
+			m_totalSize = m_curingService.queryCuringSizeByType(m_tunnelId, m_tunnelSectionId, m_componentId,getModule());
 			m_totalPages = computeTotalPages(m_totalSize);
 			int start = (m_index - 1) * SIZE;
 			if (start < 0) {
 				start = 0;
 			}
-			m_curings = m_curingService.queryLimitedCuringsByType(m_tunnelId, m_tunnelSectionId, getModule(), start, SIZE);
+			m_curings = m_curingService.queryLimitedCuringsByType(m_tunnelId, m_tunnelSectionId,m_componentId, getModule(), start, SIZE);
 
 			for (Curing curing : m_curings) {
 				curing.setComponentName(getComponentNameById(curing.getComponentId()));
@@ -296,6 +298,14 @@ public abstract class CuringAction extends FileUploadAction {
 		public void setName(String name) {
 			m_name = name;
 		}
+	}
+
+	public int getComponentId() {
+		return m_componentId;
+	}
+
+	public void setComponentId(int componentId) {
+		m_componentId = componentId;
 	}
 
 }

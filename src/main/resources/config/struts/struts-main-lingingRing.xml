@@ -13,5 +13,36 @@
 		<action name="userLiningRingDeformationQuery" class="liningRingDeformationAction" method="liningRingDeformationQuery">
 			<result name="success">user/liningRingConstruction/LiningRingDeformation.jsp</result>
 		</action>
+		<action name="userLiningRingLongitudinalDeformationQuery" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationQuery">
+			<result name="success">user/liningRingConstruction/LiningRingLongitudinalDeformation.jsp</result>
+		</action>
+		<action name="userGirthOpenQuery" class="girthOpenAction" method="girthOpenQuery">
+			<result name="success">user/liningRingConstruction/GirthOpen.jsp</result>
+		</action>
+		<action name="userGirthFaultQuery" class="girthFaultAction" method="girthFaultQuery">
+			<result name="success">user/liningRingConstruction/GirthFault.jsp</result>
+		</action>
+		<action name="userCoverLossQuery" class="coverLossAction" method="coverLossQuery">
+			<result name="success">user/liningRingConstruction/CoverLoss.jsp</result>
+		</action>
+		<action name="userLongitudinalOpenQuery" class="longitudinalOpenAction" method="longitudinalOpenQuery">
+			<result name="success">user/liningRingConstruction/LongitudinalOpen.jsp</result>
+		</action>
+		<action name="userLongitudinalFaultQuery" class="longitudinalFaultAction" method="longitudinalFaultQuery">
+			<result name="success">user/liningRingConstruction/LongitudinalFault.jsp</result>
+		</action>
+		<action name="userCracksQuery" class="cracksAction" method="cracksQuery">
+			<result name="success">user/liningRingConstruction/Cracks.jsp</result>
+		</action>
+		<action name="userSettlementQuery" class="settlementAction" method="settlementQuery">
+			<result name="success">user/liningRingConstruction/Settlement.jsp</result>
+		</action>
+		<action name="userSeepageQuery" class="seepageAction" method="seepageQuery">
+			<result name="success">user/liningRingConstruction/Seepage.jsp</result>
+		</action>
+		<action name="userRustQuery" class="rustAction" method="rustQuery">
+			<result name="success">user/liningRingConstruction/Rust.jsp</result>
+		</action>
+				
 	</package>	
 </struts>

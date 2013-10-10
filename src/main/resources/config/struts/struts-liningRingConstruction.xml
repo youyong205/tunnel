@@ -25,5 +25,24 @@
 		<action name="liningRingConstructionDelete" class="liningRingConstructionAction" method="liningRingConstructionDelete">
 			<result name="success" type="redirect">liningRingConstructionList.action?index=${index}&amp;tunnelId=${tunnelId}&amp;tunnelSectionId=${tunnelSectionId}</result>
 		</action>
+		
+		<action name="userLiningRingConstructionList" class="liningRingConstructionAction" method="liningRingConstructionList">
+			<result name="success">user/liningRingConstruction/liningRingConstruction/LiningRingConstructionList.jsp</result>
+		</action>
+		<action name="userLiningRingConstructionDetail" class="liningRingConstructionAction" method="liningRingConstructionUpdate" >
+			<result name="success">user/liningRingConstruction/liningRingConstruction/LiningRingConstructionDetail.jsp</result>
+		</action>
+		<action name="userLiningRingConstructionInspectionList" class="liningRingConstructionInspectionAction" method="inspectionList">
+			<result name="success">user/liningRingConstruction/liningRingConstruction/LiningRingConstructionInspectionList.jsp</result>
+		</action>
+		<action name="userLiningRingConstructionInspectionDetail" class="liningRingConstructionInspectionAction" method="inspectionUpdate" >
+			<result name="success">user/liningRingConstruction/liningRingConstruction/LiningRingConstructionInspectionDetail.jsp</result>
+		</action>
+		<action name="userLiningRingConstructionCuringList" class="liningRingConstructionCuringAction" method="curingList">
+			<result name="success">user/liningRingConstruction/liningRingConstruction/LiningRingConstructionCuringList.jsp</result>
+		</action>
+		<action name="userLiningRingConstructionCuringDetail" class="liningRingConstructionCuringAction" method="curingUpdate" >
+			<result name="success">user/liningRingConstruction/liningRingConstruction/LiningRingConstructionCuringDetail.jsp</result>
+		</action>
 	</package>	
 </struts>

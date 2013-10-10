@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mailRecord" extends="default">
+		<action name="mailRecordList" class="mailRecordAction" method="mailRecordList">
+			<result name="success">admin/mailRecord/MailRecordList.jsp</result>
+		</action>
+		<action name="mailRecordAdd" class="mailRecordAction" method="mailRecordAdd">
+			<result name="success">admin/mailRecord/MailRecordAdd.jsp</result>
+		</action>
+		<action name="mailRecordAddSubmit" class="mailRecordAction" method="mailRecordAddSubmit">
+			<result name="success" type="redirect">mailRecordList.action?index=${index}</result>
+		</action>
+		<action name="mailRecordUpdate" class="mailRecordAction" method="mailRecordUpdate" >
+			<result name="success">admin/mailRecord/MailRecordUpdate.jsp</result>
+		</action>
+		<action name="mailRecordDetail" class="mailRecordAction" method="mailRecordUpdate" >
+			<result name="success">admin/mailRecord/MailRecordDetail.jsp</result>
+		</action>
+		<action name="mailRecordUpdateSubmit" class="mailRecordAction" method="mailRecordUpdateSubmit">
+			<result name="success" type="redirect">mailRecordList.action?index=${index}</result>
+		</action>
+		<action name="mailRecordDelete" class="mailRecordAction" method="mailRecordDelete">
+			<result name="success" type="redirect">mailRecordList.action?index=${index}</result>
+		</action>
+	</package>	
+</struts>

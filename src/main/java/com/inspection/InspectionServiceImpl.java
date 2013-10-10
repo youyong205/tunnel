@@ -48,9 +48,9 @@ public class InspectionServiceImpl implements InspectionService {
 	}
 
 	@Override
-	public int queryInspectionSizeByType(int tunnelId, int tunnelSectionId, String type) {
+	public int queryInspectionSizeByType(int tunnelId, int tunnelSectionId,int componentId, String type) {
 		try {
-			return m_inspectionDao.queryInspectionSizeByType(tunnelId, tunnelSectionId, type);
+			return m_inspectionDao.queryInspectionSizeByType(tunnelId, tunnelSectionId, componentId,type);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
@@ -59,10 +59,10 @@ public class InspectionServiceImpl implements InspectionService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Inspection> queryLimitedInspectionsByType(int tunnelId, int tunnelSectionId, String type, int start,
+	public List<Inspection> queryLimitedInspectionsByType(int tunnelId, int tunnelSectionId,int componentId,  String type, int start,
 	      int size) {
 		try {
-			return m_inspectionDao.queryLimitedInspectionsByType(tunnelId, tunnelSectionId, type, start, size);
+			return m_inspectionDao.queryLimitedInspectionsByType(tunnelId, tunnelSectionId,componentId, type, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<Inspection>();

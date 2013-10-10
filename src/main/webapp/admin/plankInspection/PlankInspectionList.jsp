@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
-<script type="text/javascript" src="js/tunnel.js"></script>
+<script type="text/javascript" src="js/plank.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -46,17 +46,21 @@
       			</div>
       			<div class="span8">
       				<form class="text-right form-inline margin-buttom" action="plankInspectionList.do" method="post">
-						<strong>选择隧道</strong>
-						<s:select name="tunnelId" id="tunnelId"
-							onchange="tunnelChanged()" 
-							list="tunnels" listKey="id" listValue="name" 
-							value="tunnelId" theme="simple" >
+						<strong>隧道</strong>
+						<s:select name="tunnelId" id="tunnelId" onchange="tunnelChanged(false)"
+							list="tunnels" listKey="id" listValue="name" value="tunnelId"
+							theme="simple">
 						</s:select>
-						<strong>选择盾构段</strong>
+						<strong>盾构段</strong>
 						<s:select name="tunnelSectionId" id="tunnelSectionId"
-							list="tunnelSections" listKey="id" listValue="name"
-							headerKey="0" headerValue="ALL"
-							value="tunnelSectionId" theme="simple" >
+							list="tunnelSections" listKey="id" listValue="name" headerKey="0"
+							headerValue="ALL" onchange="tunnelSectionChanged(false)"
+							value="tunnelSectionId" theme="simple">
+						</s:select>
+						<strong>车道板</strong>
+						<s:select name="componentId" id="componentId" list="items" listKey="id"
+							listValue="name" headerKey="0" headerValue="ALL" value="componentId"
+							theme="simple">
 						</s:select> 
 					  <button type="submit" class="btn btn-success btn-small">查询</button>
 					</form>
