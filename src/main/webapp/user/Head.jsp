@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <div class="navbar navbar-inverse" style="margin-top:5px;">
 	<div class="navbar-inner navbar-title">
-		<a class="brand" href="userTunnelList.do">隧道管理信息系统</a>
+		<a class="brand" href="userTunnelList.do">盾构隧道建设与运营安全数据系统</a>
 		<div class="nav-collapse collapse">
 			<ul class="nav">
 				<li id="tunnelList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">隧道<b class="caret"></b></a>
@@ -12,6 +12,7 @@
 						<li><a style="padding:3px 30px"  href="userBuriedSectionList.do?tunnelId=<s:property value="tunnelId"/>">暗埋段</a></li>
 						<li><a style="padding:3px 30px"  href="userOpenSectionList.do?tunnelId=<s:property value="tunnelId"/>">敞开段</a></li>
 						<li><a href="userConstructionUnitList.do?tunnelId=<s:property value="tunnelId"/>">施工单位</a></li>
+						<li><a href="userMailRecordList.do?tunnelId=<s:property value="tunnelId"/>&index=<s:property value="index"/>">系统邮件</a></li>
 					</ul></li>
 				<li id="tunnelSectionList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">盾构段<b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -31,20 +32,21 @@
 				<li id="liningRingConstructionList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">衬砌环<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="userLiningRingConstructionList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="id"/>&index=<s:property value="index"/>">衬砌环信息</a></li>
-						<li class="nav-header">构件状态</li>
-						<li><a style="padding:3px 30px" href="">横断面变形</a></li>
-						<li><a style="padding:3px 30px" href="">纵断面变形</a></li>
-						<li><a style="padding:3px 30px" href="">保护层损失</a></li>
-						<li><a style="padding:3px 30px" href="">裂缝</a></li>
+						<li id='' class="nav-header">构件状态</li>
+						<li><a style="padding:3px 30px" href="userLiningRingDeformationQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">横断面变形</a></li>
+						<li><a style="padding:3px 30px" href="userLiningRingLongitudinalDeformationQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">纵断面变形</a></li>
+						<li><a style="padding:3px 30px" href="userCoverLossQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">保护层损失</a></li>
+						<li><a style="padding:3px 30px" href="userCracksQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">裂缝状态</a></li>
 						<li class="nav-header">连接状态</li>
-						<li><a style="padding:3px 30px" href="">环缝张开</a></li>
-						<li><a style="padding:3px 30px" href="">纵缝张开</a></li>
-						<li><a style="padding:3px 30px" href="">环缝错台</a></li>
-						<li><a style="padding:3px 30px" href="">纵缝错台</a></li>
+						<li><a style="padding:3px 30px" href="userGirthOpenQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">环缝张开</a></li>
+						<li><a style="padding:3px 30px" href="userLongitudinalOpenQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">纵缝张开</a></li>
+						<li><a style="padding:3px 30px" href="userGirthFaultQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">环缝错台</a></li>
+						<li><a style="padding:3px 30px" href="userLongitudinalFaultQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">纵缝错台</a></li>
 						<li class="nav-header">其他状态</li>
-						<li><a style="padding:3px 30px" href="">沉降</a></li>
-						<li><a style="padding:3px 30px" href="">渗漏水</a></li>
-						<li><a style="padding:3px 30px" href="">锈蚀</a></li>
+						<li><a style="padding:3px 30px" href="userSettlementQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">沉降</a></li>
+						<li><a style="padding:3px 30px" href="userSeepageQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">渗漏水</a></li>
+						<li><a style="padding:3px 30px" href="userRustQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">锈蚀</a></li>
+										
 					</ul></li>
 				</ul>
 			<p class="navbar-text pull-right">

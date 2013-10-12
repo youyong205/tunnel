@@ -100,6 +100,9 @@ $(document).ready(function() {
 								<option value="下行">下行</option>
 							</select>
 						</td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">衬砌环顺序号</strong></td>
+						<td><input readonly type="text" name="liningRingConstruction.sequence" 
+						 value="<s:property value="liningRingConstruction.sequence"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">管片拼装定位角(°)</strong></td>

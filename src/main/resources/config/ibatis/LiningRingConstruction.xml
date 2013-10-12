@@ -3,7 +3,7 @@
 <sqlMap>
 	<typeAlias alias="liningRingConstruction" type="com.liningRingConstruction.LiningRingConstruction" />
 	<sql id="liningRingConstruction.columns">
-		id,tunnelId,tunnelSectionId,liningRingId,lineType,name,startPosition,endPosition,
+		id,tunnelId,tunnelSectionId,liningRingId,sequence,lineType,name,startPosition,endPosition,
 		positionAngle,scheduleId,computingStaff,
 		inspectors,surveyors,planeDeviation,elevationDeviation,gapUp,gapDown,gapLeft,
 		gapRight,gap1,gap2,gap3,gap4,gap5,gap6,gap7,gap8,diameter,verticalDiameter,
@@ -34,6 +34,7 @@
                  tunnelSectionId=#tunnelSectionId#
             </isGreaterThan>
    		</dynamic>
+   		order by sequence asc
 		limit #start#,#size#
 	</select>
 	<select id="liningRingConstruction.findByName" resultClass="liningRingConstruction" parameterClass="String">
@@ -48,7 +49,7 @@
 	</select>
 	<insert id="liningRingConstruction.insert" parameterClass="liningRingConstruction">
 		insert into liningRingConstruction (<include refid="liningRingConstruction.columns" />) values
-		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingId#,#lineType#,#name#,#startPosition#,
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingId#,#sequence#,#lineType#,#name#,#startPosition#,
 		#endPosition#,#positionAngle#,#scheduleId#,#computingStaff#,#inspectors#,
 		#surveyors#,#planeDeviation#,
 		#elevationDeviation#,#gapUp#,#gapDown#,#gapLeft#,#gapRight#,#gap1#,#gap2#,
@@ -63,7 +64,7 @@
 	</insert>
 	<update id="liningRingConstruction.update" parameterClass="liningRingConstruction">
 		update liningRingConstruction set
-		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingId=#liningRingId#,
+		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingId=#liningRingId#,sequence=#sequence#,
 		name=#name#,startPosition=#startPosition#,endPosition=#endPosition#,positionAngle=#positionAngle#,
 		lineType=#lineType#,
 		computingStaff=#computingStaff#,inspectors=#inspectors#,surveyors=#surveyors#,

@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="s" uri="/WEB-INF/tld/struts-tags.tld"%>
+<%@ taglib prefix="t" uri="/WEB-INF/tld/struts-privilege.tld"%>
+
 <!DOCTYPE html><html>
 <head>
-<title>软土盾构隧道后台管理系统</title>
+<title>隧道管理信息系统</title>
 
 <link rel="stylesheet" type='text/css' href="css/bootstrap.min.css" >
 <link rel='stylesheet' type='text/css' href='css/admin.css' />
@@ -13,22 +15,31 @@
 <script type="text/javascript" src="js/validate.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#mailRecordList').addClass("active");
-	$('#type').val("<s:property value="mailRecord.type"/>");
-	$('#status').val("<s:property value="mailRecord.status"/>");
-});
+	$(document).ready(function() {
+		$('#tunnelList').addClass('active');
+		$('#mailRecordList').addClass('active');
+		$('#type').val("<s:property value="mailRecord.type"/>");
+		$('#status').val("<s:property value="mailRecord.status"/>");
+	});
 </script>
 </head>
 <body>
-  <%@include file="./../Head.jsp"%>
-  </br>
-  </br>
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <%@include file="./../Menu.jsp"%>
-      <div class="span10">
-      	<table  class="table table-striped table-bordered table-condensed">
+  <div class="container">
+	<%@include file="./../Head.jsp"%>
+	<div>
+		<ul class="breadcrumb">
+			<li>当前位置：</li>
+			<li>首页<span class="divider">/</span></li>
+			<li><a href="userMailRecordList.do?tunnelId=<s:property value="tunnelId"/>">系统邮件</a><span class="divider">/</span></li>
+			<li class="active">详细信息</li>
+		</ul>
+	</div>
+	<div class='row'>
+		<div class='span2'>
+			<%@include file="./../TunnelMenu.jsp"%>
+		</div>
+		<div class='span10'>
+			<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">邮件信息详情</h4></th>
 						<input type="hidden" name="mailRecord.id" value="<s:property value="mailRecord.id"/>"/>
@@ -84,12 +95,10 @@ $(document).ready(function() {
 							<s:property escape="false" value='mailRecord.content'/>
 						</td></tr>
 					</table>
-      </div>
-    </div>
+		</div>
+	</div>
+     
     <%@include file="./../Foot.jsp"%>
   </div>
 </body>
 </html>
-
-
-

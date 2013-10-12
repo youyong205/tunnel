@@ -6,7 +6,7 @@
 			<a class="btn btn-navbar" data-toggle="collapse"
 				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="icon-bar"></span>
-			</a> <a class="brand" href="userTunnelList.do">隧道管理信息系统</a>
+			</a> <a class="brand" href="userTunnelList.do">盾构隧道建设与运营安全数据系统-后台管理</a>
 			<div class="nav-collapse collapse">
 				<p class="navbar-text pull-right">
 					<s:if test="null==#session.user">

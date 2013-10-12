@@ -4,13 +4,12 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="userMainTunnel" extends="main">
-		<action name="userTunnelList" class="tunnelAction" method="tunnelList">
+		<action name="userTunnelList" class="userTunnelAction" method="tunnelList">
 			<result name="success">user/tunnel/TunnelList.jsp</result>
 		</action>
-		<action name="userTunnelDetail" class="tunnelAction" method="tunnelUpdate" >
+		<action name="userTunnelDetail" class="userTunnelAction" method="tunnelDetail" >
 			<result name="success">user/tunnel/TunnelDetail.jsp</result>
 		</action>
-		
 		<action name="userContactChannelList" class="contactChannelAction" method="contactChannelList">
 			<result name="success">user/tunnel/ContactChannelList.jsp</result>
 		</action>
@@ -94,5 +93,11 @@
 			<result name="success">user/tunnel/ConstructionUnitDetail.jsp</result>
 		</action>
 		
+		<action name="userMailRecordList" class="mailRecordAction" method="mailRecordList">
+			<result name="success">user/tunnel/MailRecordList.jsp</result>
+		</action>
+		<action name="userMailRecordDetail" class="mailRecordAction" method="mailRecordUpdate" >
+			<result name="success">user/tunnel/MailRecordDetail.jsp</result>
+		</action>
 	</package>	
 </struts>

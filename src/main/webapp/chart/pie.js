@@ -354,53 +354,53 @@
             /**
             *bind legends event actions
             */
-//            function bindLegendsAction() {
-//                if (!this.legend) {
-//                    return false;
-//                }
-//
-//                this.legend.itemSet.forEach(function(item, i) {
-//                    var el = elements[i];
-//                    item.hover(
-//                        function() {
-//                            this.rotate(45);
-//
-//                            el.stop();
-//                            el.transform('t' + (el.mx - el.cx) / 5 + ',' + (el.my - el.cy) / 5);
-//                            if (el.text) {
-//                                el.text.stop();
-//                                el.text.transform('t' + (el.mx - el.cx) / 5 + ',' + (el.my - el.cy) / 5);
-//                            }
-//                        },
-//                        function() {
-//                            this.rotate(-45);
-//
-//                            el.animate({
-//                                transform: 's1,1,' + el.cx + ',' + el.cy
-//                            }, 500, "bounce");
-//
-//                            if (el.text) {
-//                                el.text.animate({
-//                                    transform: 't0,0'
-//                                }, 500, "bounce");
-//                            }
-//                        }
-//                    );
-//                });
-//
-////                this.legend.on('click', (function() {
-////                    var arr = new Array(series.length);
-////                    return function(e, i) {
-////                        if (arr[i] == true || arr[i] == undefined) {
-////                            arr[i] = false;
-////                            elements[i].attr('opacity', 0).text.attr('opacity', 0);
-////                        } else {
-////                            arr[i] = true;
-////                            elements[i].attr('opacity', 1).text.attr('opacity', 1);
-////                        }
-////                    }
-////                })());
-//            }
+            function bindLegendsAction() {
+                if (!this.legend) {
+                    return false;
+                }
+
+                this.legend.itemSet.forEach(function(item, i) {
+                    var el = elements[i];
+                    item.hover(
+                        function() {
+                            this.rotate(45);
+
+                            el.stop();
+                            el.transform('t' + (el.mx - el.cx) / 5 + ',' + (el.my - el.cy) / 5);
+                            if (el.text) {
+                                el.text.stop();
+                                el.text.transform('t' + (el.mx - el.cx) / 5 + ',' + (el.my - el.cy) / 5);
+                            }
+                        },
+                        function() {
+                            this.rotate(-45);
+
+                            el.animate({
+                                transform: 's1,1,' + el.cx + ',' + el.cy
+                            }, 500, "bounce");
+
+                            if (el.text) {
+                                el.text.animate({
+                                    transform: 't0,0'
+                                }, 500, "bounce");
+                            }
+                        }
+                    );
+                });
+
+                this.legend.on('click', (function() {
+                    var arr = new Array(series.length);
+                    return function(e, i) {
+                        if (arr[i] == true || arr[i] == undefined) {
+                            arr[i] = false;
+                            elements[i].attr('opacity', 0).text.attr('opacity', 0);
+                        } else {
+                            arr[i] = true;
+                            elements[i].attr('opacity', 1).text.attr('opacity', 1);
+                        }
+                    }
+                })());
+            }
 
             /**
             *initialize all event actions
@@ -408,7 +408,7 @@
             (function(context) {
                 setTimeout(function() {
                     bindElementsAction.call(context);
-                   // bindLegendsAction.call(context);
+                    bindLegendsAction.call(context);
                 }, t);
             })(this);
         }

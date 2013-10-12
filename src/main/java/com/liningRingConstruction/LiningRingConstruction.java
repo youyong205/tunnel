@@ -19,6 +19,8 @@ public class LiningRingConstruction {
 	private TunnelSection m_tunnelSection;
 
 	private int m_liningRingId;
+	
+	private double m_sequence;
 
 	private LiningRing m_liningRing;
 
@@ -590,6 +592,14 @@ public class LiningRingConstruction {
 	public String getDeformationState() {
 		return m_deformationState;
 	}
+	
+	public double getSequence() {
+   	return m_sequence;
+   }
+
+	public void setSequence(double sequence) {
+   	m_sequence = sequence;
+   }
 
 	@Override
 	public String toString() {

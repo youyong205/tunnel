@@ -9,6 +9,8 @@ import com.Modules;
 import com.Operation;
 import com.PagedAction;
 import com.log.Log;
+import com.tunnel.Tunnel;
+import com.tunnel.TunnelService;
 
 public class MailRecordAction extends PagedAction {
 
@@ -19,10 +21,18 @@ public class MailRecordAction extends PagedAction {
 	private List<MailRecord> m_mailRecords;
 
 	private int m_mailRecordId;
-
+	
+	private int m_tunnelId;
+	
+	private int m_type;
+	
 	private MailRecordService m_mailRecordService;
 
 	private MailRecord m_mailRecord = new MailRecord();
+	
+	private List<Tunnel> m_tunnels;
+	
+	private TunnelService m_tunnelService;
 
 	@Override
 	public String getActionModule() {
@@ -38,6 +48,7 @@ public class MailRecordAction extends PagedAction {
 	}
 
 	public String mailRecordAdd() {
+		m_tunnels = m_tunnelService.queryAllTunnels();
 		return SUCCESS;
 	}
 
@@ -89,13 +100,18 @@ public class MailRecordAction extends PagedAction {
 			return auth.getName();
 		}
 		try {
-			m_totalSize = m_mailRecordService.queryAllSize();
+			m_tunnels = m_tunnelService.queryAllTunnels();
+			m_totalSize = m_mailRecordService.queryAllSizeByTunnelAndType(m_tunnelId,m_type);
 			m_totalPages = computeTotalPages(m_totalSize);
 			int start = (m_index - 1) * SIZE;
 			if (start < 0) {
 				start = 0;
 			}
-			m_mailRecords = m_mailRecordService.queryLimitedMailRecords(start, SIZE);
+			m_mailRecords = m_mailRecordService.queryLimitedMailRecordsByTunnelAndType(m_tunnelId,m_type,start, SIZE);
+			
+			for(MailRecord mailRecord:m_mailRecords){
+				mailRecord.setTunnel(m_tunnelService.findByPK(mailRecord.getTunnelId()));
+			}
 			return SUCCESS;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
@@ -105,6 +121,7 @@ public class MailRecordAction extends PagedAction {
 
 	public String mailRecordUpdate() {
 		try {
+			m_tunnels = m_tunnelService.queryAllTunnels();
 			m_mailRecord = m_mailRecordService.findByPK(m_mailRecordId);
 			if (m_mailRecord != null) {
 				return SUCCESS;
@@ -149,4 +166,29 @@ public class MailRecordAction extends PagedAction {
 	public void setMailRecordService(MailRecordService mailRecordService) {
 		m_mailRecordService = mailRecordService;
 	}
+
+	public List<Tunnel> getTunnels() {
+   	return m_tunnels;
+   }
+
+	public void setTunnelService(TunnelService tunnelService) {
+   	m_tunnelService = tunnelService;
+   }
+
+	public void setTunnelId(int tunnelId) {
+   	m_tunnelId = tunnelId;
+   }
+
+	public void setType(int type) {
+   	m_type = type;
+   }
+
+	public int getTunnelId() {
+   	return m_tunnelId;
+   }
+
+	public int getType() {
+   	return m_type;
+   }
+
 }

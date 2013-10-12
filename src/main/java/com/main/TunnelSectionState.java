@@ -18,11 +18,21 @@ public class TunnelSectionState {
 
 	private Map<String, Integer> m_downCounts = new TreeMap<String, Integer>();
 
-	private final int m_size = 100;
+	private final int m_size = 150;
 
 	public TunnelSectionState(List<LiningRingConstruction> constructions, String stateType) {
 		int length = constructions.size();
-
+		m_upCounts.put("A", 0);
+		m_upCounts.put("B", 0);
+		m_upCounts.put("C", 0);
+		m_upCounts.put("D", 0);
+		m_upCounts.put("E", 0);
+		m_downCounts.put("A", 0);
+		m_downCounts.put("B", 0);
+		m_downCounts.put("C", 0);
+		m_downCounts.put("D", 0);
+		m_downCounts.put("E", 0);
+		
 		for (int i = 0; i < length; i++) {
 			LiningRingConstruction construction = constructions.get(i);
 			String type = construction.getLineType();
@@ -69,19 +79,21 @@ public class TunnelSectionState {
 	public String computeState(LiningRingConstruction construction, String type) {
 		double a = Math.random();
 
-		if (a > 0.4) {
+		if (a > 0.004) {
 			return "A";
-		}
-		if (a > 0.3) {
+		}else{
 			return "B";
 		}
-		if (a > 0.2) {
-			return "C";
-		}
-		if (a > 0.1) {
-			return "D";
-		}
-		return "E";
+//		if (a > 0.008) {
+//			return "B";
+//		}
+//		if (a > 0.005) {
+//			return "C";
+//		}
+//		if (a > 0.002) {
+//			return "D";
+//		}
+//		return "E";
 	}
 
 	public Map<String, Integer> getDownCounts() {

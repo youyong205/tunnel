@@ -4,6 +4,14 @@
 <head>
 <title>软土盾构隧道后台管理系统</title>
 
+<link rel="stylesheet" type='text/css' href="css/bootstrap.min.css" >
+<link rel='stylesheet' type='text/css' href='css/admin.css' />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.metadata.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
+
 <link rel="stylesheet" type='text/css' href="css/bootstrap.min.css">
 <link rel='stylesheet' type='text/css' href='css/admin.css' />
 <script src="js/jquery.js" type="text/javascript" ></script>
@@ -27,10 +35,9 @@
 </script>
 </head>
 <body>
-  <%@include file="./Head.jsp"%>
-  </br>
-  </br>
-  <div class="row-fluid">
+  <div class="container">
+	<%@include file="./Head.jsp"%>
+    <div class="row-fluid">
       	<div class="span12 text-center">
       	<h3 class="text-error text-center">您访问网址有错误，或者页面不存在！</h3>
   		<a class='btn btn-danger' href="userTunnelList.do"><span id="tS">4 秒后</span>返回主页</a>
@@ -39,5 +46,7 @@
          <s:property value="exceptionStack"/>
       </div>
     </div>
+    <%@include file="./Foot.jsp"%>
+  </div>
 </body>
 </html>

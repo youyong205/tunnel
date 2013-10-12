@@ -12,6 +12,8 @@ public class Tunnel {
 
 	private String m_state;
 
+	private String m_email;
+
 	private String m_des;
 
 	private Date m_creationDate;
@@ -63,6 +65,14 @@ public class Tunnel {
 	public void setType(String type) {
 		m_type = type;
 	}
+
+	public String getEmail() {
+   	return m_email;
+   }
+
+	public void setEmail(String mail) {
+   	m_email = mail;
+   }
 
 	@Override
 	public String toString() {

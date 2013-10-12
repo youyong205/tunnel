@@ -10,9 +10,9 @@ public interface MailRecordService {
 
 	public int insertMailRecord(MailRecord mailRecord);
 
-	public int queryAllSize();
+	public int queryAllSizeByTunnelAndType(int tunnelId,int type);
 
-	public List<MailRecord> queryLimitedMailRecords(int start, int size);
+	public List<MailRecord> queryLimitedMailRecordsByTunnelAndType(int tunnelId,int type,int start, int size);
 
 	public int updateMailRecord(MailRecord mailRecord);
 

@@ -26,15 +26,6 @@ public class TunnelSectionDao {
 		return (Integer) m_baseDao.insert("tunnelSection.insert", tunnelSection);
 	}
 
-	public int queryAllSize() {
-		return (Integer) m_baseDao.queryForObject("tunnelSection.queryAllSize", null);
-	}
-
-	@SuppressWarnings("rawtypes")
-	public List queryAllTunnelSections() {
-		return m_baseDao.queryForList("tunnelSection.queryAllTunnelSections");
-	}
-
 	@SuppressWarnings("rawtypes")
 	public List queryLimitedTunnelSections(int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();

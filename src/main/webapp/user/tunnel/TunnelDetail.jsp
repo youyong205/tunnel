@@ -36,10 +36,18 @@
 		<div class='span2'>
 			<%@include file="./../TunnelMenu.jsp"%>
 		</div>
-      <div class='span10'> 
+      <div class='span10'>
+      <h4 class="text-center text-error">隧道服务状态</h4>
+      <table style='margin-bottom:0px;' class="table table-striped table-bordered table-condensed table-hover">
+		<s:iterator value="svgs" status="vs">
+			<tr>
+				<td  style="padding:6px 4px 0px 4px;"><s:property value="value" escape="false" /></td></tr>
+		</s:iterator>
+		</table>
+		<br/>
+		 
 		<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='2'><p class="text-info text-center">隧道信息详情</p></th>
 						<input readonly type="hidden" name="tunnel.id" value="<s:property value="tunnel.id"/>" />
 						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
@@ -58,7 +66,12 @@
 					<tr>
 						<td width="40%" style="text-align:right;"><strong class="text-success">服役状态</strong></td>
 						<td><s:property value='tunnel.state'/></td>
-					</tr>					
+					</tr>	
+					
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">邮件通知人</strong></td>
+						<td><s:property value='tunnel.email'/></td>
+					</tr>				
 					<tr>
 						<td width="40%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><s:property value='tunnel.des'/></td>

@@ -28,8 +28,7 @@
 		<ul class="breadcrumb">
 			<li>当前位置：</li>
 			<li>首页<span class="divider">/</span></li>
-			<li><a href="userConstructionUnitList.do?tunnelId=<s:property value="tunnelId"/>">施工单位</a><span class="divider">/</span></li>
-			<li class="active">详细信息</li>
+			<li class="active">施工单位</li>
 		</ul>
 	</div>
 	<div class='row'>

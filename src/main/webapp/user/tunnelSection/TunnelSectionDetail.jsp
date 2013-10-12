@@ -20,10 +20,11 @@
 		$('#tunnelSectionList').addClass('active');
 		$('#tunnelSectionBaseInfo').addClass('active');
 
-		var type = '<s:property value="tunnelSection.environment"/>';
-		$('#environment').val(type);
+		var environment = '<s:property value="tunnelSection.environment"/>';
+		$('#environment').val(environment);
 		var state = '<s:property value="tunnelSection.state"/>';
 		$('#state').val(state);
+		$('#type').val('<s:property value="tunnelSection.type"/>');
 	});
 </script>
 </head>
@@ -71,9 +72,11 @@
 			<tr>
 				<td width="30%" style="text-align: right;"><strong
 					class="text-success">盾构段类型</strong></td>
-				<td><input readonly type="text" size="60" name="tunnelSection.type"
-					 value="<s:property value="tunnelSection.type"/>"
-					class="{required:true,maxlength:64}" /></td>
+				<td><select name="tunnelSection.type" id="type">
+								<option value="-">-</option>
+								<option value="上行">上行</option>
+								<option value="下行">下行</option>
+							</select></td>
 			</tr>
 			<tr>
 				<td width="30%" style="text-align: right;"><strong
@@ -104,6 +107,10 @@
 					name="tunnelSection.externalDiameter"
 					value="<s:property value="tunnelSection.externalDiameter"/>"
 					class="{required:true,number:true}" /></td>
+			</tr>
+			<tr>
+				<td width="20%" style="text-align:right;"><strong class="text-success">盾构段顺序号</strong></td>
+				<td><input readonly type="text" size="60" name="tunnelSection.sequence" class="{required:true,number:true}" value="<s:property value="tunnelSection.sequence"/>"/></td>
 			</tr>
 			<tr>
 				<td width="30%" style="text-align: right;"><strong

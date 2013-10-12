@@ -12,11 +12,13 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="js/bootstrap.datetimepicker.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#mailRecordList').addClass("active");
 	$("#form").validate();
+	$('#datetimepicker1').datetimepicker();
 });
 </script>
 </head>
@@ -33,6 +35,8 @@ $(document).ready(function() {
 					<tr>	
 						<th colspan='2'><h4 class="text-info text-center">新增邮件信息</h4></th>
 						<input type="hidden" name="index" value="<s:property value="index"/>"/>
+						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input type="hidden" name="type" value="<s:property value="type"/>"/>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">邮件类型</strong></td>
@@ -44,30 +48,39 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">隧道ID</strong></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td>
-							<input name="mailRecord.tunnelId" type='text'/>
-					</td></tr>
+							 <s:select name="mailRecord.tunnelId" id="tunnelSectionId"
+									list="tunnels" listKey="id" listValue="name"  theme="simple" >
+							</s:select>
+						</td>
+					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">邮件时间</strong></td>
 						<td>
-							<input name="mailRecord.time" type='text'/>
-					</td></tr>
+						<div id="datetimepicker1" class="input-append date">
+				            <input name="mailRecord.time"  placeholder="邮件时间"  class="{required:true,date:true}"
+				               data-format="yyyy-MM-dd" type="text"></input> <span class="add-on"> <i
+				               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
+				            </span>
+				         </div></td>
+					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">邮件接受者</strong></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">收件人</strong></td>
 						<td>
-							<input name="mailRecord.receivers" type='text'/>
+							<input name="mailRecord.receivers" type='text' class="{required:true}"/>
 					</td></tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">邮件标题</strong></td>
 						<td>
-							<input name="mailRecord.title" type='text'/>
+							<input name="mailRecord.title" type='text' class="{required:true}"/>
 					</td></tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">邮件内容</strong></td>
 						<td>
-							<input name="mailRecord.content" type='text'/>
-					</td></tr><tr>
+							<textarea name="mailRecord.content" cols="80" rows="6" class="{required:true}"></textarea>
+						</td></tr>
+					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">发送状态</strong></td>
 						<td>
 							<select name="mailRecord.status">

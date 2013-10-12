@@ -2,10 +2,14 @@ package com.mailRecord;
 
 import java.util.Date;
 
+import com.tunnel.Tunnel;
+
 public class MailRecord {
 	private int m_id;
 
 	private int m_tunnelId;
+	
+	private Tunnel m_tunnel;
 	
 	private int m_type;
 
@@ -92,6 +96,14 @@ public class MailRecord {
 	public void setCreationDate(Date creationDate) {
 		m_creationDate = creationDate;
 	}
+
+	public Tunnel getTunnel() {
+   	return m_tunnel;
+   }
+
+	public void setTunnel(Tunnel tunnel) {
+   	m_tunnel = tunnel;
+   }
 
 	@Override
 	public String toString() {

@@ -52,9 +52,9 @@ public class MailRecordServiceImpl implements MailRecordService {
 	}
 
 	@Override
-	public int queryAllSize() {
+	public int queryAllSizeByTunnelAndType(int tunnelId,int type) {
 		try {
-			return m_mailRecordDao.queryAllSize();
+			return m_mailRecordDao.queryAllSizeByTunnelAndType(tunnelId,type);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
@@ -63,9 +63,9 @@ public class MailRecordServiceImpl implements MailRecordService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<MailRecord> queryLimitedMailRecords(int start, int size) {
+	public List<MailRecord> queryLimitedMailRecordsByTunnelAndType(int tunnelId,int type,int start, int size) {
 		try {
-			return m_mailRecordDao.queryLimitedMailRecords(start, size);
+			return m_mailRecordDao.queryLimitedMailRecordsByTunnelAndType(tunnelId,type,start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<MailRecord>();

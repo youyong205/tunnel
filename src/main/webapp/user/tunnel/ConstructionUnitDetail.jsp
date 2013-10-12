@@ -28,7 +28,8 @@
 		<ul class="breadcrumb">
 			<li>当前位置：</li>
 			<li>首页<span class="divider">/</span></li>
-			<li class="active">施工单位</li>
+			<li><a href="userConstructionUnitList.do?tunnelId=<s:property value="tunnelId"/>">施工单位</a><span class="divider">/</span></li>
+			<li class="active">详细信息</li>
 		</ul>
 	</div>
 	<div class='row'>
@@ -38,33 +39,66 @@
 		<div class='span10'>
 			<table  class="table table-striped table-bordered table-condensed">
 					<tr>	
-						<th colspan='2'><h4 class="text-info text-center">施工单位信息</h4></th>
-						<input readonly type="hidden" name="constructionUnit.id" value="<s:property value="constructionUnit.id"/>" />
-						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
+						<th colspan='2'><h4 class="text-info text-center">编辑邮件信息</h4></th>
+						<input type="hidden" name="mailRecord.id" value="<s:property value="mailRecord.id"/>"/>
+						<input type="hidden" name="tunnelId" value="<s:property value="tunnelId"/>"/>
+						<input type="hidden" name="type" value="<s:property value="type"/>"/>
+						<input type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">名称</strong></td>
-						<td><input readonly type="text" size="60" name="constructionUnit.name"  value="<s:property value='constructionUnit.name'/>"  class="{required:true,maxlength:128}"/></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">邮件类型</strong></td>
+						<td>
+							<select name="mailRecord.type" id="type">
+								<option value="1">日常邮件</option>
+								<option value="2">告警邮件</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">类型</strong></td>
-						<td><input readonly type="text" size="60" name="constructionUnit.type"  value="<s:property value='constructionUnit.type'/>"  class="{required:true,maxlength:64}"/></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
+						<td>
+							 <s:select name="mailRecord.tunnelId" id="tunnelSectionId"
+									list="tunnels" listKey="id" listValue="name" value="mailRecord.tunnelId"  theme="simple" >
+							</s:select>
+						</td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">地址</strong></td>
-						<td><input readonly type="text" size="60" name="constructionUnit.address"  value="<s:property value='constructionUnit.address'/>" class="{required:true,maxlength:128}"/></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">邮件时间</strong></td>
+						<td>
+						<div id="datetimepicker1" class="input-append date">
+				            <input name="mailRecord.time"  placeholder="邮件时间"  value="<s:date name="mailRecord.time" format="yyyy-MM-dd"/>" class="{required:true,date:true}"
+				               data-format="yyyy-MM-dd" type="text"></input> <span class="add-on"> <i
+				               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
+				            </span>
+				         </div></td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">施工人员</strong></td>
-						<td><input readonly type="text" size="60" name="constructionUnit.workers"  value="<s:property value='constructionUnit.workers'/>" class="{required:true,maxlength:128}"/></td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">收件人</strong></td>
+						<td>
+							<input name="mailRecord.receivers" type='text' class="{required:true}" value="<s:property value='mailRecord.receivers'/>"/>
+					</td></tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">邮件标题</strong></td>
+						<td>
+							<input name="mailRecord.title" type='text' class="{required:true}" value="<s:property value='mailRecord.title'/>"/>
+					</td></tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">邮件内容</strong></td>
+						<td>
+							<textarea name="mailRecord.content" cols="80" class="{required:true}" rows="6"><s:property escape="false" value='mailRecord.content'/></textarea>
+						</td></tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">发送状态</strong></td>
+						<td>
+							<select name="mailRecord.status" id="status">
+								<option value="1">成功</option>
+								<option value="2">失败</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">联系电话</strong></td>
-						<td><input readonly type="text" size="60" name="constructionUnit.phone"  value="<s:property value='constructionUnit.phone'/>" class="{required:true,maxlength:128}"/></td>
-					</tr>
-					<tr>
-						<td width="20%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="80"  name="constructionUnit.des"  class="{maxlength:512}"><s:property value='constructionUnit.des'/></textarea></td>
+						<td colspan="2" style="text-align:center;">
+							<button  class="btn btn-small btn-primary"  type="submit" >提交</button></td>
 					</tr>
 					</table>
 		</div>

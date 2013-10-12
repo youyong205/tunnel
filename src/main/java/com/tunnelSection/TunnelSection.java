@@ -13,6 +13,8 @@ public class TunnelSection {
 	private String m_type;
 
 	private int m_tunnelId;
+	
+	private double m_sequence;
 
 	private Tunnel m_tunnel;
 
@@ -115,6 +117,14 @@ public class TunnelSection {
 	public void setType(String type) {
 		m_type = type;
 	}
+	
+	public double getSequence() {
+   	return m_sequence;
+   }
+
+	public void setSequence(double sequence) {
+   	m_sequence = sequence;
+   }
 
 	@Override
 	public String toString() {

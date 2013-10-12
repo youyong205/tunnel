@@ -35,16 +35,22 @@ public class MailRecordDao {
 		return m_baseDao.queryForList("mailRecord.queryAllMailRecords");
 	}
 
-	public int queryAllSize() {
-		return (Integer) m_baseDao.queryForObject("mailRecord.queryAllSize", null);
+	public int queryAllSizeByTunnelAndType(int tunnelId, int type) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("type", type);
+		return (Integer) m_baseDao.queryForObject("mailRecord.queryAllSize", parameters);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedMailRecords(int start, int size) {
+	public List queryLimitedMailRecordsByTunnelAndType(int tunnelId, int type, int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("start", start);
 		parameters.put("size", size);
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("type", type);
 
 		return m_baseDao.queryForList("mailRecord.queryLimitedMailRecords", parameters);
 	}

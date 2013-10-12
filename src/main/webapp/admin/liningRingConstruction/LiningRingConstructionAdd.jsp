@@ -65,12 +65,14 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
-						<td colspan='3'>
+						<td>
 							<select name="liningRingConstruction.lineType">
 								<option value="上行">上行</option>
 								<option value="下行">下行</option>
 							</select>
 						</td>
+						<td width="20%" style="text-align:right;"><strong class="text-success">衬砌环顺序号</strong></td>
+						<td><input type="text" name="liningRingConstruction.sequence" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">管片拼装定位角(°)</strong></td>

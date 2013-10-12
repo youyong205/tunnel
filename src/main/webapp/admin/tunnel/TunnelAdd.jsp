@@ -61,6 +61,10 @@ $(document).ready(function() {
 						</td>
 					</tr>
 					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">邮件通知人</strong></td>
+						<td><textarea type="text" rows="5" cols="80"  name="tunnel.email" class="{maxlength:512}"></textarea></td>
+					</tr>
+					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="80"  name="tunnel.des" class="{maxlength:512}"></textarea></td>
 					</tr>

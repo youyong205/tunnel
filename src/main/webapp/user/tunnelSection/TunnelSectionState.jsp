@@ -68,8 +68,14 @@ td{
 				<div>
 					<h5 class=' text-center'>上行线【<span class="text-error">服役指标-<s:property value="typeDes"/></span>】
 						<s:iterator value="upCounts" status="vs">
-							<span class="level<s:property value="key" />"><s:property value="key" />&nbsp;&nbsp;</span>
-							<s:property value="value"/>
+							</span><span class="level<s:property value="key" />">&nbsp;&nbsp;</span>
+							<s:if test="key == 'A'.toString()">i</s:if>
+							<s:elseif test="key =='B'.toString()">ii</s:elseif>
+							<s:elseif test="key =='C'.toString()">iii</s:elseif>
+							<s:elseif test="key =='D'.toString()">iv</s:elseif>
+							<s:elseif test="key =='E'.toString()">v</s:elseif>
+							
+							-<s:property value="value"/>
 						</s:iterator>
 					</h5>
 					<table style='margin-bottom:0px;' class="table table-striped table-bordered table-condensed table-hover">
@@ -83,7 +89,11 @@ td{
 					<h5 class=' text-center'>下行线【<span class="text-error">服役指标-<s:property value="typeDes"/></span>】
 					<s:iterator value="downCounts" status="vs">
 						<span class="level<s:property value="key" />"><s:property value="key" />&nbsp;&nbsp;</span>
-						<s:property value="value"/>
+						<s:if test="key == 'A'.toString()">i</s:if>
+							<s:elseif test="key =='B'.toString()">ii</s:elseif>
+							<s:elseif test="key =='C'.toString()">iii</s:elseif>
+							<s:elseif test="key =='D'.toString()">iv</s:elseif>
+							<s:elseif test="key =='E'.toString()">v</s:elseif>-<s:property value="value"/>
 					</s:iterator>
 					</h5>
 					<table class="table table-striped table-bordered table-condensed table-hover">

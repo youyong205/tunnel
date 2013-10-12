@@ -53,25 +53,6 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 		}
 	}
 
-	public int queryAllSize() {
-		try {
-			return m_tunnelSectionDao.queryAllSize();
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return -1;
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<TunnelSection> queryAllTunnelSections() {
-		try {
-			return m_tunnelSectionDao.queryAllTunnelSections();
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return new ArrayList<TunnelSection>();
-		}
-	}
-
 	@SuppressWarnings("unchecked")
 	public List<TunnelSection> queryLimitedTunnelSections(int start, int size) {
 		try {

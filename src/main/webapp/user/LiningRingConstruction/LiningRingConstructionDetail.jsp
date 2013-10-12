@@ -83,35 +83,128 @@
 			    					<th>第<s:property value='#vs.index+1'/>块</th>
 			    				</s:iterator></tr>
 			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">横断面变形</a></td>
-			    					<td colspan='20'><span class="level<s:property value="liningRingConstruction.deformationState"/>"><s:property value="liningRingConstruction.deformationState"/></span></td></tr>
+	    							<td>
+				    					<s:if test="liningRingConstruction.deformationState == 'A'.toString()">a</s:if>
+										<s:elseif test="liningRingConstruction.deformationState =='B'.toString()">b</s:elseif>
+										<s:elseif test="liningRingConstruction.deformationState =='C'.toString()">c</s:elseif>
+										<s:elseif test="liningRingConstruction.deformationState =='D'.toString()">d</s:elseif>
+										<s:elseif test="liningRingConstruction.deformationState =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
+	    						
 	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵断面变形</a></td>
-	    							<td colspan='20' ><span class="level<s:property value="liningRingConstruction.longitudinalDeformationState"/>"><s:property value="liningRingConstruction.longitudinalDeformationState"/></span></td></tr>
+	    							<td>
+				    					<s:if test="liningRingConstruction.longitudinalDeformationState == 'A'.toString()">a</s:if>
+										<s:elseif test="liningRingConstruction.longitudinalDeformationState =='B'.toString()">b</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalDeformationState =='C'.toString()">c</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalDeformationState =='D'.toString()">d</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalDeformationState =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">环缝错台</a></td>
-	    							<td colspan='20'><span class="level<s:property value="liningRingConstruction.girthFaultState"/>"><s:property value="liningRingConstruction.girthFaultState"/></span></td></tr>
+	    							<td>
+				    					<s:if test="liningRingConstruction.girthFaultState == 'A'.toString()">a</s:if>
+										<s:elseif test="liningRingConstruction.girthFaultState =='B'.toString()">b</s:elseif>
+										<s:elseif test="liningRingConstruction.girthFaultState =='C'.toString()">c</s:elseif>
+										<s:elseif test="liningRingConstruction.girthFaultState =='D'.toString()">d</s:elseif>
+										<s:elseif test="liningRingConstruction.girthFaultState =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">裂缝状态</a></td>
-			    				<td><span class="level<s:property value="liningRingConstruction.cracksRingState.state"/>"><s:property value="liningRingConstruction.cracksRingState.state"/></span></td>
+			    					<td>
+				    					<s:if test="liningRingConstruction.cracksRingState.state == 'A'.toString()">a</s:if>
+										<s:elseif test="liningRingConstruction.cracksRingState.state =='B'.toString()">b</s:elseif>
+										<s:elseif test="liningRingConstruction.cracksRingState.state =='C'.toString()">c</s:elseif>
+										<s:elseif test="liningRingConstruction.cracksRingState.state =='D'.toString()">d</s:elseif>
+										<s:elseif test="liningRingConstruction.cracksRingState.state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 			    				<s:iterator value="liningRingConstruction.cracksRingState.states">
-			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    					<td>
+				    					<s:if test="state == 'A'.toString()">a</s:if>
+										<s:elseif test="state =='B'.toString()">b</s:elseif>
+										<s:elseif test="state =='C'.toString()">c</s:elseif>
+										<s:elseif test="state =='D'.toString()">d</s:elseif>
+										<s:elseif test="state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 			    				</s:iterator></tr>
 			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">环缝张开</a></td>
-			    				<td><span class="level<s:property value="liningRingConstruction.girthOpenRingState.state"/>"><s:property value="liningRingConstruction.girthOpenRingState.state"/></span></td>
+			    				<td>
+				    					<s:if test="liningRingConstruction.girthOpenRingState.state == 'A'.toString()">a</s:if>
+										<s:elseif test="liningRingConstruction.girthOpenRingState.state =='B'.toString()">b</s:elseif>
+										<s:elseif test="liningRingConstruction.girthOpenRingState.state =='C'.toString()">c</s:elseif>
+										<s:elseif test="liningRingConstruction.girthOpenRingState.state =='D'.toString()">d</s:elseif>
+										<s:elseif test="liningRingConstruction.girthOpenRingState.state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 			    				<s:iterator value="liningRingConstruction.girthOpenRingState.states">
-			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    					<td>
+				    					<s:if test="state == 'A'.toString()">a</s:if>
+										<s:elseif test="state =='B'.toString()">b</s:elseif>
+										<s:elseif test="state =='C'.toString()">c</s:elseif>
+										<s:elseif test="state =='D'.toString()">d</s:elseif>
+										<s:elseif test="state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 			    				</s:iterator></tr>
 			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵缝张开</a></td>
-			    				<td><span class="level<s:property value="liningRingConstruction.longitudinalOpenRingState.state"/>"><s:property value="liningRingConstruction.longitudinalOpenRingState.state"/></span></td>
-			    				<s:iterator value="liningRingConstruction.longitudinalOpenRingState.states">
-			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    				<td>
+				    					<s:if test="liningRingConstruction.longitudinalOpenRingState.state == 'A'.toString()">a</s:if>
+										<s:elseif test="liningRingConstruction.longitudinalOpenRingState.state =='B'.toString()">b</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalOpenRingState.state =='C'.toString()">c</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalOpenRingState.state =='D'.toString()">d</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalOpenRingState.state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
+			    					<s:iterator value="liningRingConstruction.longitudinalOpenRingState.states">
+			    					<td>
+				    					<s:if test="state == 'A'.toString()">a</s:if>
+										<s:elseif test="state =='B'.toString()">b</s:elseif>
+										<s:elseif test="state =='C'.toString()">c</s:elseif>
+										<s:elseif test="state =='D'.toString()">d</s:elseif>
+										<s:elseif test="state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 			    				</s:iterator></tr>
 			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵缝错台</a></td>
-			    				<td><span class="level<s:property value="liningRingConstruction.longitudinalFaultRingState.state"/>"><s:property value="liningRingConstruction.longitudinalFaultRingState.state"/></span></td>
+			    				<td>
+				    					<s:if test="liningRingConstruction.longitudinalFaultRingState.state == 'A'.toString()">a</s:if>
+										<s:elseif test="liningRingConstruction.longitudinalFaultRingState.state =='B'.toString()">b</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalFaultRingState.state =='C'.toString()">c</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalFaultRingState.state =='D'.toString()">d</s:elseif>
+										<s:elseif test="liningRingConstruction.longitudinalFaultRingState.state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
+			    					
 			    				<s:iterator value="liningRingConstruction.longitudinalFaultRingState.states">
-			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    					<td>
+				    					<s:if test="state == 'A'.toString()">a</s:if>
+										<s:elseif test="state =='B'.toString()">b</s:elseif>
+										<s:elseif test="state =='C'.toString()">c</s:elseif>
+										<s:elseif test="state =='D'.toString()">d</s:elseif>
+										<s:elseif test="state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 			    				</s:iterator></tr>
 	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">保护层损失</a></td>
-	    						<td><span class="level<s:property value="liningRingConstruction.coverLossRingState.state"/>"><s:property value="liningRingConstruction.coverLossRingState.state"/></span></td>
+			    				<td>
+				    					<s:if test="liningRingConstruction.coverLossRingState.state == 'A'.toString()">a</s:if>
+										<s:elseif test="liningRingConstruction.coverLossRingState.state =='B'.toString()">b</s:elseif>
+										<s:elseif test="liningRingConstruction.coverLossRingState.state =='C'.toString()">c</s:elseif>
+										<s:elseif test="liningRingConstruction.coverLossRingState.state =='D'.toString()">d</s:elseif>
+										<s:elseif test="liningRingConstruction.coverLossRingState.state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 			    				<s:iterator value="liningRingConstruction.coverLossRingState.states">
-			    					<td><span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+			    					<td>
+				    					<s:if test="state == 'A'.toString()">a</s:if>
+										<s:elseif test="state =='B'.toString()">b</s:elseif>
+										<s:elseif test="state =='C'.toString()">c</s:elseif>
+										<s:elseif test="state =='D'.toString()">d</s:elseif>
+										<s:elseif test="state =='E'.toString()">e</s:elseif>
+										<s:else>-</s:else>
+			    					</td>
 			    				</s:iterator></tr>
 	    					</table>
 	    				</div>
@@ -148,12 +241,15 @@
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">线路类型</strong></td>
-						<td colspan='3'>
+						<td>
 							<select name="liningRingConstruction.lineType">
 								<option value="上行">上行</option>
 								<option value="下行">下行</option>
 							</select>
 						</td>
+						<td style="text-align:right;"><strong class="text-success">衬砌环顺序号</strong></td>
+						<td><input readonly type="text" name="liningRingConstruction.sequence" 
+						 value="<s:property value="liningRingConstruction.sequence"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">管片拼装定位角(°)</strong></td>

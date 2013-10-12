@@ -4,10 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.main.TunnelSectionState.LiningRingState;
-
-public class TunnelSectionStateBuilder {
-	private final int WIDTH = 4;
+public class TunnelStateBuilder {
+	private final int WIDTH = 40;
 
 	private final int HEIGHT = 20;
 
@@ -23,7 +21,7 @@ public class TunnelSectionStateBuilder {
 
 	private Map<String, String> m_colors = new HashMap<String, String>();
 
-	public TunnelSectionStateBuilder() {
+	public TunnelStateBuilder() {
 		m_colors.put("A", GREEN);
 		m_colors.put("B", BLUE);
 		m_colors.put("C", ORANGE);
@@ -41,31 +39,31 @@ public class TunnelSectionStateBuilder {
 		return format;
 	}
 
-	private String buildLink(LiningRingState state) {
-		String format = " <a xlink:href='userLiningRingConstructionDetail.do?tunnelId=%d&tunnelSectionId=%d&liningRingConstructionId=%d'>";
+	private String buildLink(TunnelState.TunnelSectionState state) {
+		String format = " <a xlink:href='userTunnelSectionState.do?tunnelId=%d&tunnelSectionId=%d'>";
 
-		return String.format(format, state.getTunnelId(), state.getTunnelSectionId(), state.getId());
+		return String.format(format, state.getTunnelId(), state.getTunnelSectionId());
 	}
 
 	private String buildLinkFoot() {
 		return " </a>";
 	}
 
-	private String buildRectangle(int index, LiningRingState state) {
-		String format = "<rect x='%d' y='00' width='%d' height='%d'" + "style='fill:%s;"
+	private String buildRectangle(int index, TunnelState.TunnelSectionState state) {
+		String format = "<rect x='%d' y='00' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:1;"
 		      + "opacity:0.9'/>";
 
 		return String.format(format, WIDTH * index, WIDTH, HEIGHT, m_colors.get(state.getState()));
 	}
 
-	public String buildXml(List<LiningRingState> states) {
+	public String buildXml(List<TunnelState.TunnelSectionState> states) {
 		StringBuilder sb = new StringBuilder(1024);
 
 		sb.append(buildHeader());
 
 		int length = states.size();
 		for (int i = 0; i < length; i++) {
-			LiningRingState state = states.get(i);
+			TunnelState.TunnelSectionState state = states.get(i);
 			sb.append(buildLink(state));
 			sb.append(buildRectangle(i, state));
 			sb.append(buildLinkFoot());

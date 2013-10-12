@@ -4,23 +4,16 @@
 	<typeAlias alias="tunnelSection" type="com.tunnelSection.TunnelSection" />
 
 	<sql id="tunnelSection.columns">
-		id,tunnelId,name,type,environment,externalDiameter,state,des,creationDate,modifyDate
+		id,tunnelId,name,type,environment,externalDiameter,state,sequence,des,creationDate,modifyDate
 	</sql>
-	<select id="tunnelSection.queryAllSize" resultClass="int">
-		select count(*) from tunnelSection
-	</select>
-	<select id="tunnelSection.queryLimitedTunnelSections" resultClass="tunnelSection">
-		select
-		<include refid="tunnelSection.columns" />
-		from tunnelSection limit #start#,#size#
-	</select>
 	<select id="tunnelSection.querySizeByTunnelId" resultClass="int" parameterClass="int">
 		select count(*) from tunnelSection where tunnelId=#tunnelId#
 	</select>
 	<select id="tunnelSection.queryLimitedTunnelSectionsByTunnelId" resultClass="tunnelSection">
 		select
 		<include refid="tunnelSection.columns" />
-		from tunnelSection where tunnelId=#tunnelId#  limit #start#,#size#
+		from tunnelSection where tunnelId=#tunnelId#  
+   		order by sequence asc limit #start#,#size#
 	</select>
 	<select id="tunnelSection.findByName" resultClass="tunnelSection" parameterClass="String">
 		select
@@ -34,7 +27,7 @@
 	</select>
 	<insert id="tunnelSection.insert" parameterClass="tunnelSection">
 		insert into tunnelSection (<include refid="tunnelSection.columns" />) values
-		(#id#,#tunnelId#,#name#,#type#,#environment#,#externalDiameter#,#state#,#des#,now(),now())
+		(#id#,#tunnelId#,#name#,#type#,#environment#,#externalDiameter#,#state#,#sequence#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
@@ -43,7 +36,7 @@
 		update tunnelSection set tunnelId=#tunnelId#,
 		name=#name#,des=#des#,type=#type#,
 		environment=#environment#,externalDiameter=#externalDiameter#,
-		state=#state#,modifyDate=now()
+		state=#state#,sequence=#sequence#,modifyDate=now()
 		where id=#id#
 	</update>
 	<delete id="tunnelSection.delete" parameterClass="int">

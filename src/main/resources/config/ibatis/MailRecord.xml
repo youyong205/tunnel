@@ -13,11 +13,28 @@
 	</select>
 	<select id="mailRecord.queryAllSize" resultClass="int">
 		select count(*) from mailRecord
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="type" compareValue="0">
+                 type=#type#
+            </isGreaterThan>
+   		</dynamic>
 	</select>
 	<select id="mailRecord.queryLimitedMailRecords" resultClass="mailRecord">
 		select
 		<include refid="mailRecord.columns" />
-		from mailRecord limit #start#,#size#
+		from mailRecord 
+		<dynamic prepend="WHERE">
+            <isGreaterThan prepend="AND" property="tunnelId" compareValue="0">
+                 tunnelId=#tunnelId#
+            </isGreaterThan>
+            <isGreaterThan prepend="AND" property="type" compareValue="0">
+                 type=#type#
+            </isGreaterThan>
+   		</dynamic>
+		limit #start#,#size#
 	</select>
 	<select id="mailRecord.findById" resultClass="mailRecord" parameterClass="int">
 		select
@@ -33,7 +50,7 @@
 	</insert>
 	<update id="mailRecord.update" parameterClass="mailRecord">
 		update mailRecord set 
-		type=#type#,time=#time#,receivers=#receivers#,
+		type=#type#,time=#time#,receivers=#receivers#,tunnelId=#tunnelId#,
 		title=#title#,content=#content#,status=#status#
 		where id=#id#
 	</update>

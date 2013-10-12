@@ -28,7 +28,7 @@
 		<ul class="breadcrumb">
 			<li>当前位置：</li>
 			<li>首页<span class="divider">/</span></li>
-			<li class="active">联络通道</li>
+			<li class="active">隧道列表</li>
 		</ul>
 	</div>
 	<div class='row'>
@@ -36,12 +36,23 @@
 			<%@include file="./../TunnelMenu.jsp"%>
 		</div>
       <div class='span10'> 
+  <%--   <s:iterator value="allSvgs" status="vs">
+		  
+       <h4 class="text-center text-error"><a href="userTunnelDetail.do?tunnelId=<s:property value="key.id"/>&index=<s:property value="index"/>"><s:property value="key.name"/></a>-隧道服务状态</h4>
+     	 <table style='margin-bottom:0px;' class="table table-striped table-bordered table-condensed table-hover">
+			<s:iterator value="value" status="vs">
+			<tr>
+				<td style="padding:6px 4px 0px 4px;"><s:property value="value" escape="false" /></td></tr>
+			</s:iterator>
+		</table>
+		<br/>
+		</s:iterator> --%>
 		<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="8%">序号</th>
-					<th width="20%">类型</th>
-					<th width="20%">名称</th>
-					<th width="32%">服役状态</th>
+					<th width="15%">类型</th>
+					<th width="42%">名称</th>
+					<th width="15%">服役状态</th>
 					<th width="20%">详情</th>
 				</tr></thead><tbody>
 				<s:iterator value="tunnels" status="vs">

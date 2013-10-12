@@ -49,7 +49,13 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段类型</strong></td>
-						<td><input type="text" size="60" name="tunnelSection.type" class="{required:true,maxlength:64}"/></td>
+						<td>
+							<select name="tunnelSection.type">
+								<option value="-">-</option>
+								<option value="上行">上行</option>
+								<option value="下行">下行</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段环境</strong></td>
@@ -78,6 +84,10 @@ $(document).ready(function() {
 		    						<option value="E">危险</option>
 							</select>
 						</td>
+					</tr>
+					<tr>
+						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段顺序</strong></td>
+						<td><input type="text" size="60" name="tunnelSection.sequence" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段备注信息</strong></td>
