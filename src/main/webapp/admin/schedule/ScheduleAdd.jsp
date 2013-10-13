@@ -22,7 +22,7 @@
                data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
             </span>
          </div></td>
-		<td width="10%"style="text-align:right;"><strong class="text-success">施工完成时间</strong></td>
+		<td width="15%"style="text-align:right;"><strong class="text-success">施工完成时间</strong></td>
 		<td><div id="datetimepicker2" class="input-append date">
             <input name="schedule.endTimeStr"  placeholder="施工结束时间"  class="{required:true,date:true}"
                data-format="yyyy-MM-dd hh:mm" type="text"></input> <span class="add-on"> <i

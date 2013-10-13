@@ -52,11 +52,11 @@
 						<input readonly type="hidden" name="index" value="<s:property value="index"/>"/>
 					</tr>
 					<tr>
-						<td width="40%" style="text-align:right;"><strong class="text-success">名称</strong></td>
+						<td width="35%" style="text-align:right;"><strong class="text-success">名称</strong></td>
 						<td><s:property value='tunnel.name'/></td>
 					</tr>
 					<tr>
-						<td width="40%" style="text-align:right;"><strong class="text-success">类型</strong></td>
+						<td width="35%" style="text-align:right;"><strong class="text-success">类型</strong></td>
 						<td>
 							<s:if test="tunnel.type==1">地铁隧道</s:if>
 							<s:elseif test="tunnel.type==2">道路隧道</s:elseif>
@@ -64,7 +64,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="40%" style="text-align:right;"><strong class="text-success">服役状态</strong></td>
+						<td width="35%" style="text-align:right;"><strong class="text-success">服役状态</strong></td>
 						<td><s:property value='tunnel.state'/></td>
 					</tr>	
 					
@@ -73,7 +73,7 @@
 						<td><s:property value='tunnel.email'/></td>
 					</tr>				
 					<tr>
-						<td width="40%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
+						<td width="35%" style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><s:property value='tunnel.des'/></td>
 					</tr>
 					</table></div></div>

@@ -52,8 +52,8 @@ $(document).ready(function() {
 							list="tunnels" listKey="id" listValue="name" 
 							value="liningRingDeformation.tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="35%">
 						<s:select name="liningRingDeformation.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
 							onchange="tunnelSectionChanged(true)" 
@@ -61,8 +61,8 @@ $(document).ready(function() {
 						</s:select> </td>
 					</tr>
 					<tr>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择衬砌环</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">选择衬砌环</strong></td>
+						<td width="35%">
 							<s:select name="liningRingDeformation.liningRingConstructionId" id="liningRingConstructionId"
 							list="liningRingConstructions" listKey="id" listValue="name"
 							value="liningRingDeformation.liningRingConstructionId" theme="simple" >

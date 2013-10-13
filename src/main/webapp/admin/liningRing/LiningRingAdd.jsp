@@ -38,8 +38,8 @@ $(document).ready(function() {
 					<tr>
 						<td width="15%" style="text-align:right;"><strong class="text-success">衬砌环名称</strong></td>
 						<td width="35%"><input type="text" size="30" name="liningRing.name" class="{required:true,maxlength:64}"/></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">衬砌环类型</strong></td>
-						<td width="40%"><input type="text" size="30" name="liningRing.type" class="{required:true,maxlength:64}"/></td>
+						<td width="15%" style="text-align:right;"><strong class="text-success">衬砌环类型</strong></td>
+						<td width="35%"><input type="text" size="30" name="liningRing.type" class="{required:true,maxlength:64}"/></td>
 					</tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">管片形式</strong></td>

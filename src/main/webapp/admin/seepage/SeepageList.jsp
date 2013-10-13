@@ -67,9 +67,9 @@
 					<input type="hidden" name="liningRingConstructionId" value="<s:property value="liningRingConstructionId"/>"/>
 				<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
-					<th width="5%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
+					<th width="8%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
 					<th width="5%">序号</th>
-					<th width="20%">检测时间</th>
+					<th width="17%">检测时间</th>
 					<th width="15%">基本形状</th>
 					<th width="15%">尺寸</th>
 					<th width="20%">是否影响设备</th>

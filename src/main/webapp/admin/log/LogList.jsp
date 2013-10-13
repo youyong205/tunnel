@@ -45,11 +45,11 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="30%">模块名称</th>
+					<th width="27%">模块名称</th>
 					<th width="25%">操作名称</th>
 					<th width="20%">时间</th>
 					<th width="15%">操作员</th>
-					<th width="5%">操作</th>
+					<th width="8%">操作</th>
 				</tr></thead><tbody>
 				<s:iterator value="logs" status="vs">
 					<tr>

@@ -1,262 +1,262 @@
-2013-10-13 21:17:23,240 [INFO ] org.mortbay.log  - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
-2013-10-13 21:17:23,243 [DEBUG] org.mortbay.log  - Container Server@13342a67 + SocketConnector@0.0.0.0:2282 as connector
-2013-10-13 21:17:23,347 [DEBUG] org.mortbay.log  - Checking Resource aliases
-2013-10-13 21:17:23,347 [DEBUG] org.mortbay.log  - Container Server@13342a67 + org.mortbay.jetty.webapp.WebAppContext@51701bdc{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/} as handler
-2013-10-13 21:17:23,348 [DEBUG] org.mortbay.log  - Container SecurityHandler@17353249 + ServletHandler@25786286 as handler
-2013-10-13 21:17:23,348 [DEBUG] org.mortbay.log  - Container SessionHandler@28c5ea2 + SecurityHandler@17353249 as handler
-2013-10-13 21:17:23,348 [DEBUG] org.mortbay.log  - Container SessionHandler@28c5ea2 + org.mortbay.jetty.servlet.HashSessionManager@4d98defc as sessionManager
-2013-10-13 21:17:23,348 [DEBUG] org.mortbay.log  - Container org.mortbay.jetty.webapp.WebAppContext@51701bdc{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/} + SessionHandler@28c5ea2 as handler
-2013-10-13 21:17:23,348 [DEBUG] org.mortbay.log  - Container org.mortbay.jetty.webapp.WebAppContext@51701bdc{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/} + ErrorPageErrorHandler@6f579a30 as error
-2013-10-13 21:17:23,348 [INFO ] org.mortbay.log  - jetty-6.1.14
-2013-10-13 21:17:23,375 [DEBUG] org.mortbay.log  - Container Server@13342a67 + org.mortbay.thread.QueuedThreadPool@b3e15f7 as threadpool
-2013-10-13 21:17:23,377 [DEBUG] org.mortbay.log  - started org.mortbay.thread.QueuedThreadPool@b3e15f7
-2013-10-13 21:17:23,411 [DEBUG] org.mortbay.log  - Thread Context class loader is: ContextLoader@null([]) / sun.misc.Launcher$AppClassLoader@535ff48b
-2013-10-13 21:17:23,411 [DEBUG] org.mortbay.log  - Parent class loader is: sun.misc.Launcher$AppClassLoader@535ff48b
-2013-10-13 21:17:23,411 [DEBUG] org.mortbay.log  - Parent class loader is: sun.misc.Launcher$ExtClassLoader@40affc70
-2013-10-13 21:17:23,414 [DEBUG] org.mortbay.log  - Delete existing temp dir /var/folders/13/5xqx20t50jz3v_wd3p7y4k240000gn/T/Jetty_0_0_0_0_2282_webapp__t__xxzo5c for org.mortbay.jetty.webapp.WebAppContext@51701bdc{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/}
-2013-10-13 21:17:23,429 [DEBUG] org.mortbay.log  - Created temp dir /var/folders/13/5xqx20t50jz3v_wd3p7y4k240000gn/T/Jetty_0_0_0_0_2282_webapp__t__xxzo5c for org.mortbay.jetty.webapp.WebAppContext@51701bdc{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/}
-2013-10-13 21:17:23,456 [DEBUG] org.mortbay.log  - getResource(org/mortbay/jetty/webapp/webdefault.xml)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jetty/6.1.14/jetty-6.1.14.jar!/org/mortbay/jetty/webapp/webdefault.xml
-2013-10-13 21:17:23,458 [DEBUG] org.mortbay.log  - parse: jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jetty/6.1.14/jetty-6.1.14.jar!/org/mortbay/jetty/webapp/webdefault.xml
-2013-10-13 21:17:23,460 [DEBUG] org.mortbay.log  - parsing: sid=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jetty/6.1.14/jetty-6.1.14.jar!/org/mortbay/jetty/webapp/webdefault.xml,pid=null
-2013-10-13 21:17:23,506 [DEBUG] org.mortbay.log  - ContextParam: org.mortbay.jetty.webapp.NoTLDJarPattern=start.jar|ant-.*\.jar|dojo-.*\.jar|jetty-.*\.jar|jsp-api-.*\.jar|junit-.*\.jar|servlet-api-.*\.jar|dnsns\.jar|rt\.jar|jsse\.jar|tools\.jar|sunpkcs11\.jar|sunjce_provider\.jar|xerces.*\.jar
-2013-10-13 21:17:23,533 [DEBUG] org.mortbay.log  - loaded class org.apache.jasper.servlet.JspServlet from sun.misc.Launcher$AppClassLoader@535ff48b
-2013-10-13 21:17:23,547 [DEBUG] org.mortbay.log  - filterNameMap=null
-2013-10-13 21:17:23,547 [DEBUG] org.mortbay.log  - pathFilters=[]
-2013-10-13 21:17:23,547 [DEBUG] org.mortbay.log  - servletFilterMap=null
-2013-10-13 21:17:23,547 [DEBUG] org.mortbay.log  - servletPathMap=null
-2013-10-13 21:17:23,547 [DEBUG] org.mortbay.log  - servletNameMap=null
-2013-10-13 21:17:23,547 [DEBUG] org.mortbay.log  - Container ServletHandler@25786286 + default as servlet
-2013-10-13 21:17:23,547 [DEBUG] org.mortbay.log  - Container ServletHandler@25786286 + jsp as servlet
-2013-10-13 21:17:23,547 [DEBUG] org.mortbay.log  - Container ServletHandler@25786286 + (S=default,[/]) as servletMapping
-2013-10-13 21:17:23,548 [DEBUG] org.mortbay.log  - Container ServletHandler@25786286 + (S=jsp,[*.jsp, *.jspf, *.jspx, *.xsp, *.JSP, *.JSPF, *.JSPX, *.XSP]) as servletMapping
-2013-10-13 21:17:23,550 [DEBUG] org.mortbay.log  - filterNameMap=null
-2013-10-13 21:17:23,550 [DEBUG] org.mortbay.log  - pathFilters=[]
-2013-10-13 21:17:23,550 [DEBUG] org.mortbay.log  - servletFilterMap=null
-2013-10-13 21:17:23,550 [DEBUG] org.mortbay.log  - servletPathMap={*.XSP=jsp, *.JSPX=jsp, *.jspf=jsp, *.jsp=jsp, *.JSPF=jsp, *.jspx=jsp, *.xsp=jsp, /=default, *.JSP=jsp}
-2013-10-13 21:17:23,550 [DEBUG] org.mortbay.log  - servletNameMap={jsp=jsp, default=default}
-2013-10-13 21:17:23,551 [DEBUG] org.mortbay.log  - parse: file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/WEB-INF/web.xml
-2013-10-13 21:17:23,551 [DEBUG] org.mortbay.log  - parsing: sid=file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/WEB-INF/web.xml,pid=null
-2013-10-13 21:17:23,575 [DEBUG] org.mortbay.log  - loaded class org.springframework.web.util.Log4jConfigListener from sun.misc.Launcher$AppClassLoader@535ff48b
-2013-10-13 21:17:23,575 [DEBUG] org.mortbay.log  - ContextParam: servletPath=/collect
-2013-10-13 21:17:23,575 [DEBUG] org.mortbay.log  - ContextParam: webAppRootKey=WebConsole.root
-2013-10-13 21:17:23,575 [DEBUG] org.mortbay.log  - ContextParam: log4jConfigLocation=classpath:config/log/log4j.xml
-2013-10-13 21:17:23,575 [DEBUG] org.mortbay.log  - ContextParam: log4jRefreshInterval=60000
-2013-10-13 21:17:23,577 [DEBUG] org.mortbay.log  - loaded class org.springframework.web.context.ContextLoaderListener from sun.misc.Launcher$AppClassLoader@535ff48b
-2013-10-13 21:17:23,577 [DEBUG] org.mortbay.log  - ContextParam: contextConfigLocation=classpath*:config/spring/*.xml
-2013-10-13 21:17:23,577 [DEBUG] org.mortbay.log  - Container ServletHandler@25786286 + struts2 as filter
-2013-10-13 21:17:23,577 [DEBUG] org.mortbay.log  - Container ServletHandler@25786286 + (F=struts2,[/*],[],0) as filterMapping
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - filterNameMap={struts2=struts2}
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - pathFilters=[(F=struts2,[/*],[],0)]
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - servletFilterMap=null
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - servletPathMap={*.XSP=jsp, *.JSPX=jsp, *.jspf=jsp, *.jsp=jsp, *.JSPF=jsp, *.jspx=jsp, *.xsp=jsp, /=default, *.JSP=jsp}
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - servletNameMap={jsp=jsp, default=default}
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - filterNameMap={struts2=struts2}
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - pathFilters=[(F=struts2,[/*],[],0)]
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - servletFilterMap=null
-2013-10-13 21:17:23,578 [DEBUG] org.mortbay.log  - servletPathMap={*.XSP=jsp, *.JSPX=jsp, *.jspf=jsp, *.jsp=jsp, *.JSPF=jsp, *.jspx=jsp, *.xsp=jsp, /=default, *.JSP=jsp}
-2013-10-13 21:17:23,579 [DEBUG] org.mortbay.log  - servletNameMap={jsp=jsp, default=default}
-2013-10-13 21:17:23,584 [DEBUG] org.mortbay.log  - Configuring web-jetty.xml
-2013-10-13 21:17:23,590 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar
-2013-10-13 21:17:23,596 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c-1_0-rt.tld
-2013-10-13 21:17:23,596 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c-1_0.tld
-2013-10-13 21:17:23,596 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c.tld
-2013-10-13 21:17:23,596 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt-1_0-rt.tld
-2013-10-13 21:17:23,596 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt-1_0.tld
-2013-10-13 21:17:23,597 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt.tld
-2013-10-13 21:17:23,597 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fn.tld
-2013-10-13 21:17:23,597 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/permittedTaglibs.tld
-2013-10-13 21:17:23,597 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/scriptfree.tld
-2013-10-13 21:17:23,597 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql-1_0-rt.tld
-2013-10-13 21:17:23,597 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql-1_0.tld
-2013-10-13 21:17:23,597 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql.tld
-2013-10-13 21:17:23,598 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x-1_0-rt.tld
-2013-10-13 21:17:23,598 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x-1_0.tld
-2013-10-13 21:17:23,598 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x.tld
-2013-10-13 21:17:23,598 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
-2013-10-13 21:17:23,599 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/asm/asm/3.3/asm-3.3.jar
-2013-10-13 21:17:23,599 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/asm/asm-commons/3.3/asm-commons-3.3.jar
-2013-10-13 21:17:23,600 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/asm/asm-tree/3.3/asm-tree-3.3.jar
-2013-10-13 21:17:23,600 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar
-2013-10-13 21:17:23,611 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar
-2013-10-13 21:17:23,612 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar
-2013-10-13 21:17:23,614 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
-2013-10-13 21:17:23,615 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar
-2013-10-13 21:17:23,617 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
-2013-10-13 21:17:23,617 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar
-2013-10-13 21:17:23,627 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
-2013-10-13 21:17:23,628 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/freemarker/freemarker/2.3.19/freemarker-2.3.19.jar
-2013-10-13 21:17:23,633 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/com/google/code/gson/gson/1.6/gson-1.6.jar
-2013-10-13 21:17:23,634 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/com/ibatis/ibatis/2.3.4.726/ibatis-2.3.4.726.jar
-2013-10-13 21:17:23,636 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar
-2013-10-13 21:17:23,639 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/jsch/jsch/0.1.44/jsch-0.1.44.jar
-2013-10-13 21:17:23,640 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c-1_0-rt.tld
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c-1_0.tld
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c.tld
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt-1_0-rt.tld
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt-1_0.tld
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt.tld
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fn.tld
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/permittedTaglibs.tld
-2013-10-13 21:17:23,641 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/scriptfree.tld
-2013-10-13 21:17:23,642 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql-1_0-rt.tld
-2013-10-13 21:17:23,642 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql-1_0.tld
-2013-10-13 21:17:23,642 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql.tld
-2013-10-13 21:17:23,642 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x-1_0-rt.tld
-2013-10-13 21:17:23,642 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x-1_0.tld
-2013-10-13 21:17:23,642 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x.tld
-2013-10-13 21:17:23,644 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/net/sourceforge/jexcelapi/jxl/2.6.3/jxl-2.6.3.jar
-2013-10-13 21:17:23,647 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar
-2013-10-13 21:17:23,648 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/mysql/mysql-connector-java/5.1.12/mysql-connector-java-5.1.12.jar
-2013-10-13 21:17:23,649 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/ognl/ognl/3.0.5/ognl-3.0.5.jar
-2013-10-13 21:17:23,650 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/slf4j/slf4j-api/1.4.3/slf4j-api-1.4.3.jar
-2013-10-13 21:17:23,650 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/slf4j/slf4j-log4j12/1.4.3/slf4j-log4j12-1.4.3.jar
-2013-10-13 21:17:23,651 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring/2.5.6/spring-2.5.6.jar
-2013-10-13 21:17:23,661 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar
-2013-10-13 21:17:23,663 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar
-2013-10-13 21:17:23,663 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar
-2013-10-13 21:17:23,666 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar
-2013-10-13 21:17:23,671 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar
-2013-10-13 21:17:23,674 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar
-2013-10-13 21:17:23,676 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-web/3.0.5.RELEASE/spring-web-3.0.5.RELEASE.jar
-2013-10-13 21:17:23,678 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/struts/struts2-core/2.3.4/struts2-core-2.3.4.jar
-2013-10-13 21:17:23,679 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/apache/struts/struts2-core/2.3.4/struts2-core-2.3.4.jar!/META-INF/struts-tags.tld
-2013-10-13 21:17:23,681 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/struts/struts2-json-plugin/2.3.4/struts2-json-plugin-2.3.4.jar
-2013-10-13 21:17:23,682 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/apache/struts/struts2-json-plugin/2.3.4/struts2-json-plugin-2.3.4.jar!/META-INF/tags/JsonPlugin.tld
-2013-10-13 21:17:23,682 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/struts/struts2-spring-plugin/2.3.4/struts2-spring-plugin-2.3.4.jar
-2013-10-13 21:17:23,682 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar
-2013-10-13 21:17:23,683 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar
-2013-10-13 21:17:23,683 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.jar
-2013-10-13 21:17:23,685 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/struts/xwork/xwork-core/2.3.4/xwork-core-2.3.4.jar
-2013-10-13 21:17:23,686 [DEBUG] org.mortbay.log  - TLD search of file:/Library/Java/Extensions/RXTXcomm.jar
-2013-10-13 21:17:23,687 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/AppleScriptEngine.jar
-2013-10-13 21:17:23,687 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/dns_sd.jar
-2013-10-13 21:17:23,688 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/j3daudio.jar
-2013-10-13 21:17:23,688 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/j3dcore.jar
-2013-10-13 21:17:23,689 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/j3dutils.jar
-2013-10-13 21:17:23,689 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/jai_codec.jar
-2013-10-13 21:17:23,690 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/jai_core.jar
-2013-10-13 21:17:23,692 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/mlibwrapper_jai.jar
-2013-10-13 21:17:23,692 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/MRJToolkit.jar
-2013-10-13 21:17:23,692 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/vecmath.jar
-2013-10-13 21:17:23,693 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/apple_provider.jar
-2013-10-13 21:17:23,693 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/localedata.jar
-2013-10-13 21:17:23,695 [DEBUG] org.mortbay.log  - loaded class com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl from null
-2013-10-13 21:17:23,696 [DEBUG] org.mortbay.log  - loaded class com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl from null
-2013-10-13 21:17:23,697 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_1_1.dtd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_1.dtd
-2013-10-13 21:17:23,697 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:23,698 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_2_0.xsd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_2_0.xsd
-2013-10-13 21:17:23,698 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_1_1.dtd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_1.dtd
-2013-10-13 21:17:23,698 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:23,699 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_2_0.xsd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_2_0.xsd
-2013-10-13 21:17:23,699 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql-1_0-rt.tld
-2013-10-13 21:17:23,701 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:23,701 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:23,701 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:23,715 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/permittedTaglibs.tld
-2013-10-13 21:17:23,717 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/apache/struts/struts2-core/2.3.4/struts2-core-2.3.4.jar!/META-INF/struts-tags.tld
-2013-10-13 21:17:23,976 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c.tld
-2013-10-13 21:17:23,986 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c-1_0-rt.tld
-2013-10-13 21:17:23,988 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:23,988 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:23,988 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,014 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/scriptfree.tld
-2013-10-13 21:17:24,021 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c-1_0-rt.tld
-2013-10-13 21:17:24,024 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,025 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,025 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,042 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt.tld
-2013-10-13 21:17:24,055 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql-1_0.tld
-2013-10-13 21:17:24,057 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,057 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,057 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,065 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql-1_0.tld
-2013-10-13 21:17:24,067 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,067 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,067 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,075 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x.tld
-2013-10-13 21:17:24,082 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c-1_0.tld
-2013-10-13 21:17:24,083 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,083 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,083 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,099 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fn.tld
-2013-10-13 21:17:24,107 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt.tld
-2013-10-13 21:17:24,115 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt-1_0.tld
-2013-10-13 21:17:24,116 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,116 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,116 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,127 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x-1_0-rt.tld
-2013-10-13 21:17:24,128 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,128 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,128 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,142 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt-1_0.tld
-2013-10-13 21:17:24,143 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,143 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,143 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,155 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x-1_0.tld
-2013-10-13 21:17:24,156 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,156 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,156 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,164 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt-1_0-rt.tld
-2013-10-13 21:17:24,165 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,165 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,165 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,175 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql.tld
-2013-10-13 21:17:24,179 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c-1_0.tld
-2013-10-13 21:17:24,180 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,180 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,180 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,192 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x-1_0.tld
-2013-10-13 21:17:24,193 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,194 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,194 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,202 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fn.tld
-2013-10-13 21:17:24,205 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x.tld
-2013-10-13 21:17:24,209 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/apache/struts/struts2-json-plugin/2.3.4/struts2-json-plugin-2.3.4.jar!/META-INF/tags/JsonPlugin.tld
-2013-10-13 21:17:24,211 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/permittedTaglibs.tld
-2013-10-13 21:17:24,213 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql.tld
-2013-10-13 21:17:24,217 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql-1_0-rt.tld
-2013-10-13 21:17:24,218 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,218 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,219 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,231 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt-1_0-rt.tld
-2013-10-13 21:17:24,232 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,232 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,233 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,241 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/scriptfree.tld
-2013-10-13 21:17:24,242 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x-1_0-rt.tld
-2013-10-13 21:17:24,243 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
-2013-10-13 21:17:24,243 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,244 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
-2013-10-13 21:17:24,251 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c.tld
-2013-10-13 21:17:24,257 [DEBUG] org.mortbay.log  - Container Server@13342a67 + org.mortbay.jetty.servlet.HashSessionIdManager@4c2d0479 as sessionIdManager
-2013-10-13 21:17:24,257 [DEBUG] org.mortbay.log  - Init SecureRandom.
-2013-10-13 21:17:24,333 [DEBUG] org.mortbay.log  - started org.mortbay.jetty.servlet.HashSessionIdManager@4c2d0479
-2013-10-13 21:17:24,334 [DEBUG] org.mortbay.log  - started org.mortbay.jetty.servlet.HashSessionManager@4d98defc
-2013-10-13 21:17:24,335 [DEBUG] org.mortbay.log  - filterNameMap={struts2=struts2}
-2013-10-13 21:17:24,335 [DEBUG] org.mortbay.log  - pathFilters=[(F=struts2,[/*],[],0)]
-2013-10-13 21:17:24,335 [DEBUG] org.mortbay.log  - servletFilterMap=null
-2013-10-13 21:17:24,335 [DEBUG] org.mortbay.log  - servletPathMap={*.XSP=jsp, *.JSPX=jsp, *.jspf=jsp, *.jsp=jsp, *.JSPF=jsp, *.jspx=jsp, *.xsp=jsp, /=default, *.JSP=jsp}
-2013-10-13 21:17:24,335 [DEBUG] org.mortbay.log  - servletNameMap={jsp=jsp, default=default}
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - starting ServletHandler@25786286
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - started ServletHandler@25786286
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - starting SecurityHandler@17353249
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - started SecurityHandler@17353249
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - starting SessionHandler@28c5ea2
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - started SessionHandler@28c5ea2
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - starting org.mortbay.jetty.webapp.WebAppContext@51701bdc{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/}
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - starting ErrorPageErrorHandler@6f579a30
-2013-10-13 21:17:24,336 [DEBUG] org.mortbay.log  - started ErrorPageErrorHandler@6f579a30
-2013-10-13 21:17:24,343 [INFO ] /t  - Set web app root system property: 'WebConsole.root' = [/Users/youyong/Documents/workspace/tunnel/src/main/webapp]
-2013-10-13 21:17:24,345 [INFO ] /t  - Initializing log4j from [classpath:config/log/log4j.xml]
-2013-10-13 21:17:24,351 [DEBUG] org.mortbay.log  - getResource(config/log/log4j.xml)=file:/Users/youyong/Documents/workspace/tunnel/target/classes/config/log/log4j.xml
-2013-10-13 21:17:24,357 [DEBUG] org.mortbay.log  - loaded class com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl from null
-2013-10-13 21:17:24,358 [DEBUG] org.mortbay.log  - loaded class com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl from null
-2013-10-13 21:17:24,369 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.DailyRollingFileAppender
-2013-10-13 21:17:24,369 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.DailyRollingFileAppender from sun.misc.Launcher$AppClassLoader@535ff48b
-2013-10-13 21:17:24,375 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.PatternLayout
-2013-10-13 21:17:24,375 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.PatternLayout from sun.misc.Launcher$AppClassLoader@535ff48b
-2013-10-13 21:17:24,395 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.ConsoleAppender
-2013-10-13 21:17:24,395 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.ConsoleAppender from sun.misc.Launcher$AppClassLoader@535ff48b
-2013-10-13 21:17:24,396 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.PatternLayout
-2013-10-13 21:17:24,396 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.PatternLayout from sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:34,501 [INFO ] org.mortbay.log  - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2013-10-13 22:17:34,507 [DEBUG] org.mortbay.log  - Container Server@13342a67 + SocketConnector@0.0.0.0:2282 as connector
+2013-10-13 22:17:34,616 [DEBUG] org.mortbay.log  - Checking Resource aliases
+2013-10-13 22:17:34,616 [DEBUG] org.mortbay.log  - Container Server@13342a67 + org.mortbay.jetty.webapp.WebAppContext@17353249{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/} as handler
+2013-10-13 22:17:34,616 [DEBUG] org.mortbay.log  - Container SecurityHandler@25786286 + ServletHandler@28c5ea2 as handler
+2013-10-13 22:17:34,617 [DEBUG] org.mortbay.log  - Container SessionHandler@4d98defc + SecurityHandler@25786286 as handler
+2013-10-13 22:17:34,617 [DEBUG] org.mortbay.log  - Container SessionHandler@4d98defc + org.mortbay.jetty.servlet.HashSessionManager@6f579a30 as sessionManager
+2013-10-13 22:17:34,617 [DEBUG] org.mortbay.log  - Container org.mortbay.jetty.webapp.WebAppContext@17353249{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/} + SessionHandler@4d98defc as handler
+2013-10-13 22:17:34,617 [DEBUG] org.mortbay.log  - Container org.mortbay.jetty.webapp.WebAppContext@17353249{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/} + ErrorPageErrorHandler@604bfe6b as error
+2013-10-13 22:17:34,617 [INFO ] org.mortbay.log  - jetty-6.1.14
+2013-10-13 22:17:34,649 [DEBUG] org.mortbay.log  - Container Server@13342a67 + org.mortbay.thread.QueuedThreadPool@191410e5 as threadpool
+2013-10-13 22:17:34,651 [DEBUG] org.mortbay.log  - started org.mortbay.thread.QueuedThreadPool@191410e5
+2013-10-13 22:17:34,696 [DEBUG] org.mortbay.log  - Thread Context class loader is: ContextLoader@null([]) / sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:34,696 [DEBUG] org.mortbay.log  - Parent class loader is: sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:34,696 [DEBUG] org.mortbay.log  - Parent class loader is: sun.misc.Launcher$ExtClassLoader@40affc70
+2013-10-13 22:17:34,698 [DEBUG] org.mortbay.log  - Delete existing temp dir /var/folders/13/5xqx20t50jz3v_wd3p7y4k240000gn/T/Jetty_0_0_0_0_2282_webapp__t__xxzo5c for org.mortbay.jetty.webapp.WebAppContext@17353249{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/}
+2013-10-13 22:17:34,728 [DEBUG] org.mortbay.log  - Created temp dir /var/folders/13/5xqx20t50jz3v_wd3p7y4k240000gn/T/Jetty_0_0_0_0_2282_webapp__t__xxzo5c for org.mortbay.jetty.webapp.WebAppContext@17353249{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/}
+2013-10-13 22:17:34,785 [DEBUG] org.mortbay.log  - getResource(org/mortbay/jetty/webapp/webdefault.xml)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jetty/6.1.14/jetty-6.1.14.jar!/org/mortbay/jetty/webapp/webdefault.xml
+2013-10-13 22:17:34,791 [DEBUG] org.mortbay.log  - parse: jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jetty/6.1.14/jetty-6.1.14.jar!/org/mortbay/jetty/webapp/webdefault.xml
+2013-10-13 22:17:34,793 [DEBUG] org.mortbay.log  - parsing: sid=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jetty/6.1.14/jetty-6.1.14.jar!/org/mortbay/jetty/webapp/webdefault.xml,pid=null
+2013-10-13 22:17:34,836 [DEBUG] org.mortbay.log  - ContextParam: org.mortbay.jetty.webapp.NoTLDJarPattern=start.jar|ant-.*\.jar|dojo-.*\.jar|jetty-.*\.jar|jsp-api-.*\.jar|junit-.*\.jar|servlet-api-.*\.jar|dnsns\.jar|rt\.jar|jsse\.jar|tools\.jar|sunpkcs11\.jar|sunjce_provider\.jar|xerces.*\.jar
+2013-10-13 22:17:34,883 [DEBUG] org.mortbay.log  - loaded class org.apache.jasper.servlet.JspServlet from sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - filterNameMap=null
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - pathFilters=[]
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - servletFilterMap=null
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - servletPathMap=null
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - servletNameMap=null
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - Container ServletHandler@28c5ea2 + default as servlet
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - Container ServletHandler@28c5ea2 + jsp as servlet
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - Container ServletHandler@28c5ea2 + (S=default,[/]) as servletMapping
+2013-10-13 22:17:34,894 [DEBUG] org.mortbay.log  - Container ServletHandler@28c5ea2 + (S=jsp,[*.jsp, *.jspf, *.jspx, *.xsp, *.JSP, *.JSPF, *.JSPX, *.XSP]) as servletMapping
+2013-10-13 22:17:34,897 [DEBUG] org.mortbay.log  - filterNameMap=null
+2013-10-13 22:17:34,897 [DEBUG] org.mortbay.log  - pathFilters=[]
+2013-10-13 22:17:34,897 [DEBUG] org.mortbay.log  - servletFilterMap=null
+2013-10-13 22:17:34,897 [DEBUG] org.mortbay.log  - servletPathMap={*.XSP=jsp, *.JSPX=jsp, *.jspf=jsp, *.jsp=jsp, *.JSPF=jsp, *.jspx=jsp, *.xsp=jsp, /=default, *.JSP=jsp}
+2013-10-13 22:17:34,897 [DEBUG] org.mortbay.log  - servletNameMap={jsp=jsp, default=default}
+2013-10-13 22:17:34,898 [DEBUG] org.mortbay.log  - parse: file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/WEB-INF/web.xml
+2013-10-13 22:17:34,898 [DEBUG] org.mortbay.log  - parsing: sid=file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/WEB-INF/web.xml,pid=null
+2013-10-13 22:17:34,933 [DEBUG] org.mortbay.log  - loaded class org.springframework.web.util.Log4jConfigListener from sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:34,934 [DEBUG] org.mortbay.log  - ContextParam: servletPath=/collect
+2013-10-13 22:17:34,934 [DEBUG] org.mortbay.log  - ContextParam: webAppRootKey=WebConsole.root
+2013-10-13 22:17:34,934 [DEBUG] org.mortbay.log  - ContextParam: log4jConfigLocation=classpath:config/log/log4j.xml
+2013-10-13 22:17:34,934 [DEBUG] org.mortbay.log  - ContextParam: log4jRefreshInterval=60000
+2013-10-13 22:17:34,935 [DEBUG] org.mortbay.log  - loaded class org.springframework.web.context.ContextLoaderListener from sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:34,936 [DEBUG] org.mortbay.log  - ContextParam: contextConfigLocation=classpath*:config/spring/*.xml
+2013-10-13 22:17:34,936 [DEBUG] org.mortbay.log  - Container ServletHandler@28c5ea2 + struts2 as filter
+2013-10-13 22:17:34,936 [DEBUG] org.mortbay.log  - Container ServletHandler@28c5ea2 + (F=struts2,[/*],[],0) as filterMapping
+2013-10-13 22:17:34,936 [DEBUG] org.mortbay.log  - filterNameMap={struts2=struts2}
+2013-10-13 22:17:34,936 [DEBUG] org.mortbay.log  - pathFilters=[(F=struts2,[/*],[],0)]
+2013-10-13 22:17:34,936 [DEBUG] org.mortbay.log  - servletFilterMap=null
+2013-10-13 22:17:34,936 [DEBUG] org.mortbay.log  - servletPathMap={*.XSP=jsp, *.JSPX=jsp, *.jspf=jsp, *.jsp=jsp, *.JSPF=jsp, *.jspx=jsp, *.xsp=jsp, /=default, *.JSP=jsp}
+2013-10-13 22:17:34,936 [DEBUG] org.mortbay.log  - servletNameMap={jsp=jsp, default=default}
+2013-10-13 22:17:34,937 [DEBUG] org.mortbay.log  - filterNameMap={struts2=struts2}
+2013-10-13 22:17:34,937 [DEBUG] org.mortbay.log  - pathFilters=[(F=struts2,[/*],[],0)]
+2013-10-13 22:17:34,937 [DEBUG] org.mortbay.log  - servletFilterMap=null
+2013-10-13 22:17:34,937 [DEBUG] org.mortbay.log  - servletPathMap={*.XSP=jsp, *.JSPX=jsp, *.jspf=jsp, *.jsp=jsp, *.JSPF=jsp, *.jspx=jsp, *.xsp=jsp, /=default, *.JSP=jsp}
+2013-10-13 22:17:34,937 [DEBUG] org.mortbay.log  - servletNameMap={jsp=jsp, default=default}
+2013-10-13 22:17:34,941 [DEBUG] org.mortbay.log  - Configuring web-jetty.xml
+2013-10-13 22:17:34,944 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar
+2013-10-13 22:17:34,947 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c-1_0-rt.tld
+2013-10-13 22:17:34,947 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c-1_0.tld
+2013-10-13 22:17:34,947 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c.tld
+2013-10-13 22:17:34,948 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt-1_0-rt.tld
+2013-10-13 22:17:34,948 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt-1_0.tld
+2013-10-13 22:17:34,948 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt.tld
+2013-10-13 22:17:34,948 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fn.tld
+2013-10-13 22:17:34,948 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/permittedTaglibs.tld
+2013-10-13 22:17:34,948 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/scriptfree.tld
+2013-10-13 22:17:34,949 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql-1_0-rt.tld
+2013-10-13 22:17:34,949 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql-1_0.tld
+2013-10-13 22:17:34,949 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql.tld
+2013-10-13 22:17:34,949 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x-1_0-rt.tld
+2013-10-13 22:17:34,949 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x-1_0.tld
+2013-10-13 22:17:34,949 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x.tld
+2013-10-13 22:17:34,950 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
+2013-10-13 22:17:34,951 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/asm/asm/3.3/asm-3.3.jar
+2013-10-13 22:17:34,951 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/asm/asm-commons/3.3/asm-commons-3.3.jar
+2013-10-13 22:17:34,952 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/asm/asm-tree/3.3/asm-tree-3.3.jar
+2013-10-13 22:17:34,952 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar
+2013-10-13 22:17:34,959 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar
+2013-10-13 22:17:34,964 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar
+2013-10-13 22:17:34,966 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
+2013-10-13 22:17:34,967 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar
+2013-10-13 22:17:34,969 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+2013-10-13 22:17:34,969 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar
+2013-10-13 22:17:34,981 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+2013-10-13 22:17:34,983 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/freemarker/freemarker/2.3.19/freemarker-2.3.19.jar
+2013-10-13 22:17:34,988 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/com/google/code/gson/gson/1.6/gson-1.6.jar
+2013-10-13 22:17:34,989 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/com/ibatis/ibatis/2.3.4.726/ibatis-2.3.4.726.jar
+2013-10-13 22:17:34,992 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar
+2013-10-13 22:17:34,995 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/jsch/jsch/0.1.44/jsch-0.1.44.jar
+2013-10-13 22:17:34,996 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar
+2013-10-13 22:17:34,998 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c-1_0-rt.tld
+2013-10-13 22:17:34,998 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c-1_0.tld
+2013-10-13 22:17:34,998 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c.tld
+2013-10-13 22:17:34,999 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt-1_0-rt.tld
+2013-10-13 22:17:34,999 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt-1_0.tld
+2013-10-13 22:17:34,999 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt.tld
+2013-10-13 22:17:34,999 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fn.tld
+2013-10-13 22:17:34,999 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/permittedTaglibs.tld
+2013-10-13 22:17:34,999 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/scriptfree.tld
+2013-10-13 22:17:34,999 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql-1_0-rt.tld
+2013-10-13 22:17:35,000 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql-1_0.tld
+2013-10-13 22:17:35,000 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql.tld
+2013-10-13 22:17:35,000 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x-1_0-rt.tld
+2013-10-13 22:17:35,000 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x-1_0.tld
+2013-10-13 22:17:35,000 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x.tld
+2013-10-13 22:17:35,004 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/net/sourceforge/jexcelapi/jxl/2.6.3/jxl-2.6.3.jar
+2013-10-13 22:17:35,007 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar
+2013-10-13 22:17:35,010 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/mysql/mysql-connector-java/5.1.12/mysql-connector-java-5.1.12.jar
+2013-10-13 22:17:35,012 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/ognl/ognl/3.0.5/ognl-3.0.5.jar
+2013-10-13 22:17:35,013 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/slf4j/slf4j-api/1.4.3/slf4j-api-1.4.3.jar
+2013-10-13 22:17:35,014 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/slf4j/slf4j-log4j12/1.4.3/slf4j-log4j12-1.4.3.jar
+2013-10-13 22:17:35,014 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring/2.5.6/spring-2.5.6.jar
+2013-10-13 22:17:35,027 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar
+2013-10-13 22:17:35,030 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar
+2013-10-13 22:17:35,030 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar
+2013-10-13 22:17:35,033 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar
+2013-10-13 22:17:35,041 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar
+2013-10-13 22:17:35,043 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar
+2013-10-13 22:17:35,044 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/springframework/spring-web/3.0.5.RELEASE/spring-web-3.0.5.RELEASE.jar
+2013-10-13 22:17:35,046 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/struts/struts2-core/2.3.4/struts2-core-2.3.4.jar
+2013-10-13 22:17:35,047 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/apache/struts/struts2-core/2.3.4/struts2-core-2.3.4.jar!/META-INF/struts-tags.tld
+2013-10-13 22:17:35,062 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/struts/struts2-json-plugin/2.3.4/struts2-json-plugin-2.3.4.jar
+2013-10-13 22:17:35,063 [DEBUG] org.mortbay.log  - TLD found jar:file:/Users/youyong/.m2/repository/org/apache/struts/struts2-json-plugin/2.3.4/struts2-json-plugin-2.3.4.jar!/META-INF/tags/JsonPlugin.tld
+2013-10-13 22:17:35,063 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/struts/struts2-spring-plugin/2.3.4/struts2-spring-plugin-2.3.4.jar
+2013-10-13 22:17:35,064 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar
+2013-10-13 22:17:35,064 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar
+2013-10-13 22:17:35,065 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.jar
+2013-10-13 22:17:35,066 [DEBUG] org.mortbay.log  - TLD search of file:/Users/youyong/.m2/repository/org/apache/struts/xwork/xwork-core/2.3.4/xwork-core-2.3.4.jar
+2013-10-13 22:17:35,068 [DEBUG] org.mortbay.log  - TLD search of file:/Library/Java/Extensions/RXTXcomm.jar
+2013-10-13 22:17:35,068 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/AppleScriptEngine.jar
+2013-10-13 22:17:35,069 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/dns_sd.jar
+2013-10-13 22:17:35,069 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/j3daudio.jar
+2013-10-13 22:17:35,070 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/j3dcore.jar
+2013-10-13 22:17:35,071 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/j3dutils.jar
+2013-10-13 22:17:35,072 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/jai_codec.jar
+2013-10-13 22:17:35,073 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/jai_core.jar
+2013-10-13 22:17:35,075 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/mlibwrapper_jai.jar
+2013-10-13 22:17:35,076 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/MRJToolkit.jar
+2013-10-13 22:17:35,076 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/Extensions/vecmath.jar
+2013-10-13 22:17:35,077 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/apple_provider.jar
+2013-10-13 22:17:35,077 [DEBUG] org.mortbay.log  - TLD search of file:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/localedata.jar
+2013-10-13 22:17:35,079 [DEBUG] org.mortbay.log  - loaded class com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl from null
+2013-10-13 22:17:35,080 [DEBUG] org.mortbay.log  - loaded class com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl from null
+2013-10-13 22:17:35,080 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_1_1.dtd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_1.dtd
+2013-10-13 22:17:35,081 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,081 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_2_0.xsd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_2_0.xsd
+2013-10-13 22:17:35,082 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_1_1.dtd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_1.dtd
+2013-10-13 22:17:35,082 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,082 [DEBUG] org.mortbay.log  - getResource(javax/servlet/jsp/resources/web-jsptaglibrary_2_0.xsd)=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_2_0.xsd
+2013-10-13 22:17:35,082 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql-1_0-rt.tld
+2013-10-13 22:17:35,084 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,084 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,085 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,106 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/permittedTaglibs.tld
+2013-10-13 22:17:35,108 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/apache/struts/struts2-core/2.3.4/struts2-core-2.3.4.jar!/META-INF/struts-tags.tld
+2013-10-13 22:17:35,575 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c.tld
+2013-10-13 22:17:35,592 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c-1_0-rt.tld
+2013-10-13 22:17:35,593 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,593 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,593 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,637 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/scriptfree.tld
+2013-10-13 22:17:35,659 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c-1_0-rt.tld
+2013-10-13 22:17:35,676 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,676 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,677 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,694 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt.tld
+2013-10-13 22:17:35,699 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql-1_0.tld
+2013-10-13 22:17:35,707 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,707 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,707 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,715 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql-1_0.tld
+2013-10-13 22:17:35,716 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,716 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,716 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,772 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x.tld
+2013-10-13 22:17:35,778 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c-1_0.tld
+2013-10-13 22:17:35,779 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,780 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,780 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,825 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fn.tld
+2013-10-13 22:17:35,836 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt.tld
+2013-10-13 22:17:35,848 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt-1_0.tld
+2013-10-13 22:17:35,849 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,849 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,850 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,874 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x-1_0-rt.tld
+2013-10-13 22:17:35,875 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,876 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,876 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,900 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt-1_0.tld
+2013-10-13 22:17:35,901 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,901 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,902 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,929 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x-1_0.tld
+2013-10-13 22:17:35,930 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,930 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,930 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,936 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/fmt-1_0-rt.tld
+2013-10-13 22:17:35,937 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,937 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,937 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,944 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/sql.tld
+2013-10-13 22:17:35,947 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/c-1_0.tld
+2013-10-13 22:17:35,948 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,948 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,948 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,956 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x-1_0.tld
+2013-10-13 22:17:35,958 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:35,958 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,958 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:35,966 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fn.tld
+2013-10-13 22:17:35,969 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/x.tld
+2013-10-13 22:17:35,978 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/apache/struts/struts2-json-plugin/2.3.4/struts2-json-plugin-2.3.4.jar!/META-INF/tags/JsonPlugin.tld
+2013-10-13 22:17:35,996 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/permittedTaglibs.tld
+2013-10-13 22:17:36,008 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql.tld
+2013-10-13 22:17:36,010 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/sql-1_0-rt.tld
+2013-10-13 22:17:36,011 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:36,011 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:36,012 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:36,017 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/fmt-1_0-rt.tld
+2013-10-13 22:17:36,018 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:36,018 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:36,018 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:36,025 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/scriptfree.tld
+2013-10-13 22:17:36,027 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar!/META-INF/x-1_0-rt.tld
+2013-10-13 22:17:36,028 [DEBUG] org.mortbay.log  - resolveEntity(-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN, http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd)
+2013-10-13 22:17:36,028 [DEBUG] org.mortbay.log  - Can't exact match entity in redirect map, trying web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:36,028 [DEBUG] org.mortbay.log  - Redirected entity http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd --> jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar!/javax/servlet/jsp/resources/web-jsptaglibrary_1_2.dtd
+2013-10-13 22:17:36,034 [DEBUG] org.mortbay.log  - TLD=jar:file:/Users/youyong/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar!/META-INF/c.tld
+2013-10-13 22:17:36,039 [DEBUG] org.mortbay.log  - Container Server@13342a67 + org.mortbay.jetty.servlet.HashSessionIdManager@6ec5122f as sessionIdManager
+2013-10-13 22:17:36,040 [DEBUG] org.mortbay.log  - Init SecureRandom.
+2013-10-13 22:17:36,122 [DEBUG] org.mortbay.log  - started org.mortbay.jetty.servlet.HashSessionIdManager@6ec5122f
+2013-10-13 22:17:36,127 [DEBUG] org.mortbay.log  - started org.mortbay.jetty.servlet.HashSessionManager@6f579a30
+2013-10-13 22:17:36,127 [DEBUG] org.mortbay.log  - filterNameMap={struts2=struts2}
+2013-10-13 22:17:36,127 [DEBUG] org.mortbay.log  - pathFilters=[(F=struts2,[/*],[],0)]
+2013-10-13 22:17:36,127 [DEBUG] org.mortbay.log  - servletFilterMap=null
+2013-10-13 22:17:36,127 [DEBUG] org.mortbay.log  - servletPathMap={*.XSP=jsp, *.JSPX=jsp, *.jspf=jsp, *.jsp=jsp, *.JSPF=jsp, *.jspx=jsp, *.xsp=jsp, /=default, *.JSP=jsp}
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - servletNameMap={jsp=jsp, default=default}
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - starting ServletHandler@28c5ea2
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - started ServletHandler@28c5ea2
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - starting SecurityHandler@25786286
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - started SecurityHandler@25786286
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - starting SessionHandler@4d98defc
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - started SessionHandler@4d98defc
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - starting org.mortbay.jetty.webapp.WebAppContext@17353249{/t,file:/Users/youyong/Documents/workspace/tunnel/src/main/webapp/}
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - starting ErrorPageErrorHandler@604bfe6b
+2013-10-13 22:17:36,128 [DEBUG] org.mortbay.log  - started ErrorPageErrorHandler@604bfe6b
+2013-10-13 22:17:36,138 [INFO ] /t  - Set web app root system property: 'WebConsole.root' = [/Users/youyong/Documents/workspace/tunnel/src/main/webapp]
+2013-10-13 22:17:36,140 [INFO ] /t  - Initializing log4j from [classpath:config/log/log4j.xml]
+2013-10-13 22:17:36,147 [DEBUG] org.mortbay.log  - getResource(config/log/log4j.xml)=file:/Users/youyong/Documents/workspace/tunnel/target/classes/config/log/log4j.xml
+2013-10-13 22:17:36,151 [DEBUG] org.mortbay.log  - loaded class com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl from null
+2013-10-13 22:17:36,152 [DEBUG] org.mortbay.log  - loaded class com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl from null
+2013-10-13 22:17:36,163 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.DailyRollingFileAppender
+2013-10-13 22:17:36,163 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.DailyRollingFileAppender from sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:36,168 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.PatternLayout
+2013-10-13 22:17:36,168 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.PatternLayout from sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:36,176 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.ConsoleAppender
+2013-10-13 22:17:36,176 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.ConsoleAppender from sun.misc.Launcher$AppClassLoader@535ff48b
+2013-10-13 22:17:36,177 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.PatternLayout
+2013-10-13 22:17:36,177 [DEBUG] org.mortbay.log  - loaded class org.apache.log4j.PatternLayout from sun.misc.Launcher$AppClassLoader@535ff48b

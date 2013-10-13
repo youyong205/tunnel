@@ -67,10 +67,10 @@
 					<input type="hidden" name="liningRingConstructionId" value="<s:property value="liningRingConstructionId"/>"/>
 				<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
-					<th width="5%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
+					<th width="8%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
 					<th width="5%">序号</th>
 					<th width="20%">检测时间</th>
-					<th width="20%">初始块</th>
+					<th width="17%">所在块</th>
 					<th width="15%">纵缝张开量δz</th>
 					<th width="15%">是否出现严重</th>
 					<th width="20%">

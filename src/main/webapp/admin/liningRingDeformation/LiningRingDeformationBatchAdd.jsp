@@ -43,7 +43,7 @@ $(document).ready(function() {
 						<input type="hidden" name="liningRingConstructionId" value="<s:property value="liningRingConstructionId"/>"/>
 					</tr>
 					<tr>
-						<td style="text-align:right;" width="40%"><strong class="text-success">上传批量文件</strong></td>
+						<td style="text-align:right;" width="35%"><strong class="text-success">上传批量文件</strong></td>
 						<td>
 							<input type="file" name="upload" class="{required:true}"/>
 				         </td>

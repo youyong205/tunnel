@@ -48,8 +48,8 @@ $(document).ready(function() {
 								value="liningRingConstruction.tunnelId" theme="simple" >
 							</s:select>
 						</td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
+						<td width="35%">
 							<s:select name="liningRingConstruction.tunnelSectionId" id="tunnelSectionId"
 								list="tunnelSections" listKey="id" listValue="name"
 								value="liningRingConstruction.tunnelSectionId" theme="simple" >

@@ -48,8 +48,8 @@ $(document).ready(function() {
 								value="plank.tunnelId" theme="simple" >
 							</s:select>
 						</td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
+						<td width="35%">
 							<s:select name="plank.tunnelSectionId" id="tunnelSectionId"
 								list="tunnelSections" listKey="id" listValue="name"
 								value="plank.tunnelSectionId" theme="simple" >

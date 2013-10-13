@@ -67,10 +67,10 @@
 					<input type="hidden" name="liningRingConstructionId" value="<s:property value="liningRingConstructionId"/>"/>
 				<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
-					<th width="5%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
+					<th width="8%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
 					<th width="5%">序号</th>
 					<th width="30%">检测时间</th>
-					<th width="40%">本次测值D’(mm)</th>
+					<th width="37%">本次测值D’(mm)</th>
 					<th width="20%">
 					<t:privilege res="衬砌环横断面变形检测模块:新增">
 						<a class="btn btn-small btn-info" href="liningRingDeformationAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>" >新增</a>
