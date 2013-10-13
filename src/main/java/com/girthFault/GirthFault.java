@@ -21,6 +21,8 @@ public class GirthFault {
 
 	private LiningRingConstruction m_liningRingConstruction;
 
+	private int m_blockIndex;
+	
 	private int m_type;
 
 	private double m_value;
@@ -136,6 +138,14 @@ public class GirthFault {
 	public void setValue(double value) {
 		m_value = value;
 	}
+	
+	public int getBlockIndex() {
+   	return m_blockIndex;
+   }
+
+	public void setBlockIndex(int blockIndex) {
+   	m_blockIndex = blockIndex;
+   }
 
 	@Override
 	public String toString() {

@@ -20,6 +20,8 @@ import com.LineChartAction;
 import com.Modules;
 import com.Operation;
 import com.liningRing.LiningRing;
+import com.liningRing.LiningRingBlock;
+import com.liningRing.LiningRingBlockService;
 import com.liningRing.LiningRingService;
 import com.liningRingConstruction.LiningRingConstruction;
 import com.liningRingConstruction.LiningRingConstructionService;
@@ -55,6 +57,10 @@ public class GirthFaultAction extends LineChartAction {
 
 	private TunnelSectionService m_tunnelSectionService;
 
+	private LiningRingBlockService m_liningRingBlockService;
+	
+	private List<LiningRingBlock> m_liningRingBlocks;
+
 	private LiningRingConstructionService m_liningRingConstructionService;
 
 	private List<Tunnel> m_tunnels;
@@ -73,13 +79,14 @@ public class GirthFaultAction extends LineChartAction {
 		try {
 			GirthFault fault = new GirthFault();
 			String name = convertToString(cells[0]);
-			Date date = convertToDate(cells[1]);
-			int type = convertToInteger(cells[2]);
-			double value = convertToDouble(cells[3]);
+			int blockIndex =  convertToInteger(cells[1]);
+			Date date = convertToDate(cells[2]);
+			int type = convertToInteger(cells[3]);
+			double value = convertToDouble(cells[4]);
 			String des = "";
 
-			if (cells.length > 4) {
-				des = convertToString(cells[4]);
+			if (cells.length > 5) {
+				des = convertToString(cells[5]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -89,6 +96,7 @@ public class GirthFaultAction extends LineChartAction {
 				fault.setTunnelSectionId(construction.getTunnelSectionId());
 				fault.setLiningRingConstructionId(construction.getId());
 				fault.setDate(date);
+				fault.setBlockIndex(blockIndex);
 				fault.setValue(value);
 				fault.setType(type);
 				fault.setDes(des);
@@ -169,6 +177,10 @@ public class GirthFaultAction extends LineChartAction {
 			      m_tunnelSectionId, 0, Integer.MAX_VALUE);
 		} else {
 			m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
+		}
+		if (m_liningRingConstructions.size() > 0) {
+			int liningRingId = m_liningRingConstructions.get(0).getLiningRingId();
+			m_liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(liningRingId);
 		}
 		return SUCCESS;
 	}
@@ -328,6 +340,9 @@ public class GirthFaultAction extends LineChartAction {
 			      Integer.MAX_VALUE);
 			m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(
 			      m_girthFault.getTunnelId(), m_girthFault.getTunnelSectionId(), 0, Integer.MAX_VALUE);
+			int liningRingConstructionId = m_girthFault.getLiningRingConstructionId();
+			int liningRingId = m_liningRingConstructionService.findByPK(liningRingConstructionId).getLiningRingId();
+			m_liningRingBlocks = m_liningRingBlockService.queryByLiningRingId(liningRingId);
 			if (m_girthFault != null) {
 				return SUCCESS;
 			} else {
@@ -460,5 +475,13 @@ public class GirthFaultAction extends LineChartAction {
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
+
+	public List<LiningRingBlock> getLiningRingBlocks() {
+   	return m_liningRingBlocks;
+   }
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+   	m_liningRingBlockService = liningRingBlockService;
+   }
 
 }

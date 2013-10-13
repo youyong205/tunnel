@@ -10,6 +10,9 @@
 		<property name="liningRingConstructionDao">
 			<ref bean="liningRingConstructionDao" />
 		</property>
+		<property name="tunnelSectionService">
+			<ref bean="tunnelSectionService" />
+		</property>
 	</bean>
 	<bean id="liningRingConstructionAction" class="com.liningRingConstruction.LiningRingConstructionAction" scope="prototype">
 		<property name="liningRingConstructionService">

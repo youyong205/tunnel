@@ -19,7 +19,7 @@ public class LiningRingConstruction {
 	private TunnelSection m_tunnelSection;
 
 	private int m_liningRingId;
-	
+
 	private double m_sequence;
 
 	private LiningRing m_liningRing;
@@ -105,6 +105,116 @@ public class LiningRingConstruction {
 	private Date m_creationDate;
 
 	private Date m_modifyDate;
+
+	private int m_deformationId;
+
+	private int m_longitudinalDeformationId;
+
+	private int m_girthOpenId;
+
+	private int m_longitudinalOpenId;
+
+	private int m_girthFaultId;
+
+	private int m_longitudinalFaultId;
+
+	private int m_coverLossId;
+
+	private int m_settlementId;
+
+	private int m_seepageId;
+
+	private int m_cracksId;
+
+	private int m_rustId;
+
+	public int getDeformationId() {
+		return m_deformationId;
+	}
+
+	public void setDeformationId(int deformationId) {
+		m_deformationId = deformationId;
+	}
+
+	public int getLongitudinalDeformationId() {
+		return m_longitudinalDeformationId;
+	}
+
+	public void setLongitudinalDeformationId(int longitudinalDeformationId) {
+		m_longitudinalDeformationId = longitudinalDeformationId;
+	}
+
+	public int getGirthOpenId() {
+		return m_girthOpenId;
+	}
+
+	public void setGirthOpenId(int girthOpenId) {
+		m_girthOpenId = girthOpenId;
+	}
+
+	public int getLongitudinalOpenId() {
+		return m_longitudinalOpenId;
+	}
+
+	public void setLongitudinalOpenId(int longitudinalOpenId) {
+		m_longitudinalOpenId = longitudinalOpenId;
+	}
+
+	public int getGirthFaultId() {
+		return m_girthFaultId;
+	}
+
+	public void setGirthFaultId(int girthFaultId) {
+		m_girthFaultId = girthFaultId;
+	}
+
+	public int getLongitudinalFaultId() {
+		return m_longitudinalFaultId;
+	}
+
+	public void setLongitudinalFaultId(int longitudinalFaultId) {
+		m_longitudinalFaultId = longitudinalFaultId;
+	}
+
+	public int getCoverLossId() {
+		return m_coverLossId;
+	}
+
+	public void setCoverLossId(int coverLossId) {
+		m_coverLossId = coverLossId;
+	}
+
+	public int getSettlementId() {
+		return m_settlementId;
+	}
+
+	public void setSettlementId(int settlementId) {
+		m_settlementId = settlementId;
+	}
+
+	public int getSeepageId() {
+		return m_seepageId;
+	}
+
+	public void setSeepageId(int seepageId) {
+		m_seepageId = seepageId;
+	}
+
+	public int getCracksId() {
+		return m_cracksId;
+	}
+
+	public void setCracksId(int cracksId) {
+		m_cracksId = cracksId;
+	}
+
+	public int getRustId() {
+		return m_rustId;
+	}
+
+	public void setRustId(int rustId) {
+		m_rustId = rustId;
+	}
 
 	public String getTotalState() {
 		String state = m_deformationState + ',' + m_longitudinalDeformationState + ',' + m_girthOpenState + ','
@@ -592,14 +702,14 @@ public class LiningRingConstruction {
 	public String getDeformationState() {
 		return m_deformationState;
 	}
-	
+
 	public double getSequence() {
-   	return m_sequence;
-   }
+		return m_sequence;
+	}
 
 	public void setSequence(double sequence) {
-   	m_sequence = sequence;
-   }
+		m_sequence = sequence;
+	}
 
 	@Override
 	public String toString() {
@@ -617,4 +727,5 @@ public class LiningRingConstruction {
 		      + ", m_modifyDate=" + m_modifyDate + "]";
 	}
 
+	
 }

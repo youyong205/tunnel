@@ -176,10 +176,10 @@ function graphLineChartContainer(container,title,lable,unit,data){
             type: 'datetime',
             dateTimeLabelFormats: { // don't display the dummy year
                 second: '%H:%M:%S',
-                minute: '%e. %b %H:%M',
-                hour: '%b/%e %H:%M',
+                minute: '%m-%d %H:%M',
+                hour: '%m-%d %H:%M',
                 day: '%m-%d',
-                week: '%e. %b',
+                week: '%y-%m',
                 month: '%y-%m',
                 year: '%y'
             }
@@ -219,11 +219,11 @@ function graphLineChart(title,lable,unit,data){
         xAxis: {
             type: 'datetime',
             dateTimeLabelFormats: { // don't display the dummy year
-                second: '%H:%M:%S',
-                minute: '%e. %b %H:%M',
-                hour: '%b/%e %H:%M',
+            	second: '%H:%M:%S',
+                minute: '%m-%d %H:%M',
+                hour: '%m-%d %H:%M',
                 day: '%m-%d',
-                week: '%e. %b',
+                week: '%y-%m',
                 month: '%y-%m',
                 year: '%y'
             }

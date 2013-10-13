@@ -326,6 +326,12 @@ public class LiningRingDeformationAction extends LineChartAction {
 		}
 	}
 
+	public String liningRingDeformationState(){
+		
+		
+		return SUCCESS;
+	}
+	
 	public String liningRingDeformationQuery() {
 		if (m_start == null || m_end == null) {
 			m_end = new Date();

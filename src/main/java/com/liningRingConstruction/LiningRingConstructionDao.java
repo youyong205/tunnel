@@ -60,4 +60,23 @@ public class LiningRingConstructionDao {
 		return m_baseDao.update("liningRingConstruction.update", liningRingConstruction);
 	}
 
+	public int updateDeformationState(String deformationState, int deformationId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("deformationState", deformationState);
+		parameters.put("deformationId", deformationId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateDeformationState", parameters);
+	}
+	
+	public int updateLongitudinalDeformationState(String longitudinalDeformationState, int longitudinalDeformationId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("longitudinalDeformationState", longitudinalDeformationState);
+		parameters.put("longitudinalDeformationId", longitudinalDeformationId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateLongitudinalDeformationState", parameters);
+	}
+	
+
 }

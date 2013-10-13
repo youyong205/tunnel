@@ -9,6 +9,7 @@
 		gapRight,gap1,gap2,gap3,gap4,gap5,gap6,gap7,gap8,diameter,verticalDiameter,
 		leftUp,leftDown,rightUp,rightDown,des,
 		deformationState,longitudinalDeformationState,girthOpenState,longitudinalOpenState,girthFaultState,longitudinalFaultState,coverLossState,cracksState,
+		deformationId,longitudinalDeformationId,girthOpenId,longitudinalOpenId,girthFaultId,longitudinalFaultId,coverLossId,settlementId,seepageId,cracksId,rustId,
 		creationDate,modifyDate
 	</sql>
 	<select id="liningRingConstruction.querySizeByTunnelAndSection" resultClass="int">
@@ -57,11 +58,22 @@
 		#leftUp#,#leftDown#,#rightUp#,#rightDown#,#des#,
 		#deformationState#,#longitudinalDeformationState#,#girthOpenState#,#longitudinalOpenState#,
 		#girthFaultState#,#longitudinalFaultState#,#coverLossState#,#cracksState#,
+		#deformationId#,#longitudinalDeformationId#,#girthOpenId#,#longitudinalOpenId#,#girthFaultId#,#longitudinalFaultId#,#coverLossId#,#settlementId#,#seepageId#,#cracksId#,#rustId#,
 		now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
 	</insert>
+	<update id="liningRingConstruction.updateDeformationState">
+		update liningRingConstruction set
+		deformationState=#deformationState#,deformationId=#deformationId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateLongitudinalDeformationState">
+		update liningRingConstruction set
+		longitudinalDeformationState=#longitudinalDeformationState#,longitudinalDeformationId=#longitudinalDeformationId#
+		where id=#liningRingConstructionId#
+	</update>
 	<update id="liningRingConstruction.update" parameterClass="liningRingConstruction">
 		update liningRingConstruction set
 		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingId=#liningRingId#,sequence=#sequence#,

@@ -19,12 +19,16 @@ import com.longitudinalOpen.LongitudinalOpen;
 import com.rust.Rust;
 import com.seepage.Seepage;
 import com.settlement.Settlement;
+import com.tunnelSection.TunnelSection;
+import com.tunnelSection.TunnelSectionService;
 
 public class LiningRingConstructionServiceImpl implements LiningRingConstructionService {
 
 	private LiningRingConstructionDao m_liningRingConstructionDao;
 
 	private Logger m_logger = Logger.getLogger(LiningRingConstructionServiceImpl.class);
+
+	private TunnelSectionService m_tunnelSectionService;
 
 	private Map<String, LiningRingConstruction> m_constructions = new LinkedHashMap<String, LiningRingConstruction>() {
 
@@ -121,13 +125,33 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 	@Override
 	public int updateCracksState(Cracks cracks) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int updateDeformationState(LiningRingDeformation defomation) {
-		return 0;
+	public int updateDeformationState(LiningRingDeformation deformation) {
+		int tunnelSectionId = deformation.getTunnelSectionId();
+		TunnelSection tunnelSection = m_tunnelSectionService.findByPK(tunnelSectionId);
+		int deformationId = deformation.getId();
+		int liningRingConstructionId = deformation.getLiningRingConstructionId();
+
+		double value = deformation.getValue();
+		double externalDiameter = tunnelSection.getExternalDiameter();
+		String deformationState = "A";
+
+		if (value > externalDiameter * 30 / 1000) {
+			deformationState = "E";
+		} else if (value > externalDiameter * 20 / 1000) {
+			deformationState = "D";
+		} else if (value > externalDiameter * 10 / 1000) {
+			deformationState = "C";
+		} else if (value > externalDiameter * 5 / 1000) {
+			deformationState = "B";
+		} else {
+			deformationState = "A";
+		}
+		return m_liningRingConstructionDao.updateDeformationState(deformationState, deformationId,
+		      liningRingConstructionId);
 	}
 
 	@Override
@@ -153,8 +177,26 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	}
 
 	@Override
-	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState) {
-		return 0;
+	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformation) {
+		int longitudinalLongitudinalDeformationId = longitudinalDeformation.getId();
+		int liningRingConstructionId = longitudinalDeformation.getLiningRingConstructionId();
+
+		double value = longitudinalDeformation.getValue();
+		String longitudinallDeformationState = "A";
+
+		if (value > 1.0 / 1500) {
+			longitudinallDeformationState = "E";
+		} else if (value > 1.0 / 2500) {
+			longitudinallDeformationState = "D";
+		} else if (value > 1.0 / 10000) {
+			longitudinallDeformationState = "C";
+		} else if (value > 1.0 / 15000) {
+			longitudinallDeformationState = "B";
+		} else {
+			longitudinallDeformationState = "A";
+		}
+		return m_liningRingConstructionDao.updateLongitudinalDeformationState(longitudinallDeformationState,
+		      longitudinalLongitudinalDeformationId, liningRingConstructionId);
 	}
 
 	@Override
@@ -185,6 +227,10 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	public int updateSettlementState(Settlement settlement) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
+		m_tunnelSectionService = tunnelSectionService;
 	}
 
 }

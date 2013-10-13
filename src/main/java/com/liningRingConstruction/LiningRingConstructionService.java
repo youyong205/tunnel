@@ -29,6 +29,8 @@ public interface LiningRingConstructionService {
 
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId);
 
+	public int updateLiningRingConstruction(LiningRingConstruction liningRingConstruction);
+
 	public int updateCoverLossState(CoverLoss coverLoss);
 
 	public int updateCracksState(Cracks cracks);
@@ -38,8 +40,6 @@ public interface LiningRingConstructionService {
 	public int updateGirthFaultState(GirthFault girthFault);
 
 	public int updateGirthOpenState(GirthOpen girthOpen);
-
-	public int updateLiningRingConstruction(LiningRingConstruction liningRingConstruction);
 
 	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformationState);
 

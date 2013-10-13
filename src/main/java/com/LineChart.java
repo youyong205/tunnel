@@ -1,6 +1,7 @@
 package com;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,7 +13,12 @@ public class LineChart {
 	private List<Data> series = new ArrayList<Data>();
 
 	public void add(String subTitle, Map<Long, Double> data) {
-		series.add(new Data(subTitle, data));
+		Map<Double, Double> temp = new LinkedHashMap<Double,Double>();
+		
+		for(Entry<Long,Double> entry:data.entrySet()){
+			temp.put(entry.getKey().doubleValue(), entry.getValue());
+		}
+		series.add(new Data(subTitle, temp));
 	}
 
 	public String getJsonString() {
@@ -33,17 +39,17 @@ public class LineChart {
 
 		private String name;
 
-		private Long[][] data;
+		private Double[][] data;
 
-		public Data(String name, Map<Long, Double> data) {
+		public Data(String name, Map<Double, Double> data) {
 			int length = data.size();
-			this.data = new Long[length][2];
+			this.data = new Double[length][2];
 			this.name = name;
 			int index = 0;
-			for (Entry<Long, Double> entry : data.entrySet()) {
+			for (Entry<Double, Double> entry : data.entrySet()) {
 				this.data[index][0] = entry.getKey();
 				Double value = entry.getValue();
-				this.data[index][1] = value.longValue();
+				this.data[index][1] = value.doubleValue();
 				index++;
 			}
 		}

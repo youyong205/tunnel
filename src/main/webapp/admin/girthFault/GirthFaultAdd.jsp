@@ -47,7 +47,7 @@ $(document).ready(function() {
 						<td width="15%" style="text-align:right;"><strong class="text-success">选择隧道</strong></td>
 						<td width="35%">
 						<s:select name="girthFault.tunnelId" id="tunnelId"
-							onchange="tunnelChangedExcluedeAll()" 
+							onchange="tunnelChangedAndBlock()" 
 							list="tunnels" listKey="id" listValue="name" 
 							value="tunnelId" theme="simple" >
 						</s:select></td>
@@ -55,7 +55,7 @@ $(document).ready(function() {
 						<td width="40%">
 						<s:select name="girthFault.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
-							onchange="tunnelSectionChanged(true)" 
+							onchange="tunnelSectionChangedAndBlock()" 
 							value="tunnelSectionId" theme="simple" >
 						</s:select> </td>
 					</tr>
@@ -64,9 +64,18 @@ $(document).ready(function() {
 						<td width="40%">
 							<s:select name="girthFault.liningRingConstructionId" id="liningRingConstructionId"
 							list="liningRingConstructions" listKey="id" listValue="name"
-							value="liningRingConstructionId" theme="simple" >
+							value="liningRingConstructionId" theme="simple" onchange="liningRingChanged()" >
 							</s:select> 
 						</td>
+						<td style="text-align:right;"><strong class="text-success">选择所在块</strong></td>
+						<td>
+							<s:select name="girthFault.blockIndex" id="liningRingBlockId"
+							list="liningRingBlocks" listKey="blockIndex" listValue="blockIndex"
+							theme="simple" >
+							</s:select> 
+						</td>
+					</tr>
+					<tr>	
 						<td style="text-align:right;"><strong class="text-success">测量时间</strong></td>
 						<td>
 						<div id="datetimepicker1" class="input-append date">
@@ -75,8 +84,7 @@ $(document).ready(function() {
 				               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 				            </span>
 				         </td>
-				    </tr>
-					<tr>
+				   
 						<td style="text-align:right;"><strong class="text-success">环缝错台位置</strong></td>
 						<td>
 							<select name="girthFault.type">
@@ -84,12 +92,12 @@ $(document).ready(function() {
 								<option value="2">和下一环错台</option>
 							</select>
 						</td>
-						<td style="text-align:right;"><strong class="text-success">错台量Δh (mm)</strong></td>
-						<td><input type="text" name="girthFault.value" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">错台量Δh (mm)</strong></td>
+						<td><input type="text" name="girthFault.value" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea type="text" rows="5" cols="40"  name="girthFault.des" class="{maxlength:512}"></textarea></td>
+						<td><textarea type="text" rows="5" cols="40"  name="girthFault.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

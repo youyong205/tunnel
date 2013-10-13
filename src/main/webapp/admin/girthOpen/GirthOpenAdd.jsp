@@ -74,7 +74,6 @@ $(document).ready(function() {
 							theme="simple" >
 							</s:select> 
 						</td>
-						
 				    </tr>
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">测量时间</strong></td>
