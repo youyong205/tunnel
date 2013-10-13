@@ -1,8 +1,11 @@
 package com;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import com.liningRingConstruction.LiningRingConstruction;
 
@@ -10,9 +13,13 @@ public abstract class LineChartAction extends FileUploadAction {
 
 	private static final long serialVersionUID = 6612697338740069923L;
 
-	protected LineChart m_lineChart;
+	protected TimeLineChart m_lineChart;
 
-	protected LineChart m_secondLineChart;
+	protected TimeLineChart m_secondLineChart;
+
+	protected LineChart m_generalChart;
+
+	protected LineChart m_generalChart2;
 
 	protected LiningRingConstruction m_liningRingConstruction;
 
@@ -24,7 +31,7 @@ public abstract class LineChartAction extends FileUploadAction {
 		return m_end;
 	}
 
-	public LineChart getLineChart() {
+	public TimeLineChart getLineChart() {
 		return m_lineChart;
 	}
 
@@ -54,11 +61,11 @@ public abstract class LineChartAction extends FileUploadAction {
 		m_liningRingConstruction = liningRingConstruction;
 	}
 
-	public LineChart getSecondLineChart() {
+	public TimeLineChart getSecondLineChart() {
 		return m_secondLineChart;
 	}
 
-	public void setSecondLineChart(LineChart secondLineChart) {
+	public void setSecondLineChart(TimeLineChart secondLineChart) {
 		m_secondLineChart = secondLineChart;
 	}
 
@@ -71,6 +78,54 @@ public abstract class LineChartAction extends FileUploadAction {
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTimeInMillis();
+	}
+
+	protected void findOrCreateSum(Map<Integer, Double> map, int key, double value) {
+		Double old = map.get(key);
+		if (old == null) {
+			map.put(key, value);
+		} else {
+			map.put(key, value + old);
+		}
+	}
+
+	protected void findOrCreateMax(Map<Integer, Double> map, int key, double value) {
+		Double old = map.get(key);
+		if (old == null) {
+			map.put(key, value);
+		} else {
+			if (value > old) {
+				map.put(key, value);
+			}
+		}
+	}
+
+	protected List<Integer> convertToString(List<String> ids) {
+		List<Integer> result = new ArrayList<Integer>();
+		for (String str : ids) {
+			if (str != null && str.length() > 0) {
+				String[] s = str.split(",");
+
+				for (String temp : s) {
+					if (!"0".equals(temp) && !"-".equals(temp)) {
+						try {
+							result.add(Integer.parseInt(temp));
+						} catch (NumberFormatException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		}
+		return result;
+	}
+
+	public LineChart getGeneralChart() {
+		return m_generalChart;
+	}
+
+	public LineChart getGeneralChart2() {
+		return m_generalChart2;
 	}
 
 }

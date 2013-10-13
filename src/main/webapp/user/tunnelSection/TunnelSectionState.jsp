@@ -66,7 +66,7 @@ td{
 					<button type="submit" class="btn btn-success btn-small">查询</button>
 				</form>
 				<div>
-					<h5 class=' text-center'>上行线【<span class="text-error">服役指标</span>】
+					<h5 class=' text-center'>上行线【<span class="text-error">服役状态</span>】
 						<s:iterator value="upCounts" status="vs">
 							</span><span class="level<s:property value="key" />">&nbsp;&nbsp;</span>
 							<s:if test="key == 'A'.toString()">i</s:if>
@@ -86,7 +86,7 @@ td{
 					</table>
 				</div>
 				<div>
-					<h5 class=' text-center'>下行线【<span class="text-error">服役指标-<s:property value="typeDes"/></span>】
+					<h5 class=' text-center'>下行线【<span class="text-error">服役状态】
 					<s:iterator value="downCounts" status="vs">
 						<span class="level<s:property value="key" />"><s:property value="key" />&nbsp;&nbsp;</span>
 						<s:if test="key == 'A'.toString()">i</s:if>

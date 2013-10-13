@@ -125,4 +125,14 @@ public class GirthOpenServiceImpl implements GirthOpenService {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<GirthOpen> queryByIds(List<Integer> ids) {
+		try {
+			return m_girthOpenDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<GirthOpen>();
+		}
+   }
 }

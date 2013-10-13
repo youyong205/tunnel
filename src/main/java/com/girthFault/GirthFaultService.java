@@ -24,4 +24,6 @@ public interface GirthFaultService {
 
 	public int updateGirthFault(GirthFault girthFault);
 
+	public List<GirthFault> queryByIds(List<Integer> ids);
+
 }

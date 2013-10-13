@@ -6,6 +6,13 @@
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,shape,
 		size,startAngle,endAngle,affect,date,des,creationDate,modifyDate
 	</sql>
+	<select id="seepage.queryByIds" resultClass="seepage" parameterClass="list">
+		select <include refid="seepage.columns" /> <![CDATA[ from seepage
+		where id in ]]>
+			<iterate open="(" close=")" conjunction=",">
+			   #[]#
+		 	 </iterate>
+	</select>
 	<select id="seepage.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from seepage
 		<dynamic prepend="WHERE">

@@ -51,8 +51,8 @@ $(document).ready(function() {
 							list="tunnels" listKey="id" listValue="name" 
 							value="tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="35%">
 						<s:select name="coverLoss.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
 							onchange="tunnelSectionChangedAndBlock()" 
@@ -104,7 +104,7 @@ $(document).ready(function() {
 						<td><input type="text" name="coverLoss.width" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
-						<td style="text-align:right;"><strong class="text-success">高度(mm)</strong></td>
+						<td style="text-align:right;"><strong class="text-success">厚度(mm)</strong></td>
 						<td><input type="text" name="coverLoss.height" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">深度(mm)</strong></td>
 						<td><input type="text" name="coverLoss.depth" class="{required:true,number:true}"/></td>

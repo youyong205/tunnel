@@ -24,4 +24,6 @@ public interface LongitudinalOpenService {
 
 	public int updateLongitudinalOpen(LongitudinalOpen longitudinalOpen);
 
+	public List<LongitudinalOpen> queryByIds(List<Integer> ids);
+
 }

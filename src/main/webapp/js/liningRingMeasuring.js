@@ -154,6 +154,43 @@ function checkForm() {
 		return false;
 }
 
+function graphChart(container,title,lable,unit,chart){
+	$('#'+container).highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: title
+        },
+        xAxis: {
+        	labels: {
+                step: chart.step
+            },
+            categories:chart.categories
+        },
+        yAxis: {
+            title: {
+                text: lable+unit
+            }
+        },
+        tooltip: {
+            enabled: false,
+            formatter: function() {
+                return '<b>'+ this.series.name +'</b><br/>'+
+                    this.x +': '+ this.y +'°C';
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: false
+                },
+                enableMouseTracking: false
+            }
+        },
+            series: chart.series
+    });
+}
 
 function graphLineChartContainer(container,title,lable,unit,data){
 	Highcharts.setOptions({
@@ -161,7 +198,6 @@ function graphLineChartContainer(container,title,lable,unit,data){
 	        useUTC: false
 	    }
 	});
-	console.log(container);
 	$('#'+container).highcharts({
         chart: {
             type: 'spline'

@@ -18,9 +18,11 @@ import org.apache.log4j.Logger;
 import com.Authority;
 import com.BatchInsertResult;
 import com.LineChart;
+import com.LineChart.ChartItem;
 import com.LineChartAction;
 import com.Modules;
 import com.Operation;
+import com.TimeLineChart;
 import com.liningRing.LiningRing;
 import com.liningRing.LiningRingBlock;
 import com.liningRing.LiningRingBlockService;
@@ -76,6 +78,106 @@ public class CracksAction extends LineChartAction {
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
+
+	private void buildChart(TimeLineChart lineChart, List<Cracks> crackss, CracksFunction function) {
+		Map<Integer, Map<Long, Double>> allDatas = new TreeMap<Integer, Map<Long, Double>>();
+		Map<Long, Double> all = new LinkedHashMap<Long, Double>();
+		if (crackss != null) {
+			for (Cracks cracks : crackss) {
+				int blockIndex = cracks.getBlockIndex();
+				Date date = cracks.getDate();
+				long time = formatTime(date);
+
+				Map<Long, Double> datas = allDatas.get(blockIndex);
+
+				if (datas == null) {
+					datas = new LinkedHashMap<Long, Double>();
+					allDatas.put(blockIndex, datas);
+				}
+
+				Double value = all.get(time);
+				double width = function.getValue(cracks);
+				if (value == null) {
+					all.put(time, width);
+				} else {
+					all.put(time, value + width);
+				}
+
+				datas.put(time, width);
+			}
+		}
+
+		lineChart.addLong("所有块", all);
+		for (Entry<Integer, Map<Long, Double>> entry : allDatas.entrySet()) {
+			lineChart.addLong("第" + entry.getKey() + "块", entry.getValue());
+		}
+	}
+
+	private Item buildData(List<LiningRingConstruction> constructions, List<Cracks> crackss, CracksFunction function) {
+		Map<Integer, Double> idToMaxValue = new LinkedHashMap<Integer, Double>();
+		Map<Integer, Double> idToAllValue = new LinkedHashMap<Integer, Double>();
+		Map<Double, Double> sequenceToMaxValue = new LinkedHashMap<Double, Double>();
+		Map<Double, Double> sequenceToAllValue = new LinkedHashMap<Double, Double>();
+
+		for (Cracks cracks : crackss) {
+			int liningRingConstructionId = cracks.getLiningRingConstructionId();
+			double value = function.getValue(cracks);
+
+			findOrCreateMax(idToMaxValue, liningRingConstructionId, value);
+			findOrCreateSum(idToAllValue, liningRingConstructionId, value);
+		}
+		for (LiningRingConstruction construction : constructions) {
+			double sequence = construction.getSequence();
+			int id = construction.getId();
+			Double maxValue = idToMaxValue.get(id);
+			Double allValue = idToAllValue.get(id);
+
+			if (maxValue == null) {
+				sequenceToMaxValue.put(sequence, 0.0);
+			} else {
+				sequenceToMaxValue.put(sequence, maxValue);
+			}
+			if (allValue == null) {
+				sequenceToAllValue.put(sequence, 0.0);
+			} else {
+				sequenceToAllValue.put(sequence, allValue);
+			}
+		}
+		Item item = new Item();
+		item.setSequenceToAllValue(sequenceToAllValue);
+		item.setSequenceToMaxValue(sequenceToMaxValue);
+
+		return item;
+	}
+
+	private void buildLineChart(LineChart lineChart, List<LiningRingConstruction> constructions, List<String> ids) {
+		List<Integer> idList = convertToString(ids);
+		List<Cracks> crackss = m_cracksService.queryByIds(idList);
+		CracksFunction number = new CracksFunction() {
+
+			@Override
+			public double getValue(Cracks cracks) {
+				return cracks.getNumber();
+			}
+		};
+		CracksFunction width = new CracksFunction() {
+
+			@Override
+			public double getValue(Cracks cracks) {
+				return cracks.getWidth();
+			}
+		};
+		Item numberItem = buildData(constructions, crackss, number);
+		Item widthItem = buildData(constructions, crackss, width);
+
+		List<ChartItem> items = new ArrayList<ChartItem>();
+
+		items.add(new ChartItem("裂缝数量单块最大值", numberItem.getSequenceToMaxValue()));
+		items.add(new ChartItem("裂缝数量所有块总和", numberItem.getSequenceToAllValue()));
+		items.add(new ChartItem("裂缝宽度单块最大值", widthItem.getSequenceToMaxValue()));
+		items.add(new ChartItem("裂缝宽度所有块总和", widthItem.getSequenceToAllValue()));
+		lineChart.add(items);
+	}
 
 	private Cracks convert(Cell[] cells) {
 		try {
@@ -317,67 +419,62 @@ public class CracksAction extends LineChartAction {
 			m_liningRingConstructionId = m_liningRingConstructions.get(0).getId();
 		}
 
-		m_lineChart = new LineChart();
+		m_lineChart = new TimeLineChart();
 		m_crackss = m_cracksService.queryCracksByDuration(m_liningRingConstructionId, m_start, m_end);
 
-		Function widthImpl = new Function() {
+		CracksFunction widthImpl = new CracksFunction() {
 			@Override
 			public double getValue(Cracks cracks) {
 				return cracks.getWidth();
 			}
 		};
 
-		Function numberImple = new Function() {
+		CracksFunction numberImple = new CracksFunction() {
 			@Override
 			public double getValue(Cracks cracks) {
 				return cracks.getNumber();
 			}
 		};
-		m_lineChart = new LineChart();
-		m_secondLineChart = new LineChart();
+		m_lineChart = new TimeLineChart();
+		m_secondLineChart = new TimeLineChart();
 		buildChart(m_lineChart, m_crackss, widthImpl);
 		buildChart(m_secondLineChart, m_crackss, numberImple);
 		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
 		return SUCCESS;
 	}
 
-	private void buildChart(LineChart lineChart, List<Cracks> crackss, Function function) {
-		Map<Integer, Map<Long, Double>> allDatas = new TreeMap<Integer, Map<Long, Double>>();
-		Map<Long, Double> all = new LinkedHashMap<Long, Double>();
-		if (crackss != null) {
-			for (Cracks cracks : crackss) {
-				int blockIndex = cracks.getBlockIndex();
-				Date date = cracks.getDate();
-				long time = formatTime(date);
+	public String cracksState() {
+		Authority auth = checkAuthority(buildResource(Modules.s_cracks_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+		m_tunnels = m_tunnelService.queryAllTunnels();
+		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		List<LiningRingConstruction> ups = new ArrayList<LiningRingConstruction>();
+		List<LiningRingConstruction> downs = new ArrayList<LiningRingConstruction>();
+		List<String> upIds = new ArrayList<String>();
+		List<String> downIds = new ArrayList<String>();
 
-				Map<Long, Double> datas = allDatas.get(blockIndex);
-
-				if (datas == null) {
-					datas = new LinkedHashMap<Long, Double>();
-					allDatas.put(blockIndex, datas);
-				}
-
-				Double value = all.get(time);
-				double width = function.getValue(cracks);
-				if (value == null) {
-					all.put(time, width);
-				} else {
-					all.put(time, value + width);
-				}
-
-				datas.put(time, width);
+		for (LiningRingConstruction construction : m_liningRingConstructions) {
+			String lineType = construction.getLineType();
+			if (("上行").equals(lineType)) {
+				ups.add(construction);
+				upIds.add(construction.getCracksId());
+			} else {
+				downs.add(construction);
+				downIds.add(construction.getCracksId());
 			}
 		}
-
-		lineChart.add("所有块", all);
-		for (Entry<Integer, Map<Long, Double>> entry : allDatas.entrySet()) {
-			lineChart.add("第" + entry.getKey() + "块", entry.getValue());
-		}
-	}
-
-	public static interface Function {
-
-		double getValue(Cracks cracks);
+		m_generalChart = new LineChart();
+		m_generalChart2 = new LineChart();
+		buildLineChart(m_generalChart, ups, upIds);
+		buildLineChart(m_generalChart2, downs, downIds);
+		return SUCCESS;
 	}
 
 	public String cracksUpdate() {
@@ -533,6 +630,34 @@ public class CracksAction extends LineChartAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
+	}
+
+	public interface CracksFunction {
+
+		double getValue(Cracks cracks);
+	}
+
+	private static class Item {
+		Map<Double, Double> sequenceToMaxValue;
+
+		Map<Double, Double> sequenceToAllValue;
+
+		public Map<Double, Double> getSequenceToAllValue() {
+			return sequenceToAllValue;
+		}
+
+		public Map<Double, Double> getSequenceToMaxValue() {
+			return sequenceToMaxValue;
+		}
+
+		public void setSequenceToAllValue(Map<Double, Double> sequenceToAllValue) {
+			this.sequenceToAllValue = sequenceToAllValue;
+		}
+
+		public void setSequenceToMaxValue(Map<Double, Double> sequenceToMaxValue) {
+			this.sequenceToMaxValue = sequenceToMaxValue;
+		}
+
 	}
 
 }

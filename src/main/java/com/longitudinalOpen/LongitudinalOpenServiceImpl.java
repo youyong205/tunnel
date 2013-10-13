@@ -125,5 +125,15 @@ public class LongitudinalOpenServiceImpl implements LongitudinalOpenService {
 			return -1;
 		}
 	}
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<LongitudinalOpen> queryByIds(List<Integer> ids) {
+		try {
+			return m_longitudinalOpenDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<LongitudinalOpen>();
+		}
+   }
 
 }

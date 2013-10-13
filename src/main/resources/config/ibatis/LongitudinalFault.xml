@@ -6,6 +6,13 @@
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,value,serious,
 		type,blockIndex,date,des,creationDate,modifyDate
 	</sql>
+	<select id="longitudinalFault.queryByIds" resultClass="longitudinalFault" parameterClass="list">
+		select <include refid="longitudinalFault.columns" /> <![CDATA[ from longitudinalFault
+		where id in ]]>
+			<iterate open="(" close=")" conjunction=",">
+			   #[]#
+		 	 </iterate>
+	</select>
 	<select id="longitudinalFault.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from longitudinalFault
 		<dynamic prepend="WHERE">

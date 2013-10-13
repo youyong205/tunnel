@@ -125,5 +125,14 @@ public class GirthFaultServiceImpl implements GirthFaultService {
 			return -1;
 		}
 	}
-
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<GirthFault> queryByIds(List<Integer> ids) {
+		try {
+			return m_girthFaultDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<GirthFault>();
+		}
+   }
 }

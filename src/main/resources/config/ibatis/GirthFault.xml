@@ -6,6 +6,13 @@
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,
 		blockIndex,type,value,serious,date,des,creationDate,modifyDate
 	</sql>
+	<select id="girthFault.queryByIds" resultClass="girthFault" parameterClass="list">
+		select <include refid="girthFault.columns" /> <![CDATA[ from girthFault
+		where id in ]]>
+			<iterate open="(" close=")" conjunction=",">
+			   #[]#
+		 	 </iterate>
+	</select>
 	<select id="girthFault.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from girthFault
 		<dynamic prepend="WHERE">

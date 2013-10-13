@@ -125,5 +125,15 @@ public class LongitudinalFaultServiceImpl implements LongitudinalFaultService {
 			return -1;
 		}
 	}
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<LongitudinalFault> queryByIds(List<Integer> ids) {
+		try {
+			return m_longitudinalFaultDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<LongitudinalFault>();
+		}
+   }
 
 }

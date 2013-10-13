@@ -24,4 +24,6 @@ public interface SeepageService {
 
 	public int updateSeepage(Seepage seepage);
 
+	public List<Seepage> queryByIds(List<Integer> ids);
+
 }

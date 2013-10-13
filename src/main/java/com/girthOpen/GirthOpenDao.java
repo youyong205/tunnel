@@ -1,5 +1,6 @@
 package com.girthOpen;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -84,5 +85,14 @@ public class GirthOpenDao {
 	public int updateGirthOpen(GirthOpen girthOpen) {
 		return m_baseDao.update("girthOpen.update", girthOpen);
 	}
+	@SuppressWarnings("rawtypes")
+   public List queryByIds(List<Integer> ids) {
+		if(ids.size()>0){
+			return m_baseDao.queryForList("girthOpen.queryByIds", ids);
+		}else{
+			return new ArrayList();
+		}
+   }
+
 
 }

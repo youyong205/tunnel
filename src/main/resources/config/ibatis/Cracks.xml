@@ -6,6 +6,13 @@
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,number,type,
 		length,width,angle,dip,date,serious,des,creationDate,modifyDate
 	</sql>
+	<select id="cracks.queryByIds" resultClass="cracks" parameterClass="list">
+		select <include refid="cracks.columns" /> <![CDATA[ from cracks
+		where id in ]]>
+			<iterate open="(" close=")" conjunction=",">
+			   #[]#
+		 	 </iterate>
+	</select>
 	<select id="cracks.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from cracks
 		<dynamic prepend="WHERE">

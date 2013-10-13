@@ -5,6 +5,13 @@
 	<sql id="liningRingLongitudinalDeformation.columns">
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,value,date,des,creationDate,modifyDate
 	</sql>
+   	<select id="liningRingLongitudinalDeformation.queryByIds" resultClass="liningRingLongitudinalDeformation" parameterClass="list">
+		select <include refid="liningRingLongitudinalDeformation.columns" /> <![CDATA[ from liningRingLongitudinalDeformation
+		where id in ]]>
+			<iterate open="(" close=")" conjunction=",">
+			   #[]#
+		 	 </iterate>
+	</select>
 	<select id="liningRingLongitudinalDeformation.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from liningRingLongitudinalDeformation
 		<dynamic prepend="WHERE">

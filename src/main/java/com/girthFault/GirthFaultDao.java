@@ -1,5 +1,6 @@
 package com.girthFault;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -84,5 +85,14 @@ public class GirthFaultDao {
 	public int updateGirthFault(GirthFault girthFault) {
 		return m_baseDao.update("girthFault.update", girthFault);
 	}
+	
+	@SuppressWarnings("rawtypes")
+   public List queryByIds(List<Integer> ids) {
+		if(ids.size()>0){
+			return m_baseDao.queryForList("girthFault.queryByIds", ids);
+		}else{
+			return new ArrayList();
+		}
+   }
 
 }

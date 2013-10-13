@@ -198,18 +198,18 @@ public class LiningRingConstructionAction extends ScheduledAction {
 				m_liningRingConstructions = new ArrayList<LiningRingConstruction>();
 			}
 
-			if (m_liningRingConstructions.size() < 100) {
-				for (int i = 0; i < 2090; i++) {
-					LiningRingConstruction item = new LiningRingConstruction();
-					item.setName("test");
-					if (i < 1050) {
-						item.setLineType("上行");
-					} else {
-						item.setLineType("下行");
-					}
-					m_liningRingConstructions.add(item);
-				}
-			}
+//			if (m_liningRingConstructions.size() < 100) {
+//				for (int i = 0; i < 2090; i++) {
+//					LiningRingConstruction item = new LiningRingConstruction();
+//					item.setName("test");
+//					if (i < 1050) {
+//						item.setLineType("上行");
+//					} else {
+//						item.setLineType("下行");
+//					}
+//					m_liningRingConstructions.add(item);
+//				}
+//			}
 
 			TunnelSectionState state = new TunnelSectionState(m_liningRingConstructions, m_type);
 			TunnelSectionStateBuilder builder = new TunnelSectionStateBuilder();

@@ -23,5 +23,7 @@ public interface LongitudinalFaultService {
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateLongitudinalFault(LongitudinalFault longitudinalFault);
+	
+	public List<LongitudinalFault> queryByIds(List<Integer> ids);
 
 }

@@ -11,6 +11,8 @@ public interface CoverLossService {
 
 	public CoverLoss findByPK(int id);
 
+	public List<CoverLoss> queryByIds(List<Integer> ids);
+
 	public int insertCoverLoss(CoverLoss coverLoss);
 
 	public List<CoverLoss> queryCoverLossByDuration(int liningRingConstructionId, Date start, Date end);
@@ -23,5 +25,7 @@ public interface CoverLossService {
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateCoverLoss(CoverLoss coverLoss);
+	
+	
 
 }

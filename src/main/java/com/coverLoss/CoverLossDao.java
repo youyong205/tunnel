@@ -1,5 +1,6 @@
 package com.coverLoss;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -83,6 +84,15 @@ public class CoverLossDao {
 
 	public int updateCoverLoss(CoverLoss coverLoss) {
 		return m_baseDao.update("coverLoss.update", coverLoss);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public List queryByIds(List<Integer> ids) {
+		if (ids.size() > 0) {
+			return m_baseDao.queryForList("coverLoss.queryByIds", ids);
+		} else {
+			return new ArrayList();
+		}
 	}
 
 }

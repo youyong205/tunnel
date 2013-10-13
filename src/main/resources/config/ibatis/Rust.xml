@@ -6,6 +6,13 @@
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,shape,
 		area,startAngle,endAngle,date,des,creationDate,modifyDate
 	</sql>
+	<select id="rust.queryByIds" resultClass="rust" parameterClass="list">
+		select <include refid="rust.columns" /> <![CDATA[ from rust
+		where id in ]]>
+			<iterate open="(" close=")" conjunction=",">
+			   #[]#
+		 	 </iterate>
+	</select>
 	<select id="rust.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from rust
 		<dynamic prepend="WHERE">

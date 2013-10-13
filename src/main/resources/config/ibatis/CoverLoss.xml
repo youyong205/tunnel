@@ -6,6 +6,13 @@
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,type,
 		shape,width,height,depth,area,date,serious,des,creationDate,modifyDate
 	</sql>
+	<select id="coverLoss.queryByIds" resultClass="coverLoss" parameterClass="list">
+		select <include refid="coverLoss.columns" /> <![CDATA[ from coverLoss
+		where id in ]]>
+			<iterate open="(" close=")" conjunction=",">
+			   #[]#
+		 	 </iterate>
+	</select>
 	<select id="coverLoss.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from coverLoss
 		<dynamic prepend="WHERE">

@@ -136,4 +136,17 @@ public class LiningRingLongitudinalDeformationServiceImpl implements LiningRingL
 		}
 	}
 
+
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<LiningRingLongitudinalDeformation> queryByIds(List<Integer> ids) {
+		try {
+			return m_liningRingLongitudinalDeformationDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<LiningRingLongitudinalDeformation>();
+		}
+   }
+
+   	
 }

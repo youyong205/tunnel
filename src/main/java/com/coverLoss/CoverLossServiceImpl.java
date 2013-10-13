@@ -124,5 +124,17 @@ public class CoverLossServiceImpl implements CoverLossService {
 			return -1;
 		}
 	}
+	
+
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<CoverLoss> queryByIds(List<Integer> ids) {
+		try {
+			return m_coverLossDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<CoverLoss>();
+		}
+   }
 
 }

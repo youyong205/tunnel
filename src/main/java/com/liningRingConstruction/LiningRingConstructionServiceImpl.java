@@ -309,7 +309,7 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 		int blockIndex = coverLoss.getBlockIndex();
 		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
 		String oldState = liningRingConstruction.getCoverLossState();
-		double value = 0;
+		double value = coverLoss.getHeight();
 		String newBlockState = "A";
 		double[] standard = { 10, 5, 0 };
 
@@ -418,17 +418,36 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 	@Override
 	public int updateRustState(Rust rust) {
-		return 0;
+		int liningRingConstructionId = rust.getLiningRingConstructionId();
+		int blockIndex = rust.getBlockIndex();
+		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
+		int lingRingId = liningRingConstruction.getLiningRingId();
+		List<LiningRingBlock> blocks = m_liningRingBlockService.queryByLiningRingId(lingRingId);
+		String lastIds = computeBlockState(blocks.size(), liningRingConstruction.getRustId(),
+		      String.valueOf(rust.getId()), blockIndex);
+
+		return m_liningRingConstructionDao.updateRustState(lastIds, liningRingConstructionId);
 	}
 
 	@Override
 	public int updateSeepageState(Seepage seepage) {
-		return 0;
+		int liningRingConstructionId = seepage.getLiningRingConstructionId();
+		int blockIndex = seepage.getBlockIndex();
+		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
+		int lingRingId = liningRingConstruction.getLiningRingId();
+		List<LiningRingBlock> blocks = m_liningRingBlockService.queryByLiningRingId(lingRingId);
+		String lastIds = computeBlockState(blocks.size(), liningRingConstruction.getSeepageId(),
+		      String.valueOf(seepage.getId()), blockIndex);
+
+		return m_liningRingConstructionDao.updateSeepageState(lastIds, liningRingConstructionId);
 	}
 
 	@Override
 	public int updateSettlementState(Settlement settlement) {
-		return 0;
+		int liningRingConstructionId = settlement.getLiningRingConstructionId();
+
+		return m_liningRingConstructionDao.updateSettlementState(String.valueOf(settlement.getId()),
+		      liningRingConstructionId);
 	}
 
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {

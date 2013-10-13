@@ -24,4 +24,6 @@ public interface CracksService {
 
 	public int updateCracks(Cracks cracks);
 
+	public List<Cracks> queryByIds(List<Integer> ids);
+
 }

@@ -134,5 +134,28 @@ public class LiningRingConstructionDao {
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 		return m_baseDao.update("liningRingConstruction.updateCracksState", parameters);
 	}
+	
+	public int updateSettlementState(String settlementId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("settlementId", settlementId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateSettlementState", parameters);
+	}
+	public int updateSeepageState(String seepageId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("seepageId", seepageId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateSeepageState", parameters);
+	}
+	public int updateRustState(String rustId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("rustId", rustId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateRustState", parameters);
+	}
+
 
 }

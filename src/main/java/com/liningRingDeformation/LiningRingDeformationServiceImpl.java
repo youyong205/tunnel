@@ -128,4 +128,15 @@ public class LiningRingDeformationServiceImpl implements LiningRingDeformationSe
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<LiningRingDeformation> queryByIds(List<Integer> ids) {
+		try {
+			return m_liningRingDeformationDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<LiningRingDeformation>();
+		}
+   }
+
 }

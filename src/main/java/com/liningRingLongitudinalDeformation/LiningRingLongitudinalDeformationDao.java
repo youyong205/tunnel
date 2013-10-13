@@ -1,5 +1,6 @@
 package com.liningRingLongitudinalDeformation;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -92,6 +93,15 @@ public class LiningRingLongitudinalDeformationDao {
 	public int updateLiningRingLongitudinalDeformation(
 	      LiningRingLongitudinalDeformation liningRingLongitudinalDeformation) {
 		return m_baseDao.update("liningRingLongitudinalDeformation.update", liningRingLongitudinalDeformation);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public List queryByIds(List<Integer> ids) {
+		if (ids.size() > 0) {
+			return m_baseDao.queryForList("liningRingLongitudinalDeformation.queryByIds", ids);
+		} else {
+			return new ArrayList();
+		}
 	}
 
 }

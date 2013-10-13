@@ -1,5 +1,6 @@
 package com.settlement;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -83,6 +84,15 @@ public class SettlementDao {
 
 	public int updateSettlement(Settlement settlement) {
 		return m_baseDao.update("settlement.update", settlement);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public List queryByIds(List<Integer> ids) {
+		if (ids.size() > 0) {
+			return m_baseDao.queryForList("settlement.queryByIds", ids);
+		} else {
+			return new ArrayList();
+		}
 	}
 
 }

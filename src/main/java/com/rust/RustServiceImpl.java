@@ -124,5 +124,16 @@ public class RustServiceImpl implements RustService {
 			return -1;
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<Rust> queryByIds(List<Integer> ids) {
+		try {
+			return m_rustDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<Rust>();
+		}
+   }
 
 }

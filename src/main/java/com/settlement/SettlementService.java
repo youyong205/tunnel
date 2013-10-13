@@ -11,6 +11,8 @@ public interface SettlementService {
 
 	public Settlement findByPK(int id);
 
+	public List<Settlement> queryByIds(List<Integer> ids);
+
 	public int insertSettlement(Settlement settlement);
 
 	public Settlement queryLastestDeformation(int tunnelId, int tunnelSectionId, int liningRingConstructionId);

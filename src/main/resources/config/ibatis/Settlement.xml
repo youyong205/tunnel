@@ -6,6 +6,13 @@
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,value,
 		distance,date,des,creationDate,modifyDate
 	</sql>
+	<select id="settlement.queryByIds" resultClass="settlement" parameterClass="list">
+		select <include refid="settlement.columns" /> <![CDATA[ from settlement
+		where id in ]]>
+			<iterate open="(" close=")" conjunction=",">
+			   #[]#
+		 	 </iterate>
+	</select>
 	<select id="settlement.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from settlement
 		<dynamic prepend="WHERE">

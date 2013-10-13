@@ -124,5 +124,14 @@ public class SeepageServiceImpl implements SeepageService {
 			return -1;
 		}
 	}
-
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<Seepage> queryByIds(List<Integer> ids) {
+		try {
+			return m_seepageDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<Seepage>();
+		}
+   }
 }

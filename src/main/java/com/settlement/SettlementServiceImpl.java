@@ -126,4 +126,14 @@ public class SettlementServiceImpl implements SettlementService {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<Settlement> queryByIds(List<Integer> ids) {
+		try {
+			return m_settlementDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<Settlement>();
+		}
+   }
 }

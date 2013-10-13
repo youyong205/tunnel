@@ -4,185 +4,331 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="userMainTunnelSection" extends="main">
-		<action name="userTunnelSectionList" class="tunnelSectionAction" method="tunnelSectionList">
+		<action name="userTunnelSectionList" class="tunnelSectionAction"
+			method="tunnelSectionList">
 			<result name="success">user/tunnelSection/TunnelSectionList.jsp</result>
 		</action>
-		<action name="userTunnelSectionDetail" class="tunnelSectionAction" method="tunnelSectionUpdate" >
-			<result name="success">user/tunnelSection/TunnelSectionDetail.jsp</result>
+		<action name="userTunnelSectionDetail" class="tunnelSectionAction"
+			method="tunnelSectionUpdate">
+			<result name="success">user/tunnelSection/TunnelSectionDetail.jsp
+			</result>
 		</action>
-		<action name="userTunnelSectionState" class="userLiningRingConstructionAction" method="liningRingConstructionList">
-			<result name="success">user/tunnelSection/TunnelSectionState.jsp</result>
+		<action name="userTunnelSectionState" class="userLiningRingConstructionAction"
+			method="liningRingConstructionList">
+			<result name="success">user/tunnelSection/TunnelSectionState.jsp
+			</result>
 		</action>
-		
-		<action name="userRectangleComponentList" class="rectangleComponentAction" method="rectangleComponentList">
-			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentList.jsp</result>
+		<action name="userLiningRingDeformationState" class="liningRingDeformationAction"
+			method="liningRingDeformationState">
+			<result name="success">user/tunnelSection/LiningRingDeformation.jsp
+			</result>
 		</action>
-		<action name="userRectangleComponentDetail" class="rectangleComponentAction" method="rectangleComponentUpdate" >
-			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentDetail.jsp</result>
+		<action name="userLiningRingLongitudinalDeformationState"
+			class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationState">
+			<result name="success">user/tunnelSection/LiningRingLongitudinalDeformation.jsp
+			</result>
 		</action>
-		<action name="userRectangleComponentInspectionList" class="rectangleComponentInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentInspectionList.jsp</result>
+		<action name="userCoverLossState" class="coverLossAction"
+			method="coverLossState">
+			<result name="success">user/tunnelSection/CoverLoss.jsp</result>
 		</action>
-		<action name="userRectangleComponentInspectionDetail" class="rectangleComponentInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentInspectionDetail.jsp</result>
+		<action name="userCracksState" class="cracksAction" method="cracksState">
+			<result name="success">user/tunnelSection/Cracks.jsp</result>
 		</action>
-		<action name="userRectangleComponentCuringList" class="rectangleComponentCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentCuringList.jsp</result>
+		<action name="userGirthOpenState" class="girthOpenAction"
+			method="girthOpenState">
+			<result name="success">user/tunnelSection/GirthOpen.jsp</result>
 		</action>
-		<action name="userRectangleComponentCuringDetail" class="rectangleComponentCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentCuringDetail.jsp</result>
+		<action name="userLongitudinalOpenState" class="longitudinalOpenAction"
+			method="longitudinalOpenState">
+			<result name="success">user/tunnelSection/LongitudinalOpen.jsp</result>
 		</action>
-		
+		<action name="userGirthFaultState" class="girthFaultAction"
+			method="girthFaultState">
+			<result name="success">user/tunnelSection/GirthFault.jsp</result>
+		</action>
+		<action name="userLongitudinalFaultState" class="longitudinalFaultAction"
+			method="longitudinalFaultState">
+			<result name="success">user/tunnelSection/LongitudinalFault.jsp</result>
+		</action>
+		<action name="userSettlementState" class="settlementAction"
+			method="settlementState">
+			<result name="success">user/tunnelSection/Settlement.jsp</result>
+		</action>
+		<action name="userSeepageState" class="seepageAction" method="seepageState">
+			<result name="success">user/tunnelSection/Seepage.jsp</result>
+		</action>
+		<action name="userRustState" class="rustAction" method="rustState">
+			<result name="success">user/tunnelSection/Rust.jsp</result>
+		</action>
+
+
+		<action name="userRectangleComponentList" class="rectangleComponentAction"
+			method="rectangleComponentList">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentList.jsp
+			</result>
+		</action>
+		<action name="userRectangleComponentDetail" class="rectangleComponentAction"
+			method="rectangleComponentUpdate">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentDetail.jsp
+			</result>
+		</action>
+		<action name="userRectangleComponentInspectionList" class="rectangleComponentInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentInspectionList.jsp
+			</result>
+		</action>
+		<action name="userRectangleComponentInspectionDetail" class="rectangleComponentInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentInspectionDetail.jsp
+			</result>
+		</action>
+		<action name="userRectangleComponentCuringList" class="rectangleComponentCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentCuringList.jsp
+			</result>
+		</action>
+		<action name="userRectangleComponentCuringDetail" class="rectangleComponentCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/rectangleComponent/RectangleComponentCuringDetail.jsp
+			</result>
+		</action>
+
 		<action name="userPlankList" class="plankAction" method="plankList">
 			<result name="success">user/tunnelSection/plank/PlankList.jsp</result>
 		</action>
-		<action name="userPlankDetail" class="plankAction" method="plankUpdate" >
+		<action name="userPlankDetail" class="plankAction" method="plankUpdate">
 			<result name="success">user/tunnelSection/plank/PlankDetail.jsp</result>
 		</action>
-		<action name="userPlankInspectionList" class="plankInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/plank/PlankInspectionList.jsp</result>
+		<action name="userPlankInspectionList" class="plankInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/plank/PlankInspectionList.jsp
+			</result>
 		</action>
-		<action name="userPlankInspectionDetail" class="plankInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/plank/PlankInspectionDetail.jsp</result>
+		<action name="userPlankInspectionDetail" class="plankInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/plank/PlankInspectionDetail.jsp
+			</result>
 		</action>
-		<action name="userPlankCuringList" class="plankCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/plank/PlankCuringList.jsp</result>
+		<action name="userPlankCuringList" class="plankCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/plank/PlankCuringList.jsp
+			</result>
 		</action>
-		<action name="userPlankCuringDetail" class="plankCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/plank/PlankCuringDetail.jsp</result>
+		<action name="userPlankCuringDetail" class="plankCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/plank/PlankCuringDetail.jsp
+			</result>
 		</action>
-		
+
 		<action name="userBracketList" class="bracketAction" method="bracketList">
-			<result name="success">user/tunnelSection/bracket/BracketList.jsp</result>
+			<result name="success">user/tunnelSection/bracket/BracketList.jsp
+			</result>
 		</action>
-		<action name="userBracketDetail" class="bracketAction" method="bracketUpdate" >
-			<result name="success">user/tunnelSection/bracket/BracketDetail.jsp</result>
+		<action name="userBracketDetail" class="bracketAction" method="bracketUpdate">
+			<result name="success">user/tunnelSection/bracket/BracketDetail.jsp
+			</result>
 		</action>
-		<action name="userBracketInspectionList" class="bracketInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/bracket/BracketInspectionList.jsp</result>
+		<action name="userBracketInspectionList" class="bracketInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/bracket/BracketInspectionList.jsp
+			</result>
 		</action>
-		<action name="userBracketInspectionDetail" class="bracketInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/bracket/BracketInspectionDetail.jsp</result>
+		<action name="userBracketInspectionDetail" class="bracketInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/bracket/BracketInspectionDetail.jsp
+			</result>
 		</action>
-		<action name="userBracketCuringList" class="bracketCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/bracket/BracketCuringList.jsp</result>
+		<action name="userBracketCuringList" class="bracketCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/bracket/BracketCuringList.jsp
+			</result>
 		</action>
-		<action name="userBracketCuringDetail" class="bracketCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/bracket/BracketCuringDetail.jsp</result>
+		<action name="userBracketCuringDetail" class="bracketCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/bracket/BracketCuringDetail.jsp
+			</result>
 		</action>
-		
-		<action name="userSaddleWeightList" class="saddleWeightAction" method="saddleWeightList">
-			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightList.jsp</result>
+
+		<action name="userSaddleWeightList" class="saddleWeightAction"
+			method="saddleWeightList">
+			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightList.jsp
+			</result>
 		</action>
-		<action name="userSaddleWeightDetail" class="saddleWeightAction" method="saddleWeightUpdate" >
-			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightDetail.jsp</result>
+		<action name="userSaddleWeightDetail" class="saddleWeightAction"
+			method="saddleWeightUpdate">
+			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightDetail.jsp
+			</result>
 		</action>
-		<action name="userSaddleWeightInspectionList" class="saddleWeightInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightInspectionList.jsp</result>
+		<action name="userSaddleWeightInspectionList" class="saddleWeightInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightInspectionList.jsp
+			</result>
 		</action>
-		<action name="userSaddleWeightInspectionDetail" class="saddleWeightInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightInspectionDetail.jsp</result>
+		<action name="userSaddleWeightInspectionDetail" class="saddleWeightInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightInspectionDetail.jsp
+			</result>
 		</action>
-		<action name="userSaddleWeightCuringList" class="saddleWeightCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightCuringList.jsp</result>
+		<action name="userSaddleWeightCuringList" class="saddleWeightCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightCuringList.jsp
+			</result>
 		</action>
-		<action name="userSaddleWeightCuringDetail" class="saddleWeightCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightCuringDetail.jsp</result>
+		<action name="userSaddleWeightCuringDetail" class="saddleWeightCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/saddleWeight/SaddleWeightCuringDetail.jsp
+			</result>
 		</action>
-		
-		<action name="userFlueSheetList" class="flueSheetAction" method="flueSheetList">
-			<result name="success">user/tunnelSection/flueSheet/FlueSheetList.jsp</result>
+
+		<action name="userFlueSheetList" class="flueSheetAction"
+			method="flueSheetList">
+			<result name="success">user/tunnelSection/flueSheet/FlueSheetList.jsp
+			</result>
 		</action>
-		<action name="userFlueSheetDetail" class="flueSheetAction" method="flueSheetUpdate" >
-			<result name="success">user/tunnelSection/flueSheet/FlueSheetDetail.jsp</result>
+		<action name="userFlueSheetDetail" class="flueSheetAction"
+			method="flueSheetUpdate">
+			<result name="success">user/tunnelSection/flueSheet/FlueSheetDetail.jsp
+			</result>
 		</action>
-		<action name="userFlueSheetInspectionList" class="flueSheetInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/flueSheet/FlueSheetInspectionList.jsp</result>
+		<action name="userFlueSheetInspectionList" class="flueSheetInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/flueSheet/FlueSheetInspectionList.jsp
+			</result>
 		</action>
-		<action name="userFlueSheetInspectionDetail" class="flueSheetInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/flueSheet/FlueSheetInspectionDetail.jsp</result>
+		<action name="userFlueSheetInspectionDetail" class="flueSheetInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/flueSheet/FlueSheetInspectionDetail.jsp
+			</result>
 		</action>
-		<action name="userFlueSheetCuringList" class="flueSheetCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/flueSheet/FlueSheetCuringList.jsp</result>
+		<action name="userFlueSheetCuringList" class="flueSheetCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/flueSheet/FlueSheetCuringList.jsp
+			</result>
 		</action>
-		<action name="userFlueSheetCuringDetail" class="flueSheetCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/flueSheet/FlueSheetCuringDetail.jsp</result>
+		<action name="userFlueSheetCuringDetail" class="flueSheetCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/flueSheet/FlueSheetCuringDetail.jsp
+			</result>
 		</action>
-		
-		<action name="userPumpingStationList" class="pumpingStationAction" method="pumpingStationList">
-			<result name="success">user/tunnelSection/pumpingStation/PumpingStationList.jsp</result>
+
+		<action name="userPumpingStationList" class="pumpingStationAction"
+			method="pumpingStationList">
+			<result name="success">user/tunnelSection/pumpingStation/PumpingStationList.jsp
+			</result>
 		</action>
-		<action name="userPumpingStationDetail" class="pumpingStationAction" method="pumpingStationUpdate" >
-			<result name="success">user/tunnelSection/pumpingStation/PumpingStationDetail.jsp</result>
+		<action name="userPumpingStationDetail" class="pumpingStationAction"
+			method="pumpingStationUpdate">
+			<result name="success">user/tunnelSection/pumpingStation/PumpingStationDetail.jsp
+			</result>
 		</action>
-		<action name="userPumpingStationInspectionList" class="pumpingStationInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/pumpingStation/PumpingStationInspectionList.jsp</result>
+		<action name="userPumpingStationInspectionList" class="pumpingStationInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/pumpingStation/PumpingStationInspectionList.jsp
+			</result>
 		</action>
-		<action name="userPumpingStationInspectionDetail" class="pumpingStationInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/pumpingStation/PumpingStationInspectionDetail.jsp</result>
+		<action name="userPumpingStationInspectionDetail" class="pumpingStationInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/pumpingStation/PumpingStationInspectionDetail.jsp
+			</result>
 		</action>
-		<action name="userPumpingStationCuringList" class="pumpingStationCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/pumpingStation/PumpingStationCuringList.jsp</result>
+		<action name="userPumpingStationCuringList" class="pumpingStationCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/pumpingStation/PumpingStationCuringList.jsp
+			</result>
 		</action>
-		<action name="userPumpingStationCuringDetail" class="pumpingStationCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/pumpingStation/PumpingStationCuringDetail.jsp</result>
+		<action name="userPumpingStationCuringDetail" class="pumpingStationCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/pumpingStation/PumpingStationCuringDetail.jsp
+			</result>
 		</action>
-		
+
 		<action name="userFacilityList" class="facilityAction" method="facilityList">
-			<result name="success">user/tunnelSection/facility/FacilityList.jsp</result>
+			<result name="success">user/tunnelSection/facility/FacilityList.jsp
+			</result>
 		</action>
-		<action name="userFacilityDetail" class="facilityAction" method="facilityUpdate" >
-			<result name="success">user/tunnelSection/facility/FacilityDetail.jsp</result>
+		<action name="userFacilityDetail" class="facilityAction"
+			method="facilityUpdate">
+			<result name="success">user/tunnelSection/facility/FacilityDetail.jsp
+			</result>
 		</action>
-		<action name="userFacilityInspectionList" class="facilityInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/facility/FacilityInspectionList.jsp</result>
+		<action name="userFacilityInspectionList" class="facilityInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/facility/FacilityInspectionList.jsp
+			</result>
 		</action>
-		<action name="userFacilityInspectionDetail" class="facilityInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/facility/FacilityInspectionDetail.jsp</result>
+		<action name="userFacilityInspectionDetail" class="facilityInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/facility/FacilityInspectionDetail.jsp
+			</result>
 		</action>
-		<action name="userFacilityCuringList" class="facilityCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/facility/FacilityCuringList.jsp</result>
+		<action name="userFacilityCuringList" class="facilityCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/facility/FacilityCuringList.jsp
+			</result>
 		</action>
-		<action name="userFacilityCuringDetail" class="facilityCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/facility/FacilityCuringDetail.jsp</result>
+		<action name="userFacilityCuringDetail" class="facilityCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/facility/FacilityCuringDetail.jsp
+			</result>
 		</action>
-		
+
 		<action name="userEscapeList" class="escapeAction" method="escapeList">
 			<result name="success">user/tunnelSection/escape/EscapeList.jsp</result>
 		</action>
-		<action name="userEscapeDetail" class="escapeAction" method="escapeUpdate" >
-			<result name="success">user/tunnelSection/escape/EscapeDetail.jsp</result>
+		<action name="userEscapeDetail" class="escapeAction" method="escapeUpdate">
+			<result name="success">user/tunnelSection/escape/EscapeDetail.jsp
+			</result>
 		</action>
-		<action name="userEscapeInspectionList" class="escapeInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/escape/EscapeInspectionList.jsp</result>
+		<action name="userEscapeInspectionList" class="escapeInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/escape/EscapeInspectionList.jsp
+			</result>
 		</action>
-		<action name="userEscapeInspectionDetail" class="escapeInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/escape/EscapeInspectionDetail.jsp</result>
+		<action name="userEscapeInspectionDetail" class="escapeInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/escape/EscapeInspectionDetail.jsp
+			</result>
 		</action>
-		<action name="userEscapeCuringList" class="escapeCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/escape/EscapeCuringList.jsp</result>
+		<action name="userEscapeCuringList" class="escapeCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/escape/EscapeCuringList.jsp
+			</result>
 		</action>
-		<action name="userEscapeCuringDetail" class="escapeCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/escape/EscapeCuringDetail.jsp</result>
+		<action name="userEscapeCuringDetail" class="escapeCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/escape/EscapeCuringDetail.jsp
+			</result>
 		</action>
-		
+
 		<action name="userLinePipeList" class="linePipeAction" method="linePipeList">
-			<result name="success">user/tunnelSection/linePipe/LinePipeList.jsp</result>
+			<result name="success">user/tunnelSection/linePipe/LinePipeList.jsp
+			</result>
 		</action>
-		<action name="userLinePipeDetail" class="linePipeAction" method="linePipeUpdate" >
-			<result name="success">user/tunnelSection/linePipe/LinePipeDetail.jsp</result>
+		<action name="userLinePipeDetail" class="linePipeAction"
+			method="linePipeUpdate">
+			<result name="success">user/tunnelSection/linePipe/LinePipeDetail.jsp
+			</result>
 		</action>
-		<action name="userLinePipeInspectionList" class="linePipeInspectionAction" method="inspectionList">
-			<result name="success">user/tunnelSection/linePipe/LinePipeInspectionList.jsp</result>
+		<action name="userLinePipeInspectionList" class="linePipeInspectionAction"
+			method="inspectionList">
+			<result name="success">user/tunnelSection/linePipe/LinePipeInspectionList.jsp
+			</result>
 		</action>
-		<action name="userLinePipeInspectionDetail" class="linePipeInspectionAction" method="inspectionUpdate" >
-			<result name="success">user/tunnelSection/linePipe/LinePipeInspectionDetail.jsp</result>
+		<action name="userLinePipeInspectionDetail" class="linePipeInspectionAction"
+			method="inspectionUpdate">
+			<result name="success">user/tunnelSection/linePipe/LinePipeInspectionDetail.jsp
+			</result>
 		</action>
-		<action name="userLinePipeCuringList" class="linePipeCuringAction" method="curingList">
-			<result name="success">user/tunnelSection/linePipe/LinePipeCuringList.jsp</result>
+		<action name="userLinePipeCuringList" class="linePipeCuringAction"
+			method="curingList">
+			<result name="success">user/tunnelSection/linePipe/LinePipeCuringList.jsp
+			</result>
 		</action>
-		<action name="userLinePipeCuringDetail" class="linePipeCuringAction" method="curingUpdate" >
-			<result name="success">user/tunnelSection/linePipe/LinePipeCuringDetail.jsp</result>
+		<action name="userLinePipeCuringDetail" class="linePipeCuringAction"
+			method="curingUpdate">
+			<result name="success">user/tunnelSection/linePipe/LinePipeCuringDetail.jsp
+			</result>
 		</action>
-	</package>	
+	</package>
 </struts>

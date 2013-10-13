@@ -1,5 +1,6 @@
 package com.cracks;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -82,6 +83,15 @@ public class CracksDao {
 
 	public int updateCracks(Cracks cracks) {
 		return m_baseDao.update("cracks.update", cracks);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public List queryByIds(List<Integer> ids) {
+		if (ids.size() > 0) {
+			return m_baseDao.queryForList("cracks.queryByIds", ids);
+		} else {
+			return new ArrayList();
+		}
 	}
 
 }

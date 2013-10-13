@@ -125,4 +125,15 @@ public class CracksServiceImpl implements CracksService {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+   @Override
+   public List<Cracks> queryByIds(List<Integer> ids) {
+		try {
+			return m_cracksDao.queryByIds(ids);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+			return new ArrayList<Cracks>();
+		}
+   }
+
 }

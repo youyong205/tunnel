@@ -87,14 +87,7 @@
 					<td><input type="checkbox" name="deleteId" value="<s:property value='id'/>"/></td>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:date name="date" format="yyyy-MM-dd"/></td>
-					<td>
-						<s:if test="${type==1}">蜂窝</s:if>
-						<s:elseif test="${type==2}">麻面</s:elseif>
-						<s:elseif test="${type==3}">混凝土起层</s:elseif>
-						<s:elseif test="${type==4}">剥落</s:elseif>
-						<s:elseif test="${type==5}">露筋</s:elseif>
-						<s:elseif test="${type==6}">其他</s:elseif>
-					</td>
+					<td><s:property value='type'/></td>
 					<td><s:property value='width'/></td>
 					<td>
 					<t:privilege res="衬砌环保护层缺失检测模块:详情">

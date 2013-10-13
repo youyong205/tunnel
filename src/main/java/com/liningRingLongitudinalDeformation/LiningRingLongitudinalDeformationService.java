@@ -10,6 +10,8 @@ public interface LiningRingLongitudinalDeformationService {
 	public LiningRingLongitudinalDeformation findByName(String name);
 
 	public LiningRingLongitudinalDeformation findByPK(int id);
+	
+	public List<LiningRingLongitudinalDeformation> queryByIds(List<Integer> ids);
 
 	public int insertLiningRingLongitudinalDeformation(
 	      LiningRingLongitudinalDeformation liningRingLongitudinalDeformation);

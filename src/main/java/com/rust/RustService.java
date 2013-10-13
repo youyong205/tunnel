@@ -24,4 +24,7 @@ public interface RustService {
 
 	public int updateRust(Rust rust);
 
+	public List<Rust> queryByIds(List<Integer> ids);
+
+
 }

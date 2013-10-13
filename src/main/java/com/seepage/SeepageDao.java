@@ -1,5 +1,6 @@
 package com.seepage;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -83,5 +84,12 @@ public class SeepageDao {
 	public int updateSeepage(Seepage seepage) {
 		return m_baseDao.update("seepage.update", seepage);
 	}
-
+	@SuppressWarnings("rawtypes")
+   public List queryByIds(List<Integer> ids) {
+		if(ids.size()>0){
+			return m_baseDao.queryForList("seepage.queryByIds", ids);
+		}else{
+			return new ArrayList();
+		}
+   }
 }

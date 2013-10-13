@@ -1,5 +1,6 @@
 package com.longitudinalOpen;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -85,4 +86,12 @@ public class LongitudinalOpenDao {
 		return m_baseDao.update("longitudinalOpen.update", longitudinalOpen);
 	}
 
+	@SuppressWarnings("rawtypes")
+   public List queryByIds(List<Integer> ids) {
+		if(ids.size()>0){
+			return m_baseDao.queryForList("longitudinalOpen.queryByIds", ids);
+		}else{
+			return new ArrayList();
+		}
+   }
 }

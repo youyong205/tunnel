@@ -18,9 +18,11 @@ import org.apache.log4j.Logger;
 import com.Authority;
 import com.BatchInsertResult;
 import com.LineChart;
+import com.LineChart.ChartItem;
 import com.LineChartAction;
 import com.Modules;
 import com.Operation;
+import com.TimeLineChart;
 import com.liningRing.LiningRing;
 import com.liningRing.LiningRingBlock;
 import com.liningRing.LiningRingBlockService;
@@ -340,6 +342,79 @@ public class LongitudinalOpenAction extends LineChartAction {
 		}
 	}
 
+	public String longitudinalOpenState() {
+		Authority auth = checkAuthority(buildResource(Modules.s_longitudinalOpen_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+		m_tunnels = m_tunnelService.queryAllTunnels();
+		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		List<LiningRingConstruction> ups = new ArrayList<LiningRingConstruction>();
+		List<LiningRingConstruction> downs = new ArrayList<LiningRingConstruction>();
+		List<String> upIds = new ArrayList<String>();
+		List<String> downIds = new ArrayList<String>();
+
+		for (LiningRingConstruction construction : m_liningRingConstructions) {
+			String lineType = construction.getLineType();
+			if (("上行").equals(lineType)) {
+				ups.add(construction);
+				upIds.add(construction.getLongitudinalOpenId());
+			} else {
+				downs.add(construction);
+				downIds.add(construction.getLongitudinalOpenId());
+			}
+		}
+		m_generalChart = new LineChart();
+		m_generalChart2 = new LineChart();
+		buildLineChart(m_generalChart, ups, upIds);
+		buildLineChart(m_generalChart2, downs, downIds);
+		return SUCCESS;
+	}
+
+	private void buildLineChart(LineChart lineChart, List<LiningRingConstruction> constructions, List<String> ids) {
+		List<Integer> idList = convertToString(ids);
+		List<LongitudinalOpen> longitudinalOpens = m_longitudinalOpenService.queryByIds(idList);
+		Map<Integer, Double> idToMaxValue = new LinkedHashMap<Integer, Double>();
+		Map<Integer, Double> idToAllValue = new LinkedHashMap<Integer, Double>();
+		Map<Double, Double> sequenceToMaxValue = new LinkedHashMap<Double, Double>();
+		Map<Double, Double> sequenceToAllValue = new LinkedHashMap<Double, Double>();
+
+		for (LongitudinalOpen longitudinalOpen : longitudinalOpens) {
+			int liningRingConstructionId = longitudinalOpen.getLiningRingConstructionId();
+			double value = longitudinalOpen.getValue();
+
+			findOrCreateMax(idToMaxValue, liningRingConstructionId, value);
+			findOrCreateSum(idToAllValue, liningRingConstructionId, value);
+		}
+		for (LiningRingConstruction construction : constructions) {
+			double sequence = construction.getSequence();
+			int id = construction.getId();
+			Double maxValue = idToMaxValue.get(id);
+			Double allValue = idToAllValue.get(id);
+
+			if (maxValue == null) {
+				sequenceToMaxValue.put(sequence, 0.0);
+			} else {
+				sequenceToMaxValue.put(sequence, maxValue);
+			}
+			if (allValue == null) {
+				sequenceToAllValue.put(sequence, 0.0);
+			} else {
+				sequenceToAllValue.put(sequence, allValue);
+			}
+		}
+		List<ChartItem> items = new ArrayList<ChartItem>();
+
+		items.add(new ChartItem("单块最大值", sequenceToMaxValue));
+		items.add(new ChartItem("所有块总和", sequenceToAllValue));
+		lineChart.add(items);
+	}	
+	
 	public String longitudinalOpenQuery() {
 		if (m_start == null || m_end == null) {
 			m_end = new Date();
@@ -367,7 +442,7 @@ public class LongitudinalOpenAction extends LineChartAction {
 			m_liningRingConstructionId = m_liningRingConstructions.get(0).getId();
 		}
 
-		m_lineChart = new LineChart();
+		m_lineChart = new TimeLineChart();
 		m_longitudinalOpens = m_longitudinalOpenService.queryLongitudinalOpenByDuration(m_liningRingConstructionId,
 		      m_start, m_end);
 
@@ -399,9 +474,9 @@ public class LongitudinalOpenAction extends LineChartAction {
 		}
 		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
 
-		m_lineChart.add("所有块", all);
+		m_lineChart.addLong("所有块", all);
 		for (Entry<Integer, Map<Long, Double>> entry : allDatas.entrySet()) {
-			m_lineChart.add("第" + entry.getKey() + "块", entry.getValue());
+			m_lineChart.addLong("第" + entry.getKey() + "块", entry.getValue());
 		}
 		return SUCCESS;
 	}

@@ -23,5 +23,7 @@ public interface GirthOpenService {
 	public int querySizeByTunnelAndSection(int tunnelId, int tunnelSectionId, int liningRingConstructionId);
 
 	public int updateGirthOpen(GirthOpen girthOpen);
+	
+	public List<GirthOpen> queryByIds(List<Integer> ids);
 
 }

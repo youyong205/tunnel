@@ -19,6 +19,7 @@ import com.LineChart;
 import com.LineChartAction;
 import com.Modules;
 import com.Operation;
+import com.TimeLineChart;
 import com.liningRing.LiningRing;
 import com.liningRing.LiningRingService;
 import com.liningRingConstruction.LiningRingConstruction;
@@ -330,7 +331,74 @@ public class LiningRingLongitudinalDeformationAction extends LineChartAction {
 			return ERROR;
 		}
 	}
+	public String liningRingLongitudinalDeformationState() {
+		Authority auth = checkAuthority(buildResource(Modules.s_liningRingLongitudinalDeformation_model, Operation.s_operation_detail));
+		if (auth != null) {
+			return auth.getName();
+		}
+		if (m_tunnelId == 0) {
+			m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+		}
+		m_tunnels = m_tunnelService.queryAllTunnels();
+		m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0, Integer.MAX_VALUE);
+		m_liningRingConstructions = m_liningRingConstructionService.queryLimitedLiningRingConstructions(m_tunnelId,
+		      m_tunnelSectionId, 0, Integer.MAX_VALUE);
+		List<LiningRingConstruction> ups = new ArrayList<LiningRingConstruction>();
+		List<LiningRingConstruction> downs = new ArrayList<LiningRingConstruction>();
+		List<String> upIds = new ArrayList<String>();
+		List<String> downIds = new ArrayList<String>();
 
+		for (LiningRingConstruction construction : m_liningRingConstructions) {
+			String lineType = construction.getLineType();
+			if (("上行").equals(lineType)) {
+				ups.add(construction);
+				upIds.add(construction.getLongitudinalDeformationId());
+			} else {
+				downs.add(construction);
+				downIds.add(construction.getLongitudinalDeformationId());
+			}
+		}
+		m_generalChart = new LineChart();
+		m_generalChart2 = new LineChart();
+		buildLineChart(m_generalChart, ups, upIds);
+		buildLineChart(m_generalChart2, downs, downIds);
+		return SUCCESS;
+	}
+
+	private void buildLineChart(LineChart lineChart, List<LiningRingConstruction> constructions, List<String> ids) {
+		List<Integer> idList = convertToString(ids);
+		List<LiningRingLongitudinalDeformation> liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService.queryByIds(idList);
+		Map<Integer, Double> idToMaxValue = new LinkedHashMap<Integer, Double>();
+		Map<Integer, Double> idToAllValue = new LinkedHashMap<Integer, Double>();
+		Map<Double, Double> sequenceToMaxValue = new LinkedHashMap<Double, Double>();
+		Map<Double, Double> sequenceToAllValue = new LinkedHashMap<Double, Double>();
+
+		for (LiningRingLongitudinalDeformation liningRingLongitudinalDeformation : liningRingLongitudinalDeformations) {
+			int liningRingConstructionId = liningRingLongitudinalDeformation.getLiningRingConstructionId();
+			double value = liningRingLongitudinalDeformation.getValue();
+
+			findOrCreateSum(idToMaxValue, liningRingConstructionId, value);
+			findOrCreateSum(idToAllValue, liningRingConstructionId, value);
+		}
+		for (LiningRingConstruction construction : constructions) {
+			double sequence = construction.getSequence();
+			int id = construction.getId();
+			Double maxValue = idToMaxValue.get(id);
+			Double allValue = idToAllValue.get(id);
+
+			if (maxValue == null) {
+				sequenceToMaxValue.put(sequence, 0.0);
+			} else {
+				sequenceToMaxValue.put(sequence, maxValue);
+			}
+			if (allValue == null) {
+				sequenceToAllValue.put(sequence, 0.0);
+			} else {
+				sequenceToAllValue.put(sequence, allValue);
+			}
+		}
+		lineChart.add("纵断面变形", sequenceToMaxValue);
+	}
 
 	public String liningRingLongitudinalDeformationQuery() {
 		if (m_start == null || m_end == null) {
@@ -359,7 +427,7 @@ public class LiningRingLongitudinalDeformationAction extends LineChartAction {
 			m_liningRingConstructionId = m_liningRingConstructions.get(0).getId();
 		}
 
-		m_lineChart = new LineChart();
+		m_lineChart = new TimeLineChart();
 		m_liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService.queryLiningRingLongitudinalDeformationByDuration(
 		      m_liningRingConstructionId, m_start, m_end);
 
@@ -372,7 +440,7 @@ public class LiningRingLongitudinalDeformationAction extends LineChartAction {
 			}
 		}
 		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
-		m_lineChart.add("纵断面变形", datas);
+		m_lineChart.addLong("纵断面变形", datas);
 
 		m_liningRingLongitudinalDeformations = m_liningRingLongitudinalDeformationService.queryLimitedLiningRingLongitudinalDeformations(m_tunnelId,
 		      m_tunnelSectionId, m_liningRingConstructionId, 0, 1);
