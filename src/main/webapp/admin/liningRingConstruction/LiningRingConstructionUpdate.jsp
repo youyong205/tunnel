@@ -77,7 +77,7 @@ $(document).ready(function() {
 								<option value="下行">下行</option>
 							</select>
 						</td>
-						<td width="20%" style="text-align:right;"><strong class="text-success">衬砌环顺序号</strong></td>
+						<td style="text-align:right;"><strong class="text-success">衬砌环顺序号</strong></td>
 						<td><input type="text" name="liningRingConstruction.sequence" 
 						 value="<s:property value="liningRingConstruction.sequence"/>" class="{required:true,number:true}"/></td>
 					</tr>
@@ -178,6 +178,9 @@ $(document).ready(function() {
 				    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
 										$('#girthOpenState'+<s:property value="#vs.index"/>).val('<s:property value="state"/>');
 				    				</s:iterator>
+				    				<s:iterator value="liningRingConstruction.girthFaultRingState.states" status="vs">
+										$('#girthFaultState'+<s:property value="#vs.index"/>).val('<s:property value="state"/>');
+			    					</s:iterator>
 				    				<s:iterator value="liningRingConstruction.longitudinalOpenRingState.states" status="vs">
 										$('#longitudinalOpenState'+<s:property value="#vs.index"/>).val('<s:property value="state"/>');
 				    				</s:iterator>
@@ -211,20 +214,11 @@ $(document).ready(function() {
 		    						<option value="E">危险</option>
 		    					</select>
     							</td></tr>
-    						<tr><td style='text-align:right'>环缝错台</td>
-    							<td colspan='20'>
-    							<select name="liningRingConstruction.girthFaultState" id="girthFaultState">
-		    						<option value="-">未检测</option>
-		    						<option value="A">正常</option>
-		    						<option value="B">退化</option>
-		    						<option value="C">劣化</option>
-		    						<option value="D">恶化</option>
-		    						<option value="E">危险</option>
-		    					</select>
-    						<tr><td style='text-align:right'>裂缝状态</td>
-		    				<td><span class="level<s:property value="liningRingConstruction.cracksRingState.state"/>"><s:property value="liningRingConstruction.cracksRingState.state"/></span></td>
-		    				<s:iterator value="liningRingConstruction.cracksRingState.states" status="vs">
-		    						<td><select name="cracksState" id="cracksState<s:property value='#vs.index'/>">
+		    				<tr><td style='text-align:right'>环缝张开</td>
+		    				<td><span class="level<s:property value="liningRingConstruction.girthOpenRingState.state"/>"><s:property value="liningRingConstruction.girthOpenRingState.state"/></span></td>
+		    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
+		    					<td>
+		    						<select name="girthOpenState" id="girthOpenState<s:property value='#vs.index'/>">
 			    						<option value="-">未检测</option>
 			    						<option value="A">正常</option>
 			    						<option value="B">退化</option>
@@ -232,14 +226,13 @@ $(document).ready(function() {
 			    						<option value="D">恶化</option>
 			    						<option value="E">危险</option>
 			    					</select>
-			    					<span class="level<s:property value="state"/>"><s:property value="state"/></span>
-		    					</td>
+		    					<span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
 		    				</s:iterator></tr>
-		    				<tr><td style='text-align:right'>环缝张开</td>
-		    				<td><span class="level<s:property value="liningRingConstruction.girthOpenRingState.state"/>"><s:property value="liningRingConstruction.girthOpenRingState.state"/></span></td>
-		    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
+		    				<tr><td style='text-align:right'>环缝错台</td>
+    							<td><span class="level<s:property value="liningRingConstruction.girthFaultRingState.state"/>"><s:property value="liningRingConstruction.girthFaultRingState.state"/></span></td>
+		    					<s:iterator value="liningRingConstruction.girthFaultRingState.states" status="vs">
 		    					<td>
-		    						<select name="girthOpenState" id="girthOpenState<s:property value='#vs.index'/>">
+		    						<select name="girthFaultState" id="girthFaultState<s:property value='#vs.index'/>">
 			    						<option value="-">未检测</option>
 			    						<option value="A">正常</option>
 			    						<option value="B">退化</option>
@@ -277,6 +270,20 @@ $(document).ready(function() {
 			    					</select>
 			    					
 		    					<span class="level<s:property value="state"/>"><s:property value="state"/></span></td>
+		    				</s:iterator></tr>
+		    				<tr><td style='text-align:right'>裂缝状态</td>
+		    				<td><span class="level<s:property value="liningRingConstruction.cracksRingState.state"/>"><s:property value="liningRingConstruction.cracksRingState.state"/></span></td>
+		    				<s:iterator value="liningRingConstruction.cracksRingState.states" status="vs">
+		    						<td><select name="cracksState" id="cracksState<s:property value='#vs.index'/>">
+			    						<option value="-">未检测</option>
+			    						<option value="A">正常</option>
+			    						<option value="B">退化</option>
+			    						<option value="C">劣化</option>
+			    						<option value="D">恶化</option>
+			    						<option value="E">危险</option>
+			    					</select>
+			    					<span class="level<s:property value="state"/>"><s:property value="state"/></span>
+		    					</td>
 		    				</s:iterator></tr>
     						<tr><td style='text-align:right'>保护层损失</td>
     						<td><span class="level<s:property value="liningRingConstruction.coverLossRingState.state"/>"><s:property value="liningRingConstruction.coverLossRingState.state"/></span></td>

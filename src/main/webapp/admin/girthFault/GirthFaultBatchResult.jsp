@@ -60,10 +60,6 @@ $(document).ready(function() {
 							<s:property value="batchInsertResult.failLines"/>
 				         </td>
 					</tr>
-					<tr>
-						<td colspan='2' style="text-align:center;">
-							<button  class="btn btn-small btn-primary"  type="submit" >提交</button></td>
-					</tr>
 				</table>
 			</form>
       </div>

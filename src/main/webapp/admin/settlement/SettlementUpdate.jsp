@@ -67,17 +67,7 @@ $(document).ready(function() {
 							list="liningRingConstructions" listKey="id" listValue="name" onchange="liningRingChanged()"
 							value="settlement.liningRingConstructionId" theme="simple" >
 							</s:select> 
-						</td>
-						<td style="text-align:right;"><strong class="text-success">选择所在块</strong></td>
-						<td>
-							<s:select name="settlement.blockIndex" id="liningRingBlockId"
-							list="liningRingBlocks" listKey="blockIndex" listValue="blockIndex"
-							theme="simple"  value="settlement.blockIndex">
-							</s:select> 
-						</td>
-				    </tr>
-					<tr>
-						<td style="text-align:right;"><strong class="text-success">测量时间</strong></td>
+						</td><td style="text-align:right;"><strong class="text-success">测量时间</strong></td>
 						<td>
 						<div id="datetimepicker1" class="input-append date">
 				            <input name="settlement.date"  value="<s:date name="settlement.date" format="yyyy-MM-dd"/>"  class="{required:true,date:true}"
@@ -85,14 +75,18 @@ $(document).ready(function() {
 				               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 				            </span>
 				         </td>
+				    </tr>
+					<tr>
+						
 						<td style="text-align:right;"><strong class="text-success">沉降值(mm)</strong></td>
 						<td><input type="text" name="settlement.value" value="<s:property value="settlement.value"/>" class="{required:true,number:true}"/></td>
-					</tr>
-					<tr>
 						<td style="text-align:right;"><strong class="text-success">与初始点距离</strong></td>
 						<td><input type="text" name="settlement.distance" class="{required:true,number:true}" value="<s:property value="settlement.distance"/>" /></td>
+						
+					</tr>
+					<tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="40"  name="settlement.des" class="{maxlength:512}"><s:property value="settlement.des"/></textarea></td>
+						<td colspan='3'><textarea type="text" rows="5" cols="40"  name="settlement.des" class="{maxlength:512}"><s:property value="settlement.des"/></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

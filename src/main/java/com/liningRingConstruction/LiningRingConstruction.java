@@ -106,115 +106,115 @@ public class LiningRingConstruction {
 
 	private Date m_modifyDate;
 
-	private int m_deformationId;
+	private String m_deformationId;
 
-	private int m_longitudinalDeformationId;
+	private String m_longitudinalDeformationId;
 
-	private int m_girthOpenId;
+	private String m_girthOpenId;
 
-	private int m_longitudinalOpenId;
+	private String m_longitudinalOpenId;
 
-	private int m_girthFaultId;
+	private String m_girthFaultId;
 
-	private int m_longitudinalFaultId;
+	private String m_longitudinalFaultId;
 
-	private int m_coverLossId;
+	private String m_coverLossId;
 
-	private int m_settlementId;
+	private String m_settlementId;
 
-	private int m_seepageId;
+	private String m_seepageId;
 
-	private int m_cracksId;
+	private String m_cracksId;
 
-	private int m_rustId;
+	private String m_rustId;
 
-	public int getDeformationId() {
-		return m_deformationId;
-	}
+	public String getDeformationId() {
+   	return m_deformationId;
+   }
 
-	public void setDeformationId(int deformationId) {
-		m_deformationId = deformationId;
-	}
+	public void setDeformationId(String deformationId) {
+   	m_deformationId = deformationId;
+   }
 
-	public int getLongitudinalDeformationId() {
-		return m_longitudinalDeformationId;
-	}
+	public String getLongitudinalDeformationId() {
+   	return m_longitudinalDeformationId;
+   }
 
-	public void setLongitudinalDeformationId(int longitudinalDeformationId) {
-		m_longitudinalDeformationId = longitudinalDeformationId;
-	}
+	public void setLongitudinalDeformationId(String longitudinalDeformationId) {
+   	m_longitudinalDeformationId = longitudinalDeformationId;
+   }
 
-	public int getGirthOpenId() {
-		return m_girthOpenId;
-	}
+	public String getGirthOpenId() {
+   	return m_girthOpenId;
+   }
 
-	public void setGirthOpenId(int girthOpenId) {
-		m_girthOpenId = girthOpenId;
-	}
+	public void setGirthOpenId(String girthOpenId) {
+   	m_girthOpenId = girthOpenId;
+   }
 
-	public int getLongitudinalOpenId() {
-		return m_longitudinalOpenId;
-	}
+	public String getLongitudinalOpenId() {
+   	return m_longitudinalOpenId;
+   }
 
-	public void setLongitudinalOpenId(int longitudinalOpenId) {
-		m_longitudinalOpenId = longitudinalOpenId;
-	}
+	public void setLongitudinalOpenId(String longitudinalOpenId) {
+   	m_longitudinalOpenId = longitudinalOpenId;
+   }
 
-	public int getGirthFaultId() {
-		return m_girthFaultId;
-	}
+	public String getGirthFaultId() {
+   	return m_girthFaultId;
+   }
 
-	public void setGirthFaultId(int girthFaultId) {
-		m_girthFaultId = girthFaultId;
-	}
+	public void setGirthFaultId(String girthFaultId) {
+   	m_girthFaultId = girthFaultId;
+   }
 
-	public int getLongitudinalFaultId() {
-		return m_longitudinalFaultId;
-	}
+	public String getLongitudinalFaultId() {
+   	return m_longitudinalFaultId;
+   }
 
-	public void setLongitudinalFaultId(int longitudinalFaultId) {
-		m_longitudinalFaultId = longitudinalFaultId;
-	}
+	public void setLongitudinalFaultId(String longitudinalFaultId) {
+   	m_longitudinalFaultId = longitudinalFaultId;
+   }
 
-	public int getCoverLossId() {
-		return m_coverLossId;
-	}
+	public String getCoverLossId() {
+   	return m_coverLossId;
+   }
 
-	public void setCoverLossId(int coverLossId) {
-		m_coverLossId = coverLossId;
-	}
+	public void setCoverLossId(String coverLossId) {
+   	m_coverLossId = coverLossId;
+   }
 
-	public int getSettlementId() {
-		return m_settlementId;
-	}
+	public String getSettlementId() {
+   	return m_settlementId;
+   }
 
-	public void setSettlementId(int settlementId) {
-		m_settlementId = settlementId;
-	}
+	public void setSettlementId(String settlementId) {
+   	m_settlementId = settlementId;
+   }
 
-	public int getSeepageId() {
-		return m_seepageId;
-	}
+	public String getSeepageId() {
+   	return m_seepageId;
+   }
 
-	public void setSeepageId(int seepageId) {
-		m_seepageId = seepageId;
-	}
+	public void setSeepageId(String seepageId) {
+   	m_seepageId = seepageId;
+   }
 
-	public int getCracksId() {
-		return m_cracksId;
-	}
+	public String getCracksId() {
+   	return m_cracksId;
+   }
 
-	public void setCracksId(int cracksId) {
-		m_cracksId = cracksId;
-	}
+	public void setCracksId(String cracksId) {
+   	m_cracksId = cracksId;
+   }
 
-	public int getRustId() {
-		return m_rustId;
-	}
+	public String getRustId() {
+   	return m_rustId;
+   }
 
-	public void setRustId(int rustId) {
-		m_rustId = rustId;
-	}
+	public void setRustId(String rustId) {
+   	m_rustId = rustId;
+   }
 
 	public String getTotalState() {
 		String state = m_deformationState + ',' + m_longitudinalDeformationState + ',' + m_girthOpenState + ','

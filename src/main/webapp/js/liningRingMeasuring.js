@@ -111,7 +111,7 @@ function liningRingChanged() {
 
 			if (value != null) {
 				for ( var i = 0; i < value.length; i++) {
-					obj.append("<option value='" + value[i].id + "'>"
+					obj.append("<option value='" + value[i].blockIndex + "'>"
 							+ value[i].blockIndex + "</option>");
 				}
 			}

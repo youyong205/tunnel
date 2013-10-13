@@ -18,7 +18,8 @@ $(document).ready(function() {
 	$('#liningRingMeasureList').addClass("active");
 	$('#girthOpenList').removeClass("btn-info");
 	$('#girthOpenList').addClass("btn-success");
-	
+	var serious='<s:property value="girthOpen.serious"/>';
+	$('#serious').val(serious);
 });
 </script>
 </head>

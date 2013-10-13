@@ -22,6 +22,7 @@ $(document).ready(function() {
 	
 	var type='<s:property value="longitudinalFault.type"/>';
 	$('#type').val(type);
+	$('#serious').val(<s:property value="longitudinalFault.serious"/>);
 });
 </script>
 </head>
@@ -51,8 +52,8 @@ $(document).ready(function() {
 							list="tunnels" listKey="id" listValue="name" 
 							value="longitudinalFault.tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">盾构段</strong></td>
+						<td width="35%">
 						<s:select name="longitudinalFault.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
 							onchange="tunnelSectionChangedAndBlock()" 
@@ -94,9 +95,15 @@ $(document).ready(function() {
 								<option value="1">和上一块纵缝错台</option>
 								<option value="2">和上一块纵缝错台</option>
 							</select>
-						</td>
+						</td><td style="text-align:right;"><strong class="text-success">是否出现严重连接缺陷</strong></td>
+						<td>
+							<select id="serious" name="longitudinalFault.serious">
+								<option value="1">否</option>
+								<option value="2">是</option>
+							</select>
+					</tr><tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea readonly type="text" rows="5" cols="40"  name="longitudinalFault.des" class="{maxlength:512}"><s:property value="longitudinalFault.des"/></textarea></td>
+						<td colspan='3'><textarea readonly type="text" rows="5" cols="40"  name="longitudinalFault.des" class="{maxlength:512}"><s:property value="longitudinalFault.des"/></textarea></td>
 					</tr>
 					</table>
 			</form>

@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -368,28 +370,43 @@ public class GirthOpenAction extends LineChartAction {
 		}
 
 		m_lineChart = new LineChart();
-		m_girthOpens = m_girthOpenService.queryGirthOpenByDuration(
-		      m_liningRingConstructionId, m_start, m_end);
+		m_girthOpens = m_girthOpenService.queryGirthOpenByDuration(m_liningRingConstructionId, m_start, m_end);
 
-		Map<Long, Double> datas = new LinkedHashMap<Long, Double>();
+		Map<Integer, Map<Long, Double>> allDatas = new TreeMap<Integer, Map<Long, Double>>();
+		Map<Long, Double> all = new LinkedHashMap<Long, Double>();
 		if (m_girthOpens != null) {
-			for (GirthOpen deformation : m_girthOpens) {
-				Date date = deformation.getDate();
+			for (GirthOpen girthOpen : m_girthOpens) {
+				int blockIndex = girthOpen.getBlockIndex();
+				Date date = girthOpen.getDate();
+				long time = formatTime(date);
 
-				datas.put(formatTime(date), deformation.getValue());
+				Map<Long, Double> datas = allDatas.get(blockIndex);
+
+				if (datas == null) {
+					datas = new LinkedHashMap<Long, Double>();
+					allDatas.put(blockIndex, datas);
+				}
+
+				Double value = all.get(time);
+				if (value == null) {
+					value = girthOpen.getValue();
+					all.put(time, value);
+				} else {
+					all.put(time, value + girthOpen.getValue());
+				}
+
+				datas.put(time, girthOpen.getValue());
 			}
 		}
 		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
-		m_lineChart.add("环缝张开", datas);
 
-		m_girthOpens = m_girthOpenService.queryLimitedGirthOpens(m_tunnelId,
-		      m_tunnelSectionId, m_liningRingConstructionId, 0, 1);
-
-		if (m_girthOpens != null && m_girthOpens.size() == 1) {
-			m_girthOpen = m_girthOpens.get(0);
+		m_lineChart.add("所有块", all);
+		for (Entry<Integer, Map<Long, Double>> entry : allDatas.entrySet()) {
+			m_lineChart.add("第" + entry.getKey() + "块", entry.getValue());
 		}
 		return SUCCESS;
 	}
+	
 	public String girthOpenUpdate() {
 		try {
 			m_liningRings = m_liningRingService.queryAllLiningRings();

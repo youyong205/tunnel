@@ -26,7 +26,9 @@ public class GirthFault {
 	private int m_type;
 
 	private double m_value;
-
+	
+	private int m_serious;
+	
 	private Date m_date;
 
 	private String m_des;
@@ -145,6 +147,14 @@ public class GirthFault {
 
 	public void setBlockIndex(int blockIndex) {
    	m_blockIndex = blockIndex;
+   }
+
+	public int getSerious() {
+   	return m_serious;
+   }
+
+	public void setSerious(int serious) {
+   	m_serious = serious;
    }
 
 	@Override

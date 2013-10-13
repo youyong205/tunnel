@@ -74,6 +74,51 @@
 		longitudinalDeformationState=#longitudinalDeformationState#,longitudinalDeformationId=#longitudinalDeformationId#
 		where id=#liningRingConstructionId#
 	</update>
+		<update id="liningRingConstruction.updateGirthFaultState">
+		update liningRingConstruction set
+		girthFaultState=#girthFaultState#,girthFaultId=#girthFaultId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateGirthOpenState">
+		update liningRingConstruction set
+		girthOpenState=#girthOpenState#,girthOpenId=#girthOpenId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateLongitudinalOpenState">
+		update liningRingConstruction set
+		longitudinalOpenState=#longitudinalOpenState#,longitudinalOpenId=#longitudinalOpenId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateLongitudinalFaultState">
+		update liningRingConstruction set
+		longitudinalFaultState=#longitudinalFaultState#,longitudinalFaultId=#longitudinalFaultId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateCoverLossState">
+		update liningRingConstruction set
+		coverLossState=#coverLossState#,coverLossId=#coverLossId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateCracksState">
+		update liningRingConstruction set
+		cracksState=#cracksState#,cracksId=#cracksId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateSettlementState">
+		update liningRingConstruction set
+		settlementId=#settlementId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateSeepageState">
+		update liningRingConstruction set
+		seepageId=#seepageId#
+		where id=#liningRingConstructionId#
+	</update>
+	<update id="liningRingConstruction.updateRustState">
+		update liningRingConstruction set
+		rustId=#rustId#
+		where id=#liningRingConstructionId#
+	</update>
 	<update id="liningRingConstruction.update" parameterClass="liningRingConstruction">
 		update liningRingConstruction set
 		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingId=#liningRingId#,sequence=#sequence#,

@@ -16,7 +16,7 @@
 	function gid(id) { return document.getElementById ? document.getElementById(id) : null; }
 	function timeDesc() {
 		if (all <= 0) {
-			self.location = "userTunnelList.do";
+			self.location = "tunnelList.do";
 		}
 		var obj = gid("tS");
 		if (obj) obj.innerHTML = all + " 秒后";
@@ -33,7 +33,7 @@
   <div class="row-fluid">
       	<div class="span12 text-center">
       	<h3 class="text-error text-center">您访问网址有错误，或者页面不存在！</h3>
-  		<a class='btn btn-danger' href="userTunnelList.do"><span id="tS">4 秒后</span>返回主页</a>
+  		<a class='btn btn-danger' href="tunnelList.do"><span id="tS">4 秒后</span>返回主页</a>
         <h2 class="text-center"><img width="15%" class="img-rounded" src="img/error404.png"></h2>
        	 <s:property value="exception.message"/>
          <s:property value="exceptionStack"/>

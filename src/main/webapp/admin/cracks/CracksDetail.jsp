@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$('#liningRingMeasureList').addClass("active");
 	$('#cracksList').removeClass("btn-info");
 	$('#cracksList').addClass("btn-success");
-	
+	$('#serious').val(<s:property value="cracks.serious"/>);
 });
 </script>
 </head>
@@ -99,7 +99,15 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">裂缝倾角(°)</strong></td>
 						<td><input readonly type="text" name="cracks.dip"  value='<s:property value="cracks.dip"/>' class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
+						<td style="text-align:right;"><strong class="text-success">是否出现严重问题</strong></td>
+						<td>
+							<select id="serious" name="cracks.serious">
+								<option value="1">否</option>
+								<option value="2">是</option>
+							</select>
+					</tr>
+					<tr>
+					<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea readonly type="text" rows="5" cols="40"  name="cracks.des" class="{maxlength:512}"><s:property value="cracks.des"/></textarea></td>
 					</tr>
 					</table>

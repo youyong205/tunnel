@@ -25,6 +25,7 @@ $(document).ready(function() {
 
 	var type='<s:property value="coverLoss.type"/>';
 	$('#type').val(type);
+	$('#serious').val(<s:property value="coverLoss.serious"/>);
 });
 </script>
 </head>
@@ -115,7 +116,14 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">面积(mm)</strong></td>
 						<td><input type="text" name="coverLoss.area" value='<s:property value="coverLoss.area"/>'  class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
+						<td style="text-align:right;"><strong class="text-success">是否出现严重问题</strong></td>
+						<td>
+							<select id="serious" name="coverLoss.serious">
+								<option value="1">否</option>
+								<option value="2">是</option>
+							</select>
+					</tr>
+					<tr><td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea type="text" rows="5" cols="40"  name="coverLoss.des" class="{maxlength:512}"><s:property value="coverLoss.des"/></textarea></td>
 					</tr>
 					<tr>

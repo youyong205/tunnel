@@ -85,10 +85,11 @@ public class LongitudinalFaultAction extends LineChartAction {
 			Date date = convertToDate(cells[2]);
 			int type = convertToInteger(cells[3]);
 			double value = convertToDouble(cells[4]);
+			int serious = convertToInteger(cells[5]);
 			String des = "";
 
-			if (cells.length >= 6) {
-				des = convertToString(cells[5]);
+			if (cells.length >= 7) {
+				des = convertToString(cells[6]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -101,6 +102,7 @@ public class LongitudinalFaultAction extends LineChartAction {
 				longitudinalFault.setDate(date);
 				longitudinalFault.setType(type);
 				longitudinalFault.setValue(value);
+				longitudinalFault.setSerious(serious);
 				longitudinalFault.setDes(des);
 				return longitudinalFault;
 			}

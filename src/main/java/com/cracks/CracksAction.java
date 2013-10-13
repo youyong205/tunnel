@@ -89,10 +89,11 @@ public class CracksAction extends LineChartAction {
 			double width = convertToDouble(cells[6]);
 			double angle = convertToDouble(cells[7]);
 			double dip = convertToDouble(cells[8]);
+			int serious = convertToInteger(cells[9]);
 			String des = "";
 
-			if (cells.length >= 10) {
-				des = convertToString(cells[9]);
+			if (cells.length >= 11) {
+				des = convertToString(cells[10]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -110,7 +111,7 @@ public class CracksAction extends LineChartAction {
 				cracks.setAngle(angle);
 				cracks.setDip(dip);
 				cracks.setDes(des);
-
+				cracks.setSerious(serious);
 				return cracks;
 			}
 		} catch (Exception e) {

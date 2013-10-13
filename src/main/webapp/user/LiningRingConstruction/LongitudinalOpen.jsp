@@ -52,7 +52,7 @@
 		</div>
 		<div class='span10'>
 			<form id="form" class="text-right form-inline margin-buttom"  action="userLongitudinalOpenQuery.do" method="post">
-						<strong>从</strong>
+				<div>		<strong>从</strong>
 						<div id="datetimepicker1" class="input-append date"><input name="start" class="input-small"  placeholder="开始时间" value='<s:date name="start" format="yyyy-MM-dd"/>'  class="{required:true,date:true}"
                data-format="yyyy-MM-dd" type="text"></input> <span class="add-on"> <i
                data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
@@ -62,7 +62,9 @@
 		               data-format="yyyy-MM-dd" type="text"></input> <span class="add-on"> <i
 		               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 		            </span></div>
-						<strong>&nbsp;&nbsp;隧道</strong>
+					</div>
+						<div style="margin-top:5px;">
+							<strong>&nbsp;&nbsp;隧道</strong>
 						<s:select name="tunnelId" id="tunnelId"
 							onchange="tunnelChanged(true,true)"  
 							list="tunnels" listKey="id" listValue="name" 
@@ -79,12 +81,12 @@
 							list="liningRingConstructions" listKey="id" listValue="name"
 							value="liningRingConstructionId" theme="simple" >
 						</s:select> 
-					  <button type="submit" class="btn btn-success btn-small">查询</button>
+					  <button type="submit" class="btn btn-success btn-small">查询</button></div>
 					</form>
 	    			<h4 class='text-error text-center'>构件状态【第一块和第二块张开量显示在在第一块的状态上，以此类推】</h4>
 	    			<table class="table table-striped table-bordered table-condensed table-hover">
 	    				<tr><th style='text-align:right'>指标</td><th>综合指标</th>
-	    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
+	    				<s:iterator value="liningRingConstruction.longitudinalOpenRingState.states" status="vs">
 	    					<th>第<s:property value='#vs.index+1'/>块</th>
 	    				</s:iterator></tr>
 			<tr><td style='text-align:right'>构件状态</td>

@@ -13,6 +13,9 @@
 		<property name="tunnelSectionService">
 			<ref bean="tunnelSectionService" />
 		</property>
+		<property name="liningRingBlockService">
+			<ref bean="liningRingBlockService" />
+		</property>
 	</bean>
 	<bean id="liningRingConstructionAction" class="com.liningRingConstruction.LiningRingConstructionAction" scope="prototype">
 		<property name="liningRingConstructionService">

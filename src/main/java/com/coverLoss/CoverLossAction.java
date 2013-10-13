@@ -89,10 +89,11 @@ public class CoverLossAction extends LineChartAction {
 			double height = convertToDouble(cells[6]);
 			double depth = convertToDouble(cells[7]);
 			double area = convertToDouble(cells[8]);
+			int serious  =convertToInteger(cells[9]);
 			String des = "";
 
-			if (cells.length >= 10) {
-				des = convertToString(cells[9]);
+			if (cells.length >= 11) {
+				des = convertToString(cells[10]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -110,6 +111,7 @@ public class CoverLossAction extends LineChartAction {
 				coverLoss.setDepth(depth);
 				coverLoss.setArea(area);
 				coverLoss.setDes(des);
+				coverLoss.setSerious(serious);
 				return coverLoss;
 			}
 		} catch (Exception e) {

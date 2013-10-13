@@ -3,7 +3,8 @@
 <sqlMap>
 	<typeAlias alias="girthFault" type="com.girthFault.GirthFault" />
 	<sql id="girthFault.columns">
-		id,tunnelId,tunnelSectionId,liningRingConstructionId,type,value,date,des,creationDate,modifyDate
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,
+		blockIndex,type,value,serious,date,des,creationDate,modifyDate
 	</sql>
 	<select id="girthFault.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from girthFault
@@ -57,7 +58,8 @@
 	</select>
 	<insert id="girthFault.insert" parameterClass="girthFault">
 		insert into girthFault (<include refid="girthFault.columns" />) values
-		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#type#,#value#,#date#,#des#,now(),now())
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,
+		#blockIndex#,#type#,#value#,#serious#,#date#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
@@ -65,7 +67,7 @@
 	<update id="girthFault.update" parameterClass="girthFault">
 		update girthFault set
 		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,type=#type#,
-		value=#value#,date=#date#,des=#des#,
+		value=#value#,date=#date#,des=#des#,blockIndex=#blockIndex#,serious=#serious#,
 		modifyDate=now() where id=#id#
 	</update>
 	<delete id="girthFault.delete" parameterClass="int">

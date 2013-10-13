@@ -44,7 +44,7 @@ $(document).ready(function() {
 						<td width="15%" style="text-align:right;"><strong class="text-success">隧道</strong></td>
 						<td width="35%">
 						<s:select name="settlement.tunnelId" id="tunnelId"
-							onchange="tunnelChangedAndBlock()" 
+							onchange="tunnelChangedExcluedeAll()" 
 							list="tunnels" listKey="id" listValue="name" 
 							value="tunnelId" theme="simple" >
 						</s:select></td>
@@ -52,7 +52,7 @@ $(document).ready(function() {
 						<td width="40%">
 						<s:select name="settlement.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
-							onchange="tunnelSectionChangedAndBlock()" 
+							onchange="tunnelSectionChanged(true)" 
 							value="tunnelSectionId" theme="simple" >
 						</s:select> </td>
 					</tr>
@@ -64,15 +64,6 @@ $(document).ready(function() {
 							value="liningRingConstructionId" theme="simple" >
 							</s:select> 
 						</td>
-						<td style="text-align:right;"><strong class="text-success">所在块</strong></td>
-						<td>
-							<s:select name="settlement.blockIndex" id="liningRingBlockId"
-							list="liningRingBlocks" listKey="blockIndex" listValue="blockIndex"
-							theme="simple" >
-							</s:select> 
-						</td>
-				    </tr>
-					<tr>
 						<td style="text-align:right;"><strong class="text-success">测量时间</strong></td>
 						<td>
 						<div id="datetimepicker1" class="input-append date">
@@ -80,12 +71,16 @@ $(document).ready(function() {
 				               data-format="yyyy-MM-dd" type="text"></input> <span class="add-on"> <i
 				               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 				            </span>
-				         </td><td style="text-align:right;"><strong class="text-success">沉降值(mm)</strong></td>
-						<td><input readonly type="text" name="settlement.value" value="<s:property value="settlement.value"/>" class="{required:true,number:true}"/></td>
-					</tr>
+				         </td>
+				    </tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">沉降值(mm)</strong></td>
+						<td><input readonly type="text" name="settlement.value" value="<s:property value="settlement.value"/>" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">与初始点距离</strong></td>
 						<td><input readonly type="text" name="settlement.distance" class="{required:true,number:true}" value="<s:property value="settlement.distance"/>" /></td>
+						
+					</tr>
+					<tr>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td colspan='3'><textarea readonly type="text" rows="5" cols="40"  name="settlement.des" class="{maxlength:512}"><s:property value="settlement.des"/></textarea></td>
 					</tr>

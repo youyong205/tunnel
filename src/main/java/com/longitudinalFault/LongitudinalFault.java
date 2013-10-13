@@ -25,6 +25,8 @@ public class LongitudinalFault {
 
 	private LiningRingConstruction m_liningRingConstruction;
 
+	private int m_serious;
+	
 	private double m_value;
 
 	private Date m_date;
@@ -146,6 +148,14 @@ public class LongitudinalFault {
 	public void setValue(double value) {
 		m_value = value;
 	}
+	
+	public int getSerious() {
+   	return m_serious;
+   }
+
+	public void setSerious(int serious) {
+   	m_serious = serious;
+   }
 
 	@Override
 	public String toString() {

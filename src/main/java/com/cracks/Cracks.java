@@ -38,6 +38,8 @@ public class Cracks {
 
 	private Date m_date;
 
+	private int m_serious;
+	
 	private String m_des;
 
 	private Date m_creationDate;
@@ -187,6 +189,14 @@ public class Cracks {
 	public void setWidth(double width) {
 		m_width = width;
 	}
+
+	public int getSerious() {
+   	return m_serious;
+   }
+
+	public void setSerious(int serious) {
+   	m_serious = serious;
+   }
 
 	@Override
 	public String toString() {

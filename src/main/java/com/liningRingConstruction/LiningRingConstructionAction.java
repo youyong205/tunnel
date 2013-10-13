@@ -53,6 +53,8 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	private List<LiningRing> m_liningRings;
 
+	private String[] m_girthFaultState = new String[10];
+	
 	private String[] m_longitudinalOpenState = new String[10];
 
 	private String[] m_girthOpenState = new String[10];
@@ -134,8 +136,8 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 		m_liningRingConstruction.setDeformationState(defaultState);
 		m_liningRingConstruction.setLongitudinalDeformationState(defaultState);
-		m_liningRingConstruction.setGirthFaultState(defaultState);
-
+		
+		m_liningRingConstruction.setGirthFaultState(defaultBlockState);
 		m_liningRingConstruction.setLongitudinalOpenState(defaultBlockState);
 		m_liningRingConstruction.setGirthOpenState(defaultBlockState);
 		m_liningRingConstruction.setLongitudinalFaultState(defaultBlockState);
@@ -169,6 +171,7 @@ public class LiningRingConstructionAction extends ScheduledAction {
 	private void updateDefaultState(LiningRingConstruction liningRingConstruction) {
 		m_liningRingConstruction.setLongitudinalOpenState(buildBlockState(m_longitudinalOpenState));
 		m_liningRingConstruction.setGirthOpenState(buildBlockState(m_girthOpenState));
+		m_liningRingConstruction.setGirthFaultState(buildBlockState(m_girthFaultState));
 		m_liningRingConstruction.setLongitudinalFaultState(buildBlockState(m_longitudinalFaultState));
 		m_liningRingConstruction.setCoverLossState(buildBlockState(m_coverLossState));
 		m_liningRingConstruction.setCracksState(buildBlockState(m_cracksState));
@@ -376,6 +379,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 
 	public void setGirthOpenState(String[] girthOpenState) {
 		m_girthOpenState = girthOpenState;
+   }
+
+	public void setGirthFaultState(String[] girthFaultState) {
+   	m_girthFaultState = girthFaultState;
    }
 
 	public void setLongitudinalFaultState(String[] longitudinalFaultState) {

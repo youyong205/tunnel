@@ -69,8 +69,9 @@
 				 <thead><tr>
 					<th width="5%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
 					<th width="5%">序号</th>
-					<th width="30%">检测时间</th>
-					<th width="40%">错台量Δh (mm)</th>
+					<th width="20%">检测时间</th>
+					<th width="20%">所在块</th>
+					<th width="30%">错台量Δh (mm)</th>
 					<th width="20%">
 					<t:privilege res="衬砌环环缝错台检测模块:新增">
 						<a class="btn btn-small btn-info" href="girthFaultAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>" >新增</a>
@@ -86,6 +87,7 @@
 					<td><input type="checkbox" name="deleteId" value="<s:property value='id'/>"/></td>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:date name="date" format="yyyy-MM-dd"/></td>
+					<td>第<s:property value='blockIndex'/>块</td>
 					<td><s:property value='value'/></td>
 					<td>
 					<t:privilege res="衬砌环环缝错台检测模块:详情">

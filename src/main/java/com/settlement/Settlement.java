@@ -21,8 +21,6 @@ public class Settlement {
 
 	private LiningRingConstruction m_liningRingConstruction;
 
-	private int m_blockIndex;
-
 	private double m_value;
 
 	private double m_distance;
@@ -34,10 +32,6 @@ public class Settlement {
 	private Date m_creationDate;
 
 	private Date m_modifyDate;
-
-	public int getBlockIndex() {
-		return m_blockIndex;
-	}
 
 	public Date getCreationDate() {
 		return m_creationDate;
@@ -89,10 +83,6 @@ public class Settlement {
 
 	public double getValue() {
 		return m_value;
-	}
-
-	public void setBlockIndex(int blockIndex) {
-		m_blockIndex = blockIndex;
 	}
 
 	public void setCreationDate(Date creationDate) {
@@ -150,9 +140,9 @@ public class Settlement {
 	@Override
 	public String toString() {
 		return "Settlement [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId=" + m_tunnelSectionId
-		      + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_blockIndex=" + m_blockIndex
-		      + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des + ", m_creationDate=" + m_creationDate
-		      + ", m_modifyDate=" + m_modifyDate + "]";
+		      + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_value=" + m_value + ", m_date="
+		      + m_date + ", m_des=" + m_des + ", m_creationDate=" + m_creationDate + ", m_modifyDate=" + m_modifyDate
+		      + "]";
 	}
 
 }

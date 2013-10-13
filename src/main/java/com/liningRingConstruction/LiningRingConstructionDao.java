@@ -68,8 +68,9 @@ public class LiningRingConstructionDao {
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 		return m_baseDao.update("liningRingConstruction.updateDeformationState", parameters);
 	}
-	
-	public int updateLongitudinalDeformationState(String longitudinalDeformationState, int longitudinalDeformationId, int liningRingConstructionId) {
+
+	public int updateLongitudinalDeformationState(String longitudinalDeformationState, int longitudinalDeformationId,
+	      int liningRingConstructionId) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put("longitudinalDeformationState", longitudinalDeformationState);
@@ -77,6 +78,61 @@ public class LiningRingConstructionDao {
 		parameters.put("liningRingConstructionId", liningRingConstructionId);
 		return m_baseDao.update("liningRingConstruction.updateLongitudinalDeformationState", parameters);
 	}
-	
+
+	public int updateGirthFaultState(String girthFaultState, String girthFaultId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("girthFaultState", girthFaultState);
+		parameters.put("girthFaultId", girthFaultId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateGirthFaultState", parameters);
+	}
+
+	public int updateGirthOpenState(String girthOpenState, String girthOpenId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("girthOpenState", girthOpenState);
+		parameters.put("girthOpenId", girthOpenId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateGirthOpenState", parameters);
+	}
+
+	public int updateLongitudinalOpenState(String longitudinalOpenState, String longitudinalOpenId,
+	      int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("longitudinalOpenState", longitudinalOpenState);
+		parameters.put("longitudinalOpenId", longitudinalOpenId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateLongitudinalOpenState", parameters);
+	}
+
+	public int updateLongitudinalFaultState(String longitudinalFaultState, String longitudinalFaultId,
+	      int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("longitudinalFaultState", longitudinalFaultState);
+		parameters.put("longitudinalFaultId", longitudinalFaultId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateLongitudinalFaultState", parameters);
+	}
+
+	public int updateCoverLossState(String coverLossState, String coverLossId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("coverLossState", coverLossState);
+		parameters.put("coverLossId", coverLossId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateCoverLossState", parameters);
+	}
+
+	public int updateCracksState(String cracksState, String cracksId, int liningRingConstructionId) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("cracksState", cracksState);
+		parameters.put("cracksId", cracksId);
+		parameters.put("liningRingConstructionId", liningRingConstructionId);
+		return m_baseDao.update("liningRingConstruction.updateCracksState", parameters);
+	}
 
 }

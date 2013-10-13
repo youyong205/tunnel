@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -58,7 +60,7 @@ public class GirthFaultAction extends LineChartAction {
 	private TunnelSectionService m_tunnelSectionService;
 
 	private LiningRingBlockService m_liningRingBlockService;
-	
+
 	private List<LiningRingBlock> m_liningRingBlocks;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
@@ -79,14 +81,15 @@ public class GirthFaultAction extends LineChartAction {
 		try {
 			GirthFault fault = new GirthFault();
 			String name = convertToString(cells[0]);
-			int blockIndex =  convertToInteger(cells[1]);
+			int blockIndex = convertToInteger(cells[1]);
 			Date date = convertToDate(cells[2]);
 			int type = convertToInteger(cells[3]);
 			double value = convertToDouble(cells[4]);
+			int serious = convertToInteger(cells[5]);
 			String des = "";
 
-			if (cells.length > 5) {
-				des = convertToString(cells[5]);
+			if (cells.length > 6) {
+				des = convertToString(cells[6]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -99,6 +102,7 @@ public class GirthFaultAction extends LineChartAction {
 				fault.setBlockIndex(blockIndex);
 				fault.setValue(value);
 				fault.setType(type);
+				fault.setSerious(serious);
 				fault.setDes(des);
 				return fault;
 			}
@@ -403,28 +407,43 @@ public class GirthFaultAction extends LineChartAction {
 		}
 
 		m_lineChart = new LineChart();
-		m_girthFaults = m_girthFaultService.queryGirthFaultByDuration(
-		      m_liningRingConstructionId, m_start, m_end);
+		m_girthFaults = m_girthFaultService.queryGirthFaultByDuration(m_liningRingConstructionId, m_start, m_end);
 
-		Map<Long, Double> datas = new LinkedHashMap<Long, Double>();
+		Map<Integer, Map<Long, Double>> allDatas = new TreeMap<Integer, Map<Long, Double>>();
+		Map<Long, Double> all = new LinkedHashMap<Long, Double>();
 		if (m_girthFaults != null) {
-			for (GirthFault deformation : m_girthFaults) {
-				Date date = deformation.getDate();
+			for (GirthFault girthFault : m_girthFaults) {
+				int blockIndex = girthFault.getBlockIndex();
+				Date date = girthFault.getDate();
+				long time = formatTime(date);
 
-				datas.put(formatTime(date), deformation.getValue());
+				Map<Long, Double> datas = allDatas.get(blockIndex);
+
+				if (datas == null) {
+					datas = new LinkedHashMap<Long, Double>();
+					allDatas.put(blockIndex, datas);
+				}
+
+				Double value = all.get(time);
+				if (value == null) {
+					value = girthFault.getValue();
+					all.put(time, value);
+				} else {
+					all.put(time, value + girthFault.getValue());
+				}
+
+				datas.put(time, girthFault.getValue());
 			}
 		}
 		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
-		m_lineChart.add("环缝错台", datas);
 
-		m_girthFaults = m_girthFaultService.queryLimitedGirthFaults(m_tunnelId,
-		      m_tunnelSectionId, m_liningRingConstructionId, 0, 1);
-
-		if (m_girthFaults != null && m_girthFaults.size() == 1) {
-			m_girthFault = m_girthFaults.get(0);
+		m_lineChart.add("所有块", all);
+		for (Entry<Integer, Map<Long, Double>> entry : allDatas.entrySet()) {
+			m_lineChart.add("第" + entry.getKey() + "块", entry.getValue());
 		}
 		return SUCCESS;
 	}
+
 	public String queryAllGirthFaults() {
 		m_girthFaults = m_girthFaultService.queryLimitedGirthFaults(m_tunnelId, m_tunnelSectionId, 0, 0,
 		      Integer.MAX_VALUE);
@@ -477,11 +496,11 @@ public class GirthFaultAction extends LineChartAction {
 	}
 
 	public List<LiningRingBlock> getLiningRingBlocks() {
-   	return m_liningRingBlocks;
-   }
+		return m_liningRingBlocks;
+	}
 
 	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
-   	m_liningRingBlockService = liningRingBlockService;
-   }
+		m_liningRingBlockService = liningRingBlockService;
+	}
 
 }

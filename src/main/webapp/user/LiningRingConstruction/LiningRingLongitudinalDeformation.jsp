@@ -52,7 +52,7 @@
 		</div>
 		<div class='span10'>
 			<form id="form" class="text-right form-inline margin-buttom"  action="userLiningRingLongitudinalDeformationQuery.do" method="post">
-						<strong>从</strong>
+					<div>	<strong>从</strong>
 						<div id="datetimepicker1" class="input-append date"><input name="start" class="input-small"  placeholder="开始时间" value='<s:date name="start" format="yyyy-MM-dd"/>'  class="{required:true,date:true}"
                data-format="yyyy-MM-dd" type="text"></input> <span class="add-on"> <i
                data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
@@ -62,7 +62,9 @@
 		               data-format="yyyy-MM-dd" type="text"></input> <span class="add-on"> <i
 		               data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
 		            </span></div>
-						<strong>&nbsp;&nbsp;隧道</strong>
+					</div>
+						<div style="margin-top:5px;">
+							<strong>&nbsp;&nbsp;隧道</strong>
 						<s:select name="tunnelId" id="tunnelId"
 							onchange="tunnelChanged(true,true)"  
 							list="tunnels" listKey="id" listValue="name" 
@@ -79,7 +81,7 @@
 							list="liningRingConstructions" listKey="id" listValue="name"
 							value="liningRingConstructionId" theme="simple" >
 						</s:select> 
-					  <button type="submit" class="btn btn-success btn-small">查询</button>
+					  <button type="submit" class="btn btn-success btn-small">查询</button></div>
 					</form>
 					<h4 class='text-info text-center'><span>纵断面断面变形状态</span><span style='margin-left:5px;' class="level<s:property value="liningRingConstruction.deformationState"/>"><s:property value="liningRingConstruction.deformationState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<%-- 	<span style='margin-left:15px;'>最近检测变形值</span><span  style='margin-left:5px;'><s:property value="liningRingLongitudinalDeformation.value"/></span>

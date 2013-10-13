@@ -12,6 +12,8 @@ import com.coverLoss.CoverLoss;
 import com.cracks.Cracks;
 import com.girthFault.GirthFault;
 import com.girthOpen.GirthOpen;
+import com.liningRing.LiningRingBlock;
+import com.liningRing.LiningRingBlockService;
 import com.liningRingDeformation.LiningRingDeformation;
 import com.liningRingLongitudinalDeformation.LiningRingLongitudinalDeformation;
 import com.longitudinalFault.LongitudinalFault;
@@ -29,6 +31,8 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	private Logger m_logger = Logger.getLogger(LiningRingConstructionServiceImpl.class);
 
 	private TunnelSectionService m_tunnelSectionService;
+
+	private LiningRingBlockService m_liningRingBlockService;
 
 	private Map<String, LiningRingConstruction> m_constructions = new LinkedHashMap<String, LiningRingConstruction>() {
 
@@ -119,33 +123,23 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	}
 
 	@Override
-	public int updateCoverLossState(CoverLoss coverLoss) {
-		return 0;
-	}
-
-	@Override
-	public int updateCracksState(Cracks cracks) {
-		return 0;
-	}
-
-	@Override
 	public int updateDeformationState(LiningRingDeformation deformation) {
 		int tunnelSectionId = deformation.getTunnelSectionId();
 		TunnelSection tunnelSection = m_tunnelSectionService.findByPK(tunnelSectionId);
 		int deformationId = deformation.getId();
 		int liningRingConstructionId = deformation.getLiningRingConstructionId();
-
 		double value = deformation.getValue();
 		double externalDiameter = tunnelSection.getExternalDiameter();
 		String deformationState = "A";
+		double[] standard = { 30.0 / 1000, 20.0 / 1000, 10.0 / 1000, 5.0 / 1000 };
 
-		if (value > externalDiameter * 30 / 1000) {
+		if (value > externalDiameter * standard[0]) {
 			deformationState = "E";
-		} else if (value > externalDiameter * 20 / 1000) {
+		} else if (value > externalDiameter * standard[1]) {
 			deformationState = "D";
-		} else if (value > externalDiameter * 10 / 1000) {
+		} else if (value > externalDiameter * standard[2]) {
 			deformationState = "C";
-		} else if (value > externalDiameter * 5 / 1000) {
+		} else if (value > externalDiameter * standard[3]) {
 			deformationState = "B";
 		} else {
 			deformationState = "A";
@@ -154,14 +148,237 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 		      liningRingConstructionId);
 	}
 
-	@Override
-	public int updateGirthFaultState(GirthFault girthFault) {
-		return 0;
+	private String computeBlockState(int realSize, String oldState, String newState, int blockIndex) {
+		if (oldState == null) {
+			oldState = "";
+		}
+
+		String[] state = oldState.split(",");
+
+		if (realSize != state.length) {
+			state = new String[realSize];
+			for (int i = 0; i < realSize; i++) {
+				state[i] = "-";
+			}
+		}
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+
+		for (int i = 0; i < realSize; i++) {
+			if (first) {
+				if (i + 1 == blockIndex) {
+					sb.append(newState);
+				} else {
+					sb.append(state[i]);
+				}
+				first = false;
+			} else {
+				sb.append(',');
+				if (i + 1 == blockIndex) {
+					sb.append(newState);
+				} else {
+					sb.append(state[i]);
+				}
+			}
+		}
+
+		return sb.toString();
 	}
 
 	@Override
 	public int updateGirthOpenState(GirthOpen girthOpen) {
-		return 0;
+		int liningRingConstructionId = girthOpen.getLiningRingConstructionId();
+		int blockIndex = girthOpen.getBlockIndex();
+		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
+		String oldState = liningRingConstruction.getGirthOpenState();
+		double value = girthOpen.getValue();
+		String newBlockState = "A";
+		double[] standard = { 9, 7, 4 };
+
+		if (girthOpen.getSerious() == 2) {
+			newBlockState = "E";
+		} else if (value > standard[0]) {
+			newBlockState = "D";
+		} else if (value > standard[1]) {
+			newBlockState = "C";
+		} else if (value > standard[2]) {
+			newBlockState = "B";
+		} else {
+			newBlockState = "A";
+		}
+		int lingRingId = liningRingConstruction.getLiningRingId();
+		List<LiningRingBlock> blocks = m_liningRingBlockService.queryByLiningRingId(lingRingId);
+		String girthOpenState = computeBlockState(blocks.size(), oldState, newBlockState, blockIndex);
+		String lastIds = computeBlockState(blocks.size(), liningRingConstruction.getGirthOpenId(),
+		      String.valueOf(girthOpen.getId()), blockIndex);
+		return m_liningRingConstructionDao.updateGirthOpenState(girthOpenState, lastIds, liningRingConstructionId);
+	}
+
+	@Override
+	public int updateGirthFaultState(GirthFault girthFault) {
+		int liningRingConstructionId = girthFault.getLiningRingConstructionId();
+		int blockIndex = girthFault.getBlockIndex();
+		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
+		String oldState = liningRingConstruction.getGirthFaultState();
+		double value = girthFault.getValue();
+		String newBlockState = "A";
+		double[] standard = { 9, 7, 4 };
+
+		if (girthFault.getSerious() == 2) {
+			newBlockState = "E";
+		} else if (value > standard[0]) {
+			newBlockState = "D";
+		} else if (value > standard[1]) {
+			newBlockState = "C";
+		} else if (value > standard[2]) {
+			newBlockState = "B";
+		} else {
+			newBlockState = "A";
+		}
+		int lingRingId = liningRingConstruction.getLiningRingId();
+		List<LiningRingBlock> blocks = m_liningRingBlockService.queryByLiningRingId(lingRingId);
+		String girthFaultState = computeBlockState(blocks.size(), oldState, newBlockState, blockIndex);
+		String lastIds = computeBlockState(blocks.size(), liningRingConstruction.getGirthFaultId(),
+		      String.valueOf(girthFault.getId()), blockIndex);
+		return m_liningRingConstructionDao.updateGirthFaultState(girthFaultState, lastIds, liningRingConstructionId);
+	}
+
+	@Override
+	public int updateLongitudinalOpenState(LongitudinalOpen longitudinalOpen) {
+		int liningRingConstructionId = longitudinalOpen.getLiningRingConstructionId();
+		int blockIndex = longitudinalOpen.getBlockIndex();
+		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
+		String oldState = liningRingConstruction.getLongitudinalOpenState();
+		double value = longitudinalOpen.getValue();
+		String newBlockState = "A";
+		double[] standard = { 9, 7, 4 };
+
+		if (longitudinalOpen.getSerious() == 2) {
+			newBlockState = "E";
+		} else if (value > standard[0]) {
+			newBlockState = "D";
+		} else if (value > standard[1]) {
+			newBlockState = "C";
+		} else if (value > standard[2]) {
+			newBlockState = "B";
+		} else {
+			newBlockState = "A";
+		}
+		int lingRingId = liningRingConstruction.getLiningRingId();
+		List<LiningRingBlock> blocks = m_liningRingBlockService.queryByLiningRingId(lingRingId);
+		String longitudinalOpenState = computeBlockState(blocks.size(), oldState, newBlockState, blockIndex);
+		String lastIds = computeBlockState(blocks.size(), liningRingConstruction.getLongitudinalOpenId(),
+		      String.valueOf(longitudinalOpen.getId()), blockIndex);
+		return m_liningRingConstructionDao.updateLongitudinalOpenState(longitudinalOpenState, lastIds,
+		      liningRingConstructionId);
+	}
+
+	@Override
+	public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault) {
+		int liningRingConstructionId = longitudinalFault.getLiningRingConstructionId();
+		int blockIndex = longitudinalFault.getBlockIndex();
+		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
+		String oldState = liningRingConstruction.getLongitudinalFaultState();
+		double value = longitudinalFault.getValue();
+		String newBlockState = "A";
+		double[] standard = { 9, 7, 4 };
+
+		if (longitudinalFault.getSerious() == 2) {
+			newBlockState = "E";
+		} else if (value > standard[0]) {
+			newBlockState = "D";
+		} else if (value > standard[1]) {
+			newBlockState = "C";
+		} else if (value > standard[2]) {
+			newBlockState = "B";
+		} else {
+			newBlockState = "A";
+		}
+		int lingRingId = liningRingConstruction.getLiningRingId();
+		List<LiningRingBlock> blocks = m_liningRingBlockService.queryByLiningRingId(lingRingId);
+		String longitudinalFaultState = computeBlockState(blocks.size(), oldState, newBlockState, blockIndex);
+		String lastIds = computeBlockState(blocks.size(), liningRingConstruction.getLongitudinalFaultId(),
+		      String.valueOf(longitudinalFault.getId()), blockIndex);
+		return m_liningRingConstructionDao.updateLongitudinalFaultState(longitudinalFaultState, lastIds,
+		      liningRingConstructionId);
+	}
+
+	@Override
+	public int updateCoverLossState(CoverLoss coverLoss) {
+		int liningRingConstructionId = coverLoss.getLiningRingConstructionId();
+		int blockIndex = coverLoss.getBlockIndex();
+		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
+		String oldState = liningRingConstruction.getCoverLossState();
+		double value = 0;
+		String newBlockState = "A";
+		double[] standard = { 10, 5, 0 };
+
+		if (coverLoss.getSerious() == 2) {
+			newBlockState = "E";
+		} else if (value > standard[0]) {
+			newBlockState = "D";
+		} else if (value > standard[1]) {
+			newBlockState = "C";
+		} else if (value > standard[2]) {
+			newBlockState = "B";
+		} else {
+			newBlockState = "A";
+		}
+		int lingRingId = liningRingConstruction.getLiningRingId();
+		List<LiningRingBlock> blocks = m_liningRingBlockService.queryByLiningRingId(lingRingId);
+		String coverLossState = computeBlockState(blocks.size(), oldState, newBlockState, blockIndex);
+		String lastIds = computeBlockState(blocks.size(), liningRingConstruction.getCoverLossId(),
+		      String.valueOf(coverLoss.getId()), blockIndex);
+		return m_liningRingConstructionDao.updateCoverLossState(coverLossState, lastIds, liningRingConstructionId);
+	}
+
+	@Override
+	public int updateCracksState(Cracks cracks) {
+		int liningRingConstructionId = cracks.getLiningRingConstructionId();
+		int blockIndex = cracks.getBlockIndex();
+		int tunnelSectionId = cracks.getTunnelSectionId();
+		TunnelSection tunnelSection = m_tunnelSectionService.findByPK(tunnelSectionId);
+		LiningRingConstruction liningRingConstruction = m_liningRingConstructionDao.findByPK(liningRingConstructionId);
+		String oldState = liningRingConstruction.getCracksState();
+		double number = cracks.getNumber();
+		double width = cracks.getWidth();
+		String newBlockState = "A";
+		String enviroment = tunnelSection.getEnvironment();
+
+		double numberStandard[] = { 3, 2, 0 };
+		double widthStandard1[] = { 0.4, 0.3, 0 };
+		double widthStandard2[] = { 0.3, 0.2, 0 };
+		if (cracks.getSerious() == 2) {
+			newBlockState = "E";
+		} else {
+			if ("A".equals(enviroment) || "B".equals(enviroment) || "C".equals(enviroment)) {
+				if (number > numberStandard[0] || width > widthStandard1[0]) {
+					newBlockState = "D";
+				} else if (number > numberStandard[1] || width > widthStandard1[1]) {
+					newBlockState = "C";
+				} else if (number > numberStandard[2] || width > widthStandard1[2]) {
+					newBlockState = "B";
+				} else {
+					newBlockState = "A";
+				}
+			} else if ("D".equals(enviroment) || "E".equals(enviroment)) {
+				if (number > numberStandard[0] || width > widthStandard2[0]) {
+					newBlockState = "D";
+				} else if (number > numberStandard[1] || width > widthStandard2[1]) {
+					newBlockState = "C";
+				} else if (number > numberStandard[2] || width > widthStandard2[2]) {
+					newBlockState = "B";
+				} else {
+					newBlockState = "A";
+				}
+			}
+		}
+		int lingRingId = liningRingConstruction.getLiningRingId();
+		List<LiningRingBlock> blocks = m_liningRingBlockService.queryByLiningRingId(lingRingId);
+		String cracksState = computeBlockState(blocks.size(), oldState, newBlockState, blockIndex);
+		String lastIds = computeBlockState(blocks.size(), liningRingConstruction.getCracksId(),
+		      String.valueOf(cracks.getId()), blockIndex);
+		return m_liningRingConstructionDao.updateCracksState(cracksState, lastIds, liningRingConstructionId);
 	}
 
 	@Override
@@ -180,17 +397,17 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	public int updateLongitudinalDeformationState(LiningRingLongitudinalDeformation longitudinalDeformation) {
 		int longitudinalLongitudinalDeformationId = longitudinalDeformation.getId();
 		int liningRingConstructionId = longitudinalDeformation.getLiningRingConstructionId();
-
 		double value = longitudinalDeformation.getValue();
 		String longitudinallDeformationState = "A";
+		double[] standard = { 1.0 / 1500, 1.0 / 2500, 1.0 / 10000, 1.0 / 15000 };
 
-		if (value > 1.0 / 1500) {
+		if (value > standard[0]) {
 			longitudinallDeformationState = "E";
-		} else if (value > 1.0 / 2500) {
+		} else if (value > standard[1]) {
 			longitudinallDeformationState = "D";
-		} else if (value > 1.0 / 10000) {
+		} else if (value > standard[2]) {
 			longitudinallDeformationState = "C";
-		} else if (value > 1.0 / 15000) {
+		} else if (value > standard[3]) {
 			longitudinallDeformationState = "B";
 		} else {
 			longitudinallDeformationState = "A";
@@ -200,37 +417,26 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	}
 
 	@Override
-	public int updateLongitudinalFaultState(LongitudinalFault longitudinalFault) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int updateLongitudinalOpenState(LongitudinalOpen longitudinalOpen) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int updateRustState(Rust rust) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int updateSeepageState(Seepage seepage) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int updateSettlementState(Settlement settlement) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
 		m_tunnelSectionService = tunnelSectionService;
+	}
+
+	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
+		m_liningRingBlockService = liningRingBlockService;
 	}
 
 }

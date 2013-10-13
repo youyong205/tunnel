@@ -51,8 +51,8 @@ $(document).ready(function() {
 							list="tunnels" listKey="id" listValue="name" 
 							value="tunnelId" theme="simple" >
 						</s:select></td>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
-						<td width="40%">
+						<td width="15%" style="text-align:right;"><strong class="text-success">选择盾构段</strong></td>
+						<td width="35%">
 						<s:select name="girthFault.tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
 							onchange="tunnelSectionChangedAndBlock()" 
@@ -60,8 +60,8 @@ $(document).ready(function() {
 						</s:select> </td>
 					</tr>
 					<tr>
-						<td width="10%" style="text-align:right;"><strong class="text-success">选择衬砌环</strong></td>
-						<td width="40%">
+						<td style="text-align:right;"><strong class="text-success">选择衬砌环</strong></td>
+						<td >
 							<s:select name="girthFault.liningRingConstructionId" id="liningRingConstructionId"
 							list="liningRingConstructions" listKey="id" listValue="name"
 							value="liningRingConstructionId" theme="simple" onchange="liningRingChanged()" >
@@ -96,8 +96,17 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">错台量Δh (mm)</strong></td>
 						<td><input type="text" name="girthFault.value" class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="40"  name="girthFault.des" class="{maxlength:512}"></textarea></td>
+						<td style="text-align:right;"><strong class="text-success">是否出现严重连接缺陷</strong></td>
+						<td>
+							<select id="serious" name="girthFault.serious">
+								<option value="1">否</option>
+								<option value="2">是</option>
+							</select>
+					</tr>
+					<tr>
+						</td>
+							<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
+							<td colspan='3'><textarea type="text" rows="5" cols="40"  name="girthFault.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

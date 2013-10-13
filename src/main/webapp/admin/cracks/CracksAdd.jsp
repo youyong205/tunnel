@@ -102,8 +102,16 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">裂缝倾角(°)</strong></td>
 						<td><input type="text" name="cracks.dip" class="{required:true,number:true}"/></td>
+						<td style="text-align:right;"><strong class="text-success">是否出现严重问题</strong></td>
+						<td>
+							<select id="serious" name="cracks.serious">
+								<option value="1">否</option>
+								<option value="2">是</option>
+							</select>
+					</tr>
+					<tr>	
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td><textarea type="text" rows="5" cols="40"  name="cracks.des" class="{maxlength:512}"></textarea></td>
+						<td colspan='3'><textarea type="text" rows="5" cols="40"  name="cracks.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

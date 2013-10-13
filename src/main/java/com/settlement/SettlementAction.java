@@ -79,14 +79,13 @@ public class SettlementAction extends LineChartAction {
 		try {
 			Settlement settlement = new Settlement();
 			String name = convertToString(cells[0]);
-			int blockIndex = convertToInteger(cells[1]);
-			Date date = convertToDate(cells[2]);
-			double value = convertToDouble(cells[3]);
-			double distance = convertToDouble(cells[4]);
+			Date date = convertToDate(cells[1]);
+			double value = convertToDouble(cells[2]);
+			double distance = convertToDouble(cells[3]);
 			String des = "";
 
-			if (cells.length >= 6) {
-				des = convertToString(cells[5]);
+			if (cells.length >= 5) {
+				des = convertToString(cells[4]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -95,7 +94,6 @@ public class SettlementAction extends LineChartAction {
 				settlement.setTunnelId(construction.getTunnelId());
 				settlement.setTunnelSectionId(construction.getTunnelSectionId());
 				settlement.setLiningRingConstructionId(construction.getId());
-				settlement.setBlockIndex(blockIndex);
 				settlement.setDate(date);
 				settlement.setValue(value);
 				settlement.setDistance(distance);

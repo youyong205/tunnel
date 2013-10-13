@@ -4,7 +4,7 @@
 	<typeAlias alias="coverLoss" type="com.coverLoss.CoverLoss" />
 	<sql id="coverLoss.columns">
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,type,
-		shape,width,height,depth,area,date,des,creationDate,modifyDate
+		shape,width,height,depth,area,date,serious,des,creationDate,modifyDate
 	</sql>
 	<select id="coverLoss.querySizeByTunnelAndSection" resultClass="int">
 		select count(*) from coverLoss
@@ -59,7 +59,7 @@
 	<insert id="coverLoss.insert" parameterClass="coverLoss">
 		insert into coverLoss (<include refid="coverLoss.columns" />) values
 		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#blockIndex#,#type#,
-		#shape#,#width#,#height#,#depth#,#area#,#date#,#des#,now(),now())
+		#shape#,#width#,#height#,#depth#,#area#,#date#,#serious#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
@@ -68,7 +68,7 @@
 		update coverLoss set
 		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,
 		blockIndex=#blockIndex#,type=#type#,shape=#shape#,width=#width#,height=#height#,
-		depth=#depth#,area=#area#,date=#date#,des=#des#,
+		depth=#depth#,area=#area#,date=#date#,des=#des#,serious=#serious#,
 		modifyDate=now() where id=#id#
 	</update>
 	<delete id="coverLoss.delete" parameterClass="int">
