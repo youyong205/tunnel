@@ -46,19 +46,19 @@ td{
 				<li class="active">服役状态</li>
 			</ul>
 		</div>
-		<div class="row">
+		<div class="row-fluid">
 			<div class="span2">
 				<%@include file="./../TunnelSectionMenu.jsp"%>
 			</div>
 			<div class="span10" style='margin-left:10px;'>
 				<form class="text-right form-inline margin-buttom"
 					action="userTunnelSectionState.do" method="post">
-					<strong>选择隧道</strong>
+					<strong>隧道</strong>
 					<s:select name="tunnelId" id="tunnelId" onchange="tunnelChangedExcluedeAll()"
 						list="tunnels" listKey="id" listValue="name" value="tunnelId"
 						theme="simple">
 					</s:select>
-					<strong>选择盾构段</strong>
+					<strong>盾构段</strong>
 					<s:select name="tunnelSectionId" id="tunnelSectionId"
 						list="tunnelSections" listKey="id" listValue="name"
 						value="tunnelSectionId" theme="simple">
@@ -80,7 +80,7 @@ td{
 					</h5>
 					<table style='margin-bottom:0px;' class="table table-striped table-bordered table-condensed table-hover">
 					<s:iterator value="upSvgs" status="vs">
-						<tr><td style="text-align:center;padding:6px 4px 0px 4px;" class='text-success' width="9%"><s:property value="key" /></td>
+						<tr><td style="text-align:center;padding:6px 4px 0px 4px;" class='text-success' width="8%"><s:property value="key" /></td>
 							<td  style="padding:6px 4px 0px 4px;"><s:property value="value" escape="false" /></td></tr>
 					</s:iterator>
 					</table>
@@ -98,7 +98,7 @@ td{
 					</h5>
 					<table class="table table-striped table-bordered table-condensed table-hover">
 					<s:iterator value="downSvgs" status="vs">
-						<tr><td  style="text-align:center;padding:6px 4px 0px 4px;" class='text-success' width="9%"><s:property value="key" /></td>
+						<tr><td  style="text-align:center;padding:6px 4px 0px 4px;" class='text-success' width="8%"><s:property value="key" /></td>
 							<td style="padding:6px 4px 0px 4px;"><s:property value="value" escape="false" /></td></tr>
 					</s:iterator>
 					</table>

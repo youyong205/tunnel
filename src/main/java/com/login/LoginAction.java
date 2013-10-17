@@ -80,7 +80,11 @@ public class LoginAction extends PagedAction {
 			}
 		} else {
 			this.addActionError(s_login_error);
-			return ERROR;
+			if (m_role == null) {
+				return m_role + "Error";
+			} else {
+				return "userError";
+			}
 		}
 	}
 

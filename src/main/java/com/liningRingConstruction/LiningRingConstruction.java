@@ -1,6 +1,8 @@
 package com.liningRingConstruction;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.liningRing.LiningRing;
 import com.schedule.Schedule;
@@ -129,99 +131,149 @@ public class LiningRingConstruction {
 	private String m_rustId;
 
 	public String getDeformationId() {
-   	return m_deformationId;
-   }
+		return m_deformationId;
+	}
 
 	public void setDeformationId(String deformationId) {
-   	m_deformationId = deformationId;
-   }
+		m_deformationId = deformationId;
+	}
 
 	public String getLongitudinalDeformationId() {
-   	return m_longitudinalDeformationId;
-   }
+		return m_longitudinalDeformationId;
+	}
 
 	public void setLongitudinalDeformationId(String longitudinalDeformationId) {
-   	m_longitudinalDeformationId = longitudinalDeformationId;
-   }
+		m_longitudinalDeformationId = longitudinalDeformationId;
+	}
 
 	public String getGirthOpenId() {
-   	return m_girthOpenId;
-   }
+		return m_girthOpenId;
+	}
 
 	public void setGirthOpenId(String girthOpenId) {
-   	m_girthOpenId = girthOpenId;
-   }
+		m_girthOpenId = girthOpenId;
+	}
 
 	public String getLongitudinalOpenId() {
-   	return m_longitudinalOpenId;
-   }
+		return m_longitudinalOpenId;
+	}
 
 	public void setLongitudinalOpenId(String longitudinalOpenId) {
-   	m_longitudinalOpenId = longitudinalOpenId;
-   }
+		m_longitudinalOpenId = longitudinalOpenId;
+	}
 
 	public String getGirthFaultId() {
-   	return m_girthFaultId;
-   }
+		return m_girthFaultId;
+	}
 
 	public void setGirthFaultId(String girthFaultId) {
-   	m_girthFaultId = girthFaultId;
-   }
+		m_girthFaultId = girthFaultId;
+	}
 
 	public String getLongitudinalFaultId() {
-   	return m_longitudinalFaultId;
-   }
+		return m_longitudinalFaultId;
+	}
 
 	public void setLongitudinalFaultId(String longitudinalFaultId) {
-   	m_longitudinalFaultId = longitudinalFaultId;
-   }
+		m_longitudinalFaultId = longitudinalFaultId;
+	}
 
 	public String getCoverLossId() {
-   	return m_coverLossId;
-   }
+		return m_coverLossId;
+	}
 
 	public void setCoverLossId(String coverLossId) {
-   	m_coverLossId = coverLossId;
-   }
+		m_coverLossId = coverLossId;
+	}
 
 	public String getSettlementId() {
-   	return m_settlementId;
-   }
+		return m_settlementId;
+	}
 
 	public void setSettlementId(String settlementId) {
-   	m_settlementId = settlementId;
-   }
+		m_settlementId = settlementId;
+	}
 
 	public String getSeepageId() {
-   	return m_seepageId;
-   }
+		return m_seepageId;
+	}
 
 	public void setSeepageId(String seepageId) {
-   	m_seepageId = seepageId;
-   }
+		m_seepageId = seepageId;
+	}
 
 	public String getCracksId() {
-   	return m_cracksId;
-   }
+		return m_cracksId;
+	}
 
 	public void setCracksId(String cracksId) {
-   	m_cracksId = cracksId;
-   }
+		m_cracksId = cracksId;
+	}
 
 	public String getRustId() {
-   	return m_rustId;
-   }
+		return m_rustId;
+	}
 
 	public void setRustId(String rustId) {
-   	m_rustId = rustId;
-   }
+		m_rustId = rustId;
+	}
 
 	public String getTotalState() {
-		String state = m_deformationState + ',' + m_longitudinalDeformationState + ',' + m_girthOpenState + ','
-		      + m_longitudinalOpenState + ',' + m_girthFaultState + ',' + m_longitudinalFaultState + ','
-		      + m_coverLossState + ',' + m_cracksState;
+		Map<String, Integer> counts = new HashMap<String, Integer>();
 
-		return computeLevel(state);
+		counts.put(Level.A.getName(), 0);
+		counts.put(Level.B.getName(), 0);
+		counts.put(Level.C.getName(), 0);
+		counts.put(Level.D.getName(), 0);
+		counts.put(Level.E.getName(), 0);
+		counts.put(Level.NULL.getName(), 0);
+
+		updateCounts(counts, m_girthOpenState);
+		updateCounts(counts, m_longitudinalOpenState);
+		updateCounts(counts, m_girthFaultState);
+		updateCounts(counts, m_longitudinalFaultState);
+		updateCounts(counts, m_coverLossState);
+		updateCounts(counts, m_cracksState);
+
+		Integer aCount = counts.get(Level.A.getName());
+		Integer bCount = counts.get(Level.B.getName());
+		Integer cCount = counts.get(Level.C.getName());
+		Integer dCount = counts.get(Level.D.getName());
+		Integer eCount = counts.get(Level.E.getName());
+		int totalCount = aCount + bCount + cCount + dCount + eCount;
+		String componentState = Level.A.getName();
+
+		if (eCount > 0) {
+			componentState = Level.E.getName();
+		} else if (dCount > totalCount * 0.2) {
+			componentState = Level.D.getName();
+		} else if (dCount > 0 || cCount > totalCount * 0.2) {
+			componentState = Level.C.getName();
+		} else if (cCount > 0 || bCount > totalCount * 0.1) {
+			componentState = Level.B.getName();
+		} else {
+			componentState = Level.A.getName();
+		}
+		return computeLevel(m_deformationState + ',' + m_longitudinalDeformationState + ',' + componentState);
+	}
+
+	private void updateCounts(Map<String, Integer> counts, String state) {
+		if (state == null) {
+			return;
+		}
+
+		String[] states = state.split(",");
+
+		for (String str : states) {
+			Integer i = counts.get(str);
+
+			if (i == null) {
+				counts.put(str, 1);
+			} else {
+				counts.put(str, i + 1);
+			}
+		}
+
 	}
 
 	private String computeLevel(String str) {
@@ -727,5 +779,4 @@ public class LiningRingConstruction {
 		      + ", m_modifyDate=" + m_modifyDate + "]";
 	}
 
-	
 }

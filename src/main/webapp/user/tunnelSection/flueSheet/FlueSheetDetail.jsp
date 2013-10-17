@@ -34,7 +34,7 @@
 			<li class="active">基本信息</li>
 		</ul>
 	</div>
-	<div class='row'>
+	<div class="row-fluid">
 		<div class='span2'>
 			<%@include file="./../../TunnelSectionMenu.jsp"%>
 		</div>

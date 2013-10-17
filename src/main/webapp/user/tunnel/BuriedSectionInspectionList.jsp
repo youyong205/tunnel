@@ -33,7 +33,7 @@
 			<li class="active">质量检查</li>
 		</ul>
 	</div>
-	<div class='row'>
+	<div class="row-fluid">
 		<div class='span2'>
 			<%@include file="./../TunnelMenu.jsp"%>
 		</div>

@@ -29,7 +29,7 @@ $(document).ready(function() {
   <%@include file="./../Head.jsp"%>
   </br>
   </br>
-  <div class="container-fluid">
+  <div class="container-fluid background-body" >
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10">
@@ -57,7 +57,6 @@ $(document).ready(function() {
 						<td width="20%" style="text-align:right;"><strong class="text-success">盾构段类型</strong></td>
 						<td>
 							<select name="tunnelSection.type" id="type">
-								<option value="-">-</option>
 								<option value="上行">上行</option>
 								<option value="下行">下行</option>
 							</select>

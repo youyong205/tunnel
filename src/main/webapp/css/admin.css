@@ -89,11 +89,11 @@ select {
 	padding: 10px 10px 10px 19px;
 }
 
-.row-fluid .span2 {
+.background-body .row-fluid .span2 {
 	width: 10%;
 }
 
-.row-fluid .span10 {
+.background-body .row-fluid .span10 {
 	width: 87%;
 }
 
@@ -221,4 +221,7 @@ label.valid {
 	display:-moz-inline-box;
 	display:inline-block;
 	width:60px;
+}
+.container{
+	width:1200px;	
 }

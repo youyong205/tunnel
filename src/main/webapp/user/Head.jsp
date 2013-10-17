@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <div class="navbar navbar-inverse" style="margin-top:5px;">
 	<div class="navbar-inner navbar-title">
-		<a class="brand" href="userTunnelList.do">盾构隧道建设与运营安全数据系统</a>
+		<a class="brand" style="color:#FAFAEA" href="userTunnelList.do">盾构隧道建设与运营安全数据系统</a>
 		<div class="nav-collapse collapse">
 			<ul class="nav">
 				<li id="tunnelList" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">隧道<b class="caret"></b></a>
@@ -62,7 +62,6 @@
 		</div>
 	</div>
 </div>
-
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <form action="login.do" method="post">

@@ -31,7 +31,7 @@
 			<li class="active">暗埋段</li>
 		</ul>
 	</div>
-	<div class='row'>
+	<div class="row-fluid">
 		<div class='span2'>
 			<%@include file="./../TunnelMenu.jsp"%>
 		</div>
@@ -53,13 +53,13 @@
       			</div></div>
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
-					<th width="5%">序号</th>
-					<th width="15%">编号</th>
+				 	<th width="5%">序号</th>
+					<th width="25%">暗埋段编号</th>
 					<th width="10%">类型</th>
-					<th width="15%">施工开始</th>
-					<th width="15%">施工结束</th>
+					<th width="20%">施工开始</th>
+					<th width="20%">施工结束</th>
 					<th width="10%">设计文档</th>
-					<th width="5%">操作</th>
+					<th width="10%">操作</th>
 				</tr></thead><tbody>
 				<s:iterator value="buriedSections" status="vs">
 					<tr>

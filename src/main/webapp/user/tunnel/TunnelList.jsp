@@ -31,7 +31,7 @@
 			<li class="active">隧道列表</li>
 		</ul>
 	</div>
-	<div class='row'>
+	<div class="row-fluid">
 		<div class='span2'>
 			<%@include file="./../TunnelMenu.jsp"%>
 		</div>
@@ -51,9 +51,9 @@
 				 <thead><tr>
 					<th width="8%">序号</th>
 					<th width="15%">类型</th>
-					<th width="42%">名称</th>
+					<th width="52%">名称</th>
 					<th width="15%">服役状态</th>
-					<th width="20%">详情</th>
+					<th width="10%">详情</th>
 				</tr></thead><tbody>
 				<s:iterator value="tunnels" status="vs">
 					<tr>
@@ -67,8 +67,7 @@
 					<td><span  class='level<s:property value="state"/>'><s:property value="state"/></span>
 					</td>
 					<td>
-					<a class='btn btn-small btn-info' href='userTunnelDetail.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>'>详情</a>
-					<a class='btn btn-small btn-info' href='userTunnelDetail.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>'>服役状态</a>
+					<a class='btn btn-small btn-success' href='userTunnelDetail.do?tunnelId=<s:property value="id"/>&index=<s:property value="index"/>'>详情</a>
 					</td></tr>
 				</s:iterator></tbody>
 			</table>

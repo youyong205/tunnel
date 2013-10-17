@@ -32,7 +32,7 @@
 			<li class="active">衬砌环列表</li>
 		</ul>
 	</div>
-	<div class='row'>
+	<div class="row-fluid">
 		<div class='span2'>
 			<%@include file="./../LiningRingMenu.jsp"%>
 		</div>
@@ -45,13 +45,13 @@
       			</div>
       			<div class="span8">
       				<form class="text-right form-inline margin-buttom" action="userLiningRingConstructionList.do" method="post">
-						<strong>选择隧道</strong>
+						<strong>隧道</strong>
 						<s:select name="tunnelId" id="tunnelId"
 							onchange="tunnelChangedExcluedeAll()"  
 							list="tunnels" listKey="id" listValue="name" 
 							value="tunnelId" theme="simple" >
 						</s:select>
-						<strong>选择盾构段</strong>
+						<strong>盾构段</strong>
 						<s:select name="tunnelSectionId" id="tunnelSectionId"
 							list="tunnelSections" listKey="id" listValue="name"
 							value="tunnelSectionId" theme="simple" >
@@ -64,11 +64,11 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="8%">序号</th>
-					<th width="22%">衬砌环施工编号</th>
+					<th width="27%">衬砌环施工编号</th>
 					<th width="20%">施工开始时间</th>
 					<th width="20%">施工结束时间</th>
 					<th width="15%">服役状态</th>
-					<th width="15%">详情</th>
+					<th width="10%">详情</th>
 				</tr></thead><tbody>
 				<s:iterator value="liningRingConstructions" status="vs">
 					<tr>

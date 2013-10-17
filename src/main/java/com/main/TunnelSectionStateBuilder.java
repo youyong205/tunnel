@@ -7,7 +7,7 @@ import java.util.Map;
 import com.main.TunnelSectionState.LiningRingState;
 
 public class TunnelSectionStateBuilder {
-	private final int WIDTH = 4;
+	private final int WIDTH = 6;
 
 	private final int HEIGHT = 20;
 
@@ -52,7 +52,7 @@ public class TunnelSectionStateBuilder {
 	}
 
 	private String buildRectangle(int index, LiningRingState state) {
-		String format = "<rect x='%d' y='00' width='%d' height='%d'" + "style='fill:%s;"
+		String format = "<rect x='%d' y='00' width='%d' height='%d'" + "style='fill:%s;stroke:pink;stroke-width:1;"
 		      + "opacity:0.9'/>";
 
 		return String.format(format, WIDTH * index, WIDTH, HEIGHT, m_colors.get(state.getState()));

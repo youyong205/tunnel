@@ -25,7 +25,7 @@
     <div class="row-fluid">
       <div class="span12"> 
 		<form action="login.do" id="form" method="post">
-	  		<s:actionerror/>
+	  		<h3 class="text-center"><s:actionerror/></h3>
 	  		<table align="center" class="table table-striped table-bordered">
 				<tr>	
 					<th colspan='2'><h4 class="text-info text-center">用户登录</h4></th>

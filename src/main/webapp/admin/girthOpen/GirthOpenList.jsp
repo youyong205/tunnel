@@ -30,7 +30,7 @@
   <%@include file="./../Head.jsp"%>
   </br>
   </br>
-  <div class="container-fluid">
+  <div class="container-fluid background-body" >
     <div class="row-fluid">
       <%@include file="./../Menu.jsp"%>
       <div class="span10"> 

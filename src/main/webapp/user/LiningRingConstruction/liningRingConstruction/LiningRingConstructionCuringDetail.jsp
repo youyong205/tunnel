@@ -35,7 +35,7 @@
 			<li class="active">详细信息</li>
 		</ul>
 	</div>
-	<div class='row'>
+	<div class="row-fluid">
 		<div class='span2'>
 			<%@include file="./../../LiningRingMenu.jsp"%>
 		</div>

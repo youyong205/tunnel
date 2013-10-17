@@ -43,18 +43,18 @@
 				<li class="active">裂缝状态</li>
 			</ul>
 		</div>
-		<div class="row">
+		<div class="row-fluid">
 			<div class="span2">
 				<%@include file="./../TunnelSectionMenu.jsp"%>
 			</div>
 			<div class="span10" style='margin-left:10px;'>
 				<form class="text-right form-inline margin-buttom" method="get">
-					<strong>选择隧道</strong>
+					<strong>隧道</strong>
 					<s:select name="tunnelId" id="tunnelId" onchange="tunnelChangedExcluedeAll()"
 						list="tunnels" listKey="id" listValue="name" value="tunnelId"
 						theme="simple">
 					</s:select>
-					<strong>选择盾构段</strong>
+					<strong>盾构段</strong>
 					<s:select name="tunnelSectionId" id="tunnelSectionId"
 						list="tunnelSections" listKey="id" listValue="name"
 						value="tunnelSectionId" theme="simple">

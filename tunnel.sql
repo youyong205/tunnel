@@ -608,6 +608,13 @@ CREATE TABLE `workingWell`(
   KEY `ix_tunnel` (`tunnelId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='工作井基本信息';
 
+CREATE TABLE `workingWellPosition`(
+  `workingWellId` int(11) NOT NULL COMMENT '工作井ID',
+  `tunnelSectionId` int(11) NOT NULL COMMENT '盾构段ID',
+  `creationDate` datetime NOT NULL COMMENT '创建时间'
+  PRIMARY KEY (`workingWellId`,`tunnelSectionId`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='工作井位置基本信息';
+
 CREATE TABLE `buriedSection`(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tunnelId` int(11) NOT NULL COMMENT '隧道ID',

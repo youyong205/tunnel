@@ -2,11 +2,11 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
-		<div class="container-fluid">
+		<div class="container-fluid background-body" >
 			<a class="btn btn-navbar" data-toggle="collapse"
 				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="icon-bar"></span>
-			</a> <a class="brand" href="userTunnelList.do">盾构隧道建设与运营安全数据系统-后台管理</a>
+			</a> <a class="brand" style="color:#FAFAEA" href="userTunnelList.do">盾构隧道建设与运营安全数据系统-后台管理</a>
 			<div class="nav-collapse collapse">
 				<p class="navbar-text pull-right">
 					<s:if test="null==#session.user">

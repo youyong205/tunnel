@@ -46,7 +46,7 @@
 			<li class="active">纵断面断面变形</li>
 		</ul>
 	</div>
-	<div class='row'>
+	<div class="row-fluid">
 		<div class='span2'>
 			<%@include file="./../LiningRingMenu.jsp"%>
 		</div>
