@@ -59,6 +59,21 @@ public class WorkingWellDao {
 		return (Integer) m_baseDao.queryForObject("workingWell.querySizeByTunnelId", tunnelId);
 	}
 
+	@SuppressWarnings("rawtypes")
+	public List queryWorkingWellPositions(int workingWellId) {
+		return m_baseDao.queryForList("workingWellPosition.queryWorkingWellPositions", workingWellId);
+	}
+
+	public int insertWorkingWellPosition(WorkingWellPosition position) {
+		m_baseDao.insert("workingWellPosition.insert", position);
+
+		return 0;
+	}
+
+	public int deleteByWorkingWellId(int workingWellId) {
+		return m_baseDao.delete("workingWellPosition.deleteByWorkingWellId", workingWellId);
+	}
+
 	public void setBaseDao(BaseDao baseDao) {
 		m_baseDao = baseDao;
 	}

@@ -13,6 +13,8 @@ import com.log.Log;
 import com.schedule.Schedule;
 import com.tunnel.Tunnel;
 import com.tunnel.TunnelService;
+import com.tunnelSection.TunnelSection;
+import com.tunnelSection.TunnelSectionService;
 
 public class WorkingWellAction extends ScheduledAction {
 
@@ -24,6 +26,8 @@ public class WorkingWellAction extends ScheduledAction {
 
 	private List<Tunnel> m_tunnels;
 
+	private List<TunnelSection> m_tunnelSections;
+
 	private int m_workingWellId;
 
 	private int m_tunnelId;
@@ -31,6 +35,10 @@ public class WorkingWellAction extends ScheduledAction {
 	private WorkingWellService m_workingWellService;
 
 	private TunnelService m_tunnelService;
+
+	private TunnelSectionService m_tunnelSectionService;
+
+	private Integer[] m_tunnelSectionIdSelect;
 
 	private WorkingWell m_workingWell = new WorkingWell();
 
@@ -91,6 +99,11 @@ public class WorkingWellAction extends ScheduledAction {
 	public String workingWellAdd() {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
+			if (m_tunnelId == 0) {
+				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
+			}
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_tunnelId, 0,
+			      Integer.MAX_VALUE);
 			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			return SUCCESS;
 		} catch (Exception e) {
@@ -114,8 +127,22 @@ public class WorkingWellAction extends ScheduledAction {
 			m_workingWell.setScheduleId(scheduleId);
 
 			m_workingWell.setDocumentId(documentId);
-			int id = m_workingWellService.insertWorkingWell(m_workingWell);
-			if (id > 0) {
+			int count = m_workingWellService.insertWorkingWell(m_workingWell);
+
+			if (m_tunnelSectionIdSelect != null) {
+				for (Integer i : m_tunnelSectionIdSelect) {
+					if (i != null && i > 0) {
+						WorkingWellPosition position = new WorkingWellPosition();
+						System.out.println("workingWellId = " +i+" tunnelSectionId:"+count);
+						
+						position.setWorkingWellId(m_workingWell.getId());
+						position.setTunnelSectionId(i);
+
+						m_workingWellService.insertWorkingWellPosition(position);
+					}
+				}
+			}
+			if (count > 0) {
 				Log log = createLog(Modules.s_workingWell_model, Operation.s_operation_add, m_workingWell);
 
 				m_logService.insertLog(log);
@@ -194,6 +221,18 @@ public class WorkingWellAction extends ScheduledAction {
 		try {
 			m_tunnels = m_tunnelService.queryAllTunnels();
 			m_workingWell = m_workingWellService.findByPK(m_workingWellId);
+			m_tunnelSections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(m_workingWell.getTunnelId(), 0,
+			      Integer.MAX_VALUE);
+			List<WorkingWellPosition> positions = m_workingWellService.queryWorkingWellPositions(m_workingWellId);
+
+			if (positions != null) {
+				int positionSize = positions.size();
+				m_tunnelSectionIdSelect = new Integer[positionSize];
+
+				for (int i = 0; i < positionSize; i++) {
+					m_tunnelSectionIdSelect[i] = positions.get(i).getTunnelSectionId();
+				}
+			}
 			m_constructionUnits = m_constructionUnitService.queryAllConstructionUnits();
 			m_schedule = m_scheduleService.findByPK(m_workingWell.getScheduleId());
 
@@ -231,6 +270,20 @@ public class WorkingWellAction extends ScheduledAction {
 			}
 			m_scheduleService.updateSchedule(m_schedule);
 			int count = m_workingWellService.updateWorkingWell(m_workingWell);
+			if (m_tunnelSectionIdSelect != null) {
+				m_workingWellService.deleteByWorkingWellId(m_workingWell.getId());
+				for (Integer i : m_tunnelSectionIdSelect) {
+					if (i != null && i > 0) {
+						WorkingWellPosition position = new WorkingWellPosition();
+
+						position.setWorkingWellId(m_workingWell.getId());
+						position.setTunnelSectionId(i);
+
+						m_workingWellService.insertWorkingWellPosition(position);
+					}
+				}
+			}
+
 			if (count > 0) {
 				Log log = createLog(Modules.s_workingWell_model, Operation.s_operation_update, m_workingWell);
 
@@ -243,6 +296,22 @@ public class WorkingWellAction extends ScheduledAction {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
+	}
+
+	public List<TunnelSection> getTunnelSections() {
+		return m_tunnelSections;
+	}
+
+	public void setTunnelSectionService(TunnelSectionService tunnelSectionService) {
+		m_tunnelSectionService = tunnelSectionService;
+	}
+
+	public Integer[] getTunnelSectionIdSelect() {
+		return m_tunnelSectionIdSelect;
+	}
+
+	public void setTunnelSectionIdSelect(Integer[] tunnelSectionIdSelect) {
+		m_tunnelSectionIdSelect = tunnelSectionIdSelect;
 	}
 
 }

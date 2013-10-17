@@ -2,9 +2,13 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap>
 	<typeAlias alias="workingWell" type="com.workingWell.WorkingWell" />
+	<typeAlias alias="workingWellPosition" type="com.workingWell.WorkingWellPosition" />
 	<sql id="workingWell.columns">
 		id,tunnelId,documentId,scheduleId,name,type,startPosition,endPosition,eleationOne,eleationTwo,
 		eleationThree,eleationFour,eleationMezzanine,des,creationDate,modifyDate
+	</sql>
+	<sql id="workingWellPosition.columns">
+		workingWellId,tunnelSectionId,creationDate
 	</sql>
 	<select id="workingWell.queryAllSize" resultClass="int">
 		select count(*) from workingWell
@@ -51,5 +55,19 @@
 		delete from workingWell
 		where
 		id=#id#
+	</delete>
+	<select id="workingWellPosition.queryWorkingWellPositions" resultClass="workingWellPosition" parameterClass="int">
+		select
+		<include refid="workingWellPosition.columns" />
+		from workingWellPosition where workingWellId=#workingWellId#
+	</select>
+	<insert id="workingWellPosition.insert" parameterClass="workingWellPosition">
+		insert into workingWellPosition (<include refid="workingWellPosition.columns" />) values
+		(#workingWellId#,#tunnelSectionId#,now())
+	</insert>
+	<delete id="workingWellPosition.deleteByWorkingWellId" parameterClass="int">
+		delete from workingWellPosition
+		where
+		workingWellId=#workingWellId#
 	</delete>
 </sqlMap>

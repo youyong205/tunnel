@@ -86,7 +86,7 @@ td{
 					</table>
 				</div>
 				<div>
-					<h5 class=' text-center'>下行线【<span class="text-error">服役状态】
+					<h5 class=' text-center'>下行线【<span class="text-error">服役状态</span>】
 					<s:iterator value="downCounts" status="vs">
 						<span class="level<s:property value="key" />"><s:property value="key" />&nbsp;&nbsp;</span>
 						<s:if test="key == 'A'.toString()">i</s:if>

@@ -18,6 +18,7 @@
 $(document).ready(function() {
 	$('#liningRingList').addClass("active");
 	$("#form").validate();
+	$('i[tips]').popover();
 });
 </script>
 </head>
@@ -56,7 +57,9 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">楔形量</strong></td>
 						<td><input type="text" size="30" name="liningRing.wedgeNumber" class="{required:true,digits:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">环初始偏移角度</strong></td>
+						<td style="text-align:right;"><strong class="text-success">环初始偏移角度</strong>
+								<i tips="" data-trigger="hover" class="icon-question-sign" data-toggle="popover" data-placement="top" data-content="环默认第一块的初始角度是在水平右侧，如果您想调整环到左右对称，请自行计算偏移角度！"></i>
+						</td>
 						<td><input type="text" size="30" name="liningRing.angle" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>

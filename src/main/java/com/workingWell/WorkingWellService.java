@@ -22,4 +22,9 @@ public interface WorkingWellService {
 
 	public int updateWorkingWell(WorkingWell workingWell);
 
+	public List<WorkingWellPosition> queryWorkingWellPositions(int workingWellId);
+	
+	public int insertWorkingWellPosition(WorkingWellPosition position);
+	
+	public int deleteByWorkingWellId(int workingWellId);
 }

@@ -13,7 +13,7 @@
 	<constant name="Struts.ognl.allowStaticMethodAccess" value="true"></constant>
 	<constant name="Struts.multipart.parse" value="jakarta"></constant>
 	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
-	<constant name="struts.multipart.maxSize" value="4048000"></constant>
+	<constant name="struts.multipart.maxSize" value="40480000"></constant>
 	<constant name="struts.action.extension" value="do,action" />
 
 	<include file="config/struts/struts-log.xml"></include>

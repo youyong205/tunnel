@@ -119,4 +119,17 @@ public class WorkingWellServiceImpl implements WorkingWellService {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<WorkingWellPosition> queryWorkingWellPositions(int workingWellId) {
+		return m_workingWellDao.queryWorkingWellPositions(workingWellId);
+	}
+
+	public int insertWorkingWellPosition(WorkingWellPosition workingWellPosition) {
+		return m_workingWellDao.insertWorkingWellPosition(workingWellPosition);
+	}
+
+	public int deleteByWorkingWellId(int workingWellId) {
+		return m_workingWellDao.deleteByWorkingWellId(workingWellId);
+	}
+
 }

@@ -18,6 +18,7 @@
 	$(document).ready(function() {
 		$('#tunnelList').addClass('active');
 		$('#workingWell').addClass('active');
+		$('i[tips]').popover();
 	});
 </script>
 </head>
@@ -61,6 +62,16 @@
 						</td>
 						<td style="text-align:right;"><strong class="text-success">烟道夹层标高</strong></td>
 						<td><input readonly type="text" name="workingWell.eleationMezzanine"  value="<s:property value="workingWell.eleationMezzanine"/>" class="{required:true}"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">工作井位置</strong>
+							<i tips="" data-trigger="hover" class="icon-question-sign" data-toggle="popover" data-placement="top" data-content="位置表示此工作井在某个盾构段后面，如果是上下行，可能需要选择两个盾构段！"></i>
+						</td>
+						<td colspan='3' id="position">
+							<s:checkboxlist list="tunnelSections"
+								listKey="id" listValue="name" value="tunnelSectionIdSelect" name="tunnelSectionIdSelect" theme="simple">
+							</s:checkboxlist>
+						</td>
 					</tr>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">工作井编号</strong></td>
