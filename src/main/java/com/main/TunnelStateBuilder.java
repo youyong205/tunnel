@@ -4,10 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TunnelStateBuilder {
-	private final int WIDTH = 40;
+import com.tunnelSection.TunnelSection;
+import com.workingWell.WorkingWell;
 
-	private final int HEIGHT = 20;
+public class TunnelStateBuilder {
+	private final int SECTION_WIDTH = 50;
+
+	private final int SECTION_HEIGHT = 20;
+
+	private final int WORKING_WIDTH = 30;
+
+	private final int WORKING_HEIGHT = 50;
 
 	private final String GREEN = "green";
 
@@ -34,39 +41,66 @@ public class TunnelStateBuilder {
 	}
 
 	private String buildHeader() {
-		String format = "<svg width='100%' height='" + HEIGHT + "' version='1.1'" + "xmlns='http://www.w3.org/2000/svg'>";
+		String format = "<svg width='100%' height='" + WORKING_HEIGHT + "' version='1.1'"
+		      + "xmlns='http://www.w3.org/2000/svg'>";
 
 		return format;
 	}
 
-	private String buildLink(TunnelState.TunnelSectionState state) {
+	private String buildLink(TunnelSection tunnelSection) {
 		String format = " <a xlink:href='userTunnelSectionState.do?tunnelId=%d&tunnelSectionId=%d'>";
 
-		return String.format(format, state.getTunnelId(), state.getTunnelSectionId());
+		return String.format(format, tunnelSection.getTunnelId(), tunnelSection.getId());
+	}
+
+	private String buildLink(WorkingWell workingWell) {
+		String format = " <a xlink:href='userWorkingWellDetail.do?tunnelId=%d&workingWellId=%d'>";
+
+		return String.format(format, workingWell.getTunnelId(), workingWell.getId());
 	}
 
 	private String buildLinkFoot() {
 		return " </a>";
 	}
 
-	private String buildRectangle(int index, TunnelState.TunnelSectionState state) {
-		String format = "<rect x='%d' y='00' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:1;"
+	private String buildRectangle(int offset, TunnelSection tunnelSection) {
+		String format = "<rect x='%d' y='30' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:2;"
 		      + "opacity:0.9'/>";
 
-		return String.format(format, WIDTH * index, WIDTH, HEIGHT, m_colors.get(state.getState()));
+		return String.format(format, offset, SECTION_WIDTH, SECTION_HEIGHT,
+		      m_colors.get(tunnelSection.getState()));
 	}
 
-	public String buildXml(List<TunnelState.TunnelSectionState> states) {
+	private String buildRectangle(int offset, WorkingWell workingWell) {
+		String format = "<rect x='%d' y='00' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:2;"
+		      + "opacity:0.9'/>";
+
+		return String.format(format, offset, WORKING_WIDTH, WORKING_HEIGHT, GREEN);
+	}
+
+	public String buildXml(List<Object> objs) {
 		StringBuilder sb = new StringBuilder(1024);
 
 		sb.append(buildHeader());
 
-		int length = states.size();
+		int length = objs.size();
+		int offset = 0;
 		for (int i = 0; i < length; i++) {
-			TunnelState.TunnelSectionState state = states.get(i);
-			sb.append(buildLink(state));
-			sb.append(buildRectangle(i, state));
-			sb.append(buildLinkFoot());
+			Object obj = objs.get(i);
+			
+			if (obj instanceof TunnelSection) {
+				TunnelSection section = (TunnelSection) obj;
+				sb.append(buildLink(section));
+				sb.append(buildRectangle(offset, section));
+				sb.append(buildLinkFoot());
+				offset +=SECTION_WIDTH;
+			} else if (obj instanceof WorkingWell) {
+				WorkingWell workingWell = (WorkingWell) obj;
+				sb.append(buildLink(workingWell));
+				sb.append(buildRectangle(offset, workingWell));
+				sb.append(buildLinkFoot());
+				offset +=WORKING_WIDTH;
+			}
 		}
 		sb.append(buildFooter());
 

@@ -27,4 +27,6 @@ public interface WorkingWellService {
 	public int insertWorkingWellPosition(WorkingWellPosition position);
 	
 	public int deleteByWorkingWellId(int workingWellId);
+	
+	public int findWorkingWellByTunnelSectionId(int tunnelSectionId);
 }

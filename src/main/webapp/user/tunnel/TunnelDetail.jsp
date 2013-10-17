@@ -38,9 +38,22 @@
 		</div>
       <div class='span10'>
       <h4 class="text-center text-error">隧道服务状态</h4>
-      <table style='margin-bottom:0px;' class="table table-striped table-bordered table-condensed table-hover">
+      
+      <div class="row-fluid">
+      	<div class="span8">
+      	</div>
+      	<div class="span4">
+      		<svg width='100%' height='50' version='1.1' xmlns='http://www.w3.org/2000/svg'>"
+					<text x="0" y="45" fill="black">盾构段</text>
+					<rect x="50" y="30" width="50" height="20" style="fill:green;stroke:pink;stroke-width:2;opacity:0.9"></rect>
+					<text x="110" y="45" fill="black">工作井</text>
+					<rect x="160" y="0" width="30" height="50" style="fill:green;stroke:pink;stroke-width:2;opacity:0.9"></rect>
+			</svg>
+      	</div>
+      </div>
+      <table style='margin-bottom:0px;' class="table table-striped table-bordered table-condensed">
 		<s:iterator value="svgs" status="vs">
-			<tr>
+			<tr><td width="5%" style='vertical-align:middle'><span class='text-center' > <s:property value="key"/></span></td>
 				<td  style="padding:6px 4px 0px 4px;"><s:property value="value" escape="false" /></td></tr>
 		</s:iterator>
 		</table>

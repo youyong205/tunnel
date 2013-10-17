@@ -41,9 +41,10 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="5%">序号</th>
-					<th width="30%">隧道名称</th>
+					<th width="20%">隧道名称</th>
 					<th width="20%">盾构段编号</th>
 					<th width="20%">类型</th>
+					<th width="10%">状态</th>
 					<th width="10%">环境</th>
 					<th width="15%">操作
 					<t:privilege res="盾构段模块:新增">
@@ -57,6 +58,7 @@
 					<td><s:property value="tunnel.name" /></td>
 					<td><s:property value="name"/></td>
 					<td><s:property value="type"/></td>
+					<td><span  class='level<s:property value="state"/>'><s:property value="state"/></span>
 					<td><s:property value="environment"/></td>
 					<td>
 					<t:privilege res="盾构段模块:详情">

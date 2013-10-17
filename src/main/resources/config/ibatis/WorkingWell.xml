@@ -70,4 +70,10 @@
 		where
 		workingWellId=#workingWellId#
 	</delete>
+	<select id="workingWell.findWorkingWellByTunnelSectionId" resultClass="int" parameterClass="int">
+		select
+		<include refid="workingWellPosition.columns" />
+		from workingWellPosition where tunnelSectionId=#tunnelSectionId# limit 1
+	</select>
+	
 </sqlMap>

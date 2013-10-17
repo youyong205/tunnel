@@ -82,4 +82,14 @@ public class WorkingWellDao {
 		return m_baseDao.update("workingWell.update", workingWell);
 	}
 
+	public int findWorkingWellByTunnelSectionId(int tunnelSectionId) {
+		Object object = m_baseDao.queryForObject("workingWell.findWorkingWellByTunnelSectionId", tunnelSectionId);
+
+		if (object == null) {
+			return 0;
+		} else {
+			return (Integer) object;
+		}
+	}
+
 }

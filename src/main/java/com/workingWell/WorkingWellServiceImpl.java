@@ -132,4 +132,7 @@ public class WorkingWellServiceImpl implements WorkingWellService {
 		return m_workingWellDao.deleteByWorkingWellId(workingWellId);
 	}
 
+	public int findWorkingWellByTunnelSectionId(int tunnelSectionId){
+		return m_workingWellDao.findWorkingWellByTunnelSectionId(tunnelSectionId);
+	}
 }

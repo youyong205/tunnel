@@ -1,5 +1,6 @@
 package com.main;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,14 +8,16 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.Authority;
+import com.Constrants;
 import com.Modules;
 import com.Operation;
 import com.PagedAction;
-import com.main.TunnelState.TunnelSectionState;
 import com.tunnel.Tunnel;
 import com.tunnel.TunnelService;
 import com.tunnelSection.TunnelSection;
 import com.tunnelSection.TunnelSectionService;
+import com.workingWell.WorkingWell;
+import com.workingWell.WorkingWellService;
 
 public class TunnelAction extends PagedAction {
 
@@ -29,6 +32,8 @@ public class TunnelAction extends PagedAction {
 	private TunnelService m_tunnelService;
 
 	private TunnelSectionService m_tunnelSectionService;
+
+	private WorkingWellService m_workingWellService;
 
 	private Tunnel m_tunnel = new Tunnel();
 
@@ -99,20 +104,40 @@ public class TunnelAction extends PagedAction {
 		}
 	}
 
+	private void addWorkingWell(List<Object> objs, int tunnelSectionId) {
+		int workingWellId = m_workingWellService.findWorkingWellByTunnelSectionId(tunnelSectionId);
+
+		if (workingWellId > 0) {
+			WorkingWell workingWell = m_workingWellService.findByPK(workingWellId);
+
+			if (workingWell != null) {
+				System.out.println(workingWell.getId()+"!!!");
+				objs.add(workingWell);
+			}
+		}
+	}
+
 	private Map<String, String> buildTunnelSvg(int tunnelId) {
 		List<TunnelSection> sections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(tunnelId, 0,
 		      Integer.MAX_VALUE);
-		TunnelState state = new TunnelState(sections);
-		TunnelStateBuilder builder = new TunnelStateBuilder();
-		List<List<TunnelSectionState>> states = state.getStates();
-		int size = state.getSize();
-		int length = states.size();
-		Map<String, String> svgs = new LinkedHashMap<String, String>();
+		List<Object> upItems = new ArrayList<Object>();
+		List<Object> downItems = new ArrayList<Object>();
 
-		for (int i = 0; i < length; i++) {
-			List<TunnelSectionState> s = states.get(i);
-			svgs.put(buildSvgTitle(i, size, states.size()), builder.buildXml(s));
+		for (TunnelSection tunnelSection : sections) {
+			int tunnelSectionId = tunnelSection.getId();
+			if (tunnelSection.getType().equals(Constrants.UP)) {
+				upItems.add(tunnelSection);
+				addWorkingWell(upItems, tunnelSectionId);
+			} else {
+				downItems.add(tunnelSection);
+				addWorkingWell(downItems, tunnelSectionId);
+			}
 		}
+		Map<String, String> svgs = new LinkedHashMap<String, String>();
+		TunnelStateBuilder builder = new TunnelStateBuilder();
+
+		svgs.put(Constrants.UP, builder.buildXml(upItems));
+		svgs.put(Constrants.DOWN, builder.buildXml(downItems));
 		return svgs;
 	}
 
@@ -126,6 +151,10 @@ public class TunnelAction extends PagedAction {
 
 	public Map<Tunnel, Map<String, String>> getAllSvgs() {
 		return m_allSvgs;
+	}
+
+	public void setWorkingWellService(WorkingWellService workingWellService) {
+		m_workingWellService = workingWellService;
 	}
 
 }

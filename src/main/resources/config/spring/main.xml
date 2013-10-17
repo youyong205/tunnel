@@ -16,6 +16,9 @@
 		<property name="tunnelService">
 			<ref bean="tunnelService" />
 		</property>
+		<property name="workingWellService">
+			<ref bean="workingWellService" />
+		</property>
 		<property name="tunnelSectionService">
 			<ref bean="tunnelSectionService" />
 		</property>
