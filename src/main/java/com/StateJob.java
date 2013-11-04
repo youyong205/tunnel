@@ -1,5 +1,7 @@
 package com;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +12,8 @@ import org.springframework.beans.factory.InitializingBean;
 import com.liningRingConstruction.Level;
 import com.liningRingConstruction.LiningRingConstruction;
 import com.liningRingConstruction.LiningRingConstructionService;
+import com.mailRecord.MailRecord;
+import com.mailRecord.MailRecordService;
 import com.tunnel.Tunnel;
 import com.tunnel.TunnelService;
 import com.tunnelSection.TunnelSection;
@@ -22,6 +26,10 @@ public class StateJob implements java.lang.Runnable, InitializingBean {
 	private TunnelSectionService m_tunnelSectionService;
 
 	private LiningRingConstructionService m_liningRingConstructionService;
+
+	private EmailSenderJob m_emailSenderJob;
+
+	private MailRecordService m_mailRecordService;
 
 	private long m_duration = 60 * 60 * 1000L;
 
@@ -46,14 +54,14 @@ public class StateJob implements java.lang.Runnable, InitializingBean {
 						List<LiningRingConstruction> constructions = m_liningRingConstructionService
 						      .queryLimitedLiningRingConstructions(tunnelId, tunnelSectionId, 0, Integer.MAX_VALUE);
 						Map<String, Integer> states = new HashMap<String, Integer>();
-						
+
 						states.put(Level.A.getName(), 0);
 						states.put(Level.B.getName(), 0);
 						states.put(Level.C.getName(), 0);
 						states.put(Level.D.getName(), 0);
 						states.put(Level.E.getName(), 0);
 						states.put(Level.NULL.getName(), 0);
-						
+
 						for (LiningRingConstruction construction : constructions) {
 							String state = construction.getTotalState();
 							Integer count = states.get(state);
@@ -91,6 +99,14 @@ public class StateJob implements java.lang.Runnable, InitializingBean {
 
 					tunnel.setState(state);
 					m_tunnelService.updateTunnel(tunnel);
+
+					MailRecord record = buildEmailRecord(tunnelId);
+
+					if (record != null) {
+						m_emailSenderJob.addRecord(record);
+					} else {
+						System.out.println("Exist!!!!" + tunnelId);
+					}
 				}
 			} catch (Exception e) {
 				m_logger.error(e);
@@ -126,6 +142,35 @@ public class StateJob implements java.lang.Runnable, InitializingBean {
 		}
 	}
 
+	private MailRecord buildEmailRecord(int tunnelId) {
+		MailRecord record = new MailRecord();
+		Date current = getCurrentDate();
+		MailRecord exist = m_mailRecordService.findDailyRecordByTime(tunnelId, current);
+
+		if (exist == null) {
+			record.setReceivers("yong.you@dianping.com");
+			record.setTunnelId(tunnelId);
+			record.setCreationDate(new Date());
+			record.setTime(current);
+			record.setTitle("test");
+			record.setContent("test");
+			record.setType(MailRecord.DAILY);
+			return record;
+		} else {
+			return null;
+		}
+	}
+
+	private Date getCurrentDate() {
+		Calendar cal = Calendar.getInstance();
+
+		cal.setTimeInMillis(0);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		return cal.getTime();
+	}
+
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
 	}
@@ -136,6 +181,14 @@ public class StateJob implements java.lang.Runnable, InitializingBean {
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
 		m_liningRingConstructionService = liningRingConstructionService;
+	}
+
+	public void setEmailSenderJob(EmailSenderJob emailSenderJob) {
+		m_emailSenderJob = emailSenderJob;
+	}
+
+	public void setMailRecordService(MailRecordService mailRecordService) {
+		m_mailRecordService = mailRecordService;
 	}
 
 	@Override

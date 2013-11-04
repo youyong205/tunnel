@@ -1,5 +1,6 @@
 package com.mailRecord;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,6 +62,15 @@ public class MailRecordDao {
 
 	public int updateMailRecord(MailRecord mailRecord) {
 		return m_baseDao.update("mailRecord.update", mailRecord);
+	}
+
+	public MailRecord findDailyRecordByTime(int tunnelId, Date date) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("tunnelId", tunnelId);
+		parameters.put("time", date);
+		parameters.put("type", MailRecord.DAILY);
+		return (MailRecord) m_baseDao.queryForObject("mailRecord.findByTunnelTypeTime", parameters);
 	}
 
 }

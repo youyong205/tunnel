@@ -1,5 +1,6 @@
 package com.mailRecord;
 
+import java.util.Date;
 import java.util.List;
 
 public interface MailRecordService {
@@ -15,5 +16,7 @@ public interface MailRecordService {
 	public List<MailRecord> queryLimitedMailRecordsByTunnelAndType(int tunnelId,int type,int start, int size);
 
 	public int updateMailRecord(MailRecord mailRecord);
+	
+	public MailRecord findDailyRecordByTime(int tunnelId,Date date);
 
 }

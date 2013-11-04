@@ -40,8 +40,8 @@
 			<form class="text-right form-inline margin-buttom" action="userMailRecordList.do" method="post">
 				邮件类型<select name="type" id="type">
 					<option value="0">ALL</option>
-					<option value="1">日常邮件</option>
-					<option value="2">告警邮件</option>
+					<option value="1">告警邮件</option>
+					<option value="2">日常邮件</option>
 				</select>
 				隧道
 				 <s:select name="tunnelId" id="tunnelSectionId" headerKey="0"
@@ -53,9 +53,9 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				 <thead><tr>
 					<th width="8%">序号</th>
-					<th width="15%">隧道名称</th>
-					<th width="15%">邮件类型</th>
-					<th width="15%">发送时间</th>
+					<th width="23%">隧道名称</th>
+					<th width="10%">邮件类型</th>
+					<th width="12%">发送时间</th>
 					<th width="37%">邮件标题</th>
 					<th width="10%">操作</th>
 				</tr></thead><tbody>
@@ -64,7 +64,7 @@
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:property value="tunnel.name" /></td>
 					<td>
-						<s:if test="type==1">
+						<s:if test="type==2">
 							日常邮件
 						</s:if>
 						<s:else>

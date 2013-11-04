@@ -1,6 +1,7 @@
 package com.mailRecord;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -52,9 +53,9 @@ public class MailRecordServiceImpl implements MailRecordService {
 	}
 
 	@Override
-	public int queryAllSizeByTunnelAndType(int tunnelId,int type) {
+	public int queryAllSizeByTunnelAndType(int tunnelId, int type) {
 		try {
-			return m_mailRecordDao.queryAllSizeByTunnelAndType(tunnelId,type);
+			return m_mailRecordDao.queryAllSizeByTunnelAndType(tunnelId, type);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return -1;
@@ -63,9 +64,9 @@ public class MailRecordServiceImpl implements MailRecordService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<MailRecord> queryLimitedMailRecordsByTunnelAndType(int tunnelId,int type,int start, int size) {
+	public List<MailRecord> queryLimitedMailRecordsByTunnelAndType(int tunnelId, int type, int start, int size) {
 		try {
-			return m_mailRecordDao.queryLimitedMailRecordsByTunnelAndType(tunnelId,type,start, size);
+			return m_mailRecordDao.queryLimitedMailRecordsByTunnelAndType(tunnelId, type, start, size);
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return new ArrayList<MailRecord>();
@@ -86,4 +87,13 @@ public class MailRecordServiceImpl implements MailRecordService {
 		}
 	}
 
+	@Override
+	public MailRecord findDailyRecordByTime(int tunnelId, Date date) {
+		try {
+			return m_mailRecordDao.findDailyRecordByTime(tunnelId, date);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+		}
+		return null;
+	}
 }

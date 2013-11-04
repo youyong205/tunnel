@@ -11,6 +11,12 @@
 		<include refid="mailRecord.columns" />
 		from mailRecord
 	</select>
+	<select id="mailRecord.findByTunnelTypeTime" resultClass="mailRecord">
+		select
+		<include refid="mailRecord.columns" />
+		from mailRecord
+		where tunnelId=#tunnelId# and time=#time# and type=#type# limit 1
+	</select>
 	<select id="mailRecord.queryAllSize" resultClass="int">
 		select count(*) from mailRecord
 		<dynamic prepend="WHERE">

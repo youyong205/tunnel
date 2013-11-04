@@ -8,9 +8,9 @@ public class MailRecord {
 	private int m_id;
 
 	private int m_tunnelId;
-	
+
 	private Tunnel m_tunnel;
-	
+
 	private int m_type;
 
 	private Date m_time;
@@ -24,6 +24,14 @@ public class MailRecord {
 	private int m_status;
 
 	private Date m_creationDate;
+
+	public static final int SUCCESS = 1;
+
+	public static final int FAIL = 2;
+
+	public static final int ALARM = 1;
+
+	public static final int DAILY = 2;
 
 	public int getId() {
 		return m_id;
@@ -60,14 +68,14 @@ public class MailRecord {
 	public String getTitle() {
 		return m_title;
 	}
-	
+
 	public int getTunnelId() {
-   	return m_tunnelId;
-   }
+		return m_tunnelId;
+	}
 
 	public void setTunnelId(int tunnelId) {
-   	m_tunnelId = tunnelId;
-   }
+		m_tunnelId = tunnelId;
+	}
 
 	public void setTitle(String title) {
 		m_title = title;
@@ -98,18 +106,17 @@ public class MailRecord {
 	}
 
 	public Tunnel getTunnel() {
-   	return m_tunnel;
-   }
+		return m_tunnel;
+	}
 
 	public void setTunnel(Tunnel tunnel) {
-   	m_tunnel = tunnel;
-   }
+		m_tunnel = tunnel;
+	}
 
 	@Override
 	public String toString() {
 		return "Resource [m_id=" + m_id + ", m_type=" + m_type + ", m_time=" + m_time + ", m_receivers=" + m_receivers
 		      + ", m_title=" + m_title + ", m_status=" + m_status + "]";
 	}
-
 
 }

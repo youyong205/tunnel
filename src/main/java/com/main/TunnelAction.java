@@ -111,7 +111,6 @@ public class TunnelAction extends PagedAction {
 			WorkingWell workingWell = m_workingWellService.findByPK(workingWellId);
 
 			if (workingWell != null) {
-				System.out.println(workingWell.getId()+"!!!");
 				objs.add(workingWell);
 			}
 		}

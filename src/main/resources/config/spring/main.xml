@@ -11,6 +11,22 @@
 		<property name="liningRingConstructionService">
 			<ref bean="liningRingConstructionService" />
 		</property>
+		<property name="emailSenderJob">
+			<ref bean="emailSenderJob" />
+		</property>
+		<property name="mailRecordService">
+			<ref bean="mailRecordService" />
+		</property>
+	</bean>
+	<bean id="mailSender" class="com.mailRecord.GMailSenderImpl">
+	</bean>
+	<bean id="emailSenderJob" class="com.EmailSenderJob" lazy-init="false">
+		<property name="mailRecordService">
+			<ref bean="mailRecordService" />
+		</property>
+		<property name="mailSender">
+			<ref bean="mailSender" />
+		</property>
 	</bean>
 	<bean id="userTunnelAction" class="com.main.TunnelAction" scope="prototype">
 		<property name="tunnelService">

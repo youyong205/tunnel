@@ -42,8 +42,8 @@ $(document).ready(function() {
 						<td width="20%" style="text-align:right;"><strong class="text-success">邮件类型</strong></td>
 						<td>
 							<select name="mailRecord.type" id="type">
-								<option value="1">日常邮件</option>
-								<option value="2">告警邮件</option>
+								<option value="1">告警邮件</option>
+								<option value="2">日常邮件</option>
 							</select>
 						</td>
 					</tr>
