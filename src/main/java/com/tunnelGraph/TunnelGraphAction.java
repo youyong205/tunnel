@@ -28,7 +28,7 @@ public class TunnelGraphAction extends PagedAction {
 	private List<TunnelGraph> m_tunnelGraphs;
 
 	private List<Tunnel> m_tunnels;
-	
+
 	private Tunnel m_tunnel;
 
 	private int m_tunnelGraphId;
@@ -102,8 +102,8 @@ public class TunnelGraphAction extends PagedAction {
 
 	public String tunnelGraphAdd() {
 		try {
-			if(m_tunnelId==0){
-				m_tunnelId= m_tunnelService.queryDefaultTunnelId();
+			if (m_tunnelId == 0) {
+				m_tunnelId = m_tunnelService.queryDefaultTunnelId();
 			}
 			m_tunnel = m_tunnelService.findByPK(m_tunnelId);
 			m_tunnels = m_tunnelService.queryAllTunnels();
@@ -178,12 +178,27 @@ public class TunnelGraphAction extends PagedAction {
 			      start, SIZE);
 			for (TunnelGraph section : m_tunnelGraphs) {
 				section.setTunnel(m_tunnelService.findByPK(section.getTunnelId()));
+				section.setUrl(builderUrl(section));
 			}
 			return SUCCESS;
 		} catch (Exception e) {
 			m_logger.error(e.getMessage(), e);
 			return ERROR;
 		}
+	}
+
+	private String builderUrl(TunnelGraph graph) {
+		int type = graph.getComponentType();
+		int id = graph.getComponentId();
+		
+		if (type == 1) {
+			return String.format("tunnelSectionDetail.do?tunnelSectionId=%s", id);
+		} else if (type == 2) {
+			return String.format("workingWellDetail.do?workingWellId=%s", id);
+		} else if (type == 3) {
+			return String.format("openSectionDetail.do?openSectionId=%s", id);
+		}
+		return null;
 	}
 
 	public String tunnelGraphUpdate() {
@@ -269,7 +284,7 @@ public class TunnelGraphAction extends PagedAction {
 	}
 
 	public Tunnel getTunnel() {
-   	return m_tunnel;
-   }
+		return m_tunnel;
+	}
 
 }

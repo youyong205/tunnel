@@ -74,7 +74,7 @@ $(document).ready(function() {
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">构件在隧道剖面顺序号</strong></td>
 						<td>
-							<input type="text" size="60" name="tunnelGraph.indexNumber" class="{required:true,number:true}"/>
+							<input type="text" name="tunnelGraph.indexNumber" class="{required:true,number:true}"/>
 						</td>
 					</tr>
 					<tr>

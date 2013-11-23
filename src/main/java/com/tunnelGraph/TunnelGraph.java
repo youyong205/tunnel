@@ -20,6 +20,8 @@ public class TunnelGraph {
 	private int m_componentId;
 
 	private Date m_creationDate;
+	
+	private String m_url;
 
 	public int getId() {
 		return m_id;
@@ -85,4 +87,12 @@ public class TunnelGraph {
 		m_creationDate = creationDate;
 	}
 
+	public String getUrl() {
+   	return m_url;
+   }
+
+	public void setUrl(String url) {
+   	m_url = url;
+   }
+	
 }

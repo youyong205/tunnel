@@ -67,7 +67,7 @@
 					</td>
 					<td><s:property value="indexNumber"/></td>
 					<td>
-						<a class="btn btn-small btn-success" href="tunnelGraphDetail.do?tunnelGraphId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">构件详情</a>
+						<a class="btn btn-small btn-info" href='<s:property value="url"/>'>构件详情</a>
 					<t:privilege res="隧道画图模块:详情">
 						<a class="btn btn-small btn-success" href="tunnelGraphDetail.do?tunnelGraphId=<s:property value="id"/>&index=<s:property value="index"/>&tunnelId=<s:property value="tunnelIndexId"/>">详情</a>
 					</t:privilege>
