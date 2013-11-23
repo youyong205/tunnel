@@ -31,6 +31,7 @@
 	<include file="config/struts/struts-inspection.xml"></include>
 	<include file="config/struts/struts-curing.xml"></include>
 	<include file="config/struts/struts-tunnelSection.xml"></include>
+	<include file="config/struts/struts-tunnelGraph.xml"></include>
 	
 	<include file="config/struts/struts-contactChannel.xml"></include>
 	<include file="config/struts/struts-workingWell.xml"></include>

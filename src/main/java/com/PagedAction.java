@@ -51,6 +51,7 @@ public abstract class PagedAction extends ActionSupport implements SessionAware 
 	      Modules.s_log_module,
 	      Modules.s_document_model,
 	      Modules.s_tunnel_model,
+	      Modules.s_tunnelGraph_model,
 
 	      Modules.s_constructionUnit_model,
 	      Modules.s_liningRing_model,

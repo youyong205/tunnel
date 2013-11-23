@@ -22,7 +22,7 @@
 		if (obj) obj.innerHTML = all + " 秒后";
 		all--;
 	}
-	var all = 3;
+	var all = 300;
 	if (all > 0) window.setInterval("timeDesc();", 1000);
 </script>
 </head>

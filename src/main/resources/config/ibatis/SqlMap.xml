@@ -20,6 +20,7 @@
 		<sqlMap resource="config/ibatis/Curing.xml"/>
 		<sqlMap resource="config/ibatis/ConstructionUnit.xml"/>
 		<sqlMap resource="config/ibatis/TunnelSection.xml"/>
+		<sqlMap resource="config/ibatis/TunnelGraph.xml"/>
 		<sqlMap resource="config/ibatis/ContactChannel.xml"/>
 		<sqlMap resource="config/ibatis/WorkingWell.xml"/>
 		<sqlMap resource="config/ibatis/BuriedSection.xml"/>

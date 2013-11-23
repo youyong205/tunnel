@@ -64,6 +64,16 @@ CREATE TABLE  `tunnel` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='隧道基本信息';
 
+CREATE TABLE  `tunnelGraph` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tunnelId` int(11) NOT NULL COMMENT '隧道ID',
+  `lineType` varchar(64) NOT NULL  COMMENT '上行或者下行',
+  `componentType` int(11) NOT NULL COMMENT '隧道构件类型，1表示盾构段，2表示工作井，3表示敞开段',
+  `componentId` int(11) NOT NULL COMMENT '构件ID',
+  `creationDate` datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='隧道基本信息';
+
 CREATE TABLE  `liningRing` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL  COMMENT '衬砌环名称',

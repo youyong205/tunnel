@@ -48,7 +48,7 @@ $(document).ready(function() {
 						<td style="text-align:right;"><strong class="text-success">烟道夹层标高</strong></td>
 						<td><input type="text" name="workingWell.eleationMezzanine" class="{required:true}"/></td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td style="text-align:right;"><strong class="text-success">工作井位置</strong>
 							<i tips="" data-trigger="hover" class="icon-question-sign" data-toggle="popover" data-placement="top" data-content="位置表示此工作井在某个盾构段后面，如果是上下行，可能需要选择两个盾构段！"></i>
 						</td>
@@ -57,7 +57,7 @@ $(document).ready(function() {
 								listKey="id" listValue="name" name="tunnelSectionIdSelect" theme="simple">
 							</s:checkboxlist>
 						</td>
-					</tr>
+					</tr> --%>
 					<tr>
 						<td width="20%" style="text-align:right;"><strong class="text-success">工作井编号</strong></td>
 						<td width="30%"><input type="text" name="workingWell.name" class="{required:true,maxlength:64}"/></td>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="tunnelGraph" extends="default">
+		<action name="tunnelGraphList" class="tunnelGraphAction" method="tunnelGraphList">
+			<result name="success">admin/tunnelGraph/TunnelGraphList.jsp</result>
+		</action>
+		<action name="tunnelGraphAdd" class="tunnelGraphAction" method="tunnelGraphAdd">
+			<result name="success">admin/tunnelGraph/TunnelGraphAdd.jsp</result>
+		</action>
+		<action name="tunnelGraphAddSubmit" class="tunnelGraphAction" method="tunnelGraphAddSubmit">
+			<result name="success" type="redirect">tunnelGraphList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="tunnelGraphUpdate" class="tunnelGraphAction" method="tunnelGraphUpdate" >
+			<result name="success">admin/tunnelGraph/TunnelGraphUpdate.jsp</result>
+		</action>
+		<action name="tunnelGraphDetail" class="tunnelGraphAction" method="tunnelGraphUpdate" >
+			<result name="success">admin/tunnelGraph/TunnelGraphDetail.jsp</result>
+		</action>
+		<action name="tunnelGraphUpdateSubmit" class="tunnelGraphAction" method="tunnelGraphUpdateSubmit">
+			<result name="success" type="redirect">tunnelGraphList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+		<action name="tunnelGraphDelete" class="tunnelGraphAction" method="tunnelGraphDelete">
+			<result name="success" type="redirect">tunnelGraphList.action?index=${index}&amp;tunnelId=${tunnelId}</result>
+		</action>
+	</package>	
+</struts>

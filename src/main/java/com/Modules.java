@@ -132,4 +132,6 @@ public class Modules {
 
 	public static String s_mailRecord_model="邮件模块";
 
+	public static String s_tunnelGraph_model="隧道画图模块";
+
 }

@@ -38,6 +38,12 @@
 		<property name="tunnelSectionService">
 			<ref bean="tunnelSectionService" />
 		</property>
+		<property name="tunnelGraphService">
+			<ref bean="tunnelGraphService" />
+		</property>
+		<property name="openSectionService">
+			<ref bean="openSectionService" />
+		</property>
 		<property name="logService">
 			<ref bean="logService" />
 		</property>

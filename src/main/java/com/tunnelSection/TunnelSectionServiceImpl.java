@@ -54,16 +54,6 @@ public class TunnelSectionServiceImpl implements TunnelSectionService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<TunnelSection> queryLimitedTunnelSections(int start, int size) {
-		try {
-			return m_tunnelSectionDao.queryLimitedTunnelSections(start, size);
-		} catch (Exception e) {
-			m_logger.error(e.getMessage(), e);
-			return new ArrayList<TunnelSection>();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<TunnelSection> queryLimitedTunnelSectionsByTunnelId(int tunnelId, int start, int size) {
 		try {

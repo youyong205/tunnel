@@ -27,16 +27,6 @@ public class TunnelSectionDao {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List queryLimitedTunnelSections(int start, int size) {
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		parameters.put("start", start);
-		parameters.put("size", size);
-
-		return m_baseDao.queryForList("tunnelSection.queryLimitedTunnelSections", parameters);
-	}
-
-	@SuppressWarnings("rawtypes")
 	public List queryLimitedTunnelSectionsByTunnelId(int tunnelId, int start, int size) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 

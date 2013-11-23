@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <div class="span2" id="adminMenu">
-	<div class="well sidebar-nav fixed">
+	<div class="well sidebar-nav">
 		<ul class="nav nav-list">
 			<li class="nav-header" id="tunnelList"><a href="tunnelList.do">隧道信息</a></li>
 			<li class="nav-child" id="tunnelSectionList"><a href="tunnelSectionList.do">盾构段</a></li>
@@ -18,13 +18,11 @@
 			<li class="nav-child2" id="facilityList"><a href="facilityList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">设备</a></li>
 			<li class="nav-child2" id="escapeList"><a href="escapeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">逃生楼梯</a></li>
 			<li class="nav-child2" id="linePipeList"><a href="linePipeList.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>">预埋管线</a></li>
-			
-			
 			<li class="nav-child" id="contactChannelList"><a href="contactChannelList.do?tunnelId=<s:property value="tunnelId"/>">联络通道</a></li>
 			<li class="nav-child" id="workingWellList"><a href="workingWellList.do?tunnelId=<s:property value="tunnelId"/>">工作井</a></li>
 			<li class="nav-child" id="buriedSectionList"><a href="buriedSectionList.do?tunnelId=<s:property value="tunnelId"/>">暗埋段</a></li>
 			<li class="nav-child" id="openSectionList"><a href="openSectionList.do?tunnelId=<s:property value="tunnelId"/>">敞开段</a></li>
-			
+			<li class="nav-header" id="tunnelGraphList"><a href="tunnelGraphList.do">隧道剖面</a></li>
 			<li class="nav-header">基础信息</li>
 			<li class="nav-child" id="liningRingList"><a href="liningRingList.do">衬砌环</a></li>
 			<li class="nav-child" id="constructionUnitList"><a href="constructionUnitList.do">工程单位</a></li>

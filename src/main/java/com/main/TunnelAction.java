@@ -12,8 +12,12 @@ import com.Constrants;
 import com.Modules;
 import com.Operation;
 import com.PagedAction;
+import com.openSection.OpenSection;
+import com.openSection.OpenSectionService;
 import com.tunnel.Tunnel;
 import com.tunnel.TunnelService;
+import com.tunnelGraph.TunnelGraph;
+import com.tunnelGraph.TunnelGraphService;
 import com.tunnelSection.TunnelSection;
 import com.tunnelSection.TunnelSectionService;
 import com.workingWell.WorkingWell;
@@ -34,6 +38,10 @@ public class TunnelAction extends PagedAction {
 	private TunnelSectionService m_tunnelSectionService;
 
 	private WorkingWellService m_workingWellService;
+
+	private OpenSectionService m_openSectionService;
+
+	private TunnelGraphService m_tunnelGraphService;
 
 	private Tunnel m_tunnel = new Tunnel();
 
@@ -104,34 +112,43 @@ public class TunnelAction extends PagedAction {
 		}
 	}
 
-	private void addWorkingWell(List<Object> objs, int tunnelSectionId) {
-		int workingWellId = m_workingWellService.findWorkingWellByTunnelSectionId(tunnelSectionId);
+	private List<Object> queryGraphItem(List<TunnelGraph> graphs) {
+		List<Object> objs = new ArrayList<Object>();
 
-		if (workingWellId > 0) {
-			WorkingWell workingWell = m_workingWellService.findByPK(workingWellId);
+		for (TunnelGraph graph : graphs) {
+			int type = graph.getComponentType();
+			int componmentId = graph.getComponentId();
+			if (type == 1) {
+				TunnelSection tunnelSection = m_tunnelSectionService.findByPK(componmentId);
 
-			if (workingWell != null) {
-				objs.add(workingWell);
+				if (tunnelSection != null) {
+					objs.add(tunnelSection);
+				}
+			} else if (type == 2) {
+				WorkingWell workingWell = m_workingWellService.findByPK(componmentId);
+
+				if (workingWell != null) {
+					objs.add(workingWell);
+				}
+			} else if (type == 3) {
+				OpenSection openSection = m_openSectionService.findByPK(componmentId);
+
+				if (openSection != null) {
+					objs.add(openSection);
+				}
 			}
 		}
+		return objs;
 	}
 
 	private Map<String, String> buildTunnelSvg(int tunnelId) {
-		List<TunnelSection> sections = m_tunnelSectionService.queryLimitedTunnelSectionsByTunnelId(tunnelId, 0,
-		      Integer.MAX_VALUE);
-		List<Object> upItems = new ArrayList<Object>();
-		List<Object> downItems = new ArrayList<Object>();
+		List<TunnelGraph> upGraphs = m_tunnelGraphService.queryLimitedTunnelGraphsByTunnelIdAndLineType(tunnelId,
+		      Constrants.UP, 0, Integer.MAX_VALUE);
+		List<TunnelGraph> downGraphs = m_tunnelGraphService.queryLimitedTunnelGraphsByTunnelIdAndLineType(tunnelId,
+		      Constrants.DOWN, 0, Integer.MAX_VALUE);
+		List<Object> upItems = queryGraphItem(upGraphs);
+		List<Object> downItems = queryGraphItem(downGraphs);
 
-		for (TunnelSection tunnelSection : sections) {
-			int tunnelSectionId = tunnelSection.getId();
-			if (tunnelSection.getType().equals(Constrants.UP)) {
-				upItems.add(tunnelSection);
-				addWorkingWell(upItems, tunnelSectionId);
-			} else {
-				downItems.add(tunnelSection);
-				addWorkingWell(downItems, tunnelSectionId);
-			}
-		}
 		Map<String, String> svgs = new LinkedHashMap<String, String>();
 		TunnelStateBuilder builder = new TunnelStateBuilder();
 
@@ -154,6 +171,14 @@ public class TunnelAction extends PagedAction {
 
 	public void setWorkingWellService(WorkingWellService workingWellService) {
 		m_workingWellService = workingWellService;
+	}
+
+	public void setOpenSectionService(OpenSectionService openSectionService) {
+		m_openSectionService = openSectionService;
+	}
+
+	public void setTunnelGraphService(TunnelGraphService tunnelGraphService) {
+		m_tunnelGraphService = tunnelGraphService;
 	}
 
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="tunnelGraph" type="com.tunnelGraph.TunnelGraph" />
+
+	<sql id="tunnelGraph.columns">
+		id,tunnelId,lineType,indexNumber,componentType,componentId,creationDate
+	</sql>
+	<select id="tunnelGraph.querySizeByTunnelIdAndLineType" resultClass="int">
+		select count(*) from tunnelGraph where tunnelId=#tunnelId# and lineType=#lineType# 
+	</select>
+	<select id="tunnelGraph.queryLimitedTunnelGraphsByTunnelIdAndLineType" resultClass="tunnelGraph">
+		select
+		<include refid="tunnelGraph.columns" />
+		from tunnelGraph where tunnelId=#tunnelId# and lineType=#lineType# 
+   		order by indexNumber asc limit #start#,#size#
+	</select>
+	<select id="tunnelGraph.findById" resultClass="tunnelGraph" parameterClass="int">
+		select
+		<include refid="tunnelGraph.columns" />
+		from tunnelGraph where id=#id#
+	</select>
+	<insert id="tunnelGraph.insert" parameterClass="tunnelGraph">
+		insert into tunnelGraph (<include refid="tunnelGraph.columns" />) values
+		(#id#,#tunnelId#,#lineType#,#indexNumber#,#componentType#,#componentId#,now())
+		<selectKey resultClass="int" keyProperty="id">
+             <![CDATA[   select last_insert_id() as id  ]]>
+		</selectKey>
+	</insert>
+	<update id="tunnelGraph.update" parameterClass="tunnelGraph">
+		update tunnelGraph set tunnelId=#tunnelId#,
+		lineType=#lineType#,indexNumber=#indexNumber#,
+		componentType=#componentType#,componentId=#componentId#,creationDate=now()
+		where id=#id#
+	</update>
+	<delete id="tunnelGraph.delete" parameterClass="int">
+		delete from tunnelGraph
+		where
+		id=#id#
+	</delete>
+</sqlMap>

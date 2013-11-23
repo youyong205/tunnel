@@ -40,14 +40,16 @@
       <h4 class="text-center text-error">隧道服务状态</h4>
       
       <div class="row-fluid">
-      	<div class="span8">
+      	<div class="span7">
       	</div>
-      	<div class="span4">
+      	<div class="span5">
       		<svg width='100%' height='50' version='1.1' xmlns='http://www.w3.org/2000/svg'>"
 					<text x="0" y="45" fill="black">盾构段</text>
 					<rect x="50" y="30" width="50" height="20" style="fill:green;stroke:pink;stroke-width:2;opacity:0.9"></rect>
 					<text x="110" y="45" fill="black">工作井</text>
-					<rect x="160" y="0" width="30" height="50" style="fill:green;stroke:pink;stroke-width:2;opacity:0.9"></rect>
+					<rect x="160" y="0" width="30" height="50" style="fill:#F0F8FF;stroke:pink;stroke-width:2;opacity:0.9"></rect>
+					<text x="200" y="45" fill="black">敞开段</text>
+					<rect x="250" y="20" width="50" height="30" style="fill:#6495ED;stroke:pink;stroke-width:2;opacity:0.9"></rect>
 			</svg>
       	</div>
       </div>
