@@ -331,6 +331,7 @@ CREATE TABLE `cracks` (
   `type` varchar(64) NOT NULL COMMENT '裂缝形态',
   `length` double NOT NULL COMMENT '长度(mm)',
   `width` double NOT NULL COMMENT '宽度(mm)',
+  `depth` double NOT NULL COMMENT '宽度(mm)',
   `angle` double NOT NULL COMMENT '中心点环向角度(°)',
   `dip` double NOT NULL COMMENT '裂缝倾角(°)',
   `date` datetime NOT NULL COMMENT '测量时间',

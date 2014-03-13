@@ -9,28 +9,28 @@ import com.tunnelSection.TunnelSection;
 import com.workingWell.WorkingWell;
 
 public class TunnelStateBuilder {
-	private final int SECTION_WIDTH = 250;
+	private int SECTION_WIDTH = 250;
 
-	private final int SECTION_HEIGHT = 20;
+	private int SECTION_HEIGHT = 30;
 
-	private final int WORKING_WIDTH = 20;
+	private int WORKING_WIDTH = 20;
 
-	private final int WORKING_HEIGHT = 50;
+	private int WORKING_HEIGHT = 50;
 
-	private final int OPEN_WIDTH = 150;
+	private int OPEN_WIDTH = 150;
 
-	private final int OPEN_HEIGHT = 40;
+	private int OPEN_HEIGHT = 20;
 
-	private final String GREEN = "green";
+	private String GREEN = "green";
 
-	private final String BLUE = "blue";
+	private String BLUE = "blue";
 
-	private final String ORANGE = "orange";
+	private String ORANGE = "orange";
 
-	private final String YELLOW = "yellow";
+	private String YELLOW = "yellow";
 
-	private final String RED = "red";
-	
+	private String RED = "red";
+
 	private Map<String, String> m_colors = new HashMap<String, String>();
 
 	public TunnelStateBuilder() {
@@ -63,24 +63,22 @@ public class TunnelStateBuilder {
 
 		return String.format(format, workingWell.getTunnelId(), workingWell.getId());
 	}
-	
+
 	private String buildLink(OpenSection openSection) {
 		String format = " <a xlink:href='userOpenSectionDetail.do?tunnelId=%d&openSectionId=%d'>";
 
 		return String.format(format, openSection.getTunnelId(), openSection.getId());
 	}
 
-
 	private String buildLinkFoot() {
 		return " </a>";
 	}
 
 	private String buildRectangle(int offset, TunnelSection tunnelSection) {
-		String format = "<rect x='%d' y='30' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:2;"
+		String format = "<rect x='%d' y='20' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:2;"
 		      + "opacity:0.9'/>";
 
-		return String.format(format, offset, SECTION_WIDTH, SECTION_HEIGHT,
-		      m_colors.get(tunnelSection.getState()));
+		return String.format(format, offset, SECTION_WIDTH, SECTION_HEIGHT, m_colors.get(tunnelSection.getState()));
 	}
 
 	private String buildRectangle(int offset, WorkingWell workingWell) {
@@ -89,15 +87,13 @@ public class TunnelStateBuilder {
 
 		return String.format(format, offset, WORKING_WIDTH, WORKING_HEIGHT, "#F0F8FF");
 	}
-	
 
 	private String buildRectangle(int offset, OpenSection openSection) {
-		String format = "<rect x='%d' y='20' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:2;"
+		String format = "<rect x='%d' y='30' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:2;"
 		      + "opacity:0.9'/>";
 
 		return String.format(format, offset, OPEN_WIDTH, OPEN_HEIGHT, "#6495ED");
 	}
-
 
 	public String buildXml(List<Object> objs) {
 		StringBuilder sb = new StringBuilder(1024);
@@ -108,25 +104,25 @@ public class TunnelStateBuilder {
 		int offset = 0;
 		for (int i = 0; i < length; i++) {
 			Object obj = objs.get(i);
-			
+
 			if (obj instanceof TunnelSection) {
 				TunnelSection section = (TunnelSection) obj;
 				sb.append(buildLink(section));
 				sb.append(buildRectangle(offset, section));
 				sb.append(buildLinkFoot());
-				offset +=SECTION_WIDTH;
+				offset += SECTION_WIDTH;
 			} else if (obj instanceof WorkingWell) {
 				WorkingWell workingWell = (WorkingWell) obj;
 				sb.append(buildLink(workingWell));
 				sb.append(buildRectangle(offset, workingWell));
 				sb.append(buildLinkFoot());
-				offset +=WORKING_WIDTH;
-			} else if(obj instanceof OpenSection){
+				offset += WORKING_WIDTH;
+			} else if (obj instanceof OpenSection) {
 				OpenSection openSection = (OpenSection) obj;
 				sb.append(buildLink(openSection));
 				sb.append(buildRectangle(offset, openSection));
 				sb.append(buildLinkFoot());
-				offset +=OPEN_WIDTH;
+				offset += OPEN_WIDTH;
 			}
 		}
 		sb.append(buildFooter());

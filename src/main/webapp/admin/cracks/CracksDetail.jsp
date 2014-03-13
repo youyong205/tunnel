@@ -93,20 +93,23 @@ $(document).ready(function() {
 					<tr>
 						<td style="text-align:right;"><strong class="text-success">宽度(mm)</strong></td>
 						<td><input readonly type="text" name="cracks.width"  value='<s:property value="cracks.width"/>' class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">中心点环向角度(°)</strong></td>
-						<td><input readonly type="text" name="cracks.angle"  value='<s:property value="cracks.angle"/>' class="{required:true,number:true}"/></td>
+						<td style="text-align:right;"><strong class="text-success">深度(mm)</strong></td>
+						<td><input readonly type="text" name="cracks.depth"  value='<s:property value="cracks.width"/>' class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">中心点环向角度(°)</strong></td>
+						<td><input readonly type="text" name="cracks.angle"  value='<s:property value="cracks.angle"/>' class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">裂缝倾角(°)</strong></td>
 						<td><input readonly type="text" name="cracks.dip"  value='<s:property value="cracks.dip"/>' class="{required:true,number:true}"/></td>
-						<td style="text-align:right;"><strong class="text-success">是否出现严重问题</strong></td>
+						
+					</tr>
+					<tr>
+					<td style="text-align:right;"><strong class="text-success">是否出现严重问题</strong></td>
 						<td>
 							<select id="serious" name="cracks.serious">
 								<option value="1">否</option>
 								<option value="2">是</option>
-							</select>
-					</tr>
-					<tr>
+							</select></td>
 					<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
 						<td><textarea readonly type="text" rows="5" cols="40"  name="cracks.des" class="{maxlength:512}"><s:property value="cracks.des"/></textarea></td>
 					</tr>

@@ -4,7 +4,7 @@
 	<typeAlias alias="cracks" type="com.cracks.Cracks" />
 	<sql id="cracks.columns">
 		id,tunnelId,tunnelSectionId,liningRingConstructionId,blockIndex,number,type,
-		length,width,angle,dip,date,serious,des,creationDate,modifyDate
+		length,width,depth,angle,dip,date,serious,des,creationDate,modifyDate
 	</sql>
 	<select id="cracks.queryByIds" resultClass="cracks" parameterClass="list">
 		select <include refid="cracks.columns" /> <![CDATA[ from cracks
@@ -66,7 +66,7 @@
 	<insert id="cracks.insert" parameterClass="cracks">
 		insert into cracks (<include refid="cracks.columns" />) values
 		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#blockIndex#,
-		#number#,#type#,#length#,#width#,#angle#,#dip#,#date#,#serious#,#des#,now(),now())
+		#number#,#type#,#length#,#width#,#depth#,#angle#,#dip#,#date#,#serious#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
@@ -74,7 +74,7 @@
 	<update id="cracks.update" parameterClass="cracks">
 		update cracks set
 		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,
-		blockIndex=#blockIndex#,number=#number#,type=#type#,length=#length#,width=#width#,serious=#serious#
+		blockIndex=#blockIndex#,number=#number#,type=#type#,length=#length#,width=#width#,depth=#depth#,serious=#serious#,
 		angle=#angle#,dip=#dip#,date=#date#,des=#des#,modifyDate=now() where id=#id#
 	</update>
 	<delete id="cracks.delete" parameterClass="int">

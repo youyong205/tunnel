@@ -63,23 +63,24 @@ $(document).ready(function() {
 					<tr><td>第五列</td><td>裂缝条数</td></tr>
 					<tr><td>第六列</td><td>长度(mm)</td></tr>
 					<tr><td>第七列</td><td>宽度(mm)</td></tr>
-					<tr><td>第八列</td><td>中心点环向角度(°)</td></tr>
-					<tr><td>第九列</td><td>裂缝倾角(°)</td></tr>
-					<tr><td>第十列</td><td>是否出现严重问题<span class='text-error'>（1表示否，2表示是）</span></td></tr>
-					<tr><td>第十一列</td><td>备注信息</td></tr>
+					<tr><td>第八列</td><td>深度(mm)</td></tr>
+					<tr><td>第九列</td><td>中心点环向角度(°)</td></tr>
+					<tr><td>第十列</td><td>裂缝倾角(°)</td></tr>
+					<tr><td>第十一列</td><td>是否出现严重问题<span class='text-error'>（1表示否，2表示是）</span></td></tr>
+					<tr><td>第十二列</td><td>备注信息</td></tr>
 				</table>
 				<table class="table table-striped table-bordered table-condensed">
-					<tr><th>衬砌环唯一名称</th><th>所在块</th><th>测量时间</th><th>裂缝形态</th><th>裂缝条数</th><th>长度(mm)</th><th>宽度(mm)</th><th>中心点环向角度(°)</th><th>裂缝倾角(°)</th><th>是否出现严重问题</th><th>备注信息</th></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-01</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-02</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-03</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-04</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-05</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-06</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-07</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-08</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-09</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
-					<tr><td>衬砌环001</td><td>1</td><td>2001-01-10</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>1</td><td>暂无说明</td></tr>
+					<tr><th>衬砌环唯一名称</th><th>所在块</th><th>测量时间</th><th>裂缝形态</th><th>裂缝条数</th><th>长度(mm)</th><th>宽度(mm)</th><th>深度(mm)</th><th>中心点环向角度(°)</th><th>裂缝倾角(°)</th><th>是否出现严重问题</th><th>备注信息</th></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-01</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-02</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-03</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-04</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-05</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-06</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-07</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-08</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-09</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
+					<tr><td>衬砌环001</td><td>1</td><td>2001-01-10</td><td>线条形状</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>暂无说明</td></tr>
 			</table>
 			</form>
       </div>

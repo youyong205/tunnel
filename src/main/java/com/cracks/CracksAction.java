@@ -175,7 +175,7 @@ public class CracksAction extends LineChartAction {
 		items.add(new ChartItem("裂缝数量单块最大值", numberItem.getSequenceToMaxValue()));
 		items.add(new ChartItem("裂缝数量所有块总和", numberItem.getSequenceToAllValue()));
 		items.add(new ChartItem("裂缝宽度单块最大值", widthItem.getSequenceToMaxValue()));
-		items.add(new ChartItem("裂缝宽度所有块总和", widthItem.getSequenceToAllValue()));
+		//items.add(new ChartItem("裂缝宽度所有块总和", widthItem.getSequenceToAllValue()));
 		lineChart.add(items);
 	}
 
@@ -189,13 +189,14 @@ public class CracksAction extends LineChartAction {
 			int number = convertToInteger(cells[4]);
 			double length = convertToDouble(cells[5]);
 			double width = convertToDouble(cells[6]);
-			double angle = convertToDouble(cells[7]);
-			double dip = convertToDouble(cells[8]);
-			int serious = convertToInteger(cells[9]);
+			double depth = convertToDouble(cells[7]);
+			double angle = convertToDouble(cells[8]);
+			double dip = convertToDouble(cells[9]);
+			int serious = convertToInteger(cells[10]);
 			String des = "";
 
-			if (cells.length >= 11) {
-				des = convertToString(cells[10]);
+			if (cells.length >= 12) {
+				des = convertToString(cells[11]);
 			}
 
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
@@ -210,6 +211,7 @@ public class CracksAction extends LineChartAction {
 				cracks.setNumber(number);
 				cracks.setWidth(width);
 				cracks.setLength(length);
+				cracks.setDepth(depth);
 				cracks.setAngle(angle);
 				cracks.setDip(dip);
 				cracks.setDes(des);

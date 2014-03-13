@@ -31,6 +31,8 @@ public class Cracks {
 	private double m_length;
 
 	private double m_width;
+	
+	private double m_depth;
 
 	private double m_angle;
 
@@ -198,12 +200,22 @@ public class Cracks {
    	m_serious = serious;
    }
 
+	public double getDepth() {
+   	return m_depth;
+   }
+
+	public void setDepth(double depth) {
+   	m_depth = depth;
+   }
+
 	@Override
-	public String toString() {
-		return "Cracks [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId=" + m_tunnelSectionId
-		      + ", m_liningRingConstructionId=" + m_liningRingConstructionId + ", m_blockIndex=" + m_blockIndex
-		      + ", m_number=" + m_number + ", m_type=" + m_type + ", m_length=" + m_length + ", m_width=" + m_width
-		      + ", m_angle=" + m_angle + ", m_dip=" + m_dip + ", m_date=" + m_date + "]";
-	}
+   public String toString() {
+	   return "Cracks [m_tunnel=" + m_tunnel + ", m_tunnelSection=" + m_tunnelSection + ", m_liningRingConstruction="
+	         + m_liningRingConstruction + ", m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId="
+	         + m_tunnelSectionId + ", m_liningRingConstructionId=" + m_liningRingConstructionId + ", m_blockIndex="
+	         + m_blockIndex + ", m_number=" + m_number + ", m_type=" + m_type + ", m_length=" + m_length + ", m_width="
+	         + m_width + ", m_depth=" + m_depth + ", m_angle=" + m_angle + ", m_dip=" + m_dip + ", m_date=" + m_date
+	         + ", m_serious=" + m_serious + "]";
+   }
 
 }

@@ -22,7 +22,7 @@
 		if (obj) obj.innerHTML = all + " 秒后";
 		all--;
 	}
-	var all = 300;
+	var all = 10;
 	if (all > 0) window.setInterval("timeDesc();", 1000);
 </script>
 </head>
@@ -33,7 +33,7 @@
   <div class="row-fluid">
       	<div class="span12 text-center">
       	<h3 class="text-error text-center">您访问网址有错误，或者页面不存在！</h3>
-  		<a class='btn btn-danger' href="tunnelList.do"><span id="tS">4 秒后</span>返回主页</a>
+  		<a class='btn btn-danger' href="tunnelList.do"><span id="tS">10 秒后</span>返回主页</a>
         <h2 class="text-center"><img width="15%" class="img-rounded" src="img/error404.png"></h2>
        	 <s:property value="exception.message"/>
          <s:property value="exceptionStack"/>
