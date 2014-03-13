@@ -74,27 +74,33 @@ public class LiningRingDeformationAction extends LineChartAction {
 
 	private LiningRingDeformation convert(Cell[] cells) {
 		try {
-			LiningRingDeformation defarmation = new LiningRingDeformation();
+			LiningRingDeformation deformation = new LiningRingDeformation();
 			String name = convertToString(cells[0]);
 			Date date = convertToDate(cells[1]);
 			String measuringPoing = convertToString(cells[2]);
-			double value = convertToDouble(cells[3]);
+			double maxLength = convertToDouble(cells[3]);
+			double minLength = convertToDouble(cells[4]);
+			double angle = convertToDouble(cells[5]);
+			double value = convertToDouble(cells[6]);
 			String des = "";
 
-			if (cells.length >= 5) {
-				des = convertToString(cells[4]);
+			if (cells.length >= 8) {
+				des = convertToString(cells[7]);
 			}
 			LiningRingConstruction construction = m_liningRingConstructionService.findByName(name);
 
 			if (construction != null) {
-				defarmation.setTunnelId(construction.getTunnelId());
-				defarmation.setTunnelSectionId(construction.getTunnelSectionId());
-				defarmation.setLiningRingConstructionId(construction.getId());
-				defarmation.setDate(date);
-				defarmation.setMeasuringPoing(measuringPoing);
-				defarmation.setValue(value);
-				defarmation.setDes(des);
-				return defarmation;
+				deformation.setTunnelId(construction.getTunnelId());
+				deformation.setTunnelSectionId(construction.getTunnelSectionId());
+				deformation.setLiningRingConstructionId(construction.getId());
+				deformation.setDate(date);
+				deformation.setMeasuringPoing(measuringPoing);
+				deformation.setValue(value);
+				deformation.setMaxLength(maxLength);
+				deformation.setMinLength(minLength);
+				deformation.setAngle(angle);
+				deformation.setDes(des);
+				return deformation;
 			}
 		} catch (Exception e) {
 			m_logger.error(e);

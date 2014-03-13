@@ -25,6 +25,12 @@ public class LiningRingDeformation {
 
 	private double m_value;
 
+	private double m_maxLength;
+
+	private double m_minLength;
+
+	private double m_angle;
+
 	private Date m_date;
 
 	private String m_des;
@@ -137,12 +143,38 @@ public class LiningRingDeformation {
 		m_value = value;
 	}
 
+	public double getMaxLength() {
+		return m_maxLength;
+	}
+
+	public void setMaxLength(double maxLength) {
+		m_maxLength = maxLength;
+	}
+
+	public double getMinLength() {
+		return m_minLength;
+	}
+
+	public void setMinLength(double minLength) {
+		m_minLength = minLength;
+	}
+
+	public double getAngle() {
+		return m_angle;
+	}
+
+	public void setAngle(double angle) {
+		m_angle = angle;
+	}
+
 	@Override
 	public String toString() {
 		return "LiningRingDeformation [m_id=" + m_id + ", m_tunnelId=" + m_tunnelId + ", m_tunnelSectionId="
-		      + m_tunnelSectionId + ", liningRingConstructionId=" + m_liningRingConstructionId + ", m_MeasuringPoing="
-		      + m_measuringPoing + ", m_value=" + m_value + ", m_date=" + m_date + ", m_des=" + m_des
-		      + ", m_creationDate=" + m_creationDate + ", m_modifyDate=" + m_modifyDate + "]";
+		      + m_tunnelSectionId + ", m_liningRingConstructionId=" + m_liningRingConstructionId + ", m_tunnel="
+		      + m_tunnel + ", m_tunnelSection=" + m_tunnelSection + ", m_liningRingConstruction="
+		      + m_liningRingConstruction + ", m_measuringPoing=" + m_measuringPoing + ", m_value=" + m_value
+		      + ", m_maxLength=" + m_maxLength + ", m_minLength=" + m_minLength + ", m_angle=" + m_angle + ", m_date="
+		      + m_date + ", m_des=" + m_des + "]";
 	}
 
 }

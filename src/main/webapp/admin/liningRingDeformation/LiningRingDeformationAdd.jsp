@@ -83,8 +83,16 @@ $(document).ready(function() {
 						<td><input type="text" name="liningRingDeformation.value" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">长轴变形值(mm)</strong></td>
+						<td><input type="text" name="liningRingDeformation.maxLength" class="{required:true,number:true}"/></td>
+						<td style="text-align:right;"><strong class="text-success">短轴变形值(mm)</strong></td>
+						<td><input type="text" name="liningRingDeformation.minLength" class="{required:true,number:true}"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">长轴偏移角度值(度)</strong></td>
+						<td><input type="text" name="liningRingDeformation.angle" class="{required:true,number:true}"/></td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea type="text" rows="5" cols="40"  name="liningRingDeformation.des" class="{maxlength:512}"></textarea></td>
+						<td><textarea type="text" rows="5" cols="40"  name="liningRingDeformation.des" class="{maxlength:512}"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan='4' style="text-align:center;">

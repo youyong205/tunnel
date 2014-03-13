@@ -80,8 +80,16 @@ $(document).ready(function() {
 						<td><input readonly type="text" name="liningRingDeformation.value" value="<s:property value="liningRingDeformation.value"/>" class="{required:true,number:true}"/></td>
 					</tr>
 					<tr>
+						<td style="text-align:right;"><strong class="text-success">长轴变形值(mm)</strong></td>
+						<td><input readonly type="text" name="liningRingDeformation.maxLength" class="{required:true,number:true}" value="<s:property value="liningRingDeformation.maxLength"/>" /></td>
+						<td style="text-align:right;"><strong class="text-success">短轴变形值(mm)</strong></td>
+						<td><input readonly type="text" name="liningRingDeformation.minLength" class="{required:true,number:true}" value="<s:property value="liningRingDeformation.minLength"/>" /></td>
+					</tr>
+					<tr>
+						<td style="text-align:right;"><strong class="text-success">长轴偏移角度值(度)</strong></td>
+						<td><input readonly type="text" name="liningRingDeformation.angle" class="{required:true,number:true}" value="<s:property value="liningRingDeformation.angle"/>" /></td>
 						<td style="text-align:right;"><strong class="text-success">备注信息</strong></td>
-						<td colspan='3'><textarea readonly type="text" rows="5" cols="40"  name="liningRingDeformation.des" class="{maxlength:512}"><s:property value="liningRingDeformation.des"/></textarea></td>
+						<td><textarea readonly type="text" rows="5" cols="40"  name="liningRingDeformation.des" class="{maxlength:512}"><s:property value="liningRingDeformation.des"/></textarea></td>
 					</tr>
 					</table>
 			</form>

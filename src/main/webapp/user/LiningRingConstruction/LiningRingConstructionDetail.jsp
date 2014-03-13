@@ -82,7 +82,7 @@
 			    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">
 			    					<th>第<s:property value='#vs.index+1'/>块</th>
 			    				</s:iterator></tr>
-			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">横断面变形</a></td>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="userLiningRingDeformationQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">横断面变形</a></td>
 	    							<td>
 				    					<s:if test="liningRingConstruction.deformationState == 'A'.toString()">a</s:if>
 										<s:elseif test="liningRingConstruction.deformationState =='B'.toString()">b</s:elseif>
@@ -92,7 +92,7 @@
 										<s:else>-</s:else>
 			    					</td>
 	    						</tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵断面变形</a></td>
+	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="userLiningRingLongitudinalDeformationQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">纵断面变形</a></td>
 	    							<td>
 				    					<s:if test="liningRingConstruction.longitudinalDeformationState == 'A'.toString()">a</s:if>
 										<s:elseif test="liningRingConstruction.longitudinalDeformationState =='B'.toString()">b</s:elseif>
@@ -101,7 +101,7 @@
 										<s:elseif test="liningRingConstruction.longitudinalDeformationState =='E'.toString()">e</s:elseif>
 										<s:else>-</s:else>
 			    					</td></tr>
-			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">环缝张开</a></td>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="userGirthOpenQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">环缝张开</a></td>
 			    				<td>
 				    					<s:if test="liningRingConstruction.girthOpenRingState.state == 'A'.toString()">a</s:if>
 										<s:elseif test="liningRingConstruction.girthOpenRingState.state =='B'.toString()">b</s:elseif>
@@ -120,7 +120,7 @@
 										<s:else>-</s:else>
 			    					</td>
 			    				</s:iterator></tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">环缝错台</a></td>
+	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="userGirthFaultQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">环缝错台</a></td>
 			    				<td>
 				    					<s:if test="liningRingConstruction.longitudinalFaultRingState.state == 'A'.toString()">a</s:if>
 										<s:elseif test="liningRingConstruction.longitudinalFaultRingState.state =='B'.toString()">b</s:elseif>
@@ -141,7 +141,7 @@
 			    				</s:iterator></tr>
 	    						
 			    				
-			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵缝张开</a></td>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="userLongitudinalOpenQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">纵缝张开</a></td>
 			    				<td>
 				    					<s:if test="liningRingConstruction.longitudinalOpenRingState.state == 'A'.toString()">a</s:if>
 										<s:elseif test="liningRingConstruction.longitudinalOpenRingState.state =='B'.toString()">b</s:elseif>
@@ -160,7 +160,7 @@
 										<s:else>-</s:else>
 			    					</td>
 			    				</s:iterator></tr>
-			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">纵缝错台</a></td>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="userLongitudinalFaultQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">纵缝错台</a></td>
 			    				<td>
 				    					<s:if test="liningRingConstruction.longitudinalFaultRingState.state == 'A'.toString()">a</s:if>
 										<s:elseif test="liningRingConstruction.longitudinalFaultRingState.state =='B'.toString()">b</s:elseif>
@@ -180,7 +180,7 @@
 										<s:else>-</s:else>
 			    					</td>
 			    				</s:iterator></tr>
-	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">裂缝状态</a></td>
+	    						<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="userCracksQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">裂缝状态</a></td>
 			    					<td>
 				    					<s:if test="liningRingConstruction.cracksRingState.state == 'A'.toString()">a</s:if>
 										<s:elseif test="liningRingConstruction.cracksRingState.state =='B'.toString()">b</s:elseif>
@@ -199,7 +199,7 @@
 										<s:else>-</s:else>
 			    					</td>
 			    				</s:iterator></tr>
-			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="">保护层损失</a></td>
+			    				<tr><td style='text-align:right'><a class='btn btn-small btn-primary' href="userCoverLossQuery.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="tunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>">保护层损失</a></td>
 			    				<td>
 				    					<s:if test="liningRingConstruction.coverLossRingState.state == 'A'.toString()">a</s:if>
 										<s:elseif test="liningRingConstruction.coverLossRingState.state =='B'.toString()">b</s:elseif>

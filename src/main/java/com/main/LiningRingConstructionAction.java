@@ -249,6 +249,10 @@ public class LiningRingConstructionAction extends ScheduledAction {
 	public void setLiningRingConstructionId(int liningRingConstructionId) {
 		m_liningRingConstructionId = liningRingConstructionId;
 	}
+	
+	public int getLiningRingConstructionId() {
+   	return m_liningRingConstructionId;
+   }
 
 	public void setLiningRingConstructionService(LiningRingConstructionService liningRingConstructionService) {
 		m_liningRingConstructionService = liningRingConstructionService;

@@ -69,9 +69,10 @@
 				 <thead><tr>
 					<th width="8%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
 					<th width="5%">序号</th>
-					<th width="27%">检测时间</th>
+					<th width="17%">检测时间</th>
 					<th width="20%">裂缝条数</th>
-					<th width="20%">裂缝宽度(mm)</th>
+					<th width="15%">裂缝宽度(mm)</th>
+					<th width="15%">裂缝深度(mm)</th>
 					<th width="20%">
 					<t:privilege res="衬砌环裂缝检测模块:新增">
 						<a class="btn btn-small btn-info" href="cracksAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>" >新增</a>
@@ -89,6 +90,7 @@
 					<td><s:date name="date" format="yyyy-MM-dd"/></td>
 					<td><s:property value='number'/></td>
 					<td><s:property value='width'/></td>
+					<td><s:property value='depth'/></td>
 					<td>
 					<t:privilege res="衬砌环裂缝检测模块:详情">
 						<a class="btn btn-small btn-success" href="cracksDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&cracksId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>

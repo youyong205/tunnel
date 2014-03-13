@@ -69,8 +69,10 @@
 				 <thead><tr>
 					<th width="8%"><a id="selectAll" href="javascript:selectAll()" class="btn btn-small btn-primary">全选</a></th>
 					<th width="5%">序号</th>
-					<th width="30%">检测时间</th>
-					<th width="37%">本次测值D’(mm)</th>
+					<th width="19%">检测时间</th>
+					<th width="16%">长轴变形值(mm)</th>
+					<th width="16%">短轴变形值(mm)</th>
+					<th width="16%">长轴偏移角度值(度)</th>
 					<th width="20%">
 					<t:privilege res="衬砌环横断面变形检测模块:新增">
 						<a class="btn btn-small btn-info" href="liningRingDeformationAdd.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>" >新增</a>
@@ -86,7 +88,9 @@
 					<td><input type="checkbox" name="deleteId" value="<s:property value='id'/>"/></td>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:date name="date" format="yyyy-MM-dd"/></td>
-					<td><s:property value='value'/></td>
+					<td><s:property value='maxLength'/></td>
+					<td><s:property value='minLength'/></td>
+					<td><s:property value='angle'/></td>
 					<td>
 					<t:privilege res="衬砌环横断面变形检测模块:详情">
 						<a class="btn btn-small btn-success" href="liningRingDeformationDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&liningRingDeformationId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>

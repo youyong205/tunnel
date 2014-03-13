@@ -3,7 +3,7 @@
 <sqlMap>
 	<typeAlias alias="liningRingDeformation" type="com.liningRingDeformation.LiningRingDeformation" />
 	<sql id="liningRingDeformation.columns">
-		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,value,date,des,creationDate,modifyDate
+		id,tunnelId,tunnelSectionId,liningRingConstructionId,measuringPoing,maxLength,minLength,angle,value,date,des,creationDate,modifyDate
 	</sql>
 	<select id="liningRingDeformation.queryByIds" resultClass="liningRingDeformation" parameterClass="list">
 		select <include refid="liningRingDeformation.columns" /> <![CDATA[ from liningRingDeformation
@@ -64,7 +64,7 @@
 	</select>
 	<insert id="liningRingDeformation.insert" parameterClass="liningRingDeformation">
 		insert into liningRingDeformation (<include refid="liningRingDeformation.columns" />) values
-		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#measuringPoing#,#value#,#date#,#des#,now(),now())
+		(#id#,#tunnelId#,#tunnelSectionId#,#liningRingConstructionId#,#measuringPoing#,#maxLength#,#minLength#,#angle#,#value#,#date#,#des#,now(),now())
 		<selectKey resultClass="int" keyProperty="id">
              <![CDATA[   select last_insert_id() as id  ]]>
 		</selectKey>
@@ -72,6 +72,7 @@
 	<update id="liningRingDeformation.update" parameterClass="liningRingDeformation">
 		update liningRingDeformation set
 		tunnelId=#tunnelId#,tunnelSectionId=#tunnelSectionId#,liningRingConstructionId=#liningRingConstructionId#,measuringPoing=#measuringPoing#,
+		maxLength=#maxLength#,minLength=#minLength#,angle=#angle#,
 		value=#value#,date=#date#,des=#des#,
 		modifyDate=now() where id=#id#
 	</update>
