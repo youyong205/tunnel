@@ -25,7 +25,7 @@
 		$('#datetimepicker2').datetimepicker();
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
-		graphLineChart("锈蚀趋势图","锈蚀面积","(m㎡)",data.series);
+		graphChartByDate("chart","锈蚀趋势图","锈蚀面积","(m㎡)",data.series);
 	});
 </script>
 

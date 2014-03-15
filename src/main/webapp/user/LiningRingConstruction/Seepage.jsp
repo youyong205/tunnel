@@ -25,7 +25,7 @@
 		$('#datetimepicker2').datetimepicker();
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
-		graphLineChart("渗漏水趋势图","尺寸","(m㎡)",data.series);
+		graphChartByDate("chart","渗漏水趋势图","尺寸","(m㎡)",data.series);
 	});
 </script>
 

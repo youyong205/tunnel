@@ -162,9 +162,17 @@ function graphChart(container,title,lable,unit,chart){
         title: {
             text: title
         },
+        credits : {
+            enabled:false
+        },
         xAxis: {
         	labels: {
-                step: chart.step
+                step: chart.step,
+                align : "right"
+            },
+            title: {
+            	text: "盾构段衬砌环顺序号",
+            	align: "high"
             },
             categories:chart.categories
         },
@@ -188,11 +196,11 @@ function graphChart(container,title,lable,unit,chart){
                 enableMouseTracking: false
             }
         },
-            series: chart.series
+        series: chart.series
     });
 }
 
-function graphLineChartContainer(container,title,lable,unit,data){
+function graphChartByDateInternal(container,title,lable,unit,data,minValue){
 	Highcharts.setOptions({
 	    global: {
 	        useUTC: false
@@ -218,13 +226,21 @@ function graphLineChartContainer(container,title,lable,unit,data){
                 week: '%y-%m',
                 month: '%y-%m',
                 year: '%y'
+            },
+            labels : {
+            	align : "right",
+            	rotation : 330
+            },
+            title: {
+            	text: "时间",
+            	align: "high"
             }
         },
         yAxis: {
             title: {
                 text: lable + unit
             },
-            min: 0
+            min: minValue
         },
         tooltip: {
             formatter: function() {
@@ -236,46 +252,8 @@ function graphLineChartContainer(container,title,lable,unit,data){
     });
 }
 
-function graphLineChart(title,lable,unit,data){
-	Highcharts.setOptions({
-	    global: {
-	        useUTC: false
-	    }
-	});
-	$('#chart').highcharts({
-        chart: {
-            type: 'spline'
-        },
-        title: {
-            text:  title
-        },
-        credits : {
-            enabled:false
-        },
-        xAxis: {
-            type: 'datetime',
-            dateTimeLabelFormats: { // don't display the dummy year
-            	second: '%H:%M:%S',
-                minute: '%m-%d %H:%M',
-                hour: '%m-%d %H:%M',
-                day: '%m-%d',
-                week: '%y-%m',
-                month: '%y-%m',
-                year: '%y'
-            }
-        },
-        yAxis: {
-            title: {
-                text: lable + unit
-            },
-            min: 0
-        },
-        tooltip: {
-            formatter: function() {
-                    return '<b>'+ this.series.name +'</b><br/>'+
-                    Highcharts.dateFormat('%Y-%m-%d', this.x) +' '+lable+' = '+ this.y+unit;
-            }
-        },
-        series:data
-    });
+
+function graphChartByDate(container,title,lable,unit,data){
+	graphChartByDateInternal(container,title,lable,unit,data,0);
 }
+

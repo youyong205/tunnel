@@ -26,8 +26,8 @@
 		var data1 = <s:property value='lineChart.jsonString' escape="false"/>;
 		var data2 = <s:property value='secondLineChart.jsonString' escape="false"/>;
 		
-		graphLineChartContainer("chart1","裂缝宽度趋势图","裂缝宽度","(mm)",data1.series);
-		graphLineChartContainer("chart2","裂缝条数趋势图","裂缝条数","(个)",data2.series);
+		graphChartByDate("chart1","裂缝宽度趋势图","裂缝宽度","(mm)",data1.series);
+		graphChartByDate("chart2","裂缝条数趋势图","裂缝条数","(个)",data2.series);
 	});
 </script>
 

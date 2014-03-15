@@ -25,7 +25,7 @@
 		$('#datetimepicker2').datetimepicker();
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
-		graphLineChart("保护层损失趋势图","损失厚度","(mm)",data.series);
+		graphChartByDate("chart","保护层损失趋势图","损失厚度","(mm)",data.series);
 	});
 </script>
 

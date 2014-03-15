@@ -25,7 +25,7 @@
 		$('#datetimepicker2').datetimepicker();
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
-		graphLineChart("纵断面检测趋势图","纵向曲率ζ","",data.series);
+		graphChartByDate("chart","纵断面检测趋势图","纵向曲率ζ","",data.series);
 	});
 </script>
 

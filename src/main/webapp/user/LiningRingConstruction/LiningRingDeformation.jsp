@@ -25,7 +25,7 @@
 		$('#datetimepicker2').datetimepicker();
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
-		graphLineChart("横断面检测趋势图","测量值","(mm)",data.series);
+		graphChartByDateInternal("chart","横断面检测趋势图","测量值","(mm)",data.series,null);
 	});
 </script>
 
@@ -86,9 +86,52 @@
 					<%-- 	<span style='margin-left:15px;'>最近检测变形值</span><span  style='margin-left:5px;'><s:property value="liningRingDeformation.value"/></span>
 					 --%></h4>
 			<div id="chart" style="min-width: 400px; width:90%; height:400px; margin: 0 auto"></div>
+		
+			<div class="row-fluid">
+		<div class="span7" id="svgchart">
+			<h5 class="text-error">椭圆长轴方向变形<s:property value="liningRingDeformation.maxLength"/>mm，短轴方向变形<s:property value="liningRingDeformation.minLength"/>mm</h5>
+			<h5 class="text-error">变形放大100倍，椭圆偏移角度<s:property value="liningRingDeformation.angle"/></h5>
+			<s:property value="svgModel" escape="false"/>
+		</div>
+		<div class="span5">
+			<table class="table table-striped table-bordered table-condensed table-hover">
+				 <thead><tr>
+					<th width="20%">检测时间</th>
+					<th width="20%">长轴变形(mm)</th>
+					<th width="20%">短轴变形(mm)</th>
+					<th width="20%">偏移角度</th>
+					<th width="20%">操作</th>
+				</tr></thead><tbody>
+				<s:iterator value="liningRingDeformations" status="vs">
+					<tr>
+					<td><s:date name="date" format="yyyy-MM-dd"/></td>
+					<td><s:property value='maxLength'/></td>
+					<td><s:property value='minLength'/></td>
+					<td><s:property value='angle'/></td>
+					<td><a  class="graph btn btn-small btn-primary" href="userLiningRingDeformationChart.do?liningRingDeformationId=<s:property value='id'/>">变形图</a></td>
+					</tr>
+				</s:iterator></tbody>
+			</table>
+		</div>
+		<script type="text/javascript">
+			$(document).delegate('.graph', 'click', function(e){
+				e.preventDefault();
+				var anchor = this;
+				var cell = document.getElementById("svgchart");
+				$.ajax({
+					type: "get",
+					url: anchor.href,
+					success : function(response, textStatus) {
+						cell.style.display = 'block';
+						cell.parentNode.style.display = 'block';
+						cell.innerHTML = response;			
+					}
+				});
+			});
+		</script>
+		</div>
 		</div>
 	</div>
-     
     <%@include file="./../Foot.jsp"%>
   </div>
 </body>

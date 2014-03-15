@@ -13,6 +13,9 @@
 		<action name="userLiningRingDeformationQuery" class="liningRingDeformationAction" method="liningRingDeformationQuery">
 			<result name="success">user/liningRingConstruction/LiningRingDeformation.jsp</result>
 		</action>
+		<action name="userLiningRingDeformationChart" class="liningRingDeformationAction" method="liningRingDeformationChart">
+			<result name="success">user/liningRingConstruction/LiningRingDeformationChart.jsp</result>
+		</action>
 		<action name="userLiningRingLongitudinalDeformationQuery" class="liningRingLongitudinalDeformationAction" method="liningRingLongitudinalDeformationQuery">
 			<result name="success">user/liningRingConstruction/LiningRingLongitudinalDeformation.jsp</result>
 		</action>

@@ -25,7 +25,7 @@
 		$('#datetimepicker2').datetimepicker();
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
-		graphLineChart("环缝张开趋势图","环缝张开量δh","(mm)",data.series);
+		graphChartByDate("chart","环缝张开趋势图","环缝张开量δh","(mm)",data.series);
 	});
 </script>
 
@@ -82,7 +82,7 @@
 						</s:select> 
 					  <button type="submit" class="btn btn-success btn-small">查询</button></div>
 					</form>
-					<h4 class='text-error text-center'>构件状态【第一块和第二块错台量显示在在第一块的状态上，以此类推】</h4>
+					<h4 class='text-error text-center'>构件状态【第一块和第二块环缝张开量显示在在第一块的状态上，以此类推】</h4>
 	    			<table class="table table-striped table-bordered table-condensed table-hover">
 	    				<tr><th style='text-align:right'>指标</td><th>综合指标</th>
 	    				<s:iterator value="liningRingConstruction.girthOpenRingState.states" status="vs">

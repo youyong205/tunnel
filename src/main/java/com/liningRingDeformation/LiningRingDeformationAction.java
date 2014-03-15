@@ -62,6 +62,8 @@ public class LiningRingDeformationAction extends LineChartAction {
 
 	private List<Tunnel> m_tunnels;
 
+	private String m_svgModel;
+
 	private List<TunnelSection> m_tunnelSections;
 
 	private List<LiningRing> m_liningRings;
@@ -71,6 +73,8 @@ public class LiningRingDeformationAction extends LineChartAction {
 	private int[] m_deleteId = new int[SIZE];
 
 	private BatchInsertResult m_batchInsertResult = new BatchInsertResult();
+
+	private DeformationChartBuilder m_builder = new DeformationChartBuilder();
 
 	private LiningRingDeformation convert(Cell[] cells) {
 		try {
@@ -437,23 +441,45 @@ public class LiningRingDeformationAction extends LineChartAction {
 		m_liningRingDeformations = m_liningRingDeformationService.queryLiningRingDeformationByDuration(
 		      m_liningRingConstructionId, m_start, m_end);
 
-		Map<Long, Double> datas = new LinkedHashMap<Long, Double>();
+		Map<Long, Double> maxLengths = new LinkedHashMap<Long, Double>();
+		Map<Long, Double> minLengths = new LinkedHashMap<Long, Double>();
+		Map<Long, Double> maxs = new LinkedHashMap<Long, Double>();
 		if (m_liningRingDeformations != null) {
 			for (LiningRingDeformation deformation : m_liningRingDeformations) {
 				Date date = deformation.getDate();
 
-				datas.put(formatTime(date), deformation.getValue());
+				maxLengths.put(formatTime(date), deformation.getMaxLength());
+				minLengths.put(formatTime(date), deformation.getMinLength());
+				maxs.put(formatTime(date), Math.max(Math.abs(deformation.getMaxLength()), deformation.getMinLength()));
 			}
 		}
 		m_liningRingConstruction = m_liningRingConstructionService.findByPK(m_liningRingConstructionId);
-		m_lineChart.addLong("横断面变形", datas);
+		m_lineChart.addLong("横断面长轴变形量", maxLengths);
+		m_lineChart.addLong("横断面短轴变形量", minLengths);
+		m_lineChart.addLong("横断面最大变形量", maxs);
 
-		m_liningRingDeformations = m_liningRingDeformationService.queryLimitedLiningRingDeformations(m_tunnelId,
-		      m_tunnelSectionId, m_liningRingConstructionId, 0, 1);
-
-		if (m_liningRingDeformations != null && m_liningRingDeformations.size() == 1) {
-			m_liningRingDeformation = m_liningRingDeformations.get(0);
+		if (m_liningRingDeformations != null && m_liningRingDeformations.size() >= 1) {
+			m_liningRingDeformation = m_liningRingDeformations.get(m_liningRingDeformations.size() - 1);
+			m_liningRingDeformationId = m_liningRingDeformation.getId();
+			liningRingDeformationChart();
 		}
+
+		return SUCCESS;
+	}
+
+	public String liningRingDeformationChart() {
+		m_liningRingDeformation = m_liningRingDeformationService.findByPK(m_liningRingDeformationId);
+
+		int id = m_liningRingDeformation.getLiningRingConstructionId();
+		LiningRingConstruction con = m_liningRingConstructionService.findByPK(id);
+		double radius = con.getDiameter();
+		double maxLength = m_liningRingDeformation.getMaxLength();
+		double minLength = m_liningRingDeformation.getMinLength();
+		double newMaxLength = radius + maxLength / 10;
+		double newMinLength = radius + minLength / 10;
+		double angle = m_liningRingDeformation.getAngle();
+
+		m_svgModel = m_builder.build(radius, newMaxLength, newMinLength, (int) angle, "m");
 		return SUCCESS;
 	}
 
@@ -549,6 +575,10 @@ public class LiningRingDeformationAction extends LineChartAction {
 
 	public void setTunnelService(TunnelService tunnelService) {
 		m_tunnelService = tunnelService;
+	}
+
+	public String getSvgModel() {
+		return m_svgModel;
 	}
 
 }

@@ -25,7 +25,7 @@
 		$('#datetimepicker2').datetimepicker();
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
-		graphLineChart("沉降检测趋势图","沉降值","(mm)",data.series);
+		graphChartByDate("chart","沉降检测趋势图","沉降值","(mm)",data.series);
 	});
 </script>
 

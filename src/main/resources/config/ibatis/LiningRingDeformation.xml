@@ -41,7 +41,7 @@
                  liningRingConstructionId=#liningRingConstructionId#
             </isGreaterThan>
    		</dynamic>
-   		order by date desc
+   		order by id desc
 		limit #start#,#size#
 	</select>
 	<select id="liningRingDeformation.queryLiningRingDeformationByDuration" resultClass="liningRingDeformation">
