@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.buriedSection.BuriedSection;
 import com.openSection.OpenSection;
 import com.tunnelSection.TunnelSection;
 import com.workingWell.WorkingWell;
@@ -17,10 +18,14 @@ public class TunnelStateBuilder {
 
 	private int WORKING_HEIGHT = 50;
 
-	private int OPEN_WIDTH = 150;
+	private int OPEN_WIDTH = 100;
 
 	private int OPEN_HEIGHT = 20;
 
+	private int BURIED_WIDTH = 80;
+	
+	private int BURIED_HEIGHT = 20;
+	
 	private String GREEN = "green";
 
 	private String BLUE = "blue";
@@ -92,7 +97,7 @@ public class TunnelStateBuilder {
 		String format = "<rect x='%d' y='30' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:2;"
 		      + "opacity:0.9'/>";
 
-		return String.format(format, offset, OPEN_WIDTH, OPEN_HEIGHT, "#6495ED");
+		return String.format(format, offset, OPEN_WIDTH, OPEN_HEIGHT, "#3366FF");
 	}
 
 	public String buildXml(List<Object> objs) {
@@ -123,11 +128,30 @@ public class TunnelStateBuilder {
 				sb.append(buildRectangle(offset, openSection));
 				sb.append(buildLinkFoot());
 				offset += OPEN_WIDTH;
-			}
+			} else if (obj instanceof BuriedSection) {
+				BuriedSection buriedSection = (BuriedSection) obj;
+				sb.append(buildLink(buriedSection));
+				sb.append(buildRectangle(offset, buriedSection));
+				sb.append(buildLinkFoot());
+				offset += BURIED_WIDTH;
+			} 
 		}
 		sb.append(buildFooter());
 
 		return sb.toString();
 	}
+
+	private Object buildRectangle(int offset, BuriedSection buriedSection) {
+		String format = "<rect x='%d' y='30' width='%d' height='%d'" + " style='fill:%s;stroke:pink;stroke-width:2;"
+		      + "opacity:0.9'/>";
+
+		return String.format(format, offset,BURIED_WIDTH, BURIED_HEIGHT, "#6666FF");
+   }
+
+	private Object buildLink(BuriedSection buriedSection) {
+		String format = " <a xlink:href='userBuriedSectionDetail.do?tunnelId=%d&buriedSectionId=%d'>";
+
+		return String.format(format, buriedSection.getTunnelId(), buriedSection.getId());
+   }
 
 }

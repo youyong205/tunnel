@@ -51,6 +51,22 @@ function componentTypeChanged(tunnelId){
 				}
 			}
 		});
+	}else if(type==4){
+		$.ajax({
+			type : "get",
+			url : "queryBuriedSectionListsByTunnelId.do?tunnelId=" + tunnelId,
+			success : function(data, textStatus) {
+				var obj = $('#componentId');
+				var value = data.buriedSections;
+				document.getElementById('componentId').options.length = 0;
+				if (value != null) {
+					for ( var i = 0; i < value.length; i++) {
+						obj.append("<option value='" + value[i].id + "'>"
+								+ value[i].name + "</option>");
+					}
+				}
+			}
+		});
 	}
 }
 

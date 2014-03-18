@@ -26,6 +26,8 @@
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
 		graphChartByDate("chart","纵缝张开趋势图","纵缝张开量δz","(mm)",data.series);
+		$('i[tips]').popover();
+		
 	});
 </script>
 
@@ -85,7 +87,9 @@
 					</form>
 	    			<h4 class='text-error text-center'>构件状态【第一块和第二块纵缝张开量显示在在第一块的状态上，以此类推】</h4>
 	    			<table class="table table-striped table-bordered table-condensed table-hover">
-	    				<tr><th style='text-align:right'>指标</td><th>综合指标</th>
+	    				<tr><th style='text-align:right' width="25%">纵缝张开指标
+	    				<i tips="" data-trigger="hover" class="icon-question-sign" data-toggle="popover" data-placement="top" data-content="—表示某一块从未进行检测过，曲线图默认展示最近一个月的数据，如果这段时间没做过监控，曲线图中不做曲线展示！"></i>
+	    				</td><th>综合指标</th>
 	    				<s:iterator value="liningRingConstruction.longitudinalOpenRingState.states" status="vs">
 	    					<th>第<s:property value='#vs.index+1'/>块</th>
 	    				</s:iterator></tr>

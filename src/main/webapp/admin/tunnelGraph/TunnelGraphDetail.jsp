@@ -65,6 +65,7 @@ $(document).ready(function() {
 								<option value="1">盾构段</option>
 								<option value="2">工作井</option>
 								<option value="3">敞开段</option>
+								<option value="4">暗埋段</option>
 							</select>
 						</td>
 					</tr>

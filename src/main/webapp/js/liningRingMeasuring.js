@@ -182,18 +182,9 @@ function graphChart(container,title,lable,unit,chart){
             }
         },
         tooltip: {
-            enabled: false,
             formatter: function() {
                 return '<b>'+ this.series.name +'</b><br/>'+
-                    this.x +': '+ this.y +'°C';
-            }
-        },
-        plotOptions: {
-            line: {
-                dataLabels: {
-                    enabled: false
-                },
-                enableMouseTracking: false
+                  '第' + this.x +'环' +': '+ this.y + ' '+unit;
             }
         },
         series: chart.series

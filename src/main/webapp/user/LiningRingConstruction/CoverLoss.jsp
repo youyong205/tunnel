@@ -26,6 +26,7 @@
 		var data = <s:property value='lineChart.jsonString' escape="false"/>;
 		
 		graphChartByDate("chart","保护层损失趋势图","损失厚度","(mm)",data.series);
+		$('i[tips]').popover();
 	});
 </script>
 
@@ -85,7 +86,9 @@
 					  <button type="submit" class="btn btn-success btn-small">查询</button></div>
 					</form>
 			    			<table class="table table-striped table-bordered table-condensed table-hover">
-			    				<tr><th style='text-align:right'>指标</td><th>综合指标</th>
+			    				<tr><th width="25%" style='text-align:right'>保护层损失指标
+			    				<i tips="" data-trigger="hover" class="icon-question-sign" data-toggle="popover" data-placement="top" data-content="—表示某一块从未进行检测过，曲线图默认展示最近一个月的数据，如果这段时间没做过监控，曲线图中不做曲线展示！"></i>
+			    				</td><th>综合指标</th>
 			    				<s:iterator value="liningRingConstruction.coverLossRingState.states" status="vs">
 			    					<th>第<s:property value='#vs.index+1'/>块</th>
 			    				</s:iterator></tr>

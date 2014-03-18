@@ -8,8 +8,8 @@
 <title></title>
 </head>
 <body>
-		<h5 class="text-error">椭圆长轴方向变形<s:property value="liningRingDeformation.maxLength"/>mm，短轴方向变形<s:property value="liningRingDeformation.minLength"/>mm</h5>
-		<h5 class="text-error">变形放大100倍，椭圆偏移角度<s:property value="liningRingDeformation.angle"/></h5>
+			<h5>椭圆长轴方向变形 <span class="text-error"> <s:property value="liningRingDeformation.maxLength"/>mm</span>，短轴方向变形  <span class="text-error"><s:property value="liningRingDeformation.minLength"/>mm</span></h5>
+			<h5>变形放大 <span class="text-error">100倍</span>，椭圆水平偏移角度 <span class="text-error"><s:property value="liningRingDeformation.angle"/></span></h5>
 		<s:property value="svgModel" escape="false"/>
 </body>
 </html>

@@ -48,8 +48,9 @@
 				 <thead><tr>
 					<th width="5%">序号</th>
 					<th width="20%">隧道名称</th>
-					<th width="20%">类型</th>
-					<th width="30%">顺序号</th>
+					<th width="20%">上下行</th>
+					<th width="15%">类型</th>
+					<th width="15%">顺序号</th>
 					<th width="25%">操作
 					<t:privilege res="隧道画图模块:新增">
 					<a class="space btn btn-small btn-info" href="tunnelGraphAdd.do?index=<s:property value="index"/>&tunnelId=<s:property value="tunnelId"/>" >新增</a>
@@ -60,10 +61,12 @@
 					<tr>
 					<td><s:property value='#vs.index+1'/></td>
 					<td><s:property value="tunnel.name" /></td>
+					<td><s:property value="lineType" /></td>
 					<td>
 						<s:if test="componentType==1">盾构段</s:if>
 						<s:elseif test="componentType==2">工作井</s:elseif>
 						<s:elseif test="componentType==3">敞开段</s:elseif>
+						<s:elseif test="componentType==4">暗埋段</s:elseif>
 					</td>
 					<td><s:property value="indexNumber"/></td>
 					<td>

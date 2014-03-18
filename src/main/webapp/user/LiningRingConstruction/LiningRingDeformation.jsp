@@ -85,12 +85,14 @@
 					<h4 class='text-info text-center'><span>横断面变形状态</span><span style='margin-left:5px;' class="level<s:property value="liningRingConstruction.deformationState"/>"><s:property value="liningRingConstruction.deformationState"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<%-- 	<span style='margin-left:15px;'>最近检测变形值</span><span  style='margin-left:5px;'><s:property value="liningRingDeformation.value"/></span>
 					 --%></h4>
-			<div id="chart" style="min-width: 400px; width:90%; height:400px; margin: 0 auto"></div>
+			<div id="chart" style="min-width: 400px; width:90%; height:300px; margin: 0 auto"></div>
+		
+		<hr>
 		
 			<div class="row-fluid">
 		<div class="span7" id="svgchart">
-			<h5 class="text-error">椭圆长轴方向变形<s:property value="liningRingDeformation.maxLength"/>mm，短轴方向变形<s:property value="liningRingDeformation.minLength"/>mm</h5>
-			<h5 class="text-error">变形放大100倍，椭圆偏移角度<s:property value="liningRingDeformation.angle"/></h5>
+			<h5>椭圆长轴方向变形 <span class="text-error"> <s:property value="liningRingDeformation.maxLength"/>mm</span>，短轴方向变形  <span class="text-error"><s:property value="liningRingDeformation.minLength"/>mm</span></h5>
+			<h5>变形放大 <span class="text-error">100倍</span>，椭圆水平偏移角度 <span class="text-error"><s:property value="liningRingDeformation.angle"/></span></h5>
 			<s:property value="svgModel" escape="false"/>
 		</div>
 		<div class="span5">

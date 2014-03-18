@@ -28,6 +28,7 @@
 		
 		graphChartByDate("chart1","裂缝宽度趋势图","裂缝宽度","(mm)",data1.series);
 		graphChartByDate("chart2","裂缝条数趋势图","裂缝条数","(个)",data2.series);
+		$('i[tips]').popover();
 	});
 </script>
 
@@ -87,7 +88,9 @@
 					</div>
 					</form>
 			    			<table class="table table-striped table-bordered table-condensed table-hover">
-			    				<tr><th style='text-align:right'>指标</td><th>综合指标</th>
+			    				<tr><th width="25%" style='text-align:right'>裂缝指标
+			    				<i tips="" data-trigger="hover" class="icon-question-sign" data-toggle="popover" data-placement="top" data-content="—表示某一块从未进行检测过，曲线图默认展示最近一个月的数据，如果这段时间没做过监控，曲线图中不做曲线展示！"></i>
+			    				</td><th>综合指标</th>
 			    				<s:iterator value="liningRingConstruction.cracksRingState.states" status="vs">
 			    					<th>第<s:property value='#vs.index+1'/>块</th>
 			    				</s:iterator></tr>

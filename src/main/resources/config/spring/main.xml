@@ -44,6 +44,9 @@
 		<property name="openSectionService">
 			<ref bean="openSectionService" />
 		</property>
+		<property name="buriedSectionService">
+			<ref bean="buriedSectionService" />
+		</property>
 		<property name="logService">
 			<ref bean="logService" />
 		</property>

@@ -12,6 +12,8 @@ import com.Constrants;
 import com.Modules;
 import com.Operation;
 import com.PagedAction;
+import com.buriedSection.BuriedSection;
+import com.buriedSection.BuriedSectionService;
 import com.openSection.OpenSection;
 import com.openSection.OpenSectionService;
 import com.tunnel.Tunnel;
@@ -41,6 +43,8 @@ public class TunnelAction extends PagedAction {
 
 	private OpenSectionService m_openSectionService;
 
+	private BuriedSectionService m_buriedSectionService;
+	
 	private TunnelGraphService m_tunnelGraphService;
 
 	private Tunnel m_tunnel = new Tunnel();
@@ -136,6 +140,12 @@ public class TunnelAction extends PagedAction {
 				if (openSection != null) {
 					objs.add(openSection);
 				}
+			}else if (type == 4) {
+				BuriedSection buriedSection = m_buriedSectionService.findByPK(componmentId);
+
+				if (buriedSection != null) {
+					objs.add(buriedSection);
+				}
 			}
 		}
 		return objs;
@@ -180,5 +190,9 @@ public class TunnelAction extends PagedAction {
 	public void setTunnelGraphService(TunnelGraphService tunnelGraphService) {
 		m_tunnelGraphService = tunnelGraphService;
 	}
+
+	public void setBuriedSectionService(BuriedSectionService buriedSectionService) {
+   	m_buriedSectionService = buriedSectionService;
+   }
 
 }

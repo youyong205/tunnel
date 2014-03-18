@@ -47,9 +47,11 @@
 					<text x="0" y="45" fill="black">盾构段</text>
 					<rect x="50" y="30" width="50" height="20" style="fill:green;stroke:pink;stroke-width:2;opacity:0.9"></rect>
 					<text x="110" y="45" fill="black">工作井</text>
-					<rect x="160" y="0" width="30" height="50" style="fill:#F0F8FF;stroke:pink;stroke-width:2;opacity:0.9"></rect>
-					<text x="200" y="45" fill="black">敞开段</text>
-					<rect x="250" y="20" width="50" height="30" style="fill:#6495ED;stroke:pink;stroke-width:2;opacity:0.9"></rect>
+					<rect x="160" y="0" width="20" height="50" style="fill:#F0F8FF;stroke:pink;stroke-width:2;opacity:0.9"></rect>
+					<text x="190" y="45" fill="black">敞开段</text>
+					<rect x="240" y="30" width="50" height="20" style="fill:#3366FF;stroke:pink;stroke-width:2;opacity:0.9"></rect>
+					<text x="300" y="45" fill="black">暗埋段</text>
+					<rect x="350" y="30" width="50" height="20" style="fill:#6666FF;stroke:pink;stroke-width:2;opacity:0.9"></rect>
 			</svg>
       	</div>
       </div>

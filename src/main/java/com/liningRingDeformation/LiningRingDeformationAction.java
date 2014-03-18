@@ -375,35 +375,28 @@ public class LiningRingDeformationAction extends LineChartAction {
 		List<Integer> idList = convertToString(ids);
 		List<LiningRingDeformation> liningRingDeformations = m_liningRingDeformationService.queryByIds(idList);
 		Map<Integer, Double> idToMaxValue = new LinkedHashMap<Integer, Double>();
-		Map<Integer, Double> idToAllValue = new LinkedHashMap<Integer, Double>();
 		Map<Double, Double> sequenceToMaxValue = new LinkedHashMap<Double, Double>();
-		Map<Double, Double> sequenceToAllValue = new LinkedHashMap<Double, Double>();
 
 		for (LiningRingDeformation liningRingDeformation : liningRingDeformations) {
 			int liningRingConstructionId = liningRingDeformation.getLiningRingConstructionId();
-			double value = liningRingDeformation.getValue();
+			double maxLength = liningRingDeformation.getMaxLength();
+			double minLength = liningRingDeformation.getMinLength();
+			double value = Math.max(Math.abs(maxLength), Math.abs(minLength));
 
-			findOrCreateSum(idToMaxValue, liningRingConstructionId, value);
-			findOrCreateSum(idToAllValue, liningRingConstructionId, value);
+			findOrCreateMax(idToMaxValue, liningRingConstructionId, value);
 		}
 		for (LiningRingConstruction construction : constructions) {
 			double sequence = construction.getSequence();
 			int id = construction.getId();
 			Double maxValue = idToMaxValue.get(id);
-			Double allValue = idToAllValue.get(id);
 
 			if (maxValue == null) {
 				sequenceToMaxValue.put(sequence, 0.0);
 			} else {
 				sequenceToMaxValue.put(sequence, maxValue);
 			}
-			if (allValue == null) {
-				sequenceToAllValue.put(sequence, 0.0);
-			} else {
-				sequenceToAllValue.put(sequence, allValue);
-			}
 		}
-		lineChart.add("横断面变形", sequenceToMaxValue);
+		lineChart.add("横断面变形最大值", sequenceToMaxValue);
 	}
 
 	public String liningRingDeformationQuery() {
