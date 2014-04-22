@@ -16,6 +16,12 @@
 		<property name="liningRingBlockService">
 			<ref bean="liningRingBlockService" />
 		</property>
+		<property name="tunnelService">
+			<ref bean="tunnelService" />
+		</property>
+		<property name="emailSenderJob">
+			<ref bean="emailSenderJob" />
+		</property>
 	</bean>
 	<bean id="liningRingConstructionAction" class="com.liningRingConstruction.LiningRingConstructionAction" scope="prototype">
 		<property name="liningRingConstructionService">

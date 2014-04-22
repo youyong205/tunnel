@@ -100,12 +100,10 @@ public class StateJob implements java.lang.Runnable, InitializingBean {
 					tunnel.setState(state);
 					m_tunnelService.updateTunnel(tunnel);
 
-					MailRecord record = buildEmailRecord(tunnelId);
+					MailRecord record = buildEmailRecord(tunnel, tunnelId);
 
 					if (record != null) {
 						m_emailSenderJob.addRecord(record);
-					} else {
-						System.out.println("Exist!!!!" + tunnelId);
 					}
 				}
 			} catch (Exception e) {
@@ -142,18 +140,19 @@ public class StateJob implements java.lang.Runnable, InitializingBean {
 		}
 	}
 
-	private MailRecord buildEmailRecord(int tunnelId) {
+	private MailRecord buildEmailRecord(Tunnel tunnel, int tunnelId) {
 		MailRecord record = new MailRecord();
 		Date current = getCurrentDate();
 		MailRecord exist = m_mailRecordService.findDailyRecordByTime(tunnelId, current);
 
 		if (exist == null) {
+			record.setReceivers(tunnel.getEmail());
 			record.setReceivers("yong.you@dianping.com");
 			record.setTunnelId(tunnelId);
 			record.setCreationDate(new Date());
 			record.setTime(current);
-			record.setTitle("test");
-			record.setContent("test");
+			record.setTitle(tunnel.getName());
+			record.setContent("隧道状态:" + tunnel.getState());
 			record.setType(MailRecord.DAILY);
 			return record;
 		} else {
@@ -164,10 +163,10 @@ public class StateJob implements java.lang.Runnable, InitializingBean {
 	private Date getCurrentDate() {
 		Calendar cal = Calendar.getInstance();
 
-		cal.setTimeInMillis(0);
 		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
 		return cal.getTime();
 	}
 

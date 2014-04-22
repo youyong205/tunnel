@@ -44,7 +44,6 @@ public class EmailSenderJob implements java.lang.Runnable, InitializingBean {
 	@Override
 	public void run() {
 		boolean active = true;
-		System.out.println("===============send email start!===============");
 		while (active) {
 			try {
 				MailRecord record = m_records.poll(5, TimeUnit.MILLISECONDS);

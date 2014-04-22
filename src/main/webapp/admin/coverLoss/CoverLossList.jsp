@@ -91,13 +91,13 @@
 					<td><s:property value='width'/></td>
 					<td>
 					<t:privilege res="衬砌环保护层缺失检测模块:详情">
-						<a class="btn btn-small btn-success" href="coverLossDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&coverLossId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>
+						<a class="btn btn-small btn-success" href="coverLossDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&coverLossId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>
 					</t:privilege>
 					<t:privilege res="衬砌环保护层缺失检测模块:编辑">
-						<a class="btn btn-small btn-primary" href="coverLossUpdate.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&coverLossId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">编辑</a>
+						<a class="btn btn-small btn-primary" href="coverLossUpdate.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&coverLossId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">编辑</a>
 					</t:privilege>
 					<t:privilege res="衬砌环保护层缺失检测模块:删除">
-						<a class="delete btn  btn-small btn-danger" href="coverLossDelete.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&coverLossId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">删除</a>
+						<a class="delete btn  btn-small btn-danger" href="coverLossDelete.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&coverLossId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">删除</a>
 					</t:privilege>
 					</td>
 					</tr>

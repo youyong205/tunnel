@@ -91,13 +91,13 @@
 					<td><s:property value='value'/></td>
 					<td>
 					<t:privilege res="衬砌环环缝错台检测模块:详情">
-						<a class="btn btn-small btn-success" href="girthFaultDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&girthFaultId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>
+						<a class="btn btn-small btn-success" href="girthFaultDetail.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&girthFaultId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">详情</a>
 					</t:privilege>
 					<t:privilege res="衬砌环环缝错台检测模块:编辑">
-						<a class="btn btn-small btn-primary" href="girthFaultUpdate.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&girthFaultId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">编辑</a>
+						<a class="btn btn-small btn-primary" href="girthFaultUpdate.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&girthFaultId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">编辑</a>
 					</t:privilege>
 					<t:privilege res="衬砌环环缝错台检测模块:删除">
-						<a class="delete btn  btn-small btn-danger" href="girthFaultDelete.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&girthFaultId=<s:property value="id"/>&liningRingConstructionId=<s:property value="parentLiningRingConstructionId"/>&index=<s:property value="index"/>">删除</a>
+						<a class="delete btn  btn-small btn-danger" href="girthFaultDelete.do?tunnelId=<s:property value="tunnelId"/>&tunnelSectionId=<s:property value="parentTunnelSectionId"/>&girthFaultId=<s:property value="id"/>&liningRingConstructionId=<s:property value="liningRingConstructionId"/>&index=<s:property value="index"/>">删除</a>
 					</t:privilege>
 					</td>
 					</tr>

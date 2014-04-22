@@ -61,7 +61,7 @@ public class GMailSenderImpl implements MailSender, InitializingBean {
 				HtmlEmail email = createHtmlEmail();
 
 				email.setSubject(title);
-				email.setFrom("CAT@dianping.com");
+				email.setFrom("tunnel@tunnel.com");
 
 				if (content != null) {
 					email.setHtmlMsg(content);

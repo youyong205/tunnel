@@ -1,6 +1,7 @@
 package com.liningRingConstruction;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
+import com.EmailSenderJob;
 import com.coverLoss.CoverLoss;
 import com.cracks.Cracks;
 import com.girthFault.GirthFault;
@@ -18,9 +20,12 @@ import com.liningRingDeformation.LiningRingDeformation;
 import com.liningRingLongitudinalDeformation.LiningRingLongitudinalDeformation;
 import com.longitudinalFault.LongitudinalFault;
 import com.longitudinalOpen.LongitudinalOpen;
+import com.mailRecord.MailRecord;
 import com.rust.Rust;
 import com.seepage.Seepage;
 import com.settlement.Settlement;
+import com.tunnel.Tunnel;
+import com.tunnel.TunnelService;
 import com.tunnelSection.TunnelSection;
 import com.tunnelSection.TunnelSectionService;
 
@@ -33,6 +38,10 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 	private TunnelSectionService m_tunnelSectionService;
 
 	private LiningRingBlockService m_liningRingBlockService;
+
+	private EmailSenderJob m_emailSenderJob;
+
+	private TunnelService m_tunnelService;
 
 	private Map<String, LiningRingConstruction> m_constructions = new LinkedHashMap<String, LiningRingConstruction>() {
 
@@ -122,6 +131,25 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 		m_liningRingConstructionDao = liningRingConstructionDao;
 	}
 
+	private void sendAlertInfo(int tunnelId, String content) {
+		try {
+			Tunnel tunnel = m_tunnelService.findByPK(tunnelId);
+			MailRecord record = new MailRecord();
+
+			record.setReceivers(tunnel.getEmail());
+			record.setTunnelId(tunnelId);
+			record.setCreationDate(new Date());
+			record.setTime(new Date());
+			record.setTitle(tunnel.getName() + "【构件告警】");
+			record.setContent(content);
+			record.setType(MailRecord.DAILY);
+
+			m_emailSenderJob.addRecord(record);
+		} catch (Exception e) {
+			m_logger.error(e.getMessage(), e);
+		}
+	}
+
 	@Override
 	public int updateDeformationState(LiningRingDeformation deformation) {
 		int tunnelSectionId = deformation.getTunnelSectionId();
@@ -135,6 +163,10 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 		if (value > externalDiameter * standard[0]) {
 			deformationState = "E";
+
+			deformation.setLiningRingConstruction(m_liningRingConstructionDao.findByPK(liningRingConstructionId));
+			sendAlertInfo(deformation.getTunnelId(), "横断面变形状态E级，构件ID:" + deformation.getLiningRingConstructionId()
+			      + " 构件名称:" + deformation.getLiningRingConstruction().getName());
 		} else if (value > externalDiameter * standard[1]) {
 			deformationState = "D";
 		} else if (value > externalDiameter * standard[2]) {
@@ -197,6 +229,9 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 		if (girthOpen.getSerious() == 2) {
 			newBlockState = "E";
+			girthOpen.setLiningRingConstruction(m_liningRingConstructionDao.findByPK(liningRingConstructionId));
+			sendAlertInfo(girthOpen.getTunnelId(), "环缝张开状态E级，构件ID:" + girthOpen.getLiningRingConstructionId() + " 构件名称:"
+			      + girthOpen.getLiningRingConstruction().getName());
 		} else if (value > standard[0]) {
 			newBlockState = "D";
 		} else if (value > standard[1]) {
@@ -226,6 +261,9 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 		if (girthFault.getSerious() == 2) {
 			newBlockState = "E";
+			girthFault.setLiningRingConstruction(m_liningRingConstructionDao.findByPK(liningRingConstructionId));
+			sendAlertInfo(girthFault.getTunnelId(), "环缝错台状态E级，构件ID:" + girthFault.getLiningRingConstructionId() + " 构件名称:"
+			      + girthFault.getLiningRingConstruction().getName());
 		} else if (value > standard[0]) {
 			newBlockState = "D";
 		} else if (value > standard[1]) {
@@ -255,6 +293,10 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 		if (longitudinalOpen.getSerious() == 2) {
 			newBlockState = "E";
+			longitudinalOpen.setLiningRingConstruction(m_liningRingConstructionDao.findByPK(liningRingConstructionId));
+			sendAlertInfo(longitudinalOpen.getTunnelId(),
+			      "纵缝张开状态E级，构件ID:" + longitudinalOpen.getLiningRingConstructionId() + " 构件名称:"
+			            + longitudinalOpen.getLiningRingConstruction().getName());
 		} else if (value > standard[0]) {
 			newBlockState = "D";
 		} else if (value > standard[1]) {
@@ -285,6 +327,10 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 		if (longitudinalFault.getSerious() == 2) {
 			newBlockState = "E";
+			longitudinalFault.setLiningRingConstruction(m_liningRingConstructionDao.findByPK(liningRingConstructionId));
+			sendAlertInfo(longitudinalFault.getTunnelId(),
+			      "纵缝错台状态E级，构件ID:" + longitudinalFault.getLiningRingConstructionId() + " 构件名称:"
+			            + longitudinalFault.getLiningRingConstruction().getName());
 		} else if (value > standard[0]) {
 			newBlockState = "D";
 		} else if (value > standard[1]) {
@@ -315,6 +361,9 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 		if (coverLoss.getSerious() == 2) {
 			newBlockState = "E";
+			coverLoss.setLiningRingConstruction(m_liningRingConstructionDao.findByPK(liningRingConstructionId));
+			sendAlertInfo(coverLoss.getTunnelId(), "保护层缺失状态E级，构件ID:" + coverLoss.getLiningRingConstructionId() + " 构件名称:"
+			      + coverLoss.getLiningRingConstruction().getName());
 		} else if (value > standard[0]) {
 			newBlockState = "D";
 		} else if (value > standard[1]) {
@@ -350,6 +399,9 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 		double widthStandard2[] = { 0.3, 0.2, 0 };
 		if (cracks.getSerious() == 2) {
 			newBlockState = "E";
+			cracks.setLiningRingConstruction(m_liningRingConstructionDao.findByPK(liningRingConstructionId));
+			sendAlertInfo(cracks.getTunnelId(), "裂缝缺失状态E级，构件ID:" + cracks.getLiningRingConstructionId() + " 构件名称:"
+			      + cracks.getLiningRingConstruction().getName());
 		} else {
 			if ("A".equals(enviroment) || "B".equals(enviroment) || "C".equals(enviroment)) {
 				if (number > numberStandard[0] || width > widthStandard1[0]) {
@@ -403,6 +455,11 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 		if (value > standard[0]) {
 			longitudinallDeformationState = "E";
+			longitudinalDeformation.setLiningRingConstruction(m_liningRingConstructionDao
+			      .findByPK(liningRingConstructionId));
+			sendAlertInfo(longitudinalDeformation.getTunnelId(),
+			      "纵缝张开状态E级，构件ID:" + longitudinalDeformation.getLiningRingConstructionId() + " 构件名称:"
+			            + longitudinalDeformation.getLiningRingConstruction().getName());
 		} else if (value > standard[1]) {
 			longitudinallDeformationState = "D";
 		} else if (value > standard[2]) {
@@ -456,6 +513,14 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 
 	public void setLiningRingBlockService(LiningRingBlockService liningRingBlockService) {
 		m_liningRingBlockService = liningRingBlockService;
+	}
+
+	public void setEmailSenderJob(EmailSenderJob emailSenderJob) {
+		m_emailSenderJob = emailSenderJob;
+	}
+
+	public void setTunnelService(TunnelService tunnelService) {
+		m_tunnelService = tunnelService;
 	}
 
 }
