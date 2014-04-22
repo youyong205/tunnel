@@ -142,7 +142,7 @@ public class LiningRingConstructionServiceImpl implements LiningRingConstruction
 			record.setTime(new Date());
 			record.setTitle(tunnel.getName() + "【构件告警】");
 			record.setContent(content);
-			record.setType(MailRecord.DAILY);
+			record.setType(MailRecord.ALARM);
 
 			m_emailSenderJob.addRecord(record);
 		} catch (Exception e) {
